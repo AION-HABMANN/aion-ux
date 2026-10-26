@@ -2,7 +2,7 @@
 
 The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
 
-**Status (2026-10-26):** Day 1 is built and checked. Days 2 to 8 show a "being built" page until their spec is registered.
+**Status (2026-10-26):** Days 1, 2 are built and checked. Days 3 to 8 show a "being built" page until their spec is registered.
 
 ## Run and check
 
@@ -49,3 +49,12 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **The Level 3 company is the insurer behind SafeHome Online** (DL #49: the case company of Level 2 is the company of Level 3). The plan says only "a mid-sized company with a website, a customer portal, an app and a chatbot". The facts marked "Clear" (each channel built by another team, so each names the damage report differently; who records what) are Case assumptions.
 - **SkillFlow's three start pages are simulations.** The plan describes them only in words; each is built exactly as its words say, with nothing added that changes the answer.
 - **Shared engine fixes** made here and not yet in DL: a picture of a platform is `inert` (its drawn buttons cannot be focused), and the section rail's minutes line has no extra opacity (contrast).
+
+### Day 2
+
+- **Three plan cases on one desk**, as on Day 1: CityDesk, EduFlex and CampusNow are kept as the plan gives them and framed as the agency UX team's week (Case assumption).
+- **The Level 3 company is the education organisation behind CampusNow** (DL #49). The plan says only "a company with a website, a self-service portal, an app and a support area". That each department names and builds its own pages, and what each system records, are Case assumptions.
+- **CampusNow on a phone.** The plan says mobile use is especially problematic; the same portal is also shown in a phone frame, with no figure added.
+- **Block 2.1 question 4 rates the learner's own measures** ("Your measure 1 to 4"), because the plan asks to rate the measures of question 3. Effort is judged in time and people (DL-STANDARD 6), never in money.
+- **Block 1.1 question 5 is a list of two**, because the plan asks for "the two biggest hurdles".
+- **Engine fix:** the heading of the "Still missing before export" panel is an h3 (axe heading-order on Route 2).

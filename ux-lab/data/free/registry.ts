@@ -1,4 +1,5 @@
 import { SPEC as D1 } from "@/data/day1/free";
+import { SPEC as D2 } from "@/data/day2/free";
 import type { FreeSpec } from "@/lib/dayFree/spec";
 
 /**
@@ -6,5 +7,5 @@ import type { FreeSpec } from "@/lib/dayFree/spec";
  * spec exists; the store (empty slices, the mentor fill, reset), the day pages, the course list and the verify script all read this registry, so a day is wired
  * in one place.
  */
-export const FREE_SPECS: Record<number, FreeSpec> = { 1: D1 };
+export const FREE_SPECS: Record<number, FreeSpec> = { 1: D1, 2: D2 };
 export const FREE_DAYS = Object.keys(FREE_SPECS).map(Number);

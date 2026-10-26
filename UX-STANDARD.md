@@ -214,6 +214,7 @@ Days 9 to 16 run in `playground-ux/` as they were built (moved, not upgraded); e
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-26 | Day 2 built in `ux-lab/` to the DL standard (CityDesk, EduFlex, CampusNow); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 2 |
 | 2026-10-26 | Decided by the user: Days 1 to 8 are built in `ux-lab/` on DL's engine, to DL's writing standard, two routes and Materi apart from the tasks (new 2.13). Day 1 built and checked (verify, platforms, typecheck, build, 0 axe violations); `day1/` retired; `playground-ux` links each built day to the lab (`NEXT_PUBLIC_UX_LAB_URL`) | Days 1 to 8 |
 | 2026-10-25 | Draft v0.1 written from the audit of Days 9 to 16 and from DL-STANDARD v1.8 | all |
 | 2026-10-25 | Decided: instruments that match no plan item are kept on an "Extra" shelf, not removed (decision 8; overrides DL-STANDARD 1 for UX) | all days |

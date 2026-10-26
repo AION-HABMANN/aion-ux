@@ -63,7 +63,7 @@ export const DAYS: CourseDay[] = [
     built: false,
     legacy: lab(1),
   },
-  { n: 2, module: 2, part: '1 of 2', title: 'Visual perception and colour', topic: 'Foundations of visual perception in interface design; colour psychology and strategic use of colour', built: false },
+  { n: 2, module: 2, part: '1 of 2', title: 'Visual perception and colour', topic: 'Foundations of visual perception in interface design; colour psychology and strategic use of colour', cases: { task1: 'CityDesk', task2: 'EduFlex', caseStudy: 'CampusNow' }, built: false, legacy: lab(2) },
   { n: 3, module: 2, part: '2 of 2', title: 'Typography and layout', topic: 'Typography for readability and UX; design principles and layout optimisation; practice integration', built: false },
   { n: 4, module: 3, part: '1 of 3', title: 'UX laws and cognition', topic: 'Foundations of UX laws and cognitive perception: Fitts\'s law, Hick\'s law, Miller\'s rule', built: false },
   { n: 5, module: 3, part: '2 of 3', title: 'Gestalt and hierarchy', topic: 'Gestalt laws and visual hierarchy; cognitive load and progressive disclosure', built: false },

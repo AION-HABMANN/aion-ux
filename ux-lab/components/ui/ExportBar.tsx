@@ -87,7 +87,7 @@ export function ExportBar({
 
       {open && (
         <div id={`${id}-panel`} role="status" aria-label={tt("Still missing before export", "Noch offen vor dem Export")} className="fade-in card border-rust/40 bg-rustSoft p-4">
-          <h4 className="smallcaps text-rust">{tt("Still missing before export", "Noch offen vor dem Export")}</h4>
+          <h3 className="smallcaps text-rust">{tt("Still missing before export", "Noch offen vor dem Export")}</h3>
           <p className="mt-1 text-caption text-ash">
             {tt(`${missing.length} ${missing.length === 1 ? "item" : "items"} still open. Select one to jump to it. This disappears once nothing is missing.`, `${missing.length} ${missing.length === 1 ? "Punkt" : "Punkte"} noch offen. Wählen Sie einen, um dorthin zu springen. Dies verschwindet, sobald nichts mehr fehlt.`)}
           </p>

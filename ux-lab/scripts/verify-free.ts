@@ -20,7 +20,7 @@ import type { Persisted } from "../store/useStore";
 
 const SPECS: Record<number, FreeSpec> = FREE_SPECS;
 /** The money figures the plan itself prints for a day (UX-STANDARD: a figure appears only where the plan prints it, and only in the brief). */
-const PLAN_FIGURES: Record<number, string[]> = { 1: ["€180,000"] };
+const PLAN_FIGURES: Record<number, string[]> = { 1: ["€180,000"], 2: ["€150,000"] };
 const want = process.argv[2] ? [Number(process.argv[2])] : FREE_DAYS;
 
 let failed = 0;
