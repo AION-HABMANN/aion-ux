@@ -11,13 +11,13 @@ import { tt } from "@/lib/lang";
  * does not exist, every page reachable from the start). The same pages, drawn not clickable and with the task's numbered markers, are the pictures of the task (`PlatformShot`).
  * Own colours only (never the site's blue, teal and rust); the content is made up and nothing here is marked right or wrong.
  */
-export type Item = { label: string; go?: string; sub?: string; track?: boolean; /** Show "done" or "open" from this key (set by a "finish" block). */ doneKey?: string; color?: string; pulse?: boolean };
+export type Item = { label: string; go?: string; sub?: string; track?: boolean; /** Show "done" or "open" from this key (set by a "finish" block). */ doneKey?: string; color?: string; pulse?: boolean; /** UX Day 5: a target size or spacing the plan names as a flaw (a small link, tiny buttons); never used to repair. */ css?: CSSProperties };
 export type Blk =
   /* `css` (UX Day 3): a day whose plan names a flaw of colour or type (a decorative heading, small grey text, boxes in similar tones) sets it here; never used to repair. */
   | { t: "h"; text: string; mark?: number; css?: CSSProperties }
   | { t: "p"; text: string; size?: number; leading?: number; mark?: number; css?: CSSProperties }
   | { t: "list"; items: string[]; size?: number }
-  | { t: "links"; items: Item[]; grid?: 2 | 3; small?: boolean; size?: number; mark?: number }
+  | { t: "links"; items: Item[]; grid?: 2 | 3; small?: boolean; size?: number; mark?: number; /** the list itself, for example buttons packed with no gap */ css?: CSSProperties }
   | { t: "form"; fields: string[]; button: string; msg: string; mark?: number }
   | { t: "table"; head: string[]; rows: (string | { label: string; go: string })[][]; mark?: number }
   | { t: "wizard"; steps: number; text: string; field: string; doneText: string; size?: number; mark?: number }
@@ -373,10 +373,10 @@ function Block({ b, ctx }: { b: Blk; ctx: Ctx }) {
     case "links":
       return (
         <div className="relative">
-          <ul className={clsx(b.small ? "flex flex-wrap gap-1" : b.grid ? (b.grid === 3 ? "grid grid-cols-3 gap-1" : "grid grid-cols-2 gap-1") : "space-y-1")}>
+          <ul className={clsx(b.small ? "flex flex-wrap gap-1" : b.grid ? (b.grid === 3 ? "grid grid-cols-3 gap-1" : "grid grid-cols-2 gap-1") : "space-y-1")} style={b.css}>
             {b.items.map((i) => (
               <li key={i.label}>
-                <button type="button" disabled={!ctx.live || !i.go} onClick={() => i.go && ctx.go(i.go)} style={{ ...(i.color ? { background: i.color, color: "#fff", borderColor: i.color } : {}), ...(b.size ? { fontSize: b.size } : {}) }} className={clsx(b.small ? "min-h-[32px] rounded bg-[#F4F2F7] px-2 text-[12px] hover:bg-[#E9E6F0]" : tile, !b.small && "w-full", i.pulse && "motion-safe:animate-pulse")}>
+                <button type="button" disabled={!ctx.live || !i.go} onClick={() => i.go && ctx.go(i.go)} style={{ ...(i.color ? { background: i.color, color: "#fff", borderColor: i.color } : {}), ...(b.size ? { fontSize: b.size } : {}), ...i.css }} className={clsx(b.small ? "min-h-[32px] rounded bg-[#F4F2F7] px-2 text-[12px] hover:bg-[#E9E6F0]" : tile, !b.small && "w-full", i.pulse && "motion-safe:animate-pulse")}>
                   {i.track && i.go && ctx.visited.includes(i.go) ? "✓ " : ""}{i.label}{i.doneKey ? <span className="float-right text-[12px] text-[#5F5E5A]">{ctx.visited.includes(i.doneKey) ? tt("done", "erledigt") : tt("open", "offen")}</span> : i.sub ? <span className="float-right text-[12px] text-[#5F5E5A]">{i.sub}</span> : null}
                 </button>
               </li>

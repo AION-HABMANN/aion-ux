@@ -2,7 +2,7 @@
 
 The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
 
-**Status (2026-10-26):** Days 1, 2, 3, 4 are built and checked. Days 5 to 8 show a "being built" page until their spec is registered.
+**Status (2026-10-26):** Days 1, 2, 3, 4, 5 are built and checked. Days 6 to 8 show a "being built" page until their spec is registered.
 
 ## Run and check
 
@@ -74,3 +74,10 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **The Level 3 company is the energy supplier behind MyEnergy** (DL #49). The plan says only "a company with a customer portal, a mobile app and a service platform". That each department adds its functions to its own channels, and what each system records, are Case assumptions.
 - **The three laws come from the day's title.** The plan's Wissen cell speaks of UX laws in general; its title names Fitts's law, Hick's law and Miller's rule, so cards A2 to A4 teach them, with the original sources and the later correction of Miller's number (Cowan 2001).
 - **Meter and contract numbers in the simulations** (such as a meter point designation) are identifiers, not figures about users or money.
+
+### Day 5
+
+- **The plan's title and its content differ.** The plan's title for Day 5 names Gestalt laws, visual hierarchy, cognitive load and progressive disclosure; its Wissen cell, its tasks and its Musterlösung teach Fitts's law, Hick's law and Miller's rule in depth. The Materi follows the Wissen cell (DL rule: the knowledge cell is the source), the day is shown as "Fitts, Hick and Miller in practice", and the course list says where the named topics are taught (Day 6, whose Wissen cell covers them).
+- **Day 4 and Day 5 both teach the three laws.** Day 4 introduces them from its title; Day 5 applies them in depth (target size and the thumb, staged choices, chunking, the interplay), as its Wissen cell asks.
+- **Three plan cases on one desk**, as before: BankDirect, AdminFlow and MoveEasy (Case assumption). **The Level 3 company is the mobility provider behind MoveEasy** (DL #49).
+- **Target sizes in the simulations.** The mini-platform's link items got an optional `css`, so the plan's small and packed targets can be shown as described; it is never used to repair. The plan's "above 60 %" mobile use is the only user figure printed.

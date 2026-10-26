@@ -8,6 +8,7 @@ import * as d1 from "../data/day1/platforms";
 import * as d2 from "../data/day2/platforms";
 import * as d3 from "../data/day3/platforms";
 import * as d4 from "../data/day4/platforms";
+import * as d5 from "../data/day5/platforms";
 import { setCurrentLang } from "../lib/lang";
 
 const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
@@ -15,6 +16,7 @@ const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
   "Day 2": { cityDesk: d2.cityDesk, eduFlexA: d2.eduFlexA, eduFlexB: d2.eduFlexB, eduFlexC: d2.eduFlexC, campusNow: d2.campusNow, campusPhone: d2.campusNowPhone, website: d2.orgWebsite, app: d2.orgApp, support: d2.supportArea },
   "Day 3": { travelEase: d3.travelEase, healthA: d3.healthA, healthB: d3.healthB, healthC: d3.healthC, secureLife: d3.secureLife, website: d3.insurerWeb3, app: d3.insurerApp3 },
   "Day 4": { servicePoint: d4.servicePoint, workflowA: d4.workflowA, workflowB: d4.workflowB, workflowC: d4.workflowC, myEnergy: d4.myEnergy, app: d4.energyApp, service: d4.servicePlatform },
+  "Day 5": { bankDirect: d5.bankDirect, bankPhone: d5.bankDirectPhone, adminA: d5.adminA, adminB: d5.adminB, adminC: d5.adminC, moveEasy: d5.moveEasy, movePhone: d5.moveEasyPhone, app: d5.mobilityApp, admin: d5.adminInterface },
 };
 
 let bad = 0;
