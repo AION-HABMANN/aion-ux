@@ -13,8 +13,9 @@ import { tt } from "@/lib/lang";
  */
 export type Item = { label: string; go?: string; sub?: string; track?: boolean; /** Show "done" or "open" from this key (set by a "finish" block). */ doneKey?: string; color?: string; pulse?: boolean };
 export type Blk =
-  | { t: "h"; text: string; mark?: number }
-  | { t: "p"; text: string; size?: number; leading?: number; mark?: number }
+  /* `css` (UX Day 3): a day whose plan names a flaw of colour or type (a decorative heading, small grey text, boxes in similar tones) sets it here; never used to repair. */
+  | { t: "h"; text: string; mark?: number; css?: CSSProperties }
+  | { t: "p"; text: string; size?: number; leading?: number; mark?: number; css?: CSSProperties }
   | { t: "list"; items: string[]; size?: number }
   | { t: "links"; items: Item[]; grid?: 2 | 3; small?: boolean; size?: number; mark?: number }
   | { t: "form"; fields: string[]; button: string; msg: string; mark?: number }
@@ -23,13 +24,13 @@ export type Blk =
   | { t: "quiz"; q: string; options: string[]; right: number; why: string; mark?: number }
   | { t: "progress"; label: string; of: string[]; mark?: number }
   | { t: "toggle"; label: string; on: string; off: string; mark?: number }
-  | { t: "note"; title: string; text: string; button?: { label: string; msg: string }; go?: { label: string; go: string }; mark?: number }
+  | { t: "note"; title: string; text: string; button?: { label: string; msg: string }; go?: { label: string; go: string }; mark?: number; css?: CSSProperties }
   | { t: "tabs"; tabs: { label: string; fields: string[] }[]; button: string; msg: string; mark?: number }
   | { t: "chat"; intro: string; reply: string; label: string; mark?: number }
   | { t: "finish"; label: string; task: string; key?: string; feedback?: string[]; big?: boolean; mark?: number }
   /* v1.8 (2026-10-22, Days 7 to 16): the parts a real learning platform is made of, so a page reads like a product and not like a line of text. */
   | { t: "hero"; kicker?: string; title: string; text: string; button?: { label: string; go: string }; size?: number; mark?: number }
-  | { t: "meta"; items: string[]; size?: number; mark?: number }
+  | { t: "meta"; items: string[]; size?: number; mark?: number; /** one colour per item, for status chips */ colors?: string[] }
   | { t: "cards"; items: Card[]; size?: number; mark?: number }
   | { t: "outline"; modules: { title: string; text?: string; items: Item[] }[]; size?: number; mark?: number }
   | { t: "person"; name: string; role: string; text: string; size?: number; mark?: number }
@@ -245,7 +246,7 @@ function RichBlock({ b, ctx }: { b: Extract<Blk, { t: "hero" | "meta" | "cards" 
     case "meta":
       return (
         <ul className="relative flex flex-wrap gap-1.5" aria-label={tt("Facts about the course", "Fakten zum Kurs")}>
-          {b.items.map((x) => <li key={x} className="rounded-full border border-[#D9D5E2] bg-white px-2.5 py-0.5 text-[12px] text-[#4A4458]" style={small}>{x}</li>)}
+          {b.items.map((x, i) => <li key={x} className="rounded-full border border-[#D9D5E2] bg-white px-2.5 py-0.5 text-[12px] text-[#4A4458]" style={{ ...small, ...(b.colors?.[i] ? { background: b.colors[i], borderColor: b.colors[i], color: "#fff" } : {}) }}>{x}</li>)}
           <Mk n={b.mark} on={ctx.marks} />
         </ul>
       );
@@ -364,9 +365,9 @@ function Block({ b, ctx }: { b: Blk; ctx: Ctx }) {
     case "sub":
       return <RichBlock b={b} ctx={ctx} />;
     case "h":
-      return <h3 className="relative text-[17px] font-semibold">{b.text}<Mk n={b.mark} on={ctx.marks} style={{ top: -2, right: -26 }} /></h3>;
+      return <h3 className="relative text-[17px] font-semibold" style={b.css}>{b.text}<Mk n={b.mark} on={ctx.marks} style={{ top: -2, right: -26 }} /></h3>;
     case "p":
-      return <p className="relative" style={{ fontSize: b.size ?? 14, lineHeight: b.leading ?? 1.55 }}>{b.text}<Mk n={b.mark} on={ctx.marks} style={{ top: -6, right: -10 }} /></p>;
+      return <p className="relative" style={{ fontSize: b.size ?? 14, lineHeight: b.leading ?? 1.55, ...b.css }}>{b.text}<Mk n={b.mark} on={ctx.marks} style={{ top: -6, right: -10 }} /></p>;
     case "list":
       return <ul className="list-disc space-y-0.5 pl-5" style={{ fontSize: b.size ?? 14 }}>{b.items.map((x) => <li key={x}>{x}</li>)}</ul>;
     case "links":
@@ -429,7 +430,7 @@ function Block({ b, ctx }: { b: Blk; ctx: Ctx }) {
     }
     case "note":
       return (
-        <div className="relative space-y-1 rounded-lg border border-[#D6DAE1] bg-[#F4F6F8] p-3">
+        <div className="relative space-y-1 rounded-lg border border-[#D6DAE1] bg-[#F4F6F8] p-3" style={b.css}>
           <p className="text-[13px] font-semibold">{b.title}</p>
           <p className="text-[12px]">{b.text}</p>
           <div className="flex flex-wrap items-center gap-2">

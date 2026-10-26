@@ -6,11 +6,13 @@ import { platformIssues } from "../components/sim/PlatformSim";
 import type { PlatformCfg } from "../components/sim/PlatformSim";
 import * as d1 from "../data/day1/platforms";
 import * as d2 from "../data/day2/platforms";
+import * as d3 from "../data/day3/platforms";
 import { setCurrentLang } from "../lib/lang";
 
 const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
   "Day 1": { carePath: d1.carePath, skillFlowA: d1.skillFlowA, skillFlowB: d1.skillFlowB, skillFlowC: d1.skillFlowC, safeHome: d1.safeHome, website: d1.insurerWebsite, app: d1.insurerApp, chatbot: d1.insurerChatbot },
   "Day 2": { cityDesk: d2.cityDesk, eduFlexA: d2.eduFlexA, eduFlexB: d2.eduFlexB, eduFlexC: d2.eduFlexC, campusNow: d2.campusNow, campusPhone: d2.campusNowPhone, website: d2.orgWebsite, app: d2.orgApp, support: d2.supportArea },
+  "Day 3": { travelEase: d3.travelEase, healthA: d3.healthA, healthB: d3.healthB, healthC: d3.healthC, secureLife: d3.secureLife, website: d3.insurerWeb3, app: d3.insurerApp3 },
 };
 
 let bad = 0;
