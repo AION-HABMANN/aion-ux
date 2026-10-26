@@ -5,6 +5,7 @@ import { GLOSSARY_D3 } from "@/data/gloss/day3";
 import { GLOSSARY_D4 } from "@/data/gloss/day4";
 import { GLOSSARY_D5 } from "@/data/gloss/day5";
 import { GLOSSARY_D6 } from "@/data/gloss/day6";
+import { GLOSSARY_D7 } from "@/data/gloss/day7";
 
 /**
  * Plain-language glossary (CLAUDE.md #19, #49): every technical term, abbreviation or foreign word that the material or a task uses is an entry here. In the
@@ -24,7 +25,7 @@ export type GlossEntry = {
   de?: GlossDe;
 };
 
-export const GLOSSARY: GlossEntry[] = [...GLOSSARY_D1, ...GLOSSARY_D2, ...GLOSSARY_D3, ...GLOSSARY_D4, ...GLOSSARY_D5, ...GLOSSARY_D6];
+export const GLOSSARY: GlossEntry[] = [...GLOSSARY_D1, ...GLOSSARY_D2, ...GLOSSARY_D3, ...GLOSSARY_D4, ...GLOSSARY_D5, ...GLOSSARY_D6, ...GLOSSARY_D7];
 
 // --- lookup (unchanged from Digital Learning) ---------------------------------------------------------------
 

@@ -86,7 +86,7 @@ export function VoicesView({ intro, voices }: { intro: string; voices: Voice[] }
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center justify-between gap-2">
                     <span className={clsx("truncate text-[13px]", read.includes(i) ? "" : "font-bold")}>{x.who}</span>
-                    <span className="shrink-0 text-[11px] text-[#7A8190]">{x.time ?? ago[i % ago.length]}</span>
+                    <span className="shrink-0 text-[11px] text-[#5F6675]">{x.time ?? ago[i % ago.length]}</span>
                   </span>
                   <span className="block truncate text-[12px] text-[#5F5E5A]">{x.text}</span>
                 </span>
@@ -107,10 +107,10 @@ export function VoicesView({ intro, voices }: { intro: string; voices: Voice[] }
           </div>
           <dl className="space-y-1 self-start rounded border border-[#D9DEE6] bg-[#F7F8FA] p-2 text-[12px]">
             <dt className="font-semibold text-[#5F5E5A]">{tt("Context captured by the tool", "Vom Tool erfasster Kontext")}</dt>
-            <dd><span className="text-[#7A8190]">{tt("Account", "Konto")}:</span> {v.meta}</dd>
-            <dd><span className="text-[#7A8190]">{tt("Channel", "Kanal")}:</span> {v.channel ?? ch[cur % ch.length]}</dd>
-            <dd><span className="text-[#7A8190]">{tt("Device", "Gerät")}:</span> {v.device ?? none}</dd>
-            <dd><span className="text-[#7A8190]">{tt("Page", "Seite")}:</span> {v.page ?? none}</dd>
+            <dd><span className="text-[#5F6675]">{tt("Account", "Konto")}:</span> {v.meta}</dd>
+            <dd><span className="text-[#5F6675]">{tt("Channel", "Kanal")}:</span> {v.channel ?? ch[cur % ch.length]}</dd>
+            <dd><span className="text-[#5F6675]">{tt("Device", "Gerät")}:</span> {v.device ?? none}</dd>
+            <dd><span className="text-[#5F6675]">{tt("Page", "Seite")}:</span> {v.page ?? none}</dd>
           </dl>
         </div>
       </div>
@@ -145,7 +145,7 @@ export function RecordsView({ intro, reports }: { intro: string; reports: Report
           <ul aria-label={tt("Reports", "Berichte")}>
             {reports.map((x, i) => (
               <li key={x.name}>
-                <button type="button" aria-current={cur === i} onClick={() => setCur(i)} className={clsx("flex min-h-[40px] w-full items-center justify-between gap-2 rounded px-2 py-1 text-left text-[13px]", cur === i ? "bg-white font-semibold shadow-sm" : "hover:bg-white", !has(x) && "text-[#7A8190]")}>
+                <button type="button" aria-current={cur === i} onClick={() => setCur(i)} className={clsx("flex min-h-[40px] w-full items-center justify-between gap-2 rounded px-2 py-1 text-left text-[13px]", cur === i ? "bg-white font-semibold shadow-sm" : "hover:bg-white", !has(x) && "text-[#5F6675]")}>
                   <span>{x.name}</span>
                   {!has(x) && <span className="shrink-0 rounded bg-[#E9EDF3] px-1.5 text-[10px] font-normal">{tt("no data", "keine Daten")}</span>}
                 </button>

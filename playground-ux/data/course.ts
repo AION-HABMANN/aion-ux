@@ -68,7 +68,7 @@ export const DAYS: CourseDay[] = [
   { n: 4, module: 3, part: '1 of 3', title: 'UX laws and cognition', topic: 'Foundations of UX laws and cognitive perception: Fitts\'s law, Hick\'s law, Miller\'s rule', cases: { task1: 'ServicePoint', task2: 'WorkFlow Hub', caseStudy: 'MyEnergy' }, built: false, legacy: lab(4) },
   { n: 5, module: 3, part: '2 of 3', title: 'Gestalt and hierarchy', topic: 'Gestalt laws and visual hierarchy; cognitive load and progressive disclosure', cases: { task1: 'BankDirect', task2: 'AdminFlow', caseStudy: 'MoveEasy' }, built: false, legacy: lab(5) },
   { n: 6, module: 3, part: '3 of 3', title: 'UX laws in design systems', topic: 'Integration and evaluation of UX laws in design systems', cases: { task1: 'OfficeSphere', task2: 'CareAssist', caseStudy: 'CitizenFlow' }, built: false, legacy: lab(6) },
-  { n: 7, module: 4, part: '1 of 3', title: 'Emotional bonding', topic: 'Foundations of emotional bonding in design; psychology and neuro-design', built: false },
+  { n: 7, module: 4, part: '1 of 3', title: 'Emotional bonding', topic: 'Foundations of emotional bonding in design; psychology and neuro-design', cases: { task1: 'WellTrack', task2: 'CareerPath', caseStudy: 'LifeSupport' }, built: false, legacy: lab(7) },
   { n: 8, module: 4, part: '2 of 3', title: 'Storytelling', topic: 'Storytelling in UX/UI design; narrative user experiences', built: false },
   {
     n: 9, module: 4, part: '3 of 3', title: 'Gamification',

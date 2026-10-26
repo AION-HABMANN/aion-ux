@@ -38,14 +38,14 @@ export function Sheet({ title, head, rows }: { title: string; head: string[]; ro
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-[13px]">
           <thead>
-            <tr className="bg-[#F1F3F6] text-[11px] text-[#7A8190]">
-              <th className="w-8 border border-[#E1E4EA] px-1" />
+            <tr className="bg-[#F1F3F6] text-[11px] text-[#5F6675]">
+              <th className="w-8 border border-[#E1E4EA] px-1"><span className="sr-only">{tt("Row", "Zeile")}</span></th>
               {head.map((_, i) => (
                 <th key={i} className="border border-[#E1E4EA] px-2 py-0.5 font-normal">{String.fromCharCode(65 + i)}</th>
               ))}
             </tr>
             <tr className="bg-[#EEF1F5] text-left">
-              <th className="border border-[#E1E4EA] px-1 text-center text-[11px] font-normal text-[#7A8190]">1</th>
+              <th className="border border-[#E1E4EA] px-1 text-center text-[11px] font-normal text-[#5F6675]">1</th>
               {head.map((h) => (
                 <th key={h} className="border border-[#E1E4EA] px-2 py-1.5">{h}</th>
               ))}
@@ -54,7 +54,7 @@ export function Sheet({ title, head, rows }: { title: string; head: string[]; ro
           <tbody>
             {rows.map((r, i) => (
               <tr key={i}>
-                <td className="border border-[#E1E4EA] bg-[#F7F8FA] px-1 text-center text-[11px] text-[#7A8190]">{i + 2}</td>
+                <td className="border border-[#E1E4EA] bg-[#F7F8FA] px-1 text-center text-[11px] text-[#5F6675]">{i + 2}</td>
                 {r.map((c, j) => (
                   <td key={j} className="border border-[#E1E4EA] px-2 py-1.5">{c}</td>
                 ))}
@@ -100,10 +100,10 @@ export function DeskSim({ mailbox, messages, table }: { mailbox: string; message
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center justify-between gap-2">
                     <span className={clsx("truncate text-[13px]", seen.includes(i) ? "" : "font-bold")}>{x.from}</span>
-                    <span className="shrink-0 text-[11px] text-[#7A8190]">{x.time}</span>
+                    <span className="shrink-0 text-[11px] text-[#5F6675]">{x.time}</span>
                   </span>
                   <span className={clsx("block truncate text-[13px]", seen.includes(i) ? "text-[#4A5160]" : "font-semibold")}>{x.subject}</span>
-                  {(x.attachments?.length ?? 0) > 0 && <span className="text-[11px] text-[#7A8190]">{tt("Attachment", "Anhang")} · {x.attachments!.length}</span>}
+                  {(x.attachments?.length ?? 0) > 0 && <span className="text-[11px] text-[#5F6675]">{tt("Attachment", "Anhang")} · {x.attachments!.length}</span>}
                 </span>
                 {!seen.includes(i) && <span aria-label={tt("unread", "ungelesen")} className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#2F6FDB]" />}
               </button>
@@ -126,7 +126,7 @@ export function DeskSim({ mailbox, messages, table }: { mailbox: string; message
           </div>
           {(m.attachments?.length ?? 0) > 0 && (
             <div className="space-y-2 border-t border-[#E3E6EC] pt-3">
-              <p className="text-[12px] text-[#7A8190]">{tt("Attachments", "Anhänge")}</p>
+              <p className="text-[12px] text-[#5F6675]">{tt("Attachments", "Anhänge")}</p>
               <div className="flex flex-wrap gap-2">
                 {m.attachments!.map((a, i) => (
                   <button key={a.name} type="button" aria-pressed={att === i} onClick={() => setAtt(att === i ? null : i)} className={clsx("flex min-h-[38px] items-center gap-2 rounded border px-3 text-[13px]", att === i ? "border-[#3B4256] bg-[#EEF1F5]" : "border-[#CFD4DC] bg-white hover:bg-[#F7F8FA]")}>
