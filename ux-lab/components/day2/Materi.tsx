@@ -9,7 +9,7 @@ import { tt } from "@/lib/lang";
 const M = makeMateri({
   mats: MATS,
   cards: { A1: () => <CardA1 />, A2: () => <CardA2 />, A3: () => <CardA3 />, A4: () => <CardA4 />, A5: () => <CardA5 />, B1: () => <CardB1 />, B2: () => <CardB2 />, B3: () => <CardB3 /> },
-  refsA: ["iso9241210", "gould1985", "normanNielsen", "rosenfeld2015", "nielsen1997", "pernice2017", "krug2014", "ittiKoch2001", "wagemans2012", "ware2012", "nielsen1994", "sweller1988", "kurosu1995", "moshagen2010", "tractinsky2000", "gibbons2018"],
+  refsA: ["iso9241210", "gould1985", "normanNielsen", "rosenfeld2015", "nielsen1997", "pernice2017", "krug2014", "ittiKoch2001", "wagemans2012", "ware2012", "elliot2014", "wcag22", "nielsen1994", "sweller1988", "kurosu1995", "moshagen2010", "tractinsky2000", "gibbons2018"],
   refsB: ["conway1968", "rosenfeld2015", "spencer2009", "nielsen2006", "gibbons2018", "krug2014", "simon1956", "klein2007", "iso9241210"],
   texts: () => ({
     headA: tt("Visual perception and user-centred design: seeing from the user's side, how people scan, what guides the eye, how much at once, and how to weigh a measure"),

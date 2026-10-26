@@ -101,13 +101,14 @@ export function CardA3() {
     <MaterialCard
       id="A3"
       scan={tt("Contrast makes one thing stand out, grouping shows what belongs together, structure gives the eye a path. Used on purpose, they guide the eye; used against each other, everything competes.")}
-      sources={["wagemans2012", "ware2012", "nielsen1994"]}
+      sources={["wagemans2012", "ware2012", "elliot2014", "wcag22", "nielsen1994"]}
       reasoning={[
         tt("Find the strongest contrast on the screen and ask whether it is the most important thing. If not, it misleads the eye."),
         tt("Check grouping: things that belong together should be close together or look alike, and unrelated things should not."),
         tt("Check structure: headings, columns and alignment the eye can follow from top to bottom."),
         tt("Count the competing boxes, colours and lines. Many strong ones of equal weight mean there is no visual guidance."),
         tt("Different page types with different structures make people learn every page again: keep one structure per page type."),
+        tt("Use colour strategically: one accent for the main action, a warning colour only for real warnings, and never colour alone to carry a meaning."),
       ]}
     >
       <ComicButton comic={COMICS_D2.A3} art={ART_D2} />
@@ -122,8 +123,18 @@ export function CardA3() {
           [tt("Visual guidance"), tt("All three on purpose: the eye goes first to what matters, then along a path."), tt("Boxes, colours and lines compete; the eye jumps.")],
         ]}
       />
+      <DataTable
+        caption={tt("Colour used strategically, and colour used against the user")}
+        head={[tt("Strategic use"), tt("What it does"), tt("Used against the user")]}
+        rows={[
+          [tt("One accent colour for the main action"), tt("The eye finds the action first."), tt("Three button colours with no meaning: the eye compares instead of acting.")],
+          [tt("A warning colour only for real warnings"), tt("Red keeps its meaning, so people react when it matters."), tt("Red on neutral information: people learn to ignore it, or feel unsafe.")],
+          [tt("Colour plus a word or an icon"), tt("Everyone gets the meaning, also people who see colours differently."), tt("Colour alone: “the red fields are required”.")],
+          [tt("Colours that group"), tt("Things of one kind share a colour, so the eye reads groups."), tt("A different colour for every box: nothing belongs together.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Grouping by proximity and similarity follows the Gestalt research summarised by Wagemans et al. (2012); contrast and visual search follow Ware (2012).`)}</p>
+        <p>{tt(`${BW()} Grouping by proximity and similarity follows the Gestalt research summarised by Wagemans et al. (2012); contrast and visual search follow Ware (2012); the meaning of colour follows Elliot and Maier (2014); not using colour alone follows WCAG 2.2, criterion 1.4.1.`)}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Proximity usually wins over colour: two items close together are read as a group even if their colours differ, and a heading placed nearer the text below it than the text above it is read as belonging to the text below. Much visual guidance is therefore done with spacing alone, before any colour is chosen.")}</p>

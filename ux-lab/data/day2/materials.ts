@@ -13,7 +13,7 @@ import type { MaterialId, MaterialMeta, PlainExplain } from "@/data/materialType
 const METAS: MaterialMeta[] = bi([
   { id: "A1" as MaterialId, block: "A" as const, title: t("Seeing an interface, and designing from the user's side: user-centred against provider-centred design"), minutes: 12 },
   { id: "A2" as MaterialId, block: "A" as const, title: t("How people scan, select and prioritise: perception as the basis of UI decisions"), minutes: 12 },
-  { id: "A3" as MaterialId, block: "A" as const, title: t("What guides the eye: visual guidance, contrast, grouping and structure"), minutes: 13 },
+  { id: "A3" as MaterialId, block: "A" as const, title: t("What guides the eye: contrast and colour, grouping and structure"), minutes: 13 },
   { id: "A4" as MaterialId, block: "A" as const, title: t("How much at once: information density, orientation, load and why order looks like quality"), minutes: 12 },
   { id: "A5" as MaterialId, block: "A" as const, title: t("Recognition instead of search, clarity instead of overload, and weighing a measure"), minutes: 11 },
   { id: "B1" as MaterialId, block: "B" as const, title: t("Inside logic against user logic: why good UI decisions come from the user's side"), minutes: 20 },
@@ -47,10 +47,10 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
   },
   A3: {
     idea: t(
-      "Four means guide the eye. Contrast makes one thing stand out from its surroundings. Grouping shows what belongs together: things that are close to each other or look alike are read as one group. Structure gives an order the eye can follow, such as headings, columns and alignment. Visual guidance is these three used on purpose, so that the eye goes first to what matters and then along a path. Used against each other, boxes, colours and lines compete and the eye finds no way.",
+      "Four means guide the eye. Contrast makes one thing stand out from its surroundings. Grouping shows what belongs together: things that are close to each other or look alike are read as one group. Structure gives an order the eye can follow, such as headings, columns and alignment. Visual guidance is these three used on purpose, so that the eye goes first to what matters and then along a path. Used against each other, boxes, colours and lines compete and the eye finds no way. Colour is the strongest of these signals: it is seen before shape or text and carries meaning people have learnt, such as red for danger. Used strategically, one accent colour marks the main action and a warning colour is kept for real warnings.",
     ),
     why: t(
-      "Block 1.1 asks you to sort CityDesk's problems into visual guidance, structure and other categories, and Block 2.1 asks about CampusNow's missing prioritisation and inconsistent page types. These four means are what you check.",
+      "Block 1.1 asks you to sort CityDesk's problems into visual guidance, structure and other categories, and Block 2.1 asks about CampusNow's missing prioritisation and inconsistent page types. These means, and how colour is used, are what you check.",
     ),
     picture: t(
       "One Brightwater page with three switches: contrast, grouping and structure. Switch them on one at a time and read what Ana can now see and find.",

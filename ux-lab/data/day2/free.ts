@@ -24,7 +24,7 @@ export const SPEC = defineSpec({
   heading: t("Day 2 · Visual perception and user-centred design"),
   intro: {
     about: t(
-      "Today is about reading an interface the way its users do. You learn how people scan a screen, pick out what looks relevant and decide what to look at first, what guides the eye (contrast, grouping, structure), what information density does to orientation and load, and why a design has to start from the user's logic and not from the provider's. Then you use it on three products and decide what to change first.",
+      "Today is about reading an interface the way its users do. You learn how people scan a screen, pick out what looks relevant and decide what to look at first, what guides the eye (contrast and colour, grouping, structure), what information density does to orientation and load, and why a design has to start from the user's logic and not from the provider's. Then you use it on three products and decide what to change first.",
     ),
     caseLine: t(
       "The case that runs through the day is CampusNow, the portal of an education organisation: everything is in it, but people cannot find it, complaints rise and bookings are abandoned, above all on the phone. Before it, you warm up on two other products the UX team reviews: the municipal booking portal CityDesk and three start pages for the further-education platform EduFlex.",

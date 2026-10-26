@@ -58,3 +58,4 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **Block 2.1 question 4 rates the learner's own measures** ("Your measure 1 to 4"), because the plan asks to rate the measures of question 3. Effort is judged in time and people (DL-STANDARD 6), never in money.
 - **Block 1.1 question 5 is a list of two**, because the plan asks for "the two biggest hurdles".
 - **Engine fix:** the heading of the "Still missing before export" panel is an h3 (axe heading-order on Route 2).
+- **Colour.** The day's title in the plan names colour psychology and the strategic use of colour, but its Wissen cell and its tasks do not. Card A3 therefore covers colour briefly, as a means of guidance (one accent for the main action, warnings only for real warnings, never colour alone), with sources; no task asks about it.
