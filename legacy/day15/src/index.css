@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-deep: #0a0e14;
+    --bg-panel: #131a24;
+    --bg-elevated: #1b242f;
+    --border-subtle: #263243;
+    --text-primary: #e8edf3;
+    --text-muted: #8a99ac;
+    --accent-signal: #4cc9f0;
+    --accent-valid: #52d9a5;
+    --accent-warn: #f5b841;
+    --accent-risk: #ef5d6b;
+    --accent-neuro: #a78bfa;
+
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-deep text-ink font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  /* Focus is a first-class state here — the whole app is keyboard-operable. */
+  :focus-visible {
+    outline: 2px solid var(--accent-signal);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgba(76, 201, 240, 0.28);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 99px;
+    border: 2px solid var(--bg-deep);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #33455c;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-subtle bg-panel shadow-panel;
+  }
+
+  .panel-elevated {
+    @apply rounded-xl border border-subtle bg-elevated;
+  }
+
+  .label-mono {
+    @apply font-mono text-[11px] uppercase tracking-[0.16em] text-muted;
+  }
+
+  .readout {
+    @apply font-mono tabular-nums text-ink;
+  }
+
+  .hairline {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--border-subtle) 12%,
+      var(--border-subtle) 88%,
+      transparent
+    );
+    height: 1px;
+  }
+
+  .lab-grid {
+    background-image: linear-gradient(var(--border-subtle) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+    background-size: 44px 44px;
+    background-position: -1px -1px;
+    opacity: 0.28;
+  }
+
+  .desaturated {
+    filter: saturate(0.25) brightness(0.9);
+    transition: filter 320ms ease;
+  }
+
+  .prose-lab p {
+    @apply text-[16px] leading-[1.75] text-ink/85;
+  }
+  .prose-lab p + p {
+    @apply mt-4;
+  }
+  .prose-lab strong {
+    @apply text-ink font-semibold;
+  }
+
+  /* Range input, rebuilt. No default browser control survives in this module. */
+  .lab-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 22px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .lab-range::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 99px;
+    background: linear-gradient(
+      to right,
+      var(--accent) 0%,
+      var(--accent) var(--pct),
+      var(--bg-deep) var(--pct),
+      var(--bg-deep) 100%
+    );
+    border: 1px solid var(--border-subtle);
+  }
+  .lab-range::-moz-range-track {
+    height: 6px;
+    border-radius: 99px;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+  }
+  .lab-range::-moz-range-progress {
+    height: 6px;
+    border-radius: 99px;
+    background: var(--accent);
+  }
+  .lab-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    margin-top: -6px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 12px -2px var(--accent);
+    transition: transform 160ms ease;
+  }
+  .lab-range::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 12px -2px var(--accent);
+  }
+  .lab-range:hover::-webkit-slider-thumb,
+  .lab-range:focus-visible::-webkit-slider-thumb {
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Print stylesheet — the /debrief export. One clean page, no chrome, no color
+   dependency. Used for the group presentation exercise.
+   --------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #10151d !important;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  /* The export page is portalled to <body>, outside #root, so printing is a
+     straight swap: hide the application, show the sheet. No visibility tricks,
+     nothing that depends on how a browser paints a hidden subtree. */
+  #root,
+  .no-print,
+  nav[data-app-nav],
+  [data-print='hide'] {
+    display: none !important;
+  }
+
+  [data-print='page'] {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #10151d !important;
+  }
+
+  [data-print='page'] * {
+    background: transparent !important;
+    color: #10151d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  [data-print='card'] {
+    border: 0.6pt solid #9aa6b5 !important;
+    border-radius: 3pt !important;
+    padding: 6pt 8pt !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  [data-print='rule'] {
+    border-top: 0.6pt solid #9aa6b5 !important;
+  }
+
+  h1 {
+    font-size: 16pt;
+  }
+  h2 {
+    font-size: 11.5pt;
+  }
+  h3 {
+    font-size: 10pt;
+  }
+
+  a[href]::after {
+    content: '';
+  }
+}

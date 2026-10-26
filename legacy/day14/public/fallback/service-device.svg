@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img">
+<title>Static view of the generic service and maintenance device</title>
+<rect width="720" height="480" fill="#F7F6FB"/>
+<ellipse cx="360" cy="404" rx="196" ry="26" fill="#DEDAEB"/>
+<g>
+  <rect x="256" y="384" width="208" height="20" rx="4" fill="#3D3A45"/>
+  <rect x="266" y="120" width="188" height="264" rx="8" fill="#D3D0DA"/>
+  <rect x="262" y="102" width="196" height="20" rx="5" fill="#6B6584"/>
+  <rect x="300" y="136" width="120" height="44" rx="5" fill="#5B5473"/>
+  <rect x="312" y="146" width="96" height="26" rx="3" fill="#231A45"/>
+  <rect x="286" y="196" width="148" height="26" rx="3" fill="#6B6584"/>
+  <rect x="292" y="238" width="136" height="76" rx="6" fill="#B7B4C2"/>
+  <circle cx="404" cy="276" r="8" fill="#8D8A9B"/>
+  <circle cx="316" cy="340" r="18" fill="#8D8A9B"/>
+  <circle cx="404" cy="340" r="18" fill="#8D8A9B"/>
+  <rect x="466" y="150" width="16" height="200" rx="8" fill="#A8A5B4"/>
+  <rect x="458" y="212" width="32" height="30" rx="4" fill="#6B6584"/>
+</g>
+</svg>

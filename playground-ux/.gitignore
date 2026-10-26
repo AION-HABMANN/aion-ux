@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+.env*
+.vercel
+
+# generated per-day stylesheets (npm run build:css)
+public/css/

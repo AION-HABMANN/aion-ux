@@ -1,0 +1,10 @@
+# Never in a public repository: instructor-only material (answer keys, outcome tables, trainer notes)
+trainer-only/
+
+# Dependencies and build output anywhere below
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+.env*

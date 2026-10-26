@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AION · Day 10 — Intelligent Interfaces &amp; AI-assisted UX</title>
+<style>
+  :root{
+    --navy:#231A45; --purple:#5624D0; --lilac:#EEE9F9; --lilac-deep:#DAD0F5;
+    --ink:#1a1330; --mut:#6b6483; --line:#e5e0f0; --white:#ffffff;
+    --teal:#0F6E56; --teal-bg:#E1F5EE; --amber:#854F0B; --amber-bg:#FAEEDA;
+    --coral:#993C1D; --coral-bg:#FAECE7; --green:#1E7A46; --green-bg:#E4F3EA;
+    --shadow:0 1px 3px rgba(35,26,69,.06),0 8px 24px rgba(35,26,69,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:#faf9fd;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:16px;
+  }
+  a{color:var(--purple)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.25;letter-spacing:-.01em}
+
+  /* NAV — in-page only, JS smooth scroll */
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(250,249,253,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.top .inner{max-width:960px;margin:0 auto;padding:12px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  nav.top .brand{font-weight:700;color:var(--navy);margin-right:auto;font-size:15px}
+  nav.top button.navlink{font-size:13px;color:var(--mut);background:none;border:none;cursor:pointer;padding:6px 10px;border-radius:8px;font-weight:600;font-family:inherit}
+  nav.top button.navlink:hover{background:var(--lilac);color:var(--purple)}
+
+  header.hero{background:linear-gradient(160deg,#2b2057 0%,#1a1234 100%);color:#fff;padding:64px 0 56px}
+  header.hero .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#b9a9f5;font-weight:700}
+  header.hero h1{font-size:clamp(30px,5vw,46px);margin:14px 0 12px;font-weight:800}
+  header.hero p.lead{font-size:19px;color:#d9d2f0;max-width:680px;margin:0}
+  header.hero .qbar{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  header.hero .qbar .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:#e8e2f7}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+  section .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);font-weight:800}
+  section h2{font-size:clamp(24px,3.5vw,32px);margin:10px 0 8px;color:var(--navy);font-weight:800}
+  section .sub{color:var(--mut);font-size:17px;max-width:720px;margin:0 0 28px}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:760px){.g3,.g2{grid-template-columns:1fr}}
+
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}
+  .pill.teal{background:var(--teal-bg);color:var(--teal)}
+  .pill.amber{background:var(--amber-bg);color:var(--amber)}
+  .pill.coral{background:var(--coral-bg);color:var(--coral)}
+  .pill.purple{background:var(--lilac);color:var(--purple)}
+
+  .principle{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media(max-width:760px){.principle{grid-template-columns:1fr}}
+  .principle .p{background:var(--lilac);border-radius:14px;padding:18px 20px}
+  .principle .p b{color:var(--navy);display:block;font-size:16px;margin-bottom:4px}
+  .principle .p span{font-size:14px;color:#544b70}
+
+  svg{max-width:100%;height:auto;display:block}
+  figure{margin:0}
+
+  .toolcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .toolcard .h{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy)}
+  .toolcard .b{padding:16px 18px;font-size:14px;color:#463f5e}
+  .toolcard .b .lab{font-size:12px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+  .toolcard .b code{background:var(--lilac);color:var(--purple);padding:2px 6px;border-radius:6px;font-size:13px}
+  .ext{color:var(--purple);text-decoration:none;font-weight:600;border-bottom:1px dotted var(--purple)}
+  .ext:hover{background:var(--lilac)}
+
+  .tasknav{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+  @media(max-width:760px){.tasknav{grid-template-columns:1fr 1fr}}
+  .tasknav button{text-align:left;font-family:inherit;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;transition:.15s}
+  .tasknav button:hover{border-color:var(--purple);box-shadow:var(--shadow)}
+  .tasknav button .n{font-size:12px;font-weight:800;color:var(--purple)}
+  .tasknav button .t{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-top:2px}
+
+  details.help{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:14px;overflow:hidden;scroll-margin-top:72px}
+  details.help>summary{padding:16px 20px;cursor:pointer;font-weight:700;color:var(--navy);list-style:none;display:flex;align-items:center;gap:10px}
+  details.help>summary::-webkit-details-marker{display:none}
+  details.help>summary .chev{margin-left:auto;transition:.2s;color:var(--mut)}
+  details.help[open]>summary .chev{transform:rotate(90deg)}
+  details.help .content{padding:0 20px 20px}
+
+  table.mini{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+  table.mini th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-weight:700}
+  table.mini td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+  table.mini tr:nth-child(even) td{background:#faf9fd}
+
+  .callout{border-left:4px solid var(--purple);background:var(--lilac);padding:14px 18px;border-radius:0 12px 12px 0;font-size:14px;margin:14px 0}
+  .callout b{color:var(--navy)}
+
+  .steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  .steps li{counter-increment:s;position:relative;padding:10px 0 10px 40px;font-size:14px;border-bottom:1px dashed var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;background:var(--purple);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+
+  .refs{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;font-size:14px}
+  @media(max-width:640px){.refs{grid-template-columns:1fr}}
+  .refs .ref{text-decoration:none;color:#463f5e;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;transition:.15s;display:block}
+  .refs .ref:hover{border-color:var(--purple);box-shadow:var(--shadow)}
+  .refs .ref b{color:var(--purple);display:block;margin-bottom:3px}
+  .refs .ref .u{font-size:12px;color:var(--mut);word-break:break-all;margin-top:6px;display:block}
+
+  footer{padding:40px 0 60px;color:var(--mut);font-size:13px;text-align:center}
+
+  .demo{border:1px solid var(--line);border-radius:14px;background:#fff;padding:20px;margin-top:12px}
+  .demo .btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .demo .btns button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 14px;font-weight:700;font-size:13px;cursor:pointer;color:var(--navy);transition:.15s;font-family:inherit}
+  .demo .btns button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .demo .out{min-height:120px;font-size:14px}
+  .demo .out .type-badge{margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <span class="brand">AION · Day 10</span>
+    <button class="navlink" data-go="big">The big idea</button>
+    <button class="navlink" data-go="types">System types</button>
+    <button class="navlink" data-go="tools">The 9 tools</button>
+    <button class="navlink" data-go="tasks">Task help</button>
+    <button class="navlink" data-go="refs">References</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Intelligent interfaces &amp; AI-assisted UX</div>
+    <h1>Designing how AI <em>feels</em>, not how it works</h1>
+    <p class="lead">This day is about one question: when does AI inside an interface actually help a person — and when does it quietly take control, hide its reasoning, or break their trust? You'll answer it by using nine real, free AI tools and auditing their UX.</p>
+    <div class="qbar">
+      <span class="chip">3 pedagogical levels</span>
+      <span class="chip">4 hands-on tasks</span>
+      <span class="chip">9 free tools</span>
+      <span class="chip">~8 hours</span>
+    </div>
+  </div>
+</header>
+
+<!-- BIG IDEA -->
+<section id="big">
+  <div class="wrap">
+    <div class="eyebrow">Start here</div>
+    <h2>The one thing this whole day is about</h2>
+    <p class="sub">Netflix knows you like thrillers, yet its recommendations still feel off sometimes. Google Maps reroutes you without asking. A chatbot feels brilliant one moment and frustrating the next. Behind every one of these moments is a design decision — not just an engineering one.</p>
+
+    <div class="principle">
+      <div class="p"><b>Transparency</b><span>Can the user see <em>why</em> the system did what it did?</span></div>
+      <div class="p"><b>Control</b><span>Can the user change, steer, or override it?</span></div>
+      <div class="p"><b>Recoverability</b><span>If the AI gets it wrong, can it be undone?</span></div>
+    </div>
+
+    <div class="callout" style="margin-top:24px">
+      <b>The test you'll use all day:</b> If the answer to all three is "no", the feature needs a redesign before it ships — no matter how clever the AI behind it is.
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM TYPES -->
+<section id="types">
+  <div class="wrap">
+    <div class="eyebrow">Core concept</div>
+    <h2>Three kinds of system behind the UX</h2>
+    <p class="sub">Every "smart" feature you'll meet today is one of these three — or a mix. Learning to tell them apart is the whole point of Task 1 and 2. Here's how each one behaves, with a visual and a real example.</p>
+
+    <div class="grid g3">
+      <figure class="card">
+        <svg viewBox="0 0 260 170" role="img" aria-label="Rule-based: same input always gives same output">
+          <rect x="10" y="70" width="60" height="30" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+          <text x="40" y="89" text-anchor="middle" font-size="11" fill="#0F6E56" font-weight="700">Input X</text>
+          <path d="M74 85 H120" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#a1)"/>
+          <rect x="122" y="60" width="54" height="50" rx="8" fill="#0F6E56"/>
+          <text x="149" y="82" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">if X</text>
+          <text x="149" y="96" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">then Y</text>
+          <path d="M178 85 H224" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#a1)"/>
+          <rect x="200" y="70" width="52" height="30" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+          <text x="226" y="89" text-anchor="middle" font-size="11" fill="#0F6E56" font-weight="700">Y</text>
+          <text x="130" y="150" text-anchor="middle" font-size="11" fill="#6b6483">Same input → same output, every time</text>
+          <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" fill="none" stroke="#0F6E56" stroke-width="1.5"/></marker></defs>
+        </svg>
+        <div style="margin-top:14px">
+          <span class="pill teal">Rule-based</span>
+          <p style="font-size:14px;margin:10px 0 6px"><b>Fixed logic.</b> Predictable, easy to explain, doesn't change with use.</p>
+          <p style="font-size:13px;color:#6b6483;margin:0"><b>Real example:</b> a form that shows an error the instant your password is under 8 characters. Or v0's default colours before you edit anything.</p>
+        </div>
+      </figure>
+
+      <figure class="card">
+        <svg viewBox="0 0 260 170" role="img" aria-label="Adaptive: output shifts with current context">
+          <circle cx="40" cy="50" r="16" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+          <text x="40" y="54" text-anchor="middle" font-size="9" fill="#854F0B" font-weight="700">time</text>
+          <circle cx="40" cy="120" r="16" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+          <text x="40" y="124" text-anchor="middle" font-size="9" fill="#854F0B" font-weight="700">device</text>
+          <rect x="98" y="65" width="64" height="40" rx="8" fill="#854F0B"/>
+          <text x="130" y="82" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">adjusts to</text>
+          <text x="130" y="96" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">context</text>
+          <path d="M56 55 Q80 65 98 78" stroke="#854F0B" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+          <path d="M56 115 Q80 105 98 92" stroke="#854F0B" stroke-width="1.5" fill="none" marker-end="url(#a2)"/>
+          <path d="M162 85 H214" stroke="#854F0B" stroke-width="1.5" marker-end="url(#a2)"/>
+          <rect x="216" y="68" width="36" height="34" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+          <text x="234" y="89" text-anchor="middle" font-size="11" fill="#854F0B" font-weight="700">out</text>
+          <text x="130" y="150" text-anchor="middle" font-size="11" fill="#6b6483">Reacts to now — forgets you next session</text>
+          <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" fill="none" stroke="#854F0B" stroke-width="1.5"/></marker></defs>
+        </svg>
+        <div style="margin-top:14px">
+          <span class="pill amber">Adaptive</span>
+          <p style="font-size:14px;margin:10px 0 6px"><b>Reacts to context.</b> Adjusts to your current situation — but doesn't remember you across sessions.</p>
+          <p style="font-size:13px;color:#6b6483;margin:0"><b>Real example:</b> Claude using what you said <em>earlier in the same chat</em> to fix its answer. A dark-mode UI that flips with system settings.</p>
+        </div>
+      </figure>
+
+      <figure class="card">
+        <svg viewBox="0 0 260 170" role="img" aria-label="Learning: improves from accumulated history">
+          <rect x="14" y="40" width="26" height="16" rx="3" fill="#EEEDFE" stroke="#5624D0" stroke-width="1"/>
+          <rect x="14" y="64" width="26" height="16" rx="3" fill="#EEEDFE" stroke="#5624D0" stroke-width="1"/>
+          <rect x="14" y="88" width="26" height="16" rx="3" fill="#EEEDFE" stroke="#5624D0" stroke-width="1"/>
+          <rect x="14" y="112" width="26" height="16" rx="3" fill="#EEEDFE" stroke="#5624D0" stroke-width="1"/>
+          <text x="27" y="150" text-anchor="middle" font-size="10" fill="#6b6483">history</text>
+          <path d="M44 84 Q75 84 96 84" stroke="#5624D0" stroke-width="1.5" fill="none" marker-end="url(#a3)"/>
+          <circle cx="140" cy="84" r="34" fill="#5624D0"/>
+          <text x="140" y="80" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">learned</text>
+          <text x="140" y="94" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">model</text>
+          <path d="M176 84 H214" stroke="#5624D0" stroke-width="1.5" marker-end="url(#a3)"/>
+          <rect x="216" y="67" width="36" height="34" rx="6" fill="#EEEDFE" stroke="#5624D0" stroke-width="1"/>
+          <text x="234" y="88" text-anchor="middle" font-size="11" fill="#5624D0" font-weight="700">out</text>
+          <text x="150" y="150" text-anchor="middle" font-size="11" fill="#6b6483">Gets to know you — output evolves</text>
+          <defs><marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" fill="none" stroke="#5624D0" stroke-width="1.5"/></marker></defs>
+        </svg>
+        <div style="margin-top:14px">
+          <span class="pill purple">Learning</span>
+          <p style="font-size:14px;margin:10px 0 6px"><b>Improves from data.</b> Gets to know you over time; the same input can produce different output as it learns.</p>
+          <p style="font-size:13px;color:#6b6483;margin:0"><b>Real example:</b> Spotify's Discover Weekly. CapCut's auto-cut choosing "interesting" moments. Any recommendation feed.</p>
+        </div>
+      </figure>
+    </div>
+
+    <h3 style="margin:34px 0 4px;color:var(--navy)">Try it: which type is this?</h3>
+    <p style="color:var(--mut);font-size:15px;margin:0 0 4px">Click a behaviour and see how to classify it — the same reasoning you'll use in Task 2.</p>
+    <div class="demo">
+      <div class="btns" id="demoBtns">
+        <button data-k="pw" class="active">Password length error</button>
+        <button data-k="chat">Chat remembers this session</button>
+        <button data-k="feed">"For You" video feed</button>
+        <button data-k="dark">Auto dark mode</button>
+        <button data-k="rec">Spotify Discover Weekly</button>
+      </div>
+      <div class="out" id="demoOut"></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE 9 TOOLS -->
+<section id="tools">
+  <div class="wrap">
+    <div class="eyebrow">Your lab</div>
+    <h2>The nine tools you'll actually use</h2>
+    <p class="sub">All free. Grouped by category. Each task focuses on one category, but the evaluation principle — transparency, control, recoverability — stays the same across all of them. Links open in a new tab, so this page stays with you.</p>
+
+    <div class="grid g3">
+      <div class="toolcard">
+        <div class="h"><span class="pill purple">Chat AI</span></div>
+        <div class="b">
+          <span class="lab">Claude</span> — asks clarifying questions first.<br><a class="ext" href="https://claude.ai" target="_blank" rel="noopener">claude.ai ↗</a><br><br>
+          <span class="lab">Gemini</span> — tends to answer up front.<br><a class="ext" href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com ↗</a><br><br>
+          <span class="lab">ChatGPT</span> — free tier.<br><a class="ext" href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com ↗</a>
+        </div>
+      </div>
+      <div class="toolcard">
+        <div class="h"><span class="pill teal">Research AI</span></div>
+        <div class="b">
+          <span class="lab">NotebookLM</span> — grounded, cites sources.<br><a class="ext" href="https://notebooklm.google.com" target="_blank" rel="noopener">notebooklm.google.com ↗</a><br><br>
+          <span class="lab">Perplexity</span> — cited answers, live sources.<br><a class="ext" href="https://perplexity.ai" target="_blank" rel="noopener">perplexity.ai ↗</a>
+        </div>
+      </div>
+      <div class="toolcard">
+        <div class="h"><span class="pill amber">Builder AI</span></div>
+        <div class="b">
+          <span class="lab">v0</span> — generates UI from a prompt.<br><a class="ext" href="https://v0.dev" target="_blank" rel="noopener">v0.dev ↗</a><br><br>
+          <span class="lab">Bolt</span> — builds full apps.<br><a class="ext" href="https://bolt.new" target="_blank" rel="noopener">bolt.new ↗</a><br><br>
+          <span class="lab">Lovable</span> — prompt-to-app.<br><a class="ext" href="https://lovable.dev" target="_blank" rel="noopener">lovable.dev ↗</a>
+        </div>
+      </div>
+      <div class="toolcard">
+        <div class="h"><span class="pill coral">Creative AI</span></div>
+        <div class="b">
+          <span class="lab">CapCut AI</span> — auto-captions, auto-cut.<br><a class="ext" href="https://www.capcut.com" target="_blank" rel="noopener">capcut.com ↗</a><br><br>
+          <span class="lab">Dremina</span> — AI video / image generation.<br><a class="ext" href="https://dremina.ai" target="_blank" rel="noopener">dremina.ai ↗</a>
+        </div>
+      </div>
+      <div class="toolcard" style="grid-column:span 2">
+        <div class="h"><span class="pill purple">The pattern to watch</span></div>
+        <div class="b">
+          Notice how each category solves transparency &amp; control differently. Research AI leans hard on <b>citations</b> (visible transparency). Chat AI leans on <b>conversation</b> (control through dialogue). Builder AI trades control for <b>speed</b>. Creative AI is often the most <b>opaque</b> — great output, little explanation. Keep asking: <em>could the user tell why, and could they change it?</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASK HELP -->
+<section id="tasks">
+  <div class="wrap">
+    <div class="eyebrow">Task help</div>
+    <h2>Help for each task — see exactly how to fill it in</h2>
+    <p class="sub">Each task has a level, a goal, and one worked example so you're not staring at a blank page. Click a task to jump to it and open it.</p>
+
+    <div class="tasknav" id="taskNav">
+      <button data-open="t1"><span class="n">TASK 1 · Level 1</span><span class="t">Observe patterns</span></button>
+      <button data-open="t2"><span class="n">TASK 2 · Level 1</span><span class="t">Classify systems</span></button>
+      <button data-open="t3"><span class="n">TASK 3 · Level 2</span><span class="t">Deep audit</span></button>
+      <button data-open="t4"><span class="n">TASK 4 · Level 3</span><span class="t">Strategic call</span></button>
+    </div>
+
+    <details class="help" id="t1" open>
+      <summary><span class="pill teal">Task 1 · Level 1</span> Direct observation <span class="chev">▸</span></summary>
+      <div class="content">
+        <p><b>Goal:</b> run the same prompt in Claude, Gemini and NotebookLM. Record what each one shows you vs hides. There's an objective right/wrong on the system-type column.</p>
+        <div class="callout"><b>Prepared prompt (copy exactly into Claude and Gemini):</b><br>"I want you to help me plan a birthday party for my friend. Before you give me any plan, ask me whatever you need to know to make it fit my friend — do not assume the details yourself."</div>
+        <p style="font-weight:700;margin-bottom:6px">Worked example — how one row should look:</p>
+        <table class="mini">
+          <tr><th>What to observe</th><th>Your observation</th><th>System type</th></tr>
+          <tr><td>Does Claude ask before answering?</td><td>Yes — it asked 4 questions: budget, guest count, my friend's age, and the vibe I wanted before giving any plan.</td><td>Adaptive (uses this session's context) on a learning model</td></tr>
+        </table>
+        <p style="font-size:14px;color:#6b6483">The point: identical instruction, but Claude and Gemini often behave differently. That contrast <em>is</em> the lesson. For NotebookLM, upload the <code>ai-ux-primer.pdf</code> and watch for clickable citations.</p>
+      </div>
+    </details>
+
+    <details class="help" id="t2">
+      <summary><span class="pill teal">Task 2 · Level 1</span> Classify the system <span class="chev">▸</span></summary>
+      <div class="content">
+        <p><b>Goal:</b> for each feature, tick one system type and justify it in a line. Exactly one label is correct per row.</p>
+        <p style="font-weight:700;margin-bottom:6px">The decision tree — ask these in order:</p>
+        <ol class="steps">
+          <li>Does the same input <b>always</b> give the same output, with fixed logic? → <b>Rule-based</b></li>
+          <li>Does it adjust to your <b>current</b> context but forget you next time? → <b>Adaptive</b></li>
+          <li>Does it improve from <b>accumulated data</b> and can vary over time? → <b>Learning</b></li>
+        </ol>
+        <div class="callout"><b>The intended trap:</b> "v0's default colours before you edit." The whole tool uses a learned model — so people say "learning". But the <em>defaults themselves</em> are fixed design tokens applied identically every time. Correct answer: <b>rule-based</b>. Separate the fixed template from the learned generation.</div>
+        <table class="mini">
+          <tr><th>Feature</th><th>Correct</th><th>Why</th></tr>
+          <tr><td>Claude using earlier chat context</td><td>Adaptive</td><td>Current session only, forgets in a new chat</td></tr>
+          <tr><td>CapCut auto-cut picking moments</td><td>Learning</td><td>Predicts "interesting" from learned patterns</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details class="help" id="t3">
+      <summary><span class="pill amber">Task 3 · Level 2</span> Deep AI-UX audit <span class="chev">▸</span></summary>
+      <div class="content">
+        <p><b>Goal:</b> pick ONE tool (Bolt, Lovable, Dremina, Perplexity), audit one feature against the three lenses, then propose a fix. Graded by rubric — <b>every claim needs a screenshot</b>.</p>
+        <p style="font-weight:700;margin:12px 0 6px">The three lenses, as audit questions:</p>
+        <div class="grid g3" style="margin-bottom:14px">
+          <div class="card" style="padding:16px"><span class="pill teal">Transparency</span><p style="font-size:13px;margin:8px 0 0">Does it explain <em>why</em> it chose this? Can you see the reasoning or sources?</p></div>
+          <div class="card" style="padding:16px"><span class="pill amber">Control</span><p style="font-size:13px;margin:8px 0 0">Can you override or steer it? How much friction to change one thing?</p></div>
+          <div class="card" style="padding:16px"><span class="pill coral">Recoverability</span><p style="font-size:13px;margin:8px 0 0">If it's wrong, can you undo or regenerate? Is anything lost?</p></div>
+        </div>
+        <div class="callout"><b>The consistency rule that earns marks:</b> your Step D redesign must fix the <em>exact</em> weakness you named in Step C. If you say "transparency is weakest" then propose a control fix, you lose points even with a beautiful sketch.</div>
+        <p style="font-size:14px;color:#6b6483"><b>Worked mini-audit — Perplexity:</b> Transparency = high (cites nearly everything). Weakness = it cites confidently even from weak sources. Redesign = add a source-quality badge (forum vs peer-reviewed) so users can judge citation strength. Notice the redesign targets the named weakness.</p>
+      </div>
+    </details>
+
+    <details class="help" id="t4">
+      <summary><span class="pill coral">Task 4 · Level 3</span> The strategic call <span class="chev">▸</span></summary>
+      <div class="content">
+        <p><b>Goal:</b> you're the CXO of "BelajarCepat". Pick ONE AI direction to build this quarter under hard constraints. Graded on <b>internal consistency</b> — two people can pick opposite directions and both score 100.</p>
+        <p style="font-weight:700;margin:12px 0 6px">What the constraints quietly reward:</p>
+        <table class="mini">
+          <tr><th>Direction</th><th>Fit under thin data + fragile trust + ship this quarter</th></tr>
+          <tr><td>A · Clarifying assistant (Claude-style)</td><td style="color:#0F6E56;font-weight:700">Strong — needs little data, low trust risk</td></tr>
+          <tr><td>B · Cited answers (Perplexity-style)</td><td style="color:#0F6E56;font-weight:700">Strong — builds trust, no personal data</td></tr>
+          <tr><td>C · Auto-generated plans (Bolt-style)</td><td style="color:#854F0B;font-weight:700">Viable if paired with easy override</td></tr>
+          <tr><td>D · Deep personalised feed</td><td style="color:#993C1D;font-weight:700">Weakest — needs data + consent you lack</td></tr>
+        </table>
+        <div class="callout"><b>The master rule:</b> your scores, your decision, your risk analysis and your statement to the CEO must all point the same way. You can still pick D and score full marks — but only if you honestly address the data/consent problem. Picking D while ignoring thin data is the classic inconsistency.</div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="refs">
+  <div class="wrap">
+    <div class="eyebrow">Go deeper</div>
+    <h2>Real references worth your time</h2>
+    <p class="sub">Curated, valid sources on AI UX, transparency and human-AI interaction. Use these to back up your Task 3 and 4 arguments. All open in a new tab.</p>
+    <div class="refs">
+      <a class="ref" href="https://pair.withgoogle.com/guidebook/" target="_blank" rel="noopener"><b>Google People + AI Guidebook</b>Practical patterns for designing human-centred AI. The single best reference for this day.<span class="u">pair.withgoogle.com/guidebook</span></a>
+      <a class="ref" href="https://www.nngroup.com/articles/ai-ux/" target="_blank" rel="noopener"><b>Nielsen Norman Group — AI &amp; UX</b>Research-based articles on generative UI, trust, and AI usability.<span class="u">nngroup.com/articles/ai-ux</span></a>
+      <a class="ref" href="https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/" target="_blank" rel="noopener"><b>Microsoft — 18 Guidelines for Human-AI Interaction</b>A validated checklist you can literally audit tools against.<span class="u">microsoft.com/…/guidelines-for-human-ai-interaction</span></a>
+      <a class="ref" href="https://design.google/library/designing-human-centered-ai" target="_blank" rel="noopener"><b>Google Design — Human-centred AI</b>Essays on making AI features feel understandable.<span class="u">design.google/library</span></a>
+      <a class="ref" href="https://developer.apple.com/design/human-interface-guidelines/machine-learning" target="_blank" rel="noopener"><b>Apple HIG — Machine learning</b>How a product company frames control and recoverability.<span class="u">developer.apple.com/design/…/machine-learning</span></a>
+      <a class="ref" href="https://distill.pub" target="_blank" rel="noopener"><b>Distill.pub</b>Visual, interactive explanations of how ML models reason — great for the "why" question.<span class="u">distill.pub</span></a>
+    </div>
+    <div class="callout" style="margin-top:22px"><b>How to cite in your worksheets:</b> when a Task 3 or 4 claim leans on one of these, name the source in a line — e.g. "Per Microsoft's guideline #11, the system should make clear why it acted." This is exactly the transparency you're auditing others for.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    AION · Day 10 — Intelligent Interfaces &amp; AI-assisted UX · Interactive study companion<br>
+    Everything you need is on this page. Use it alongside the four task worksheets.
+  </div>
+</footer>
+
+<script>
+  // In-page navigation — never leaves this document
+  document.querySelectorAll('nav.top button.navlink').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.dataset.go);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Task nav — jump to the task AND open its details panel
+  document.getElementById('taskNav').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    var d = document.getElementById(b.dataset.open);
+    if(d){ d.open = true; d.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+
+  // Classify demo
+  var demoData = {
+    pw:  {label:"Password length error", type:"Rule-based", cls:"teal", why:"Fixed logic: length < 8 → show error. Same input always triggers the same response. Nothing learns, nothing adapts."},
+    chat:{label:"Chat remembers this session", type:"Adaptive", cls:"amber", why:"It uses the current conversation's context to adjust — but open a fresh chat and it's forgotten you. Context = now, not history."},
+    feed:{label:'"For You" video feed', type:"Learning", cls:"purple", why:"Built from your accumulated watch history. The same account sees a feed that evolves as the model learns your taste."},
+    dark:{label:"Auto dark mode", type:"Adaptive", cls:"amber", why:"Reacts to your current system setting or time of day. Deterministic reaction to context — it doesn't learn, and it doesn't remember you personally."},
+    rec: {label:"Spotify Discover Weekly", type:"Learning", cls:"purple", why:"Classic learning system: it improves from your listening data over weeks and personalises to you specifically."}
+  };
+  var out = document.getElementById('demoOut');
+  var btns = document.getElementById('demoBtns');
+  function render(k){
+    var d = demoData[k];
+    out.innerHTML = '<span class="pill '+d.cls+' type-badge">'+d.type+'</span>'+
+      '<p style="font-weight:700;margin:0 0 6px">'+d.label+'</p>'+
+      '<p style="margin:0;color:#463f5e">'+d.why+'</p>';
+  }
+  btns.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    Array.prototype.forEach.call(btns.children, function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    render(b.dataset.k);
+  });
+  render('pw');
+</script>
+</body>
+</html>
