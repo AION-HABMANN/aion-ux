@@ -2,7 +2,7 @@
 
 The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
 
-**Status (2026-10-26):** Days 1, 2, 3, 4, 5 are built and checked. Days 6 to 8 show a "being built" page until their spec is registered.
+**Status (2026-10-26):** Days 1, 2, 3, 4, 5, 6 are built and checked. Days 7 to 8 show a "being built" page until their spec is registered.
 
 ## Run and check
 
@@ -81,3 +81,9 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **Day 4 and Day 5 both teach the three laws.** Day 4 introduces them from its title; Day 5 applies them in depth (target size and the thumb, staged choices, chunking, the interplay), as its Wissen cell asks.
 - **Three plan cases on one desk**, as before: BankDirect, AdminFlow and MoveEasy (Case assumption). **The Level 3 company is the mobility provider behind MoveEasy** (DL #49).
 - **Target sizes in the simulations.** The mini-platform's link items got an optional `css`, so the plan's small and packed targets can be shown as described; it is never used to repair. The plan's "above 60 %" mobile use is the only user figure printed.
+
+### Day 6
+
+- **The plan's title and its content differ, as on Day 5.** The plan's title for Day 6 names the integration and evaluation of UX laws in design systems; its Wissen cell also teaches the Gestalt laws, visual hierarchy and progressive disclosure that Day 5's title names. The Materi follows the Wissen cell and covers all of it; the day is shown as "Gestalt, hierarchy, progressive disclosure and design systems".
+- **Three plan cases on one desk**, as before: OfficeSphere, CareAssist and CitizenFlow (Case assumption). **The Level 3 organisation is the public administration behind CitizenFlow** (DL #49); the plan says "a company with a customer portal, an app and an internal administration interface". That there are no shared components today is a Case assumption.
+- **Equally strong actions in the simulations** use the link items' `css`; nothing is repaired.
