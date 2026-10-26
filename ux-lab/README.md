@@ -2,7 +2,7 @@
 
 The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
 
-**Status (2026-10-26):** Days 1, 2, 3 are built and checked. Days 4 to 8 show a "being built" page until their spec is registered.
+**Status (2026-10-26):** Days 1, 2, 3, 4 are built and checked. Days 5 to 8 show a "being built" page until their spec is registered.
 
 ## Run and check
 
@@ -67,3 +67,10 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **Colour and type in the simulations.** The plan's clues are colour and type, so the shared mini-platform got an optional `css` on headings, paragraphs and notes and `colors` on status chips (`components/sim/PlatformSim.tsx`). They set the plan's flaws only and never repair them.
 - **Small detail figures** in the simulations (a departure "later than planned", check-in "from the day before") are worded without numbers, so no figure appears that the plan does not print.
 - **Day 2 and Day 3 both touch colour.** The plan names colour psychology in Day 2's title but teaches it in Day 3's Wissen cell; Day 2 covers it briefly as guidance, Day 3 in full.
+
+### Day 4
+
+- **Three plan cases on one desk**, as on the days before: ServicePoint, WorkFlow Hub and MyEnergy (Case assumption).
+- **The Level 3 company is the energy supplier behind MyEnergy** (DL #49). The plan says only "a company with a customer portal, a mobile app and a service platform". That each department adds its functions to its own channels, and what each system records, are Case assumptions.
+- **The three laws come from the day's title.** The plan's Wissen cell speaks of UX laws in general; its title names Fitts's law, Hick's law and Miller's rule, so cards A2 to A4 teach them, with the original sources and the later correction of Miller's number (Cowan 2001).
+- **Meter and contract numbers in the simulations** (such as a meter point designation) are identifiers, not figures about users or money.

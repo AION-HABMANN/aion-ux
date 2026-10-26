@@ -2,6 +2,7 @@ import { getLang } from "@/lib/lang";
 import { GLOSSARY_D1 } from "@/data/gloss/day1";
 import { GLOSSARY_D2 } from "@/data/gloss/day2";
 import { GLOSSARY_D3 } from "@/data/gloss/day3";
+import { GLOSSARY_D4 } from "@/data/gloss/day4";
 
 /**
  * Plain-language glossary (CLAUDE.md #19, #49): every technical term, abbreviation or foreign word that the material or a task uses is an entry here. In the
@@ -21,7 +22,7 @@ export type GlossEntry = {
   de?: GlossDe;
 };
 
-export const GLOSSARY: GlossEntry[] = [...GLOSSARY_D1, ...GLOSSARY_D2, ...GLOSSARY_D3];
+export const GLOSSARY: GlossEntry[] = [...GLOSSARY_D1, ...GLOSSARY_D2, ...GLOSSARY_D3, ...GLOSSARY_D4];
 
 // --- lookup (unchanged from Digital Learning) ---------------------------------------------------------------
 
