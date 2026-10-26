@@ -15,7 +15,7 @@ export type DeskMessage = { from: string; subject: string; body: string[]; time?
 export type DeskTable = { title: string; head: [string, string]; rows: [string, string][] };
 
 const TIMES = () => [tt("Mon 08:12", "Mo 08:12"), tt("Mon 09:40", "Mo 09:40"), tt("Mon 11:05", "Mo 11:05"), tt("Tue 07:55", "Di 07:55"), tt("Tue 10:20", "Di 10:20"), tt("Tue 13:05", "Di 13:05"), tt("Wed 08:30", "Mi 08:30")];
-const HUES = ["#6B5B95", "#2F7F79", "#B5651D", "#4A6FA5", "#8C4A5E", "#5B7F3A"];
+const HUES = ["#6B5B95", "#2F7F79", "#9A5418", "#4A6FA5", "#8C4A5E", "#5B7F3A"];
 const initials = (n: string) => n.split(/[\s·,]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 const hue = (n: string) => HUES[[...n].reduce((a, c) => a + c.charCodeAt(0), 0) % HUES.length];
 

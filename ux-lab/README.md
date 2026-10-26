@@ -2,7 +2,7 @@
 
 The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
 
-**Status (2026-10-27):** Days 1, 2, 3, 4, 5, 6, 7 are built and checked. Days 8 to 8 show a "being built" page until their spec is registered.
+**Status (2026-10-27):** Days 1, 2, 3, 4, 5, 6, 7, 8 are built and checked. All eight days are in.
 
 ## Run and check
 
@@ -94,3 +94,10 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **The plan's technical messages are shown with codes** (Error 4012, a booking number, Error 413): they are identifiers, not figures, and show the "technical instead of supportive" feedback the plan names. No other number is printed.
 - **Variant A of CareerPath** shows its "many emotional stimuli and activating messages" with emoji, badges and urgency texts; its colours are dark enough for contrast, so the flaw is in the content, not in legibility.
 - **Engine fix found on this day:** the desk and observe kits used a grey (#7A8190) below 4.5:1; it is now #5F6675 on every day, and the spreadsheet's corner cell has a screen-reader label.
+
+### Day 8
+
+- **Three plan cases on one desk**, as before: StartSmart, FutureSkills and GreenHome, reviewed by the UX team of a digital agency (Case assumption). **The Level 3 organisation is the sustainable-energy provider behind GreenHome** (DL #49); the plan says "a company with a website, an advisory platform and self-service flows". That GreenHome's onboarding has five sections, that marketing tells the brand story on the website and that no patterns for entries, progress or endings exist are Case assumptions.
+- **"Storytelling" is taught as narrative guidance, not as writing stories**, as the plan's Wissen cell separates narrative communication from narratively structured guidance; the Materi says so on card A3.
+- **The plan's figures** are €155,000, 12 weeks and 10 weeks; the onboarding's "Page 1" to "Page 5", a form label "F-1 of 4" and a reference code are interface labels, not figures.
+- **Contrast fixes found in the final sweep** (not plan flaws): the desk avatar brown, the orange header of Day 4's MyEnergy, Day 1's orange CarePath button and Day 6's orange notice link are now dark enough for 4.5:1. Day 3's low-contrast colours stay, because they are the plan's colour flaws.

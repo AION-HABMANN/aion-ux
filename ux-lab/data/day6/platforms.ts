@@ -20,7 +20,7 @@ const EQUAL = { background: "#546E7A", color: "#fff", borderColor: "#546E7A" } a
 const osPages = (): Record<string, PPage> => ({
   start: { title: tt("OfficeSphere"), blocks: [
     { t: "p", mark: 1, text: tt("News · New parking rules from Monday · The canteen is closed on Friday · Your open requests: 2 · Approvals waiting: 3 · Travel policy updated · IT maintenance on Saturday · Team event on the 14th") },
-    { t: "links", small: true, mark: 5, items: [{ label: tt("⚠ Notice: password expires"), go: "notice", color: "#C62828" }, { label: tt("● 3 approvals waiting"), go: "approvals", color: "#E65100" }, { label: tt("Requests"), go: "requests" }, { label: tt("Approvals"), go: "approvals" }, { label: tt("Documents"), go: "docs" }, { label: tt("Directory"), go: "directory" }] },
+    { t: "links", small: true, mark: 5, items: [{ label: tt("⚠ Notice: password expires"), go: "notice", color: "#C62828" }, { label: tt("● 3 approvals waiting"), go: "approvals", color: "#BF360C" }, { label: tt("Requests"), go: "requests" }, { label: tt("Approvals"), go: "approvals" }, { label: tt("Documents"), go: "docs" }, { label: tt("Directory"), go: "directory" }] },
     { t: "cards", mark: 2, items: [
       { tag: tt("Requests"), title: tt("Request leave"), text: tt("Plan your holidays."), go: "leave" },
       { tag: tt("HR · Travel"), title: tt("TRAVEL REQUEST"), text: tt("Submit a business trip for approval."), go: "travel" },

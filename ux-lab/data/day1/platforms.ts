@@ -20,7 +20,7 @@ const productFooter = (company: string) => tt(`© ${company} · Imprint · Priva
 const RED = "#C62828";
 const GREEN = "#2E7D32";
 const BLUE = "#1565C0";
-const ORANGE = "#E65100";
+const ORANGE = "#BF360C";
 
 /** The nine tiles of the start page, all the same size and weight. */
 const tiles = (): Item[] => [

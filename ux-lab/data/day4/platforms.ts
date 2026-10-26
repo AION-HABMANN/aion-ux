@@ -179,7 +179,7 @@ const mePages = (): Record<string, PPage> => ({
 });
 
 /** MyEnergy today: too many equal items, main tasks not prioritised, invisible process logic, technical language, information to remember across steps, unclear feedback. */
-export const myEnergy = (): PlatformCfg => ({ name: "MyEnergy", start: "start", color: "#E65100", nav: [{ label: tt("Start"), go: "start" }, { label: tt("Contact"), go: "contact" }], header: () => tt("Customer portal"), pages: mePages(), footer: productFooter("Stadtenergie AG") });
+export const myEnergy = (): PlatformCfg => ({ name: "MyEnergy", start: "start", color: "#BF360C", nav: [{ label: tt("Start"), go: "start" }, { label: tt("Contact"), go: "contact" }], header: () => tt("Customer portal"), pages: mePages(), footer: productFooter("Stadtenergie AG") });
 
 /* ------------------------------------------------------------------ The energy supplier's app and service platform (Route 2) */
 
