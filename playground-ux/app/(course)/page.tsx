@@ -41,9 +41,9 @@ export default function CourseHome() {
       <h1 className="font-display text-34 font-semibold tracking-tight">AION UX class</h1>
       <p className="mt-3 max-w-3xl text-16 text-ink-soft">
         Psychological UX and neuro-design, sixteen days in eight modules. One project holds every
-        day. Days 9 to 16 run here exactly as they were built (not upgraded yet). Day 1 is built
-        fresh to the Digital Learning standard as a small project of its own and is linked from its page; Days 2 to 8
-        are planned.</p>
+        day. Days 9 to 16 run here exactly as they were built (not upgraded yet). Days 1 to 8 are
+        built in the Neuro-UX Lab (aion-ux/ux-lab) on the Digital Learning engine; each day links there from its page once it
+        is built.</p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DAYS.map((d) => (
           <li key={d.n}>

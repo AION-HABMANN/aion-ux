@@ -1,0 +1,26 @@
+import { r } from "@/data/refs/kit";
+
+/**
+ * Day 1 · the sources the cards cite (CURRICULUM-GUIDE §4). Each is a well-known work; the note after the title says what the card uses it for. The
+ * figures and page ranges were checked against the publishers' records, not against the full works: check every source and its current edition before
+ * a course run.
+ */
+export const REFS_D1 = {
+  normanNielsen: r("Norman & Nielsen", "Norman, D., & Nielsen, J. The Definition of User Experience (UX). Nielsen Norman Group. https://www.nngroup.com/articles/definition-user-experience/ (User experience covers every part of a person's interaction with a company, its services and its products; the interface is one part of it.)"),
+  iso9241210: r("ISO 9241-210", "ISO 9241-210:2019. Ergonomics of human-system interaction, Part 210: Human-centred design for interactive systems. (Defines user experience as a person's perceptions and responses that result from the use or anticipated use of a product, system or service.) Check the current edition before you teach from it."),
+  norman2013: r("Norman 2013", "Norman, D. A. (2013). The Design of Everyday Things (revised and expanded edition). Basic Books. (Mental models and conceptual models: a design works when what people believe it does matches what it does.)"),
+  tractinsky2000: r("Tractinsky et al. 2000", "Tractinsky, N., Katz, A. S., & Ikar, D. (2000). What is beautiful is usable. Interacting with Computers, 13(2), 127–145. (People judge an attractive interface as easier to use before they have used it; looks shape the first judgement, they do not replace testing.)"),
+  ittiKoch2001: r("Itti & Koch 2001", "Itti, L., & Koch, C. (2001). Computational modelling of visual attention. Nature Reviews Neuroscience, 2(3), 194–203. (Attention is pulled by what differs from its surroundings in colour, contrast, orientation and movement: the bottom-up side of seeing.)"),
+  corbetta2002: r("Corbetta & Shulman 2002", "Corbetta, M., & Shulman, G. L. (2002). Control of goal-directed and stimulus-driven attention in the brain. Nature Reviews Neuroscience, 3(3), 201–215. (Two attention systems work together: one steered by goals and expectations, one by strong stimuli.)"),
+  treisman1980: r("Treisman & Gelade 1980", "Treisman, A. M., & Gelade, G. (1980). A feature-integration theory of attention. Cognitive Psychology, 12(1), 97–136. (Simple features such as a colour pop out at once; a combination of features has to be searched one item at a time.)"),
+  krug2014: r("Krug 2014", "Krug, S. (2014). Don't Make Me Think, Revisited (3rd ed.). New Riders. (People scan rather than read, follow conventions they know, and should be able to tell at once where they are and what they can do.)"),
+  sweller1988: r("Sweller 1988", "Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive Science, 12(2), 257–285. https://doi.org/10.1207/s15516709cog1202_4 (Working memory is limited; effort spent on working out a screen is missing for the task itself.)"),
+  nielsen1994: r("Nielsen 1994", "Nielsen, J. (1994, reviewed 2024). 10 Usability Heuristics for User Interface Design. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/ (Visibility of system status, consistency and standards, recognition rather than recall, aesthetic and minimalist design.)"),
+  lindgaard2006: r("Lindgaard et al. 2006", "Lindgaard, G., Fernandes, G., Dudek, C., & Brown, J. (2006). Attention web designers: You have 50 milliseconds to make a good first impression! Behaviour & Information Technology, 25(2), 115–126. (A first judgement of a web page forms within a fraction of a second and stays close to the judgement people give later.)"),
+  brehm1966: r("Brehm 1966", "Brehm, J. W. (1966). A Theory of Psychological Reactance. Academic Press. (When people feel their freedom to choose is threatened, they push back, often by doing the opposite of what is asked.)"),
+  fogg2003: r("Fogg 2003", "Fogg, B. J. (2003). Prominence-interpretation theory: Explaining how people assess credibility online. CHI '03 Extended Abstracts, 722–723. (People judge credibility from the elements they notice and how they interpret them, such as the layout, the tone and the mix of content and advertising.)"),
+  gibbons2018: r("Gibbons 2018", "Gibbons, S. (2018). Using Prioritization Matrices to Inform UX Decisions. Nielsen Norman Group. https://www.nngroup.com/articles/prioritization-matrices/ (Rate each option on the same few criteria, such as value to the user against effort, and put the reason next to each rating.)"),
+  kahneman2011: r("Kahneman 2011", "Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. (A fast, automatic way of judging and a slow, deliberate one; much of what a design does happens in the fast one.)"),
+  simon1956: r("Simon 1956", "Simon, H. A. (1956). Rational choice and the structure of the environment. Psychological Review, 63(2), 129–138. (With limited information and time, people choose an option that is good enough rather than the best one: a decision under uncertainty.)"),
+  klein2007: r("Klein 2007", "Klein, G. (2007). Performing a project premortem. Harvard Business Review, 85(9), 18–19. (Imagine the plan has failed and ask why; it brings risks and wrong assumptions to the surface before the work starts.)"),
+};

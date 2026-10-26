@@ -44,8 +44,16 @@ export interface CourseDay {
 
 const ORG = 'https://github.com/AION-HABMANN';
 
-/** Day 1 runs as its own small project (aion-ux/day1, port 3300). Set NEXT_PUBLIC_DAY1_URL to its address when it is deployed. */
-const DAY1_URL = process.env.NEXT_PUBLIC_DAY1_URL ?? 'http://localhost:3300/';
+/**
+ * Days 1 to 8 are built in the Neuro-UX Lab (aion-ux/ux-lab, port 3400), on the Digital Learning engine. Set NEXT_PUBLIC_UX_LAB_URL to its address when it is
+ * deployed. A day links there once it is built.
+ */
+const LAB_URL = (process.env.NEXT_PUBLIC_UX_LAB_URL ?? 'http://localhost:3400/').replace(/\/?$/, '/');
+const lab = (n: number): LegacyLink => ({
+  fresh: 'aion-ux/ux-lab',
+  demo: `${LAB_URL}day/${n}/`,
+  note: 'To see it here, start it first: npm --prefix aion-ux/ux-lab run dev (port 3400).',
+});
 
 export const DAYS: CourseDay[] = [
   {
@@ -53,11 +61,7 @@ export const DAYS: CourseDay[] = [
     topic: 'Introduction to psychological UX design; neural basics of visual perception; overview of neuro-design in the interface',
     cases: { task1: 'CarePath', task2: 'SkillFlow', caseStudy: 'SafeHome Online' },
     built: false,
-    legacy: {
-      fresh: 'aion-ux/day1',
-      demo: DAY1_URL,
-      note: 'To see it here, start it first: npm --prefix aion-ux/day1 run dev (port 3300).',
-    },
+    legacy: lab(1),
   },
   { n: 2, module: 2, part: '1 of 2', title: 'Visual perception and colour', topic: 'Foundations of visual perception in interface design; colour psychology and strategic use of colour', built: false },
   { n: 3, module: 2, part: '2 of 2', title: 'Typography and layout', topic: 'Typography for readability and UX; design principles and layout optimisation; practice integration', built: false },

@@ -8,3 +8,6 @@ out/
 dist/
 *.tsbuildinfo
 .env*
+
+# Local accessibility audit helper (copied from axe-core, not part of the app)
+__axe.min.js

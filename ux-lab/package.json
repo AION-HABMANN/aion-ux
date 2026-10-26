@@ -1,0 +1,45 @@
+{
+  "name": "aion-ux-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3400",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "verify:free": "tsx scripts/verify-free.ts",
+    "verify:day1": "tsx scripts/verify-free.ts 1",
+    "verify:day2": "tsx scripts/verify-free.ts 2",
+    "verify:day3": "tsx scripts/verify-free.ts 3",
+    "verify:day4": "tsx scripts/verify-free.ts 4",
+    "verify:day5": "tsx scripts/verify-free.ts 5",
+    "verify:day6": "tsx scripts/verify-free.ts 6",
+    "verify:day7": "tsx scripts/verify-free.ts 7",
+    "verify:day8": "tsx scripts/verify-free.ts 8",
+    "verify:platforms": "tsx scripts/verify-platforms.ts",
+    "verify": "npm run typecheck && npm run verify:free && npm run verify:platforms"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zustand": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.26",
+    "tailwindcss": "3.4.6",
+    "tsx": "^4.19.2",
+    "typescript": "5.5.3"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "overrides": {
+    "postcss": "8.5.26"
+  }
+}

@@ -1,0 +1,36 @@
+import type { GlossEntry } from "@/data/glossary";
+
+/**
+ * Day 1 · the plain-language glossary entries (CLAUDE.md #19). Every technical term the Day 1 cards or tasks use is here, written for someone with no UX
+ * background. A later day reuses these and adds only its new terms.
+ */
+export const GLOSSARY_D1: GlossEntry[] = [
+  { id: "ux", title: "UX (user experience)", match: ["UX", "user experience"], plain: "Everything a person goes through when using a product: what they notice, understand, feel and do, from the first look to the last step. The screens are only one part of it.", example: "Finding the booking you want at once and feeling sure it went through is a good UX.", from: "ISO 9241-210" },
+  { id: "ui", title: "UI (user interface)", match: ["UI", "user interface"], plain: "What a person sees and touches on a screen: buttons, colours, text, icons and their layout. It is the surface of the experience.", example: "Changing a button from grey to blue is a UI change.", from: "Norman & Nielsen" },
+  { id: "psych-ux", title: "Psychological UX design", match: ["psychological UX design", "psychologically effective UX design", "psychological UX"], plain: "Designing with knowledge of how people see, pay attention, feel and decide, and judging a design by what it does to them rather than only by how it looks." },
+  { id: "perception", title: "Perception", match: ["perception", "visual perception"], plain: "Taking in what the senses deliver, for example what the eyes see on a screen, before thinking about it." },
+  { id: "cognition", title: "Cognition", match: ["cognition", "cognitive processing"], plain: "The thinking side of the mind: remembering, comparing, understanding and deciding." },
+  { id: "attention", title: "Attention", match: ["attention"], plain: "The mind's spotlight. Only a small part of a screen is processed at any moment; attention decides which part.", example: "A flashing banner takes attention away from the form you were filling in." },
+  { id: "mental-model", title: "Mental model", match: ["mental model", "mental models"], plain: "What a person believes a product is and how it works. A design feels natural when it fits that belief and confusing when it does not.", example: "Most people expect a basket icon to show what they have chosen so far.", from: "Norman 2013" },
+  { id: "bottom-up", title: "Bottom-up perception", match: ["bottom-up"], plain: "Attention pulled by the stimulus itself: something moves, glows, is red or very large, so you look at it whether or not it matters to you.", from: "Itti & Koch 2001" },
+  { id: "top-down", title: "Top-down perception", match: ["top-down"], plain: "Attention steered by what you want, know and expect: you look for the word “Pay” because you want to pay.", from: "Corbetta & Shulman 2002" },
+  { id: "pattern", title: "Pattern recognition", match: ["pattern recognition"], plain: "The brain grouping what it sees and matching it to things it already knows, such as recognising a row of boxes as a menu." },
+  { id: "cog-load", title: "Cognitive load", match: ["cognitive load", "mental load", "mental effort"], plain: "How much a person has to hold in mind and work out at the same time. Every extra signal or choice adds to it; when it is too high, people skip, freeze or leave.", from: "Sweller 1988" },
+  { id: "orientation", title: "Orientation", match: ["orientation"], plain: "Knowing where you are, what you can do here and what happens next." },
+  { id: "hierarchy", title: "Visual hierarchy", match: ["visual hierarchy", "hierarchy"], plain: "An order the eye can follow: the most important thing is clearly the strongest, the rest is quieter. Without it, everything competes equally." },
+  { id: "primary-action", title: "Primary action", match: ["primary action", "primary actions", "main action"], plain: "The one thing most people on a screen came to do, such as “Report damage”. It should be the easiest thing to see and press." },
+  { id: "reactance", title: "Reactance", match: ["reactance"], plain: "The urge to resist when something feels like pressure or control. A pushy prompt can make people do the opposite of what it asks.", from: "Brehm 1966" },
+  { id: "unconscious", title: "Unconscious design effect", match: ["unconscious design effect", "unconscious design effects", "unconscious effect", "unconscious effects"], plain: "An effect a design has before the person can say why: a screen feels unsafe, rushed or friendly in the first second, and that feeling colours what they do next.", from: "Lindgaard et al. 2006" },
+  { id: "hypothesis", title: "Hypothesis", match: ["hypothesis", "hypotheses"], plain: "An assumption you could check later. “This red banner could make users uneasy” is a hypothesis; “this banner is bad” is only an opinion." },
+  { id: "neuro-ux", title: "Neuro-UX", match: ["Neuro-UX", "neuro-design", "neuro design"], plain: "Designing an interface with knowledge of how the brain sees, attends, feels and decides, so that the design steers these processes on purpose and responsibly." },
+  { id: "self-service", title: "Self-service portal", match: ["self-service portal"], plain: "A website where customers do things themselves that once needed a call or a visit, such as reporting damage or downloading a document." },
+  { id: "abandonment", title: "Abandonment rate", match: ["abandonment rate"], plain: "The share of people who start a process, such as a damage report, and leave before they finish it." },
+  { id: "microcopy", title: "Microcopy", match: ["microcopy", "microtexts"], plain: "The small pieces of text in an interface: button labels, hints, error messages and the lines around an upload." },
+  { id: "touchpoint", title: "Touchpoint", match: ["touchpoint", "touchpoints"], plain: "Any place where a person meets the company: the website, the customer portal, the app, a chatbot or a phone call." },
+  { id: "conversion", title: "Conversion", match: ["conversion"], plain: "The share of visitors who do what the company hopes for, such as signing a contract or finishing a request." },
+  { id: "stakeholder", title: "Stakeholder", match: ["stakeholder", "stakeholders"], plain: "A person or department with an interest in a decision, such as marketing, compliance, IT or sales." },
+  { id: "governance", title: "Governance", match: ["governance", "governance model"], plain: "The rules about who may decide what, who is answerable for it and how disagreements are settled." },
+  { id: "decision-arch", title: "Decision architecture", match: ["decision architecture"], plain: "A set of connected decisions that are made on purpose and written down: what effect you want, what comes first, who decides and how conflicts are settled. It replaces many separate fixes." },
+  { id: "cxo", title: "Chief Experience Officer", match: ["Chief Experience Officer", "CXO", "Head of Digital Experience"], plain: "The manager who is responsible for the experience customers have across all channels, and who decides where the company invests in it." },
+  { id: "case-assumption", title: "Case assumption", match: ["Case assumption", "Case assumptions"], plain: "A fact made up for this exercise to fill a gap in the plan's case. It is marked so you know it is not part of the plan." },
+];

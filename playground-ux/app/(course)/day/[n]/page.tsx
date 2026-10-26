@@ -44,8 +44,8 @@ export default function DayPlaceholder({ params }: { params: { n: string } }) {
                 <h2 className="font-display text-20 font-semibold">Where this day is today</h2>
                 {l.fresh ? (
                   <p className="mt-2 text-ink-soft">
-                    Built fresh, to the Digital Learning standard. It runs as a small project of its own; the code is in{' '}
-                    <code className="font-mono text-12">{l.fresh}</code> and it will be merged into this project when it is finished.
+                    Built to the Digital Learning standard, on its engine, in the Neuro-UX Lab (Days 1 to 8); the code is in{' '}
+                    <code className="font-mono text-12">{l.fresh}</code>.
                   </p>
                 ) : (
                   <p className="mt-2 text-ink-soft">
@@ -112,7 +112,7 @@ export default function DayPlaceholder({ params }: { params: { n: string } }) {
               className="h-[80vh] w-full rounded-lg border border-hairline bg-white"
             />
             <p className="mt-2 text-12 text-ink-soft">
-              {l.fresh ? 'Day 1 as it is now, shown here for review. If the frame stays empty, start it first (see the note on the left).' : 'The current site, shown here for review. Some sites remember your work in their own storage, separate from this project.'}
+              {l.fresh ? `Day ${d.n} as it is now, shown here for review. If the frame stays empty, start it first (see the note on the left).` : 'The current site, shown here for review. Some sites remember your work in their own storage, separate from this project.'}
             </p>
           </section>
         ) : null}

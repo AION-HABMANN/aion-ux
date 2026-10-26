@@ -163,6 +163,10 @@ The audit in `docs/DAY9-AUDIT-62-RULES.md` found rules that this standard had mi
 
 The minutes of the other days are not decided; the hour per route is DL's figure, not the UX plan's.
 
+### 2.13 Days 1 to 8 are built in the Neuro-UX Lab, on DL's own engine (Decided 2026-10-26, by the user)
+
+`ux-lab/` is a focused copy of DL's engine (the free-form day: spec, kit, facilitator cards, guided tables, live missing notices, mentor bar, export, comics, simulations) with only UX days in it. Each of Days 1 to 8 follows DL-STANDARD v1.8 exactly: two routes (Route 1 = Materi A, then Task 1 with blocks 1.1, 1.2, 2.1 and the UX Analysis File; Route 2 = Materi B, then Task 2 with block 3.1 and the UX Strategy Memo), Materi and tasks kept apart, five plus three cards of 60 minutes each, the plan's questions as the tasks, every block Core, a working simulation for every product, a pixel comic on every card. A day ships only when `verify:dayN`, `verify:platforms`, the typecheck, the build and an axe pass are clean. Deviations are written in `ux-lab/README.md` per day. The lean `day1/` project is retired (it stays in git history).
+
 ## 3. Status of the eight existing days against this draft
 
 Days 9 to 16 run in `playground-ux/` as they were built (moved, not upgraded); each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
@@ -210,6 +214,7 @@ Days 9 to 16 run in `playground-ux/` as they were built (moved, not upgraded); e
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-26 | Decided by the user: Days 1 to 8 are built in `ux-lab/` on DL's engine, to DL's writing standard, two routes and Materi apart from the tasks (new 2.13). Day 1 built and checked (verify, platforms, typecheck, build, 0 axe violations); `day1/` retired; `playground-ux` links each built day to the lab (`NEXT_PUBLIC_UX_LAB_URL`) | Days 1 to 8 |
 | 2026-10-25 | Draft v0.1 written from the audit of Days 9 to 16 and from DL-STANDARD v1.8 | all |
 | 2026-10-25 | Decided: instruments that match no plan item are kept on an "Extra" shelf, not removed (decision 8; overrides DL-STANDARD 1 for UX) | all days |
 | 2026-10-25 | Decided: learners answer in the site (DL model) and the Word documents are produced too, for collection or paper (decision 1) | all days |
