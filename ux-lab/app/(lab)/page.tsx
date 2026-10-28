@@ -5,7 +5,7 @@ import { COURSE, DAYS, dayHref, originalHref, originalOf } from "@/data/course";
 import { tt } from "@/lib/lang";
 
 /**
- * The course home: the sixteen days of the plan. A day not built yet keeps its place (CLAUDE.md #12). Nothing is locked. Days 9 to 16 carry an
+ * The course home: the sixteen days of the plan. A day not built yet keeps its place (CLAUDE.md #12). Nothing is locked. Days 9 to 16 not yet rebuilt carry an
  * extra column: the original idea, the day as it was first built.
  */
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
                 <p className="mt-1 text-caption text-ash">{d.built ? tt("Open · two routes, two documents", "Offen · zwei Routen, zwei Dokumente") : orig ? tt("Lab version not built yet", "Lab-Fassung noch nicht gebaut") : tt("Not built yet", "Noch nicht gebaut")}</p>
               </>
             );
-            if (orig) {
+            if (orig && !d.built) {
               return (
                 <li key={d.n} className={`grid h-full overflow-hidden sm:grid-cols-[1fr_minmax(0,13rem)] ${d.built ? "card" : "rounded-xl border border-dashed border-line bg-mist/40"}`}>
                   <Link href={dayHref(d.n)} className="block p-4 transition-colors hover:bg-accentSoft/50">

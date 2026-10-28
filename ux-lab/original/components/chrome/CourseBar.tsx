@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 /**
- * The slim bar above every original day: the way back to the Neuro-UX Lab and to the lab's page of the same day.
+ * The slim bar above every original day: the way back to the Neuro-UX Lab and to the day's Route 3 · Extra, where the original lives.
  * Styled inline on purpose: every original day ships its own stylesheet (its own Tailwind config), so this bar must
  * not depend on any day's classes. Links into the lab are plain <a>: the lab has another root layout, so the move
  * is a full page load either way.
@@ -50,8 +50,8 @@ export function CourseBar() {
             <span aria-hidden="true" style={{ opacity: 0.4 }}>
               /
             </span>
-            <a href={`${base}/day/${day}/`} style={{ ...link, opacity: 0.85 }}>
-              Day {day}
+            <a href={`${base}/day/${day}/route-3/`} style={{ ...link, opacity: 0.85 }}>
+              Day {day} · Extra
             </a>
             <span aria-hidden="true" style={{ opacity: 0.4 }}>
               /

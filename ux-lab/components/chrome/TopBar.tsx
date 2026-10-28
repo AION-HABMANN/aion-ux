@@ -3,17 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { COURSE, dayHref, dayOf, parsePath, routeHref } from "@/data/course";
+import { COURSE, dayHref, dayOf, extraHref, hasExtra, parsePath, routeHref } from "@/data/course";
 import type { RouteNo } from "@/data/course";
 import { tt } from "@/lib/lang";
 
 const ROUTE_SHORT = (r: RouteNo) => (r === 1 ? tt("Analyse and choose", "Analysieren und wählen") : tt("Decide", "Entscheiden"));
 
-/** Persistent top bar: the site name, the current day and its two routes. Nothing is locked: every route is always reachable. The EN | DE switch of
+/** Persistent top bar: the site name, the current day, its two routes and, for a day with an original idea, Route 3 · Extra. Nothing is locked: every route is always reachable. The EN | DE switch of
  * Digital Learning comes back when the German texts are written (UX-STANDARD decision 4: English first). */
 export function TopBar() {
   const pathname = usePathname() ?? "";
-  const { day, route } = parsePath(pathname);
+  const { day, route, extra } = parsePath(pathname);
   const meta = day ? dayOf(day) : undefined;
   return (
     <header className="sticky top-0 z-40 h-12 bg-slate text-paper print:hidden">
@@ -25,7 +25,7 @@ export function TopBar() {
           <span className="truncate text-caption md:text-body">{COURSE.site}</span>
         </Link>
         {meta && (
-          <Link href={dayHref(meta.n)} aria-current={route === null ? "page" : undefined} className={clsx("hidden rounded-full px-3 py-1.5 text-caption font-semibold transition-colors sm:block", route === null ? "bg-paper/15 text-paper" : "text-paper/80 hover:bg-paper/10 hover:text-paper")}>
+          <Link href={dayHref(meta.n)} aria-current={route === null && !extra ? "page" : undefined} className={clsx("hidden rounded-full px-3 py-1.5 text-caption font-semibold transition-colors sm:block", route === null && !extra ? "bg-paper/15 text-paper" : "text-paper/80 hover:bg-paper/10 hover:text-paper")}>
             {tt("Day", "Tag")} {meta.n}
           </Link>
         )}
@@ -45,6 +45,18 @@ export function TopBar() {
                     </Link>
                   </li>
                 ))}
+                {hasExtra(meta.n) && (
+                  <li>
+                    <Link
+                      href={extraHref(meta.n)}
+                      aria-current={extra ? "page" : undefined}
+                      className={clsx("flex items-center gap-1.5 rounded-full px-3 py-1.5 text-caption font-semibold transition-colors", extra ? "bg-gold text-ink" : "text-paper/80 hover:bg-paper/10 hover:text-paper")}
+                    >
+                      <span className="tnum">3</span>
+                      <span className="hidden md:inline">{tt("Extra", "Extra")}</span>
+                    </Link>
+                  </li>
+                )}
               </ol>
             </nav>
           )}

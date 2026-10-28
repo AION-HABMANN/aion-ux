@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { OriginalExtraPage } from "@/components/day/OriginalExtra";
 import { DayHome, DayRoute } from "@/components/day/DayPages";
 import { DAY_CONFIGS } from "@/components/day/dayConfigs";
 import { dayOf, originalHref, originalOf } from "@/data/course";
@@ -55,10 +56,11 @@ function DayPlaceholder({ n }: { n: number }) {
 }
 
 /** Picks the content of a day. A day that is not built yet shows its placeholder at the same address (CLAUDE.md #12). */
-export function DayView({ n, part }: { n: number; part: "home" | "route-1" | "route-2" }) {
+export function DayView({ n, part }: { n: number; part: "home" | "route-1" | "route-2" | "route-3" }) {
+  if (part === "route-3") return <OriginalExtraPage day={n} />;
   const cfg = DAY_CONFIGS[n];
   if (!cfg) return <DayPlaceholder n={n} />;
-  // Once a day of 9 to 16 is built here, its home still offers the original idea underneath.
-  const page = part === "route-1" ? <DayRoute cfg={cfg} route={1} /> : part === "route-2" ? <DayRoute cfg={cfg} route={2} /> : <><DayHome cfg={cfg} />{originalOf(n) && <div className="mt-8"><OriginalIdea n={n} /></div>}</>;
+  // A built day shows only the new version; its original idea lives on Route 3 · Extra (user request 2026-10-28).
+  const page = part === "route-1" ? <DayRoute cfg={cfg} route={1} /> : part === "route-2" ? <DayRoute cfg={cfg} route={2} /> : <DayHome cfg={cfg} />;
   return <DayProvider value={n}>{page}</DayProvider>;
 }

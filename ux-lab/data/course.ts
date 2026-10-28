@@ -98,8 +98,12 @@ export const routeHref = (day: number, route: RouteNo) => `/day/${day}/route-${r
 export const dayHref = (day: number) => `/day/${day}/`;
 
 /** The day and route a pathname points at, for the top bar and the mentor bar. */
-export function parsePath(pathname: string): { day: number | null; route: RouteNo | null } {
-  const m = pathname.match(/^\/day\/(\d+)(?:\/route-([12]))?/);
-  if (!m) return { day: null, route: null };
-  return { day: Number(m[1]), route: m[2] ? (Number(m[2]) as RouteNo) : null };
+export function parsePath(pathname: string): { day: number | null; route: RouteNo | null; extra: boolean } {
+  const m = pathname.match(/^\/day\/(\d+)(?:\/route-([123]))?/);
+  if (!m) return { day: null, route: null, extra: false };
+  const r = m[2] ? Number(m[2]) : null;
+  return { day: Number(m[1]), route: r === 1 || r === 2 ? (r as RouteNo) : null, extra: r === 3 };
 }
+/** Route 3 · Extra (user request 2026-10-28): the original idea of a day, on a route of its own, never on the day home or in Routes 1 and 2. */
+export const extraHref = (day: number) => `/day/${day}/route-3/`;
+export const hasExtra = (day: number) => originalExtras(day, 1).length + originalExtras(day, 2).length > 0;
