@@ -10,13 +10,14 @@ import { REFS_D7 } from "@/data/refs/day7";
 import { REFS_D8 } from "@/data/refs/day8";
 import { REFS_D9 } from "@/data/refs/day9";
 import { REFS_D10 } from "@/data/refs/day10";
+import { REFS_D11 } from "@/data/refs/day11";
 
 /**
  * The reference list of the course (CURRICULUM-GUIDE §4): every source a card cites by name is an entry here. A day keeps its sources in
  * `data/refs/dayN.ts` and adds them below; its cards cite the keys, and each Materi block's accordion lists the union of its cards' keys. The text after
  * the title says what the source is used for. Check every source and the current edition before teaching from it.
  */
-const RAW = { ...REFS_D1, ...REFS_D2, ...REFS_D3, ...REFS_D4, ...REFS_D5, ...REFS_D6, ...REFS_D7, ...REFS_D8, ...REFS_D9, ...REFS_D10 };
+const RAW = { ...REFS_D1, ...REFS_D2, ...REFS_D3, ...REFS_D4, ...REFS_D5, ...REFS_D6, ...REFS_D7, ...REFS_D8, ...REFS_D9, ...REFS_D10, ...REFS_D11 };
 
 export type RefKey = keyof typeof RAW;
 export type Reference = { key: RefKey; chip: string; full: string };

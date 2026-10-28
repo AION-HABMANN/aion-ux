@@ -88,7 +88,22 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  11: { name: t("CityHelp Voice"), what: t("A voice-assistant playground in six stops: meet CityHelp, six moments, six lenses, three ways, why your brain reacts, prove it works.") },
+  11: {
+    name: t("CityHelp Voice"),
+    what: t("A voice-assistant playground in six stops: meet CityHelp, six moments, six lenses, three ways, why your brain reacts, prove it works."),
+    extras: {
+      1: [
+        x("Meet CityHelp Voice: free play", "The first version's sandbox: talk to the assistant before anyone explains it, and note after each answer whether it helped or confused you.", "/day/11/original/meet-cityhelp/"),
+        x("Six moments, six lessons", "Six recorded dialogues to replay, where the assistant helps or wastes time, each with its lesson.", "/day/11/original/six-moments/"),
+        x("The six lenses", "The original vocabulary for judging a voice dialogue, with a sorting game on real lines.", "/day/11/original/six-lenses/"),
+        x("Why your brain reacts", "Demonstrations of cognitive load, predictability and relief, felt rather than described.", "/day/11/original/why-your-brain-reacts/"),
+      ],
+      2: [
+        x("Three ways to build it", "The same task in three interaction styles, side by side, with what each costs.", "/day/11/original/three-ways/"),
+        x("Prove it works", "Pick a prototype for a question, sort tests by risk, and decide where voice belongs.", "/day/11/original/prove-it-works/"),
+      ],
+    },
+  },
   12: { name: t("Accessibility Playground"), what: t("One page with thirteen widgets, a Training Ground and three cases on accessibility and neurodiversity.") },
   13: { name: t("Inclusive Design Patterns"), what: t("One page with the learning levels, a Training Ground and four cases.") },
   14: { name: t("Immersive Technologies"), what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer).") },
