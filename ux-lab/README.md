@@ -1,19 +1,47 @@
-# Neuro-UX Lab: AION UX Days 1 to 8 on the Digital Learning engine
+# Neuro-UX Lab: the AION UX class, Days 1 to 16
 
-The UX days 1 to 8 of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 still run in `../playground-ux`.
+The UX days of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 are here too, as their **original idea** (see below).
 
 **Status (2026-10-27):** Days 1, 2, 3, 4, 5, 6, 7, 8 are built and checked. All eight days are in.
+**Status (2026-10-28):** Days 9 to 16 moved in from `../playground-ux` as they were built, under `/day/N/original/`. Their lab versions are not built yet.
 
 ## Run and check
 
 ```bash
 npm install
-npm run dev            # http://localhost:3400
+npm run dev            # http://localhost:3400 (builds the original days' stylesheets first)
 npm run typecheck
 npm run verify:day1    # the day's shape, the missing lists, the model answers, the exports
 npm run verify:platforms
+npm run verify:original        # the original Days 9 to 16: pages, stylesheets, links, kept apart from the lab
+npm run verify:original-day9   # the original Day 9 against the plan (formerly verify:day9 in playground-ux)
 npm run build          # static export to out/
 ```
+
+After `npm run build`, delete `.next` before `npm run dev` again (the build and the dev server share the folder).
+
+## The original idea of Days 9 to 16
+
+Days 9 to 16 were first built as eight separate sites, then gathered in `../playground-ux`. They are kept here unchanged, so the first idea of each day stays reachable next to the lab version that will replace it.
+
+| Where | What |
+|---|---|
+| `/day/N/` (Days 9 to 16) | The lab's page of the day. Until the lab version is built it says so and opens the original idea; after that, the original idea stays as a section under the day's home (`OriginalIdea` in `components/day/DayView.tsx`). |
+| `/` | The course home: Days 9 to 16 carry an extra **Original idea** column. |
+| `/day/N/original/` | The day as it was first built, with its own look, its own saved answers and a slim bar back to the lab and to `/day/N/`. Day 15's pages are hash addresses (`/day/15/original/#/learn/foundations`). |
+| `data/course.ts` → `ORIGINALS` | Name and one-line description of each original idea. |
+| `app/(original-9-10)`, `app/(original-11)` … `app/(original-16)` | One route group with its **own root layout** per original day (Days 9 and 10 share Day 9's). The lab itself is `app/(lab)`. There is no `app/layout.tsx`. |
+| `original/components`, `original/data`, `original/lib`, `original/types` | The original code, as it was, with imports rewritten to `@/original/...`. The lab never imports it and it never imports the lab (`verify:original`). |
+| `original/tailwind/dayN.config.*`, `original/styles/dayN/globals.css` | Each original day's own Tailwind theme. `npm run build:css` (run before `dev` and `build`) compiles them to `public/css/dayN.css` (git-ignored), linked by the day's root layout. |
+| `public/day10`, `public/day14` | Day 10's companion page and worksheets, Day 14's 3D models. |
+
+**Why each original day keeps its own root layout and stylesheet.** The days were built with Tailwind themes that clash with each other and with the lab (`ink`, `card`, `sans`, `mono` and more mean different things), and Day 15 uses colour opacity that a shared variable cannot give. A route group per day keeps each look intact. The price: moving between the lab and an original day, or between two original days, is a full page load.
+
+**Kept as they were, so still not on the lab standard.** No two routes with the lab's export (except Day 9, which already has routes, tasks, model answers and an export of its own), no lab glossary or mentor bar, their own localStorage keys (nothing is shared with the lab's store). Day 15 loads its fonts from Google Fonts, the one place in this project that needs the network; Day 10's worksheets use real AI tools, not the plan's cases. These are the reasons to rebuild each day here, not reasons to change the originals.
+
+**Libraries added for the originals only:** three.js and `@google/model-viewer` (Day 14, `transpilePackages` in `next.config.mjs`), `react-router-dom` (Day 15), `framer-motion` (Day 15), `canvas-confetti` (Day 9 capstone), `lucide-react` (Day 9 icons). Zustand stays at the lab's 4.5.4; the original Day 9 store (written for 5) runs on it unchanged.
+
+**When a day of 9 to 16 is rebuilt here:** build it like Days 1 to 8 under `/day/N/` (its own `components/dayN`, `data/dayN`), leave `/day/N/original/` and its entry in `ORIGINALS` in place.
 
 The mentor bar (top of every page) fills every model answer of a day with the passcode in `lib/mentorKey.ts`, so both documents can be exported at once.
 

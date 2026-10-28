@@ -6,6 +6,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const nextConfig = {
   reactStrictMode: true,
 
+  // The original Day 14 ships a web component that needs transpiling.
+  transpilePackages: ["@google/model-viewer"],
+
   // A plain static site: the host needs no Next.js runtime, and once loaded the
   // site works offline (no external fonts, CDNs or fetches).
   output: "export",

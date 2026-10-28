@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img">
+<title>Static view of the retail counter appliance</title>
+<rect width="720" height="480" fill="#F7F6FB"/>
+<ellipse cx="360" cy="404" rx="196" ry="26" fill="#DEDAEB"/>
+<g>
+  <rect x="266" y="378" width="188" height="22" rx="5" fill="#3D3A45"/>
+  <rect x="284" y="182" width="152" height="196" rx="8" fill="#D3D0DA"/>
+  <rect x="278" y="160" width="164" height="26" rx="6" fill="#6B6584"/>
+  <rect x="326" y="248" width="68" height="38" rx="4" fill="#231A45"/>
+  <rect x="348" y="300" width="24" height="52" rx="8" fill="#A8A5B4"/>
+  <circle cx="416" cy="300" r="14" fill="#8D8A9B"/>
+</g>
+</svg>

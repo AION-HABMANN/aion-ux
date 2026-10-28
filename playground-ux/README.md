@@ -1,5 +1,7 @@
 # AION UX playground
 
+> **Parked (2026-10-28).** Days 9 to 16 now run inside `../ux-lab` as their *original idea* (`/day/N/original/`), together with Days 1 to 8. This folder is kept for reference only; see `../ux-lab/README.md`, "The original idea of Days 9 to 16".
+
 One Next.js project for the whole AION UX class (psychological UX and neuro-design, 16 days in 8 modules). It is built the way `../../aion-digital-learning/playground-dl` is built for Digital Learning, and follows `../UX-STANDARD.md`.
 
 **Status (2026-10-25): Days 9 to 16 run in this project; Day 9 is upgraded (see below), Days 10 to 16 are moved as they were built. Days 1 to 8 are placeholders. Nothing is pushed; this folder is not a git repository of its own yet.**

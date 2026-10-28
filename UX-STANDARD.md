@@ -169,7 +169,7 @@ The minutes of the other days are not decided; the hour per route is DL's figure
 
 ## 3. Status of the eight existing days against this draft
 
-Days 9 to 16 run in `playground-ux/` as they were built (moved, not upgraded); each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
+**Since 2026-10-28 Days 9 to 16 run inside `ux-lab/`** as their *original idea*, at `/day/N/original/` (code in `ux-lab/original/` and `ux-lab/app/(original-*)`, moved from `playground-ux/` without content changes; `verify:original` and `verify:original-day9` check them). The lab's own page for each of these days (`/day/N/`) says that the lab version is not built yet and opens the original idea; once a day is rebuilt to this standard, its original idea stays reachable under the day's home (it is not deleted). `playground-ux/` is parked. Each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
 
 `old` = still its previous form · `n/a` = not applicable. Filled from the audit; nothing is migrated yet.
 
@@ -214,6 +214,7 @@ Days 9 to 16 run in `playground-ux/` as they were built (moved, not upgraded); e
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-28 | Asked by the user: Days 9 to 16 merged from `playground-ux` into `ux-lab` as the *original idea* of each day (`/day/N/original/`, own route group, root layout and stylesheet per day, links rewritten, no content changed). The lab home shows an extra "Original idea" column on Days 9 to 16; the lab day page opens it, and keeps doing so after the day is rebuilt. Typecheck, all verify scripts, the build (static export) and a page-by-page check in the browser are clean; `playground-ux` is parked | Days 9 to 16 |
 | 2026-10-26 | Day 2 built in `ux-lab/` to the DL standard (CityDesk, EduFlex, CampusNow); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 2 |
 | 2026-10-26 | Day 3 built in `ux-lab/` to the DL standard (TravelEase, HealthConnect, SecureLife); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 3 |
 | 2026-10-26 | Day 4 built in `ux-lab/` to the DL standard (ServicePoint, WorkFlow Hub, MyEnergy); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 4 |

@@ -7,7 +7,8 @@ import type { Config } from "tailwindcss";
  * one also carries a label, a glyph or a pattern.
  */
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}", "./data/**/*.{ts,tsx}"],
+  // The lab only. The original Days 9 to 16 (app/(original-*), original/) build their own stylesheets (original/scripts/build-day-css.mjs).
+  content: ["./app/(lab)/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}", "./data/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {

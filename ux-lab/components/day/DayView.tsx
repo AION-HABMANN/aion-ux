@@ -3,11 +3,33 @@
 import Link from "next/link";
 import { DayHome, DayRoute } from "@/components/day/DayPages";
 import { DAY_CONFIGS } from "@/components/day/dayConfigs";
-import { dayOf } from "@/data/course";
+import { dayOf, originalHref, originalOf } from "@/data/course";
 import { DayProvider } from "@/lib/dayContext";
 import { tt } from "@/lib/lang";
 
-/** A day that is not built yet keeps its place and its address (CLAUDE.md #12). Days 9 to 16 still run in the older `playground-ux` project. */
+/** The original idea of a day (Days 9 to 16), as it was first built: kept reachable next to the lab version. */
+export function OriginalIdea({ n }: { n: number }) {
+  const orig = originalOf(n);
+  if (!orig) return null;
+  return (
+    <section aria-labelledby="orig-h" className="card space-y-2 border-l-4 border-l-signal p-5">
+      <p className="smallcaps text-signal">{tt("Original idea", "Ursprüngliche Idee")}</p>
+      <h2 id="orig-h" className="text-h2">{orig.name}</h2>
+      <p className="max-w-prose text-body text-ash">{orig.what}</p>
+      <p className="max-w-prose text-caption text-ash">
+        {tt(
+          "Kept as it was first built, with its own look and its own saved answers. It is not on the lab standard yet. Opening it loads a separate page; its top bar leads back here.",
+          "So erhalten, wie es zuerst gebaut wurde, mit eigenem Aussehen und eigenen gespeicherten Antworten. Es folgt noch nicht dem Lab-Standard. Es öffnet sich als eigene Seite; die obere Leiste führt hierher zurück.",
+        )}
+      </p>
+      <Link href={originalHref(n)} className="btn-primary inline-block">
+        {tt("Open the original idea", "Die ursprüngliche Idee öffnen")}
+      </Link>
+    </section>
+  );
+}
+
+/** A day that is not built yet keeps its place and its address (CLAUDE.md #12). Days 9 to 16 show their original idea here. */
 function DayPlaceholder({ n }: { n: number }) {
   const meta = dayOf(n);
   return (
@@ -21,12 +43,13 @@ function DayPlaceholder({ n }: { n: number }) {
         <p className="text-body">
           {n <= 8
             ? tt("This day is planned and is being built to the Digital Learning standard. It will open here with its two routes.", "Dieser Tag ist geplant und wird nach dem Digital-Learning-Standard gebaut. Er öffnet sich hier mit seinen zwei Routen.")
-            : tt("Days 9 to 16 still run in the older playground-ux project, as they were built. They move here one at a time when they are rebuilt to this standard.", "Die Tage 9 bis 16 laufen noch im älteren Projekt playground-ux, so wie sie gebaut wurden. Sie ziehen einzeln hierher, wenn sie nach diesem Standard neu gebaut werden.")}
+            : tt("The lab version of this day, with its two routes and two documents, is not built yet. Until it is, the original idea below is the day to work with.", "Die Lab-Fassung dieses Tages mit zwei Routen und zwei Dokumenten ist noch nicht gebaut. Bis dahin ist die ursprüngliche Idee unten der Tag, mit dem gearbeitet wird.")}
         </p>
         <Link href="/" className="font-semibold text-accent underline decoration-dotted underline-offset-2">
           {tt("Back to all days", "Zurück zu allen Tagen")}
         </Link>
       </section>
+      <OriginalIdea n={n} />
     </div>
   );
 }
@@ -35,6 +58,7 @@ function DayPlaceholder({ n }: { n: number }) {
 export function DayView({ n, part }: { n: number; part: "home" | "route-1" | "route-2" }) {
   const cfg = DAY_CONFIGS[n];
   if (!cfg) return <DayPlaceholder n={n} />;
-  const page = part === "route-1" ? <DayRoute cfg={cfg} route={1} /> : part === "route-2" ? <DayRoute cfg={cfg} route={2} /> : <DayHome cfg={cfg} />;
+  // Once a day of 9 to 16 is built here, its home still offers the original idea underneath.
+  const page = part === "route-1" ? <DayRoute cfg={cfg} route={1} /> : part === "route-2" ? <DayRoute cfg={cfg} route={2} /> : <><DayHome cfg={cfg} />{originalOf(n) && <div className="mt-8"><OriginalIdea n={n} /></div>}</>;
   return <DayProvider value={n}>{page}</DayProvider>;
 }
