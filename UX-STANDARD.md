@@ -214,6 +214,7 @@ The minutes of the other days are not decided; the hour per route is DL's figure
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-28 | Accessibility faults in the original Days 11 to 16 fixed (contrast, names that leave out the visible text, tab structure, target size; list in `ux-lab/README.md`); the intended low-contrast lesson and case examples of Days 12 and 13 stay. Deployed to https://aion-ux-lab.vercel.app | Days 11 to 16 |
 | 2026-10-28 | Asked by the user: Days 9 to 16 merged from `playground-ux` into `ux-lab` as the *original idea* of each day (`/day/N/original/`, own route group, root layout and stylesheet per day, links rewritten, no content changed). The lab home shows an extra "Original idea" column on Days 9 to 16; the lab day page opens it, and keeps doing so after the day is rebuilt. Typecheck, all verify scripts, the build (static export) and a page-by-page check in the browser are clean; `playground-ux` is parked | Days 9 to 16 |
 | 2026-10-26 | Day 2 built in `ux-lab/` to the DL standard (CityDesk, EduFlex, CampusNow); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 2 |
 | 2026-10-26 | Day 3 built in `ux-lab/` to the DL standard (TravelEase, HealthConnect, SecureLife); verify, platforms, typecheck and axe clean; linked from `playground-ux` | Day 3 |

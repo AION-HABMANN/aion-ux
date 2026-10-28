@@ -19,7 +19,7 @@ export function CategoryChip({
       <span aria-hidden="true">{c.icon}</span>
       {c.label}
       {showGerman && (
-        <span className="font-normal opacity-70">({c.de})</span>
+        <span className="font-normal">({c.de})</span>
       )}
     </span>
   );

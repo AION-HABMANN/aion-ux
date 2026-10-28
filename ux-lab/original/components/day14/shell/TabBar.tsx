@@ -19,7 +19,7 @@ export function TabBar({
           {TABS.map((tab) => {
             const isActive = tab.id === active;
             return (
-              <li key={tab.id} className="shrink-0">
+              <li key={tab.id} className="shrink-0" role="presentation">
                 <button
                   type="button"
                   role="tab"

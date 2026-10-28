@@ -47,7 +47,6 @@ export function PersonaCards({ userNamed }: { userNamed: boolean }) {
           <li key={persona.id}>
             <button
               type="button"
-              aria-label={`Open persona: ${persona.name}, ${persona.role}`}
               onClick={() => setOpen(persona.id)}
               className="aion-card h-full w-full p-2 text-left transition-colors hover:border-purple hover:bg-lilac"
             >

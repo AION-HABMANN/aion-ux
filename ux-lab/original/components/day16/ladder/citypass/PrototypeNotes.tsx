@@ -18,7 +18,7 @@ export function PrototypeNotes({ screen }: { screen: string }) {
     <>
       <button
         type="button"
-        aria-label={`Open prototype notes for screen ${spec.screen}: ${spec.title}`}
+        aria-label={`Prototype notes for this screen (screen ${spec.screen}: ${spec.title})`}
         className="text-small text-purple underline underline-offset-2"
         onClick={() => setOpen(true)}
       >

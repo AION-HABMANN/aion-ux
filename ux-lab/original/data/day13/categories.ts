@@ -69,7 +69,8 @@ export const CATEGORIES: Category[] = [
     id: 'task-clarity',
     label: 'Task Clarity',
     de: 'Aufgabenklarheit / Aufgabenstruktur',
-    chip: { bg: '#1E8E5A', fg: '#FFFFFF', border: '#1E8E5A' },
+    // #1C8555, not the first #1E8E5A: white on it is 4.6:1 (was 4.1:1).
+    chip: { bg: '#1C8555', fg: '#FFFFFF', border: '#1C8555' },
     definition:
       'Whether it is obvious what to do next, in what order, and how long it will take.',
   },

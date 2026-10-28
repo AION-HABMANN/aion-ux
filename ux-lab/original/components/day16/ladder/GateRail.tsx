@@ -76,7 +76,6 @@ export function GateRail({
                 <div className="min-w-0 flex-1">
                   <button
                     type="button"
-                    aria-label={`Open details: ${gate.name}`}
                     onClick={() => setOpenCard(gate.id)}
                     className="text-left text-body text-navy underline decoration-hairline underline-offset-2 hover:decoration-purple"
                   >

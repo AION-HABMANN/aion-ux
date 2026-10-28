@@ -24,7 +24,8 @@ function LevelIndicator() {
         <motion.span
           key={l}
           animate={{
-            opacity: isOn(l) ? 1 : 0.32,
+            // 0.8, not the first 0.32: the muted label must keep 4.5:1 on the deep background; the off state still reads as grey against the coloured on state.
+            opacity: isOn(l) ? 1 : 0.8,
             scale: isLead(l) && !reduced ? 1.06 : 1,
           }}
           transition={SPRING}

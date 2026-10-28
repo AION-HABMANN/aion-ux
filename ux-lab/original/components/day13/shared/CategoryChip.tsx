@@ -30,7 +30,7 @@ export function CategoryChip({
     >
       {category.label}
       {withGerman && (
-        <span className="ml-1 font-normal opacity-90">[{category.de}]</span>
+        <span className="ml-1 font-normal">[{category.de}]</span>
       )}
     </span>
   );

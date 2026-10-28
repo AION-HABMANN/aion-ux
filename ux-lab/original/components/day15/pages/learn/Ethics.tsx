@@ -171,7 +171,7 @@ function ConsentLadder({ onOrdered }: { onOrdered: () => void }) {
                       onClick={() => move(i, -1)}
                       disabled={i === 0}
                       aria-label={`Move "${r.short}" up to position ${i}`}
-                      className="rounded px-1 text-[10px] leading-none text-muted transition-colors hover:text-ink disabled:opacity-25"
+                      className="inline-flex h-6 w-6 items-center justify-center rounded text-[10px] leading-none text-muted transition-colors hover:text-ink disabled:opacity-25"
                     >
                       ▲
                     </button>
@@ -180,7 +180,7 @@ function ConsentLadder({ onOrdered }: { onOrdered: () => void }) {
                       onClick={() => move(i, 1)}
                       disabled={i === order.length - 1}
                       aria-label={`Move "${r.short}" down to position ${i + 2}`}
-                      className="rounded px-1 text-[10px] leading-none text-muted transition-colors hover:text-ink disabled:opacity-25"
+                      className="inline-flex h-6 w-6 items-center justify-center rounded text-[10px] leading-none text-muted transition-colors hover:text-ink disabled:opacity-25"
                     >
                       ▼
                     </button>

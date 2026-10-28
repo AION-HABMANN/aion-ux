@@ -5,6 +5,8 @@ The UX days of the AION course, built the way `../../aion-digital-learning/playg
 **Status (2026-10-27):** Days 1, 2, 3, 4, 5, 6, 7, 8 are built and checked. All eight days are in.
 **Status (2026-10-28):** Days 9 to 16 moved in from `../playground-ux` as they were built, under `/day/N/original/`. Their lab versions are not built yet.
 
+**Live: https://aion-ux-lab.vercel.app** (Vercel project `aion-ux-lab`, root directory `ux-lab`, connected to `AION-HABMANN/aion-ux`: a push to `main` deploys to production). For example: [the course home](https://aion-ux-lab.vercel.app/), [Day 1](https://aion-ux-lab.vercel.app/day/1/), [Day 9's original idea](https://aion-ux-lab.vercel.app/day/9/original/), [Day 16's original idea](https://aion-ux-lab.vercel.app/day/16/original/).
+
 ## Run and check
 
 ```bash
@@ -38,6 +40,20 @@ Days 9 to 16 were first built as eight separate sites, then gathered in `../play
 **Why each original day keeps its own root layout and stylesheet.** The days were built with Tailwind themes that clash with each other and with the lab (`ink`, `card`, `sans`, `mono` and more mean different things), and Day 15 uses colour opacity that a shared variable cannot give. A route group per day keeps each look intact. The price: moving between the lab and an original day, or between two original days, is a full page load.
 
 **Kept as they were, so still not on the lab standard.** No two routes with the lab's export (except Day 9, which already has routes, tasks, model answers and an export of its own), no lab glossary or mentor bar, their own localStorage keys (nothing is shared with the lab's store). Day 15 loads its fonts from Google Fonts, the one place in this project that needs the network; Day 10's worksheets use real AI tools, not the plan's cases. These are the reasons to rebuild each day here, not reasons to change the originals.
+
+**Accessibility fixes made on the move (2026-10-28).** An axe pass (WCAG 2.0 to 2.2, A and AA) over every original page, every Day 15 hash route and every tab of Days 12, 13, 14 and 16 found real faults; they are fixed without changing what a day teaches or looks like:
+
+| Day | Fault | Fix |
+|---|---|---|
+| 11, 12, 14 | Secondary text in navy at 25 to 65 % opacity, below 4.5:1 | `text-navy/25` … `/65` drawn at 68 % (an override at the end of the day's `globals.css`) |
+| 11 | "Speak" button named "Dictate…"; a label on a plain span; risk quadrants named apart from their text | name starts with the visible word; screen-reader text in `sr-only` spans |
+| 12 | German sub-labels of the category chips at 70 % opacity | full colour |
+| 13 | White on the green category chip (4.1:1); German sub-labels at 90 % opacity | green `#1C8555`; full colour |
+| 14 | Tab bar: `li` between `tablist` and `tab` | `role="presentation"` on the `li` |
+| 15 | Off level badges L1 to L3 at 32 % opacity (1.7:1); ▲▼ reorder buttons under 24 px; drag cards named apart from their text | 80 % opacity; 24 × 24 px targets; the card's text is its name |
+| 16 | Amber `#B26B00` (4.2:1); buttons whose label left out their visible text | `#A76500`; label = visible text, extra notes in `sr-only` |
+
+**Left as they are on purpose:** the low-contrast examples that are the subject of a lesson or a case: Day 12's "small print" demo, its Training Ground club page and the PublicAccess portal, and Day 13's LifeGuide, StudyPath and Training Ground surfaces (blinking badges, loud accents). The learner is meant to find those barriers. After the fixes every other original page, the lab home and the lab day pages show 0 axe violations. Not done: a keyboard-only pass, zoom to 200 and 400 %, a screen-reader pass.
 
 **Libraries added for the originals only:** three.js and `@google/model-viewer` (Day 14, `transpilePackages` in `next.config.mjs`), `react-router-dom` (Day 15), `framer-motion` (Day 15), `canvas-confetti` (Day 9 capstone), `lucide-react` (Day 9 icons). Zustand stays at the lab's 4.5.4; the original Day 9 store (written for 5) runs on it unchanged.
 

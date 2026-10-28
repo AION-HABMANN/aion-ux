@@ -70,7 +70,7 @@ export default function MicButton({
       type="button"
       onClick={toggle}
       aria-pressed={listening}
-      aria-label={listening ? "Stop dictating" : "Dictate instead of typing (optional)"}
+      aria-label={listening ? "Listening… stop dictating" : "Speak: dictate instead of typing (optional)"}
       title="Optional — typing works just as well"
       className={`aion-btn-ghost shrink-0 px-3 ${listening ? "border-purple text-purple" : ""}`}
     >

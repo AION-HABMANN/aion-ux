@@ -39,8 +39,8 @@ export function useAssign(onAssign: (itemId: string, zoneId: string) => void) {
       draggable: true,
       tabIndex: 0,
       role: 'button' as const,
+      // No aria-label: the card's visible text is its name (WCAG 2.5.3); the pressed state and AssignLive say what happens.
       'aria-pressed': selected === id,
-      'aria-label': `${label}. ${selected === id ? 'Picked up — choose a target.' : 'Press Enter to pick up.'}`,
       onDragStart: (e: DragEvent) => {
         e.dataTransfer.setData('text/plain', id)
         e.dataTransfer.effectAllowed = 'move'

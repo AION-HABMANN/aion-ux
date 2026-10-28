@@ -111,3 +111,11 @@ model-viewer {
     animation-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Contrast fix (2026-10-28, when the day moved into the Neuro-UX Lab): secondary text in navy below 68 % opacity fell under
+ * 4.5:1 on white and lilac (axe color-contrast). Same hue, darkened just enough; outside @layer so it wins over the utilities.
+ */
+.text-navy\/25, .text-navy\/35, .text-navy\/40, .text-navy\/45, .text-navy\/50, .text-navy\/55, .text-navy\/60, .text-navy\/65 {
+  color: rgb(35 26 69 / 0.68);
+}

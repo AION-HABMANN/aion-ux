@@ -99,7 +99,6 @@ export function WireframeSet() {
             <li key={annotation.id}>
               <button
                 type="button"
-                aria-label={`Open wireframe annotation: frame ${annotation.frame}, ${annotation.title}`}
                 onClick={() => setOpen(annotation.id)}
                 className="aion-card h-full w-full p-2 text-left transition-colors hover:border-purple hover:bg-lilac"
               >

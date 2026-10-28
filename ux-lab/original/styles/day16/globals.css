@@ -10,7 +10,7 @@
   --muted: #6b6785;
   --hairline: #e4e1ee;
   --ok: #1e7a4d;
-  --warn: #b26b00;
+  --warn: #a76500; /* was #b26b00 (4.2:1 on white); now 4.7:1 */
   --bad: #b02a37;
 }
 

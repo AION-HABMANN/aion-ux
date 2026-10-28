@@ -26,10 +26,11 @@ function DeadElement({
     <button
       type="button"
       onClick={onDead}
-      aria-label={`${label} — no behaviour exists at this stage`}
       className={`w-full rounded-chip border border-transparent text-left transition-colors hover:border-hairline hover:bg-lilac ${className}`}
     >
       {children}
+      {/* The visible text stays the button's name (WCAG 2.5.3); the note follows it for screen readers. */}
+      <span className="sr-only"> ({label}: no behaviour exists at this stage)</span>
     </button>
   );
 }

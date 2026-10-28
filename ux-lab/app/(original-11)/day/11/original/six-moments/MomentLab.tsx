@@ -37,8 +37,9 @@ export default function MomentLab() {
               <span className="font-semibold">{m.id}</span>
               <span className="ml-1.5 hidden sm:inline">{m.title}</span>
               {seen.includes(m.id) && !isActive && (
-                <span className="ml-1.5 text-purple" aria-label="already viewed">
-                  ·
+                <span className="ml-1.5 text-purple">
+                  <span aria-hidden="true">·</span>
+                  <span className="sr-only">already viewed</span>
                 </span>
               )}
             </button>

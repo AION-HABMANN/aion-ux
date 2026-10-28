@@ -11,7 +11,7 @@ const config: Config = {
         muted: "#6B6785",
         hairline: "#E4E1EE",
         ok: "#1E7A4D",
-        warn: "#B26B00",
+        warn: "#A76500", // was #B26B00 (4.2:1 on white); now 4.7:1
         bad: "#B02A37",
       },
       fontFamily: {

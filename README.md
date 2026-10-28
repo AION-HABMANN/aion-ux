@@ -4,6 +4,8 @@ The working folder for the AION UX course material, built the way `../aion-digit
 
 **Status (2026-10-25): the skeleton exists.** `playground-ux/` is one Next.js project with Day 9 as the reference day; Days 9 to 16 run there as they were built (not upgraded), Days 1 to 8 are placeholders. `legacy/` keeps the source copies for the upgrade. All nine decisions in `UX-STANDARD.md` section 4 are decided. Nothing here has been pushed.
 
+**Live: https://aion-ux-lab.vercel.app** (deployed from `ux-lab/` by Vercel on every push to `main`).
+
 **New (2026-10-28): `ux-lab/` holds all sixteen days.** Days 9 to 16 moved in from `playground-ux/` as their *original idea* (`/day/N/original/`, an extra column on the lab home); their lab versions are still to be built. `playground-ux/` is parked and no longer needed to run anything.
 
 **New (2026-10-26): [`ux-lab/`](ux-lab) holds Days 1 to 8.** The user chose to build Days 1 to 8 on Digital Learning's own engine, to its writing standard, with two routes and Materi apart from the tasks (`UX-STANDARD.md` 2.13). **Status (2026-10-27): Days 1 to 8 are built and checked** (verify, platforms, typecheck, axe, and `npm run build` in both projects). The lean `day1/` project is retired (in git history). `playground-ux/` (Days 9 to 16) is parked and links each built day to the lab.

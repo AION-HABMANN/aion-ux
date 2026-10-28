@@ -73,10 +73,10 @@ export default function RiskSorter() {
                 onClick={() => placeIn(cell.key)}
                 disabled={!selected}
                 className="w-full text-left disabled:cursor-default"
-                aria-label={`Place the selected use case in ${cell.title}`}
               >
                 <p className="text-sm font-semibold text-navy">{cell.title}</p>
                 <p className="text-xs text-navy/60">{cell.sub}</p>
+                <span className="sr-only">: place the selected use case here</span>
               </button>
 
               <ul className="mt-3 space-y-1.5">
