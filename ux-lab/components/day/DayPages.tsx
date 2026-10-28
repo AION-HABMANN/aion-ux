@@ -39,6 +39,8 @@ export type DayConfig = {
   routeCard: (route: RouteNo) => RoutePlan;
   railSections: (route: RouteNo) => RailSection[];
   pageNav: (route: RouteNo) => NavGroup[];
+  /** An optional layer at the top of each route where the day practises its topic (UX-STANDARD 2.15). */
+  experience?: (route: RouteNo) => React.ReactNode;
   MateriA: ComponentType;
   MateriB: ComponentType;
   Task1: ComponentType;
@@ -213,6 +215,7 @@ export function DayRoute({ cfg, route }: { cfg: DayConfig; route: RouteNo }) {
       <SuggestedOrderBanner routeKey={`d${cfg.n}r${route}`} text={h.order} />
       <SectionRail route={route} sections={cfg.railSections(route)} done={pr.done} total={pr.total} />
       <PageNav route={route} groups={cfg.pageNav(route)} readCards={pr.readCards} blocks={pr.blocks} />
+      {cfg.experience?.(route)}
       <Materi />
       <Task />
       <OriginalExtra day={cfg.n} route={route} />

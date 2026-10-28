@@ -92,6 +92,7 @@ export function makeFreeConfig(spec: FreeSpec, kit: FreeKit, mats: DayMaterials)
     routeCard,
     railSections,
     pageNav,
+    experience: kit.experience,
     MateriA: kit.MateriA,
     MateriB: kit.MateriB,
     Task1: () => <FreeTask1 spec={spec} kit={kit} />,

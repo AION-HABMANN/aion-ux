@@ -199,6 +199,8 @@ export type FreeKit = {
   MateriA: ComponentType;
   MateriB: ComponentType;
   slots: Record<string, () => ReactNode>;
+  /** The day practises what it teaches (UX-STANDARD 2.15): an optional layer at the top of each route, for a day whose topic can be experienced. */
+  experience?: (route: 1 | 2) => ReactNode;
 };
 
 /** A day writes its spec with `t(en, de)` and wraps it here, so every string is the text of the active language at read time (CLAUDE.md #32). */

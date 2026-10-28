@@ -4,6 +4,7 @@ import { useId } from "react";
 import { MateriA, MateriB } from "@/components/day9/Materi";
 import { JourneySim, MoveWellSim, ShotOf, SkillRiseSim } from "@/components/day9/sims";
 import { ObserveDay9 } from "@/components/day9/observe";
+import { Day9Experience } from "@/components/day9/Experience";
 import { Diagram } from "@/components/materi/kit";
 import { DeskSim, Sheet } from "@/components/sim/DeskSim";
 import { Fit } from "@/components/sim/Fit";
@@ -215,6 +216,7 @@ function Desk() {
 export const KIT: FreeKit = {
   MateriA,
   MateriB,
+  experience: (route) => <Day9Experience route={route} />,
   slots: {
     skillrise: () => <SkillRise />,
     designs: () => <Designs />,
