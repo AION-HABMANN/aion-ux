@@ -1,5 +1,5 @@
 /**
- * Verification of the UX days (ported from Digital Learning, DL-STANDARD v1.8): run with `npm run verify:day1` (to day8), or `npm run verify:free`
+ * Verification of the UX days (ported from Digital Learning, DL-STANDARD v1.8): run with `npm run verify:day1` (to day9), or `npm run verify:free`
  * for all of them. For each day and each language it checks that the model answers empty every missing list and complete every block, that a list or an
  * assessment counts in the layout the learner chose (a box each or a table) and only in that one, that a different but reasoned choice still exports, that no
  * block is Optional and no cost or budget figure is printed, that the exports carry the learner's own answers, and that an old saved shape loads. It needs no browser.
@@ -20,7 +20,7 @@ import type { Persisted } from "../store/useStore";
 
 const SPECS: Record<number, FreeSpec> = FREE_SPECS;
 /** The money figures the plan itself prints for a day (UX-STANDARD: a figure appears only where the plan prints it, and only in the brief). */
-const PLAN_FIGURES: Record<number, string[]> = { 1: ["€180,000"], 2: ["€150,000"], 3: ["€130,000"], 4: ["€160,000"], 5: ["€140,000"], 6: ["€170,000"], 7: ["€145,000"], 8: ["€155,000"] };
+const PLAN_FIGURES: Record<number, string[]> = { 1: ["€180,000"], 2: ["€150,000"], 3: ["€130,000"], 4: ["€160,000"], 5: ["€140,000"], 6: ["€170,000"], 7: ["€145,000"], 8: ["€155,000"], 9: ["€150,000"] };
 const want = process.argv[2] ? [Number(process.argv[2])] : FREE_DAYS;
 
 let failed = 0;
@@ -71,7 +71,10 @@ for (const day of want) {
     const refTargets = f1.concat(f2).flatMap((f) => f.refs ?? []).map((r) => r.target);
     const badRefs = refTargets.filter((tg) => /-field$/.test(tg) && !domIds.has(tg.replace(/-field$/, "")));
     ok(badRefs.length === 0, "every reference to an earlier answer points at a field that exists" + (badRefs.length ? ": " + badRefs.join(", ") : ""));
-    const planCards = spec.cards.filter((c) => c.after !== "brief1" && c.after !== "brief2");
+    // reference-platform cards (DL-STANDARD section 16) are counted apart from the plan's coaching and feedback cards
+    const planCards = spec.cards.filter((c) => c.after !== "brief1" && c.after !== "brief2" && !c.id.startsWith("ref-card"));
+    const refCards = spec.cards.filter((c) => c.id.startsWith("ref-card"));
+    if (refCards.length) ok(refCards.every((c) => c.sections.length === 2 && c.sections[0].items!.length >= 3 && (c.after === "2.1" || c.after === "3.1")), "reference-platform cards sit under 2.1 or 3.1 with the analysis and the discussion prompts");
     ok(planCards.length === 2 && planCards.every((c) => c.sections.length >= 2), "two hidden facilitator cards (coaching and feedback round)");
     // DL-STANDARD section 14: each case brief names what is known and what is open, and a hidden card holds the standard answers
     for (const [n, b] of [["brief1", spec.brief1], ["brief2", spec.brief2]] as const) {

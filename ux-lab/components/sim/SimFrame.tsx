@@ -48,7 +48,7 @@ export function SimButton({ label, sub, url, title, note, children }: { label: s
   );
 }
 
-function SimDialog({ url, title, note, onClose, children }: { url: string; title: string; note?: string; onClose: () => void; children: () => ReactNode }) {
+export function SimDialog({ url, title, note, onClose, children }: { url: string; title: string; note?: string; onClose: () => void; children: () => ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [run, setRun] = useState(0);

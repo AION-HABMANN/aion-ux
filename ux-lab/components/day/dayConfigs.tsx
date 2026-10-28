@@ -16,6 +16,8 @@ import { KIT as KIT7 } from "@/components/day7/Free";
 import { SPEC as SPEC7 } from "@/data/day7/free";
 import { KIT as KIT8 } from "@/components/day8/Free";
 import { SPEC as SPEC8 } from "@/data/day8/free";
+import { KIT as KIT9 } from "@/components/day9/Free";
+import { SPEC as SPEC9 } from "@/data/day9/free";
 import { materialsOf } from "@/data/materialRegistry";
 
 /** What each built day hands to the shared page frames (components/day/DayPages.tsx). Every day is a free-form day, built the same way (DL-STANDARD v1.8). */
@@ -28,4 +30,5 @@ export const DAY_CONFIGS: Record<number, DayConfig> = {
   6: makeFreeConfig(SPEC6, KIT6, materialsOf(6)),
   7: makeFreeConfig(SPEC7, KIT7, materialsOf(7)),
   8: makeFreeConfig(SPEC8, KIT8, materialsOf(8)),
+  9: makeFreeConfig(SPEC9, KIT9, materialsOf(9)),
 };

@@ -6,6 +6,7 @@ import { HashFlash } from "@/components/chrome/HashFlash";
 import { PageNav } from "@/components/chrome/PageNav";
 import type { NavGroup } from "@/components/chrome/PageNav";
 import { SectionRail } from "@/components/chrome/SectionRail";
+import { OriginalExtra } from "@/components/day/OriginalExtra";
 import { SuggestedOrderBanner } from "@/components/ui/Banner";
 import { ResetRoute } from "@/components/ui/ResetRoute";
 import type { RailSection } from "@/data/materialTypes";
@@ -214,6 +215,7 @@ export function DayRoute({ cfg, route }: { cfg: DayConfig; route: RouteNo }) {
       <PageNav route={route} groups={cfg.pageNav(route)} readCards={pr.readCards} blocks={pr.blocks} />
       <Materi />
       <Task />
+      <OriginalExtra day={cfg.n} route={route} />
       <ResetRoute day={cfg.n} route={route} />
     </div>
   );

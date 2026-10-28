@@ -11,7 +11,7 @@ import type { RouteNo } from "@/data/course";
 import { materialsOf } from "@/data/materialRegistry";
 
 /**
- * One persisted store for the whole course (one Next.js project, Days 1 to 8), as in Digital Learning (CLAUDE.md #9): one slice per day (`d1` … `d8`), each
+ * One persisted store for the whole course (one Next.js project, Days 1 to 9), as in Digital Learning (CLAUDE.md #9): one slice per day (`d1` … `d9`), each
  * holding its two routes (`r1`, `r2`) in the free-form shape (store/dayTypesFree.ts). A change to the persisted shape bumps `version`, adds a step to
  * `migratePersisted` and is covered by the deep `merge`. Nothing leaves the browser.
  */
@@ -21,7 +21,7 @@ export const PERSIST_VERSION = 1;
 /** 0 means not chosen yet; 1 Low, 2 Mid, 3 High. */
 export type Score = 0 | 1 | 2 | 3;
 
-export const UX_DAYS = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+export const UX_DAYS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 type DayKey = `d${(typeof UX_DAYS)[number]}`;
 
 export type Persisted = {

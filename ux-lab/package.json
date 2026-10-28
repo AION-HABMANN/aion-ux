@@ -19,6 +19,7 @@
     "verify:day6": "tsx scripts/verify-free.ts 6",
     "verify:day7": "tsx scripts/verify-free.ts 7",
     "verify:day8": "tsx scripts/verify-free.ts 8",
+    "verify:day9": "tsx scripts/verify-free.ts 9",
     "verify:platforms": "tsx scripts/verify-platforms.ts",
     "verify:original": "node original/scripts/verify-original.mjs",
     "verify:original-day9": "node original/scripts/verify-day9.mjs",

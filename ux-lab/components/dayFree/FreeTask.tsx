@@ -467,6 +467,11 @@ export function FreeTask2({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
       <CaseBrief spec={spec} route={2} />
       <CaseCards spec={spec} after="brief2" />
       <BlockView ctx={ctx} b={spec.block2} missing={missing} />
+      {spec.cards
+        .filter((c) => c.after === spec.block2.id)
+        .map((c) => (
+          <FacilitatorCard key={c.id} id={c.id} ariaLabel={c.ariaLabel} openLabel={c.openLabel} hideLabel={c.hideLabel} sections={c.sections} />
+        ))}
       <MemoPanel spec={spec} />
       <ExportBar id="export-l3" previewTitle="" showPreview={false} exportLabel={tt("Export the UX Strategy Memo", "UX Strategy Memo exportieren")} docTitle="UX Strategy Memo" filename={filename} missing={missing} buildBody={() => freeMemoBody(p, spec)} />
     </div>

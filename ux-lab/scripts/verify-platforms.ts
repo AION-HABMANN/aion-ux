@@ -12,6 +12,7 @@ import * as d5 from "../data/day5/platforms";
 import * as d6 from "../data/day6/platforms";
 import * as d7 from "../data/day7/platforms";
 import * as d8 from "../data/day8/platforms";
+import * as d9 from "../data/day9/platforms";
 import { setCurrentLang } from "../lib/lang";
 
 const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
@@ -23,6 +24,7 @@ const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
   "Day 6": { officeSphere: d6.officeSphere, careA: d6.careA, careB: d6.careB, careC: d6.careC, citizenFlow: d6.citizenFlow, app: d6.citizenApp, staff: d6.staffInterface },
   "Day 7": { wellTrack: d7.wellTrack, careerA: d7.careerA, careerB: d7.careerB, careerC: d7.careerC, lifeSupport: d7.lifeSupport, website: d7.lsWebsite, app: d7.lsApp },
   "Day 8": { startSmart: d8.startSmart, skillsA: d8.skillsA, skillsB: d8.skillsB, skillsC: d8.skillsC, greenHome: d8.greenHome, website: d8.ghWebsite, selfService: d8.ghSelfService },
+  "Day 9": { skillRise: d9.skillRise, hjA: d9.hjA, hjB: d9.hjB, hjC: d9.hjC, moveWell: d9.moveWell, portal: d9.mwPortal, service: d9.mwService },
 };
 
 let bad = 0;

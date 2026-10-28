@@ -3,6 +3,7 @@ import type { DayConfig } from "@/components/day/DayPages";
 import type { NavGroup, NavItem } from "@/components/chrome/PageNav";
 import type { DayMaterials } from "@/data/materialRegistry";
 import type { RailSection } from "@/data/materialTypes";
+import { originalExtras } from "@/data/course";
 import type { RouteNo } from "@/data/course";
 import { blockKey } from "@/lib/dayFree/model";
 import { freeDossier, freeTaskBlocks, route1Minutes, route2Minutes } from "@/lib/dayFree/progress";
@@ -31,7 +32,11 @@ export function makeFreeConfig(spec: FreeSpec, kit: FreeKit, mats: DayMaterials)
           { id: "task-2", label: "Task 2", sub: `UX Strategy Memo · ${spec.role}`, minutes: m2 },
         ];
 
-  const pageNav = (route: RouteNo): NavGroup[] =>
+  /** The Extra shelf (the original idea of Days 9 to 16), after the task, when the day has one for this route. */
+  const extra = (route: RouteNo): NavGroup[] => (originalExtras(day, route).length ? [{ label: "Extra", items: [{ id: "extra", short: "Extra", title: tt("The original idea (optional)", "Die ursprüngliche Idee (optional)") }] }] : []);
+
+  const pageNav = (route: RouteNo): NavGroup[] => [...pageNavTask(route), ...extra(route)];
+  const pageNavTask = (route: RouteNo): NavGroup[] =>
     route === 1
       ? [
           { label: "Materi A", items: cards("A") },

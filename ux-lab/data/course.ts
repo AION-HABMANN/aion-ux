@@ -48,8 +48,30 @@ export function isBuilt(n: number): boolean {
  * The original idea of Days 9 to 16: each day as it was first built (moved here from `playground-ux`, code in `original/` and
  * `app/(original-*)`). It is not on the lab standard; it stays reachable next to the lab version of the day, also once that is built.
  */
+type OriginalExtra = { title: Tx; what: Tx; href: string };
+type Original = { name: Tx; what: Tx; extras?: { 1: OriginalExtra[]; 2: OriginalExtra[] } };
+const x = (title: string, what: string, href: string): OriginalExtra => ({ title: t(title), what: t(what), href });
+
 export const ORIGINALS = bi({
-  9: { name: t("Activation Lab"), what: t("A gamification lab with three interactive cases (SkillRise, HealthJourney, MoveWell), a capstone, progress and an inspector. Already partly upgraded: two routes with the plan's tasks, writing help, model answers and an export.") },
+  9: {
+    name: t("Activation Lab"),
+    what: t("A gamification lab with three interactive cases (SkillRise, HealthJourney, MoveWell), a capstone, progress and an inspector. Already partly upgraded: two routes with the plan's tasks, writing help, model answers and an export."),
+    extras: {
+      1: [
+        x("The ten original concept cards, with live demos", "The first version of the Materi: the three-panel comparison, the five drivers, the lever sliders, the mechanic tray, the reward-inflation slider, the overjustification tile game and the reporting-window chooser, each with a self-check.", "/day/9/original/learn/"),
+        x("SkillRise, the original interactive case", "Find the activation hotspots on the screen and read the insight radar.", "/day/9/original/playground/skillrise/"),
+        x("HealthJourney, the original prototypes", "The three variants as clickable prototypes, with a trade-off compass and a stakeholder meter.", "/day/9/original/playground/healthjourney/"),
+        x("MoveWell, the original budget allocator", "Spend the 12 weeks and the budget on measures and get a decision receipt.", "/day/9/original/playground/movewell/"),
+        x("The Inspector and the dark-pattern layer", "A reference that names the mechanics behind what you see, and a switch that shows what manipulative versions would look like.", "/day/9/original/inspector/"),
+      ],
+      2: [
+        x("The original capstone", "The transfer project as the first version built it: guiding principle, three decisions, a priority architecture, with meters.", "/day/9/original/capstone/"),
+        x("The studio brief", "The original start page of the Activation Lab: the framing story and your studio name.", "/day/9/original/extra/studio-brief/"),
+        x("The original Route 2", "The transfer project's questions with their writing help and the original model answers behind the mentor bar.", "/day/9/original/route-2/"),
+        x("Progress, gamified", "How the first version gamified its own learners: points, rings and milestones for what you opened. Useful to discuss: did it motivate you, or push you?", "/day/9/original/progress/"),
+      ],
+    },
+  },
   10: { name: t("Companion page"), what: t("A companion page on intelligent interfaces and four Word worksheets on real AI tools (not yet on the plan's cases).") },
   11: { name: t("CityHelp Voice"), what: t("A voice-assistant playground in six stops: meet CityHelp, six moments, six lenses, three ways, why your brain reacts, prove it works.") },
   12: { name: t("Accessibility Playground"), what: t("One page with thirteen widgets, a Training Ground and three cases on accessibility and neurodiversity.") },
@@ -57,8 +79,10 @@ export const ORIGINALS = bi({
   14: { name: t("Immersive Technologies"), what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer).") },
   15: { name: t("Eye-tracking decision lab"), what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses).") },
   16: { name: t("Immersive prototyping"), what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics.") },
-} as Record<number, { name: Tx; what: Tx }>);
+} as Record<number, Original>);
 export const originalOf = (n: number): { name: string; what: string } | undefined => ORIGINALS[n];
+/** The Extra shelf of a route (UX-STANDARD decision 8): the parts of the original idea that belong to that route, never part of a task, the missing list or the export. */
+export const originalExtras = (n: number, route: RouteNo): { title: string; what: string; href: string }[] => ORIGINALS[n]?.extras?.[route] ?? [];
 /** `/day/9/original/` */
 export const originalHref = (day: number) => `/day/${day}/original/`;
 
