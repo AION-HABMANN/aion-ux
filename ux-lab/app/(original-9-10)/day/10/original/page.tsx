@@ -49,7 +49,9 @@ export default function Day10() {
 
         <section aria-label="Day 10 companion page">
           <iframe
-            src={`${base}/day10/companion.html`}
+            // A static host (Vercel) serves the page only at its folder address `/day10/companion/`; `next dev` serves
+            // `public/` files only by their file name. One address per mode.
+            src={`${base}/day10/companion/${process.env.NODE_ENV === 'development' ? 'index.html' : ''}`}
             title="Day 10 companion page"
             className="h-[85vh] w-full rounded-lg border border-hairline bg-white"
           />
