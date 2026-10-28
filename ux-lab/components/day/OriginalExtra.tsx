@@ -20,14 +20,21 @@ function Group({ day, route }: { day: number; route: RouteNo }) {
         {route === 1 ? tt("Beside Route 1 · Analyse and choose", "Neben Route 1 · Analysieren und wählen") : tt("Beside Route 2 · Decide", "Neben Route 2 · Entscheiden")}
       </h2>
       <ul className="grid gap-2 md:grid-cols-2">
-        {items.map((it) => (
-          <li key={it.href}>
-            <Link href={it.href} className="block h-full rounded-lg border border-line bg-paper p-3 transition-colors hover:border-accent hover:bg-accentSoft/40">
+        {items.map((it) => {
+          const cls = "block h-full rounded-lg border border-line bg-paper p-3 transition-colors hover:border-accent hover:bg-accentSoft/40";
+          const body = (
+            <>
               <span className="block font-semibold text-accent">{it.title} →</span>
               <span className="mt-1 block text-caption text-ash">{it.what}</span>
-            </Link>
-          </li>
-        ))}
+            </>
+          );
+          // A file (a Word worksheet) is a plain download, not a page of the app.
+          return (
+            <li key={it.href}>
+              {/\.\w{2,4}$/.test(it.href) ? <a href={it.href} className={cls}>{body}</a> : <Link href={it.href} className={cls}>{body}</Link>}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

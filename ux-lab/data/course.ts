@@ -72,7 +72,22 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  10: { name: t("Companion page"), what: t("A companion page on intelligent interfaces and four Word worksheets on real AI tools (not yet on the plan's cases).") },
+  10: {
+    name: t("Companion page"),
+    what: t("A companion page on intelligent interfaces and four Word worksheets on real AI tools (not yet on the plan's cases)."),
+    extras: {
+      1: [
+        x("The original companion page", "The first version of the Materi: “the one thing this day is about”, the three kinds of system behind the UX with “which type is this?”, nine real AI tools to look at, and help for each task.", "/day/10/original/"),
+        x("Worksheet 1 · Direct observation of AI patterns (Word)", "Watch real AI tools at work and note where they suggest, adapt or act on their own.", "/day10/worksheets/task1-direct-observation-of-ai-patterns.docx"),
+        x("Worksheet 2 · Classifying the system behind the UX (Word)", "Decide for real products whether a rule, the situation or learning is behind what you see.", "/day10/worksheets/task2-classifying-the-system-behind-the-ux.docx"),
+        x("Worksheet 3 · Deep AI-UX audit of one tool (Word)", "Audit one real tool with the three questions: can I see why, change it, undo it?", "/day10/worksheets/task3-deep-ai-ux-audit.docx"),
+      ],
+      2: [
+        x("Worksheet 4 · The strategic AI-UX decision (Word)", "The original management task: decide where a company should use AI in its interfaces, and how far.", "/day10/worksheets/task4-strategic-ai-ux-decision.docx"),
+        x("The original main material (Word)", "The companion page's content as a Word document, with the real references the first version recommended.", "/day10/worksheets/main-material-interactive-website.docx"),
+      ],
+    },
+  },
   11: { name: t("CityHelp Voice"), what: t("A voice-assistant playground in six stops: meet CityHelp, six moments, six lenses, three ways, why your brain reacts, prove it works.") },
   12: { name: t("Accessibility Playground"), what: t("One page with thirteen widgets, a Training Ground and three cases on accessibility and neurodiversity.") },
   13: { name: t("Inclusive Design Patterns"), what: t("One page with the learning levels, a Training Ground and four cases.") },
