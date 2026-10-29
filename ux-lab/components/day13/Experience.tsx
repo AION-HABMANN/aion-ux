@@ -116,7 +116,7 @@ export function Day13Experience({ route }: { route: Route }) {
 
   return (
     <section aria-labelledby="focus-h" className="card space-y-3 p-4">
-      <style>{CSS}</style>
+      <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <p className="smallcaps text-accent">{tt("Today you learn neurodiverse UX by using it")}</p>

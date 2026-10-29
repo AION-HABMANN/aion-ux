@@ -24,7 +24,7 @@ const TICKER = `
 function Shell({ name, color, nav, children, footer }: { name: string; color: string; nav: ReactNode; children: ReactNode; footer?: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-[#CBD3DC] bg-white text-[#26323F]">
-      <style>{TICKER}</style>
+      <style dangerouslySetInnerHTML={{ __html: TICKER }} />
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-white" style={{ background: color }}>
         <span className="text-[14px] font-bold">{name}</span>
         {nav}

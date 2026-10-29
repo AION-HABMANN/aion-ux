@@ -24,6 +24,7 @@
     "verify:day11": "tsx scripts/verify-free.ts 11",
     "verify:day12": "tsx scripts/verify-free.ts 12",
     "verify:day13": "tsx scripts/verify-free.ts 13",
+    "verify:day14": "tsx scripts/verify-free.ts 14",
     "verify:platforms": "tsx scripts/verify-platforms.ts",
     "verify:original": "node original/scripts/verify-original.mjs",
     "verify:original-day9": "node original/scripts/verify-day9.mjs",

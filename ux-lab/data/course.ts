@@ -128,7 +128,18 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  14: { name: t("Immersive Technologies"), what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer).") },
+  14: {
+    name: t("Immersive Technologies"),
+    what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer)."),
+    extras: {
+      1: [
+        x("Immersive Technologies: the ten widgets", "The first version's Learn tab: flat against spatial, an AR overlay on a 3D machine, the technology map, cognitive load, intensify or overwhelm, fascination against impact, ethics and reputation, each with its 3D scene. Open the tab “Learn”.", "/day/14/original/"),
+      ],
+      2: [
+        x("The original cases and the IndustryXR 3D scene", "The same page's case tabs, including IndustryXR's three.js training space with hotspots, and the transfer project, as the first version built them.", "/day/14/original/#cases"),
+      ],
+    },
+  },
   15: { name: t("Eye-tracking decision lab"), what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses).") },
   16: { name: t("Immersive prototyping"), what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics.") },
 } as Record<number, Original>);

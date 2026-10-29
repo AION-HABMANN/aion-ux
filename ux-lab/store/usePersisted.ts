@@ -21,5 +21,6 @@ export function usePersisted(): Persisted {
   const d11 = useStore((s) => s.d11);
   const d12 = useStore((s) => s.d12);
   const d13 = useStore((s) => s.d13);
-  return useMemo(() => ({ participant, ui, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13 }), [participant, ui, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13]);
+  const d14 = useStore((s) => s.d14);
+  return useMemo(() => ({ participant, ui, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14 }), [participant, ui, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14]);
 }

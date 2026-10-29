@@ -17,6 +17,7 @@ import * as d10 from "../data/day10/platforms";
 import * as d11 from "../data/day11/platforms";
 import * as d12 from "../data/day12/platforms";
 import * as d13 from "../data/day13/platforms";
+import * as d14 from "../data/day14/platforms";
 import { setCurrentLang } from "../lib/lang";
 
 const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
@@ -33,6 +34,7 @@ const DAYS: Record<string, Record<string, () => PlatformCfg>> = {
   "Day 11": { portal: d11.cityPortal, app: d11.cityApp },
   "Day 12": { website: d12.cityWebsite, account: d12.customerPortal },
   "Day 13": { website: d13.lgWebsite, app: d13.lgApp },
+  "Day 14": { portal: d14.servicePortal, lab: d14.labNews },
 };
 
 let bad = 0;
