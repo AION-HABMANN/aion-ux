@@ -24,10 +24,10 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 2 | `SystemChainFig` | From a single screen to the structure behind it | chain of steps | stays (conceptual) | – |
 | 2 | `ConflictFig` | Five Brightwater start pages by how much they show and how easily people find their task | static | stays (conceptual) | – |
 | 2 | `DecisionFig` | A decision under uncertainty, filled in for Brightwater | decision frame | stays (conceptual) | – |
-| 3 | `ColourFig` | A Kettle & Co order page: an accent for the main action, red only for a real problem, one  | switch with a drawn picture | upgrade to a working product | open |
-| 3 | `FunctionFig` | The same Kettle & Co order list, coloured to decorate and coloured to function | switches between drawn screens | upgrade to a working product | open |
-| 3 | `TypeFig` | A Kettle & Co delivery notice: type size, line spacing, contrast and structure | switch with a drawn picture | upgrade to a working product | open |
-| 3 | `HierFig` | The same Kettle & Co help page: flat, with a clear hierarchy, and with too many styles | switches between drawn screens | upgrade to a working product | open |
+| 3 | `ColourFig` | A Kettle & Co order page: an accent for the main action, red only for a real problem, one  | switch with a drawn picture | upgrade to a working product | done |
+| 3 | `FunctionFig` | The same Kettle & Co order list, coloured to decorate and coloured to function | switches between drawn screens | upgrade to a working product | done |
+| 3 | `TypeFig` | A Kettle & Co delivery notice: type size, line spacing, contrast and structure | switch with a drawn picture | upgrade to a working product | done |
+| 3 | `HierFig` | The same Kettle & Co help page: flat, with a clear hierarchy, and with too many styles | switches between drawn screens | upgrade to a working product | done |
 | 3 | `WeighFig` | Kettle & Co weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 3 | `RulesFig` | Kettle & Co's colour and type decided campaign by campaign, or decided once as rules | two-column comparison | stays (conceptual) | – |
 | 3 | `LogicChainFig` | From the brand to the screens: where colour and type are decided | chain of steps | stays (conceptual) | – |

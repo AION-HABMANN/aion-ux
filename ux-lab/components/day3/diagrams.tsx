@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ColourMock, FunctionMock, HierMock, MeasureThumb, TypeMock } from "@/components/day3/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day3/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { ColourLab, FunctionLab, HierLab, TypeLab } from "@/components/day3/labs";
 
 /**
  * Day 3 · the teaching diagrams of Materi A and B. Example: Kettle & Co, a made-up online grocery shop, with Rosa and Theo (customers), Ines (UX lead) and Karim (brand
@@ -18,81 +19,25 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · what colour does (interactive) */
 
 export function ColourFig() {
-  return (
-    <SwitchFig
-      label={tt("A Kettle & Co order page: an accent for the main action, red only for a real problem, one calm colour per area · Exploratory · Case assumption")}
-      point={tt("Colour is seen first. It can draw attention to one thing, make an action inviting, warn, build trust through calm and consistency, and give orientation when each area keeps its colour. Used everywhere at full strength, it does none of these.")}
-      switches={[
-        { id: "accent", label: tt("An accent for the main action") },
-        { id: "warn", label: tt("Red only for a real problem") },
-        { id: "areas", label: tt("One calm colour per area") },
-      ]}
-      start={{ accent: false, warn: false, areas: false }}
-      picture={(on) => <ColourMock accent={!!on.accent} warn={!!on.warn} areas={!!on.areas} />}
-      insight={(on) => {
-        const n = [on.accent, on.warn, on.areas].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 colour jobs are done. ${on.accent ? "“Pay now” is the only strong blue, so Rosa's eye goes there and the action feels inviting." : "“Pay now” is grey and “Keep shopping” is bright orange, so Rosa's eye goes to the wrong button."} ${on.warn ? "The delivery notice is calm, so red stays free for a real problem and keeps its warning." : "A red “ATTENTION” box for an ordinary delivery time alarms Rosa for nothing and teaches her to ignore red."} ${on.areas ? "Fruit, dairy and bakery each have a calm tint, so she knows where she is." : "Three loud colours for the areas compete with everything else."}`,
-        );
-      }}
-    />
-  );
+  return <ColourLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · decorative against functional colour (interactive) */
 
 export function FunctionFig() {
-  return (
-    <StateFig
-      label={tt("The same Kettle & Co order list, coloured to decorate and coloured to function · Exploratory · Case assumption")}
-      point={tt("Functional colour has a job: action, priority or state, and each colour keeps one meaning. Decorative colour only sets a look. When decoration and meaning use the same bright tones, people cannot tell a button from a box or a status from a decoration.")}
-      states={[
-        { id: "decorative", button: tt("Coloured to decorate"), picture: <FunctionMock kind="decorative" />, insight: tt("In plain words: the dots of the three orders are orange, green and purple, and so are the button, the offer box and the link. Theo cannot tell which order failed, which colour he can press, or whether the purple dot means anything at all.") },
-        { id: "functional", button: tt("Coloured to function"), picture: <FunctionMock kind="functional" />, insight: tt("In plain words: blue means he can do something, red means a problem, grey means information, and each state has a word and a symbol next to its colour. Theo sees at once that order 1044 needs him, and that “Order again” is a button.") },
-      ]}
-    />
-  );
+  return <FunctionLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · four levers of readable type (interactive) */
 
 export function TypeFig() {
-  return (
-    <SwitchFig
-      label={tt("A Kettle & Co delivery notice: type size, line spacing, contrast and structure · Exploratory · Case assumption")}
-      point={tt("Readable type on a screen comes from a few levers: a large enough size, enough line spacing, enough contrast between text and background, a weight whose strokes do not vanish, and a structure of short parts. Elegant type that ignores them is read badly, above all by older people and on small screens.")}
-      switches={[
-        { id: "size", label: tt("Larger type") },
-        { id: "spacing", label: tt("More line spacing") },
-        { id: "contrast", label: tt("More contrast") },
-        { id: "structure", label: tt("Short parts") },
-      ]}
-      start={{ size: false, spacing: false, contrast: false, structure: false }}
-      picture={(on) => <TypeMock size={!!on.size} spacing={!!on.spacing} contrast={!!on.contrast} structure={!!on.structure} />}
-      insight={(on) => {
-        const n = [on.size, on.spacing, on.contrast, on.structure].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 4 levers are used. ${on.size ? "The text is large enough for Rosa to read without leaning in." : "The small type makes Rosa lean towards the screen."} ${on.spacing ? "There is room between the lines, so her eye finds the next one." : "The lines run together, so she reads one twice."} ${on.contrast ? "Dark text on white is easy to read." : "Light grey text on white almost disappears."} ${on.structure ? "Three short parts: the time, what happens if she is out, and how to change it." : "One long sentence hides the three facts she needs."}`,
-        );
-      }}
-    />
-  );
+  return <TypeLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · typographic hierarchy (interactive) */
 
 export function HierFig() {
-  return (
-    <StateFig
-      label={tt("The same Kettle & Co help page: flat, with a clear hierarchy, and with too many styles · Exploratory · Case assumption")}
-      point={tt("A typographic hierarchy is a few fixed levels that look clearly different and mean the same on every page. It lets the eye jump from heading to heading. No levels, and nothing stands out; too many styles, and everything shouts.")}
-      states={[
-        { id: "flat", button: tt("Flat"), picture: <HierMock kind="flat" />, insight: tt("In plain words: the headings are in the same size and weight as the text. Theo has to read from the top to find “Returns”.") },
-        { id: "clear", button: tt("A clear hierarchy"), picture: <HierMock kind="clear" />, insight: tt("In plain words: one page heading, three section headings in the brand colour, and body text. Theo's eye jumps from Delivery to Returns in a second.") },
-        { id: "over", button: tt("Too many styles"), picture: <HierMock kind="over" />, insight: tt("In plain words: every heading has its own size and colour, and “NEW!” labels compete with them. Theo cannot tell which level a heading is, so the order is lost again.") },
-      ]}
-    />
-  );
+  return <HierLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed on four criteria (interactive) */
