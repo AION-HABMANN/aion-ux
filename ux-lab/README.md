@@ -85,6 +85,10 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **Only UX days.** The engine (about 80 files) is copied from playground-dl; the boundary files (`data/course.ts`, the registries, `store/useStore.ts`, `lib/mentorKey.ts`, `data/materialTypes.ts`) are rewritten for Days 1 to 8.
 - **A plan figure stays where the plan prints it.** DL's plans print no money figures; the UX plan sometimes does (Day 1: €180,000 for SafeHome Online). It appears in the brief only, never in the Materi or a simulation; `verify-free.ts` allows exactly the figures listed in `PLAN_FIGURES`.
 
+## Working interactives (UX-STANDARD 2.16, 2026-10-29)
+
+Every card interactive that can be the real thing now is the real thing, modelled on the original Day 16's Ladder. Day 16's card A1 is a full ladder (`components/day16/ladderLab.tsx`): one product built four times, a gate rail that damages it, six stress tests and a gate meeting. On Days 1 to 15 the former "switch between drawn screens" figures are task labs (`components/sim/TaskLab.tsx`, one `components/dayN/labs.tsx` per day): one constant task, versions of a working product the learner uses, time, wrong taps, a log, results per version, stress tests that change the product (sunlight, colour blindness, older eyes, a small phone, a hurry, an interruption) and, on the emotional days, a "how did that feel?" scale. Every figure, its verdict and its status are listed in `INTERACTIVES-AUDIT.md`; conceptual figures (chains, comparisons, decision frames, grids) stay as they are. Nothing in a lab is stored, scored or marked right or wrong; numbers inside a product are Case assumptions.
+
 ## Notes on deviations, per day
 
 ### Day 1
@@ -145,6 +149,7 @@ The plan text of each day (with its Musterlösung) is in `../trainer-only/plan/d
 - **"Storytelling" is taught as narrative guidance, not as writing stories**, as the plan's Wissen cell separates narrative communication from narratively structured guidance; the Materi says so on card A3.
 - **The plan's figures** are €155,000, 12 weeks and 10 weeks; the onboarding's "Page 1" to "Page 5", a form label "F-1 of 4" and a reference code are interface labels, not figures.
 - **Contrast fixes found in the final sweep** (not plan flaws): the desk avatar brown, the orange header of Day 4's MyEnergy, Day 1's orange CarePath button and Day 6's orange notice link are now dark enough for 4.5:1. Day 3's low-contrast colours stay, because they are the plan's colour flaws.
+
 
 ### Day 9
 

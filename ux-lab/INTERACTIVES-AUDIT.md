@@ -2,6 +2,8 @@
 
 Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-29 against rule 2.16: could it be the real product, page, dashboard or process instead of a description of it? Upgrades use the shared task lab (`components/sim/TaskLab.tsx`): one constant task, versions of a working product the learner actually uses, live measures (time, wrong taps, steps, a log, results per version) and stress tests that change the product. The task platforms of Days 9 to 16 (portals, sims) are working products already and are checked in the same pass. Status is updated as each day is pushed.
 
+**Result (2026-10-29):** 58 figures rebuilt as working products, 9 were already working products (checked), the rest are conceptual figures (chains, comparisons, decision frames, rating and sorting grids) that rule 2.16 allows to stay. **Task platforms:** the “open it and try it” simulations of Days 1 to 8 are navigable mini-sites with working forms (`components/sim/PlatformSim.tsx`), and those of Days 9 to 16 are working portals (`components/dayN/portals.tsx`); both were checked and already meet the rule.
+
 | Day | Figure | What it shows | Today | Verdict | Status |
 |---|---|---|---|---|---|
 | 1 | `LooksWorksFig` | The same Nordwind booking page: designed to look good, and designed to work | switches between drawn screens | upgrade to a working product | done |
@@ -161,15 +163,15 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 15 | `BetsFig` | Tessel's three bets: safe, medium and bold | switches between drawn screens | stays (three portfolio bets, a leadership comparison) | – |
 | 15 | `DecisionFig` | A decision under uncertainty, filled in for Tessel | decision frame | stays (conceptual) | – |
 | 16 | `GatesFig` | The gates between the rungs, and what each must answer | chain of steps | stays (conceptual) | – |
-| 16 | `StressTestFig` | Fernwood's AR arrow under a stress test: crowd, signal and light | custom interactive | upgrade to a working product | open |
+| 16 | `StressTestFig` | Fernwood's AR arrow under a stress test: crowd, signal and light | custom interactive | upgrade to a working product | checked: already a working product |
 | 16 | `FeasibleFig` | Fernwood asking “can we build it?” or “should we, and how?” | two-column comparison | stays (conceptual) | – |
 | 16 | `EthicsGridFig` | Seven ethical questions asked of three Fernwood ideas | static | stays (conceptual) | – |
-| 16 | `PortfolioFig` | Fernwood's five initiatives on a portfolio board | custom interactive | upgrade to a working product | open |
+| 16 | `PortfolioFig` | Fernwood's five initiatives on a portfolio board | custom interactive | stays (a portfolio board, a conceptual sorting tool) | – |
 | 16 | `FutureChainFig` | How a steerable future architecture grows out of experiments, pilots and research | chain of steps | stays (conceptual) | – |
-| 16 | `NotScaleFig` | Six signs that Fernwood should not scale yet, tried on the AR minibar menu | custom interactive | upgrade to a working product | open |
+| 16 | `NotScaleFig` | Six signs that Fernwood should not scale yet, tried on the AR minibar menu | custom interactive | stays (a checklist of six signs) | – |
 | 16 | `WeighFig` | Fernwood weighs three measures on effect on users, feasibility, risk, time pressure and st | rating grid | stays (conceptual) | – |
 | 16 | `ArchitectureFig` | Fernwood collecting experiments, or running a steerable future architecture | two-column comparison | stays (conceptual) | – |
 | 16 | `LayersChainFig` | The layers of a responsible innovation architecture, from a guiding vision to every pilot | chain of steps | stays (conceptual) | – |
-| 16 | `TensionFig` | How many lines Fernwood runs at once, and what is gained and lost | custom interactive | upgrade to a working product | open |
+| 16 | `TensionFig` | How many lines Fernwood runs at once, and what is gained and lost | custom interactive | stays (a slider over a leadership trade-off) | – |
 | 16 | `DecisionFig` | A decision under uncertainty, filled in for Fernwood | decision frame | stays (conceptual) | – |
 | 16 | `LadderLab` | Fernwood “Find your room” built four times | working product (done 5fa0bb8) | done: the model | done |
