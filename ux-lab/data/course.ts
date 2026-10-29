@@ -104,7 +104,18 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  12: { name: t("Accessibility Playground"), what: t("One page with thirteen widgets, a Training Ground and three cases on accessibility and neurodiversity.") },
+  12: {
+    name: t("Accessibility Playground"),
+    what: t("One page with thirteen widgets, a Training Ground and three cases on accessibility and neurodiversity."),
+    extras: {
+      1: [
+        x("The Accessibility Playground: Learn and Training Ground", "The first version on one page with tabs: thirteen widgets (contrast slider, focus order, alt text, plain language, error tolerance, consistency, modern against accessible and more), and a Training Ground where you spot the barriers on a mock club page. Open the tabs “Learn” and “Training Ground”.", "/day/12/original/"),
+      ],
+      2: [
+        x("The original cases and task map", "The same page's tabs for PublicAccess, LearnAccess and CitizenConnect as the first version built them, with reveals, and the task map.", "/day/12/original/#cases"),
+      ],
+    },
+  },
   13: { name: t("Inclusive Design Patterns"), what: t("One page with the learning levels, a Training Ground and four cases.") },
   14: { name: t("Immersive Technologies"), what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer).") },
   15: { name: t("Eye-tracking decision lab"), what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses).") },
