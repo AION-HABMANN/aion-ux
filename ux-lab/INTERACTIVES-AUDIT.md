@@ -103,16 +103,16 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 10 | `LayersChainFig` | The layers of an intelligent UX architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
 | 10 | `DepthFig` | Three Northline journeys and how deep personalisation should go in each | switches between drawn screens | upgrade to a working product | done |
 | 10 | `DecisionFig` | A decision under uncertainty, filled in for Northline Rail | decision frame | stays (conceptual) | – |
-| 11 | `ModesFig` | One Ladle task, scaling a recipe and setting a timer, on a screen, in a chat and by voice | switches between drawn screens | upgrade to a working product | open |
-| 11 | `RequirementsFig` | One Ladle voice dialogue with the six requirements of a good voice interface | switch with a drawn picture | upgrade to a working product | open |
-| 11 | `MemoryFig` | A memory test with a Ladle voice menu: a long menu and a short one | custom interactive | upgrade to a working product | open |
-| 11 | `LoadFig` | One Ladle spoken answer, from calm to busy | custom interactive | upgrade to a working product | open |
-| 11 | `PrototypesFig` | Three Ladle questions, each answered by a different prototype | switches between drawn screens | upgrade to a working product | open |
+| 11 | `ModesFig` | One Ladle task, scaling a recipe and setting a timer, on a screen, in a chat and by voice | switches between drawn screens | upgrade to a working product | done |
+| 11 | `RequirementsFig` | One Ladle voice dialogue with the six requirements of a good voice interface | switch with a drawn picture | upgrade to a working product | done |
+| 11 | `MemoryFig` | A memory test with a Ladle voice menu: a long menu and a short one | custom interactive | upgrade to a working product | checked: already a working product |
+| 11 | `LoadFig` | One Ladle spoken answer, from calm to busy | custom interactive | upgrade to a working product | done |
+| 11 | `PrototypesFig` | Three Ladle questions, each answered by a different prototype | switches between drawn screens | stays (a comparison of three prototyping methods) | – |
 | 11 | `FitFig` | Five questions that decide whether a Ladle task suits voice | static | stays (conceptual) | – |
 | 11 | `WeighFig` | Ladle weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 11 | `ArchitectureFig` | Ladle adding voice everywhere to look modern, or building a voice service architecture | two-column comparison | stays (conceptual) | – |
 | 11 | `LayersChainFig` | The layers of a voice service architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
-| 11 | `FreedomFig` | Three Ladle journeys and how free the voice dialogue may be in each | switches between drawn screens | upgrade to a working product | open |
+| 11 | `FreedomFig` | Three Ladle journeys and how free the voice dialogue may be in each | switches between drawn screens | upgrade to a working product | done |
 | 11 | `DecisionFig` | A decision under uncertainty, filled in for Ladle | decision frame | stays (conceptual) | – |
 | 12 | `PeopleFig` | Greenway's checkout as four people meet it | switches between drawn screens | upgrade to a working product | open |
 | 12 | `ContrastFig` | A Greenway price label on white, with the contrast ratio computed as you move the slider | custom interactive | upgrade to a working product | open |

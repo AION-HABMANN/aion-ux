@@ -2,14 +2,15 @@
 
 import clsx from "clsx";
 import { useEffect, useId, useRef, useState } from "react";
-import { DialogueMock, FreedomMock, LOAD_NAMES, LoadMock, MODE_LINES, MeasureThumb, ModeMock, ProtoMock, dialogueLines, loadReply } from "@/components/day11/mocks";
-import { StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb, ProtoMock } from "@/components/day11/mocks";
+import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
-import { HearIt, canSpeak, speak } from "@/components/sim/VoiceSim";
+import { canSpeak, speak } from "@/components/sim/VoiceSim";
 import { tt } from "@/lib/lang";
+import { FreedomLab, LoadLab, ModesLab, RequirementsLab } from "@/components/day11/labs";
 
 /**
  * Day 11 · the teaching diagrams of Materi A and B. Example: Ladle, a made-up cooking app with a voice mode, with Noor and Ole (home cooks), Freya (UX designer) and
@@ -21,55 +22,13 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · screen, chat or voice (interactive) */
 
 export function ModesFig() {
-  return (
-    <div className="space-y-2">
-      <StateFig
-        label={tt("One Ladle task, scaling a recipe and setting a timer, on a screen, in a chat and by voice · Exploratory · Case assumption")}
-        point={tt("The same task feels different on a screen, in a chat and by voice. A screen shows every option at once; a chat leaves a written record; voice leaves nothing to look at. Voice wins when hands and eyes are busy and the answer is short; it loses when there are many options or something must be remembered.")}
-        states={[
-          { id: "screen", button: tt("On a screen"), picture: <ModeMock kind="screen" />, insight: tt("In plain words: Noor sees servings, amounts and the timer at once and can check them as often as she likes. But her hands are covered in dough, and the phone is across the counter.") },
-          { id: "chat", button: tt("In a chat"), picture: <ModeMock kind="chat" />, insight: tt("In plain words: one typed line, one written answer she can scroll back to. A record helps, but typing with floury fingers does not.") },
-          { id: "voice", button: tt("By voice"), picture: <ModeMock kind="voice" />, insight: tt("In plain words: she says it without touching anything and hears it at once: hands-free, fast, natural. Press “Hear it”: three amounts and a timer in one breath. Could you repeat the amount of milk without listening again?") },
-        ]}
-      />
-      <div className="flex justify-center"><HearIt text={MODE_LINES.voice()} label={tt("Hear the voice answer")} /></div>
-    </div>
-  );
+  return <ModesLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · six requirements of a good voice dialogue (interactive) */
 
 export function RequirementsFig() {
-  return (
-    <SwitchFig
-      label={tt("One Ladle voice dialogue with the six requirements of a good voice interface · Exploratory · Case assumption")}
-      point={tt("A good voice dialogue needs six things: clear dialogue logic (one thing at a time), clear expectations (what can I say?), feedback (what did it understand and do?), error handling (a better question, not the same sentence), repeatability (say it again) and user control (stop, change, go back).")}
-      switches={[
-        { id: "logic", label: tt("Dialogue logic") },
-        { id: "expect", label: tt("Expectations") },
-        { id: "feedback", label: tt("Feedback") },
-        { id: "errors", label: tt("Error handling") },
-        { id: "repeat", label: tt("Repeat") },
-        { id: "control", label: tt("Control") },
-      ]}
-      start={{ logic: false, expect: false, feedback: false, errors: false, repeat: false, control: false }}
-      picture={(on) => {
-        const r = { logic: !!on.logic, expect: !!on.expect, feedback: !!on.feedback, errors: !!on.errors, repeat: !!on.repeat, control: !!on.control };
-        return (
-          <div className="space-y-2">
-            <DialogueMock {...r} />
-            <div className="flex justify-center"><HearIt text={dialogueLines(r).filter((l) => l.who === "it").map((l) => l.text).join(" … ")} label={tt("Hear Ladle's side")} /></div>
-          </div>
-        );
-      }}
-      insight={(on) => {
-        const n = [on.logic, on.expect, on.feedback, on.errors, on.repeat, on.control].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of 6. ${on.expect ? "Noor knows what she can say." : "Noor has to guess what Ladle understands."} ${on.logic ? "One step at a time." : "Four things in one breath, and a question nobody asked."} ${on.errors ? "A misunderstanding ends in a better question." : "A misunderstanding ends in the same sentence twice."} ${on.feedback ? "It says what it set." : ""} ${on.repeat ? "She can hear step 3 again." : "She cannot go back to step 3."} ${on.control ? "She can stop the timer." : "She cannot change the running timer."}`.replace(/\s+/g, " ").trim(),
-        );
-      }}
-    />
-  );
+  return <RequirementsLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · a spoken menu and working memory (interactive, a real test) */
@@ -141,29 +100,7 @@ export function MemoryFig() {
 /* ------------------------------------------------------------------ A3 · calm or busy (interactive slider) */
 
 export function LoadFig() {
-  const [n, setN] = useState(0);
-  const id = useId();
-  const names = LOAD_NAMES();
-  const insight = [
-    tt("In plain words: one step in one breath. Noor knows what to do and what comes next; she can keep stirring."),
-    tt("In plain words: a useful tip. Still short; the step itself is still clear."),
-    tt("In plain words: an offer in the middle of baking. It has nothing to do with the step, and it interrupts what she was holding in mind."),
-    tt("In plain words: praise, a streak, three oven variants, friends, Premium, an order and six things to say back. The step is in there somewhere. This is how an intelligent interface raises the load instead of lowering it."),
-  ][n];
-  return (
-    <Diagram label={tt("One Ladle spoken answer, from calm to busy · Exploratory · Case assumption")}>
-      <div className="space-y-3">
-        <ThePoint>{tt("Neuro-design asks for predictability, relief, trust, a clear mental model and fewer stimuli. Each extra sentence or signal in a spoken answer competes for the same small working memory.")}</ThePoint>
-        <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`How much is said: ${names[n]}`)}</label>
-          <input id={id} type="range" min={0} max={3} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={names[n]} />
-        </div>
-        <LoadMock level={n} />
-        <div className="flex justify-center"><HearIt text={loadReply(n)} /></div>
-        <Insight>{insight}</Insight>
-      </div>
-    </Diagram>
-  );
+  return <LoadLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · three prototypes (interactive) */
@@ -323,17 +260,7 @@ export function LayersChainFig() {
 /* ------------------------------------------------------------------ B2 · how free the dialogue may be per journey (interactive) */
 
 export function FreedomFig() {
-  return (
-    <StateFig
-      label={tt("Three Ladle journeys and how free the voice dialogue may be in each · Exploratory · Case assumption")}
-      point={tt("Comfort, precision, trust, effort, robustness and scalability pull against each other. Decide per journey: free speech where a mistake is cheap, voice with a screen where precision matters, a screen or a person where a mistake costs health or money.")}
-      states={[
-        { id: "timer", button: tt("Timers and steps: free"), picture: <FreedomMock kind="timer" />, insight: tt("In plain words: say it any way you like. Comfort wins, because a wrong timer costs a minute and the read-back catches it. Product wants it; nobody objects.") },
-        { id: "allergy", button: tt("Allergies: voice + screen"), picture: <FreedomMock kind="allergy" />, insight: tt("In plain words: precision wins over comfort: voice answers, the screen confirms, and the source is a list checked by people. Product would like a free AI answer; the nutrition team says no.") },
-        { id: "pay", button: tt("Paying: screen only"), picture: <FreedomMock kind="pay" />, insight: tt("In plain words: voice fills the basket, the screen takes the payment. Sales would like one-sentence ordering; trust and error robustness say a person checks what they pay.") },
-      ]}
-    />
-  );
+  return <FreedomLab />;
 }
 
 /* ------------------------------------------------------------------ B3 · a decision under uncertainty, filled in for Ladle (static) */
