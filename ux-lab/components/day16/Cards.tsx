@@ -1,8 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { ArchitectureFig, DecisionFig, EthicsGridFig, FeasibleFig, FutureChainFig, GatesFig, LadderFig, LayersChainFig, NotScaleFig, PortfolioFig, StressTestFig, TensionFig, WeighFig } from "@/components/day16/diagrams";
+import { ArchitectureFig, DecisionFig, EthicsGridFig, FeasibleFig, FutureChainFig, GatesFig, LayersChainFig, NotScaleFig, PortfolioFig, StressTestFig, TensionFig, WeighFig } from "@/components/day16/diagrams";
 import { ComicButton } from "@/components/comic/ComicModal";
+import { LadderLab } from "@/components/day16/ladderLab";
 import { ART_D16 } from "@/components/day16/comicScenes";
 import { COMICS_D16 } from "@/data/day16/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
@@ -40,7 +41,7 @@ export function CardA1() {
       ]}
     >
       <ComicButton comic={COMICS_D16.A1} art={ART_D16} />
-      <LadderFig />
+      <LadderLab />
       <DataTable
         caption={tt("What an immersive prototype must have")}
         head={[tt("Requirement"), tt("The question"), tt("Example (Fernwood)")]}

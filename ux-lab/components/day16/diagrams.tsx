@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useId, useState } from "react";
-import { Corridor, MeasureThumb, Rung } from "@/components/day16/mocks";
+import { Corridor, MeasureThumb } from "@/components/day16/mocks";
 import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
@@ -16,22 +16,7 @@ import { tt } from "@/lib/lang";
  * at each rung (A1), the test bench's stress test and six aspects (A2), the portfolio board (A4), the tension sliders (B2), the go/no-go decision (B3).
  */
 
-/* ------------------------------------------------------------------ A1 · the ladder (interactive) and its gates */
-
-export function LadderFig() {
-  return (
-    <StateFig
-      label={tt("Fernwood's AR wayfinding on four rungs: concept idea, prototype, pilot, scalable solution · Exploratory · Case assumption")}
-      point={tt("An idea climbs a ladder, and each rung proves something different. A concept says what could be; a prototype makes one question testable; a pilot shows whether it works for real users in one place; a scalable solution keeps working for many, with support and an owner. Skipping a rung is how a demo gets sold as a product.")}
-      states={[
-        { id: "concept", button: tt("1 · Concept idea"), picture: <Rung n={0} />, insight: tt("In plain words: a described possibility. It proves nothing yet, and it should already say for whom.") },
-        { id: "prototype", button: tt("2 · Prototype"), picture: <Rung n={1} />, insight: tt("In plain words: one question made testable in one corridor. It proves the arrow can be followed, not that guests will use it on a busy night.") },
-        { id: "pilot", button: tt("3 · Pilot"), picture: <Rung n={2} />, insight: tt("In plain words: real guests, real conditions, one hotel, six weeks. It proves whether it works in use, and shows the weak signal in the lift lobby.") },
-        { id: "scale", button: tt("4 · Scalable solution"), picture: <Rung n={3} />, insight: tt("In plain words: forty hotels, every corridor mapped, support, updates and an owner who can switch it off. Most of the cost lives here, not in the prototype.") },
-      ]}
-    />
-  );
-}
+/* ------------------------------------------------------------------ A1 · the gates of the ladder (the working ladder is components/day16/ladderLab.tsx) */
 
 export function GatesFig() {
   return (

@@ -75,48 +75,6 @@ export function Corridor({ crowd = false, signal = 2, dim = false, arrow = true,
   );
 }
 
-/** The four rungs of the ladder for Fernwood's AR wayfinding. */
-export function Rung({ n }: { n: 0 | 1 | 2 | 3 }) {
-  if (n === 0)
-    return (
-      <div role="img" aria-label={tt("A hand-drawn sketch: a phone with an arrow pointing down a hotel corridor, and a note: guests get lost in the new wing")} className="mx-auto max-w-[360px] -rotate-1 space-y-2 rounded-lg border-2 border-dashed border-[#A8A29E] bg-[#FFFDF7] p-3 font-[cursive] text-[13px] text-[#44403C]">
-        <p className="font-bold">{tt("Idea: AR arrows to the room")}</p>
-        <p>{tt("Guests get lost in the new wing → arrows on the phone camera, from lift to door.")}</p>
-        <p className="text-[12px]">{tt("For: all guests? Late arrivals? Older guests?")}</p>
-      </div>
-    );
-  if (n === 1)
-    return (
-      <div className="space-y-2">
-        <Corridor label={tt("A prototype: an AR arrow over the corridor, pointing to room 216")} />
-        <p className="mx-auto max-w-[420px] text-caption text-ink">{tt("Prototype for one question: “can guests find room 216 with the arrow alone?” Five guests, one corridor, a colleague with a stopwatch.")}</p>
-      </div>
-    );
-  if (n === 2)
-    return (
-      <div role="img" aria-label={tt("A pilot report for one hotel over six weeks")} className="mx-auto max-w-[360px] space-y-1 rounded-lg border border-line bg-white p-3 text-caption text-ink">
-        <p className="font-bold">{tt("Pilot · Fernwood Harbour · 6 weeks")}</p>
-        <ul className="list-disc space-y-0.5 pl-5">
-          <li>{tt("Real guests, real luggage, real late arrivals")}</li>
-          <li>{tt("Who used it, who asked staff anyway, who got lost")}</li>
-          <li>{tt("Signal in the lift lobby: weak")}</li>
-          <li>{tt("Consent and data: camera image stays on the phone")}</li>
-        </ul>
-      </div>
-    );
-  return (
-    <div role="img" aria-label={tt("A scaled solution across forty hotels, with maps, support, updates and an owner")} className="mx-auto max-w-[360px] space-y-1 rounded-lg border border-line bg-white p-3 text-caption text-ink">
-      <p className="font-bold">{tt("Scaled · 40 hotels")}</p>
-      <ul className="list-disc space-y-0.5 pl-5">
-        <li>{tt("Every corridor mapped and kept up to date after renovations")}</li>
-        <li>{tt("Works on old phones and for guests who cannot use it (staff, signs)")}</li>
-        <li>{tt("Support at the front desk; updates with every app release")}</li>
-        <li>{tt("An owner, measures, and a rule for switching it off in a hotel")}</li>
-      </ul>
-    </div>
-  );
-}
-
 /** Thumbnails of the three measures in card A5. */
 export function MeasureThumb({ kind }: { kind: "test" | "all" | "pause" }) {
   const [icon, text] =
