@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { DensityMock, GuideMock, HomeMock, MeasureThumb, ScanMock } from "@/components/day2/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day2/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { DensityLab, GuideLab, ScanLab, SideLab } from "@/components/day2/labs";
 
 /**
  * Day 2 · the teaching diagrams of Materi A and B. Example: Brightwater, a made-up leisure centre with a pool, a gym and courses, with Ana and Felix (visitors), Lea (UX
@@ -18,16 +19,7 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · provider's side against user's side (interactive) */
 
 export function SideFig() {
-  return (
-    <StateFig
-      label={tt("The same Brightwater start page, built from the provider's side and from the user's side · Exploratory · Case assumption")}
-      point={tt("Both pages hold the same content. The first is built from how the centre is organised; the second from what visitors come to do. Only the second can be used without knowing the organisation.")}
-      states={[
-        { id: "provider", button: tt("From the provider's side"), picture: <HomeMock kind="provider" />, insight: tt("In plain words: the menu shows six departments and the page opens with a word from the management. Ana wants to book a swim and has to guess which department does that. The booking is three levels down, under “Customer Office”.") },
-        { id: "user", button: tt("From the user's side"), picture: <HomeMock kind="user" />, insight: tt("In plain words: the page asks what Ana wants to do and offers the three things most visitors come for. She sees “Book a swim” at once, in her own words. The departments still exist; they are simply not the way in.") },
-      ]}
-    />
-  );
+  return <SideLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · the four steps of a scan (static) and where the scan lands (interactive) */
@@ -48,56 +40,19 @@ export function ScanChainFig() {
 }
 
 export function ScanFig() {
-  return (
-    <StateFig
-      label={tt("One Brightwater course page as a dense block and as a page built for scanning · Exploratory · Case assumption")}
-      point={tt("People scan before they read. On a dense block the eye skims the top and the left edge and misses what is in the middle; with a heading, short labelled facts and a clear button, the scan lands on what matters.")}
-      states={[
-        { id: "dense", button: tt("A dense block"), picture: <ScanMock kind="dense" />, insight: tt("In plain words: Felix's eye goes across the first line, a little across the second, then down the left edge. The dates and the booking link sit in the middle of the block, so his scan misses them and he thinks the course cannot be booked online.") },
-        { id: "scan", button: tt("Built for scanning"), picture: <ScanMock kind="scan" />, insight: tt("In plain words: the heading, three short facts with a label each, and one strong button. Felix's scan lands on the title, the facts and the button in that order, and he books in seconds. The full description is still there, below.") },
-      ]}
-    />
-  );
+  return <ScanLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · contrast, grouping, structure switched on one at a time (interactive) */
 
 export function GuideFig() {
-  return (
-    <SwitchFig
-      label={tt("A Brightwater offers page: contrast, grouping and structure · Exploratory · Case assumption")}
-      point={tt("Contrast makes one thing stand out, grouping shows what belongs together, and structure gives an order the eye can follow. Together they are visual guidance; without them every box competes with every other.")}
-      switches={[
-        { id: "contrast", label: tt("Contrast for the main action") },
-        { id: "grouping", label: tt("Group what belongs together") },
-        { id: "structure", label: tt("A clear structure") },
-      ]}
-      start={{ contrast: false, grouping: false, structure: false }}
-      picture={(on) => <GuideMock contrast={!!on.contrast} grouping={!!on.grouping} structure={!!on.structure} />}
-      insight={(on) => {
-        const n = [on.contrast, on.grouping, on.structure].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 means are used. ${on.contrast ? "The Book button is the strongest thing on the page, so Ana sees where to act." : "The Book button is as pale as the boxes, so Ana has to look for it."} ${on.grouping ? "Facilities and courses each share one colour and one frame, so she reads two groups instead of six things." : "Six boxes in six colours look unrelated, so she reads each one."} ${on.structure ? "Two labelled columns give her eye a path from top to bottom." : "The boxes are scattered, so her eye jumps without a path."}`,
-        );
-      }}
-    />
-  );
+  return <GuideLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · one start page at three densities (interactive) */
 
 export function DensityFig() {
-  return (
-    <StateFig
-      label={tt("The Brightwater start page at three densities · Exploratory · Case assumption")}
-      point={tt("Too much at once and everything competes: orientation is lost and the load rises. Too little and people click a lot to reach anything. A calm, ordered page also looks more trustworthy and of higher quality, before anyone has used it.")}
-      states={[
-        { id: "crowded", button: tt("Crowded"), picture: <DensityMock kind="crowded" />, insight: tt("In plain words: a banner, twelve boxes and three lines of text at once. Felix does not know where to look, the small Book button is lost, and the centre seems a little chaotic to him, before he has read a word.") },
-        { id: "balanced", button: tt("Balanced"), picture: <DensityMock kind="balanced" />, insight: tt("In plain words: three tasks, today's hours and one news item. Felix sees what he can do at once and what matters today. The page looks calm and well run.") },
-        { id: "sparse", button: tt("Sparse"), picture: <DensityMock kind="sparse" />, insight: tt("In plain words: one large photo and a Menu button. It looks elegant, but Felix has to open the menu and click twice to find the hours. Less is not always clearer.") },
-      ]}
-    />
-  );
+  return <DensityLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed on four criteria (interactive) */

@@ -14,11 +14,11 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 1 | `ChannelsFig` | Nordwind's journey across website, app and chatbot: a different logic in each channel, or  | two-column comparison | stays (conceptual) | – |
 | 1 | `ConflictFig` | Five Nordwind designs by clarity and activation | static | stays (conceptual) | – |
 | 1 | `DecisionFig` | A decision under uncertainty, filled in for Nordwind | decision frame | stays (conceptual) | – |
-| 2 | `SideFig` | The same Brightwater start page, built from the provider's side and from the user's side | switches between drawn screens | upgrade to a working product | open |
+| 2 | `SideFig` | The same Brightwater start page, built from the provider's side and from the user's side | switches between drawn screens | upgrade to a working product | done |
 | 2 | `ScanChainFig` | How people take in a screen: four steps in a second or two | chain of steps | stays (conceptual) | – |
-| 2 | `ScanFig` | One Brightwater course page as a dense block and as a page built for scanning | switches between drawn screens | upgrade to a working product | open |
-| 2 | `GuideFig` | A Brightwater offers page: contrast, grouping and structure | switch with a drawn picture | upgrade to a working product | open |
-| 2 | `DensityFig` | The Brightwater start page at three densities | switches between drawn screens | upgrade to a working product | open |
+| 2 | `ScanFig` | One Brightwater course page as a dense block and as a page built for scanning | switches between drawn screens | upgrade to a working product | done |
+| 2 | `GuideFig` | A Brightwater offers page: contrast, grouping and structure | switch with a drawn picture | upgrade to a working product | done |
+| 2 | `DensityFig` | The Brightwater start page at three densities | switches between drawn screens | upgrade to a working product | done |
 | 2 | `WeighFig` | Brightwater weighs three measures on effect on users, effort, risk and timeliness | rating grid | stays (conceptual) | – |
 | 2 | `LogicFig` | The same Brightwater services ordered by the inside logic and by the users' tasks | two-column comparison | stays (conceptual) | – |
 | 2 | `SystemChainFig` | From a single screen to the structure behind it | chain of steps | stays (conceptual) | – |
