@@ -82,16 +82,16 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 8 | `NarrativeLayersFig` | The layers of narrative UX, from a guiding vision to every step | chain of steps | stays (conceptual) | – |
 | 8 | `WeightFig` | Three Lantern Kitchens journeys of different length and weight | switches between drawn screens | upgrade to a working product | done |
 | 8 | `DecisionFig` | A decision under uncertainty, filled in for Lantern Kitchens | decision frame | stays (conceptual) | – |
-| 9 | `LayersFig` | One Brightwater task, “set up your savings goal”, as structure, as playful tone and as a g | switches between drawn screens | upgrade to a working product | open |
-| 9 | `PositionFig` | Brightwater after a deposit: progress, feedback, recognition, a challenge and a goal | switch with a drawn picture | upgrade to a working product | open |
-| 9 | `SignalsFig` | Brightwater's home screen with one to eight reward signals | custom interactive | upgrade to a working product | open |
-| 9 | `StagesFig` | The same Brightwater savings plan with numbered steps or with named stages | switches between drawn screens | upgrade to a working product | open |
-| 9 | `WindowFig` | Three Brightwater designs and the period you look at | custom interactive | upgrade to a working product | open |
+| 9 | `LayersFig` | One Brightwater task, “set up your savings goal”, as structure, as playful tone and as a g | switches between drawn screens | upgrade to a working product | done |
+| 9 | `PositionFig` | Brightwater after a deposit: progress, feedback, recognition, a challenge and a goal | switch with a drawn picture | upgrade to a working product | done |
+| 9 | `SignalsFig` | Brightwater's home screen with one to eight reward signals | custom interactive | upgrade to a working product | done |
+| 9 | `StagesFig` | The same Brightwater savings plan with numbered steps or with named stages | switches between drawn screens | upgrade to a working product | done |
+| 9 | `WindowFig` | Three Brightwater designs and the period you look at | custom interactive | stays (a typical pattern over time, a conceptual chart) | – |
 | 9 | `FourQuestionsFig` | Four questions asked of two Brightwater mechanics | static | stays (conceptual) | – |
 | 9 | `WeighFig` | Brightwater weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 9 | `ArchitectureFig` | Brightwater adding mechanics one request at a time, or building an activation architecture | two-column comparison | stays (conceptual) | – |
 | 9 | `LayersChainFig` | The layers of an activation architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
-| 9 | `LeverFig` | Three Brightwater levers, each with what it gives and what it costs | switches between drawn screens | upgrade to a working product | open |
+| 9 | `LeverFig` | Three Brightwater levers, each with what it gives and what it costs | switches between drawn screens | upgrade to a working product | done |
 | 9 | `DecisionFig` | A decision under uncertainty, filled in for Brightwater Savings | decision frame | stays (conceptual) | – |
 | 10 | `KindsFig` | One Northline delay handled by a rule, by the situation and by what the app has learned | switches between drawn screens | upgrade to a working product | open |
 | 10 | `WaysFig` | The Northline app adapting to context, personalising from data and steering the interactio | switches between drawn screens | upgrade to a working product | open |

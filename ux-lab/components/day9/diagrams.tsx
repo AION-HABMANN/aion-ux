@@ -1,14 +1,14 @@
 "use client";
 
 import clsx from "clsx";
-import { useId, useState } from "react";
-import { DepositMock, GoalSetupMock, LeverMock, MeasureThumb, SignalsMock, StagesMock, signalNames } from "@/components/day9/mocks";
-import { StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { useState } from "react";
+import { MeasureThumb } from "@/components/day9/mocks";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { LayersLab, LeverLab, PositionLab, SignalsLab, StagesLab } from "@/components/day9/labs";
 
 /**
  * Day 9 · the teaching diagrams of Materi A and B. Example: Brightwater Savings, a made-up savings bank with an app, with Vera and Kaspar (customers), Rhea (UX
@@ -21,86 +21,25 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · structure, tone or a game (interactive) */
 
 export function LayersFig() {
-  return (
-    <StateFig
-      label={tt("One Brightwater task, “set up your savings goal”, as structure, as playful tone and as a game · Exploratory · Case assumption")}
-      point={tt("“Make it more like a game” can mean three things. Structure (a goal, a visible step, a confirmation) helps almost any product and takes days. A playful tone changes only the look and can make a serious provider seem careless. A game builds a world and a story; it takes months, and a game that does not convince is worse than none.")}
-      states={[
-        { id: "structure", button: tt("Structure: gamification"), picture: <GoalSetupMock kind="structure" />, insight: tt("In plain words: three steps, where Vera is, and a line saying what was saved and what comes next. Nothing looks like a game, yet she knows her position and her goal. One designer, a few days; little risk.") },
-        { id: "tone", button: tt("Tone: playful design"), picture: <GoalSetupMock kind="tone" />, insight: tt("In plain words: the same two fields, now with a pink piggy, sparkles and “money magic”. Vera knows no more than before about where she is. For a bank, the tone says “we don't take your money seriously”. Pretty, and no more useful.") },
-        { id: "game", button: tt("Fiction: a game"), picture: <GoalSetupMock kind="game" />, insight: tt("In plain words: a pirate quest with a captain, islands and lives; the actual task is hidden in chapter 1. It is memorable once, but it needs writers, artists and months, and grown-ups planning their savings may find it childish.") },
-      ]}
-    />
-  );
+  return <LayersLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · five kinds of information about one's own position (interactive) */
 
 export function PositionFig() {
-  return (
-    <SwitchFig
-      label={tt("Brightwater after a deposit: progress, feedback, recognition, a challenge and a goal · Exploratory · Case assumption")}
-      point={tt("People do not react to rewards as such; they react to information about their own position: how far they have come, whether this step counted, what they can do now. Progress, feedback, recognition, a challenge and a goal are five ways of giving that information.")}
-      switches={[
-        { id: "progress", label: tt("Progress: how far") },
-        { id: "feedback", label: tt("Feedback: what it did") },
-        { id: "recognition", label: tt("Recognition: it was noticed") },
-        { id: "challenge", label: tt("Challenge: a next step") },
-        { id: "goal", label: tt("Goal: what for") },
-      ]}
-      start={{ progress: false, feedback: false, recognition: false, challenge: false, goal: false }}
-      picture={(on) => <DepositMock progress={!!on.progress} feedback={!!on.feedback} recognition={!!on.recognition} challenge={!!on.challenge} goal={!!on.goal} />}
-      insight={(on) => {
-        const n = [on.progress, on.feedback, on.recognition, on.challenge, on.goal].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of 5 kinds of information. ${on.goal ? "Kaspar knows what he is saving for." : "Kaspar does not see what the money is for."} ${on.progress ? "He sees two of three months done." : "He sees a balance, not a position."} ${on.feedback ? "He learns what this deposit did." : "“Transaction completed” tells him nothing."} ${on.recognition ? "His regularity is noticed: that builds self-efficacy." : ""} ${on.challenge ? "An optional next step invites him; he can ignore it." : ""}`.replace(/\s+/g, " ").trim(),
-        );
-      }}
-    />
-  );
+  return <PositionLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · one signal or eight (interactive slider) */
 
 export function SignalsFig() {
-  const [n, setN] = useState(2);
-  const id = useId();
-  const names = signalNames();
-  const insight =
-    n <= 2
-      ? tt("In plain words: one or two signals. Kaspar sees his cushion grow and, perhaps, his streak. Each signal means something.")
-      : n <= 4
-        ? tt("In plain words: points and a badge join in. Each new signal makes the others count a little less: is the badge worth more than the streak? The progress bar, the one that says the most, is now easy to miss.")
-        : tt("In plain words: a ranking, a countdown, a mystery chest and a red dot. The screen is loud, the countdown pushes, the ranking tells Kaspar 12 people passed him. He can no longer see his cushion, and the message he receives is pressure, not progress. Removing signals later will feel like taking rewards away.");
-  return (
-    <Diagram label={tt("Brightwater's home screen with one to eight reward signals · Exploratory · Case assumption")}>
-      <div className="space-y-3">
-        <ThePoint>{tt("Stacking mechanics does not stack motivation. Past a few signals, each new one makes the others mean less, and the screen turns from information into pressure. That is overstimulation, and it slides into reward inflation and manipulation.")}</ThePoint>
-        <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Reward signals on the screen: ${n}`)}</label>
-          <input id={id} type="range" min={1} max={8} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={tt(`${n}: ${names.slice(0, n).join(", ")}`)} />
-          <p className="text-caption text-ash">{tt(`Showing: ${names.slice(0, n).join(", ")}`)}</p>
-        </div>
-        <div className="mx-auto max-w-[440px]"><SignalsMock n={n} /></div>
-        <Insight>{insight}</Insight>
-      </div>
-    </Diagram>
-  );
+  return <SignalsLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · numbered steps or named stages (interactive) */
 
 export function StagesFig() {
-  return (
-    <StateFig
-      label={tt("The same Brightwater savings plan with numbered steps or with named stages · Exploratory · Case assumption")}
-      point={tt("Progress logic says where you are; a story says why that place matters. Named stages make the same mechanics mean more, and nothing new had to be built: the progress bar and the monthly confirmation are unchanged. The story is the real process told well, not an invented quest.")}
-      states={[
-        { id: "steps", button: tt("Numbered steps"), picture: <StagesMock named={false} />, insight: tt("In plain words: “Step 6 of 12”. Vera knows her position, but not what it is worth. Halfway through a year, step 6 feels like a long way still to go.") },
-        { id: "stages", button: tt("Named stages"), picture: <StagesMock named />, insight: tt("In plain words: “Month 6: a month's rent, if work stops”. The same position, now with a meaning Vera recognises from her own life. The mechanics underneath did not change.") },
-      ]}
-    />
-  );
+  return <StagesLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · the reporting window chooses the winner (interactive, a pattern, not data) */
@@ -284,17 +223,7 @@ export function LayersChainFig() {
 /* ------------------------------------------------------------------ B2 · three levers and what they cost (interactive) */
 
 export function LeverFig() {
-  return (
-    <StateFig
-      label={tt("Three Brightwater levers, each with what it gives and what it costs · Exploratory · Case assumption")}
-      point={tt("Every lever buys activation with something: a streak warning uses loss aversion and costs autonomy, a ranking uses comparison and costs dignity and trust, a milestone uses progress and costs little. A decision names the lever, says who stands for each side and what is given up.")}
-      states={[
-        { id: "streak", button: tt("A streak warning"), picture: <LeverMock kind="streak" />, insight: tt("In plain words: “Don't lose your streak!” works through loss aversion: Kaspar saves a token amount at midnight to protect a number. Marketing sees more activity; Kaspar feels pushed, and when the streak breaks, many stop altogether.") },
-        { id: "ranking", button: tt("A city ranking"), picture: <LeverMock kind="ranking" />, insight: tt("In plain words: Vera is number 412. The ranking motivates the few at the top and tells everyone else they are behind, about money. Sales likes the attention; the advisers fear for the bank's credibility.") },
-        { id: "milestone", button: tt("A milestone"), picture: <LeverMock kind="milestone" />, insight: tt("In plain words: “Your cushion now covers a broken boiler.” It uses progress and meaning; nobody is compared, nobody is pushed. It pulls less in the first week and more over a year.") },
-      ]}
-    />
-  );
+  return <LeverLab />;
 }
 
 /* ------------------------------------------------------------------ B3 · a decision under uncertainty, filled in for Brightwater (static) */
