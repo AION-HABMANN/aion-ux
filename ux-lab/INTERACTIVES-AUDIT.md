@@ -93,15 +93,15 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 9 | `LayersChainFig` | The layers of an activation architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
 | 9 | `LeverFig` | Three Brightwater levers, each with what it gives and what it costs | switches between drawn screens | upgrade to a working product | done |
 | 9 | `DecisionFig` | A decision under uncertainty, filled in for Brightwater Savings | decision frame | stays (conceptual) | – |
-| 10 | `KindsFig` | One Northline delay handled by a rule, by the situation and by what the app has learned | switches between drawn screens | upgrade to a working product | open |
-| 10 | `WaysFig` | The Northline app adapting to context, personalising from data and steering the interactio | switches between drawn screens | upgrade to a working product | open |
-| 10 | `PersonalFig` | One Northline message from not personal at all to far too personal | custom interactive | upgrade to a working product | open |
-| 10 | `ThreeQuestionsFig` | Northline's automatic rebooking with a reason, a way to change it and an undo | switch with a drawn picture | upgrade to a working product | open |
+| 10 | `KindsFig` | One Northline delay handled by a rule, by the situation and by what the app has learned | switches between drawn screens | upgrade to a working product | done |
+| 10 | `WaysFig` | The Northline app adapting to context, personalising from data and steering the interactio | switches between drawn screens | upgrade to a working product | done |
+| 10 | `PersonalFig` | One Northline message from not personal at all to far too personal | custom interactive | upgrade to a working product | done |
+| 10 | `ThreeQuestionsFig` | Northline's automatic rebooking with a reason, a way to change it and an undo | switch with a drawn picture | upgrade to a working product | done |
 | 10 | `DataChainFig` | From data to a suggestion in the Northline app, and where it breaks | chain of steps | stays (conceptual) | – |
 | 10 | `WeighFig` | Northline weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 10 | `ArchitectureFig` | Northline adding AI features to look modern, or building an intelligent UX architecture | two-column comparison | stays (conceptual) | – |
 | 10 | `LayersChainFig` | The layers of an intelligent UX architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
-| 10 | `DepthFig` | Three Northline journeys and how deep personalisation should go in each | switches between drawn screens | upgrade to a working product | open |
+| 10 | `DepthFig` | Three Northline journeys and how deep personalisation should go in each | switches between drawn screens | upgrade to a working product | done |
 | 10 | `DecisionFig` | A decision under uncertainty, filled in for Northline Rail | decision frame | stays (conceptual) | – |
 | 11 | `ModesFig` | One Ladle task, scaling a recipe and setting a timer, on a screen, in a chat and by voice | switches between drawn screens | upgrade to a working product | open |
 | 11 | `RequirementsFig` | One Ladle voice dialogue with the six requirements of a good voice interface | switch with a drawn picture | upgrade to a working product | open |
