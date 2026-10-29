@@ -2,13 +2,14 @@
 
 import clsx from "clsx";
 import { useId, useState } from "react";
-import { CheckoutMock, FormMock, MeasureThumb, StockMock } from "@/components/day12/mocks";
-import { StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day12/mocks";
+import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { PeopleLab, PlainLab, StockLab } from "@/components/day12/labs";
 
 /**
  * Day 12 · the teaching diagrams of Materi A and B. Example: Greenway, a made-up online grocer, with Kofi (a blind customer who uses a screen reader), Liv (a
@@ -21,18 +22,7 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · one checkout, four people (interactive) */
 
 export function PeopleFig() {
-  return (
-    <StateFig
-      label={tt("Greenway's checkout as four people meet it · Exploratory · Case assumption")}
-      point={tt("A barrier is a mismatch between a design and a person. Some limits are permanent (blindness), some temporary (an arm in a cast), some situational (bright sunlight), and minds differ too (dyslexia, ADHD, autism). The same barrier often stops all of them: designing for one helps many.")}
-      states={[
-        { id: "kofi", button: tt("Kofi · screen reader"), picture: <CheckoutMock who="kofi" />, insight: tt("In plain words: Kofi hears “button, button, image”. Nothing tells him which button pays. A permanent limit; the barrier is the missing names, not his blindness.") },
-        { id: "liv", button: tt("Liv · dyslexia"), picture: <CheckoutMock who="liv" />, insight: tt("In plain words: one long justified sentence in capitals and italics. Liv cannot find out whether substitutions are on, and many other customers skip it too.") },
-        { id: "arjun", button: tt("Arjun · arm in a cast"), picture: <CheckoutMock who="arjun" />, insight: tt("In plain words: for six weeks Arjun uses the keyboard. He cannot see where he is, and Pay is never reached. A temporary limit meets the same barrier as a permanent one.") },
-        { id: "sun", button: tt("In bright sunlight"), picture: <CheckoutMock who="sun" />, insight: tt("In plain words: on the train platform at noon the light grey delivery line disappears. Everyone has this situational limit sometimes; weak contrast fails them all.") },
-      ]}
-    />
-  );
+  return <PeopleLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · contrast, computed (interactive) */
@@ -78,23 +68,7 @@ export function ContrastFig() {
 /* ------------------------------------------------------------------ A2 · colour only, and text alternatives (interactive) */
 
 export function StockFig() {
-  return (
-    <SwitchFig
-      label={tt("Greenway product tiles with or without words for “out of stock” and text alternatives for the images · Exploratory · Case assumption")}
-      point={tt("Information given by colour alone is lost for people who cannot tell the colours apart (about one man in twelve has a colour vision deficiency) and for screen readers. Say it in words too. Every image that carries meaning needs a text alternative that says what it shows.")}
-      switches={[
-        { id: "words", label: tt("Say “out of stock” in words") },
-        { id: "alt", label: tt("Give the images text alternatives") },
-      ]}
-      start={{ words: false, alt: false }}
-      picture={(on) => <StockMock words={!!on.words} alt={!!on.alt} />}
-      insight={(on) =>
-        tt(
-          `In plain words: ${on.words ? "“Out of stock” is said in words and with an icon; everyone can see it, and a screen reader can say it." : "Only a red border says “out of stock”; with a red-green deficiency both tiles look alike, and a screen reader says nothing."} ${on.alt ? "Kofi now hears “Punnet of fresh strawberries, 500 g” instead of “image”." : "Kofi hears “image, image”."}`,
-        )
-      }
-    />
-  );
+  return <StockLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · try it with the keyboard (interactive, real) */
@@ -169,16 +143,7 @@ export function KeyboardFig() {
 /* ------------------------------------------------------------------ A4 · plain words and helpful errors (interactive) */
 
 export function PlainFig() {
-  return (
-    <StateFig
-      label={tt("The Greenway delivery form in official and in plain language · Exploratory · Case assumption")}
-      point={tt("Plain language helps people with dyslexia, with learning difficulties, with another first language, and everyone in a hurry. One idea per sentence, everyday words, the label above the field, and the question the person is actually answering.")}
-      states={[
-        { id: "official", button: tt("Official language"), picture: <FormMock plain={false} />, insight: tt("In plain words: one sentence of 40 words with a legal reference, and a field called “delivery locality designation”. Liv reads it three times and still does not know what to type.") },
-        { id: "plain", button: tt("Plain language"), picture: <FormMock plain />, insight: tt("In plain words: “Where should we deliver?” and “If nobody is home, we may leave it with:”. The same legal content, said the way a person would say it.") },
-      ]}
-    />
-  );
+  return <PlainLab />;
 }
 
 export function ErrorFig() {

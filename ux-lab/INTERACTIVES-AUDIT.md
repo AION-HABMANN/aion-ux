@@ -114,17 +114,17 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 11 | `LayersChainFig` | The layers of a voice service architecture, from a guiding vision to every touchpoint | chain of steps | stays (conceptual) | – |
 | 11 | `FreedomFig` | Three Ladle journeys and how free the voice dialogue may be in each | switches between drawn screens | upgrade to a working product | done |
 | 11 | `DecisionFig` | A decision under uncertainty, filled in for Ladle | decision frame | stays (conceptual) | – |
-| 12 | `PeopleFig` | Greenway's checkout as four people meet it | switches between drawn screens | upgrade to a working product | open |
-| 12 | `ContrastFig` | A Greenway price label on white, with the contrast ratio computed as you move the slider | custom interactive | upgrade to a working product | open |
-| 12 | `StockFig` | Greenway product tiles with or without words for “out of stock” and text alternatives for  | switch with a drawn picture | upgrade to a working product | open |
-| 12 | `KeyboardFig` | A Greenway checkout form in three versions; click into it and press Tab | custom interactive | upgrade to a working product | open |
-| 12 | `PlainFig` | The Greenway delivery form in official and in plain language | switches between drawn screens | upgrade to a working product | open |
-| 12 | `ErrorFig` | The same mistake in the Greenway form with two error messages | custom interactive | upgrade to a working product | open |
+| 12 | `PeopleFig` | Greenway's checkout as four people meet it | switches between drawn screens | upgrade to a working product | done |
+| 12 | `ContrastFig` | A Greenway price label on white, with the contrast ratio computed as you move the slider | custom interactive | upgrade to a working product | checked: already a working product |
+| 12 | `StockFig` | Greenway product tiles with or without words for “out of stock” and text alternatives for  | switch with a drawn picture | upgrade to a working product | done |
+| 12 | `KeyboardFig` | A Greenway checkout form in three versions; click into it and press Tab | custom interactive | upgrade to a working product | checked: already a working product |
+| 12 | `PlainFig` | The Greenway delivery form in official and in plain language | switches between drawn screens | upgrade to a working product | done |
+| 12 | `ErrorFig` | The same mistake in the Greenway form with two error messages | custom interactive | upgrade to a working product | checked: already a working product |
 | 12 | `PourFig` | The four principles of the accessibility standard, each with a Greenway example | chain of steps | stays (conceptual) | – |
 | 12 | `WeighFig` | Greenway weighs three measures on effect on users, legal certainty, feasibility, risk and  | rating grid | stays (conceptual) | – |
 | 12 | `ArchitectureFig` | Greenway treating accessibility as a launch check, or building it into how products are ma | two-column comparison | stays (conceptual) | – |
 | 12 | `LayersChainFig` | The layers of an accessibility architecture, from a guiding vision to every page | chain of steps | stays (conceptual) | – |
-| 12 | `ConflictFig` | Three Greenway decisions, each a conflict between goals | switches between drawn screens | upgrade to a working product | open |
+| 12 | `ConflictFig` | Three Greenway decisions, each a conflict between goals | switches between drawn screens | stays (three decisions between goals, a leadership comparison) | – |
 | 12 | `DecisionFig` | A decision under uncertainty, filled in for Greenway | decision frame | stays (conceptual) | – |
 | 13 | `LensFig` | Hearth Energy's start page seen through three lenses: ADHD, autism, dyslexia | switches between drawn screens | upgrade to a working product | open |
 | 13 | `StimulusFig` | A dial from calm to overloaded on the Hearth Energy start page | custom interactive | upgrade to a working product | open |

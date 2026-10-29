@@ -84,27 +84,6 @@ export function CheckoutMock({ who }: { who: "kofi" | "liv" | "arjun" | "sun" })
 
 /* ------------------------------------------------------------------ A2 · colour only, and text alternatives */
 
-export function StockMock({ words, alt }: { words: boolean; alt: boolean }) {
-  return (
-    <Phone label={tt(`Greenway product tiles. ${words ? "Out of stock is said in words and with an icon." : "Out of stock is shown only by a red border."} ${alt ? "The product images have text alternatives." : "The product images have no text alternatives."}`)}>
-      <div className="grid grid-cols-2 gap-2">
-        {[
-          [tt("Strawberries"), "🍓", true],
-          [tt("Spinach"), "🥬", false],
-        ].map(([n, e, ok]) => (
-          <div key={String(n)} className="rounded-lg border-2 bg-white p-2 text-center" style={{ borderColor: ok ? "#9BD3AE" : "#E06C6C" }}>
-            <div className="text-[28px]">{e}</div>
-            <div className="font-semibold">{n}</div>
-            {words && !ok && <div className="mt-1 rounded bg-[#FDE2E2] text-[10.5px] font-semibold text-[#8A1C1C]">✕ {tt("Out of stock")}</div>}
-            {alt && <div className="mt-1 text-[9.5px] text-[#4A5560]">alt: “{ok ? tt("Punnet of fresh strawberries, 500 g") : tt("Bunch of fresh spinach")}”</div>}
-          </div>
-        ))}
-      </div>
-      {!words && <Note>{tt("Which one is out of stock? Only the red border says so.")}</Note>}
-    </Phone>
-  );
-}
-
 /* ------------------------------------------------------------------ A4 · official or plain words */
 
 export function FormMock({ plain }: { plain: boolean }) {
