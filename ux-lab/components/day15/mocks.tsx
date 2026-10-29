@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Box, FaintPrint } from "@/components/day15/gaze";
+import { Box } from "@/components/day15/gaze";
 import type { Aoi, Fix } from "@/components/day15/gaze";
 import { tt } from "@/lib/lang";
 
@@ -69,47 +69,6 @@ export function Phone({ children, label, title = "Tessel" }: { children: ReactNo
 }
 
 /** Three consent screens for the same study: hidden, clear, clear with limits. */
-export function ConsentMock({ kind }: { kind: "hidden" | "clear" | "limits" }) {
-  if (kind === "hidden")
-    return (
-      <Phone label={tt("A Tessel app update screen with a large Continue button and a pre-ticked box in small grey print")} title={tt("What's new")}>
-        <p className="text-[15px] font-bold">{tt("A smarter Tessel ✨")}</p>
-        <p>{tt("Faster transfers, a fresh look and more.")}</p>
-        <div className="rounded bg-[#0F5E4C] py-2 text-center font-semibold text-white">{tt("Continue")}</div>
-        <FaintPrint label={tt("Small grey print, pre-ticked: I agree that interaction and camera-based attention data may be used to improve services and for personalised offers.")} lines={[tt("☑ I agree that interaction and camera-based attention data"), tt("may be used to improve services and for personalised offers.")]} />
-      </Phone>
-    );
-  if (kind === "clear")
-    return (
-      <Phone label={tt("A Tessel study invitation that says what is recorded, who sees it, and offers Yes and No as equal buttons")} title={tt("Help us test")}>
-        <p className="font-bold">{tt("Would you take part in a 20-minute test?")}</p>
-        <ul className="list-disc space-y-0.5 pl-4 text-[11px]">
-          <li>{tt("We record where you look on two screens, with an eye-tracker in our lab.")}</li>
-          <li>{tt("Only the research team sees the recording.")}</li>
-          <li>{tt("It is deleted after 3 months.")}</li>
-        </ul>
-        <div className="grid grid-cols-2 gap-2 pt-1">
-          <div className="rounded border border-[#0F5E4C] py-1.5 text-center font-semibold text-[#0F5E4C]">{tt("No, thanks")}</div>
-          <div className="rounded bg-[#0F5E4C] py-1.5 text-center font-semibold text-white">{tt("Yes, I'll join")}</div>
-        </div>
-      </Phone>
-    );
-  return (
-    <Phone label={tt("The same invitation, adding what Tessel will not infer, that saying no changes nothing, and how to withdraw")} title={tt("Help us test")}>
-      <p className="font-bold">{tt("Would you take part in a 20-minute test?")}</p>
-      <ul className="list-disc space-y-0.5 pl-4 text-[11px]">
-        <li>{tt("We record where you look on two screens, in our lab. Only the research team sees it; deleted after 3 months.")}</li>
-        <li><b>{tt("We will not")}</b> {tt("use it to judge your mood, health or creditworthiness, or for offers.")}</li>
-        <li>{tt("Saying no changes nothing about your account. You can stop at any time.")}</li>
-      </ul>
-      <div className="grid grid-cols-2 gap-2 pt-1">
-        <div className="rounded border border-[#0F5E4C] py-1.5 text-center font-semibold text-[#0F5E4C]">{tt("No, thanks")}</div>
-        <div className="rounded bg-[#0F5E4C] py-1.5 text-center font-semibold text-white">{tt("Yes, I'll join")}</div>
-      </div>
-    </Phone>
-  );
-}
-
 /** Thumbnails of the three measures in card A5. */
 export function MeasureThumb({ kind }: { kind: "lab" | "webcam" | "eeg" }) {
   const body =

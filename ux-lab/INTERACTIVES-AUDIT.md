@@ -148,17 +148,17 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 14 | `LayersChainFig` | The layers of an innovation architecture, from a guiding vision to every pilot | chain of steps | stays (conceptual) | – |
 | 14 | `BetsFig` | Brewline's three bets: safe, medium and bold | switches between drawn screens | stays (three portfolio bets, a leadership comparison) | – |
 | 14 | `DecisionFig` | A decision under uncertainty, filled in for Brewline | decision frame | stays (conceptual) | – |
-| 15 | `RecordingFig` | Mara's gaze on Tessel's transfer page, as a scanpath, a heatmap and areas of interest | static | stays (conceptual) | – |
-| 15 | `ReadingsFig` | The same recording, with the long fixation on the fee line marked red | switches between drawn screens | upgrade to a working product | open |
+| 15 | `RecordingFig` | Mara's gaze on Tessel's transfer page, as a scanpath, a heatmap and areas of interest | static | stays (conceptual) | checked: already a working product |
+| 15 | `ReadingsFig` | The same recording, with the long fixation on the fee line marked red | switches between drawn screens | upgrade to a working product | checked: already a working product |
 | 15 | `LadderFig` | The interpretation ladder: from seen to agreed, and what each step needs | chain of steps | stays (conceptual) | – |
-| 15 | `MaturityFig` | Seven technologies for Tessel placed by evidence and everyday use | custom interactive | upgrade to a working product | open |
-| 15 | `TracksFig` | Tessel's five ideas sorted into research, experiment, product, or not at all | custom interactive | upgrade to a working product | open |
+| 15 | `MaturityFig` | Seven technologies for Tessel placed by evidence and everyday use | custom interactive | stays (a judgement grid of technologies by evidence and use) | – |
+| 15 | `TracksFig` | Tessel's five ideas sorted into research, experiment, product, or not at all | custom interactive | stays (a sorting of ideas into tracks, a conceptual tool) | – |
 | 15 | `QuestionChainFig` | Fund the question, not the technology: from a question to a decision | chain of steps | stays (conceptual) | – |
-| 15 | `ConsentFig` | Three consent screens for the same Tessel study | switches between drawn screens | upgrade to a working product | open |
+| 15 | `ConsentFig` | Three consent screens for the same Tessel study | switches between drawn screens | upgrade to a working product | done |
 | 15 | `WeighFig` | Tessel weighs three measures on effect on users, feasibility, risk, time pressure and repu | rating grid | stays (conceptual) | – |
 | 15 | `ArchitectureFig` | Tessel chasing measurements to look scientific, or running an insight architecture | two-column comparison | stays (conceptual) | – |
 | 15 | `LayersChainFig` | The layers of an insight architecture, from a guiding vision to every study | chain of steps | stays (conceptual) | – |
-| 15 | `BetsFig` | Tessel's three bets: safe, medium and bold | switches between drawn screens | upgrade to a working product | open |
+| 15 | `BetsFig` | Tessel's three bets: safe, medium and bold | switches between drawn screens | stays (three portfolio bets, a leadership comparison) | – |
 | 15 | `DecisionFig` | A decision under uncertainty, filled in for Tessel | decision frame | stays (conceptual) | – |
 | 16 | `GatesFig` | The gates between the rungs, and what each must answer | chain of steps | stays (conceptual) | – |
 | 16 | `StressTestFig` | Fernwood's AR arrow under a stress test: crowd, signal and light | custom interactive | upgrade to a working product | open |

@@ -3,13 +3,14 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { GazeStage } from "@/components/day15/gaze";
-import { ConsentMock, MeasureThumb, TESSEL_AOIS, TESSEL_FIXES, TesselPage } from "@/components/day15/mocks";
+import { MeasureThumb, TESSEL_AOIS, TESSEL_FIXES, TesselPage } from "@/components/day15/mocks";
 import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { ConsentLab } from "@/components/day15/labs";
 
 /**
  * Day 15 · the teaching diagrams of Materi A and B. Example: Tessel, a made-up bank, with Mara and Joon (customers), Ines (UX researcher) and Bastian (product
@@ -169,17 +170,7 @@ export function QuestionChainFig() {
 /* ------------------------------------------------------------------ A5 · consent as a design variable (interactive) and three measures weighed */
 
 export function ConsentFig() {
-  return (
-    <StateFig
-      label={tt("Three consent screens for the same Tessel study · Exploratory · Case assumption")}
-      point={tt("Consent is part of the design, not a legal footnote. The same study can be asked for in a way that hides it, in a way that explains it, or in a way that also limits what will be inferred and makes no as easy as yes.")}
-      states={[
-        { id: "hidden", button: tt("Hidden"), picture: <ConsentMock kind="hidden" />, insight: tt("In plain words: a pre-ticked box in tiny grey print under a big Continue button, mixing research with offers. Hardly anyone would know they agreed. This is a dark pattern.") },
-        { id: "clear", button: tt("Clear"), picture: <ConsentMock kind="clear" />, insight: tt("In plain words: what is recorded, who sees it, when it is deleted, and Yes and No as equal buttons. People can decide.") },
-        { id: "limits", button: tt("Clear, with limits"), picture: <ConsentMock kind="limits" />, insight: tt("In plain words: it also says what Tessel will not infer (mood, health, creditworthiness), that no changes nothing, and that people can stop. Regulators ask for exactly this kind of guarantee.") },
-      ]}
-    />
-  );
+  return <ConsentLab />;
 }
 
 export function WeighFig() {
