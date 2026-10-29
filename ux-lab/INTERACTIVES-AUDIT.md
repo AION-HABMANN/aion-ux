@@ -52,10 +52,10 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 5 | `BusinessChainFig` | From a button to the business | chain of steps | stays (conceptual) | – |
 | 5 | `ConflictFig` | Five Ticketo designs by options shown at once and how fast and safely people finish | static | stays (conceptual) | – |
 | 5 | `DecisionFig` | A decision under uncertainty, filled in for Ticketo | decision frame | stays (conceptual) | – |
-| 6 | `GestaltFig` | A Seabird Ferries page: proximity, similarity and common region | switch with a drawn picture | upgrade to a working product | open |
-| 6 | `HierarchyFig` | The same Seabird booking step: every element equally strong, and a clear hierarchy | switches between drawn screens | upgrade to a working product | open |
-| 6 | `DisclosureFig` | One Seabird booking form: every field at once, step by step, and hidden too deep | switches between drawn screens | upgrade to a working product | open |
-| 6 | `PatternFig` | Two Seabird areas, tickets and freight, with different patterns and with the same pattern | switches between drawn screens | upgrade to a working product | open |
+| 6 | `GestaltFig` | A Seabird Ferries page: proximity, similarity and common region | switch with a drawn picture | upgrade to a working product | done |
+| 6 | `HierarchyFig` | The same Seabird booking step: every element equally strong, and a clear hierarchy | switches between drawn screens | upgrade to a working product | done |
+| 6 | `DisclosureFig` | One Seabird booking form: every field at once, step by step, and hidden too deep | switches between drawn screens | upgrade to a working product | done |
+| 6 | `PatternFig` | Two Seabird areas, tickets and freight, with different patterns and with the same pattern | switches between drawn screens | upgrade to a working product | done |
 | 6 | `SystemChainFig` | From a UX law to every screen built from it | chain of steps | stays (conceptual) | – |
 | 6 | `WeighFig` | Seabird weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 6 | `SystemFig` | Seabird's teams building their own patterns, or building from one design system | two-column comparison | stays (conceptual) | – |

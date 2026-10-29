@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { DisclosureMock, GestaltMock, HierarchyMock, MeasureThumb, PatternMock } from "@/components/day6/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day6/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { DisclosureLab, GestaltLab, HierarchyLab, PatternLab } from "@/components/day6/labs";
 
 /**
  * Day 6 · the teaching diagrams of Materi A and B. Example: Seabird Ferries, a made-up ferry operator, with Elif and Noah (passengers), Greta (design-system lead) and
@@ -18,71 +19,25 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · Gestalt laws (interactive) */
 
 export function GestaltFig() {
-  return (
-    <SwitchFig
-      label={tt("A Seabird Ferries page: proximity, similarity and common region · Exploratory · Case assumption")}
-      point={tt("People see groups, not pieces. What is close together, looks alike or sits in one frame is read as belonging together. A layout that follows these laws lets people find a group at a glance; one that breaks them makes related things look unrelated.")}
-      switches={[
-        { id: "proximity", label: tt("Proximity: close together") },
-        { id: "similarity", label: tt("Similarity: one look per group") },
-        { id: "region", label: tt("Common region: one frame per group") },
-      ]}
-      start={{ proximity: false, similarity: false, region: false }}
-      picture={(on) => <GestaltMock proximity={!!on.proximity} similarity={!!on.similarity} region={!!on.region} />}
-      insight={(on) => {
-        const n = [on.proximity, on.similarity, on.region].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 laws are used. ${on.proximity ? "The ticket links stand together and the travel information stands together, so Elif sees two groups." : "The six links are scattered, so Elif reads each one alone."} ${on.similarity ? "Each group has one colour, so she can tell them apart." : "The colours are mixed, so a colour tells her nothing."} ${on.region ? "Each group has a frame and a label, so she knows at once where the luggage rules are." : "No frames, so she has to work out the groups herself."}`,
-        );
-      }}
-    />
-  );
+  return <GestaltLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · visual hierarchy (interactive) */
 
 export function HierarchyFig() {
-  return (
-    <StateFig
-      label={tt("The same Seabird booking step: every element equally strong, and a clear hierarchy · Exploratory · Case assumption")}
-      point={tt("A visual hierarchy is an order of importance the eye can follow. The primary action is the strongest thing; secondary actions are quieter; notices and promotions take their place. Arranging everything side by side is not steering.")}
-      states={[
-        { id: "flat", button: tt("Everything equally strong"), picture: <HierarchyMock kind="flat" />, insight: tt("In plain words: an offer, a notice and four buttons, all equally bold. Noah's eye jumps between them and he is not sure which button takes him on. He presses Save for later.") },
-        { id: "clear", button: tt("A clear hierarchy"), picture: <HierarchyMock kind="clear" />, insight: tt("In plain words: his crossing first, the notice small below it, one strong Continue button, the other options as quiet links, the offer last. Noah sees the next step at once.") },
-      ]}
-    />
-  );
+  return <HierarchyLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · progressive disclosure (interactive) */
 
 export function DisclosureFig() {
-  return (
-    <StateFig
-      label={tt("One Seabird booking form: every field at once, step by step, and hidden too deep · Exploratory · Case assumption")}
-      point={tt("Progressive disclosure shows what is relevant now and keeps the rest one clear step away. It lowers the load. When information people need to decide is buried too deep, reduction turns into hiding: the screen is calm and the decision is unsafe.")}
-      states={[
-        { id: "all", button: tt("Every field at once"), picture: <DisclosureMock kind="all" />, insight: tt("In plain words: twelve fields, including freight weight, group leader and pet passport. Elif travels alone on foot, but she has to read them all and wonders which she must fill in.") },
-        { id: "staged", button: tt("Step by step"), picture: <DisclosureMock kind="staged" />, insight: tt("In plain words: step 1 of 3 asks only who travels and when; the luggage rules sit next to the luggage field; a vehicle or a pet can be added if needed. Elif fills in three fields and knows the rules.") },
-        { id: "hidden", button: tt("Hidden too deep"), picture: <DisclosureMock kind="hidden" />, insight: tt("In plain words: only a name, a date and Book. It looks easy, but the luggage rules are only in the help pages. Elif books, brings more bags than allowed and is charged at the port.") },
-      ]}
-    />
-  );
+  return <DisclosureLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · consistency across areas (interactive) */
 
 export function PatternFig() {
-  return (
-    <StateFig
-      label={tt("Two Seabird areas, tickets and freight, with different patterns and with the same pattern · Exploratory · Case assumption")}
-      point={tt("When similar tasks follow the same pattern, people learn once and then predict. Each new pattern for a similar task costs a fresh orientation, even when each page on its own is well designed.")}
-      states={[
-        { id: "different", button: tt("Different patterns"), picture: <PatternMock kind="different" />, insight: tt("In plain words: in tickets Noah continues with a large button at the bottom; in freight there is a small Next button at the top right. He looks at the bottom of the freight page and waits.") },
-        { id: "same", button: tt("The same pattern"), picture: <PatternMock kind="same" />, insight: tt("In plain words: both areas have the same layout and the Continue button in the same place. What Noah learnt in tickets works in freight at once.") },
-      ]}
-    />
-  );
+  return <PatternLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · from law to screen (static) and three measures (interactive) */
