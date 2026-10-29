@@ -113,7 +113,7 @@ export function CardA3() {
       <PersonalFig />
       <DataTable
         caption={tt("What intelligent interfaces give, and how they go wrong")}
-        head={[tt("Potential"), tt("What it looks like"), tt("Risk"), tt("What it looks like")]}
+        head={[tt("Potential"), tt("What it looks like"), tt("Risk"), tt("How it shows")]}
         rows={[
           [tt("Relevance"), tt("What people see fits them."), tt("Opacity"), tt("Nobody can see why.")],
           [tt("Time saved"), tt("Fewer steps to the goal."), tt("Loss of control"), tt("People cannot change it.")],

@@ -43,7 +43,7 @@ export function CardA1() {
       <ModesFig />
       <DataTable
         caption={tt("What voice can do, and where it fails")}
-        head={[tt("Chance"), tt("What it looks like"), tt("Limit"), tt("What it looks like")]}
+        head={[tt("Chance"), tt("What it looks like"), tt("Limit"), tt("How it shows")]}
         rows={[
           [tt("Hands-free"), tt("Cooking, driving, carrying."), tt("Misunderstandings"), tt("“Thirteen” for “thirty”.")],
           [tt("Speed"), tt("One sentence instead of five taps."), tt("Loss of context"), tt("“And for four people?” is not linked to the recipe.")],

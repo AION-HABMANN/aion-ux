@@ -116,7 +116,18 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  13: { name: t("Inclusive Design Patterns"), what: t("One page with the learning levels, a Training Ground and four cases.") },
+  13: {
+    name: t("Inclusive Design Patterns"),
+    what: t("One page with the learning levels, a Training Ground and four cases."),
+    extras: {
+      1: [
+        x("Inclusive Design Patterns: Learn and Training Ground", "The first version on one page: the Stimulus Dial, the Predictability Toggle, the Readability Lab, the Profile Lens, the Category Sorter, the Pattern Fix Simulator and the Assistive Tech Strip, and a Training Ground to practise on. Open the tabs “Learn” and “Training Ground”.", "/day/13/original/"),
+      ],
+      2: [
+        x("The original cases and Test Plan Builder", "The same page's case tabs (StudyPath, JobAccess, LifeGuide and an enterprise context), the Prioritisation Grid and the Test Plan Builder, as the first version built them.", "/day/13/original/#cases"),
+      ],
+    },
+  },
   14: { name: t("Immersive Technologies"), what: t("Ten widgets and three cases with 3D scenes (three.js and model-viewer).") },
   15: { name: t("Eye-tracking decision lab"), what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses).") },
   16: { name: t("Immersive prototyping"), what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics.") },
