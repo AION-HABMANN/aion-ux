@@ -3,7 +3,7 @@
 The UX days of the AION course, built the way `../../aion-digital-learning/playground-dl` builds Digital Learning: the same engine, the same look, the same rules (DL-STANDARD v1.8), with UX content only. Days 9 to 16 are here too, as their **original idea** (see below).
 
 **Status (2026-10-27):** Days 1, 2, 3, 4, 5, 6, 7, 8 are built and checked. All eight days are in.
-**Status (2026-10-28):** Days 9 to 16 moved in from `../playground-ux` as they were built, under `/day/N/original/`. **The lab versions of Days 9 to 16 are built** (see "Day 9" to "Day 16" below).
+**Status (2026-10-29):** Days 9 to 16 moved in from `../playground-ux` as they were built, under `/day/N/original/`. **The lab versions of Days 9 to 16 are built** (see "Day 9" to "Day 16" below).
 
 **Live: https://aion-ux-lab.vercel.app** (Vercel project `aion-ux-lab`, root directory `ux-lab`, connected to `AION-HABMANN/aion-ux`: a push to `main` deploys to production). For example: [the course home](https://aion-ux-lab.vercel.app/), [Day 1](https://aion-ux-lab.vercel.app/day/1/), [Day 9's original idea](https://aion-ux-lab.vercel.app/day/9/original/), [Day 16's original idea](https://aion-ux-lab.vercel.app/day/16/original/).
 
