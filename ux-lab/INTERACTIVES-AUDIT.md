@@ -126,16 +126,16 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 12 | `LayersChainFig` | The layers of an accessibility architecture, from a guiding vision to every page | chain of steps | stays (conceptual) | – |
 | 12 | `ConflictFig` | Three Greenway decisions, each a conflict between goals | switches between drawn screens | stays (three decisions between goals, a leadership comparison) | – |
 | 12 | `DecisionFig` | A decision under uncertainty, filled in for Greenway | decision frame | stays (conceptual) | – |
-| 13 | `LensFig` | Hearth Energy's start page seen through three lenses: ADHD, autism, dyslexia | switches between drawn screens | upgrade to a working product | open |
-| 13 | `StimulusFig` | A dial from calm to overloaded on the Hearth Energy start page | custom interactive | upgrade to a working product | open |
-| 13 | `StepsFig` | Moving house at Hearth Energy as one long form or as three steps | switches between drawn screens | upgrade to a working product | open |
-| 13 | `PredictFig` | Three Hearth Energy pages built inconsistently and consistently | switches between drawn screens | upgrade to a working product | open |
-| 13 | `ReadabilityFig` | A Hearth Energy notice whose typography and language you can change | custom interactive | upgrade to a working product | open |
-| 13 | `ATFig` | The same Hearth Energy content through five assistive technologies | switches between drawn screens | upgrade to a working product | open |
+| 13 | `LensFig` | Hearth Energy's start page seen through three lenses: ADHD, autism, dyslexia | switches between drawn screens | upgrade to a working product | done |
+| 13 | `StimulusFig` | A dial from calm to overloaded on the Hearth Energy start page | custom interactive | upgrade to a working product | done |
+| 13 | `StepsFig` | Moving house at Hearth Energy as one long form or as three steps | switches between drawn screens | upgrade to a working product | done |
+| 13 | `PredictFig` | Three Hearth Energy pages built inconsistently and consistently | switches between drawn screens | upgrade to a working product | done |
+| 13 | `ReadabilityFig` | A Hearth Energy notice whose typography and language you can change | custom interactive | upgrade to a working product | checked: already a working product |
+| 13 | `ATFig` | The same Hearth Energy content through five assistive technologies | switches between drawn screens | upgrade to a working product | done |
 | 13 | `WeighFig` | Hearth Energy weighs three measures on effect on users, gain for inclusion, feasibility, r | rating grid | stays (conceptual) | – |
 | 13 | `ArchitectureFig` | Hearth Energy adding an “easy mode” on top, or building a calm base with patterns and mode | two-column comparison | stays (conceptual) | – |
 | 13 | `LayersChainFig` | The layers of a neurodiverse UX architecture, from a guiding vision to every product | chain of steps | stays (conceptual) | – |
-| 13 | `ConflictFig` | Three Hearth Energy decisions between conflicting goals | switches between drawn screens | upgrade to a working product | open |
+| 13 | `ConflictFig` | Three Hearth Energy decisions between conflicting goals | switches between drawn screens | stays (three decisions between goals, a leadership comparison) | – |
 | 13 | `DecisionFig` | A decision under uncertainty, filled in for Hearth Energy | decision frame | stays (conceptual) | – |
 | 14 | `ModesFig` | The Brewline coffee machine as a flat picture, as a 3D object and with anchored AR labels | switches between drawn screens | upgrade to a working product | open |
 | 14 | `AttentionFig` | The Brewline machine with two labels, nine labels, and nine moving labels | custom interactive | upgrade to a working product | open |

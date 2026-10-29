@@ -3,14 +3,14 @@
 import clsx from "clsx";
 import { useId, useState } from "react";
 import type { CSSProperties } from "react";
-import { ATMock, AT_TEXT, BusyMock, FormMock, LensMock, MeasureThumb, PagesMock, STIM_NAMES } from "@/components/day13/mocks";
+import { MeasureThumb } from "@/components/day13/mocks";
 import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
-import { HearIt } from "@/components/sim/VoiceSim";
 import { tt } from "@/lib/lang";
+import { ATLab, LensLab, PredictLab, StepsLab, StimulusLab } from "@/components/day13/labs";
 
 /**
  * Day 13 · the teaching diagrams of Materi A and B. Example: Hearth Energy, a made-up energy supplier, with Ayo (ADHD), Mirko (autistic) and Tilda (dyslexia) as
@@ -21,73 +21,23 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · three lenses (interactive) */
 
 export function LensFig() {
-  return (
-    <StateFig
-      label={tt("Hearth Energy's start page seen through three lenses: ADHD, autism, dyslexia · Exploratory · Case assumption")}
-      point={tt("The same screen loads different minds differently. With ADHD the load is overstimulation, distraction and an unclear task; with autism it is sensory overload, unclear logic, inconsistent patterns and ambiguous words; with dyslexia it is reading structure, typography and complex language. Many people without a diagnosis feel the same in stress.")}
-      states={[
-        { id: "adhd", button: tt("Ayo · ADHD"), picture: <LensMock lens="adhd" />, insight: tt("In plain words: ten things call for attention; the task that matters is the smallest line. Ayo starts three things and finishes none.") },
-        { id: "autism", button: tt("Mirko · autism"), picture: <LensMock lens="autism" />, insight: tt("In plain words: icons without words and a number without meaning. Mirko cannot predict what a tap will do, so he does not tap.") },
-        { id: "dyslexia", button: tt("Tilda · dyslexia"), picture: <LensMock lens="dyslexia" />, insight: tt("In plain words: the key line is tiny and grey and leads to a wall of text. Tilda reads slowly and gives the task to someone else.") },
-      ]}
-    />
-  );
+  return <LensLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · the stimulus dial (interactive) */
 
 export function StimulusFig() {
-  const [n, setN] = useState(0);
-  const id = useId();
-  const names = STIM_NAMES();
-  const insight = [
-    tt("In plain words: one next step and one button. Ayo sends his reading in thirty seconds."),
-    tt("In plain words: one offer above the task. Still manageable; the task is still the biggest thing."),
-    tt("In plain words: badges and offers below the button compete with it. The eye starts to wander."),
-    tt("In plain words: something moves and a chat bubble talks. Movement pulls attention involuntarily; for people with ADHD or sensory sensitivity it is hard to look away."),
-    tt("In plain words: quizzes, scores and ratings fill the screen. The meter reading is one item among twelve. Many people leave without doing it."),
-  ][n];
-  return (
-    <Diagram label={tt("A dial from calm to overloaded on the Hearth Energy start page · Exploratory · Case assumption")}>
-      <div className="space-y-3">
-        <ThePoint>{tt("Every element competes for the same attention. A calm page shows one main task first, keeps extras quiet, avoids movement and interruptions. Fewer stimuli help people with ADHD and sensory sensitivity most, and almost everyone else too.")}</ThePoint>
-        <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Stimuli on the page: ${names[n]}`)}</label>
-          <input id={id} type="range" min={0} max={4} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={names[n]} />
-        </div>
-        <BusyMock level={n} />
-        <Insight>{insight}</Insight>
-      </div>
-    </Diagram>
-  );
+  return <StimulusLab />;
 }
 
 export function StepsFig() {
-  return (
-    <StateFig
-      label={tt("Moving house at Hearth Energy as one long form or as three steps · Exploratory · Case assumption")}
-      point={tt("Long tasks are easier in short steps: one question per screen, a visible position, and the next step named on the button. People who lose focus can find their place again; nobody has to hold twelve fields in mind.")}
-      states={[
-        { id: "long", button: tt("One long form"), picture: <FormMock steps={false} />, insight: tt("In plain words: twelve required fields at once. Ayo starts at the top, gets distracted at field five, and cannot find where he was.") },
-        { id: "steps", button: tt("Three steps"), picture: <FormMock steps />, insight: tt("In plain words: one question, a position (step 1 of 3) and a button that says what comes next. The same twelve fields, in pieces anyone can hold.") },
-      ]}
-    />
-  );
+  return <StepsLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · predictable or not (interactive) */
 
 export function PredictFig() {
-  return (
-    <StateFig
-      label={tt("Three Hearth Energy pages built inconsistently and consistently · Exploratory · Case assumption")}
-      point={tt("Predictability means people can tell what will happen: the menu stays in one place, the same action has the same name, and buttons say what they do. For many autistic people this is the difference between using a product and avoiding it.")}
-      states={[
-        { id: "inconsistent", button: tt("Inconsistent"), picture: <PagesMock consistent={false} />, insight: tt("In plain words: the menu moves from top to left to bottom; the main button says “Go”, “OK” and “Let's go!” and moves too. Mirko has to relearn every page and cannot be sure what “Go” does.") },
-        { id: "consistent", button: tt("Consistent"), picture: <PagesMock consistent />, insight: tt("In plain words: the menu always at the top, the main button always on the right, and it says what it does: “Send meter reading”, “Download bill”, “Report your move”. Learned once, used everywhere.") },
-      ]}
-    />
-  );
+  return <PredictLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · the readability lab (interactive) */
@@ -142,22 +92,7 @@ export function ReadabilityFig() {
 /* ------------------------------------------------------------------ A5 · assistive technologies (interactive) */
 
 export function ATFig() {
-  return (
-    <div className="space-y-2">
-      <StateFig
-        label={tt("The same Hearth Energy content through five assistive technologies · Exploratory · Case assumption")}
-        point={tt("Assistive technologies let people use content their own way: a screen reader, text-to-speech, a reader view, text scaling, a stimulus filter. They all depend on a good base: real headings and buttons, real text in a clear order, layouts that can grow. Inclusive patterns and assistive technology work together.")}
-        states={[
-          { id: "reader", button: tt("Screen reader"), picture: <ATMock kind="reader" />, insight: tt("In plain words: the screen reader lists headings and buttons with their names, so people can jump to what they need.") },
-          { id: "tts", button: tt("Text-to-speech"), picture: <ATMock kind="tts" />, insight: tt("In plain words: the notice read aloud, sentence by sentence. Press “Hear it”: many readers with dyslexia listen and read along.") },
-          { id: "readermode", button: tt("Reader view"), picture: <ATMock kind="readermode" />, insight: tt("In plain words: the browser removes everything except the text. It works only if the content is real text, not text in pictures.") },
-          { id: "zoom", button: tt("Text at 200 %"), picture: <ATMock kind="zoom" />, insight: tt("In plain words: the text doubles and wraps. Layouts with fixed boxes would cut it off.") },
-          { id: "calm", button: tt("Stimulus filter"), picture: <ATMock kind="calm" />, insight: tt("In plain words: colours muted, offers hidden, the task alone. An app can offer this itself; an extension can do part of it.") },
-        ]}
-      />
-      <div className="flex justify-center"><HearIt text={AT_TEXT()} /></div>
-    </div>
-  );
+  return <ATLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed (interactive) */
