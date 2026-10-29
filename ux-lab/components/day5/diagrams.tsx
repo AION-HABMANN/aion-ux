@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { FittsMock, HickMock, LawsMock, MeasureThumb, MillerMock } from "@/components/day5/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day5/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { FittsLab, HickLab, LawsLab, MillerLab } from "@/components/day5/labs";
 
 /**
  * Day 5 · the teaching diagrams of Materi A and B. Example: Ticketo, a made-up cinema and event ticket app, with Leon and Mara (customers), Priya (UX lead) and Tobias
@@ -18,79 +19,25 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · Fitts on a phone checkout (interactive) */
 
 export function FittsFig() {
-  return (
-    <SwitchFig
-      label={tt("A Ticketo checkout on a phone: a larger Pay button, placed where the thumb reaches, with space between the buttons · Exploratory · Case assumption")}
-      point={tt("The time to hit a target grows with its distance and shrinks with its size (Fitts's law). On a phone held in one hand, the thumb reaches the lower middle easily and the top corners badly; targets close together are easily confused.")}
-      switches={[
-        { id: "large", label: tt("A larger Pay button") },
-        { id: "thumb", label: tt("Where the thumb reaches") },
-        { id: "space", label: tt("Space between buttons") },
-      ]}
-      start={{ large: false, thumb: false, space: false }}
-      picture={(on) => <FittsMock large={!!on.large} thumb={!!on.thumb} space={!!on.space} />}
-      insight={(on) => {
-        const n = [on.large, on.thumb, on.space].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 are met. ${on.large ? "Pay is large, so Leon hits it without aiming." : "Pay is small, so Leon has to aim."} ${on.thumb ? "It sits in the lower part of the screen, where his thumb already is." : "It sits at the top, so he stretches his thumb or uses his other hand."} ${on.space ? "There is room between Pay and Cancel, so he does not hit the wrong one." : "Pay and Cancel touch, so a slightly wrong tap cancels the order."}`,
-        );
-      }}
-    />
-  );
+  return <FittsLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · Hick: all at once against staged (interactive) */
 
 export function HickFig() {
-  return (
-    <StateFig
-      label={tt("The same Ticketo choice: every showing of the week at once, and staged by day, film and time · Exploratory · Case assumption")}
-      point={tt("The more equal options at once, the longer the choice (Hick's law). Fewer options, a clear priority and staged choices cut decision effort; each stage, though, is a step, and too many steps become a hurdle of their own.")}
-      states={[
-        { id: "all", button: tt("Everything at once"), picture: <HickMock kind="all" />, insight: tt("In plain words: thirty small time buttons for every film and every day. Mara wants Saturday evening and has to scan them all, and she is not sure which film each time belongs to.") },
-        { id: "staged", button: tt("Staged: day, film, time"), picture: <HickMock kind="staged" />, insight: tt("In plain words: first three days, then three films for Saturday, then three times. At each stage Mara chooses between only a few options, and her likely choice stands out. Three short steps instead of one long search.") },
-      ]}
-    />
-  );
+  return <HickLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · Miller: long against chunked (interactive) */
 
 export function MillerFig() {
-  return (
-    <StateFig
-      label={tt("The same Ticketo confirmation: a long code and scattered details, or a chunked code with the details in one box · Exploratory · Case assumption")}
-      point={tt("People hold only a few items in mind at once (Miller's rule; later research says nearer four). Chunking (grouping items into a few meaningful units) and structure (what belongs together, together) make information easier to take in and remember.")}
-      states={[
-        { id: "long", button: tt("A long code, scattered details"), picture: <MillerMock kind="long" />, insight: tt("In plain words: twelve characters in one string, and the hall, the seats and the time in three places. At the cinema Leon has to read the code twice and scroll to find his seats.") },
-        { id: "chunked", button: tt("Chunked and grouped"), picture: <MillerMock kind="chunked" />, insight: tt("In plain words: the code in three blocks of four, and the time, the hall and the seats in one box. Leon reads the code out in three parts and sees everything he needs at the door.") },
-      ]}
-    />
-  );
+  return <MillerLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · the three laws together (interactive) */
 
 export function LawsFig() {
-  return (
-    <SwitchFig
-      label={tt("A Ticketo menu with one switch per law: larger items (Fitts), fewer items (Hick), labels grouped by meaning (Miller) · Exploratory · Case assumption")}
-      point={tt("Fitts is about the hand, Hick about the decision, Miller about memory. On a real menu they add up: small, many and ungrouped items each add reaction time and each raise the chance of an error. Fixing one law helps; fixing all three changes the menu.")}
-      switches={[
-        { id: "fitts", label: tt("Fitts: larger items") },
-        { id: "hick", label: tt("Hick: the four most used") },
-        { id: "miller", label: tt("Miller: grouped by meaning") },
-      ]}
-      start={{ fitts: false, hick: false, miller: false }}
-      picture={(on) => <LawsMock fitts={!!on.fitts} hick={!!on.hick} miller={!!on.miller} />}
-      insight={(on) => {
-        const n = [on.fitts, on.hick, on.miller].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 laws are served. ${on.fitts ? "The items are large, so Mara's thumb hits the one she wants." : "The items are thin strips, so she sometimes opens the one below."} ${on.hick ? "Only four items, the ones most people need; the rest are one step deeper." : "Twelve items of equal weight, so she reads them all."} ${on.miller ? "Two labelled groups, so she reads two groups instead of every word." : "No groups, so she compares every label in her head."}`,
-        );
-      }}
-    />
-  );
+  return <LawsLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed on four criteria (interactive) */

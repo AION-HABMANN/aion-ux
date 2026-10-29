@@ -43,10 +43,10 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 4 | `SystemChainFig` | From one screen to the whole product system | chain of steps | stays (conceptual) | – |
 | 4 | `ConflictFig` | Five Pedalo designs by functions shown at once and how easily riders finish their task | static | stays (conceptual) | – |
 | 4 | `DecisionFig` | A decision under uncertainty, filled in for Pedalo | decision frame | stays (conceptual) | – |
-| 5 | `FittsFig` | A Ticketo checkout on a phone: a larger Pay button, placed where the thumb reaches, with s | switch with a drawn picture | upgrade to a working product | open |
-| 5 | `HickFig` | The same Ticketo choice: every showing of the week at once, and staged by day, film and ti | switches between drawn screens | upgrade to a working product | open |
-| 5 | `MillerFig` | The same Ticketo confirmation: a long code and scattered details, or a chunked code with t | switches between drawn screens | upgrade to a working product | open |
-| 5 | `LawsFig` | A Ticketo menu with one switch per law: larger items (Fitts), fewer items (Hick), labels g | switch with a drawn picture | upgrade to a working product | open |
+| 5 | `FittsFig` | A Ticketo checkout on a phone: a larger Pay button, placed where the thumb reaches, with s | switch with a drawn picture | upgrade to a working product | done |
+| 5 | `HickFig` | The same Ticketo choice: every showing of the week at once, and staged by day, film and ti | switches between drawn screens | upgrade to a working product | done |
+| 5 | `MillerFig` | The same Ticketo confirmation: a long code and scattered details, or a chunked code with t | switches between drawn screens | upgrade to a working product | done |
+| 5 | `LawsFig` | A Ticketo menu with one switch per law: larger items (Fitts), fewer items (Hick), labels g | switch with a drawn picture | upgrade to a working product | done |
 | 5 | `WeighFig` | Ticketo weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 5 | `StandardsFig` | Ticketo fixing details one screen at a time, or deciding interaction standards once | two-column comparison | stays (conceptual) | – |
 | 5 | `BusinessChainFig` | From a button to the business | chain of steps | stays (conceptual) | – |
