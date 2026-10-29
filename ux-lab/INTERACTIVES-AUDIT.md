@@ -72,15 +72,15 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 7 | `EmotionLayersFig` | The layers of emotional UX, from a guiding vision to every message | chain of steps | stays (conceptual) | – |
 | 7 | `SituationFig` | The same Moss & Pine message template in four situations | switches between drawn screens | upgrade to a working product | done |
 | 7 | `DecisionFig` | A decision under uncertainty, filled in for Moss & Pine | decision frame | stays (conceptual) | – |
-| 8 | `StoryFig` | The same Lantern Kitchens planner as a list of functions and as a journey | switches between drawn screens | upgrade to a working product | open |
-| 8 | `ElementsFig` | The Lantern Kitchens planner at the end of a stage: goal, progress and resolution | switch with a drawn picture | upgrade to a working product | open |
-| 8 | `TransitionFig` | The moment between two Lantern Kitchens steps: bare, staged and short | switches between drawn screens | upgrade to a working product | open |
+| 8 | `StoryFig` | The same Lantern Kitchens planner as a list of functions and as a journey | switches between drawn screens | upgrade to a working product | done |
+| 8 | `ElementsFig` | The Lantern Kitchens planner at the end of a stage: goal, progress and resolution | switch with a drawn picture | upgrade to a working product | done |
+| 8 | `TransitionFig` | The moment between two Lantern Kitchens steps: bare, staged and short | switches between drawn screens | upgrade to a working product | done |
 | 8 | `OverloadFig` | Five Lantern Kitchens journeys by how much story they carry and how clear and quick they s | static | stays (conceptual) | – |
 | 8 | `MeaningChainFig` | From an action to its meaning for the user | chain of steps | stays (conceptual) | – |
 | 8 | `WeighFig` | Lantern Kitchens weighs three measures on effect on users, feasibility, risk and time pres | rating grid | stays (conceptual) | – |
 | 8 | `ArchitectureFig` | Lantern Kitchens treating storytelling as communication, or building it into the experienc | two-column comparison | stays (conceptual) | – |
 | 8 | `NarrativeLayersFig` | The layers of narrative UX, from a guiding vision to every step | chain of steps | stays (conceptual) | – |
-| 8 | `WeightFig` | Three Lantern Kitchens journeys of different length and weight | switches between drawn screens | upgrade to a working product | open |
+| 8 | `WeightFig` | Three Lantern Kitchens journeys of different length and weight | switches between drawn screens | upgrade to a working product | done |
 | 8 | `DecisionFig` | A decision under uncertainty, filled in for Lantern Kitchens | decision frame | stays (conceptual) | – |
 | 9 | `LayersFig` | One Brightwater task, “set up your savings goal”, as structure, as playful tone and as a g | switches between drawn screens | upgrade to a working product | open |
 | 9 | `PositionFig` | Brightwater after a deposit: progress, feedback, recognition, a challenge and a goal | switch with a drawn picture | upgrade to a working product | open |

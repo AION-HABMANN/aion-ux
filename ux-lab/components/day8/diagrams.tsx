@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { JourneyMock, MeasureThumb, PlannerMock, TransitionMock, WeightMock } from "@/components/day8/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day8/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { ElementsLab, StoryLab, TransitionLab, WeightLab } from "@/components/day8/labs";
 
 /**
  * Day 8 · the teaching diagrams of Materi A and B. Example: Lantern Kitchens, a made-up kitchen maker with an online planner and an app, with Iris and Pavel
@@ -19,56 +20,19 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · a list of functions and a journey (interactive) */
 
 export function StoryFig() {
-  return (
-    <StateFig
-      label={tt("The same Lantern Kitchens planner as a list of functions and as a journey · Exploratory · Case assumption")}
-      point={tt("People look for a story in every process: where it starts, where it leads and how far they have come. The two start pages offer the same functions; only one lets people see the journey they are about to take.")}
-      states={[
-        { id: "list", button: tt("A list of functions"), picture: <PlannerMock kind="list" />, insight: tt("In plain words: six functions side by side. Iris wants a new kitchen, but she does not know where to begin, what comes after the room dimensions or what she will have at the end. She opens the catalogue, browses and leaves.") },
-        { id: "journey", button: tt("A journey"), picture: <PlannerMock kind="journey" />, insight: tt("In plain words: the goal (a plan and an offer), four stages and a first step. Iris sees where it leads and how long it is, and starts with her room.") },
-      ]}
-    />
-  );
+  return <StoryLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · goal, progress and resolution (interactive) */
 
 export function ElementsFig() {
-  return (
-    <SwitchFig
-      label={tt("The Lantern Kitchens planner at the end of a stage: goal, progress and resolution · Exploratory · Case assumption")}
-      point={tt("Narrative guidance has seven elements: starting situation, goal, relevance, obstacle, support, progress and resolution. Three of them decide most often whether people finish: a goal they can see, progress they can see, and an end that feels like one.")}
-      switches={[
-        { id: "goal", label: tt("Goal: what he will have at the end") },
-        { id: "progress", label: tt("Progress: where he stands") },
-        { id: "resolution", label: tt("Resolution: a real ending") },
-      ]}
-      start={{ goal: false, progress: false, resolution: false }}
-      picture={(on) => <JourneyMock goal={!!on.goal} progress={!!on.progress} resolution={!!on.resolution} />}
-      insight={(on) => {
-        const n = [on.goal, on.progress, on.resolution].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 elements are used. ${on.goal ? "Pavel knows what he is working towards: a plan and an offer." : "Pavel does not know what he will get at the end."} ${on.progress ? "He sees the path and where he stands, so he knows how much is left." : "He sees one screen at a time and wonders how many more there are."} ${on.resolution ? "At the end his plan is shown and someone will call him: the journey is over and it was worth it." : "The last step ends with “Data saved” and a Next button, so he is not sure he is done."}`,
-        );
-      }}
-    />
-  );
+  return <ElementsLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · the moment between two steps (interactive) */
 
 export function TransitionFig() {
-  return (
-    <StateFig
-      label={tt("The moment between two Lantern Kitchens steps: bare, staged and short · Exploratory · Case assumption")}
-      point={tt("Guiding with a story is not telling one. Most of the dramaturgy lives in small places: the line between two steps says what was done, what comes next and that it is manageable. A staged scene tells a story about the product; it does not guide.")}
-      states={[
-        { id: "bare", button: tt("A bare Next"), picture: <TransitionMock kind="bare" />, insight: tt("In plain words: only Next. Iris does not know whether her room was saved or what the next step asks. She presses on without a sense of getting anywhere.") },
-        { id: "staged", button: tt("A staged scene"), picture: <TransitionMock kind="staged" />, insight: tt("In plain words: a long scene about Sunday mornings and memories. It is pleasant once, but it delays her, it is not about her kitchen, and she has to scroll to find the way on.") },
-        { id: "short", button: tt("A short transition"), picture: <TransitionMock kind="short" />, insight: tt("In plain words: her room is in, next is her style, it takes a few choices and all can be changed. One line gives confirmation, expectation and a sequence she can follow.") },
-      ]}
-    />
-  );
+  return <TransitionLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · how much story against clarity (interactive) */
@@ -211,17 +175,7 @@ export function NarrativeLayersFig() {
 /* ------------------------------------------------------------------ B2 · three journeys of different weight (interactive) */
 
 export function WeightFig() {
-  return (
-    <StateFig
-      label={tt("Three Lantern Kitchens journeys of different length and weight · Exploratory · Case assumption")}
-      point={tt("How much narrative guidance a journey needs depends on its length and its weight for the user, not on the brand. A one-step routine needs none; a short task needs steps and transitions; a long, important journey needs a goal, a path and an ending. The same amount everywhere would slow the quick ones and starve the long ones.")}
-      states={[
-        { id: "reorder", button: tt("A reorder"), picture: <WeightMock kind="reorder" />, insight: tt("In plain words: Pavel wants a spare handle. One screen, done. A story here would only delay him: efficiency wins.") },
-        { id: "fitting", button: tt("The fitting day"), picture: <WeightMock kind="fitting" />, insight: tt("In plain words: three steps with a short line between them. Iris knows what comes next; nothing is staged. Clarity with a little guidance.") },
-        { id: "plan", button: tt("A whole kitchen"), picture: <WeightMock kind="plan" />, insight: tt("In plain words: a long, important journey. A goal, four stages, transitions and an ending keep Iris going. Marketing would like a brand film at the start; it would delay the one journey where people most need to begin.") },
-      ]}
-    />
-  );
+  return <WeightLab />;
 }
 
 /* ------------------------------------------------------------------ B3 · a decision under uncertainty, filled in for Lantern Kitchens (static) */
