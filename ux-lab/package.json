@@ -28,9 +28,10 @@
     "verify:day15": "tsx scripts/verify-free.ts 15",
     "verify:day16": "tsx scripts/verify-free.ts 16",
     "verify:platforms": "tsx scripts/verify-platforms.ts",
+    "verify:depth": "tsx scripts/verify-depth.ts",
     "verify:original": "node original/scripts/verify-original.mjs",
     "verify:original-day9": "node original/scripts/verify-day9.mjs",
-    "verify": "npm run typecheck && npm run verify:free && npm run verify:platforms && npm run verify:original && npm run verify:original-day9"
+    "verify": "npm run typecheck && npm run verify:free && npm run verify:platforms && npm run verify:depth && npm run verify:original && npm run verify:original-day9"
   },
   "dependencies": {
     "@google/model-viewer": "4.4.0",
