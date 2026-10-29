@@ -140,7 +140,22 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  15: { name: t("Eye-tracking decision lab"), what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses).") },
+  15: {
+    name: t("Eye-tracking decision lab"),
+    what: t("An executive decision lab on eye-tracking, gaze behaviour, neurofeedback and brain-computer interfaces (the former Vite app; its pages are hash addresses)."),
+    extras: {
+      1: [
+        x("The foundations and the limits, as the first version taught them", "One recording seen three ways, which visualisation you are shown, “one pattern, three readings” and the interpretation ladder. Each page opens on its own.", "/day/15/original/#/learn/foundations"),
+        x("Neurofeedback and BCI at their actual altitude", "The first version's maturity exercise: place six technologies where you think they are, then compare.", "/day/15/original/#/learn/neuro"),
+        x("Ethics and data protection: rank five, then see what the top one costs", "Consent as a design variable, four differences before any regulation, and reputation risk with a slow fuse.", "/day/15/original/#/learn/ethics"),
+        x("The three playgrounds: FocusSense, LearningPulse, VisionMind", "The first version's decision games for the three cases, with meters and a constraint display. Start with FocusSense.", "/day/15/original/#/play/focussense"),
+      ],
+      2: [
+        x("Leadership: the sentence you will hear, and the four ways out", "Operative or strategic, the four roles, and the standard, not the study, as the first version put them.", "/day/15/original/#/learn/leadership"),
+        x("The debrief", "The first version's closing page that collects your decisions from the playgrounds.", "/day/15/original/#/debrief"),
+      ],
+    },
+  },
   16: { name: t("Immersive prototyping"), what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics.") },
 } as Record<number, Original>);
 export const originalOf = (n: number): { name: string; what: string } | undefined => ORIGINALS[n];
