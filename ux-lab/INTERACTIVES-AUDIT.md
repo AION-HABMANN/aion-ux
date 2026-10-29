@@ -34,10 +34,10 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 3 | `ConflictFig` | Five Kettle & Co designs by readability and brand presence | static | stays (conceptual) | – |
 | 3 | `DecisionFig` | A decision under uncertainty, filled in for Kettle & Co | decision frame | stays (conceptual) | – |
 | 4 | `StepsFig` | From seeing to acting: four steps, each with a limit | chain of steps | stays (conceptual) | – |
-| 4 | `SimpleFig` | The same Pedalo map screen, designed to look simple and designed to be intuitive | switches between drawn screens | upgrade to a working product | open |
-| 4 | `ChoiceFig` | One Pedalo pass page with twelve equal passes and with three recommended passes | switches between drawn screens | upgrade to a working product | open |
-| 4 | `ExpectFig` | A Pedalo ride screen: the End ride button where people expect it, large and near the thumb | switch with a drawn picture | upgrade to a working product | open |
-| 4 | `MemoryFig` | The same Pedalo unlock step: Sam remembers the code, or the system carries it | switches between drawn screens | upgrade to a working product | open |
+| 4 | `SimpleFig` | The same Pedalo map screen, designed to look simple and designed to be intuitive | switches between drawn screens | upgrade to a working product | done |
+| 4 | `ChoiceFig` | One Pedalo pass page with twelve equal passes and with three recommended passes | switches between drawn screens | upgrade to a working product | done |
+| 4 | `ExpectFig` | A Pedalo ride screen: the End ride button where people expect it, large and near the thumb | switch with a drawn picture | upgrade to a working product | done |
+| 4 | `MemoryFig` | The same Pedalo unlock step: Sam remembers the code, or the system carries it | switches between drawn screens | upgrade to a working product | done |
 | 4 | `WeighFig` | Pedalo weighs three measures on effect on users, feasibility, risk and time pressure | rating grid | stays (conceptual) | – |
 | 4 | `FrictionFig` | Pedalo answering problems with new functions, or reducing friction first | two-column comparison | stays (conceptual) | – |
 | 4 | `SystemChainFig` | From one screen to the whole product system | chain of steps | stays (conceptual) | – |

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ExpectMock, MeasureThumb, MemoryMock, PassMock, SimpleMock } from "@/components/day4/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day4/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { ChoiceLab, ExpectLab, MemoryLab, SimpleLab } from "@/components/day4/labs";
 
 /**
  * Day 4 · the teaching diagrams of Materi A and B. Example: Pedalo, a made-up bike-sharing app, with Nina and Sam (riders), Yusuf (UX lead) and Clara (product owner);
@@ -33,70 +34,25 @@ export function StepsFig() {
 }
 
 export function SimpleFig() {
-  return (
-    <StateFig
-      label={tt("The same Pedalo map screen, designed to look simple and designed to be intuitive · Exploratory · Case assumption")}
-      point={tt("Looking simple is not the same as being intuitive. Few elements and much white space can still leave people guessing what an icon means or what to do next.")}
-      states={[
-        { id: "simple", button: tt("Looks simple"), picture: <SimpleMock kind="simple" />, insight: tt("In plain words: a map and four round icons without labels. It looks clean, but Nina has to guess which icon unlocks a bike, and nothing tells her what happens after that.") },
-        { id: "intuitive", button: tt("Is intuitive"), picture: <SimpleMock kind="intuitive" />, insight: tt("In plain words: the nearest bike is named, one labelled button says “Scan to unlock”, and one line says what comes next. Nina knows what to do without thinking about the app.") },
-      ]}
-    />
-  );
+  return <SimpleLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · Hick's law on a pass page (interactive) */
 
 export function ChoiceFig() {
-  return (
-    <StateFig
-      label={tt("One Pedalo pass page with twelve equal passes and with three recommended passes · Exploratory · Case assumption")}
-      point={tt("The more equally weighted options there are, the longer a decision takes (Hick's law). It is worst when the options are unfamiliar and look alike. Giving the frequent choices priority and grouping the rest one step deeper cuts the time without deleting anything.")}
-      states={[
-        { id: "many", button: tt("Twelve equal passes"), picture: <PassMock kind="many" />, insight: tt("In plain words: twelve buttons of the same size. Sam reads them all, goes back to compare Day, Flex and Tourist, and still is not sure which one suits a single ride. Some people give up here.") },
-        { id: "few", button: tt("Three recommended passes"), picture: <PassMock kind="few" />, insight: tt("In plain words: three passes, each with one line on who it is for, and “All passes” below. Sam sees “Single ride: for one trip now” and chooses in a second. The other passes are still one tap away.") },
-      ]}
-    />
-  );
+  return <ChoiceLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · expectations, Fitts and the same pattern (interactive) */
 
 export function ExpectFig() {
-  return (
-    <SwitchFig
-      label={tt("A Pedalo ride screen: the End ride button where people expect it, large and near the thumb, and the same pattern on every screen · Exploratory · Case assumption")}
-      point={tt("People act on their mental model: they look where other apps put the main action and expect the same element to work the same everywhere. A target that is large and close is reached faster and missed less often (Fitts's law).")}
-      switches={[
-        { id: "expect", label: tt("A clear End ride button") },
-        { id: "near", label: tt("Large and near the thumb") },
-        { id: "same", label: tt("The same pattern as other screens") },
-      ]}
-      start={{ expect: false, near: false, same: false }}
-      picture={(on) => <ExpectMock expect={!!on.expect} near={!!on.near} same={!!on.same} />}
-      insight={(on) => {
-        const n = [on.expect, on.near, on.same].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 are met. ${on.expect ? "A labelled “End ride” button says exactly what it does." : "Only a faint word “finish” in a corner; Nina does not see it as the way to end the ride."} ${on.near ? "It sits large at the bottom, where her thumb is, so she hits it first time." : "It sits small at the top, far from her thumb, so she has to stretch and sometimes misses."} ${on.same ? "It looks and works like the main button on every other screen." : "A red round “Stop” button elsewhere looks like the end, but pauses the ride instead."}`,
-        );
-      }}
-    />
-  );
+  return <ExpectLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · memory and load (interactive) */
 
 export function MemoryFig() {
-  return (
-    <StateFig
-      label={tt("The same Pedalo unlock step: Sam remembers the code, or the system carries it · Exploratory · Case assumption")}
-      point={tt("Working memory holds only a few things at once (Miller's rule; later research says nearer four chunks). Asking people to carry information from one screen to the next raises the load, and with it errors, abandonment and uncertainty.")}
-      states={[
-        { id: "remember", button: tt("Sam has to remember"), picture: <MemoryMock kind="remember" />, insight: tt("In plain words: the bike code was on the previous screen. Sam has to remember six characters, types one wrongly, gets an error and starts again. Some riders walk away.") },
-        { id: "carried", button: tt("The system remembers"), picture: <MemoryMock kind="carried" />, insight: tt("In plain words: the code comes from the scan and is already filled in, with a tick that says so. Sam only confirms. Nothing to remember, nothing to mistype.") },
-      ]}
-    />
-  );
+  return <MemoryLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed on four criteria (interactive) */

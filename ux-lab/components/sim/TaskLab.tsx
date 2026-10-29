@@ -230,7 +230,7 @@ export function AppScreen({ brand, color = "#1F2937", status, children }: { bran
       </div>
       <div className="flex items-center justify-between px-3 pb-2 pt-1 text-white" style={{ background: color }}>
         <span className="text-[13px] font-bold">{brand}</span>
-        {status && <span className="text-[11px] opacity-90">{status}</span>}
+        {status && <span className="text-[11px]">{status}</span>}
       </div>
       <div className="min-h-[300px] space-y-2 p-3 text-[12.5px] leading-snug text-[#1D2733]">{children}</div>
     </div>
