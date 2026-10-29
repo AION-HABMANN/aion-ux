@@ -199,6 +199,9 @@ export function CardB1() {
       <ComicButton comic={COMICS_D16.B1} art={ART_D16} />
       <ArchitectureFig />
       <LayersChainFig />
+      <Callout label={tt("Closing question of the course · talk it through")}>
+        <p>{tt("What makes a UX strategy sustainable in the long run? A starting point from this card: a vision that outlives single technologies, decisions made on comparable evidence, responsibility built in before scaling, and the courage to pause or stop.")}</p>
+      </Callout>
       <Callout label={tt("Case assumption")}>
         <p>{tt(`${FW()} Responsible innovation follows Stilgoe, Owen and Macnaghten (2013); gates follow Cooper (1990).`)}</p>
       </Callout>

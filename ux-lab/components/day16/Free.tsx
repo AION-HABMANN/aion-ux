@@ -3,7 +3,6 @@
 import { MateriA, MateriB } from "@/components/day16/Materi";
 import { FutureHubSim, InnovationWikiSim, NextWorldSim, RealityFlowSim } from "@/components/day16/sims";
 import { ObserveDay16 } from "@/components/day16/observe";
-import { Day16Experience } from "@/components/day16/Experience";
 import { DeskSim, Sheet } from "@/components/sim/DeskSim";
 import { OptionCards } from "@/components/sim/OptionCards";
 import { ReferenceButton } from "@/components/sim/ReferencePlatform";
@@ -153,7 +152,6 @@ function Desk() {
 export const KIT: FreeKit = {
   MateriA,
   MateriB,
-  experience: (route) => <Day16Experience route={route} />,
   slots: {
     realityflow: () => <RealityFlow />,
     designs: () => <Designs />,
