@@ -40,7 +40,7 @@ const STRESS_NOTE = (): Record<LabStressId, string> => ({
   ping: tt("Working memory is wiped: can the person find their place again?"),
 });
 
-type Result = { version: string; secs: number; misses: number };
+type Result = { version: string; secs: number; misses: number; feel?: number };
 
 export function TaskLab({
   label,
@@ -50,6 +50,7 @@ export function TaskLab({
   stresses = ["sun", "cvd", "eyes", "small", "hurry", "ping"],
   device = "phone",
   note,
+  feel,
 }: {
   label: string;
   point: string;
@@ -58,6 +59,8 @@ export function TaskLab({
   stresses?: LabStressId[];
   device?: "phone" | "desktop";
   note?: ReactNode;
+  /** Ask after each run how it felt, on a five-step scale between these two words (emotional design days). */
+  feel?: [string, string];
 }) {
   const [cur, setCur] = useState(versions[0].id);
   const [on, setOn] = useState<LabStressId[]>([]);
@@ -171,6 +174,19 @@ export function TaskLab({
                 </div>
               )}
             </div>
+            {finished && feel && (
+              <fieldset className="rounded border border-line bg-white p-2 text-[12px] text-ink">
+                <legend className="px-1 font-semibold">{tt("How did that feel?")}</legend>
+                <div className="flex flex-wrap items-center gap-1">
+                  <span className="text-ash">{feel[0]}</span>
+                  {[1, 2, 3, 4, 5].map((n) => {
+                    const cur = results.find((r) => r.version === v.id)?.feel;
+                    return <button key={n} type="button" aria-pressed={cur === n} aria-label={tt(`${n} of 5`)} onClick={() => setResults((rs) => rs.map((r) => (r.version === v.id ? { ...r, feel: n } : r)))} className={clsx("h-8 w-8 rounded-full border", cur === n ? "border-[#4F46E5] bg-[#4F46E5] text-white" : "border-line bg-white")}>{n}</button>;
+                  })}
+                  <span className="text-ash">{feel[1]}</span>
+                </div>
+              </fieldset>
+            )}
             {finished && (
               <div className="flex flex-wrap items-center gap-2">
                 <button type="button" onClick={() => reset()} className="btn btn-sm min-h-[36px] border border-line bg-white text-ink">{tt("Try this version again")}</button>
@@ -201,10 +217,10 @@ export function TaskLab({
                 <p className="text-[12.5px] font-semibold">{tt("Your runs (this tab only)")}</p>
                 <table className="mt-1 w-full text-[11.5px]">
                   <caption className="sr-only">{tt("Time and wrong taps per version")}</caption>
-                  <thead><tr className="text-left text-ash"><th scope="col">{tt("Version")}</th><th scope="col">{tt("Time")}</th><th scope="col">{tt("Wrong")}</th></tr></thead>
+                  <thead><tr className="text-left text-ash"><th scope="col">{tt("Version")}</th><th scope="col">{tt("Time")}</th><th scope="col">{tt("Wrong")}</th>{feel && <th scope="col">{tt("Felt")}</th>}</tr></thead>
                   <tbody>
                     {results.map((r) => (
-                      <tr key={r.version}><th scope="row" className="text-left font-normal">{versions.find((x) => x.id === r.version)?.label}</th><td>{tt(`${r.secs} s`)}</td><td>{r.misses}</td></tr>
+                      <tr key={r.version}><th scope="row" className="text-left font-normal">{versions.find((x) => x.id === r.version)?.label}</th><td>{tt(`${r.secs} s`)}</td><td>{r.misses}</td>{feel && <td>{r.feel ? `${r.feel}/5` : "–"}</td>}</tr>
                     ))}
                   </tbody>
                 </table>

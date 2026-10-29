@@ -37,31 +37,6 @@ function Btn({ x, y, w, text, strong }: { x: number; y: number; w: number; text:
 
 /* ------------------------------------------------------------------ A1 · a cold and a warm order confirmation */
 
-export function ConfirmMock({ kind }: { kind: "cold" | "warm" }) {
-  return (
-    <Page label={kind === "cold" ? tt("A Moss & Pine order confirmation that shows only an order number and the status PROCESSED") : tt("The same confirmation saying the plants are on their way, when they arrive and how to care for them on the first day")}>
-      {kind === "cold" ? (
-        <g>
-          <Txt x={14} y={50} size={10} bold>{tt("Order MP-30417")}</Txt>
-          <Txt x={14} y={70} size={9} fill="#555555">{tt("Status: PROCESSED")}</Txt>
-          <Txt x={14} y={88} size={9} fill="#555555">{tt("Items: see your order")}</Txt>
-          <Btn x={14} y={170} w={120} text={tt("Close")} />
-        </g>
-      ) : (
-        <g>
-          <rect x="14" y="34" width="292" height="78" rx="8" fill={WARM} />
-          <Txt x={24} y={56} size={12} bold>{tt("Your plants are on their way")}</Txt>
-          <Txt x={24} y={76} size={9} fill="#333333">{tt("They arrive on Thursday, packed upright.")}</Txt>
-          <Txt x={24} y={94} size={9} fill="#333333">{tt("We'll tell you when they leave our nursery.")}</Txt>
-          <Txt x={14} y={134} size={9} bold>{tt("On the first day")}</Txt>
-          <Txt x={14} y={150} size={8.5} fill="#555555">{tt("Water them and keep them out of strong sun.")}</Txt>
-          <Btn x={14} y={170} w={150} text={tt("Track my order")} strong />
-        </g>
-      )}
-    </Page>
-  );
-}
-
 /* ------------------------------------------------------------------ A2 · one checkout step with safety, control and recognition */
 
 export function CheckoutMock({ safety, control, recognition }: { safety: boolean; control: boolean; recognition: boolean }) {
@@ -83,50 +58,7 @@ export function CheckoutMock({ safety, control, recognition }: { safety: boolean
 
 /* ------------------------------------------------------------------ A3 · one error message written three ways */
 
-export function ErrorMock({ kind }: { kind: "technical" | "cheerful" | "supportive" }) {
-  const text = {
-    technical: [tt("ERR_PAYMENT_DECLINED (code 402)"), tt("Transaction failed.")],
-    cheerful: [tt("Oops! Something went wrong 🙈"), tt("No worries, these things happen! 🌱")],
-    supportive: [tt("Your payment did not go through"), tt("Nothing was charged. Your basket is saved.")],
-  }[kind];
-  return (
-    <Page label={kind === "technical" ? tt("A payment error showing an error code and Transaction failed") : kind === "cheerful" ? tt("A payment error with a cheerful Oops, an emoji and no explanation") : tt("A payment error that says what happened, that nothing was charged, and offers two ways on")}>
-      <Txt x={14} y={44} size={10} bold>{tt("Pay for your order")}</Txt>
-      <rect x="14" y="56" width="292" height="62" rx="6" fill={kind === "technical" ? "#F3E3E3" : kind === "cheerful" ? "#FFF6D9" : WARM} stroke={kind === "technical" ? "#B04848" : MID} />
-      <Txt x={24} y={78} size={10} bold>{text[0]}</Txt>
-      <Txt x={24} y={98} size={9} fill="#333333">{text[1]}</Txt>
-      {kind === "supportive" ? (
-        <g>
-          <Btn x={14} y={132} w={140} text={tt("Try another card")} strong />
-          <Btn x={166} y={132} w={140} text={tt("Pay by invoice")} />
-          <Txt x={14} y={180} size={8.5} fill={ACC}>{tt("Questions? We're here, also by phone.")}</Txt>
-        </g>
-      ) : (
-        <Btn x={14} y={132} w={120} text={tt("OK")} />
-      )}
-    </Page>
-  );
-}
-
 /* ------------------------------------------------------------------ B2 · one reminder for four situations */
-
-export function ReminderMock({ kind }: { kind: "sale" | "care" | "late" | "loss" }) {
-  const t = {
-    sale: [tt("Spring planting has begun"), tt("Our bulbs are in. Have a look when you have time.")],
-    care: [tt("Time to feed your roses"), tt("A small spoon of feed per plant, as on the card.")],
-    late: [tt("Your delivery is later than planned"), tt("We're sorry. Your plants are cared for and arrive on Friday.")],
-    loss: [tt("Your hedge plants did not take"), tt("That is disappointing. We replace them free of charge.")],
-  }[kind];
-  return (
-    <Page label={tt(`A Moss & Pine message: ${t[0]}`)}>
-      <rect x="14" y="40" width="292" height="90" rx="8" fill={kind === "late" || kind === "loss" ? "#F4F4F4" : WARM} />
-      <Txt x={26} y={66} size={11} bold>{t[0]}</Txt>
-      <Txt x={26} y={88} size={9} fill="#333333">{t[1]}</Txt>
-      <Btn x={26} y={98} w={130} text={kind === "sale" ? tt("See the bulbs") : kind === "care" ? tt("Care guide") : kind === "late" ? tt("Track my order") : tt("Choose a date")} strong />
-      <Txt x={14} y={160} size={8.5} fill="#555555">{tt("The same template, a different situation.")}</Txt>
-    </Page>
-  );
-}
 
 /* ------------------------------------------------------------------ A5 · the thumbnails of Moss & Pine's three measures */
 

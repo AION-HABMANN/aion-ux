@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CheckoutMock, ConfirmMock, ErrorMock, MeasureThumb, ReminderMock } from "@/components/day7/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day7/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { ErrorToneLab, FactorsLab, FeelLab, SituationLab } from "@/components/day7/labs";
 
 /**
  * Day 7 · the teaching diagrams of Materi A and B. Example: Moss & Pine, a made-up garden centre with an online shop and an app, with Hana and Jonas (customers), Wanda
@@ -18,56 +19,19 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · a cold and a warm confirmation (interactive) */
 
 export function FeelFig() {
-  return (
-    <StateFig
-      label={tt("The same Moss & Pine order confirmation, cold and warm · Exploratory · Case assumption")}
-      point={tt("People feel before they judge, and the feeling steers what they do: where they look, whether they go on, whether they believe it, what they remember and what they choose next. The two confirmations hold the same facts; they leave a different feeling.")}
-      states={[
-        { id: "cold", button: tt("Cold"), picture: <ConfirmMock kind="cold" />, insight: tt("In plain words: an order number and PROCESSED. Hana is not sure the plants are really coming or when, so she checks her e-mail twice (attention), wonders whether to order from a shop she knows instead next time (decision) and remembers the order as a form she filled in (memory).") },
-        { id: "warm", button: tt("Warm"), picture: <ConfirmMock kind="warm" />, insight: tt("In plain words: her plants are on their way, they arrive on Thursday, and here is what to do on the first day. Hana feels looked after (trust), is curious about the care tips (motivation) and remembers the shop as one that cares about plants.") },
-      ]}
-    />
-  );
+  return <FeelLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · safety, control and recognition on one usable step (interactive) */
 
 export function FactorsFig() {
-  return (
-    <SwitchFig
-      label={tt("A Moss & Pine checkout step: safety, control and recognition · Exploratory · Case assumption")}
-      point={tt("A step can be fully usable and still feel unsafe, out of control or anonymous. The fields and the button stay the same in every version; only the emotional factors change. Usability is the floor; experience quality is how it feels to stand on it.")}
-      switches={[
-        { id: "safety", label: tt("Safety: say what happens next") },
-        { id: "control", label: tt("Control: a way to change or undo") },
-        { id: "recognition", label: tt("Recognition: show that we know him") },
-      ]}
-      start={{ safety: false, control: false, recognition: false }}
-      picture={(on) => <CheckoutMock safety={!!on.safety} control={!!on.control} recognition={!!on.recognition} />}
-      insight={(on) => {
-        const n = [on.safety, on.control, on.recognition].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 factors are used. ${on.safety ? "Jonas knows he will get an e-mail and can cancel until it ships, so he feels safe to pay." : "Nothing says what happens after Pay, so Jonas hesitates: uncertainty."} ${on.control ? "He can go back to his basket, so he feels in control." : "There is no way back, so he feels pushed."} ${on.recognition ? "The page knows his saved hedge plan, so he feels recognised as a returning customer." : "The page treats him as a stranger, though he has ordered before."}`,
-        );
-      }}
-    />
-  );
+  return <FactorsLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · one error written three ways (interactive) */
 
 export function ToneFig() {
-  return (
-    <StateFig
-      label={tt("One Moss & Pine payment error: technical, cheerful and supportive · Exploratory · Case assumption")}
-      point={tt("Most emotional effect sits in feedback and tone at the critical moments. The same error can make people feel at fault, not taken seriously, or safe. A supportive message says what happened, what it means for them and how to go on, in plain and calm words.")}
-      states={[
-        { id: "technical", button: tt("Technical"), picture: <ErrorMock kind="technical" />, insight: tt("In plain words: an error code and Transaction failed. Hana does not know whether she was charged or whether her basket is gone. She feels she did something wrong and closes the app.") },
-        { id: "cheerful", button: tt("Cheerful"), picture: <ErrorMock kind="cheerful" />, insight: tt("In plain words: Oops, an emoji, no worries. It is friendly, but it does not say what happened or what to do. Hana feels her problem is not taken seriously.") },
-        { id: "supportive", button: tt("Supportive"), picture: <ErrorMock kind="supportive" />, insight: tt("In plain words: the payment did not go through, nothing was charged, the basket is saved, here are two ways on and help by phone. Hana feels safe and pays by invoice.") },
-      ]}
-    />
-  );
+  return <ErrorToneLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · activation against fit (interactive) */
@@ -210,18 +174,7 @@ export function EmotionLayersFig() {
 /* ------------------------------------------------------------------ B2 · one template, four situations (interactive) */
 
 export function SituationFig() {
-  return (
-    <StateFig
-      label={tt("The same Moss & Pine message template in four situations · Exploratory · Case assumption")}
-      point={tt("The right feeling depends on the situation, not on the brand alone. A gentle push fits an offer; a calm, useful voice fits care; an apology fits a delay; empathy and a remedy fit a loss. The same cheerful tone everywhere would be incongruent in two of the four.")}
-      states={[
-        { id: "sale", button: tt("An offer"), picture: <ReminderMock kind="sale" />, insight: tt("In plain words: a real reason at the right time, a gentle invitation. Activation fits here; false urgency would harm credibility.") },
-        { id: "care", button: tt("Care"), picture: <ReminderMock kind="care" />, insight: tt("In plain words: calm and useful. Jonas's roses do well and he trusts the next message. Marketing would like an offer added; it would turn help into a sales channel.") },
-        { id: "late", button: tt("A delay"), picture: <ReminderMock kind="late" />, insight: tt("In plain words: an apology, a reassurance and the new date. A cheerful tone here would feel as if the delay did not matter.") },
-        { id: "loss", button: tt("A loss"), picture: <ReminderMock kind="loss" />, insight: tt("In plain words: the plants died. The message names the disappointment and offers a remedy. Confetti or an upsell here would be incongruent and would cost Hana's trust.") },
-      ]}
-    />
-  );
+  return <SituationLab />;
 }
 
 /* ------------------------------------------------------------------ B3 · a decision under uncertainty, filled in for Moss & Pine (static) */
