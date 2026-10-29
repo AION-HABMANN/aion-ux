@@ -137,16 +137,16 @@ Every interactive figure of the Materi cards, Days 1 to 16, checked on 2026-10-2
 | 13 | `LayersChainFig` | The layers of a neurodiverse UX architecture, from a guiding vision to every product | chain of steps | stays (conceptual) | – |
 | 13 | `ConflictFig` | Three Hearth Energy decisions between conflicting goals | switches between drawn screens | stays (three decisions between goals, a leadership comparison) | – |
 | 13 | `DecisionFig` | A decision under uncertainty, filled in for Hearth Energy | decision frame | stays (conceptual) | – |
-| 14 | `ModesFig` | The Brewline coffee machine as a flat picture, as a 3D object and with anchored AR labels | switches between drawn screens | upgrade to a working product | open |
-| 14 | `AttentionFig` | The Brewline machine with two labels, nine labels, and nine moving labels | custom interactive | upgrade to a working product | open |
-| 14 | `IntensifyFig` | The Brewline AR descaling guide in a calm and a stressful moment | switches between drawn screens | upgrade to a working product | open |
-| 14 | `ValueFig` | Brewline's five ideas placed by user value and maturity | custom interactive | upgrade to a working product | open |
+| 14 | `ModesFig` | The Brewline coffee machine as a flat picture, as a 3D object and with anchored AR labels | switches between drawn screens | upgrade to a working product | done |
+| 14 | `AttentionFig` | The Brewline machine with two labels, nine labels, and nine moving labels | custom interactive | upgrade to a working product | checked: already a working product |
+| 14 | `IntensifyFig` | The Brewline AR descaling guide in a calm and a stressful moment | switches between drawn screens | upgrade to a working product | done |
+| 14 | `ValueFig` | Brewline's five ideas placed by user value and maturity | custom interactive | stays (a judgement grid of ideas by value and maturity) | – |
 | 14 | `MaturityChainFig` | From an idea to a product in use, and where most immersive projects stop | chain of steps | stays (conceptual) | – |
 | 14 | `EthicsFig` | Five ethical questions asked of three Brewline ideas | static | stays (conceptual) | – |
 | 14 | `WeighFig` | Brewline weighs three measures on effect on users, feasibility, risk, time pressure and in | rating grid | stays (conceptual) | – |
 | 14 | `ArchitectureFig` | Brewline chasing headsets to look innovative, or running an innovation portfolio with gate | two-column comparison | stays (conceptual) | – |
 | 14 | `LayersChainFig` | The layers of an innovation architecture, from a guiding vision to every pilot | chain of steps | stays (conceptual) | – |
-| 14 | `BetsFig` | Brewline's three bets: safe, medium and bold | switches between drawn screens | upgrade to a working product | open |
+| 14 | `BetsFig` | Brewline's three bets: safe, medium and bold | switches between drawn screens | stays (three portfolio bets, a leadership comparison) | – |
 | 14 | `DecisionFig` | A decision under uncertainty, filled in for Brewline | decision frame | stays (conceptual) | – |
 | 15 | `RecordingFig` | Mara's gaze on Tessel's transfer page, as a scanpath, a heatmap and areas of interest | static | stays (conceptual) | – |
 | 15 | `ReadingsFig` | The same recording, with the long fixation on the fee line marked red | switches between drawn screens | upgrade to a working product | open |

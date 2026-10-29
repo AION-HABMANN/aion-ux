@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useId, useState } from "react";
-import { DescaleMock, MeasureThumb } from "@/components/day14/mocks";
+import { MeasureThumb } from "@/components/day14/mocks";
 import { StateFig } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, Insight, ThePoint } from "@/components/materi/kit";
@@ -10,6 +10,7 @@ import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { ModelStage } from "@/components/sim/ModelStage";
 import { tt } from "@/lib/lang";
+import { IntensifyLab, ModesLab } from "@/components/day14/labs";
 
 /**
  * Day 14 · the teaching diagrams of Materi A and B. Example: Brewline, a made-up maker of coffee machines, with Zara and Edgar (customers), Kim (UX designer) and
@@ -41,38 +42,7 @@ const Label = ({ slot, pos, normal, children, loud }: { slot: string; pos: strin
 /* ------------------------------------------------------------------ A1 · flat, 3D, AR (interactive, real 3D) */
 
 export function ModesFig() {
-  const parts = PARTS();
-  return (
-    <StateFig
-      label={tt("The Brewline coffee machine as a flat picture, as a 3D object and with anchored AR labels · Exploratory · Case assumption")}
-      point={tt("Classic interfaces are flat; immersive ones put content into space. A 3D object can be turned and seen from any side; AR labels sit on the parts themselves, so nobody has to map a diagram onto the machine. On a phone that supports AR, the same object can be placed on your own table.")}
-      states={[
-        {
-          id: "flat",
-          button: tt("Flat: a picture"),
-          picture: (
-            <div className="mx-auto max-w-[360px] space-y-2 rounded-lg border border-line bg-white p-3 text-caption text-ink">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={FALLBACK} alt={tt("A flat drawing of the coffee machine")} className="mx-auto h-40 object-contain" />
-              <p>{tt("Figure 3: A water tank, B spout, C drip tray, D buttons. See page 12.")}</p>
-            </div>
-          ),
-          insight: tt("In plain words: a drawing with letters and a page reference. Zara has to find A to D on the drawing, then on her machine."),
-        },
-        { id: "3d", button: tt("3D: turn it"), picture: <ModelStage src={MODEL} alt={tt("The Brewline coffee machine in 3D, without labels")} fallback={FALLBACK} orbit="25deg 75deg 1.6m" target="0m 0.32m 0m" />, insight: tt("In plain words: the real shape, from every side. Nicer than a drawing, but still no answer to “where is the tank?”.") },
-        {
-          id: "ar",
-          button: tt("AR: labels on the parts"),
-          picture: (
-            <ModelStage src={MODEL} alt={tt("The Brewline coffee machine with labels anchored to the water tank, spout, drip tray and buttons")} fallback={FALLBACK} orbit="25deg 75deg 1.6m" target="0m 0.32m 0m" ar>
-              {parts.map((p) => <Label key={p.slot} slot={p.slot} pos={p.pos} normal={p.normal}>{p.label}</Label>)}
-            </ModelStage>
-          ),
-          insight: tt("In plain words: the labels sit on the parts and turn with the machine. On an AR phone, press the cube to place it on your counter. This is augmented reality; virtual reality would replace the kitchen altogether."),
-        },
-      ]}
-    />
-  );
+  return <ModesLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · attention and load in space (interactive, real 3D) */
@@ -108,16 +78,7 @@ export function AttentionFig() {
 /* ------------------------------------------------------------------ A3 · intensify or overwhelm (interactive) */
 
 export function IntensifyFig() {
-  return (
-    <StateFig
-      label={tt("The Brewline AR descaling guide in a calm and a stressful moment · Exploratory · Case assumption")}
-      point={tt("The same immersive feature can intensify an experience or overwhelm it. In a quiet moment, AR at the machine is a real help; with noise, time pressure and a weak connection, the same overlays become a burden. Design and test for the stressful moment, not only the demo.")}
-      states={[
-        { id: "calm", button: tt("A quiet Sunday"), picture: <DescaleMock stress={false} />, insight: tt("In plain words: one label on the tank and a step counter. Zara descales in five minutes without the manual.") },
-        { id: "stress", button: tt("A stressful morning"), picture: <DescaleMock stress />, insight: tt("In plain words: the machine beeps, a child cries, the signal is weak, and six labels appear at once, two of them adverts. The help became part of the stress.") },
-      ]}
-    />
-  );
+  return <IntensifyLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · fascination or impact (interactive) */

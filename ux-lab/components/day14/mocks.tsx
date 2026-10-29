@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { tt } from "@/lib/lang";
 
 /**
  * Day 14 · the drawn screens of the study cards (CLAUDE.md #52): Brewline, a made-up maker of coffee machines with an app, so no task is answered here. The real 3D
@@ -41,31 +40,6 @@ const Machine = () => (
 const Tag = ({ x, y, children, warn }: { x: string; y: string; children: ReactNode; warn?: boolean }) => (
   <div className="absolute whitespace-nowrap rounded-full px-2 py-0.5 text-[10.5px] font-semibold shadow" style={{ left: x, top: y, background: warn ? "#FEF3C7" : "#FFFFFF", color: warn ? "#78350F" : INK }}>{children}</div>
 );
-
-export function DescaleMock({ stress }: { stress: boolean }) {
-  return (
-    <Phone label={stress ? tt("The AR descaling guide in a stressful moment: a beeping machine, a crying child, a weak connection, and six labels at once") : tt("The AR descaling guide on a quiet Sunday: one label on the water tank, step 1 of 4")}>
-      <Machine />
-      {!stress ? (
-        <>
-          <Tag x="32%" y="12%">1 · {tt("Fill the tank with descaler")}</Tag>
-          <div className="mt-2 rounded bg-white/95 p-2 text-[11px]">{tt("Step 1 of 4 · Next: place a cup under the spout")}</div>
-        </>
-      ) : (
-        <>
-          <div className="absolute left-3 right-3 top-3 rounded bg-[#B91C1C] px-2 py-0.5 text-[10.5px] font-bold text-white">{tt("🔔 BEEP · descaling needed · 🔔")}</div>
-          <Tag x="30%" y="20%">1 · {tt("Fill the tank")}</Tag>
-          <Tag x="55%" y="36%" warn>⚠ {tt("Hot water!")}</Tag>
-          <Tag x="10%" y="40%" warn>{tt("Tip: use Brewline descaler")}</Tag>
-          <Tag x="40%" y="50%">2 · {tt("Cup under spout")}</Tag>
-          <Tag x="62%" y="58%" warn>{tt("Order descaler 🛒")}</Tag>
-          <Tag x="18%" y="62%">3 · {tt("Press both buttons")}</Tag>
-          <div className="mt-2 rounded bg-white/95 p-2 text-[11px]">{tt("👶 crying in the next room · 📶 weak signal: labels lag behind the camera")}</div>
-        </>
-      )}
-    </Phone>
-  );
-}
 
 export function MeasureThumb({ kind }: { kind: "descale" | "showroom" | "eye" }) {
   return (
