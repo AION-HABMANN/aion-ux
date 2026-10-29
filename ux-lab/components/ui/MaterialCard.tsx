@@ -119,7 +119,8 @@ export function MaterialCard({ id, scan, children, reasoning, sources }: { id: M
 export function DataTable({ head, rows, caption }: { head: string[]; rows: ReactNode[][]; caption?: string }) {
   const seen = new Set<string>();
   return (
-    <div className="relative overflow-x-auto rounded-lg border border-line">
+    // Focusable and named, so a keyboard user can scroll a wide table on a phone (axe scrollable-region-focusable).
+    <div className="relative overflow-x-auto rounded-lg border border-line" tabIndex={0} role="region" aria-label={caption ?? head.join(", ")}>
       <table className="w-full min-w-[34rem] border-collapse text-caption">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead>

@@ -293,3 +293,98 @@ export function ToneLab() {
     />
   );
 }
+
+/* ------------------------------------------------------------------ A2 · what the fovea takes in */
+
+const R = 46; // the sharp spot: about 2° of the visual field on a phone held at reading distance (Rayner 1998)
+type Dep = { to: string; time: string; gate: string; ad?: boolean };
+const BOARD = (ordered: boolean): Dep[] => {
+  const rows: Dep[] = [
+    { to: tt("Oslo"), time: "09:10", gate: "B4" },
+    { to: tt("Kiel"), time: "09:25", gate: "A2" },
+    { to: tt("Bergen"), time: "09:40", gate: "C7" },
+    { to: tt("Gdańsk"), time: "09:55", gate: "A5" },
+    { to: tt("Tallinn"), time: "10:05", gate: "B1" },
+    { to: tt("Aarhus"), time: "10:20", gate: "C2" },
+    { to: tt("Visby"), time: "10:35", gate: "A9" },
+    { to: tt("Riga"), time: "10:50", gate: "B6" },
+  ];
+  if (ordered) return [...rows].sort((a, b) => a.to.localeCompare(b.to));
+  const mixed = [rows[6], rows[0], rows[4], rows[7], rows[2], rows[5], rows[1], rows[3]];
+  mixed.splice(2, 0, { to: tt("Duty-free 20% off"), time: "", gate: "", ad: true });
+  mixed.splice(7, 0, { to: tt("Lounge access"), time: "", gate: "", ad: true });
+  return mixed;
+};
+
+function Board({ rows, ordered, onRow }: { rows: Dep[]; ordered: boolean; onRow?: (d: Dep) => void }) {
+  return (
+    <div className="space-y-1 p-2">
+      <p className="text-[13px] font-bold">{tt("Ferry departures · today")}</p>
+      {ordered && <p className="grid grid-cols-[1fr_auto_auto] gap-3 px-2 text-[10.5px] font-semibold text-[#475569]"><span>{tt("To")}</span><span>{tt("Time")}</span><span>{tt("Gate")}</span></p>}
+      {rows.map((d, i) => (
+        <button
+          key={i}
+          type="button"
+          tabIndex={onRow ? 0 : -1}
+          onClick={() => onRow?.(d)}
+          className={clsx(
+            "w-full rounded px-2 py-1 text-left text-[12px]",
+            d.ad ? "bg-[#FDE68A] font-bold text-[#78350F]" : ordered ? "grid grid-cols-[1fr_auto_auto] gap-3 bg-[#EEF2F7]" : "block bg-[#F1F5F9] text-[11.5px]",
+          )}
+        >
+          {d.ad ? d.to : ordered ? (<><span className="font-bold">{d.to}</span><span>{d.time}</span><span className="font-bold">{d.gate}</span></>) : tt(`${d.time} · gate ${d.gate} · ${d.to}`)}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: boolean }) {
+  const [spot, setSpot] = useState<{ x: number; y: number } | null>(null);
+  const [n, setN] = useState(0);
+  const rows = BOARD(ordered);
+  if (ctx.finished) return <AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`)}</p></AppScreen>;
+  const fixate = (x: number, y: number) => { setSpot({ x, y }); setN((k) => k + 1); ctx.hit(tt(`Fixation ${n + 1}`)); };
+  const centre = (el: HTMLElement) => {
+    const box = el.offsetParent?.getBoundingClientRect(), r = el.getBoundingClientRect();
+    return box ? { x: r.left - box.left + Math.min(r.width / 2, 60), y: r.top - box.top + r.height / 2 } : { x: 0, y: 0 };
+  };
+  const onRow = (d: Dep) => {
+    if (d.to === tt("Bergen")) ctx.done(tt(`Found Bergen, gate C7, after ${n} fixation(s)`));
+    else ctx.miss(tt(d.ad ? `Tapped “${d.to}”` : `Read ${d.to}, not Bergen`));
+  };
+  const clip = spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)";
+  return (
+    <AppScreen brand={Brand} color={ACC} status={blur ? tt(`fixations: ${n}`) : undefined}>
+      {blur ? (
+        <div
+          className="relative cursor-crosshair"
+          onClick={(e) => { if ((e.target as HTMLElement).closest("button")) return; const b = e.currentTarget.getBoundingClientRect(); fixate(e.clientX - b.left, e.clientY - b.top); }}
+          onFocusCapture={(e) => { const t = e.target as HTMLElement; if (t.tagName === "BUTTON") { const c = centre(t); fixate(c.x, c.y); } }}
+        >
+          <div aria-hidden className="pointer-events-none select-none" style={{ filter: "blur(3.5px)" }}><Board rows={rows} ordered={ordered} /></div>
+          <div className="absolute inset-0" style={{ clipPath: clip }}><Board rows={rows} ordered={ordered} onRow={onRow} /></div>
+          {!spot && <p className="pointer-events-none absolute inset-x-0 bottom-2 text-center text-[11px] font-semibold text-[#1E293B]">{tt("Tap where you want to look")}</p>}
+        </div>
+      ) : (
+        <Board rows={rows} ordered={ordered} onRow={onRow} />
+      )}
+    </AppScreen>
+  );
+}
+
+export function FoveaLab() {
+  return (
+    <TaskLab
+      label={tt("The Nordwind ferry board as you feel it and as the fovea takes it in · a working product · Case assumption, example company")}
+      point={tt("Only a spot of about 2° is sharp, roughly a thumbnail at arm's length; the brain fills in the rest. To read anything else, the eyes have to jump there. Each tap here is one fixation: the spot jumps to where you tap, and only there can you read. Count how many jumps the same search costs on a mixed board and on an ordered one.")}
+      task={tt("You are Tom. Find the gate of the ferry to Bergen, then tap its row.")}
+      stresses={["small", "hurry", "ping"]}
+      versions={[
+        { id: "feel", label: tt("How it feels: the mixed board"), render: (ctx) => <Fovea ctx={ctx} ordered={false} blur={false} />, insight: tt("In plain words: the whole board seems sharp at once, so the search feels quick. It is not: the eyes still jumped from row to row, you only did not notice.") },
+        { id: "mixed", label: tt("What the eye takes in: mixed"), render: (ctx) => <Fovea ctx={ctx} ordered={false} blur />, insight: tt("In plain words: times first, destinations last and two adverts in between. Tom has to land on row after row, because nothing in the blur tells him where Bergen is.") },
+        { id: "ordered", label: tt("What the eye takes in: ordered"), render: (ctx) => <Fovea ctx={ctx} ordered blur />, insight: tt("In plain words: destinations first, in bold and in alphabetical order. Even in the blur, Tom knows Bergen sits near the top: prior knowledge of the alphabet steers the jump, and two or three fixations are enough.") },
+      ]}
+    />
+  );
+}

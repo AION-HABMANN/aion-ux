@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { AimsFig, AttentionFig, ChannelsFig, ConflictFig, DecisionFig, LooksWorksFig, SeeChainFig, SteerChainFig, ToneFig, WeighFig4 } from "@/components/day1/diagrams";
 import { ComicButton } from "@/components/comic/ComicModal";
+import { FoveaLab } from "@/components/day1/labs";
 import { ART_D1 } from "@/components/day1/comicScenes";
 import { COMICS_D1 } from "@/data/day1/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
@@ -29,7 +30,7 @@ export function CardA1() {
     <MaterialCard
       id="A1"
       scan={tt("UX is what people go through, UI is the surface. A design is judged by its effect on attention, understanding, feeling and decision, not only by how it looks.")}
-      sources={["normanNielsen", "iso9241210", "norman2013", "tractinsky2000"]}
+      sources={["normanNielsen", "iso9241210", "norman2013", "tractinsky2000", "rayner1998", "simons1999", "benway1998", "cowan2001", "lindgaard2006", "nielsen2000"]}
       reasoning={[
         tt("Describe the effect before you judge: what does the person notice first, understand, feel and do?"),
         tt("Separate taste (“I like it”) from an effect assumption (“users will probably overlook the button, because …”). Only the second can be tested."),
@@ -52,8 +53,21 @@ export function CardA1() {
           [tt("Mental model"), tt("What a person believes the product is and does."), tt("“The basket shows what I chose.”")],
         ]}
       />
+      <DataTable
+        caption={tt("Each word with a real finding: what research shows, and what it means for a screen")}
+        head={[tt("Word"), tt("A real finding"), tt("What it means for a screen")]}
+        rows={[
+          [tt("UX"), tt("ISO 9241-210 counts the responses to the use and to the anticipated use of a product: the experience starts before the first tap, with the store page, the advert and what friends say."), tt("A good booking screen cannot repair a confusing confirmation e-mail: both are the experience.")],
+          [tt("UI"), tt("Norman (2013) opens his book with doors: a handle that says “pull” on a door that must be pushed. The surface tells the hand one thing and the product does another."), tt("A button that looks like a label, or a label that looks like a button, is a UI fault even when the function behind it works.")],
+          [tt("Perception"), tt("Only a spot of about 2° of the visual field is seen sharply; the eyes jump three to four times a second and take in information only during fixations of about 200 to 300 ms (Rayner 1998)."), tt("What the eye never lands on is seen only as a blur. A screen is perceived in jumps, not as a whole.")],
+          [tt("Attention"), tt("46% of observers counting basketball passes did not notice a person in a gorilla suit walking through the video (Simons and Chabris 1999). Web users overlook what looks like an advert, even when it is what they need (Benway and Lane 1998)."), tt("Being on the screen is not being seen. What lies outside the task, or looks like an advert, is often not noticed at all.")],
+          [tt("Cognition"), tt("Working memory holds about four chunks at once (Cowan 2001)."), tt("A form that asks people to remember a code from the previous screen, plus a date and a price, asks for most of what they have.")],
+          [tt("Emotion"), tt("People rate the visual appeal of a web page after 50 ms, and the rating barely changes with longer viewing (Lindgaard et al. 2006)."), tt("The first feeling comes before the first word is read; it colours everything that follows.")],
+          [tt("Mental model"), tt("Users spend most of their time on other sites, so they expect yours to work like those (Nielsen 2000, later called Jakob's Law)."), tt("The logo at the top left leads home, the magnifier means search, the basket sits at the top right: breaking such a model costs every user a moment of doubt.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The definition of user experience follows ISO 9241-210 and Norman and Nielsen; mental models follow Norman (2013).`)}</p>
+        <p>{tt(`${NW()} The definition of user experience follows ISO 9241-210 and Norman and Nielsen; mental models follow Norman (2013). The findings in the second table are real research results; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("People rate an attractive interface as easier to use before they have used it (Tractinsky, Katz and Ikar 2000). That is why looks matter, and also why they mislead: the first judgement is not the experience. Psychological UX design takes both seriously and tests which one holds.")}</p>
@@ -67,7 +81,7 @@ export function CardA2() {
     <MaterialCard
       id="A2"
       scan={tt("The brain takes in the stimulus, steers attention, recognises patterns and makes sense of them. A strong signal pulls the eye by itself (bottom-up); the goal pulls it too (top-down).")}
-      sources={["ittiKoch2001", "corbetta2002", "treisman1980"]}
+      sources={["ittiKoch2001", "corbetta2002", "treisman1980", "rayner1998", "hubel1962", "mishkin1983", "thorpe1996", "wertheimer1923", "cowan2001", "pernice2017"]}
       reasoning={[
         tt("Find the strongest signals on a screen: what moves, glows, is red or much larger than the rest. They are seen first."),
         tt("Ask whether the strongest signal is the task. If it is not, it competes with the task: count it as a distraction."),
@@ -77,6 +91,17 @@ export function CardA2() {
     >
       <ComicButton comic={COMICS_D1.A2} art={ART_D1} />
       <SeeChainFig />
+      <DataTable
+        caption={tt("From light to meaning: the four steps in the brain, with real numbers")}
+        head={[tt("Step"), tt("What happens in the brain"), tt("Real numbers"), tt("What it means for a screen")]}
+        rows={[
+          [tt("1 · Taking in the stimulus"), tt("Light falls on the retina. Only its centre, the fovea, sees sharp detail and colour; the edge of the field sees movement and contrast, blurred. The eyes jump (saccades) and rest (fixations); information comes in only while they rest."), tt("Sharp vision covers about 2° (a thumbnail at arm's length); three to four fixations a second, each about 200 to 300 ms (Rayner 1998)."), tt("People never see the whole screen sharp at once. Every element they need costs a jump of the eyes.")],
+          [tt("2 · Steering attention"), tt("The brain decides where the next jump goes. Bottom-up, a “saliency map” marks what differs most from its surroundings; top-down, the goal marks what fits the search. Both feed the same decision."), tt("In eye-tracking studies with 232 users (2006, confirmed in 2017), people scanned text pages mostly in an F shape: the top lines, a shorter line below, then down the left edge (Pernice 2017)."), tt("The top and the left edge of a page get the jumps; what matters should start there, with the words people are looking for.")],
+          [tt("3 · Recognising patterns"), tt("The early visual cortex (V1) splits the image into edges, orientations, colours and movement, in parallel (Hubel and Wiesel 1962). Two pathways follow: a ventral “what” pathway recognises objects, a dorsal “where” pathway locates them (Mishkin et al. 1983). Things close together or alike are grouped into one shape (Wertheimer 1923)."), tt("People can tell whether a photo shown for 20 ms contains an animal; the brain shows the difference about 150 ms after the image appears (Thorpe et al. 1996)."), tt("Familiar shapes, icons and groups are recognised before anything is read. Spacing and alignment say what belongs together before the words do.")],
+          [tt("4 · Cognitive processing"), tt("What was recognised is held in working memory, compared with what the person knows and wants, and turned into a decision: tap, read on, or leave."), tt("Working memory holds about four chunks at once (Cowan 2001)."), tt("Every extra thing to hold or compare takes room from the task. Show the information where the decision is made, rather than asking people to remember it.")],
+        ]}
+      />
+      <FoveaLab />
       <AttentionFig />
       <DataTable
         caption={tt("Two forces of attention, and what they mean for a screen")}
@@ -88,7 +113,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} Bottom-up attention follows Itti and Koch (2001); the two attention systems follow Corbetta and Shulman (2002).`)}</p>
+        <p>{tt(`${NW()} Bottom-up attention follows Itti and Koch (2001); the two attention systems follow Corbetta and Shulman (2002). The numbers in the table of the four steps are real research results; the ferry board is made up.`)}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Feature-integration theory explains why a single red item among grey ones pops out immediately, while a red square among red circles and grey squares has to be searched item by item (Treisman and Gelade 1980). For a screen, it means: the important thing should differ from the rest in one clear way, and only a few things should differ at all.")}</p>
@@ -102,7 +127,7 @@ export function CardA3() {
     <MaterialCard
       id="A3"
       scan={tt("People bring prior knowledge, expectations, context and habits. A good interface uses them to give orientation, reduce confusion and steer attention to what matters.")}
-      sources={["krug2014", "nielsen1994", "sweller1988"]}
+      sources={["krug2014", "nielsen1994", "sweller1988", "nielsen2000", "iso924111", "wood2002", "pernice2016"]}
       reasoning={[
         tt("Orientation: can the person tell where they are, what they can do here and what comes next?"),
         tt("Count how many elements are equally strong. Many equally strong elements mean there is no visual order: an orientation problem."),
@@ -112,6 +137,16 @@ export function CardA3() {
       ]}
     >
       <ComicButton comic={COMICS_D1.A3} art={ART_D1} />
+      <DataTable
+        caption={tt("What people bring to every screen, with real evidence")}
+        head={[tt("What they bring"), tt("What it is"), tt("Real evidence"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Prior knowledge"), tt("What people already know from other products and from the world: the alphabet, the clock, what a magnifier or a basket stands for."), tt("Users spend most of their time on other sites, so they expect yours to work the same way (Nielsen 2000)."), tt("Use the patterns people already know; a new pattern has to be learned, and every learner pays for it once.")],
+          [tt("Expectations"), tt("What people believe will happen next, built from prior knowledge and from what the screen has shown so far."), tt("When navigation was hidden behind a menu icon, people on six live websites used it less often and later in the task, on desktop and on phones (Pernice and Budiu 2016)."), tt("People look for what they expect to see. What is hidden, or sits where nobody expects it, is used less, however good it is.")],
+          [tt("Context"), tt("The situation of use: who uses it, for which task, with which resources, and in which physical, social and technical surroundings."), tt("ISO 9241-11 defines usability only for specified users, goals and a context of use; the same product can be usable in one context and not in another."), tt("Test in the real situation: at the gate, in a hurry, in sunlight, with one hand, with a weak signal. A quiet office is a different context.")],
+          [tt("Habits"), tt("Actions repeated in the same situation until they run without thinking."), tt("In diary studies, about 43% of everyday actions were done almost daily, usually in the same place, often while thinking about something else (Wood et al. 2002)."), tt("Regular users tap where the button used to be. Moving a familiar element costs them a mistake; changing what a familiar gesture does costs more.")],
+        ]}
+      />
       <AimsFig />
       <DataTable
         caption={tt("Three aims of an interface, and a sign that one is missing")}
@@ -123,7 +158,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The orientation questions follow Krug (2014); consistency and minimalist design follow Nielsen (1994); cognitive load follows Sweller (1988).`)}</p>
+        <p>{tt(`${NW()} The orientation questions follow Krug (2014); consistency and minimalist design follow Nielsen (1994); cognitive load follows Sweller (1988). The evidence in the first table is real research; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Context changes the effect: the same screen is read differently by someone in a hurry, someone worried, or someone using it for the first time. A health app or an insurance portal is often opened in a stressful moment, so every extra signal weighs more than it would in a game.")}</p>
@@ -137,7 +172,7 @@ export function CardA4() {
     <MaterialCard
       id="A4"
       scan={tt("People feel a screen before they read it. Trust, reactance, overload, safety and liking work unconsciously; you infer them from the design and write them as a hypothesis.")}
-      sources={["lindgaard2006", "brehm1966", "fogg2003", "kahneman2011"]}
+      sources={["lindgaard2006", "brehm1966", "fogg2003", "kahneman2011", "foggWeb2003", "kurosu1995", "tractinsky2000"]}
       reasoning={[
         tt("A warning shown when nothing is wrong teaches people to ignore warnings or to feel unsafe: a trust problem and an emotional one."),
         tt("Pressure in the wording or the design (countdowns, “only 1 left”) can trigger reactance instead of action."),
@@ -158,8 +193,17 @@ export function CardA4() {
           [tt("Liking"), tt("Warmth, tone, visual quality."), tt("A cold or careless look; it helps, but it is not clarity.")],
         ]}
       />
+      <DataTable
+        caption={tt("Liking and trust in numbers: what research shows about the first feeling")}
+        head={[tt("Finding"), tt("What was measured"), tt("What it means for a screen")]}
+        rows={[
+          [tt("50 ms are enough (Lindgaard et al. 2006)"), tt("People rated the visual appeal of web pages shown for 50 ms; the ratings were close to those after a longer look."), tt("Liking forms before reading. A careless or cold look is judged before the content can speak for itself.")],
+          [tt("The look carries trust (Fogg et al. 2003)"), tt("2,684 people judged the credibility of 100 live websites; the design look was the factor they mentioned most often, in 46.1% of their comments."), tt("People judge whether they can trust a company from its screens. Layout, type and care are read as signs of seriousness.")],
+          [tt("Beautiful seems easier (Kurosu and Kashimura 1995; Tractinsky et al. 2000)"), tt("People rated how easy cash-machine screen layouts would be to use mainly by how attractive they looked, before using them; a later study in Israel confirmed it."), tt("Liking lends a design credit. It buys patience for a small flaw; it does not repair a screen that does not work.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The first impression follows Lindgaard et al. (2006); reactance follows Brehm (1966); how people judge credibility follows Fogg (2003).`)}</p>
+        <p>{tt(`${NW()} The first impression follows Lindgaard et al. (2006); reactance follows Brehm (1966); how people judge credibility follows Fogg (2003). The numbers in the second table are real research results.`)}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Kahneman (2011) describes two ways of judging: a fast, automatic one and a slow, deliberate one. Most of what a design does to people happens in the fast one, which is why users can rarely tell you that a red banner made them uneasy; they only know they did not trust the page.")}</p>
@@ -199,7 +243,7 @@ export function CardB1() {
     <MaterialCard
       id="B1"
       scan={tt("A design steers what people perceive, understand, do and decide. A Neuro-UX strategy chooses one effect and makes every touchpoint serve it.")}
-      sources={["norman2013", "kahneman2011", "normanNielsen"]}
+      sources={["norman2013", "kahneman2011", "normanNielsen", "fogg2009", "johnson2003", "steffel2019", "dsa2022", "planet49"]}
       reasoning={[
         tt("Start from the effect you want (what should customers perceive, understand, feel and do?), then choose the design means."),
         tt("Prefer one shared effect logic for every channel over isolated improvements to single screens."),
@@ -209,9 +253,19 @@ export function CardB1() {
     >
       <ComicButton comic={COMICS_D1.B1} art={ART_D1} />
       <SteerChainFig />
+      <DataTable
+        caption={tt("How design steers behaviour: three levers with real evidence, and the limits")}
+        head={[tt("Lever"), tt("What it is"), tt("Real evidence"), tt("What it means for a strategy")]}
+        rows={[
+          [tt("Motivation, ability, prompt"), tt("A behaviour happens when the person wants it enough, can do it easily enough, and is prompted at that moment: B = MAP."), tt("The Fogg Behavior Model (Fogg 2009). When a behaviour does not happen, one of the three is missing; most often it is ability or the right moment."), tt("Before adding persuasion, make the action easy and prompt it when people can act, for example a check-in reminder with a one-tap button, sent when check-in opens.")],
+          [tt("Defaults"), tt("What happens if the person does nothing. Most people keep the default, because changing it costs effort and looks like a recommendation."), tt("In European countries where people had to opt out, almost everyone counted as a consenting organ donor; where they had to opt in, only a small minority did (Johnson and Goldstein 2003). Actual donations differ far less than these consent figures (Steffel et al. 2019)."), tt("Every default is a decision the company takes for its customers. Set it in their interest, and say so.")],
+          [tt("Friction"), tt("Effort placed on purpose: removed from the wanted action, added before an action that is risky or hard to undo."), tt("Ability is the lever that is easiest to design (Fogg 2009): fewer steps, fewer fields, less to read."), tt("Make the main path the easy one; a confirmation step belongs before a deletion, not before a booking.")],
+          [tt("The limits"), tt("Steering stops being design and becomes manipulation when it works against the person's interest or takes away an informed choice."), tt("The EU Digital Services Act (Article 25) forbids online platforms to design interfaces that deceive or manipulate users. The Court of Justice of the EU ruled in Planet49 (2019) that a pre-ticked box is not valid consent."), tt("A strategy names the behaviour it wants and why that is in the customer's interest. Pre-ticked extras, countdowns and hidden opt-outs are a legal risk as well as a risk to trust.")],
+        ]}
+      />
       <ChannelsFig />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The chain from perception to decision restates the plan's “design as the steering of perception, behaviour and decision”.`)}</p>
+        <p>{tt(`${NW()} The chain from perception to decision restates the plan's “design as the steering of perception, behaviour and decision”. The evidence in the table of levers is real research and real law; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("User experience, in Norman and Nielsen's definition, covers every part of a person's interaction with a company, its services and its products. A strategy therefore cannot stop at one channel: the customer judges the company by the whole journey, including the moment of moving from one channel to the next.")}</p>

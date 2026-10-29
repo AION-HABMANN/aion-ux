@@ -11,13 +11,13 @@ import type { MaterialId, MaterialMeta, PlainExplain } from "@/data/materialType
  */
 const METAS: MaterialMeta[] = bi([
   { id: "A1" as MaterialId, block: "A" as const, title: t("UX, UI and the psychology behind them: looking good is not the same as working well"), minutes: 12 },
-  { id: "A2" as MaterialId, block: "A" as const, title: t("How people see: from stimulus to decision, bottom-up and top-down"), minutes: 14 },
+  { id: "A2" as MaterialId, block: "A" as const, title: t("How people see: from stimulus to decision, bottom-up and top-down"), minutes: 16 },
   { id: "A3" as MaterialId, block: "A" as const, title: t("Expectations and habits, and three aims of an interface: orientation, less confusion, steered attention"), minutes: 12 },
-  { id: "A4" as MaterialId, block: "A" as const, title: t("Feelings that work before thinking: trust, reactance, overload, safety, liking"), minutes: 12 },
-  { id: "A5" as MaterialId, block: "A" as const, title: t("Weighing a design measure: effect on users, feasibility, risk, time pressure"), minutes: 10 },
-  { id: "B1" as MaterialId, block: "B" as const, title: t("Design steers perception, behaviour and decision: a Neuro-UX strategy"), minutes: 18 },
-  { id: "B2" as MaterialId, block: "B" as const, title: t("Conflicting goals: aesthetics against clarity, innovation against familiarity, activation against overload"), minutes: 22 },
-  { id: "B3" as MaterialId, block: "B" as const, title: t("Accountable decisions under uncertainty: the role, the rules and a decision you can answer for"), minutes: 20 },
+  { id: "A4" as MaterialId, block: "A" as const, title: t("Feelings that work before thinking: trust, reactance, overload, safety, liking"), minutes: 11 },
+  { id: "A5" as MaterialId, block: "A" as const, title: t("Weighing a design measure: effect on users, feasibility, risk, time pressure"), minutes: 9 },
+  { id: "B1" as MaterialId, block: "B" as const, title: t("Design steers perception, behaviour and decision: a Neuro-UX strategy"), minutes: 22 },
+  { id: "B2" as MaterialId, block: "B" as const, title: t("Conflicting goals: aesthetics against clarity, innovation against familiarity, activation against overload"), minutes: 20 },
+  { id: "B3" as MaterialId, block: "B" as const, title: t("Accountable decisions under uncertainty: the role, the rules and a decision you can answer for"), minutes: 18 },
 ]);
 
 /** "In plain words" (CLAUDE.md #22, #51): the idea, why it matters for the task, and how to read the picture. */
@@ -41,7 +41,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks which elements of CarePath bind or distract attention, and Block 1.2 asks you to rate three start pages on orientation and activation. You need both forces to say why an element pulls the eye and whether that helps the user.",
     ),
     picture: t(
-      "First the four steps from what the eye takes in to a decision. Then one Nordwind screen in three readings: the strongest signal wins, Mia's goal leads, and both pull at once. Choose a reading and read where her eye goes. Press “Read the comic” for a short story.",
+      "First the four steps from what the eye takes in to a decision, then a table of what the brain does at each step, with real numbers. Then the Nordwind ferry board as only the sharp centre of the eye takes it in: each tap is one jump of the eyes. Then one Nordwind screen in three readings: the strongest signal wins, Mia's goal leads, and both pull at once. Choose a reading and read where her eye goes. Press “Read the comic” for a short story.",
     ),
   },
   A3: {
@@ -85,7 +85,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a guiding vision, three strategic decisions for 24 months and an order of touchpoints for a company that loses users between its website, portal, app and chatbot. You work from the effect you want, not from single screens.",
     ),
     picture: t(
-      "The chain reads from left to right: what people perceive, understand, do and decide. Below it, the same Nordwind journey with a different logic in each channel and with one shared logic. Nothing to click.",
+      "The chain reads from left to right: what people perceive, understand, do and decide. Below it, a table of the levers that steer behaviour, with real evidence and the legal limits, and the same Nordwind journey with a different logic in each channel and with one shared logic. Nothing to click.",
     ),
   },
   B2: {

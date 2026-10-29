@@ -233,6 +233,7 @@ How to apply: every StateFig, slider, grid or toggle is audited against the ques
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-29 | Day 1 Materi deepened to the plan's Wissen: every sub-topic that had only one line now has its own block with real research findings or real law and a source (A1 words, A2 neural steps with a fovea lab, A3 prior knowledge, context and habits, A4 liking, B1 steering behaviour and its limits). Shared DataTable: the scroll wrapper is a focusable, named region. | Day 1; DataTable on all days |
 | 2026-10-29 | Rule 2.16 applied to all days: 57 card figures on Days 1 to 15 rebuilt as working products on a shared task lab (one task, versions to use, measures, stress tests, optional feeling scale), Day 16 card A1 as a full ladder; 9 already real; conceptual figures stay. Audit in `ux-lab/INTERACTIVES-AUDIT.md` | All days |
 | 2026-10-29 | New rule 2.16: every interactive that can be real becomes a working product (model: the original Day 16 Ladder with stages, gate rail and stress tests); all days are audited, Day 16 first | All days |
 | 2026-10-29 | Day 16's page panel "This lab on the ladder" removed at the user's request: the plan does not ask for it and its purpose was unclear. Day 16 has no page tool; 2.15 does not apply to it | Day 16 |
