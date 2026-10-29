@@ -30,7 +30,7 @@ function Group({ day, route }: { day: number; route: RouteNo }) {
           );
           // A file (a Word worksheet) is a plain download, not a page of the app.
           return (
-            <li key={it.href}>
+            <li key={`${it.href} ${it.title}`}>
               {/\.\w{2,4}$/.test(it.href) ? <a href={it.href} className={cls}>{body}</a> : <Link href={it.href} className={cls}>{body}</Link>}
             </li>
           );

@@ -156,7 +156,20 @@ export const ORIGINALS = bi({
       ],
     },
   },
-  16: { name: t("Immersive prototyping"), what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics.") },
+  16: {
+    name: t("Immersive prototyping"),
+    what: t("The Ladder, the Test Bench, the Portfolio Room and NextWorld UX: immersive prototyping, future strategy and ethics."),
+    extras: {
+      1: [
+        x("The Ladder: CityPass from concept to scale", "The first version's AR wayfinding for a station concourse, climbed rung by rung with wireframes, a 3D arrow overlay, a pilot dashboard and a go/no-go meeting. Open the tab “The Ladder”.", "/day/16/original/"),
+        x("The Test Bench", "Six test aspects as cards, an evidence grader and a six-criteria console, as the first version built them. Open the tab “The Test Bench”.", "/day/16/original/"),
+      ],
+      2: [
+        x("The Portfolio Room", "A product board, tension sliders, a governance model and a quarter log with events that test your portfolio. Open the tab “The Portfolio Room”.", "/day/16/original/"),
+        x("The original NextWorld UX case", "The first version's case tab with track dossiers and a decision console. Open the tab “NextWorld UX”.", "/day/16/original/"),
+      ],
+    },
+  },
 } as Record<number, Original>);
 export const originalOf = (n: number): { name: string; what: string } | undefined => ORIGINALS[n];
 /** The Extra shelf of a route (UX-STANDARD decision 8): the parts of the original idea that belong to that route, never part of a task, the missing list or the export. */
