@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { AimsMock, AttentionMock, BookingMock, MeasureThumb, PayMock } from "@/components/day1/mocks";
-import { MatrixStory, StateFig, SwitchFig } from "@/components/dayFree/figs";
+import { MeasureThumb } from "@/components/day1/mocks";
+import { MatrixStory } from "@/components/dayFree/figs";
 import { ChainFig, CompareFig, DecisionFrameFig } from "@/components/materi/figures";
 import { Diagram, ThePoint } from "@/components/materi/kit";
 import { OptionGrid } from "@/components/materi/optionGrid";
 import type { GridRow } from "@/components/materi/optionGrid";
 import { tt } from "@/lib/lang";
+import { AimsLab, AttentionLab, LooksWorksLab, ToneLab } from "@/components/day1/labs";
 
 /**
  * Day 1 · the teaching diagrams of Materi A and B. Example company: Nordwind, a made-up travel-booking app, with Mia and Tom (customers), Jana (UX lead) and Ben
@@ -18,16 +19,7 @@ import { tt } from "@/lib/lang";
 /* ------------------------------------------------------------------ A1 · looks good against works well (interactive) */
 
 export function LooksWorksFig() {
-  return (
-    <StateFig
-      label={tt("The same Nordwind booking page: designed to look good, and designed to work · Exploratory · Case assumption")}
-      point={tt("A design is judged by what it does to people: what they notice first, whether they understand it, how it feels and whether they act. A page can look better and work worse.")}
-      states={[
-        { id: "looks", button: tt("Designed to look good"), picture: <BookingMock kind="looks" />, insight: tt("In plain words: Mia's eye goes to the big photo first. The dates are in thin grey type and the three buttons look the same, so she has to read all three to find the one that books. She likes the page and still hesitates.") },
-        { id: "works", button: tt("Designed to work"), picture: <BookingMock kind="works" />, insight: tt("In plain words: Mia sees the trip, the dates and one strong button in a second. She knows what the page is for and what happens when she presses. The page is plainer, and she books.") },
-      ]}
-    />
-  );
+  return <LooksWorksLab />;
 }
 
 /* ------------------------------------------------------------------ A2 · from stimulus to decision (static) and where the eye goes (interactive) */
@@ -48,57 +40,19 @@ export function SeeChainFig() {
 }
 
 export function AttentionFig() {
-  return (
-    <StateFig
-      label={tt("One Nordwind trip page, three readings of where Mia's eye goes · Exploratory · Case assumption")}
-      point={tt("Two forces steer attention at once. A strong signal pulls the eye by itself (bottom-up); the person's goal pulls it too (top-down). When they point to different places, the person is slowed down or led astray.")}
-      states={[
-        { id: "bottom", button: tt("The strongest signal wins"), picture: <AttentionMock mode="bottom" />, insight: tt("In plain words: the red, flashing sale banner differs most from everything around it, so Mia's eye lands on it first, whether or not she wants a sale. This is bottom-up attention.") },
-        { id: "top", button: tt("Mia's goal leads"), picture: <AttentionMock mode="top" />, insight: tt("In plain words: Mia came to change her booking, so she scans for the words “Change booking”. Her goal steers her eye to a small link. This is top-down attention.") },
-        { id: "both", button: tt("Both pull at once"), picture: <AttentionMock mode="both" />, insight: tt("In plain words: the banner keeps pulling her eye while she looks for the small link. She needs longer, and some people tap the banner by mistake. When the strongest signal is not the task, it competes with the task.") },
-      ]}
-    />
-  );
+  return <AttentionLab />;
 }
 
 /* ------------------------------------------------------------------ A3 · three aims switched on one at a time (interactive) */
 
 export function AimsFig() {
-  return (
-    <SwitchFig
-      label={tt("A Nordwind check-in screen: where am I, one main action, the menu where people expect it · Exploratory · Case assumption")}
-      point={tt("People bring expectations and habits: they look for the menu where other apps put it and expect the next step to stand out. An interface that uses this gives orientation, causes less confusion and steers attention to what matters.")}
-      switches={[
-        { id: "where", label: tt("Show where I am") },
-        { id: "one", label: tt("One main action") },
-        { id: "menu", label: tt("Menu where people expect it") },
-      ]}
-      start={{ where: false, one: false, menu: false }}
-      picture={(on) => <AimsMock where={!!on.where} one={!!on.one} menu={!!on.menu} />}
-      insight={(on) => {
-        const n = [on.where, on.one, on.menu].filter(Boolean).length;
-        return tt(
-          `In plain words: ${n} of the 3 aims are met. ${on.where ? "Tom sees that he is at step 2 of 3 of the check-in." : "Tom cannot tell how far he is or how much is left."} ${on.one ? "One button clearly continues, so he knows what to press." : "Four equal buttons make him read and compare before he can go on."} ${on.menu ? "The menu sits at the top right, where he expects it." : "He looks for the menu at the top and finds it only in the footer."}`,
-        );
-      }}
-    />
-  );
+  return <AimsLab />;
 }
 
 /* ------------------------------------------------------------------ A4 · the same payment step in three tones (interactive) */
 
 export function ToneFig() {
-  return (
-    <StateFig
-      label={tt("The Nordwind payment step in three tones · Exploratory · Case assumption")}
-      point={tt("People feel a screen before they read it. The same step can make them feel unsafe, pushed or at ease, and that first feeling decides whether they go on.")}
-      states={[
-        { id: "alarm", button: tt("Alarm"), picture: <PayMock tone="alarm" />, insight: tt("In plain words: two red warnings at a step where nothing is wrong. Mia feels something might go wrong before she has read a word, and she starts to doubt the app. Warnings that do not match a real risk cost trust and a sense of safety.") },
-        { id: "pressure", button: tt("Pressure"), picture: <PayMock tone="pressure" />, insight: tt("In plain words: a countdown and “only 1 seat left” push Mia to hurry. Some people pay faster; others feel manipulated and close the app. Pressure can trigger reactance, the urge to resist being pushed.") },
-        { id: "calm", button: tt("Calm"), picture: <PayMock tone="calm" />, insight: tt("In plain words: Mia sees that this is the last step, that she can still change everything and that the payment is secure. She feels safe and in control, and she pays.") },
-      ]}
-    />
-  );
+  return <ToneLab />;
 }
 
 /* ------------------------------------------------------------------ A5 · three measures weighed on four criteria (interactive) */
