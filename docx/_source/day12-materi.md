@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is CitizenConnect (see the Task document).
 intro: Today is about who can use a digital service, and who is left out. You learn what accessibility, usability and inclusive design mean, the barriers in perception, interaction, language and structure, what the standards and the law ask, and why accessibility has to be built in from the start. Then you meet the barriers yourself on three platforms, with the mouse put away, and you look at how the W3C shows an inaccessible city portal next to its repaired version. This document holds everything you need to study Day 12 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: accessibility,contrast,wcag,governance,case-assumption,component,assistive-technology,text-alternative,inclusive-design,neurodiversity,ux,perception,neuro-ux,legibility,contrast-ratio,accessibility-statement,consistency,design-logic,voice-ui,keyboard-operable,focus-order,cxo,page-type,barrierefreiheit
-refs: holmes2018,wad2016,wcag22,bda2023,eaa2019,gibbons2018,simon1956,klein2007
+glossary: accessibility,wcag,contrast,governance,case-assumption,assistive-technology,text-alternative,component,accessibility-statement,inclusive-design,neurodiversity,ux,perception,legibility,focus-order,neuro-ux,consistency,contrast-ratio,design-logic,voice-ui,keyboard-operable,cxo,page-type,barrierefreiheit
+refs: holmes2018,wad2016,who2022disability,clickaway2019,wcag22,webaim2025,wong2011,bda2023,who2022autism,dyslexiaaction,eaa2019,gibbons2018,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -43,8 +43,17 @@ About 60 minutes, five cards. Levels 1 and 2: find the barriers of a citizen ser
 | Usability | Is it easy and efficient to use? | Reordering last week's basket takes one tap. |
 | Inclusive design | Did we design with the full range of people from the start? | Kofi and Liv were in the first tests, not the last. |
 
+**Who is left out, and what it costs: real figures**
+
+| Fact | Real finding | What it means for a screen |
+|---|---|---|
+| How many people | About 1.3 billion people, roughly 16% of the world's population, live with a significant disability (World Health Organization 2022). | Accessibility is not an edge case: about one in six people is affected permanently. |
+| Permanent, temporary, situational | Holmes describes disability as a mismatch between a person and a design, with permanent, temporary and situational forms: one arm, an injured arm, a baby on the arm (Holmes 2018). | A repair for one group often helps many more. |
+| Customers who leave | In a UK survey of online shoppers with access needs, 69% said they would click away from a website that they found difficult to use because of their disability, and only 8% had told a site owner about the barriers they met (Click-Away Pound 2019, as reported). | Most businesses do not hear about the barriers: a lost customer is silent. |
+| Words that are mixed up | Accessibility, access, usability and inclusive design answer four different questions (see the table above). | Say which one a requirement is about. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Disability as a mismatch between person and design, and permanent, temporary and situational limits, follow Holmes (2018). Public bodies' duty to make websites and apps accessible follows the EU Web Accessibility Directive (2016).
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Disability as a mismatch between person and design, and permanent, temporary and situational limits, follow Holmes (2018). Public bodies' duty to make websites and apps accessible follows the EU Web Accessibility Directive (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -59,7 +68,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Disab
 A product can meet every technical rule and still exclude people, and it can fail a rule and still be usable for most. Accessibility is about the person completing the task, not about the checklist. The checklist is how a team makes sure it did not forget anyone; it is not the goal.
 :::
 
-^src: Holmes 2018 · EU 2016 (Web Accessibility Directive)
+^src: Holmes 2018 · EU 2016 (Web Accessibility Directive) · WHO 2022 · Click-Away Pound 2019
 
 ## A2 · Barriers in perception: contrast, colour and text alternatives · 12 min · Core
 
@@ -75,8 +84,17 @@ A product can meet every technical rule and still exclude people, and it can fai
 
 ![Greenway product tiles with or without words for “out of stock” and text alternatives for the images. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d12_A2_1.png)
 
+**Barriers in perception: how common they are, and the rules**
+
+| Topic | Real finding or rule | What it means for a screen |
+|---|---|---|
+| State of the web | In the 2025 WebAIM Million analysis of home pages, 94.8% had detectable WCAG 2 failures; low-contrast text was found on about 79% of the pages and was the most common failure (WebAIM 2025, as reported). | Contrast is the cheapest barrier to find and one of the cheapest to fix. |
+| Contrast rules | WCAG 2.2 asks for at least 4.5 to 1 for normal text and 3 to 1 for large text and for controls (success criteria 1.4.3 and 1.4.11). | Measure the ratio; do not judge by eye. |
+| Text alternatives | Non-text content needs a text alternative that serves the same purpose (WCAG 1.1.1); decorative images get an empty alternative. | Write the alternative for what the image does here, not for what it shows. |
+| Colour alone | Colour must not be the only way to give information (WCAG 1.4.1); about 1 in 12 men have a colour vision deficiency (Wong 2011). | Add words or shapes to colour codes. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The contrast ratios and the rule against colour alone follow WCAG 2.2; the ratio in the picture is computed with the standard's formula.
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The contrast ratios and the rule against colour alone follow WCAG 2.2; the ratio in the picture is computed with the standard's formula. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -91,7 +109,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The c
 Light grey secondary text is the most common accessibility failure on the web, and it usually comes from a brand guide, not from a developer. It looks refined on a large, bright designer's screen and fails on a phone in the sun. That makes contrast a brand decision as much as a design one.
 :::
 
-^src: WCAG 2.2 · Holmes 2018
+^src: WCAG 2.2 · Holmes 2018 · WebAIM 2025 · Wong 2011
 
 ## A3 · Barriers in interaction: keyboard, focus and order · 12 min · Core
 
@@ -115,8 +133,17 @@ Light grey secondary text is the most common accessibility failure on the web, a
 | Arrow keys | Move within menus, tabs, radio buttons. | Menu opens only on mouse hover. |
 | Escape | Close a dialog or menu. | The dialog cannot be closed. |
 
+**Barriers in interaction: the rules behind the keyboard test**
+
+| Check | Real rule | What it means for a screen |
+|---|---|---|
+| Everything by keyboard | All functionality must be operable through a keyboard interface (WCAG 2.1.1). | If it only works on hover or by mouse, it does not exist for a keyboard user. |
+| No trap | Keyboard focus must not be trapped in a part of the page (WCAG 2.1.2). | Test that Tab and Shift+Tab can leave every dialog. |
+| Focus order and visibility | The focus order must preserve meaning, and the keyboard focus must be visible (WCAG 2.4.3 and 2.4.7). | Follow the focus with your eyes: it should read like the page. |
+| Target size | Pointer targets should be at least 24 by 24 CSS pixels at level AA (WCAG 2.5.8). | Small, crowded targets are a barrier for tremor and for thumbs. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Keyboard operability, focus order and visible focus follow WCAG 2.2.
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Keyboard operability, focus order and visible focus follow WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -155,8 +182,17 @@ A team without a keyboard user often never notices a keyboard barrier, because e
 | Autism | Vague or figurative language, surprises, changing layouts. | Literal, predictable wording; consistent pages; say what will happen. |
 | Dyslexia | Dense, justified text, capitals, italics, long words. | Plain words, short sentences, left-aligned text, good spacing. |
 
+**Language, structure and neurodiversity: findings**
+
+| Topic | Real finding or rule | What it means for a screen |
+|---|---|---|
+| Autism | The World Health Organization estimates that about one in 100 children has autism, with large differences between studies (World Health Organization 2022). | Literal, predictable wording and consistent pages help a group that is not small. |
+| Dyslexia | How many people have dyslexia depends on the definition: it is better described as a continuum than as one figure, and the often-quoted 10% has no traceable source (Dyslexia Action). | Use the dyslexia style guide as a design rule: plain words, short sentences, left-aligned text, good spacing (British Dyslexia Association 2023). |
+| Forms and errors | Errors must be identified and described in text (WCAG 3.3.1), and WCAG 2.2 adds that a login must not rely on remembering or transcribing a code (3.3.8). | Say what went wrong and how to fix it; do not make people recall or retype. |
+| Structure | Headings and labels must describe the topic or the purpose (WCAG 2.4.6). | Clear structure helps every reader and every assistive technology. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The reading advice follows the British Dyslexia Association's style guide (2023); labels, instructions and error suggestions follow WCAG 2.2. Day 13 goes deeper into neurodiversity.
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The reading advice follows the British Dyslexia Association's style guide (2023); labels, instructions and error suggestions follow WCAG 2.2. Day 13 goes deeper into neurodiversity. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -171,7 +207,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The r
 Plain language is often resisted as “dumbing down”, especially in legal and public services. It is the opposite: saying something precisely in everyday words is harder than saying it in jargon, and it is the cheapest accessibility measure with the widest effect, because everyone reads faster and makes fewer mistakes.
 :::
 
-^src: British Dyslexia Association 2023 · WCAG 2.2
+^src: British Dyslexia Association 2023 · WCAG 2.2 · WHO autism fact sheet · Dyslexia Action
 
 ## A5 · Standards, law and risk: build it in early, and weighing a measure · 12 min · Core
 
@@ -187,8 +223,17 @@ Plain language is often resisted as “dumbing down”, especially in legal and 
 
 ![Greenway weighs three measures on effect on users, legal certainty, feasibility, risk and time pressure.](_figures/d12_A5_1.png)
 
+**Standards, law and risk: real dates and findings**
+
+| Topic | Real finding or rule | What it means for a measure |
+|---|---|---|
+| The European Accessibility Act | Directive (EU) 2019/882 applies from 28 June 2025 to many products and services, among them e-commerce and consumer banking; providers have to publish an accessibility statement (European Union 2019, commentary as reported). | A legal date has passed: the question is no longer whether but how far a service complies. |
+| The public sector | The Web Accessibility Directive (EU) 2016/2102 requires public bodies to make websites and apps accessible and to publish an accessibility statement. | A public service has a longer duty than a private one. |
+| The state of the web | 94.8% of the million most visited home pages had detectable failures in 2025 (WebAIM 2025, as reported); pages that used ARIA had over twice as many detected errors on average (57 against 27). | Do not add ARIA to repair a design: start with plain HTML and test. |
+| Early or late | A barrier that is found in the first test costs less to remove than one that is found after release (practice of the standard; no measured figure is printed here). | Put the check in the definition of done. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The principles and levels follow WCAG 2.2; the dates follow the European Accessibility Act (Directive (EU) 2019/882) and the Web Accessibility Directive (2016/2102). Check the current state of the law before a course run. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study.
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The principles and levels follow WCAG 2.2; the dates follow the European Accessibility Act (Directive (EU) 2019/882) and the Web Accessibility Directive (2016/2102). Check the current state of the law before a course run. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -203,7 +248,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The p
 Retrofitting costs more than building in, for a simple reason: a barrier in a shared component is copied into every page that uses it, and every copy must then be found and fixed. A contrast rule written into the design system costs one decision; the same rule discovered in an audit costs a project.
 :::
 
-^src: WCAG 2.2 · EU 2019 (European Accessibility Act) · EU 2016 (Web Accessibility Directive) · Gibbons 2018
+^src: WCAG 2.2 · EU 2019 (European Accessibility Act) · EU 2016 (Web Accessibility Directive) · Gibbons 2018 · WebAIM 2025
 
 # Materi B · Route 2 · Level 3
 
@@ -225,8 +270,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of an accessibility architecture, from a guiding vision to every page.](_figures/d12_B1_1.png)
 
+**Accessibility as quality and responsibility: structures**
+
+| Part | Real example or rule | What it means |
+|---|---|---|
+| A target level | WCAG 2.2 level AA is the usual target in law and procurement; EN 301 549 is the European standard behind the Accessibility Act. | Name the level once, in the strategy. |
+| Mismatch, not defect | Holmes treats disability as a mismatch between a person and a design (Holmes 2018). | Put the responsibility on the design, and measure it. |
+| A duty to report | Both European directives ask for an accessibility statement (European Union 2016 and 2019). | Publish what is not yet accessible, with a contact for barriers. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Inclusion as a design approach follows Holmes (2018).
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Inclusion as a design approach follows Holmes (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -241,7 +294,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Inclu
 A guiding vision for participation is short and testable. “Every customer can find, choose and pay on their own” can be checked on every page: can Kofi pay with his screen reader? “We are committed to accessibility” cannot be checked, and it is what most accessibility statements say.
 :::
 
-^src: Holmes 2018 · EU 2016 (Web Accessibility Directive)
+^src: Holmes 2018 · EU 2016 (Web Accessibility Directive) · WCAG 2.2 · EU 2019 (European Accessibility Act)
 
 ## B2 · Effort, standards, diversity, law: the conflicts of accessibility · 20 min · Core
 
@@ -264,8 +317,17 @@ A guiding vision for participation is short and testable. “Every customer can 
 | Effort against reach | Finance, against the users who are excluded. | Where does one repair reach the most people? |
 | Legal certainty against feasibility this year | Legal, against product. | Which failures carry the most legal and human risk? |
 
+**Conflicts of accessibility, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Brand look against legibility | Low-contrast text was the most common failure on the home pages analysed in 2025 (WebAIM 2025, as reported). | Keep the brand in large areas and use a darker shade for text. |
+| One standard against diverse users | Needs differ across the spectrum of people (Holmes 2018). | Set defaults that work for most and offer options for those who need them. |
+| Effort against reach | 69% of the shoppers with access needs in one survey said they click away from sites with barriers (Click-Away Pound 2019, as reported). | Repair the barriers in the busiest journeys first. |
+| Legal certainty against feasibility this year | The European Accessibility Act applies from 28 June 2025 (European Union 2019). | Rank the failures by legal and human risk and fix those first. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The conflicts are a reading of the example, not a rule for every product.
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The conflicts are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -280,7 +342,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The c
 The assumption that disabled users are a small group is the one that most often distorts the trade-off. Counting permanent, temporary and situational limits, older users and different minds together, the people who benefit from an accessible default are a large share of customers, and the share grows with an ageing population.
 :::
 
-^src: EU 2019 (European Accessibility Act) · Holmes 2018
+^src: EU 2019 (European Accessibility Act) · Holmes 2018 · WebAIM 2025 · Click-Away Pound 2019
 
 ## B3 · Who owns accessibility, and deciding with incomplete data · 20 min · Core
 
@@ -304,8 +366,16 @@ The assumption that disabled users are a small group is the one that most often 
 | Procurement and statement | What do suppliers deliver; what do we publish? | AA in every contract; an honest public statement with a contact for barriers. |
 | How a conflict is decided | What happens when brand, technology, law and users disagree? | Task and legal minimum first, then brand, then effort; the board settles a tie. |
 
+**Owning accessibility: real rules**
+
+| Part | Real rule or source | What it means |
+|---|---|---|
+| Owner and target | Public bodies in the EU must publish an accessibility statement (European Union 2016). | Name the owner and the level in a published statement. |
+| Check in every release | WCAG 2.2 gives testable success criteria for each requirement. | Put the testable criteria into the definition of done. |
+| Procurement | The European standard EN 301 549 sets accessibility requirements for the procurement of ICT products and services. | Write the level into every supplier contract. |
+
 :::note Case assumption
-Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The accessibility statement for public bodies follows the Web Accessibility Directive (2016); deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The accessibility statement for public bodies follows the Web Accessibility Directive (2016); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -320,4 +390,4 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. The a
 An audit list without an owner ages quickly: by the time the last item is fixed, new pages have added new barriers. What lasts is a check that runs every release and a person who may say no. That is the difference between doing accessibility and anchoring it.
 :::
 
-^src: EU 2016 (Web Accessibility Directive) · Simon 1956 · Klein 2007
+^src: EU 2016 (Web Accessibility Directive) · Simon 1956 · Klein 2007 · WCAG 2.2
