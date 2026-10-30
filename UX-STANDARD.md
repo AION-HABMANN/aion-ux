@@ -246,6 +246,7 @@ Day 1 is the reference (commit `d6b6076`): the term table with a finding per wor
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-30 | Day 15 Materi deepened under rule 2.17: all 13 Wissen topics now full, with verified real findings and rules (fixations and the eye–mind assumption, sample-size advice, the ADHD neurofeedback meta-analysis, BCI definition, EU AI Act Article 5(1)(f), ICO neurotechnology report, neurorights), Day 15 added to `DEPTH_CHECKED`. | Day 15 |
 | 2026-10-30 | Day 14 Materi deepened under rule 2.17: all 13 Wissen topics now full, with verified real findings and practice (the reality–virtuality continuum, presence, cybersickness range, the training meta-analysis, the GOV.UK phases and Service Standard, identifiability of VR tracking data, Apple's immersion guidance), Day 14 added to `DEPTH_CHECKED`. | Day 14 |
 | 2026-10-30 | Day 13 Materi deepened under rule 2.17: all 12 Wissen topics now full, with verified real findings and rules (ADHD and autism prevalence, WCAG 2.2.1, 2.2.2, 2.3.3, 3.2.3, 3.2.4, 3.3.2, 3.3.7, 3.3.8, the 48-reader font study, the five-user rule, the W3C cognitive accessibility guidance), Day 13 added to `DEPTH_CHECKED`. | Day 13 |
 | 2026-10-30 | Day 12 Materi deepened under rule 2.17: all 12 Wissen topics now full, with verified real figures and rules (WHO disability and autism estimates, Click-Away Pound, WebAIM Million 2025, WCAG criteria for perception, keyboard, language and forms, the European Accessibility Act and the Web Accessibility Directive), Day 12 added to `DEPTH_CHECKED`. | Day 12 |
