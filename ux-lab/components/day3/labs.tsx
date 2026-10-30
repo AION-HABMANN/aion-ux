@@ -198,3 +198,47 @@ export function HierLab() {
     />
   );
 }
+
+/* ------------------------------------------------------------------ A3 · the length of a line */
+
+const TERMS = () => [
+  tt("Delivery slots run from"), "06:00", tt("to"), "10:00", tt("and from"), "16:00", tt("to"), "20:00",
+  tt(". If you are out, the driver rings twice and waits five minutes; after that, the order goes to the neighbour named in your account, or back to the depot by"), "18:00",
+  tt(". You can move an order to another day free of charge up to"), "22:00",
+  tt("on the evening before. After that the slot is fixed and the order is packed. Substitutions for items that are out of stock are chosen by the packer unless you have switched them off in your account, and you will see them on the delivery note. Frozen and chilled items are packed last and kept cold until the driver is at your door."),
+];
+
+function Terms({ ctx, ch }: { ctx: LabCtx; ch: number }) {
+  if (ctx.finished) return <Done text={tt("Free changes until 22:00 the evening before")} />;
+  return (
+    <AppScreen brand={Brand} color="#14532D">
+      <p className="text-[14px] font-bold">{tt("Delivery terms")}</p>
+      <p className="mx-auto text-[13px] leading-snug" style={{ maxWidth: `${ch}ch` }}>
+        {TERMS().map((x, i) =>
+          /^\d\d:\d\d$/.test(x) ? (
+            <button key={i} type="button" onClick={() => (x === "22:00" ? ctx.done(tt("Tapped 22:00")) : ctx.miss(tt(`Tapped ${x}`)))} className="mx-0.5 rounded bg-[#F1F5F9] px-1 font-semibold">{x}</button>
+          ) : (
+            <span key={i}>{x.startsWith(".") ? x + " " : ` ${x} `}</span>
+          ),
+        )}
+      </p>
+    </AppScreen>
+  );
+}
+
+export function MeasureLab() {
+  return (
+    <TaskLab
+      label={tt("The Kettle & Co delivery terms at three line lengths · a working product · Case assumption, example company")}
+      point={tt("The length of a line changes how easily the eye finds the next one. WCAG 1.4.8 asks for no more than 80 characters per line, and one study found comprehension highest at about 55. The same text is set here at three widths; find the answer in each and see where your eye gets lost.")}
+      task={tt("You are Theo. Until what time can you move tomorrow's delivery free of charge? Tap the time.")}
+      device="desktop"
+      stresses={["eyes", "hurry", "ping"]}
+      versions={[
+        { id: "long", label: tt("Very long lines (about 120 characters)"), render: (ctx) => <Terms ctx={ctx} ch={120} />, insight: tt("In plain words: the eye runs a long way across and has trouble finding the start of the next line, so the same words take longer to read and the times blur together.") },
+        { id: "mid", label: tt("About 55 characters"), render: (ctx) => <Terms ctx={ctx} ch={55} />, insight: tt("In plain words: a line is short enough for the eye to return easily and long enough to carry a whole phrase. Theo can scan the times quickly.") },
+        { id: "short", label: tt("Very short lines (about 22 characters)"), render: (ctx) => <Terms ctx={ctx} ch={22} />, insight: tt("In plain words: the eye jumps back every few words, the text becomes a tall strip and a time can be split across lines. Short is not always better.") },
+      ]}
+    />
+  );
+}

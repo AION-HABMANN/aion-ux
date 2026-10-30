@@ -13,9 +13,9 @@ import type { MaterialId, MaterialMeta, PlainExplain } from "@/data/materialType
 const METAS: MaterialMeta[] = bi([
   { id: "A1" as MaterialId, block: "A" as const, title: t("What colour does: attention, trust, activation, warning and orientation"), minutes: 12 },
   { id: "A2" as MaterialId, block: "A" as const, title: t("Decorative against functional colour: colour for action, priority and state"), minutes: 12 },
-  { id: "A3" as MaterialId, block: "A" as const, title: t("Readable type: size, line spacing, contrast, weight and structure"), minutes: 12 },
+  { id: "A3" as MaterialId, block: "A" as const, title: t("Readable type: size, line spacing, contrast, weight and structure"), minutes: 13 },
   { id: "A4" as MaterialId, block: "A" as const, title: t("Typographic hierarchy, and colour, type and structure working together"), minutes: 12 },
-  { id: "A5" as MaterialId, block: "A" as const, title: t("From colour and type to behaviour, and weighing a measure"), minutes: 12 },
+  { id: "A5" as MaterialId, block: "A" as const, title: t("From colour and type to behaviour, and weighing a measure"), minutes: 11 },
   { id: "B1" as MaterialId, block: "B" as const, title: t("Colour and type as strategic effect decisions: a design logic, not a style"), minutes: 20 },
   { id: "B2" as MaterialId, block: "B" as const, title: t("Conflicts of goals: brand, accessibility, clarity, activation and standardisation"), minutes: 20 },
   { id: "B3" as MaterialId, block: "B" as const, title: t("Who owns the visual standards, and deciding with incomplete data"), minutes: 20 },
@@ -31,7 +31,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks for your spontaneous impression of TravelEase and for the problems its four colours cause, Block 1.2 asks you to rate the trust and brand effect of HealthConnect's designs, and Block 2.1 asks about SecureLife's blues, greens and reds. This card gives you the five effects to look for.",
     ),
     picture: t(
-      "One Kettle & Co order page with three switches for colour: an accent for the main action, red only for a real problem, and one colour per area. Switch them on one at a time and read what Rosa notices and feels. Press “Read the comic” for a short story.",
+      "One Kettle & Co order page with three switches for colour: an accent for the main action, red only for a real problem, and one colour per area. Switch them on one at a time and read what Rosa notices and feels. Press “Read the comic” for a short story. A table of what colour does, with evidence, follows.",
     ),
   },
   A2: {
@@ -42,7 +42,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about warnings, buttons and boxes in similar tones on TravelEase, and Block 2.1 about SecureLife's colours without a system, buttons that look like boxes and status messages coded only by colour. This card gives you the jobs colour can have and the risks when it has none.",
     ),
     picture: t(
-      "The same Kettle & Co order page twice: coloured to decorate and coloured to function. Choose a version and read what Theo can tell from the colours. Press “Read the comic” for a short story.",
+      "The same Kettle & Co order page twice: coloured to decorate and coloured to function. Choose a version and read what Theo can tell from the colours. Press “Read the comic” for a short story. A table of colour rules and a real case follows.",
     ),
   },
   A3: {
@@ -53,7 +53,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about TravelEase's small grey notes and hard-to-read modern sections, Block 1.2 about HealthConnect's low contrast and smaller elegant type for users up to 70, and Block 2.1 about SecureLife's small, dense body text. These five levers are what you check.",
     ),
     picture: t(
-      "One Kettle & Co delivery notice with four switches: larger type, more line spacing, more contrast and a clear structure. Switch them on one at a time and read what Rosa can now read.",
+      "One Kettle & Co delivery notice with four switches: larger type, more line spacing, more contrast and a clear structure. Switch them on one at a time and read what Rosa can now read. Then a second working example with line length, and a table of the numbers and rules for readable type.",
     ),
   },
   A4: {
@@ -64,7 +64,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about TravelEase's decorative headings that do not stand out from the body text, and Block 2.1 about SecureLife's inconsistent typographic hierarchies and calls to action lost among other text. You need the idea of levels to say what is wrong and what a fix would standardise.",
     ),
     picture: t(
-      "The same Kettle & Co help page in three forms: flat, with a clear hierarchy, and with too many styles. Choose one and read where Theo's eye goes. Press “Read the comic” for a short story.",
+      "The same Kettle & Co help page in three forms: flat, with a clear hierarchy, and with too many styles. Choose one and read where Theo's eye goes. Press “Read the comic” for a short story. A table of hierarchy and scanning findings follows.",
     ),
   },
   A5: {
@@ -75,7 +75,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks for the two most critical weaknesses, Block 1.2 for a decision between three designs, and Block 2.1 for four measures with a justification on these four criteria and a decision for 12 weeks. The example uses Kettle & Co and its own measures, so the answer for the task cases is not given.",
     ),
     picture: t(
-      "Three measures Kettle & Co considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark.",
+      "Three measures Kettle & Co considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark. A table of findings on behaviour, understanding and trust follows.",
     ),
   },
   B1: {
@@ -86,7 +86,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a guiding vision for colour and type, three decisions on colour, reading, hierarchy and action, and an order of what is standardised first, for a company whose colours changed with campaigns and whose teams set type differently. You decide the rules, not the screens.",
     ),
     picture: t(
-      "Left the same Kettle & Co elements decided campaign by campaign, right decided once as rules. Below, the chain from the brand to the screens. Nothing to click.",
+      "Left the same Kettle & Co elements decided campaign by campaign, right decided once as rules. Below, the chain from the brand to the screens. Nothing to click. A table of real systems follows.",
     ),
   },
   B2: {
@@ -97,7 +97,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for three guiding decisions, a risk analysis about perception and the brand's effect, and a governance model for conflicts between brand and usability. Each of these is a decision between conflicting goals.",
     ),
     picture: t(
-      "The matrix places five Kettle & Co designs by how readable they are (to the right) and how strongly they carry the brand (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story.",
+      "The matrix places five Kettle & Co designs by how readable they are (to the right) and how strongly they carry the brand (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story. A table of conflicts with evidence follows.",
     ),
   },
   B3: {
@@ -108,7 +108,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a governance model for the visual standards and the conflict between brand and usability, a decision despite missing data, and a statement to the management. This card gives you the parts of each.",
     ),
     picture: t(
-      "The four boxes at the top are the parts of a decision, filled in for Kettle & Co. The two boxes below are the rule for future decisions. Nothing to click.",
+      "The four boxes at the top are the parts of a decision, filled in for Kettle & Co. The two boxes below are the rule for future decisions. Nothing to click. A table of a real case and a real rule follows.",
     ),
   },
 });
