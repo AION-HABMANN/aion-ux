@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is CareGuide (see the Task document).
 intro: Today is about interfaces that seem to think: recommendations, assistants that suggest the next step, help that appears on its own. You learn the difference between rule-based, adaptive and learning systems, how AI supports guidance and help, the difference between adapting to the situation, personalising from data and steering the interaction, what intelligent interfaces give and how they go wrong, and why people need to see why, change it and undo it. Then you use it on three platforms, and you look at how two real ones explain their recommendations. This document holds everything you need to study Day 10 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: personalisation,ux,intelligent-interface,governance,case-assumption,neuro-ux,perceived-control,learning-system,misadaptation,over-personalisation,touchpoint,decision-arch,rule-based,adaptive,explainability,recoverability,voice-ui,cxo
-refs: horvitz1999,amershi2019,sundar2020,pariser2011,parasuraman1997,lee2004,gibbons2018,eu2024aiact,simon1956,klein2007
+glossary: personalisation,ux,intelligent-interface,governance,case-assumption,neuro-ux,learning-system,over-personalisation,perceived-control,decision-arch,rule-based,adaptive,misadaptation,touchpoint,explainability,recoverability,voice-ui,grouping,cxo,leaderboard
+refs: horvitz1999,amershi2019,sundar2020,gomezuribe2015,pariser2011,parasuraman1997,lee2004,bakshy2015,gdpr2016,eu2024aiact,gibbons2018,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -42,8 +42,16 @@ About 60 minutes, five cards. Levels 1 and 2: find the chances and risks of an i
 | Adaptive | The situation now: place, time, device, the last step. | Yes, if it names the situation. | Misreads the situation. |
 | Learning | Data about the person, collected over time. | Only partly; it has to be designed. | Confident mistakes from old or missing data. |
 
+**Kinds of intelligent behaviour: sources**
+
+| Source | Real finding or rule | What it means for a screen |
+|---|---|---|
+| Mixed initiative | Horvitz set out principles for interfaces in which the user and an automated service share the initiative, including acting only when the expected benefit outweighs the cost of a wrong action (Horvitz 1999). | An intelligent suggestion has a price when it is wrong: weigh it before showing it. |
+| Guidelines for human-AI interaction | Amershi et al. distilled 18 guidelines, from more than 160 candidate recommendations, grouped by when they apply: initially, during interaction, when the system is wrong, and over time (Amershi et al. 2019). | Check an intelligent feature in each of the four phases, not only in the demo. |
+| Rule-based, adaptive, learning | A rule is fixed and can be explained in a sentence; an adaptive system reacts to the situation now; a learning system draws on data about the person over time. | Say which kind sits behind the screen: it decides what you can promise and explain. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. When an automated service should act, ask or wait follows Horvitz (1999); making clear what a system can do and why it did something follows Amershi et al. (2019).
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. When an automated service should act, ask or wait follows Horvitz (1999); making clear what a system can do and why it did something follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -80,8 +88,16 @@ Many products mix the three, and the people using them cannot tell which part is
 | Personalising from data | What is known about the person. | His usual Friday trip, ready to book. | Old data; feeling watched. |
 | Steering the interaction | The course of the dialogue itself. | The voice assistant asks only what is missing. | Guesses the person did not see. |
 
+**How AI guides, recommends and helps: a real platform and the rules**
+
+| Topic | Real finding or example | What it means for a screen |
+|---|---|---|
+| Recommendation at scale | Netflix reported that its recommender influences the choice for about 80% of the hours streamed, and the rest comes from search; the company also estimated the value of personalisation and recommendations at over one billion dollars a year (Gomez-Uribe and Hunt 2015; the figures are the company's own). | A recommendation is not a side feature: on a large platform it is the main way into the content. |
+| Context and data | Guidelines ask a system to make clear what it can do and how well it can do it, to match social norms, and to time its services by the person's context (Amershi et al. 2019). | Show the person what the assistant knows and does not know. |
+| Steering the dialogue | A system that acts on a guess should be easy to dismiss (Amershi et al. 2019). | Give every guess a one-tap way out. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. People reacting to an AI's agency, as convenient or intrusive depending on control, follows Sundar (2020). Voice interfaces go deeper on Day 11.
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. People reacting to an AI's agency, as convenient or intrusive depending on control, follows Sundar (2020). Voice interfaces go deeper on Day 11. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -96,7 +112,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. People
 Context is the cheapest and safest kind of intelligence, and the most often skipped. Teams reach for personal data because it feels more impressive, when the situation alone (where someone is, what they just did) would have answered the question without storing anything. Ask first whether the situation is enough; personalise only for what it cannot answer.
 :::
 
-^src: Amershi et al. 2019 · Horvitz 1999 · Sundar 2020
+^src: Amershi et al. 2019 · Horvitz 1999 · Sundar 2020 · Gomez-Uribe & Hunt 2015
 
 ## A3 · What intelligent interfaces give, and how they go wrong · 12 min · Core
 
@@ -120,8 +136,17 @@ Context is the cheapest and safest kind of intelligence, and the most often skip
 | Anticipating help | Help before people ask. | Over-personalisation | It knows too much, or narrows the view. |
 | Fit | It matches how people already work. | Loss of trust | After one bad surprise, every suggestion is doubted. |
 
+**What intelligent interfaces give, and how they go wrong: evidence**
+
+| Topic | Real finding | What it means for a screen |
+|---|---|---|
+| A narrowed view | In a study of 10.1 million US Facebook users, the ranking algorithm reduced the share of ideologically cross-cutting content that users saw by about 5% for conservatives and 8% for liberals; the users' own clicks reduced it by about 17% and 6% (Bakshy et al. 2015, as reported). | A system narrows the view in two ways: by what it ranks and by what people choose from it; measure both. |
+| The filter bubble claim | Eli Pariser warned that personalisation could lock people into a view of their own (Pariser 2011); the size of the effect is contested, as the study above shows. | Treat over-personalisation as a risk to test, not as a certainty. |
+| Use and misuse of automation | Parasuraman and Riley described the use, misuse, disuse and abuse of automation: people rely on it too much or reject it, depending on how well it matches their trust (Parasuraman and Riley 1997). | Design for calibrated trust, not for maximum use. |
+| Trust in automation | Trust should follow the actual reliability of the system; trust that is too high or too low leads to error (Lee and See 2004). | Show reliability honestly, and let the person see when the system is unsure. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Personalisation narrowing what people see follows Pariser (2011); people abandoning automation after visible failures follows Parasuraman and Riley (1997); trust that should match what a system can do follows Lee and See (2004).
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Personalisation narrowing what people see follows Pariser (2011); people abandoning automation after visible failures follows Parasuraman and Riley (1997); trust that should match what a system can do follows Lee and See (2004). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -136,7 +161,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Person
 Trust in automation is lost faster than it is gained. People who see a system make an obvious mistake often stop using it altogether, including for the things it does well. That is why a few confident wrong suggestions can cost more than many right ones bring: the risk is not one bad recommendation, but every recommendation after it.
 :::
 
-^src: Pariser 2011 · Parasuraman & Riley 1997 · Lee & See 2004
+^src: Pariser 2011 · Parasuraman & Riley 1997 · Lee & See 2004 · Bakshy et al. 2015
 
 ## A4 · Why, change, undo: transparency, control and the feeling of control · 12 min · Core
 
@@ -158,8 +183,17 @@ Trust in automation is lost faster than it is gained. People who see a system ma
 | Can I change it? | Control | No other trains shown. | Two other trains to choose. |
 | Can I undo it? | Recoverability | Only through the hotline. | “Undo rebooking” in one tap. |
 
+**Transparency, control and undo: guidelines and rules**
+
+| Question | Real guideline or rule | What it means for a screen |
+|---|---|---|
+| Can I see why? | One of the guidelines asks to make clear why the system did what it did (Amershi et al. 2019). Under the GDPR, people can ask for meaningful information about the logic of an automated decision. | State the reason in one sentence next to the suggestion. |
+| Can I change it? | The guidelines ask to support efficient correction and to encourage granular feedback (Amershi et al. 2019). | Offer other options at the point of decision, not in a settings page. |
+| Can I undo it? | The guidelines ask for global controls over what the system monitors and how it behaves (Amershi et al. 2019). Article 22 of the GDPR gives people a right not to be subject to a decision based solely on automated processing with legal or similarly significant effects, with safeguards such as human intervention and the right to contest it. | Make undo one tap, and give a human route for decisions that matter. |
+| Do I know it is a machine? | The EU AI Act (Article 50) requires that people are told when they are interacting with an AI system, unless that is obvious from the context. | Label the assistant and say what it is. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Showing why, supporting dismissal and correction follows Amershi et al. (2019); perceived control shaping how people feel about automation follows Sundar (2020).
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Showing why, supporting dismissal and correction follows Amershi et al. (2019); perceived control shaping how people feel about automation follows Sundar (2020). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -174,7 +208,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Showin
 Automation and autonomy pull against each other. The more a system does on its own, the less the person decides, and the more it matters that they could decide if they wanted to. An undo that nobody uses is still worth building: knowing it is there is what makes people comfortable letting the system act at all.
 :::
 
-^src: Amershi et al. 2019 · Lee & See 2004 · Sundar 2020
+^src: Amershi et al. 2019 · Lee & See 2004 · Sundar 2020 · GDPR · EU AI Act 2024
 
 ## A5 · Data, context and situation, and weighing a measure · 12 min · Core
 
@@ -190,8 +224,16 @@ Automation and autonomy pull against each other. The more a system does on its o
 
 ![Northline weighs three measures on effect on users, feasibility, risk and time pressure.](_figures/d10_A5_1.png)
 
+**Data, context and situation: findings**
+
+| Topic | Real finding | What it means for a measure |
+|---|---|---|
+| Trust follows reliability | Trust should be calibrated to how reliable the automation really is (Lee and See 2004). | Measure how often the suggestion is right, and show people the result. |
+| Misuse and disuse | Over-reliance (misuse) and rejection (disuse) both follow from a poor match between trust and reliability (Parasuraman and Riley 1997). | A measure that raises use without raising reliability raises risk. |
+| Learning over time | The guidelines ask to notify users about changes, to update cautiously and to learn from behaviour (Amershi et al. 2019). | Announce when the system changes what it does, and change it in small steps. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -206,7 +248,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Rating
 Data quality is rarely even. Most companies have one kind of data that is complete and current (bookings, appointments, contracts) and several that are patchy (reading history, preferences, free text). The robust core cases are where the good data is. An intelligent interface that starts there earns the trust it later needs for the harder cases; one that starts with the impressive cases on patchy data spends that trust before it has any.
 :::
 
-^src: Parasuraman & Riley 1997 · Lee & See 2004 · Gibbons 2018
+^src: Parasuraman & Riley 1997 · Lee & See 2004 · Gibbons 2018 · Amershi et al. 2019
 
 # Materi B · Route 2 · Level 3
 
@@ -228,8 +270,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of an intelligent UX architecture, from a guiding vision to every touchpoint.](_figures/d10_B1_1.png)
 
+**Intelligent UX as a decision architecture: structures**
+
+| Part | Real example | What it means |
+|---|---|---|
+| Four phases | Amershi et al. grouped the guidelines into initially, during interaction, when wrong and over time (Amershi et al. 2019). | Plan the architecture over the whole life of a feature, not for its launch. |
+| Mixed initiative | Horvitz asked that automated services act only when the expected benefit outweighs the cost of error (Horvitz 1999). | Set a rule for when the system may act on its own and when it must ask. |
+| Legal frame | The GDPR (Articles 13 to 15 and 22) and the EU AI Act (Article 50) set duties of information and human oversight. | Build the information and the human route into the architecture from the start. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Designing the human side of AI from the user's need follows Amershi et al. (2019).
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Designing the human side of AI from the user's need follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -244,7 +294,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Design
 A guiding vision for intelligent UX is short and testable. “Northline helps passengers make the next good decision, says why and leaves the choice to them” can be checked on every screen: does this suggestion say why, and can the passenger decline it? “AI-first” cannot be checked, and it invites every feature anyone proposes.
 :::
 
-^src: Amershi et al. 2019 · Horvitz 1999 · Lee & See 2004
+^src: Amershi et al. 2019 · Horvitz 1999 · Lee & See 2004 · GDPR · EU AI Act 2024
 
 ## B2 · Personalisation against transparency and trust: the conflicts of intelligent UX · 20 min · Core
 
@@ -267,8 +317,16 @@ A guiding vision for intelligent UX is short and testable. “Northline helps pa
 | Innovation against trust | The innovation team, against service and the brand. | What happens after its first confident mistake? |
 | All of these against economic viability | Finance, against everyone. | What does it cost to build, explain and maintain? |
 
+**Conflicts of intelligent UX, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Personalisation against transparency | Recommendations steer about 80% of the hours on a large platform (Gomez-Uribe and Hunt 2015), and the GDPR gives people a right to information about the logic of automated decisions. | Decide how deep an explanation can go, and test that it can be given in a sentence. |
+| Automation against autonomy | Decisions based solely on automated processing with significant effects need safeguards (GDPR Article 22). | Ask whether people would choose to let the system act for them. |
+| Innovation against trust | Trust that does not match reliability leads to misuse or disuse (Lee and See 2004; Parasuraman and Riley 1997). | Plan what happens after the first confident mistake. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. The duty to inform people when they interact with an AI system follows the EU AI Act (2024); check the current state of its application before a course run.
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. The duty to inform people when they interact with an AI system follows the EU AI Act (2024); check the current state of its application before a course run. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -283,7 +341,7 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. The du
 Click numbers cannot see the cost of a wrong suggestion. A recommendation that was clicked may have been clicked out of curiosity, confusion or alarm; one that was not clicked may have quietly lowered trust. Decide which signals you will look at (dismissals, reasons opened, controls used, complaints) before you decide how deep to personalise, or the click rate will decide for you.
 :::
 
-^src: Pariser 2011 · Lee & See 2004 · EU AI Act 2024
+^src: Pariser 2011 · Lee & See 2004 · EU AI Act 2024 · Gomez-Uribe & Hunt 2015 · GDPR · Parasuraman & Riley 1997
 
 ## B3 · Who answers for an intelligent interface, and deciding with patchy data · 20 min · Core
 
@@ -306,8 +364,16 @@ Click numbers cannot see the cost of a wrong suggestion. A recommendation that w
 | The record | What is written down for each intelligent function? | What it suggests, from which data, how it explains itself, how it is switched off. |
 | How a conflict is decided | What happens when innovation, data protection and economics disagree? | Trust and data protection first, then the passenger, then economics; the board settles a tie. |
 
+**Owning an intelligent interface: records and rules**
+
+| Part | Real rule or guideline | What it means |
+|---|---|---|
+| The record | The guidelines ask for clarity on what the system can do and how well, on why it acted, and on how it changes (Amershi et al. 2019). | Write down for each intelligent function what it suggests, from which data, how it explains itself and how it is switched off. |
+| Who checks | The GDPR sets conditions for automated decisions and for the data behind them (GDPR Article 22). | Give data protection a right to veto, and let service check the wording. |
+| The duty to inform | The EU AI Act (Article 50) requires that people are informed when they interact with an AI system. | Add the notice to the release checklist. |
+
 :::note Case assumption
-Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -322,4 +388,4 @@ Northline Rail, Ilka, Mats, Saskia and Bram are made up for this example. Decidi
 When a passenger, a regulator or a journalist asks why the app suggested something, the answer has to exist before the question. A company that keeps a one-paragraph record per intelligent function (what it suggests, from which data, how it explains itself, how it is switched off, who owns it) can answer in a day. One that cannot has found its first governance gap.
 :::
 
-^src: Simon 1956 · Klein 2007 · EU AI Act 2024
+^src: Simon 1956 · Klein 2007 · EU AI Act 2024 · Amershi et al. 2019 · GDPR
