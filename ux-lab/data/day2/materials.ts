@@ -11,14 +11,14 @@ import type { MaterialId, MaterialMeta, PlainExplain } from "@/data/materialType
  * on users, effort, risk, timeliness). Every card is Core: a Core block draws on each.
  */
 const METAS: MaterialMeta[] = bi([
-  { id: "A1" as MaterialId, block: "A" as const, title: t("Seeing an interface, and designing from the user's side: user-centred against provider-centred design"), minutes: 12 },
+  { id: "A1" as MaterialId, block: "A" as const, title: t("Seeing an interface, and designing from the user's side: user-centred against provider-centred design"), minutes: 13 },
   { id: "A2" as MaterialId, block: "A" as const, title: t("How people scan, select and prioritise: perception as the basis of UI decisions"), minutes: 12 },
   { id: "A3" as MaterialId, block: "A" as const, title: t("What guides the eye: contrast and colour, grouping and structure"), minutes: 13 },
   { id: "A4" as MaterialId, block: "A" as const, title: t("How much at once: information density, orientation, load and why order looks like quality"), minutes: 12 },
-  { id: "A5" as MaterialId, block: "A" as const, title: t("Recognition instead of search, clarity instead of overload, and weighing a measure"), minutes: 11 },
-  { id: "B1" as MaterialId, block: "B" as const, title: t("Inside logic against user logic: why good UI decisions come from the user's side"), minutes: 20 },
+  { id: "A5" as MaterialId, block: "A" as const, title: t("Recognition instead of search, clarity instead of overload, and weighing a measure"), minutes: 10 },
+  { id: "B1" as MaterialId, block: "B" as const, title: t("Inside logic against user logic: why good UI decisions come from the user's side"), minutes: 21 },
   { id: "B2" as MaterialId, block: "B" as const, title: t("Conflicts of goals: much information against simplicity, stakeholders against users"), minutes: 20 },
-  { id: "B3" as MaterialId, block: "B" as const, title: t("User-centredness as the basis of accountable decisions: who owns the structure, and deciding with partial data"), minutes: 20 },
+  { id: "B3" as MaterialId, block: "B" as const, title: t("User-centredness as the basis of accountable decisions: who owns the structure, and deciding with partial data"), minutes: 19 },
 ]);
 
 /** "In plain words" (CLAUDE.md #22, #51): the idea, why it matters for the task, and how to read the picture. */
@@ -31,7 +31,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks you to read CityDesk as a first-time user, Block 1.2 to choose a start page from a user-centred point of view, and Block 2.1 to find CampusNow's problems, several of which come from inside logic. This card gives you the difference to look for.",
     ),
     picture: t(
-      "The same Brightwater start page twice: built from the provider's side and from the user's side. Choose a version and read what Ana sees and does. Press “Read the comic” for a short story.",
+      "The same Brightwater start page twice: built from the provider's side and from the user's side. Choose a version and read what Ana sees and does. Press “Read the comic” for a short story. Below, a table of what the eye and the brain do before anyone reads, and a real case of user-centred design, GOV.UK.",
     ),
   },
   A2: {
@@ -42,7 +42,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks what a first-time user perceives first on CityDesk and which obstacles stop them, and Block 2.1 asks why CampusNow's long text blocks are hard to scan. You need the scan to say why something is seen or missed.",
     ),
     picture: t(
-      "First the four steps of a scan. Then one Brightwater page in two forms: a dense block of text and the same content structured for scanning. Choose one and read where Felix's eye lands. Press “Read the comic” for a short story.",
+      "First the four steps of a scan. Then one Brightwater page in two forms: a dense block of text and the same content structured for scanning. Choose one and read where Felix's eye lands. Press “Read the comic” for a short story. A table of scanning in real numbers follows.",
     ),
   },
   A3: {
@@ -53,7 +53,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks you to sort CityDesk's problems into visual guidance, structure and other categories, and Block 2.1 asks about CampusNow's missing prioritisation and inconsistent page types. These means, and how colour is used, are what you check.",
     ),
     picture: t(
-      "One Brightwater page with three switches: contrast, grouping and structure. Switch them on one at a time and read what Ana can now see and find.",
+      "One Brightwater page with three switches: contrast, grouping and structure. Switch them on one at a time and read what Ana can now see and find. Then the Book button at three contrast ratios, with the ratio shown, and a table of the real rules and numbers behind each means.",
     ),
   },
   A4: {
@@ -64,7 +64,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about CityDesk's information density, Block 1.2 asks you to weigh EduFlex's crowded, reduced and image-led start pages, and Block 2.1 asks about the overloaded start page of CampusNow. This card gives you the trade-off and its effect on load and on perceived quality.",
     ),
     picture: t(
-      "One Brightwater start page at three densities: crowded, balanced and sparse. Choose one and read what Felix has to do and what he thinks of the centre. Press “Read the comic” for a short story.",
+      "One Brightwater start page at three densities: crowded, balanced and sparse. Choose one and read what Felix has to do and what he thinks of the centre. Press “Read the comic” for a short story. A table of real findings on density, choice and trust follows.",
     ),
   },
   A5: {
@@ -75,7 +75,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks for the two biggest hurdles for an inexperienced user, Block 1.2 asks you to rate start pages on findability and focus, and Block 2.1 asks you to rate four measures on effect, effort, risk and timeliness and to decide what comes first. The example uses Brightwater and its own measures, so the answer for the task cases is not given.",
     ),
     picture: t(
-      "Three measures Brightwater considered, rated on effect on users, effort, risk and timeliness. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark.",
+      "Three measures Brightwater considered, rated on effect on users, effort, risk and timeliness. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark. A table of recognition and clarity with evidence follows.",
     ),
   },
   B1: {
@@ -86,7 +86,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a guiding vision, three decisions on orientation, structure, information priority and guidance, and an order of the areas to rework, for an organisation that discusses colours while the cause lies in its structure. You work from the users' tasks, not from the organisation chart.",
     ),
     picture: t(
-      "Left the same Brightwater services ordered by the inside logic, right by the users' tasks. Below, the chain from a single screen to the structure behind it. Nothing to click.",
+      "Left the same Brightwater services ordered by the inside logic, right by the users' tasks. Below, the chain from a single screen to the structure behind it. Nothing to click. A table of the evidence for inside logic against user logic follows.",
     ),
   },
   B2: {
@@ -97,7 +97,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for three guiding decisions, a risk analysis and a governance model for stakeholders with different goals. Each of these is a decision between conflicting goals.",
     ),
     picture: t(
-      "The matrix places five Brightwater start pages by how much they show at once (to the right) and how easily people find their task (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story.",
+      "The matrix places five Brightwater start pages by how much they show at once (to the right) and how easily people find their task (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story. A table of conflicts weighed with evidence follows.",
     ),
   },
   B3: {
@@ -108,7 +108,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a governance model, a decision under uncertainty that you can still justify, and a statement to the management. This card gives you the parts of each.",
     ),
     picture: t(
-      "The four boxes at the top are the parts of a decision, filled in for Brightwater. The two boxes below are the rule for future decisions. Nothing to click.",
+      "The four boxes at the top are the parts of a decision, filled in for Brightwater. The two boxes below are the rule for future decisions. Nothing to click. A table of a real governance example follows.",
     ),
   },
 });

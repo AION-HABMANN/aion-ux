@@ -246,3 +246,55 @@ export function DensityLab() {
     />
   );
 }
+
+/* ------------------------------------------------------------------ A3 · the contrast ratio of the main action */
+
+const lum = (hex: string) => {
+  const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+};
+const ratio = (a: string, b: string) => {
+  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+
+function CourseCard({ ctx, fill, label }: { ctx: LabCtx; fill: string; label: string }) {
+  if (ctx.finished) return <Done text={tt("Booked: aqua fitness, Tuesday 18:30")} />;
+  const r = ratio(fill, label);
+  return (
+    <AppScreen brand={Brand} color={ACC}>
+      <p className="text-[14px] font-bold">{tt("Aqua fitness · Tuesday 18:30")}</p>
+      <p className="text-[12px] text-[#475569]">{tt("45 minutes · pool 2 · 8 places left")}</p>
+      <div className="grid grid-cols-3 gap-2 pt-1">
+        <button type="button" onClick={() => ctx.miss(tt("Tapped Details"))} className="rounded border border-[#CBD5E1] bg-white py-2 text-[12px] text-[#334155]">{tt("Details")}</button>
+        <button type="button" onClick={() => ctx.miss(tt("Tapped Share"))} className="rounded border border-[#CBD5E1] bg-white py-2 text-[12px] text-[#334155]">{tt("Share")}</button>
+        <button type="button" onClick={() => ctx.done(tt("Tapped Book"))} className="rounded py-2 text-[13px] font-bold" style={{ background: fill, color: label }}>
+          {r < 4.5 ? (
+            <svg width="40" height="18" viewBox="0 0 40 18" role="img" aria-label={tt("Book")} className="mx-auto block"><text x="20" y="14" textAnchor="middle" fontSize="13" fontWeight="700" fill={label}>{tt("Book")}</text></svg>
+          ) : (
+            tt("Book")
+          )}
+        </button>
+      </div>
+      <p className="rounded bg-[#F1F5F9] px-2 py-1 font-mono text-[11px] text-[#334155]">
+        {tt(`Inspector · Book: ${label} on ${fill} = ${r.toFixed(1)} to 1 (WCAG 2.2 asks for at least 4.5 to 1 for the text and 3 to 1 for the button itself)`)}
+      </p>
+    </AppScreen>
+  );
+}
+
+export function ContrastLab() {
+  return (
+    <TaskLab
+      label={tt("The Brightwater Book button at three contrast ratios, with a ratio readout · a working product · Case assumption, example company")}
+      point={tt("Contrast is a number you can measure: WCAG 2.2 asks for at least 4.5 to 1 between normal text and its background, and 3 to 1 for the parts of controls that people need to see. The Inspector line shows the ratio of the Book button; try the task, then switch on the bright-light and older-eyes tests.")}
+      task={tt("You are Ana, on a train with the sun on your phone. Book the aqua fitness course.")}
+      stresses={["sun", "eyes", "cvd"]}
+      versions={[
+        { id: "pale", label: tt("Pale button"), render: (ctx) => <CourseCard ctx={ctx} fill="#B7E4EF" label="#FFFFFF" />, insight: tt("In plain words: the label is almost as light as the button, about 1.4 to 1. In a quiet room Ana can still find it; in sunlight the button fades into the card, and she taps Share or Details first.") },
+        { id: "brand", label: tt("Brand blue button"), render: (ctx) => <CourseCard ctx={ctx} fill="#0E7490" label="#FFFFFF" />, insight: tt("In plain words: white on the brand blue is about 5.4 to 1, above the 4.5 to 1 that WCAG asks for. The button is the strongest thing in its row, also in bright light.") },
+        { id: "dark", label: tt("Dark button"), render: (ctx) => <CourseCard ctx={ctx} fill="#164E63" label="#FFFFFF" />, insight: tt("In plain words: white on dark teal is about 9.1 to 1. It is found fastest and survives the older-eyes test; the price is that the brand colour is darker than in the logo.") },
+      ]}
+    />
+  );
+}
