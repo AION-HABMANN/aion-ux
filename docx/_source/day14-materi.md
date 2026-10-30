@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is IndustryXR (see the Task document).
 intro: Today is about interfaces that leave the screen: augmented, virtual and mixed reality, spatial and sensory interaction. You learn what each technology is, what immersion does to attention and cognitive load, where it intensifies an experience and where it overwhelms, how to tell real user value from fascination, and which ethical questions come with it. Then you use it on three platforms, including a real 3D machine with AR overlays you can turn (and, on a phone, place in your room), and you look at what a headset maker and a government service manual advise. This document holds everything you need to study Day 14 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: immersion,maturity,attention,ux,case-assumption,governance,presence,stage-gate,perception,decision-arch,working-memory,overstimulation,adaptive,cybersickness,cog-load,neuro-ux,scan,dark-pattern,ar,vr,mr,touchpoint,cxo,contrast,embodiment
-refs: milgram1994,slater2016,lavie2005,rebenitsch2016,govuk2026,apple2026,gibbons2018,simon1956,klein2007
+glossary: immersion,maturity,attention,presence,ux,case-assumption,governance,cybersickness,decision-arch,mr,stage-gate,perception,working-memory,overstimulation,adaptive,cog-load,neuro-ux,scan,dark-pattern,ar,vr,touchpoint,cxo,contrast,embodiment
+refs: milgram1994,slater2016,apple2026,lavie2005,rebenitsch2016,kaplan2021,govuk2026,gdsStandard,gibbons2018,miller2020vr,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -45,8 +45,16 @@ About 60 minutes, five cards. Levels 1 and 2: analyse the chances and risks of a
 | Sensory interaction | Touch, sound, gesture. | Hands-busy work; feedback without looking. | Sensors; careful design. |
 | Context-adaptive systems | Change with the situation. | The right help at the right moment. | Good data about the situation. |
 
+**From screen to space: the concepts and where they come from**
+
+| Concept | Real source | What it means for a decision |
+|---|---|---|
+| The continuum | Milgram and Kishino placed displays on a reality–virtuality continuum, from the real world through augmented and mixed reality to a fully virtual one (Milgram and Kishino 1994). | Say where on the continuum a product sits: it decides what it can show, what it needs and what it risks. |
+| Presence | Slater and Sanchez-Vives describe presence as the feeling of being in the virtual place, built from immersion and the plausibility of what happens there (Slater and Sanchez-Vives 2016). | Immersion is a means: ask what presence adds to the task. |
+| Immersion for a reason | Apple's guidelines advise to reserve immersion for meaningful moments, to attend to comfort, and to let people choose when to enter and leave (Apple, Immersive experiences). | Offer the immersive mode as a choice, with an easy exit. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. The continuum from the real world through AR to VR follows Milgram and Kishino (1994).
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. The continuum from the real world through AR to VR follows Milgram and Kishino (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -61,7 +69,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Flat and spatial are not better and worse; they are good at different things. A list of steps is faster to scan on a flat screen; the place of a part is faster to find in space. Most good immersive products combine both: the step in a calm panel, the place on the object.
 :::
 
-^src: Milgram & Kishino 1994 · Slater & Sanchez-Vives 2016
+^src: Milgram & Kishino 1994 · Slater & Sanchez-Vives 2016 · Apple HIG
 
 ## A2 · Presence, attention and load: what the brain does in immersive space · 12 min · Core
 
@@ -85,8 +93,16 @@ Flat and spatial are not better and worse; they are good at different things. A 
 | Stimulus processing | More stimuli, more effort; some people are more sensitive. | Fewer stimuli; a calm option. |
 | Decision behaviour | Under stress, people take the most available cue. | Make the right action the obvious one. |
 
+**Presence, attention and load: findings**
+
+| Finding | What it shows | What it means for a screen in space |
+|---|---|---|
+| Perceptual load | Attention is limited, and under load what is processed depends on what competes for it (Lavie 2005). | One focus per step: every extra object in space competes with the task. |
+| Cybersickness | Papers that cite the main review report that between about 30% and 80% of users get symptoms in virtual environments, and the estimates vary widely with hardware, people and measures (Rebenitsch and Owen 2016, as reported). | Plan for sickness as a normal case: short sessions, stable views, a comfort option. |
+| Plausibility | Presence depends on the plausibility of what happens as well as on the display (Slater and Sanchez-Vives 2016). | Labels that drift or lag break the illusion: test tracking in the real room. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Presence follows Slater and Sanchez-Vives (2016); selective attention under load follows Lavie (2005).
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Presence follows Slater and Sanchez-Vives (2016); selective attention under load follows Lavie (2005). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -101,7 +117,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Presence is double-edged. The feeling of being there is what makes VR training memorable, and it is also why a badly designed scene can feel threatening or exhausting. The same intensity that teaches a safety procedure can overwhelm someone who is already anxious.
 :::
 
-^src: Slater & Sanchez-Vives 2016 · Lavie 2005
+^src: Slater & Sanchez-Vives 2016 · Lavie 2005 · Rebenitsch & Owen 2016
 
 ## A3 · Intensify or overwhelm: the chances and risks of immersive UX · 12 min · Core
 
@@ -125,8 +141,17 @@ Presence is double-edged. The feeling of being there is what makes VR training m
 | Experiencing complex content | How the brewing unit works. | Technical hurdles | Steam, bad light, old phones. |
 | New interaction | Ask the machine with your hands full. | High effort | Content for every model, every update. |
 
+**Intensify or overwhelm: what the evidence says**
+
+| Topic | Real finding | What it means for a product |
+|---|---|---|
+| Training | A meta-analysis of studies on the transfer of training found that training in virtual, augmented or mixed reality was about as effective as training in a non-simulated environment, not better (Kaplan et al. 2021). | Its case rests on what the real setting cannot offer: danger, cost, access. |
+| Visualisation and situational help | Immersive displays can show what cannot be seen, such as the inside of a machine, but each added object adds load (Lavie 2005). | Show the one thing the step needs. |
+| Sickness and comfort | A large share of users get cybersickness symptoms, with wide variation between studies (Rebenitsch and Owen 2016, as reported). | Make the comfort option easy to find, and never rely on the long session. |
+| Acceptance and effort | The people and the setting decide whether it is used at all; there is no figure that holds for every product. | Test with the actual users in the actual place. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Motion sickness in VR follows Rebenitsch and Owen (2016).
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Motion sickness in VR follows Rebenitsch and Owen (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -141,7 +166,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Users are often impressed in the first test and overwhelmed in the third week. The first test measures novelty; daily use measures value. A pilot that ends after the wow phase has not tested anything that matters for an investment decision.
 :::
 
-^src: Rebenitsch & Owen 2016 · Lavie 2005
+^src: Rebenitsch & Owen 2016 · Lavie 2005 · Kaplan et al. 2021
 
 ## A4 · Fascination or impact: user value, maturity and marketability · 12 min · Core
 
@@ -157,8 +182,16 @@ Users are often impressed in the first test and overwhelmed in the third week. T
 
 ![From an idea to a product in use, and where most immersive projects stop.](_figures/d14_A4_1.png)
 
+**Fascination or impact: how to test value and maturity**
+
+| Source | Real practice | What it means for a decision |
+|---|---|---|
+| Test the riskiest assumption | The GOV.UK Service Manual advises to define the problem, to test the riskiest assumptions with throwaway prototypes and to decide on the evidence, including the decision to stop (GOV.UK Service Manual). | Start with a cheap test of the value, not with a build. |
+| The case for the real setting | Training in extended reality was equally effective as non-simulated training (Kaplan et al. 2021). | Use immersive technology where the real thing is dangerous, rare or expensive. |
+| Phases and assessment | Services in the UK government are assessed against the Service Standard at the discovery, alpha, beta and live phases (GOV.UK Service Standard). | Define what a pilot must show before it may grow. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Reserving immersion for meaningful moments follows Apple's guidelines; reframing a solution as a problem follows the GOV.UK Service Manual.
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Reserving immersion for meaningful moments follows Apple's guidelines; reframing a solution as a problem follows the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -173,7 +206,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Demonstrative use cases are attractive because they are easy to show and hard to evaluate. A useful test: would a customer miss it if it disappeared next month? A descaling guide they used twice, yes; a trade-fair showroom they saw once, no.
 :::
 
-^src: GOV.UK Service Manual · Apple HIG
+^src: GOV.UK Service Manual · Apple HIG · Kaplan et al. 2021 · GOV.UK Service Standard
 
 ## A5 · Ethics and responsibility, and weighing a measure · 12 min · Core
 
@@ -189,8 +222,16 @@ Demonstrative use cases are attractive because they are easy to show and hard to
 
 ![Brewline weighs three measures on effect on users, feasibility, risk, time pressure and investment security.](_figures/d14_A5_1.png)
 
+**Ethics and responsibility: a real finding**
+
+| Topic | Real finding | What it means for a measure |
+|---|---|---|
+| Identifiability of movement | In a study with more than 500 participants who watched 360-degree videos, a simple model identified people with above 95% accuracy from less than five minutes of head and hand tracking data (Miller et al. 2020, as reported). | Treat motion data as personal data, even without a name attached. |
+| Comfort and choice | Apple's guidelines ask that people choose when to enter and exit an immersive experience and that comfort is considered (Apple, Immersive experiences). | Build consent, comfort and an exit into the first version. |
+| Who is harmed | Sickness, disorientation and data exposure fall on the user (Rebenitsch and Owen 2016; Miller et al. 2020). | Ask who could be harmed before asking what could be shown. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study.
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -205,7 +246,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Neuro-informed design knows how attention works, which makes it powerful in both directions. The same knowledge that puts the right step in front of a technician can put an offer in front of a tired customer. The line between guidance and manipulation is whose interest the steering serves.
 :::
 
-^src: Rebenitsch & Owen 2016 · Gibbons 2018
+^src: Rebenitsch & Owen 2016 · Gibbons 2018 · Miller et al. 2020 · Apple HIG
 
 # Materi B · Route 2 · Level 3
 
@@ -227,8 +268,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of an innovation architecture, from a guiding vision to every pilot.](_figures/d14_B1_1.png)
 
+**Future technologies as decision architecture: structures**
+
+| Part | Real example | What it means |
+|---|---|---|
+| A map of the field | The reality–virtuality continuum organises the technologies into one map (Milgram and Kishino 1994). | Use one map for the portfolio, so bets are comparable. |
+| Phased evidence | The GOV.UK phases move from discovery to alpha, beta and live, each with a test of the riskiest assumption (GOV.UK Service Manual). | Give each bet a phase and a question. |
+| Platform rules | Apple's guidelines set expectations for comfort and for entering and leaving immersion (Apple, Immersive experiences). | Build on the rules of the platform instead of inventing your own. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Discovery, alpha and the decision to go on or stop follow the GOV.UK Service Manual.
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. Discovery, alpha and the decision to go on or stop follow the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -243,7 +292,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 Innovation labs often produce demos rather than products, because a demo is the end of their task. A portfolio changes the task: the lab's job is to produce evidence for a decision, and a stopped pilot with clear evidence is a success.
 :::
 
-^src: GOV.UK Service Manual · Apple HIG
+^src: GOV.UK Service Manual · Apple HIG · Milgram & Kishino 1994
 
 ## B2 · Innovation, value, maturity, risk, ethics: the conflicts of the future · 20 min · Core
 
@@ -266,8 +315,17 @@ Innovation labs often produce demos rather than products, because a demo is the 
 | Investment risk against falling behind | Finance, against strategy. | What is the smallest bet that teaches us enough? |
 | Ethics against speed | Data protection and safety, against the launch date. | What does it record, and who could be harmed? |
 
+**Conflicts of the future, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Innovation against user value | Training in extended reality was about as effective as non-simulated training, not more (Kaplan et al. 2021). | Ask which user problem it solves better than the plain way. |
+| Visibility against maturity | Cybersickness estimates range from about 30% to 80% of users in the reviewed work (Rebenitsch and Owen 2016, as reported). | Show it only where it works in the real environment, at scale. |
+| Investment risk against falling behind | Government practice tests the riskiest assumption with a throwaway prototype first (GOV.UK Service Manual). | Choose the smallest bet that teaches enough. |
+| Ethics against speed | Tracking data of five minutes can identify a person among hundreds (Miller et al. 2020, as reported). | Ask what it records and who could be harmed. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. The bets are a reading of the example, not a rule for every company.
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. The bets are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -282,7 +340,7 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 A future technology becomes a reputational risk when it is launched as a promise and experienced as a gimmick: when the headline outruns the product. The safest way to protect reputation is to let the evidence lead the announcement, not the other way round.
 :::
 
-^src: GOV.UK Service Manual · Slater & Sanchez-Vives 2016
+^src: GOV.UK Service Manual · Slater & Sanchez-Vives 2016 · Kaplan et al. 2021 · Rebenitsch & Owen 2016 · Miller et al. 2020
 
 ## B3 · Who decides on future technologies, and deciding without test data · 20 min · Core
 
@@ -305,8 +363,16 @@ A future technology becomes a reputational risk when it is launched as a promise
 | Stop right | Who may stop a pilot? | The innovation board; product safety at any time. |
 | How a conflict is decided | What happens when visibility, effect, risk and effort disagree? | Safety, then proven value, then effort, then visibility; the board settles a tie. |
 
+**Who decides on future technologies: real practice**
+
+| Part | Real example | What it means |
+|---|---|---|
+| Gates | Each phase of a UK government service ends with an assessment against the Service Standard (GOV.UK Service Standard). | Write the gate for each pilot: use, completion, support, cost, by a date. |
+| The stop right | The guidance says to decide on evidence, including to stop (GOV.UK Service Manual). | Name who may stop a pilot, and give product safety a stop at any time. |
+| The record | Motion data is identifying (Miller et al. 2020, as reported). | Record what each pilot collects, and who can see it. |
+
 :::note Case assumption
-Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. “It's not a failure to stop” follows the GOV.UK Service Manual; deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine is a generic model. “It's not a failure to stop” follows the GOV.UK Service Manual; deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -321,4 +387,4 @@ Brewline, Zara, Edgar, Kim and Ruth are made up for this example; the 3D machine
 The most expensive innovation decisions are the ones nobody made: pilots that were never stopped and never scaled, kept alive by goodwill. A gate with a date forces the decision. Write the stop criteria down before the pilot starts, when nobody is attached to it yet.
 :::
 
-^src: GOV.UK Service Manual · Simon 1956 · Klein 2007
+^src: GOV.UK Service Manual · Simon 1956 · Klein 2007 · GOV.UK Service Standard · Miller et al. 2020
