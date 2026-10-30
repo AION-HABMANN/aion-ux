@@ -32,7 +32,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about BankDirect's small top-right transfer link, its buttons close together and its small mobile buttons, and Block 2.1 asks about MoveEasy's small, badly placed booking buttons and touch targets. This card gives you size, distance, spacing and the thumb's reach.",
     ),
     picture: t(
-      "One Ticketo checkout on a phone with three switches: a larger Pay button, placed where the thumb reaches, and space between the buttons. Switch them on one at a time and read what Leon's thumb does. Press “Read the comic” for a short story.",
+      "One Ticketo checkout on a phone with three switches: a larger Pay button, placed where the thumb reaches, and space between the buttons. Switch them on one at a time and read what Leon's thumb does. Press “Read the comic” for a short story. A table of Fitts's law in numbers follows.",
     ),
   },
   A2: {
@@ -43,7 +43,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about BankDirect's 14 equal menu options, Block 1.2 asks you to rate AdminFlow's all-at-once, staged and minimalist variants, and Block 2.1 asks about MoveEasy's too many options and equal choices in every step. This card gives you the three ways to lower decision effort and the limit of reduction.",
     ),
     picture: t(
-      "The same Ticketo choice in two forms: every showing of the week at once, and staged by day, film and time. Choose one and read how long Mara needs. Press “Read the comic” for a short story.",
+      "The same Ticketo choice in two forms: every showing of the week at once, and staged by day, film and time. Choose one and read how long Mara needs. Press “Read the comic” for a short story. A table of evidence for lowering decision effort follows.",
     ),
   },
   A3: {
@@ -54,7 +54,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about BankDirect's crowded forms and the numbers and options users must remember at once, and Block 2.1 asks about MoveEasy's tariffs and conditions to remember. This card gives you chunking and structure as fixes.",
     ),
     picture: t(
-      "The same Ticketo confirmation twice: a long code and scattered details, and a chunked code with the details in one box. Choose one and read what Leon can repeat at the cinema. Press “Read the comic” for a short story.",
+      "The same Ticketo confirmation twice: a long code and scattered details, and a chunked code with the details in one box. Choose one and read what Leon can repeat at the cinema. Press “Read the comic” for a short story. A table of evidence for chunking follows.",
     ),
   },
   A4: {
@@ -65,7 +65,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks you to assign BankDirect's problems to the three laws, Block 1.2 asks you to rate AdminFlow on reachability, decision effort and memory load, and Block 2.1 asks you to sort MoveEasy's problems by reachability, decision effort, memory load, mobile usability and error risk. This card shows how to tell the laws apart and how they combine.",
     ),
     picture: t(
-      "One Ticketo menu with three switches, one per law: larger items, fewer items, and labels grouped by meaning. Switch them on one at a time and read what changes for Mara.",
+      "One Ticketo menu with three switches, one per law: larger items, fewer items, and labels grouped by meaning. Switch them on one at a time and read what changes for Mara. A table of the limits of the person follows.",
     ),
   },
   A5: {
@@ -76,7 +76,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks for the two biggest weaknesses for efficiency and error risk, Block 1.2 for a decision between three navigation variants, and Block 2.1 for four measures, their justification on these four criteria and a decision for 10 weeks. The example uses Ticketo and its own measures, so the answer for the task cases is not given.",
     ),
     picture: t(
-      "Three measures Ticketo considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark.",
+      "Three measures Ticketo considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark. A table of the aims and their evidence follows.",
     ),
   },
   B1: {
@@ -87,7 +87,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a guiding vision for efficient interaction, three decisions on reachability, choice, information and main actions, and an order of what is improved first, for a company that adds functions while known interaction problems stay. You decide standards, not single buttons.",
     ),
     picture: t(
-      "Left Ticketo fixing details one screen at a time, right deciding interaction standards once. Below, the chain from a button to the business. Nothing to click.",
+      "Left Ticketo fixing details one screen at a time, right deciding interaction standards once. Below, the chain from a button to the business. Nothing to click. A table of examples of standards follows.",
     ),
   },
   B2: {
@@ -98,7 +98,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for three guiding decisions, a risk analysis about user behaviour and the need for functions, and a governance model for conflicts between feature richness and usability. Each of these is a decision between conflicting goals.",
     ),
     picture: t(
-      "The matrix places five Ticketo designs by how many options they show at once (to the right) and how fast and safely people finish (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story.",
+      "The matrix places five Ticketo designs by how many options they show at once (to the right) and how fast and safely people finish (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story. A table of conflicts with evidence follows.",
     ),
   },
   B3: {
@@ -109,7 +109,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a governance model for the interaction standards, a decision despite incomplete data, and a statement to the management. This card gives you the parts of each.",
     ),
     picture: t(
-      "The four boxes at the top are the parts of a decision, filled in for Ticketo. The two boxes below are the rule for future decisions. Nothing to click.",
+      "The four boxes at the top are the parts of a decision, filled in for Ticketo. The two boxes below are the rule for future decisions. Nothing to click. A table of rules and evidence follows.",
     ),
   },
 });

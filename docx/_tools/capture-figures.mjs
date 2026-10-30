@@ -11,7 +11,7 @@ const days = dayArgs.length ? dayArgs.map(Number) : Array.from({ length: 16 }, (
 mkdirSync(out, { recursive: true });
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const port = 9700 + Math.floor(Math.random() * 200);
-const prof = `${process.env.TEMP}/cdp-docs-${port}`;
+const prof = 'G:/claude code/AION-HABMANN/aion-ux/docx/_work/cdp-profile'; // one fixed profile on G:, reused: an Edge profile takes about 480 MB, and a new one per run filled C:
 const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--hide-scrollbars', `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, '--window-size=1100,900', '--lang=en-US', 'about:blank'], { stdio: 'ignore' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let targets;

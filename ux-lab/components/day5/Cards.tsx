@@ -29,7 +29,7 @@ export function CardA1() {
     <MaterialCard
       id="A1"
       scan={tt("The time to hit a target grows with its distance and shrinks with its size (Fitts's law). Make main actions large, close to the hand and spaced apart; on a phone, where the thumb already is.")}
-      sources={["fitts1954", "mackenzie1992", "parhi2006", "hoober2013", "wcag22"]}
+      sources={["fitts1954", "mackenzie1992", "parhi2006", "hoober2013", "wcag22", "baymard2024"]}
       reasoning={[
         tt("Find the most important action on each screen and check its size: can it be hit without aiming?"),
         tt("Check its distance: is it near where the pointer or the thumb already is, or in a far corner?"),
@@ -50,8 +50,18 @@ export function CardA1() {
           [tt("Touch area"), tt("The area that reacts can be larger than the label."), tt("Only the word itself reacts to a tap.")],
         ]}
       />
+      <DataTable
+        caption={tt("Fitts's law in numbers")}
+        head={[tt("Topic"), tt("Real finding or rule"), tt("What it means for a screen")]}
+        rows={[
+          [tt("The law"), tt("The time to hit a target grows with its distance D and shrinks with its width W. The form most used on screens is MT = a + b·log2(D/W + 1) (MacKenzie 1992; first described by Fitts 1954 as log2(2D/W))."), tt("Double the size or halve the distance, and the movement gets faster by the same step.")],
+          [tt("Thumb size"), tt("A study of one-handed thumb use on a touch screen found that 9.2 mm was large enough for single targets and 9.6 mm for a sequence of taps (Parhi et al. 2006)."), tt("Size the tap area for the thumb, not for the pointer; a label alone is often too small.")],
+          [tt("Hand and position"), tt("Of 1,333 people observed using phones in public, 49% held the phone in one hand, 36% cradled it and 15% used two hands (Hoober 2013, as reported)."), tt("Put the main action where a thumb on a one-handed grip reaches it.")],
+          [tt("Rules"), tt("WCAG 2.2 asks for pointer targets of at least 24 by 24 CSS pixels (2.5.8, level AA, with a spacing exception) and 44 by 44 at level AAA (2.5.5)."), tt("Check the size of the area that reacts and the space between neighbours.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Fitts's law follows Fitts (1954) and, for screens, MacKenzie (1992); small targets under the thumb follow Parhi, Karlson and Bederson (2006); how people hold phones follows Hoober (2013); WCAG 2.2 sets a minimum target size in criterion 2.5.8.`)}</p>
+        <p>{tt(`${TK()} Fitts's law follows Fitts (1954) and, for screens, MacKenzie (1992); small targets under the thumb follow Parhi, Karlson and Bederson (2006); how people hold phones follows Hoober (2013); WCAG 2.2 sets a minimum target size in criterion 2.5.8. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("WCAG 2.2 criterion 2.5.8 asks that a pointer target is at least 24 by 24 CSS pixels, or has enough space around it; the older enhanced criterion 2.5.5 asks for 44 by 44. Neither is a design goal: they are a floor below which people with less precise hands, or anyone on a moving bus, start to fail.")}</p>
@@ -65,7 +75,7 @@ export function CardA2() {
     <MaterialCard
       id="A2"
       scan={tt("The more equally weighted options, the longer the choice (Hick's law). Fewer options at once, a clear priority and staged choices cut decision effort; too many stages become a hurdle.")}
-      sources={["hick1952", "hyman1953", "iyengar2000", "nielsen2006"]}
+      sources={["hick1952", "hyman1953", "iyengar2000", "nielsen2006", "larson1998"]}
       reasoning={[
         tt("Count the equal options at each decision point: menu items, tiles, buttons, list entries."),
         tt("Show what most people need and make the likely choice stand out."),
@@ -85,8 +95,18 @@ export function CardA2() {
           [tt("Staged choices"), tt("A few options per step."), tt("Each stage is a step; too many steps slow people down.")],
         ]}
       />
+      <DataTable
+        caption={tt("Lowering decision effort: evidence and limits")}
+        head={[tt("Lever"), tt("Real finding or rule"), tt("What it means for a screen")]}
+        rows={[
+          [tt("The law"), tt("The time to choose grows with the logarithm of the number of equally likely options, RT = a + b·log2(n + 1): each doubling of the options adds one fixed step of time (Hick 1952; Hyman 1953)."), tt("A few fewer options help most when the options are many and unfamiliar.")],
+          [tt("Fewer at once"), tt("A display of 24 jams drew more stops and far fewer purchases than a display of 6 (Iyengar and Lepper 2000; a small study)."), tt("Show a short list first; keep the rest one step away.")],
+          [tt("Staged choices"), tt("In theory a design can have several levels of progressive disclosure; in practice designs with more than two levels usually have low usability because users get lost between them (Nielsen 2006)."), tt("Stage a choice in at most two levels, and show where the person is.")],
+          [tt("Structure matters"), tt("A medium structure of depth and breadth beat the broadest, shallowest one in a web search study (Larson and Czerwinski 1998)."), tt("Do not trade a long list for many levels.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Hick's law follows Hick (1952) and Hyman (1953); many options making people choose less follows Iyengar and Lepper (2000); showing options in stages follows Nielsen (2006) on progressive disclosure.`)}</p>
+        <p>{tt(`${TK()} Hick's law follows Hick (1952) and Hyman (1953); many options making people choose less follows Iyengar and Lepper (2000); showing options in stages follows Nielsen (2006) on progressive disclosure. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Hick's law grows with the logarithm of the number of options, not in a straight line: going from two options to four costs about as much as going from four to eight. That is why the first few extra options hurt most, and why a short, well-ordered list often beats a cleverer structure with more steps.")}</p>
@@ -100,7 +120,7 @@ export function CardA3() {
     <MaterialCard
       id="A3"
       scan={tt("Short-term memory holds only a few items (Miller's rule; later research says nearer four). Chunking and structure make information easier to take in and remember; showing it where needed avoids remembering at all.")}
-      sources={["miller1956", "cowan2001", "gobet2001", "nielsen1994"]}
+      sources={["miller1956", "cowan2001", "gobet2001", "nielsen1994", "chase1973", "iso13616", "sweller1988"]}
       reasoning={[
         tt("List what people must take in or keep in mind at each step: codes, numbers, tariffs, conditions, earlier choices."),
         tt("Chunk long strings into blocks of three or four, and group related details in one place."),
@@ -120,8 +140,18 @@ export function CardA3() {
           [tt("Split a long form"), tt("A few fields per group, each with a heading."), tt("Who travels · When · How to pay.")],
         ]}
       />
+      <DataTable
+        caption={tt("Chunking and structure: evidence")}
+        head={[tt("Finding"), tt("What it shows"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Miller 1956 and Cowan 2001"), tt("Miller described a span of about seven chunks; later work puts the limit nearer four chunks (Cowan 2001)."), tt("Plan for four, and let the system hold what a person would have to remember.")],
+          [tt("What a chunk is"), tt("A chunk is a unit that the person already knows as one thing (Gobet et al. 2001). Chess masters recalled 20 or more pieces from a real game position, in about five chunks; for pieces placed at random, every player recalled only three or four (Chase and Simon 1973, as reported)."), tt("A grouping helps only if it matches a unit the user knows: a date, a phone number, a seat, a total.")],
+          [tt("Chunking in print"), tt("UK postcodes are written in two parts, for example SW1A 1AA, and an IBAN in groups of four characters (ISO 13616)."), tt("Break a long code into groups at the places where people read or type it.")],
+          [tt("Show where needed"), tt("Effort spent on holding information that the screen could show is missing for the task (Sweller 1988)."), tt("Show the conditions next to the choice they belong to.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The limits of short-term memory follow Miller (1956) and Cowan (2001); chunking follows Gobet et al. (2001); recognition rather than recall is Nielsen's heuristic (1994).`)}</p>
+        <p>{tt(`${TK()} The limits of short-term memory follow Miller (1956) and Cowan (2001); chunking follows Gobet et al. (2001); recognition rather than recall is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Chunks are meaningful units, not just shorter pieces: an experienced traveller sees a train number and a platform as one chunk, a newcomer as several. That is why grouping by meaning (all the details of one ticket together) helps more than splitting text at a fixed length.")}</p>
@@ -135,7 +165,7 @@ export function CardA4() {
     <MaterialCard
       id="A4"
       scan={tt("Fitts is the hand, Hick the decision, Miller the memory. On navigation, interaction and interface elements they add up: each adds reaction time, raises the error probability and the cognitive load.")}
-      sources={["yablonski2020", "fitts1954", "hick1952", "miller1956", "sweller1988"]}
+      sources={["yablonski2020", "fitts1954", "hick1952", "miller1956", "sweller1988", "baymard2024"]}
       reasoning={[
         tt("For each hurdle, ask which of the three it is about: reaching a target, choosing between options, or holding information."),
         tt("Many hurdles touch two laws at once, such as a long list of small, similar items (Fitts and Hick)."),
@@ -154,8 +184,17 @@ export function CardA4() {
           [tt("Miller's rule"), tt("The memory: holding information."), tt("Codes and conditions to remember."), tt("Chunked, grouped, shown where needed.")],
         ]}
       />
+      <DataTable
+        caption={tt("The three laws and the limits of the person")}
+        head={[tt("Limit"), tt("What the evidence says"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Speed and accuracy"), tt("In Fitts's experiments, people who aimed to be faster made more errors: speed and accuracy trade off against each other (Fitts 1954)."), tt("A small target in a hurry produces errors; time pressure raises the demands on every law.")],
+          [tt("Load and errors"), tt("Effort spent on the interface leaves less for the task, and the task suffers (Sweller 1988)."), tt("Count the targets to hit, the options to weigh and the items to remember in one step.")],
+          [tt("Completion"), tt("17% of the US online shoppers had abandoned an order in the past quarter because the checkout seemed too long or complicated (Baymard Institute 2024)."), tt("The three limits meet in forms and checkouts: reduce them there first.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The three laws together follow Yablonski (2020); cognitive load follows Sweller (1988).`)}</p>
+        <p>{tt(`${TK()} The three laws together follow Yablonski (2020); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("The laws also trade against each other. Making every target large (Fitts) on a small screen leaves room for fewer options (Hick), which can push some into a second step that has to be remembered (Miller). Good interaction design looks for the arrangement that keeps all three costs low for the most frequent tasks.")}</p>
@@ -169,7 +208,7 @@ export function CardA5() {
     <MaterialCard
       id="A5"
       scan={tt("Good UX reduces searching, operating errors and decision stress; the laws give efficient guidance a basis beyond looks. Weigh measures on effect on users, feasibility, risk and time pressure, with a reason.")}
-      sources={["yablonski2020", "gibbons2018", "wcag22"]}
+      sources={["yablonski2020", "gibbons2018", "wcag22", "standing1973", "nielsen1994", "iyengar2000"]}
       reasoning={[
         tt("Say for each measure which of the three it reduces: searching, operating errors or decision stress."),
         tt("Prefer measures that change a shared element (a button, a menu, a code layout) used on many screens."),
@@ -180,8 +219,17 @@ export function CardA5() {
     >
       <ComicButton comic={COMICS_D5.A5} art={ART_D5} />
       <WeighFig />
+      <DataTable
+        caption={tt("Less searching, fewer errors, less decision stress")}
+        head={[tt("Aim"), tt("Real finding or rule"), tt("What it means for a measure")]}
+        rows={[
+          [tt("Less searching"), tt("Recognition rather than recall is one of the ten heuristics (Nielsen 1994); recognition memory for pictures showed no sign of saturation after 10,000 pictures (Standing 1973)."), tt("Show the option and its words instead of asking people to remember them.")],
+          [tt("Fewer errors"), tt("Error prevention is another of the ten heuristics (Nielsen 1994): design so that the wrong action is hard to take."), tt("Space the targets, separate the destructive action and confirm only what cannot be undone.")],
+          [tt("Less decision stress"), tt("More choice drew more interest and fewer purchases (Iyengar and Lepper 2000)."), tt("Recommend one path and put the alternatives in a secondary place.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.`)}</p>
+        <p>{tt(`${TK()} The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("An aesthetic redesign can make all three laws worse at once: thinner buttons, more items in a sleek menu, information spread over a cleaner layout. A quick check before any visual change: is every main target as large and close as before, are there as few equal options, and is nothing new to remember?")}</p>
@@ -206,8 +254,17 @@ export function CardB1() {
       <ComicButton comic={COMICS_D5.B1} art={ART_D5} />
       <StandardsFig />
       <BusinessChainFig />
+      <DataTable
+        caption={tt("Interaction standards as architecture: examples")}
+        head={[tt("Standard"), tt("Real example"), tt("What it means")]}
+        rows={[
+          [tt("A floor for targets"), tt("WCAG 2.2 sets 24 CSS pixels as the minimum target size at level AA and 44 at level AAA."), tt("A size is a rule that every team meets, not a detail per screen.")],
+          [tt("Rules and components"), tt("Interfaces built from shared rules and components stay consistent (Frost 2016)."), tt("Write the standard once, in the components.")],
+          [tt("The laws as a toolkit"), tt("Laws of UX collects the laws, with examples and their limits (Yablonski 2020)."), tt("Use the laws as a common language between design, product and management.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Building interfaces from shared rules and components follows Frost (2016); the target size floor follows WCAG 2.2.`)}</p>
+        <p>{tt(`${TK()} Building interfaces from shared rules and components follows Frost (2016); the target size floor follows WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("Interaction standards work best when they live in the shared components, not only in a document: a button component that cannot be smaller than the minimum, a menu that warns beyond a number of items. Then a team that builds a new screen gets the standard without having to remember it, which is Miller's rule applied to the organisation.")}</p>
@@ -221,7 +278,7 @@ export function CardB2() {
     <MaterialCard
       id="B2"
       scan={tt("Feature richness against speed, simplicity against brand, the ideal against feasibility. Reduction is not always the answer: give the main actions size and priority, keep the rest reachable.")}
-      sources={["iyengar2000", "gibbons2018", "nielsen2006"]}
+      sources={["iyengar2000", "gibbons2018", "nielsen2006", "larson1998", "hoober2013", "parhi2006"]}
       reasoning={[
         tt("Name the conflict as two goals and say who stands for each: a department, marketing, IT, frequent or occasional users."),
         tt("“Everything at a glance” and “one button, many steps” are both slow; look for main actions first, the rest one step away."),
@@ -241,8 +298,17 @@ export function CardB2() {
           [tt("A minimal brand look against reachability"), tt("The brand team, against users on phones."), tt("Are the main targets still large and close enough?")],
         ]}
       />
+      <DataTable
+        caption={tt("Conflicts of efficient interaction, with evidence")}
+        head={[tt("Conflict"), tt("What the evidence says"), tt("A way to decide")]}
+        rows={[
+          [tt("Feature richness against speed"), tt("Fewer options can mean more decisions (Iyengar and Lepper 2000), and a medium structure beats the broadest one (Larson and Czerwinski 1998)."), tt("Put the actions most users need most often first.")],
+          [tt("Reduction against steps"), tt("More than two levels of progressive disclosure usually lowers usability (Nielsen 2006)."), tt("Count the steps of the frequent task before and after the reduction.")],
+          [tt("A minimal look against reachability"), tt("One-handed use is the most common grip in one observation (Hoober 2013, as reported), and 9.2 mm was the size found enough for thumb use (Parhi et al. 2006)."), tt("Keep the main targets large and in reach, whatever the brand look.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Many options making people choose less follows Iyengar and Lepper (2000); progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score.`)}</p>
+        <p>{tt(`${TK()} Many options making people choose less follows Iyengar and Lepper (2000); progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A useful compromise for “everything visible”: keep every function one tap from the first screen, behind a clearly labelled entry, and give the first screen only to the few actions most users take. The department's functions are still reachable, and the users' main tasks are still fast.")}</p>
@@ -256,7 +322,7 @@ export function CardB3() {
     <MaterialCard
       id="B3"
       scan={tt("Interaction standards hold only with an owner and a rule for exceptions. A decision with incomplete data says what it decides, what it does not know, when it would reverse it and what it gives up.")}
-      sources={["simon1956", "klein2007", "wcag22"]}
+      sources={["simon1956", "klein2007", "wcag22", "conway1968", "parhi2006"]}
       reasoning={[
         tt("Name who owns the interaction standards across all interfaces, and who owns the content."),
         tt("Give exceptions a rule: how often the function is needed and what the error and support data say."),
@@ -275,8 +341,17 @@ export function CardB3() {
           [tt("How a standard changes"), tt("When may a standard itself change?"), tt("Only with evidence from users, errors or support.")],
         ]}
       />
+      <DataTable
+        caption={tt("Owning interaction standards: rules and evidence")}
+        head={[tt("Part"), tt("Evidence or rule"), tt("What it means")]}
+        rows={[
+          [tt("Who owns what"), tt("The structure of a product tends to copy the structure of the organisation behind it (Conway 1968)."), tt("Name one owner of sizes, limits and chunking.")],
+          [tt("How an exception is decided"), tt("WCAG 2.5.8 allows exceptions only in set cases, such as enough space between small targets."), tt("Write down when an exception is allowed and who decides.")],
+          [tt("How a standard changes"), tt("Study results can differ: a student replication of the thumb-size study reported a smaller minimum than the original."), tt("Change a standard on evidence from your own users, errors and support.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).`)}</p>
+        <p>{tt(`${TK()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("When no one records mis-taps, the support contacts are the best available sign: “I booked the wrong ticket”, “I cancelled by mistake”. Counting them before and after a change is a simple way to check a decision made under uncertainty, without waiting for perfect data.")}</p>
