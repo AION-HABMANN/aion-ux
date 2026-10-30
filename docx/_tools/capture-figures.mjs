@@ -2,7 +2,7 @@
 // usage: node capture-figures.mjs <baseUrl> <outDir> [day ...]      e.g.  node capture-figures.mjs http://localhost:4400 ../_figures 1 2 3
 // For each day, route 1 and route 2: every top-level <figure> inside a study card (article#mat-X), the case brief and each task block (section#block-N-N)
 // becomes <outDir>/dN_<scope>_<k>.png; <outDir>/figures.json lists them with the label of the figure.
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 
@@ -11,7 +11,7 @@ const days = dayArgs.length ? dayArgs.map(Number) : Array.from({ length: 16 }, (
 mkdirSync(out, { recursive: true });
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const port = 9700 + Math.floor(Math.random() * 200);
-const prof = 'G:/claude code/AION-HABMANN/aion-ux/docx/_work/cdp-profile'; // one fixed profile on G:, reused: an Edge profile takes about 480 MB, and a new one per run filled C:
+const prof = 'G:/claude code/AION-HABMANN/aion-ux/docx/_work/cdp-profile'; // one fixed profile on G: (an Edge profile is about 480 MB)
 const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--hide-scrollbars', `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, '--window-size=1100,900', '--lang=en-US', 'about:blank'], { stdio: 'ignore' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let targets;
@@ -100,4 +100,4 @@ for (const d of days) {
   }
   writeFileSync(path.join(out, 'figures.json'), JSON.stringify(manifest, null, 1));
 }
-ws.close(); edge.kill();
+ws.close(); spawnSync('taskkill', ['/PID', String(edge.pid), '/T', '/F']);
