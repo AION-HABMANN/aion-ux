@@ -113,7 +113,7 @@ export function CardA3() {
     <MaterialCard
       id="A3"
       scan={tt("Interaction barriers stop people from operating a product. Many people use a keyboard, a switch, voice control or a screen reader: everything must work by keyboard, the focus must be visible, and it must move in a sensible order.")}
-      sources={["wcag22"]}
+      sources={["wcag22", "holmes2018"]}
       reasoning={[
         tt("Put the mouse away and press Tab: can you reach and use everything?"),
         tt("Can you always see where the focus is?"),
@@ -142,7 +142,7 @@ export function CardA3() {
           [tt("Everything by keyboard"), tt("All functionality must be operable through a keyboard interface (WCAG 2.1.1)."), tt("If it only works on hover or by mouse, it does not exist for a keyboard user.")],
           [tt("No trap"), tt("Keyboard focus must not be trapped in a part of the page (WCAG 2.1.2)."), tt("Test that Tab and Shift+Tab can leave every dialog.")],
           [tt("Focus order and visibility"), tt("The focus order must preserve meaning, and the keyboard focus must be visible (WCAG 2.4.3 and 2.4.7)."), tt("Follow the focus with your eyes: it should read like the page.")],
-          [tt("Target size"), tt("Pointer targets should be at least 24 by 24 CSS pixels at level AA (WCAG 2.5.8)."), tt("Small, crowded targets are a barrier for tremor and for thumbs.")],
+          [tt("Target size"), tt("Pointer targets should be at least 24 by 24 CSS pixels at level AA (WCAG 2.5.8)."), tt("Small, crowded targets are a barrier for tremor and for thumbs, and for a person with a broken arm or a baby in one arm (Holmes 2018: permanent, temporary and situational limits).")],
         ]}
       />
       <Callout label={tt("Case assumption")}>

@@ -140,7 +140,7 @@ Light grey secondary text is the most common accessibility failure on the web, a
 | Everything by keyboard | All functionality must be operable through a keyboard interface (WCAG 2.1.1). | If it only works on hover or by mouse, it does not exist for a keyboard user. |
 | No trap | Keyboard focus must not be trapped in a part of the page (WCAG 2.1.2). | Test that Tab and Shift+Tab can leave every dialog. |
 | Focus order and visibility | The focus order must preserve meaning, and the keyboard focus must be visible (WCAG 2.4.3 and 2.4.7). | Follow the focus with your eyes: it should read like the page. |
-| Target size | Pointer targets should be at least 24 by 24 CSS pixels at level AA (WCAG 2.5.8). | Small, crowded targets are a barrier for tremor and for thumbs. |
+| Target size | Pointer targets should be at least 24 by 24 CSS pixels at level AA (WCAG 2.5.8). | Small, crowded targets are a barrier for tremor and for thumbs, and for a person with a broken arm or a baby in one arm (Holmes 2018: permanent, temporary and situational limits). |
 
 :::note Case assumption
 Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Keyboard operability, focus order and visible focus follow WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
@@ -158,7 +158,7 @@ Greenway, Kofi, Liv, Arjun, Sanne and Henrik are made up for this example. Keybo
 A team without a keyboard user often never notices a keyboard barrier, because every one of them uses a mouse. That is why the most damaging barriers are often invisible inside the company: the people who meet them are not in the room. The ten-second test puts them in the room.
 :::
 
-^src: WCAG 2.2
+^src: WCAG 2.2 · Holmes 2018
 
 ## A4 · Barriers in language and structure: plain words, forms, errors, neurodiversity · 12 min · Core
 
