@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is LifeGuide (see the Task document).
 intro: Today is about minds that work differently. You learn what loads people with ADHD, autistic people and people with dyslexia most, how stimuli, predictability and readability decide whether a page can be used, which inclusive design patterns help many groups at once, how assistive technologies fit in, and how to prototype and test so real hurdles show up instead of assumptions. This is the start of the practice project: you sketch an inclusive prototype and a test plan. This document holds everything you need to study Day 13 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: ux,dyslexia,autism,consistency,neurodiversity,adhd,readability,assistive-technology,stimulus-load,case-assumption,typography,governance,attention,neuro-ux,predictability,adaptation-mode,design-logic,inclusive-pattern,orientation,overstimulation,perceived-control,inclusive-design,badge,mental-model,stakeholder,cxo,contrast,component,stimulus-reduction
-refs: barkley2015,pun2016,bda2023,coga2021,houde1997,kelley1984,gibbons2018,holmes2018,simon1956,klein2007
+glossary: dyslexia,wcag,ux,autism,readability,consistency,adhd,neurodiversity,assistive-technology,stimulus-load,case-assumption,typography,governance,predictability,attention,neuro-ux,adaptation-mode,accessibility,design-logic,component,inclusive-pattern,orientation,overstimulation,perceived-control,inclusive-design,line-spacing,badge,mental-model,stakeholder,cxo,contrast,body-text,stimulus-reduction
+refs: barkley2015,pun2016,bda2023,polanczyk2007,who2022autism,dyslexiaaction,coga2021,wcag22,rello2013,houde1997,kelley1984,gibbons2018,nielsen2000five,holmes2018,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -42,8 +42,17 @@ About 60 minutes, five cards. Levels 1 and 2: find the hurdles of a learning pla
 | Autism | Sensory overload, unclear navigation logic, inconsistent patterns, ambiguous words. | Calm colours, the same patterns everywhere, literal and descriptive words. |
 | Dyslexia | Difficult reading structures, unsuitable typography, unclear structure, complex language. | Left-aligned, readable type, spacing, headings, plain language, read-aloud. |
 
+**Different minds, different loads: how many people, and what the guidance says**
+
+| Topic | Real finding | What it means for a screen |
+|---|---|---|
+| ADHD | A review of 102 studies with 171,756 children and adolescents found a pooled worldwide prevalence of ADHD of 5.29% (Polanczyk et al. 2007). | Distraction-prone users are in every audience: a quiet default serves them and everyone else. |
+| Autism | About one in 100 children has autism, as an average estimate with large differences between studies (World Health Organization 2022). | A predictable, literal interface is not a special case. |
+| Dyslexia | How many people have dyslexia depends on the definition and is best seen as a continuum; the often-quoted 10% has no traceable source (Dyslexia Action). | Design for a range of reading ability, not for a label. |
+| Where the guidance comes from | The W3C working group on cognitive accessibility publishes objectives and patterns as supplemental guidance beyond WCAG; following it is not required for WCAG conformance (W3C COGA 2021). | Use the patterns as a design toolkit and test them; do not claim conformance from them. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. The load factors are the ones the plan names; ADHD as a difference in attention and executive function follows Barkley (2015); the dos and don'ts follow the Home Office posters (Pun 2016) and the British Dyslexia Association (2023).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. The load factors are the ones the plan names; ADHD as a difference in attention and executive function follows Barkley (2015); the dos and don'ts follow the Home Office posters (Pun 2016) and the British Dyslexia Association (2023). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -58,7 +67,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Th
 Many hurdles come less from technology than from the mental model of the people who design: a team that reads fast, ignores banners easily and likes variety builds a product for people like itself. Neurodiversity asks the team to design for minds that work differently from their own, and to test with them, because intuition is exactly what fails here.
 :::
 
-^src: Barkley 2015 · Pun 2016 · British Dyslexia Association 2023
+^src: Barkley 2015 · Pun 2016 · British Dyslexia Association 2023 · Polanczyk et al. 2007 · WHO autism fact sheet · Dyslexia Action · W3C COGA 2021
 
 ## A2 · Stimuli and focus: when a page is too much (ADHD, sensory sensitivity) · 12 min · Core
 
@@ -74,8 +83,17 @@ Many hurdles come less from technology than from the mental model of the people 
 
 ![Moving house at Hearth Energy as one long form or as three steps. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d13_A2_1.png)
 
+**Stimuli and focus: rules**
+
+| Topic | Real rule | What it means for a screen |
+|---|---|---|
+| Moving content | Content that moves, blinks or scrolls, starts automatically and lasts more than five seconds must have a mechanism to pause, stop or hide it (WCAG 2.2.2). | No auto-playing carousels, tickers or animated backgrounds without a stop. |
+| Timing | Where a time limit is set, users must be able to turn it off, adjust it or extend it (WCAG 2.2.1). | Do not rush a task that needs thought. |
+| Motion on request | Browsers pass on the user's setting for reduced motion (the prefers-reduced-motion media feature), and WCAG 2.3.3 asks that motion triggered by interaction can be disabled (level AAA). | Respect the setting: calm by choice, lively by choice. |
+| Redundant entry | WCAG 2.2 asks that information a user already gave in the same process is not asked for again (3.3.7). | Carry data across steps: it spares the memory and the patience. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Limiting interruptions, avoiding too much content and five or fewer main choices per screen follow the W3C's “Making Content Usable” (2021).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Limiting interruptions, avoiding too much content and five or fewer main choices per screen follow the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -90,7 +108,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Li
 Stimulus reduction is often resisted because each element has an owner who wants it seen. The page fills up one reasonable request at a time. A rule such as “one main task per screen, everything else quiet” protects the page from its own stakeholders, and it helps the customers who never asked for the extras.
 :::
 
-^src: W3C COGA 2021 · Barkley 2015
+^src: W3C COGA 2021 · Barkley 2015 · WCAG 2.2
 
 ## A3 · Predictability: consistent patterns and literal words (autism) · 12 min · Core
 
@@ -113,8 +131,17 @@ Stimulus reduction is often resisted because each element has an owner who wants
 | “Hang tight…” | “Loading your bills. This takes about 10 seconds.” | No idiom; a time to expect. |
 | “Oops, something went sideways” | “We could not save your reading. Please try again.” | What happened, and what to do. |
 
+**Predictability and literal words: rules and guidance**
+
+| Topic | Real rule or guidance | What it means for a screen |
+|---|---|---|
+| Consistent navigation | Navigation that repeats on several pages must keep the same relative order (WCAG 3.2.3), and components with the same function must be identified consistently (3.2.4). | Keep the same pattern in the same place on every page. |
+| Labels and instructions | Labels or instructions must be provided where content asks for user input (WCAG 3.3.2). | Say what is asked and in what format, before the person types. |
+| Understand and find | Among the objectives of the cognitive accessibility guidance are helping users understand what things are and how to use them, and helping users find what they need (W3C COGA 2021). | Use literal, descriptive words; avoid idioms and jokes in instructions. |
+| Unusual words | WCAG asks at its highest level that a mechanism is available for finding the meaning of unusual words, idioms and jargon (3.1.3). | If you must use a term, explain it where it appears. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Descriptive buttons, simple consistent layouts and no figures of speech follow the Home Office poster for users on the autistic spectrum (Pun 2016).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Descriptive buttons, simple consistent layouts and no figures of speech follow the Home Office poster for users on the autistic spectrum (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -129,7 +156,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. De
 Playful copy (“Oops!”, “Let's go!”) is often added to make a product feel friendly. For many autistic people, and for anyone using a translation tool or reading in a second language, it does the opposite: it hides what happened. Friendliness can be in the tone of a literal sentence; it does not need idioms.
 :::
 
-^src: Pun 2016 · W3C COGA 2021
+^src: Pun 2016 · W3C COGA 2021 · WCAG 2.2
 
 ## A4 · Readability: text structure, typography and language (dyslexia) · 12 min · Core
 
@@ -143,8 +170,17 @@ Playful copy (“Oops!”, “Let's go!”) is often added to make a product fee
 
 ![A Hearth Energy notice whose typography and language you can change · Exploratory.](_figures/d13_A4_0.png)
 
+**Readability: what was tested**
+
+| Finding | What was measured | What it means for a screen |
+|---|---|---|
+| Fonts | Forty-eight readers with dyslexia read twelve texts in twelve fonts; Helvetica, Courier, Arial, Verdana and Computer Modern Unicode came out as good fonts, and italic fonts consistently reduced readability (Rello and Baeza-Yates 2013). | Use a plain sans-serif for body text and avoid italics for blocks of text. |
+| A special font | In the same study a font made for dyslexia did not lead to better or worse readability than the standard fonts, and the participants preferred Verdana and Helvetica (Rello and Baeza-Yates 2013). | A special font is not a shortcut: structure, size and spacing matter more. |
+| A style guide | The dyslexia style guide of the British Dyslexia Association recommends plain, left-aligned text with good spacing; summaries of it name sans-serif type of at least 12 points and a line spacing of about 1.5 (British Dyslexia Association 2023, as reported). | Set type size and line spacing as rules in your components. |
+| Reading level | WCAG asks at its highest level for supplemental content when text requires a reading ability beyond the lower secondary level (3.1.5). | Write at the level of the audience and give a summary where needed. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. The typography advice follows the British Dyslexia Association's style guide (2023) and the Home Office poster for users with dyslexia (Pun 2016).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. The typography advice follows the British Dyslexia Association's style guide (2023) and the Home Office poster for users with dyslexia (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -159,7 +195,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Th
 Justified text is a print habit. On paper, with careful hyphenation, it looks tidy; on a screen it opens uneven gaps between words that form “rivers” down the text, and readers with dyslexia lose their place in them. Left alignment costs nothing and removes the problem.
 :::
 
-^src: British Dyslexia Association 2023 · Pun 2016
+^src: British Dyslexia Association 2023 · Pun 2016 · Rello & Baeza-Yates 2013 · WCAG 2.2
 
 ## A5 · Inclusive patterns, assistive technologies, and testing a prototype · 12 min · Core
 
@@ -186,8 +222,17 @@ Justified text is a print habit. On paper, with careful hyphenation, it looks ti
 | What we watch | Orientation, stimulus load, task completion, readability, the feeling of control. |
 | How we evaluate | Where people stopped, hesitated, misread or felt unsure; quotes; then the next change. |
 
+**Patterns, assistive technology and testing: evidence**
+
+| Topic | Real finding or rule | What it means for a test |
+|---|---|---|
+| How many to test | In Nielsen's model, five users find about 85% of the usability problems of a design in a qualitative test; for each distinct group of users more are needed (Nielsen 2000, as reported). | Plan six or so participants per round, from several groups, and test again after fixes. |
+| What a prototype shows | A prototype can answer questions about role, look and feel and implementation (Houde and Hill 1997), and a hidden human can play the system in an early test (Kelley 1984). | Say which question the prototype answers, and test before you build. |
+| Authentication | WCAG 2.2 asks that a login does not depend on remembering or transcribing a code, unless an alternative is offered (3.3.8). | Test the login with a password manager and with paste. |
+| Self-determined use | People use their own assistive technologies and settings, such as a screen reader, reduced motion or a text size (WCAG 1.4.4, 2.3.3). | Test with people's own settings and tools. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Including people in usability testing and asking ahead about support follow the W3C's “Making Content Usable” (2021); choosing a prototype by its question follows Houde and Hill (1997) and Kelley (1984); rating options on the same criteria follows Gibbons (2018).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Including people in usability testing and asking ahead about support follow the W3C's “Making Content Usable” (2021); choosing a prototype by its question follows Houde and Hill (1997) and Kelley (1984); rating options on the same criteria follows Gibbons (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -202,7 +247,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. In
 Inclusive design is often presented as adaptation: extra options for people who need them. The stronger argument is architecture: the patterns that neurodivergent people need most (calm, consistent, readable, step by step) make the product better for nearly everyone, and they make assistive technology work. A better base is cheaper than many special cases.
 :::
 
-^src: W3C COGA 2021 · Houde & Hill 1997 · Kelley 1984 · Gibbons 2018
+^src: W3C COGA 2021 · Houde & Hill 1997 · Kelley 1984 · Gibbons 2018 · Nielsen 2000 · WCAG 2.2
 
 # Materi B · Route 2 · Level 3
 
@@ -224,8 +269,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of a neurodiverse UX architecture, from a guiding vision to every product.](_figures/d13_B1_1.png)
 
+**Neurodiverse UX as a better base architecture: structures**
+
+| Part | Real example or rule | What it means |
+|---|---|---|
+| A shared base | WCAG 2.2 added criteria that help people with cognitive and learning disabilities, such as redundant entry, accessible authentication and target size (WCAG 2.2). | Put the criteria into the base components, so every team inherits them. |
+| Supplemental guidance | The cognitive accessibility guidance gives objectives and patterns beyond WCAG (W3C COGA 2021). | Adopt the patterns that fit your journeys and test them. |
+| Mismatch as a view | Holmes treats disability as a mismatch between a person and a design and shows that solutions for one group extend to many (Holmes 2018). | Design the base for the range, not for the average. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Inclusion as better design for many follows Holmes (2018); a simplified version from the same code base follows the W3C's “Making Content Usable” (2021).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Inclusion as better design for many follows Holmes (2018); a simplified version from the same code base follows the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -240,7 +293,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. In
 The “easy mode” is attractive to management because it is visible and contained: one switch, one announcement. It is also the version that changes least for most customers. The harder message for a board is that the default itself is the product most people use, and that is where inclusion has to happen.
 :::
 
-^src: W3C COGA 2021 · Holmes 2018
+^src: W3C COGA 2021 · Holmes 2018 · WCAG 2.2
 
 ## B2 · One standard or many modes: the conflicts of neurodiverse UX · 20 min · Core
 
@@ -263,8 +316,16 @@ The “easy mode” is attractive to management because it is visible and contai
 | Economic viability against diversity | Finance, against users. | What does the busy default cost in support calls and abandoned tasks? |
 | Test effort against the risk of not testing | Finance, against research. | Which small test would find the most serious hurdles? |
 
+**Conflicts of neurodiverse UX, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| One standard against individual adaptation | A special font did not beat plain standard fonts in a study with readers with dyslexia (Rello and Baeza-Yates 2013). | Ask which needs pull apart and which are shared; solve the shared ones in the base first. |
+| A dynamic brand against a calm interface | Auto-playing movement must be stoppable (WCAG 2.2.2). | Let the brand live in images and headlines and keep the task area calm. |
+| Test effort against the risk of not testing | Five participants find most problems in a qualitative test (Nielsen 2000, as reported). | Run a small test early rather than a large one late. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. That some needs pull in different directions, and that testing finds the balance, follows the Home Office's note on its posters (Pun 2016).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. That some needs pull in different directions, and that testing finds the balance, follows the Home Office's note on its posters (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -279,7 +340,7 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Th
 The most expensive assumption is usually “neurodivergent customers are a small group”. Many people never had a diagnosis, and anyone under stress (after a high bill, a bereavement, a move) processes like someone with less attention to spare. Designing for the stressed customer is designing for a large share of the customers who matter most to a service.
 :::
 
-^src: W3C COGA 2021 · Pun 2016
+^src: W3C COGA 2021 · Pun 2016 · Rello & Baeza-Yates 2013 · WCAG 2.2 · Nielsen 2000
 
 ## B3 · Who owns it, how it is tested, and deciding with patchy data · 20 min · Core
 
@@ -302,8 +363,16 @@ The most expensive assumption is usually “neurodivergent customers are a small
 | Checks | How does each release keep the base calm and consistent? | A pattern check in the definition of done. |
 | How a conflict is decided | What happens when brand, technology, product logic and inclusion disagree? | Completing a task in stress first, then brand, then convenience; the board settles a tie. |
 
+**Owning neurodiverse UX: real rules**
+
+| Part | Real rule or source | What it means |
+|---|---|---|
+| Test strategy | A small qualitative test with several groups finds most serious problems (Nielsen 2000, as reported). | Fix the number and the groups in the plan, and name who runs it. |
+| Checks | WCAG 2.2 gives testable criteria for each requirement. | Put a pattern check in the definition of done. |
+| Owners | Supplemental patterns have no conformance level of their own (W3C COGA 2021). | Name an owner for the patterns, or they are not applied. |
+
 :::note Case assumption
-Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Including people with cognitive and learning disabilities in research and testing follows the W3C's “Making Content Usable” (2021); deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. Including people with cognitive and learning disabilities in research and testing follows the W3C's “Making Content Usable” (2021); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -318,4 +387,4 @@ Hearth Energy, Ayo, Mirko, Tilda, Pia and Lukas are made up for this example. In
 Without an owner, a design system drifts: each product adds one exception, and two years later the consistency that autistic customers relied on is gone. Owning the patterns means saying no to exceptions, and it is the least visible and most important job in neurodiverse UX.
 :::
 
-^src: W3C COGA 2021 · Simon 1956 · Klein 2007
+^src: W3C COGA 2021 · Simon 1956 · Klein 2007 · Nielsen 2000 · WCAG 2.2

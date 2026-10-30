@@ -8,7 +8,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { REFERENCES } from "../data/references";
 
-const DEPTH_CHECKED = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const DEPTH_CHECKED = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let fail = 0;
 const ok = (c: boolean, m: string) => { console.log(`${c ? "ok  " : "FAIL"}  ${m}`); if (!c) fail++; };
 
