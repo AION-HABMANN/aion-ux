@@ -15,9 +15,9 @@ import type { MaterialId, MaterialMeta, PlainExplain } from "@/data/materialType
 const METAS: MaterialMeta[] = bi([
   { id: "A1" as MaterialId, block: "A" as const, title: t("Intuitive use is designed: perception, attention, memory and action"), minutes: 12 },
   { id: "A2" as MaterialId, block: "A" as const, title: t("How people compare options and decide: Hick's law and the cost of choice"), minutes: 12 },
-  { id: "A3" as MaterialId, block: "A" as const, title: t("Expectations, recognisability and a clear action logic: mental models and Fitts's law"), minutes: 12 },
+  { id: "A3" as MaterialId, block: "A" as const, title: t("Expectations, recognisability and a clear action logic: mental models and Fitts's law"), minutes: 13 },
   { id: "A4" as MaterialId, block: "A" as const, title: t("Memory and load: Miller's rule, and why load causes errors, abandonment and uncertainty"), minutes: 12 },
-  { id: "A5" as MaterialId, block: "A" as const, title: t("UX laws as tools against friction, and weighing a measure"), minutes: 12 },
+  { id: "A5" as MaterialId, block: "A" as const, title: t("UX laws as tools against friction, and weighing a measure"), minutes: 11 },
   { id: "B1" as MaterialId, block: "B" as const, title: t("Usability as a strategic factor: reducing friction in the whole system"), minutes: 20 },
   { id: "B2" as MaterialId, block: "B" as const, title: t("Conflicts of goals: scope of functions against simplicity, completeness against efficiency"), minutes: 20 },
   { id: "B3" as MaterialId, block: "B" as const, title: t("Who owns the interaction logic, and deciding with partial user data"), minutes: 20 },
@@ -33,7 +33,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks where ServicePoint feels unclear or tiring and which obstacles stop intuitive use, and Block 2.1 asks for MyEnergy's problems of use and cognition. This card gives you the four steps to locate the friction and the difference between looking simple and being intuitive.",
     ),
     picture: t(
-      "First the four steps from seeing to acting. Then the same Pedalo screen twice: designed to look simple and designed to be intuitive. Choose one and read what Nina can do. Press “Read the comic” for a short story.",
+      "First the four steps from seeing to acting. Then the same Pedalo screen twice: designed to look simple and designed to be intuitive. Choose one and read what Nina can do. Press “Read the comic” for a short story. Tables of the evidence follow.",
     ),
   },
   A2: {
@@ -44,7 +44,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about ServicePoint's many equal menu items and new choices after every step, Block 1.2 asks you to rate WorkFlow Hub's variant with very many options against the reduced one, and Block 2.1 asks about MyEnergy's too many equal navigation items. This card gives you the reason and the limits of Hick's law.",
     ),
     picture: t(
-      "One Pedalo pass page in two forms: twelve equal passes, and three recommended passes with “All passes” below. Choose one and read how long Sam needs to decide. Press “Read the comic” for a short story.",
+      "One Pedalo pass page in two forms: twelve equal passes, and three recommended passes with “All passes” below. Choose one and read how long Sam needs to decide. Press “Read the comic” for a short story. Then a second working example, the help topics in three structures, and a table of findings on choice.",
     ),
   },
   A3: {
@@ -55,7 +55,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about ServicePoint's unclear path and missing feedback, Block 1.2 asks about WorkFlow Hub's changing patterns between areas, and Block 2.1 asks about MyEnergy's invisible process logic. You need mental models and a clear action logic to say why these hurt.",
     ),
     picture: t(
-      "One Pedalo screen with three switches: the button where people expect it, a large target near the thumb, and the same pattern on every screen. Switch them on one at a time and read what Nina can now do.",
+      "One Pedalo screen with three switches: the button where people expect it, a large target near the thumb, and the same pattern on every screen. Switch them on one at a time and read what Nina can now do. A table of the numbers and rules for targets, expectations and mental models follows.",
     ),
   },
   A4: {
@@ -66,7 +66,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks about ServicePoint's intermediate steps that must be remembered, and Block 2.1 asks about MyEnergy's information to remember across steps and its unclear feedback. This card gives you the limit and what it does to errors and abandonment.",
     ),
     picture: t(
-      "The same Pedalo unlock step twice: Sam has to remember a code from the previous screen, or the system carries it for him. Choose one and read what happens. Press “Read the comic” for a short story.",
+      "The same Pedalo unlock step twice: Sam has to remember a code from the previous screen, or the system carries it for him. Choose one and read what happens. Press “Read the comic” for a short story. A table of findings on memory and load follows.",
     ),
   },
   A5: {
@@ -77,7 +77,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 1.1 asks for the two biggest hurdles, Block 1.2 for a decision between three navigation variants, and Block 2.1 for four measures, their justification on these four criteria and a decision for 12 weeks. The example uses Pedalo and its own measures, so the answer for the task cases is not given.",
     ),
     picture: t(
-      "Three measures Pedalo considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark.",
+      "Three measures Pedalo considered, rated on effect on users, feasibility, risk and time pressure. Select a cell to read the reason for its rating. A rating is a reading of the example, not a mark. A table on the laws of UX and where they stop follows.",
     ),
   },
   B1: {
@@ -88,7 +88,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a guiding vision for intuitive use, three decisions on orientation, efficiency, complexity and main tasks, and an order of the systems or processes to improve first, for a company that discusses new functions while central problems remain. You decide what comes first in the whole system.",
     ),
     picture: t(
-      "Left Pedalo answering problems with new functions, right reducing friction first. Below, the chain from a screen to the whole product system. Nothing to click.",
+      "Left Pedalo answering problems with new functions, right reducing friction first. Below, the chain from a screen to the whole product system. Nothing to click. A table of evidence follows.",
     ),
   },
   B2: {
@@ -99,7 +99,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for three guiding decisions, a risk analysis about user behaviour and internal requirements, and a governance model for conflicts between departments that want variety and users who need simplicity. Each of these is a decision between conflicting goals.",
     ),
     picture: t(
-      "The matrix places five Pedalo designs by how many functions they show at once (to the right) and how easily riders finish their task (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story.",
+      "The matrix places five Pedalo designs by how many functions they show at once (to the right) and how easily riders finish their task (upwards). A position is a reading of the example, not a score. Select a point to read why it sits there. Press “Read the comic” for a short story. A table of conflicts with evidence follows.",
     ),
   },
   B3: {
@@ -110,7 +110,7 @@ const PLAIN: Record<MaterialId, PlainExplain> = bi({
       "Block 3.1 asks for a governance model for the interaction logic, a decision despite incomplete data, and a statement to the management. This card gives you the parts of each.",
     ),
     picture: t(
-      "The four boxes at the top are the parts of a decision, filled in for Pedalo. The two boxes below are the rule for future decisions. Nothing to click.",
+      "The four boxes at the top are the parts of a decision, filled in for Pedalo. The two boxes below are the rule for future decisions. Nothing to click. A table of evidence and rules follows.",
     ),
   },
 });

@@ -217,3 +217,68 @@ export function MemoryLab() {
     />
   );
 }
+
+/* ------------------------------------------------------------------ A2 · the same help topics in three structures */
+
+type Node = { label: string; kids?: Node[] };
+const TOPICS = (): Node[] => {
+  const g = (label: string, kids: string[]): Node => ({ label, kids: kids.map((k) => ({ label: k })) });
+  const riding = g(tt("Riding"), [tt("Unlock a bike"), tt("Lock a bike"), tt("Pause a ride"), tt("Ride too long")]);
+  const problems = g(tt("Problems"), [tt("Report a broken bike"), tt("Report a stolen bike"), tt("Bike will not lock"), tt("Report an accident")]);
+  const account = g(tt("Account"), [tt("Change email"), tt("Payment method"), tt("Delete account"), tt("Ride history")]);
+  const plans = g(tt("Plans"), [tt("Day pass"), tt("Monthly plan"), tt("Student plan"), tt("Pause my plan")]);
+  return [riding, problems, account, plans];
+};
+const leaves = (n: Node): Node[] => (n.kids ? n.kids.flatMap(leaves) : [n]);
+
+function Help({ ctx, kind }: { ctx: LabCtx; kind: "flat" | "two" | "three" }) {
+  const [path, setPath] = useState<number[]>([]);
+  const groups = TOPICS();
+  const root: Node =
+    kind === "flat"
+      ? { label: "", kids: [0, 2, 1, 3].flatMap((i) => leaves(groups[i])).sort((a, b) => (a.label.length * 7) % 5 - (b.label.length * 7) % 5 || a.label.localeCompare(b.label)) }
+      : kind === "two"
+        ? { label: "", kids: groups }
+        : { label: "", kids: [{ label: tt("Using a bike"), kids: [groups[0], groups[1]] }, { label: tt("My account"), kids: [groups[2], groups[3]] }] };
+  let node = root;
+  for (const i of path) node = node.kids![i];
+  if (ctx.finished) return <Done text={tt(`Found “Report a broken bike” in ${path.length} step(s)`)} />;
+  return (
+    <AppScreen brand={Brand} color={ACC}>
+      <p className="text-[14px] font-bold">{tt("Help")}</p>
+      {path.length > 0 && <button type="button" onClick={() => { setPath(path.slice(0, -1)); ctx.hit(tt("Went back")); }} className="text-[12px] underline">{tt("← Back")}</button>}
+      <div className="space-y-1">
+        {node.kids!.map((k, i) => (
+          <button
+            key={k.label + i}
+            type="button"
+            onClick={() => {
+              if (k.kids) { setPath([...path, i]); ctx.hit(tt(`Opened ${k.label}`)); }
+              else if (k.label === tt("Report a broken bike")) ctx.done(tt("Opened Report a broken bike"));
+              else ctx.miss(tt(`Opened ${k.label}`));
+            }}
+            className="block w-full rounded border border-[#CBD5E1] bg-white px-2 py-1.5 text-left text-[12.5px]"
+          >
+            {k.label}{k.kids ? " ›" : ""}
+          </button>
+        ))}
+      </div>
+    </AppScreen>
+  );
+}
+
+export function StructureLab() {
+  return (
+    <TaskLab
+      label={tt("The same sixteen Pedalo help topics in three structures · a working product · Case assumption, example company")}
+      point={tt("More options cost decision time, and more levels cost steps and the chance to lose the way. In a study of web structures, a medium structure beat both the broadest, shallowest one and a deeper one. Find the same topic in each structure and compare the time and the wrong taps.")}
+      task={tt("You are Sam. Your bike has a broken brake. Find “Report a broken bike”.")}
+      stresses={["hurry", "ping", "small"]}
+      versions={[
+        { id: "flat", label: tt("One list of sixteen"), render: (ctx) => <Help ctx={ctx} kind="flat" />, insight: tt("In plain words: no steps, but sixteen topics in no useful order. Sam reads down the list and compares each line with what he needs.") },
+        { id: "two", label: tt("Four groups of four"), render: (ctx) => <Help ctx={ctx} kind="two" />, insight: tt("In plain words: four clear group names, then four topics each. Sam decides twice among four things and finds the topic in two steps.") },
+        { id: "three", label: tt("Three levels"), render: (ctx) => <Help ctx={ctx} kind="three" />, insight: tt("In plain words: two choices, then two, then four. Every choice is easy, but the extra level adds a step and one more place to take a wrong turn.") },
+      ]}
+    />
+  );
+}
