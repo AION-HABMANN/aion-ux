@@ -246,6 +246,7 @@ Day 1 is the reference (commit `d6b6076`): the term table with a finding per wor
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-30 | Day 11 Materi deepened under rule 2.17: all 10 Wissen topics now full, with verified real findings and rules (word error rate in a test and across speakers, hands-free distraction, WCAG 2.5.3, Wizard of Oz, prototype questions, EU AI Act Article 50), Day 11 added to `DEPTH_CHECKED`. | Day 11 |
 | 2026-10-30 | Day 10 Materi deepened under rule 2.17: all 12 Wissen topics now full, with verified real findings and rules (mixed initiative, the 18 human-AI guidelines, Netflix recommendations, the Facebook exposure study, use and misuse of automation, trust in automation, GDPR Articles 13 to 15 and 22, EU AI Act Article 50), Day 10 added to `DEPTH_CHECKED`. | Day 10 |
 | 2026-10-30 | Day 9 Materi deepened under rule 2.17: all 12 Wissen bullets now full, with verified real findings and cases (the definition and the review of 24 studies, self-determination theory, the meta-analysis of 128 experiments, the overjustification study, the BE FIT trial with its decay, dark patterns and DSA Article 25), Day 9 added to `DEPTH_CHECKED`. | Day 9 |
 | 2026-10-30 | Day 8 Materi deepened under rule 2.17: all 12 Wissen bullets now full, with verified real findings and cases (narrative thinking, transportation, goal gradient and endowed progress, Freytag, the GOV.UK one-question-per-page pattern, Nielsen and Morkes, DSA Article 25), Day 8 added to `DEPTH_CHECKED`. | Day 8 |
