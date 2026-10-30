@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is GreenHome (see the Task document).
 intro: Today is about the story a digital product tells while people use it. You learn why people experience a process as a journey and not only as a list of functions, the elements of narrative guidance (a starting situation, a goal, relevance, an obstacle, support, progress, a resolution), the dramaturgical means of tension, expectation, sequence, transition, confirmation and emotional context, how they raise orientation, motivation and memorability, and where storytelling turns into overload. Then you use it on three products. This document holds everything you need to study Day 8 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: ux,storytelling-ux,dramaturgy,governance,case-assumption,narrative-guidance,transition,orientation,neuro-ux,activation,brand,experience-quality,decision-arch,design-logic,goal-gradient,onboarding,ui,attention,hypothesis,touchpoint,cxo,emotional-bond
-refs: bruner1991,quesenbery2010,lupton2017,freytag1863,kivetz2006,nielsen1994,green2000,krug2014,gibbons2018,simon1956,klein2007
+glossary: ux,storytelling-ux,design-logic,dramaturgy,governance,narrative-guidance,case-assumption,transition,orientation,neuro-ux,brand,activation,attention,experience-quality,decision-arch,goal-gradient,onboarding,ui,hypothesis,touchpoint,cxo,emotional-bond,dark-pattern,tone-guide
+refs: bruner1991,quesenbery2010,lupton2017,green2000,kivetz2006,nunes2006,freytag1863,govukQuestion,nielsen1994,govukForms,gdsOneThing2015,krug2014,kahneman1993,nielsen1997,gibbons2018,foggWeb2003,mailchimpVoice,mathur2019,gds2012,simon1956,klein2007,dsa2022
 ---
 
 [[CONTENTS]]
@@ -43,8 +43,17 @@ About 60 minutes, five cards. Levels 1 and 2: describe the narrative gaps of an 
 | A way | How far have I come, how much is left? | It feels endless; they give up halfway. |
 | An end | Am I done, and was it worth it? | They are unsure it worked. |
 
+**Why people experience a process as a story: evidence**
+
+| Idea | Real finding | What it means for a screen |
+|---|---|---|
+| Narrative as a way of thinking | Jerome Bruner described narrative as one of two basic ways in which people order experience, next to logical argument (Bruner 1991). | People make sense of a sequence of steps as “what happens to me”, whether or not the designer meant a story. |
+| Absorption | Green and Brock described transportation: absorption into a story through imagery, feeling and focused attention, which makes people more open to the story's view (Green and Brock 2000). | A well-told step holds attention; the same effect can carry a message that has not been checked, so tell only what is true. |
+| Progress pulls | In a real café reward programme, customers bought coffee more often the closer they were to a free coffee, and customers who got a card with two stamps already filled in completed it faster (Kivetz et al. 2006). | Show where the person is on the way, because the felt distance to the goal drives effort. |
+| A head start | At a car wash, customers who got a card that needed ten stamps with two filled in were compared with customers who got a card that needed eight (Nunes and Drèze 2006; the study is often quoted for its effect on completion). | A visible head start makes a long path feel begun. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Narrative as a way of making sense of experience follows Bruner (1991); storytelling for user experience follows Quesenbery and Brooks (2010); design as a sequence with a beginning, tension and resolution follows Lupton (2017).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Narrative as a way of making sense of experience follows Bruner (1991); storytelling for user experience follows Quesenbery and Brooks (2010); design as a sequence with a beginning, tension and resolution follows Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -59,7 +68,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Narra
 Bruner (1991) argued that people do not store experience as a list of facts but as stories with actors, goals and turns. In a digital product the actor is the user, the goal is what they came to do, and the turns are the steps, the obstacles and the help. A product that does not offer this structure leaves people to build it themselves, and many give up before they do.
 :::
 
-^src: Bruner 1991 · Quesenbery & Brooks 2010 · Lupton 2017
+^src: Bruner 1991 · Quesenbery & Brooks 2010 · Lupton 2017 · Green & Brock 2000 · Kivetz et al. 2006 · Nunes & Drèze 2006
 
 ## A2 · The elements of narrative guidance: from starting point to resolution · 12 min · Core
 
@@ -85,8 +94,17 @@ Bruner (1991) argued that people do not store experience as a list of facts but 
 | Progress | How far the hero has come. | A path of stages with “you are here”. |
 | Resolution | The goal reached. | The plan shown, the next step named. |
 
+**The elements of narrative guidance: sources and use**
+
+| Source | Real finding or example | What it means for a screen |
+|---|---|---|
+| Dramatic structure | Gustav Freytag described a drama as a pyramid of exposition, rising action, climax, falling action and resolution (Freytag 1863). | Start with the situation, build to the decision, and end with a clear resolution. |
+| Stories in UX | Quesenbery and Brooks describe how stories help teams and users with context, goals and obstacles (Quesenbery and Brooks 2010). | Write the starting situation and the goal in the person's words, not the company's. |
+| One step at a time | The GOV.UK Design System asks, in its question pages pattern, to start with one question per page, so users understand what they are asked and can focus on it (GOV.UK Design System). | A sequence gives a path with an end: each page is a step. |
+| Progress | Customers bought more often as they neared a reward (Kivetz et al. 2006). | Show a path of stages with “you are here”. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The dramatic arc follows Freytag (1863); people speeding up as they see a goal come closer follows Kivetz et al. (2006).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The dramatic arc follows Freytag (1863); people speeding up as they see a goal come closer follows Kivetz et al. (2006). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -101,7 +119,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The d
 Kivetz et al. (2006) showed the goal-gradient effect: people work faster the closer they see themselves to a goal, and even an illusion of progress (a card that starts with two stamps already filled) makes them finish more often. In a journey this is why visible progress matters most in the middle, where people are furthest from both the start and the end and most likely to stop.
 :::
 
-^src: Quesenbery & Brooks 2010 · Freytag 1863 · Kivetz et al. 2006
+^src: Quesenbery & Brooks 2010 · Freytag 1863 · Kivetz et al. 2006 · GOV.UK Design System, Question pages
 
 ## A3 · Telling a story or guiding with one: dramaturgy in a journey · 12 min · Core
 
@@ -124,8 +142,17 @@ Kivetz et al. (2006) showed the goal-gradient effect: people work faster the clo
 | Whose story | The company's. | The user's. |
 | Its cost | Attention and time before the task. | A line or two inside the task. |
 
+**Narrative communication or narrative guidance: a real pattern**
+
+| Topic | Real finding or example | What it means for a screen |
+|---|---|---|
+| A real pattern of guidance | The GOV.UK Service Manual advises to split a form across several pages with each page containing just one thing (GOV.UK Service Manual, Form structure). | Structure the journey by what the person decides now, page by page. |
+| What it buys | A 2015 GDS design note found the one-question-per-page layout better at handling errors, branches, loops and saving progress than the alternatives it compared (Government Digital Service 2015). | The sequence is not only dramaturgy: it carries the logic of the process. |
+| What it costs | The pattern lengthens a form, so a service should only ask for what it needs (Scottish Government Design System; GOV.UK Design System). | Count the pages: each transition needs a reason. |
+| System status | Keep users informed about what is going on, through appropriate feedback within a reasonable time (Nielsen 1994). | Each transition says where you are and what comes next. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The dramatic arc follows Freytag (1863) and its use in design follows Lupton (2017); visibility of system status is Nielsen's heuristic (1994).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The dramatic arc follows Freytag (1863) and its use in design follows Lupton (2017); visibility of system status is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -140,7 +167,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The d
 A good transition has three parts and fits in one line: a confirmation of what was done (“Your room is in.”), the expectation of what comes next (“Next: your style.”) and a word on its size or difficulty (“A few choices, all changeable.”). It is the cheapest piece of dramaturgy there is, and the one most often missing.
 :::
 
-^src: Lupton 2017 · Freytag 1863 · Nielsen 1994
+^src: Lupton 2017 · Freytag 1863 · Nielsen 1994 · GOV.UK Service Manual, Form structure · Government Digital Service 2015 · GOV.UK Design System, Question pages
 
 ## A4 · Orientation, motivation and memorability, and the risk of overload · 12 min · Core
 
@@ -163,8 +190,17 @@ A good transition has three parts and fits in one line: a confirmation of what w
 | A real ending | Memorability: I remember it worked. | A finale that delays the result. |
 | The user's goal | Relevance and bond: this is for me. | The brand's story instead of mine. |
 
+**Orientation, motivation, memory and overload: findings**
+
+| Effect | Real finding | What it means for a screen |
+|---|---|---|
+| Orientation | A visitor should be able to tell at once where they are and what they can do (Krug 2014). | Every step names its place in the journey. |
+| Motivation | Effort rises as the goal gets closer (Kivetz et al. 2006). | Show progress early, and show how much is left. |
+| Memory | The end of an episode weighs more than its length in the memory of it (Kahneman et al. 1993, as reported). | Give the journey a real ending: the result, and the next step. |
+| Overload | 79% of users always scanned a new page (Nielsen and Morkes 1997). | A scene that must be read before the task starts will be skipped; keep the story to a line or two inside the task. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Being absorbed in a story and moved by it follows Green and Brock (2000); the goal-gradient effect follows Kivetz et al. (2006); not making people think follows Krug (2014).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Being absorbed in a story and moved by it follows Green and Brock (2000); the goal-gradient effect follows Kivetz et al. (2006); not making people think follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -179,7 +215,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Being
 Green and Brock (2000) found that stories move people when they are absorbed in them, and that absorption depends on the story fitting the reader. In a product, users absorbed in a staged story about someone else's kitchen are not absorbed in their own task. The narrative that works in a journey is the user's own: their goal, their progress, their result.
 :::
 
-^src: Green & Brock 2000 · Kivetz et al. 2006 · Krug 2014
+^src: Green & Brock 2000 · Kivetz et al. 2006 · Krug 2014 · Kahneman et al. 1993 · Nielsen 1997
 
 ## A5 · Embedding an action in its context, and weighing a measure · 12 min · Core
 
@@ -195,8 +231,16 @@ Green and Brock (2000) found that stories move people when they are absorbed in 
 
 ![Lantern Kitchens weighs three measures on effect on users, feasibility, risk and time pressure.](_figures/d8_A5_1.png)
 
+**Embedding an action in its context: findings**
+
+| Finding | What it shows | What it means for a measure |
+|---|---|---|
+| Context makes relevance | Transported readers take more of a story's view (Green and Brock 2000). | Explain why a step matters in the person's situation, in one line, before asking for the action. |
+| Progress as context | Perceived distance to the goal drives effort (Kivetz et al. 2006). | A path of stages with “you are here” is a measure with a visible effect. |
+| Credibility | The design look and the tone are read as signs of care (Fogg et al. 2003). | A story that reads as marketing in a serious context costs trust: weigh it. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Designing around users' goals follows Quesenbery and Brooks (2010); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Designing around users' goals follows Quesenbery and Brooks (2010); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -211,7 +255,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Desig
 Context turns a demand into a reason. “Enter your annual consumption” is a demand; “Your annual consumption shows which funding you can get” is the same field with a reason. The second needs a few more words, but it answers the question people ask silently at every field: why do they want this?
 :::
 
-^src: Quesenbery & Brooks 2010 · Kivetz et al. 2006 · Gibbons 2018
+^src: Quesenbery & Brooks 2010 · Kivetz et al. 2006 · Gibbons 2018 · Green & Brock 2000 · Fogg et al. 2003
 
 # Materi B · Route 2 · Level 3
 
@@ -233,8 +277,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of narrative UX, from a guiding vision to every step.](_figures/d8_B1_1.png)
 
+**Narrative UX as experience architecture: real structures**
+
+| Part | Real example | What it means |
+|---|---|---|
+| A journey of single steps | The GOV.UK pattern of one thing per page turns a whole service into a sequence of small decisions (GOV.UK Service Manual). | Plan the journey as a sequence across channels, not as a campaign. |
+| A tone by situation | A steady voice with a tone that follows the situation of the reader (Mailchimp, Voice and Tone). | Decide how the story sounds at each point of the journey. |
+| A dramatic structure | Freytag's five parts give the arc of a journey: situation, build-up, decision, resolution (Freytag 1863). | Name the moment of decision and the moment of resolution of each journey. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Storytelling as part of UX design follows Quesenbery and Brooks (2010) and Lupton (2017).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Storytelling as part of UX design follows Quesenbery and Brooks (2010) and Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -249,7 +301,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Story
 A guiding vision for narrative UX is short and testable: one sentence that names the beginning, the way and the end. “In every journey customers know where it leads, see how far they are, and finish with something in hand” can be checked on every flow. “Every click tells a story” cannot, and it invites staging.
 :::
 
-^src: Quesenbery & Brooks 2010 · Lupton 2017 · Bruner 1991
+^src: Quesenbery & Brooks 2010 · Lupton 2017 · Bruner 1991 · GOV.UK Service Manual, Form structure · Mailchimp, Voice and Tone · Freytag 1863
 
 ## B2 · Efficiency against story: the conflicts of narrative UX · 20 min · Core
 
@@ -271,8 +323,16 @@ A guiding vision for narrative UX is short and testable: one sentence that names
 | Emotionalisation against seriousness | Marketing, against the specialist department. | Can it be inspiring and correct in the same line? |
 | Brand effect against the user's task | The brand story, against what the user came to do. | Whose story is this step telling? |
 
+**Conflicts of narrative UX, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Efficiency against dramaturgy | 79% of users always scanned a new page (Nielsen and Morkes 1997), and a one-question-per-page form is longer (GOV.UK Design System). | Ask how long and how important the journey is for the person, and tell the story only where it helps the task. |
+| Emotionalisation against seriousness | Pressure and false urgency were found on about 11% of the crawled shopping websites (Mathur et al. 2019). | Keep the emotion true to the situation; test whether the message would work if people knew why it was written. |
+| Brand effect against the user's task | GOV.UK started from user needs, not from the existing way of working (Government Digital Service 2012). | Ask whose story each step tells. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The three journeys are a reading of the example, not a rule for every product.
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The three journeys are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -287,7 +347,7 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. The t
 A simple rule settles most conflicts: the amount of narrative guidance grows with the length of the journey and its weight for the user. A rule like this, written into the principles, lets marketing tell its story where people have time for it (the website) and keeps it out of the steps where they do not.
 :::
 
-^src: Green & Brock 2000 · Krug 2014 · Gibbons 2018
+^src: Green & Brock 2000 · Krug 2014 · Gibbons 2018 · Nielsen 1997 · GOV.UK Design System, Question pages · Mathur et al. 2019 · Government Digital Service 2012
 
 ## B3 · Who owns narrative UX, and deciding without seeing where people stop · 20 min · Core
 
@@ -309,8 +369,16 @@ A simple rule settles most conflicts: the amount of narrative guidance grows wit
 | Who checks | Who makes sure the story never blurs the facts? | The planning experts check every line; marketing checks the brand. |
 | How a conflict is decided | What happens when clarity, brand and experience quality disagree? | Clarity, then the customer, then the brand; the product owner settles a tie. |
 
+**Owning narrative UX: real rules and cases**
+
+| Part | Real example or rule | What it means |
+|---|---|---|
+| Who owns the pattern | The GOV.UK Design System keeps its question pages pattern as a shared, reviewed standard (GOV.UK Design System). | Name an owner for the patterns and let teams use them. |
+| Who checks | Article 25 of the EU Digital Services Act forbids manipulative interface design on online platforms. | Have the specialist and the legal view check every line that carries emotion. |
+| A shared guide | Mailchimp's voice and tone guide is a public document its writers share (Mailchimp, Voice and Tone). | Publish the story and tone rules, so a conflict can be decided against them. |
+
 :::note Case assumption
-Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -325,4 +393,4 @@ Lantern Kitchens, Iris, Pavel, June and Arne are made up for this example. Decid
 Imagine it is a year later and the narrative journeys have failed, and ask why (Klein 2007). The usual answers: the story grew in every release until the steps were hard to find; marketing used the patterns for campaigns; the experts stopped checking the lines. Each answer is a governance gap, not a writing gap.
 :::
 
-^src: Simon 1956 · Klein 2007 · Quesenbery & Brooks 2010
+^src: Simon 1956 · Klein 2007 · Quesenbery & Brooks 2010 · GOV.UK Design System, Question pages · EU Digital Services Act · Mailchimp, Voice and Tone
