@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is CitizenFlow (see the Task document).
 intro: Today is about how a screen is organised and how that organisation is kept across a whole product. You learn the Gestalt laws that make people see groups (proximity, similarity, continuity, closure, figure and ground, common region), how a visual hierarchy steers attention and action, how progressive disclosure shows only what matters in the current step without hiding what people need, and why these principles belong in components, patterns and a design system rather than in single screens. Then you use them on three products. This document holds everything you need to study Day 6 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: component,hierarchy,design-logic,consistency,ux,governance,primary-action,grouping,design-system,case-assumption,common-region,ux-law,proximity,gestalt,progressive,similarity,primary-secondary,attention,neuro-ux,page-type,problematic-hiding,orientation,cog-load,continuity,closure,figure-ground,predictability,cxo,visual-guidance,readability,status-colour,expectation,reachability
-refs: wertheimer1923,palmer1992,wagemans2012,ware2012,krug2014,nielsen1994,nielsen2006,sweller1988,iso9241110,frost2016,kholmatova2017,gibbons2018,curtis2010,simon1956,klein2007
+glossary: component,design-logic,hierarchy,consistency,governance,ux,primary-action,design-system,grouping,case-assumption,proximity,common-region,gestalt,progressive,similarity,ux-law,attention,primary-secondary,problematic-hiding,orientation,neuro-ux,page-type,continuity,closure,figure-ground,cog-load,scan,predictability,cxo,f-pattern,visual-guidance,contrast,readability,status-colour,expectation,reachability
+refs: wertheimer1923,palmer1992,wagemans2012,ware2012,krug2014,nielsen1994,ittiKoch2001,vonrestorff1933,hunt1995,nielsen1997,pernice2017,nielsen2006,sweller1988,pernice2016,iso9241110,grudin1989,nielsen2000,frost2016,kholmatova2017,gibbons2018,curtis2010,govukds2018,sparkbox2022,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -45,8 +45,17 @@ About 60 minutes, five cards. Levels 1 and 2: find what makes an unfamiliar admi
 | Figure and ground | One thing stands out from the rest. | A dialog over a dimmed page. |
 | Common region | Things in one frame belong together. | A framed section with a heading. |
 
+**The Gestalt laws: where they come from and what to check**
+
+| Law | Real finding | What to check on a screen |
+|---|---|---|
+| Proximity and similarity | Max Wertheimer described grouping by closeness and likeness in 1923; a century of research since confirms and refines them (Wertheimer 1923; Wagemans et al. 2012). | Is the space inside a group smaller than the space between groups, and do alike things look alike? |
+| Common region | Elements inside the same bounded region are seen as a group, and this grouping competes with proximity and similarity (Palmer 1992). | Use a frame or a background for a group that must be read as one, and do not frame things that do not belong together. |
+| Continuity and closure | The eye follows a smooth line and completes almost closed shapes (Wagemans et al. 2012). | Put the steps of a process on one line; cards without full borders still read as units. |
+| Figure and ground | One part of a scene is seen as the object and the rest as its background (Wagemans et al. 2012). | Make the thing to act on the figure: a dialog over a dimmed page. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992).
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -84,8 +93,16 @@ When the laws disagree, the stronger one wins. Palmer (1992) showed that a commo
 | 3 · Secondary actions | Other things they might do. | Quiet links or outlined buttons. |
 | 4 · Notices and offers | Information that helps but is not the task. | Smaller, calmer; warnings only for real risks. |
 
+**Visual hierarchy: what draws the eye and what is remembered**
+
+| Finding | What it shows | What it means for a screen |
+|---|---|---|
+| Strongest difference first | Attention goes first to what differs most from its surroundings in colour, contrast, orientation or motion (Itti and Koch 2001; Ware 2012). | Give the primary action the strongest difference on the step. |
+| The isolation effect | An item that differs from a group of like items is remembered better (von Restorff 1933; the details are reviewed by Hunt 1995). | One element that is different is noticed and remembered; many different elements cancel each other. |
+| Scanning | 79% of users always scanned a new page (Nielsen and Morkes 1997), and the eyes follow an F-shaped path on unstructured text (Pernice 2017). | Put the levels of the hierarchy where a scan lands: the top, the left edge and the headings. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014).
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -100,7 +117,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. What 
 A quick test for hierarchy: squint at the screen, or blur a screenshot. What remains visible is what the eye sees first. If it is the offer banner and not the primary action, the hierarchy steers attention away from the task.
 :::
 
-^src: Ware 2012 · Krug 2014 · Nielsen 1994
+^src: Ware 2012 · Krug 2014 · Nielsen 1994 · Itti & Koch 2001 · von Restorff 1933 · Hunt 1995 · Nielsen 1997 · Pernice 2017
 
 ## A3 · Progressive disclosure: helpful reduction, not hiding · 12 min · Core
 
@@ -122,8 +139,16 @@ A quick test for hierarchy: squint at the screen, or blur a screenshot. What rem
 | How it is reached | One clearly labelled step. | Several levels deep, or only in help pages. |
 | The effect | Less load, the same safety. | Less load at first sight, unsafe decisions. |
 
+**Progressive disclosure: evidence for helpful reduction and for problematic hiding**
+
+| Finding | What it shows | What it means for a screen |
+|---|---|---|
+| Levels | In theory a design can have several levels of progressive disclosure; in practice designs with more than two levels usually have low usability because users get lost between them (Nielsen 2006). | Stage information in at most two levels and show the way back. |
+| Hidden navigation | On six live websites, people used hidden navigation less often than visible navigation and later in the task, on desktop and on phones (Pernice and Budiu 2016). | What a person needs to start or decide must stay visible. |
+| Load | Effort spent on working out the interface is missing for the task (Sweller 1988). | Hide what does not apply now, and say where the rest is. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988).
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -138,7 +163,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Progr
 Progressive disclosure has a cost that grows with each level: people have to know or guess that more exists. Nielsen (2006) advises keeping it to one, at most two levels, and making the step to the second level obvious. A third level of disclosure is usually a sign that the first level holds the wrong things.
 :::
 
-^src: Nielsen 2006 · Sweller 1988 · Krug 2014
+^src: Nielsen 2006 · Sweller 1988 · Krug 2014 · Pernice & Budiu 2016
 
 ## A4 · Hierarchy, navigation logic and relief: one pattern for one task · 12 min · Core
 
@@ -160,8 +185,17 @@ Progressive disclosure has a cost that grows with each level: people have to kno
 | The action | The primary action is always in the same place. | Continue at the bottom here, Next at the top there. |
 | The task | Similar tasks follow the same steps. | Booking a ticket and booking freight work differently. |
 
+**Consistency and navigation logic: evidence and a limit**
+
+| Topic | Real finding or rule | What it means for a screen |
+|---|---|---|
+| Consistency and standards | One of the ten heuristics: users should not have to wonder whether different words, situations or actions mean the same thing (Nielsen 1994). | The same action looks and sits the same on every page of a type. |
+| Three senses of consistency | Consistency is used in three senses: with itself, with other designs the user knows, and by analogy to the world (Grudin 1989). | Say which consistency you mean before you demand it. |
+| A limit | Grudin argued that consistency is an unreliable guide on its own, and that designers often do better to study the users' work (Grudin 1989). | Consistent is not the same as right: check the pattern against the task. |
+| Familiar patterns | Users spend most of their time on other sites, so they expect yours to work like those (Nielsen 2000). | Use the pattern people know for navigation. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110.
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -176,7 +210,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Consi
 Inconsistency usually grows from good intentions: each team improves its own area, and the improvements differ. That is why consistency is rarely fixed on the screen; it is fixed where the patterns come from, which is the subject of the next card and of Materi B.
 :::
 
-^src: Nielsen 1994 · Krug 2014 · ISO 9241-110
+^src: Nielsen 1994 · Krug 2014 · ISO 9241-110 · Grudin 1989 · Nielsen 2000
 
 ## A5 · From screens to components: UX laws in a design system, and weighing a measure · 12 min · Core
 
@@ -192,8 +226,16 @@ Inconsistency usually grows from good intentions: each team improves its own are
 
 ![Seabird weighs three measures on effect on users, feasibility, risk and time pressure.](_figures/d6_A5_1.png)
 
+**From screens to components: real design systems**
+
+| Topic | Real example | What it means |
+|---|---|---|
+| Layers | Atomic design builds interfaces from shared rules and components, from colours and type styles up to whole pages (Frost 2016); modular web design describes the same idea for components (Curtis 2010). | A law applied once in a component holds on every screen that uses it. |
+| A public example | The GOV.UK Design System was announced in June 2018 as ready for teams across government; it brings together the styles, components and patterns of the Service Manual and GOV.UK Elements in one code base (Government Digital Service 2018). | A design system is a shared product with an owner and users. |
+| Measuring it | In a survey of design system teams, 16% of the respondents tracked metrics (Sparkbox 2022, as reported). | Decide how the effect of the system is measured, or it cannot be defended. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -208,7 +250,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Build
 Evaluating a design system against the UX laws is a simple audit: take each component and ask whether it groups, ranks and discloses as the principles say. A button component that allows three equally strong buttons side by side, or a form component that cannot hide fields, will reproduce the problem on every screen that uses it.
 :::
 
-^src: Frost 2016 · Kholmatova 2017 · Gibbons 2018
+^src: Frost 2016 · Kholmatova 2017 · Gibbons 2018 · Curtis 2010 · Government Digital Service 2018 · Sparkbox 2022
 
 # Materi B · Route 2 · Level 3
 
@@ -230,8 +272,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![What a design system holds, from principles to screens.](_figures/d6_B1_1.png)
 
+**Design systems for consistency, scale and steering: examples**
+
+| Part | Real example | What it means |
+|---|---|---|
+| Components and patterns | The GOV.UK Design System offers components such as checkboxes, buttons and form inputs, and patterns for common tasks such as asking for an address (Government Digital Service 2018). | Standardise the parts people meet most often, and the tasks they repeat. |
+| Evidence before standard | New components are first published as experimental, and the experimental status is removed when research shows that the component meets user needs (GOV.UK Design System). | A standard is earned by evidence from users. |
+| Onboarding | The survey of design system teams concluded that successful systems offer onboarding, training and support for users and contributors (Sparkbox 2022, as reported). | A system that is not taught is not used. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010).
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -245,7 +295,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Desig
 A design system is a product for internal users, the teams. Like any product, it fails when it is hard to use: missing components, poor documentation, slow answers to requests. Many organisations therefore give it a small permanent team and treat the other teams' adoption as its main measure of success.
 :::
 
-^src: Kholmatova 2017 · Frost 2016 · Curtis 2010
+^src: Kholmatova 2017 · Frost 2016 · Curtis 2010 · Government Digital Service 2018 · Sparkbox 2022
 
 ## B2 · Conflicts of goals: consistency, flexibility, speed, clarity and standardisation · 20 min · Core
 
@@ -267,8 +317,16 @@ A design system is a product for internal users, the teams. Like any product, it
 | Speed today against quality over years | A team with a deadline, against everyone who maintains it later. | What will this single solution cost each time it must change? |
 | Visibility against clarity | Departments that want more shown, against users who need less at once. | What does the user need in this step, and what can be one step away? |
 
+**Conflicts of design systems, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Consistency against flexibility | Consistency is an unreliable guide on its own (Grudin 1989); the GOV.UK Design System asks contributors to reuse existing components where relevant (GOV.UK Design System). | Ask whether the special case is really special, or a missing option of a component. |
+| Speed against quality | Only 16% of the surveyed design system teams tracked metrics (Sparkbox 2022, as reported), so the cost of each exception stays invisible. | Put a price on each exception: how often it will have to change. |
+| Visibility against clarity | More than two levels of disclosure usually lower usability (Nielsen 2006), and hidden navigation is used less (Pernice and Budiu 2016). | Show what the step needs; put the rest one step away, not deeper. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. The matrix is a reading of the example, not a score.
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. The matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -283,7 +341,7 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. The m
 A useful rule for exceptions: the first time a team needs something the system lacks, it may build it with a note; the second time another team needs the same thing, it becomes a component. The system grows from real needs, and nobody waits for a perfect library.
 :::
 
-^src: Kholmatova 2017 · Nielsen 2006 · Gibbons 2018
+^src: Kholmatova 2017 · Nielsen 2006 · Gibbons 2018 · Grudin 1989 · Sparkbox 2022 · Pernice & Budiu 2016 · Government Digital Service 2018
 
 ## B3 · Design-system governance, and deciding with incomplete data · 20 min · Core
 
@@ -305,8 +363,16 @@ A useful rule for exceptions: the first time a team needs something the system l
 | How a request is decided | How does a team get a new component or an exception? | It proposes; the lead decides on need and effect on users. |
 | How a conflict is decided | What happens when two teams want different patterns? | The principles decide; the product owner settles a tie. |
 
+**Design-system governance: a real process**
+
+| Part | Real example | What it means |
+|---|---|---|
+| How a request is decided | A contribution to the GOV.UK Design System must be of high quality, meet user needs and reuse existing styles and components; the team checks it before a working group reviews it (GOV.UK Design System). | Write down the criteria a request must meet. |
+| Who decides | The working group is a multidisciplinary panel of representatives from across government that votes on whether a contribution is published as it is or needs changes; it does not review minor changes (GOV.UK Design System). | Give the decision to a group that represents the users of the system, and say which changes it need not see. |
+| How a conflict is decided | New components start as experimental until research shows they work for users (GOV.UK Design System). | Let evidence from users decide when two teams want different patterns. |
+
 :::note Case assumption
-Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -321,4 +387,4 @@ Seabird Ferries, Elif, Noah, Greta and Malte are made up for this example. Decid
 Imagine it is a year later and the design system has failed, and ask why (Klein 2007). The usual answers: the components came too late, so teams built their own; nobody answered requests; the principles were written but never enforced in reviews. Each answer is a governance gap, not a design gap.
 :::
 
-^src: Simon 1956 · Klein 2007 · Kholmatova 2017
+^src: Simon 1956 · Klein 2007 · Kholmatova 2017 · Government Digital Service 2018

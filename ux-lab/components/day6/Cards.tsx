@@ -52,8 +52,18 @@ export function CardA1() {
           [tt("Common region"), tt("Things in one frame belong together."), tt("A framed section with a heading.")],
         ]}
       />
+      <DataTable
+        caption={tt("The Gestalt laws: where they come from and what to check")}
+        head={[tt("Law"), tt("Real finding"), tt("What to check on a screen")]}
+        rows={[
+          [tt("Proximity and similarity"), tt("Max Wertheimer described grouping by closeness and likeness in 1923; a century of research since confirms and refines them (Wertheimer 1923; Wagemans et al. 2012)."), tt("Is the space inside a group smaller than the space between groups, and do alike things look alike?")],
+          [tt("Common region"), tt("Elements inside the same bounded region are seen as a group, and this grouping competes with proximity and similarity (Palmer 1992)."), tt("Use a frame or a background for a group that must be read as one, and do not frame things that do not belong together.")],
+          [tt("Continuity and closure"), tt("The eye follows a smooth line and completes almost closed shapes (Wagemans et al. 2012)."), tt("Put the steps of a process on one line; cards without full borders still read as units.")],
+          [tt("Figure and ground"), tt("One part of a scene is seen as the object and the rest as its background (Wagemans et al. 2012)."), tt("Make the thing to act on the figure: a dialog over a dimmed page.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992).`)}</p>
+        <p>{tt(`${SB()} The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("When the laws disagree, the stronger one wins. Palmer (1992) showed that a common region can override proximity: two dots far apart inside one frame are grouped, two close dots in different frames are not. In an interface this means a frame or background can rescue a layout where spacing alone does not work, and can also break one when it groups the wrong things.")}</p>
@@ -67,7 +77,7 @@ export function CardA2() {
     <MaterialCard
       id="A2"
       scan={tt("A visual hierarchy is an order of importance the eye can follow. It steers attention, priority and the next action. Arranging elements side by side is not steering: decide what comes first and make it look first.")}
-      sources={["ware2012", "krug2014", "nielsen1994"]}
+      sources={["ware2012", "krug2014", "nielsen1994", "ittiKoch2001", "vonrestorff1933", "hunt1995", "nielsen1997", "pernice2017"]}
       reasoning={[
         tt("Find the one primary action of each step and make it the strongest element."),
         tt("Make secondary actions clearly quieter: a link or an outlined button, not a second strong button."),
@@ -88,8 +98,17 @@ export function CardA2() {
           [tt("4 · Notices and offers"), tt("Information that helps but is not the task."), tt("Smaller, calmer; warnings only for real risks.")],
         ]}
       />
+      <DataTable
+        caption={tt("Visual hierarchy: what draws the eye and what is remembered")}
+        head={[tt("Finding"), tt("What it shows"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Strongest difference first"), tt("Attention goes first to what differs most from its surroundings in colour, contrast, orientation or motion (Itti and Koch 2001; Ware 2012)."), tt("Give the primary action the strongest difference on the step.")],
+          [tt("The isolation effect"), tt("An item that differs from a group of like items is remembered better (von Restorff 1933; the details are reviewed by Hunt 1995)."), tt("One element that is different is noticed and remembered; many different elements cancel each other.")],
+          [tt("Scanning"), tt("79% of users always scanned a new page (Nielsen and Morkes 1997), and the eyes follow an F-shaped path on unstructured text (Pernice 2017)."), tt("Put the levels of the hierarchy where a scan lands: the top, the left edge and the headings.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014).`)}</p>
+        <p>{tt(`${SB()} What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("A quick test for hierarchy: squint at the screen, or blur a screenshot. What remains visible is what the eye sees first. If it is the offer banner and not the primary action, the hierarchy steers attention away from the task.")}</p>
@@ -103,7 +122,7 @@ export function CardA3() {
     <MaterialCard
       id="A3"
       scan={tt("Progressive disclosure shows what is relevant now and keeps the rest one clear step away; it lowers the load. When information people need to decide is buried too deep, reduction has become hiding.")}
-      sources={["nielsen2006", "sweller1988", "krug2014"]}
+      sources={["nielsen2006", "sweller1988", "krug2014", "pernice2016"]}
       reasoning={[
         tt("For a form, ask which fields apply to everyone and which only in special cases; show the special ones only when they apply."),
         tt("Split long processes into a few steps and show where the person is."),
@@ -123,8 +142,17 @@ export function CardA3() {
           [tt("The effect"), tt("Less load, the same safety."), tt("Less load at first sight, unsafe decisions.")],
         ]}
       />
+      <DataTable
+        caption={tt("Progressive disclosure: evidence for helpful reduction and for problematic hiding")}
+        head={[tt("Finding"), tt("What it shows"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Levels"), tt("In theory a design can have several levels of progressive disclosure; in practice designs with more than two levels usually have low usability because users get lost between them (Nielsen 2006)."), tt("Stage information in at most two levels and show the way back.")],
+          [tt("Hidden navigation"), tt("On six live websites, people used hidden navigation less often than visible navigation and later in the task, on desktop and on phones (Pernice and Budiu 2016)."), tt("What a person needs to start or decide must stay visible.")],
+          [tt("Load"), tt("Effort spent on working out the interface is missing for the task (Sweller 1988)."), tt("Hide what does not apply now, and say where the rest is.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988).`)}</p>
+        <p>{tt(`${SB()} Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Progressive disclosure has a cost that grows with each level: people have to know or guess that more exists. Nielsen (2006) advises keeping it to one, at most two levels, and making the step to the second level obvious. A third level of disclosure is usually a sign that the first level holds the wrong things.")}</p>
@@ -138,7 +166,7 @@ export function CardA4() {
     <MaterialCard
       id="A4"
       scan={tt("When pages of one type are grouped the same way, the primary action sits in the same place and similar tasks follow the same steps, people learn once and predict. Inconsistent patterns undermine predictability.")}
-      sources={["nielsen1994", "krug2014", "iso9241110"]}
+      sources={["nielsen1994", "krug2014", "iso9241110", "grudin1989", "nielsen2000"]}
       reasoning={[
         tt("List the similar tasks in different areas and check whether they follow the same pattern."),
         tt("Check that each page type groups its content the same way, wherever it appears."),
@@ -158,8 +186,18 @@ export function CardA4() {
           [tt("The task"), tt("Similar tasks follow the same steps."), tt("Booking a ticket and booking freight work differently.")],
         ]}
       />
+      <DataTable
+        caption={tt("Consistency and navigation logic: evidence and a limit")}
+        head={[tt("Topic"), tt("Real finding or rule"), tt("What it means for a screen")]}
+        rows={[
+          [tt("Consistency and standards"), tt("One of the ten heuristics: users should not have to wonder whether different words, situations or actions mean the same thing (Nielsen 1994)."), tt("The same action looks and sits the same on every page of a type.")],
+          [tt("Three senses of consistency"), tt("Consistency is used in three senses: with itself, with other designs the user knows, and by analogy to the world (Grudin 1989)."), tt("Say which consistency you mean before you demand it.")],
+          [tt("A limit"), tt("Grudin argued that consistency is an unreliable guide on its own, and that designers often do better to study the users' work (Grudin 1989)."), tt("Consistent is not the same as right: check the pattern against the task.")],
+          [tt("Familiar patterns"), tt("Users spend most of their time on other sites, so they expect yours to work like those (Nielsen 2000)."), tt("Use the pattern people know for navigation.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110.`)}</p>
+        <p>{tt(`${SB()} Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Inconsistency usually grows from good intentions: each team improves its own area, and the improvements differ. That is why consistency is rarely fixed on the screen; it is fixed where the patterns come from, which is the subject of the next card and of Materi B.")}</p>
@@ -173,7 +211,7 @@ export function CardA5() {
     <MaterialCard
       id="A5"
       scan={tt("UX laws belong in components, patterns and standards, not only in single screens; built in once, they hold everywhere. Weigh measures on effect on users, feasibility, risk and time pressure, with a reason.")}
-      sources={["frost2016", "kholmatova2017", "gibbons2018"]}
+      sources={["frost2016", "kholmatova2017", "gibbons2018", "curtis2010", "govukds2018", "sparkbox2022"]}
       reasoning={[
         tt("For each fix, ask whether it can live in a component or a pattern, so every screen gets it."),
         tt("Evaluate a design system by whether its components carry the laws: grouping, hierarchy, disclosure, one primary action."),
@@ -185,8 +223,17 @@ export function CardA5() {
       <ComicButton comic={COMICS_D6.A5} art={ART_D6} />
       <SystemChainFig />
       <WeighFig />
+      <DataTable
+        caption={tt("From screens to components: real design systems")}
+        head={[tt("Topic"), tt("Real example"), tt("What it means")]}
+        rows={[
+          [tt("Layers"), tt("Atomic design builds interfaces from shared rules and components, from colours and type styles up to whole pages (Frost 2016); modular web design describes the same idea for components (Curtis 2010)."), tt("A law applied once in a component holds on every screen that uses it.")],
+          [tt("A public example"), tt("The GOV.UK Design System was announced in June 2018 as ready for teams across government; it brings together the styles, components and patterns of the Service Manual and GOV.UK Elements in one code base (Government Digital Service 2018)."), tt("A design system is a shared product with an owner and users.")],
+          [tt("Measuring it"), tt("In a survey of design system teams, 16% of the respondents tracked metrics (Sparkbox 2022, as reported)."), tt("Decide how the effect of the system is measured, or it cannot be defended.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.`)}</p>
+        <p>{tt(`${SB()} Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Evaluating a design system against the UX laws is a simple audit: take each component and ask whether it groups, ranks and discloses as the principles say. A button component that allows three equally strong buttons side by side, or a form component that cannot hide fields, will reproduce the problem on every screen that uses it.")}</p>
@@ -200,7 +247,7 @@ export function CardB1() {
     <MaterialCard
       id="B1"
       scan={tt("A design system is a shared set of principles, components and patterns every team builds from. It gives consistency, scale and steering; leaders use it to turn UX principles into system logic, standards and governance.")}
-      sources={["kholmatova2017", "frost2016", "curtis2010"]}
+      sources={["kholmatova2017", "frost2016", "curtis2010", "govukds2018", "sparkbox2022"]}
       reasoning={[
         tt("Look at how many teams build the same kind of element in their own way: each is a missing component."),
         tt("Start with the principles (grouping, hierarchy, disclosure, one primary action), then the components that carry them."),
@@ -211,8 +258,17 @@ export function CardB1() {
       <ComicButton comic={COMICS_D6.B1} art={ART_D6} />
       <SystemFig />
       <LayersFig />
+      <DataTable
+        caption={tt("Design systems for consistency, scale and steering: examples")}
+        head={[tt("Part"), tt("Real example"), tt("What it means")]}
+        rows={[
+          [tt("Components and patterns"), tt("The GOV.UK Design System offers components such as checkboxes, buttons and form inputs, and patterns for common tasks such as asking for an address (Government Digital Service 2018)."), tt("Standardise the parts people meet most often, and the tasks they repeat.")],
+          [tt("Evidence before standard"), tt("New components are first published as experimental, and the experimental status is removed when research shows that the component meets user needs (GOV.UK Design System)."), tt("A standard is earned by evidence from users.")],
+          [tt("Onboarding"), tt("The survey of design system teams concluded that successful systems offer onboarding, training and support for users and contributors (Sparkbox 2022, as reported)."), tt("A system that is not taught is not used.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010).`)}</p>
+        <p>{tt(`${SB()} Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A design system is a product for internal users, the teams. Like any product, it fails when it is hard to use: missing components, poor documentation, slow answers to requests. Many organisations therefore give it a small permanent team and treat the other teams' adoption as its main measure of success.")}</p>
@@ -226,7 +282,7 @@ export function CardB2() {
     <MaterialCard
       id="B2"
       scan={tt("Consistency against flexibility, speed today against quality over years, clarity against showing more, standardisation against team autonomy. Make the shared component the easy path and allow documented exceptions.")}
-      sources={["kholmatova2017", "nielsen2006", "gibbons2018"]}
+      sources={["kholmatova2017", "nielsen2006", "gibbons2018", "grudin1989", "sparkbox2022", "pernice2016", "govukds2018"]}
       reasoning={[
         tt("Name the conflict as two goals and say who stands for each: a team under time pressure, the design-system lead, a department, the users."),
         tt("Short-term pressure favours single solutions; long-term quality needs shared ones. Say which one you serve and why."),
@@ -246,8 +302,17 @@ export function CardB2() {
           [tt("Visibility against clarity"), tt("Departments that want more shown, against users who need less at once."), tt("What does the user need in this step, and what can be one step away?")],
         ]}
       />
+      <DataTable
+        caption={tt("Conflicts of design systems, with evidence")}
+        head={[tt("Conflict"), tt("What the evidence says"), tt("A way to decide")]}
+        rows={[
+          [tt("Consistency against flexibility"), tt("Consistency is an unreliable guide on its own (Grudin 1989); the GOV.UK Design System asks contributors to reuse existing components where relevant (GOV.UK Design System)."), tt("Ask whether the special case is really special, or a missing option of a component.")],
+          [tt("Speed against quality"), tt("Only 16% of the surveyed design system teams tracked metrics (Sparkbox 2022, as reported), so the cost of each exception stays invisible."), tt("Put a price on each exception: how often it will have to change.")],
+          [tt("Visibility against clarity"), tt("More than two levels of disclosure usually lower usability (Nielsen 2006), and hidden navigation is used less (Pernice and Budiu 2016)."), tt("Show what the step needs; put the rest one step away, not deeper.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} The matrix is a reading of the example, not a score.`)}</p>
+        <p>{tt(`${SB()} The matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A useful rule for exceptions: the first time a team needs something the system lacks, it may build it with a note; the second time another team needs the same thing, it becomes a component. The system grows from real needs, and nobody waits for a perfect library.")}</p>
@@ -261,7 +326,7 @@ export function CardB3() {
     <MaterialCard
       id="B3"
       scan={tt("A design system lives only with governance: an owner of its principles and components, a way to propose new ones, and a rule for conflicts between teams. A decision with incomplete data says what it decides, what it does not know, when it would reverse it and what it gives up.")}
-      sources={["simon1956", "klein2007", "kholmatova2017"]}
+      sources={["simon1956", "klein2007", "kholmatova2017", "govukds2018"]}
       reasoning={[
         tt("Name who owns the principles and the components, and who only uses them."),
         tt("Give teams a clear way to propose a component or ask for an exception, and say who decides on what basis."),
@@ -281,8 +346,17 @@ export function CardB3() {
           [tt("How a conflict is decided"), tt("What happens when two teams want different patterns?"), tt("The principles decide; the product owner settles a tie.")],
         ]}
       />
+      <DataTable
+        caption={tt("Design-system governance: a real process")}
+        head={[tt("Part"), tt("Real example"), tt("What it means")]}
+        rows={[
+          [tt("How a request is decided"), tt("A contribution to the GOV.UK Design System must be of high quality, meet user needs and reuse existing styles and components; the team checks it before a working group reviews it (GOV.UK Design System)."), tt("Write down the criteria a request must meet.")],
+          [tt("Who decides"), tt("The working group is a multidisciplinary panel of representatives from across government that votes on whether a contribution is published as it is or needs changes; it does not review minor changes (GOV.UK Design System)."), tt("Give the decision to a group that represents the users of the system, and say which changes it need not see.")],
+          [tt("How a conflict is decided"), tt("New components start as experimental until research shows they work for users (GOV.UK Design System)."), tt("Let evidence from users decide when two teams want different patterns.")],
+        ]}
+      />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).`)}</p>
+        <p>{tt(`${SB()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Imagine it is a year later and the design system has failed, and ask why (Klein 2007). The usual answers: the components came too late, so teams built their own; nobody answered requests; the principles were written but never enforced in reviews. Each answer is a governance gap, not a design gap.")}</p>
