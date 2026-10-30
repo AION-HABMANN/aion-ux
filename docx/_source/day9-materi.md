@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is MoveWell (see the Task document).
 intro: Today is about why people start using a product and why they keep using it. You learn what gamification is and is not, why people react to progress, feedback, recognition, challenge and reaching a goal, what points, badges, levels, challenges, streaks and status displays can and cannot do, how gamification goes wrong (manipulation, overstimulation, reward inflation, lost motivation, lost trust), how a story makes the same mechanics mean more, why a quick spike is not lasting use, and when gamification stays credible in a serious field. Then you use it on three platforms, and you look at how two real ones decided. This document holds everything you need to study Day 9 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: activation,gamification,retention,playful-design,lever,streak,governance,leaderboard,case-assumption,badge,self-efficacy,ux,neuro-ux,activation-architecture,reward-inflation,touchpoint,status-colour,brand,dark-pattern,milestone,intrinsic,overstimulation,storytelling-ux,overjustification,loss-aversion,cxo
-refs: deterding2011,hamari2014,nicholson2015,ryan2000,bandura1977,festinger1954,deci1999,tversky1991,kivetz2006,lepper1973,gibbons2018,simon1956,klein2007
+glossary: activation,gamification,retention,playful-design,streak,leaderboard,lever,governance,case-assumption,self-efficacy,badge,dark-pattern,intrinsic,activation-architecture,ux,neuro-ux,reward-inflation,touchpoint,status-colour,brand,milestone,overstimulation,storytelling-ux,overjustification,loss-aversion,cxo
+refs: deterding2011,hamari2014,nicholson2015,ryan2000,bandura1977,festinger1954,kivetz2006,deci1999,tversky1991,lepper1973,patel2017,gibbons2018,mathur2019,dsa2022,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -42,8 +42,16 @@ About 60 minutes, five cards. Levels 1 and 2: find where a further-training plat
 | Playful design (tone) | Colours, shapes, a cheerful voice. | Weeks; design and writing. | A serious provider looks careless. |
 | A game (fiction) | A world, characters, a story of its own. | Months; a whole team. | Unconvincing fiction; looks childish. |
 
+**Gamification, playful design and a game: definitions and evidence**
+
+| Source | Real finding | What it means for a screen |
+|---|---|---|
+| The definition | Gamification is the use of game design elements in non-game contexts (Deterding et al. 2011). | Ask which element you borrow (a goal, a position, feedback) and for what real task. |
+| Does it work? | A review of 24 empirical studies found mostly positive effects, but the effects depended greatly on the context and on the users (Hamari et al. 2014). | Do not assume an effect: name the context and the group, and measure. |
+| Meaningful gamification | Nicholson argues that gamification should be built around what is meaningful for the user, not around rewards alone (Nicholson 2015). | Start from the user's own goal, then choose the mechanic. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Gamification as game design elements in non-game contexts, apart from playful design and full games, follows Deterding et al. (2011); its context-dependent effects follow Hamari et al. (2014).
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Gamification as game design elements in non-game contexts, apart from playful design and full games, follows Deterding et al. (2011); its context-dependent effects follow Hamari et al. (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -83,8 +91,17 @@ A health insurer, a bank or a public service can use the structure layer freely:
 | Experience of progress | Getting closer to a goal. | Progress bars, milestones, stages. | Few, if the goal is theirs. |
 | Activation trigger | A cue to act now. | Reminders, notifications, streaks. | People who feel pushed. |
 
+**Why people react to progress, feedback and recognition: sources**
+
+| Lever | Real finding | What it means for a mechanic |
+|---|---|---|
+| Autonomy, competence, relatedness | Self-determination theory names three basic needs whose satisfaction supports lasting motivation (Ryan and Deci 2000). | Check each mechanic against the three needs: does it give choice, a sense of skill and a link to others? |
+| Self-efficacy | Bandura described the belief that one can do something as a main source of effort and persistence (Bandura 1977). | Show what the person can do now that they could not before. |
+| Social comparison | People judge their own ability by comparing themselves with others (Festinger 1954). | Rankings motivate those near the top and can discourage those at the bottom. |
+| Progress | Customers in a real reward programme bought more often the closer they were to the reward (Kivetz et al. 2006). | Show the distance to a goal that is the person's own. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Competence, autonomy and relatedness as needs behind lasting motivation follow Ryan and Deci (2000); self-efficacy follows Bandura (1977); social comparison follows Festinger (1954).
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Competence, autonomy and relatedness as needs behind lasting motivation follow Ryan and Deci (2000); self-efficacy follows Bandura (1977); social comparison follows Festinger (1954). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -99,7 +116,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 In a prevention or health product, the people who most need to continue are often the ones doing worst. A ranking tells exactly those people, every week, that they are at the bottom, in a field where being at the bottom is already a source of shame. It works on the fittest few, who need it least. That is the clearest case of a mechanic that raises the average while harming the people the product exists for.
 :::
 
-^src: Ryan & Deci 2000 · Bandura 1977 · Festinger 1954
+^src: Ryan & Deci 2000 · Bandura 1977 · Festinger 1954 · Kivetz et al. 2006
 
 ## A3 · Points, badges, levels, streaks: what each tool does, and how gamification goes wrong · 12 min · Core
 
@@ -125,8 +142,17 @@ In a prevention or health product, the people who most need to continue are ofte
 | Feedback | Say what an action did. | When it is technical or empty praise. |
 | Status displays | Show a position or rank. | They motivate the top and shame the bottom. |
 
+**The limits of the tools: evidence**
+
+| Finding | What was measured | What it means for a mechanic |
+|---|---|---|
+| Rewards can undermine interest | A meta-analysis of 128 experiments found that tangible rewards undermined intrinsic motivation (Deci et al. 1999). | Do not pay for what people already do for its own sake. |
+| Expected rewards | Preschool children who liked drawing and were promised a certificate drew less in later free play than children who got the same certificate unexpectedly or none (Lepper et al. 1973; 18, 18 and 15 children, as reported). | A reward that is announced turns the activity into a means to the reward. |
+| Losses weigh more | Losses loom larger than equal gains (Tversky and Kahneman 1991). | A broken streak hurts more than a kept streak pleases: offer a way to recover. |
+| Context decides | The effects of gamification depended greatly on context and on users (Hamari et al. 2014). | Test each tool in the setting where it will be used. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Mixed effects of gamification follow Hamari et al. (2014); rewards lowering intrinsic motivation follow Deci et al. (1999); loss aversion, the lever behind “don't lose your streak”, follows Tversky and Kahneman (1991).
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Mixed effects of gamification follow Hamari et al. (2014); rewards lowering intrinsic motivation follow Deci et al. (1999); loss aversion, the lever behind “don't lose your streak”, follows Tversky and Kahneman (1991). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -141,7 +167,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 The five failures are not equally repairable. Overstimulation and lost motivation can be fixed by removing things. Reward inflation can be fixed slowly, because people expect the bigger rewards. Lost trust hardly repairs: once people decide a product is trying to trick them, they discount everything it says. In a game they would leave; in a bank, a health service or a public service they often cannot, so they stay and stop believing the messages. That is worse than leaving.
 :::
 
-^src: Hamari et al. 2014 · Deci et al. 1999 · Tversky & Kahneman 1991
+^src: Hamari et al. 2014 · Deci et al. 1999 · Tversky & Kahneman 1991 · Lepper et al. 1973
 
 ## A4 · Story and game together, and a quick spike against lasting use · 12 min · Core
 
@@ -157,8 +183,16 @@ The five failures are not equally repairable. Overstimulation and lost motivatio
 
 ![Three Brightwater designs and the period you look at · a typical pattern, not data.](_figures/d9_A4_1.png)
 
+**A quick spike against lasting use: a real trial**
+
+| Finding | What was measured | What it means for a mechanic |
+|---|---|---|
+| A real trial | In the BE FIT randomized trial, 200 adults of 94 families played a game with points and levels based on step goals for 12 weeks; their steps rose by 1,661 a day against 636 in the control group (Patel et al. 2017, as reported). | A mechanic that is built around a real goal can move behaviour. |
+| After the game | In the 12 weeks after the game, the gain shrank to 1,385 against 798 steps, still above the control group (Patel et al. 2017, as reported). | Plan for the decay: a mechanic needs a renewal or a hand-over to a habit. |
+| Progress and story | Perceived distance to the goal drives effort (Kivetz et al. 2006), and a narrative frame carries a person through a long path (Nicholson 2015). | Use the story to explain why the goal matters and the progress to show the way. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Meaningful gamification built on the person's own goals follows Nicholson (2015); people speeding up as a goal comes closer follows Kivetz et al. (2006). The bars in the second picture are a typical pattern to think with, not measured data.
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Meaningful gamification built on the person's own goals follows Nicholson (2015); people speeding up as a goal comes closer follows Kivetz et al. (2006). The bars in the second picture are a typical pattern to think with, not measured data. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -173,7 +207,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 The best story material in a serious field is usually the real process, described well: what changes at each stage, why the third week is the hard one, what the person can do now that they could not before. That is storytelling: it has stages, causes and stakes, and none of it is invented. Inventing a quest is what teams do when they have not looked closely at what people actually go through.
 :::
 
-^src: Nicholson 2015 · Kivetz et al. 2006 · Ryan & Deci 2000
+^src: Nicholson 2015 · Kivetz et al. 2006 · Ryan & Deci 2000 · Patel et al. 2017
 
 ## A5 · Intrinsic motivation, credible gamification in serious fields, and weighing a measure · 12 min · Core
 
@@ -189,8 +223,16 @@ The best story material in a serious field is usually the real process, describe
 
 ![Brightwater weighs three measures on effect on users, feasibility, risk and time pressure.](_figures/d9_A5_1.png)
 
+**Intrinsic motivation and credible gamification in serious fields**
+
+| Topic | Real finding or rule | What it means for a measure |
+|---|---|---|
+| Intrinsic motivation | Rewards for an activity people already enjoy can reduce their interest (Deci et al. 1999; Lepper et al. 1973). | Give feedback and recognition for progress and skill; keep rewards for tasks people do not enjoy. |
+| A serious field | A game-based intervention with social incentives raised the daily steps of families in a community study of a heart health programme (Patel et al. 2017, as reported). | In health and finance, a mechanic is credible when it serves a goal the person has and is evaluated. |
+| Manipulation | Pressure patterns such as countdown timers and false scarcity were found on about 11% of the crawled shopping websites (Mathur et al. 2019), and the EU Digital Services Act (Article 25) forbids manipulative interface design on online platforms. | A mechanic that pushes people against their interest is a legal risk and a loss of trust. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. The overjustification effect follows Lepper et al. (1973) and Deci et al. (1999); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. The overjustification effect follows Lepper et al. (1973) and Deci et al. (1999); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -205,7 +247,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 In professional learning, health and public services, the people who take part without being pushed are the intrinsically motivated ones, and they are exactly the people a reward layer can damage. The people a points programme moves are often those who were not taking part, and they tend to stop again when the points stop. So a successful points quarter can leave a product weaker than it started: it lost some of the people it had and rented the people it wanted.
 :::
 
-^src: Lepper et al. 1973 · Deci et al. 1999 · Gibbons 2018
+^src: Lepper et al. 1973 · Deci et al. 1999 · Gibbons 2018 · Patel et al. 2017 · Mathur et al. 2019 · EU Digital Services Act
 
 # Materi B · Route 2 · Level 3
 
@@ -227,8 +269,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of an activation architecture, from a guiding vision to every touchpoint.](_figures/d9_B1_1.png)
 
+**Gamification as an activation architecture: evidence**
+
+| Part | Real finding | What it means |
+|---|---|---|
+| Context decides | The effects of gamification depended greatly on the context and the users (Hamari et al. 2014). | An activation strategy names the context and the group before it names a mechanic. |
+| A design framework | Nicholson's framework for meaningful gamification starts with the user's own purposes and lets the user choose how to take part (Nicholson 2015). | Build the architecture from the goal outwards, not from the game layer inwards. |
+| Evidence of effect and decay | A trial showed a clear effect during the game and a smaller one after it (Patel et al. 2017, as reported). | Plan the phases: start, hold, hand over. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Lasting motivation through competence and autonomy follows Ryan and Deci (2000); meaningful gamification follows Nicholson (2015).
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Lasting motivation through competence and autonomy follows Ryan and Deci (2000); meaningful gamification follows Nicholson (2015). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -243,7 +293,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 A guiding vision for activation is short and testable. “Customers keep saving because they see their cushion grow, not because we push them” can be checked on every screen: does this element show growth, or does it push? “Make saving fun” cannot be checked, and it invites every mechanic anyone suggests.
 :::
 
-^src: Nicholson 2015 · Ryan & Deci 2000 · Hamari et al. 2014
+^src: Nicholson 2015 · Ryan & Deci 2000 · Hamari et al. 2014 · Patel et al. 2017
 
 ## B2 · Motivation against seriousness and autonomy: the conflicts of activation · 20 min · Core
 
@@ -266,8 +316,16 @@ A guiding vision for activation is short and testable. “Customers keep saving 
 | Brand effect against user interest | Visibility for the company, against the user's goal. | Whose interest does this mechanic serve? |
 | All of these against economic viability | Finance, against everyone. | What does it cost, and what does it bring over months? |
 
+**Conflicts of activation, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Motivation against seriousness | Gamification worked in a trial about health (Patel et al. 2017, as reported), but effects depend on context (Hamari et al. 2014). | Test lively elements in the serious setting with its users before scaling. |
+| Activation against autonomy | Autonomy is one of the three basic needs for lasting motivation (Ryan and Deci 2000), and announced rewards can undermine interest (Deci et al. 1999). | Ask: would people choose this push if asked? |
+| Cost against effect | In the trial the effect shrank after the game ended (Patel et al. 2017, as reported). | Count the cost over months, not only the first weeks. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. The three levers are a reading of the example, not a rule for every product.
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. The three levers are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -282,7 +340,7 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 Activation numbers cannot see the risks of a lever. A streak warning at midnight raises daily activity; it does not show the people who stopped altogether after the streak broke, or the ones who now open the app with a small feeling of dread. Decide which numbers you will look at, and over which period, before you decide on the lever, or the lever will choose the numbers for you.
 :::
 
-^src: Tversky & Kahneman 1991 · Festinger 1954 · Deci et al. 1999
+^src: Tversky & Kahneman 1991 · Festinger 1954 · Deci et al. 1999 · Patel et al. 2017 · Hamari et al. 2014 · Ryan & Deci 2000
 
 ## B3 · Who answers for a mechanic, and deciding without knowing who stays · 20 min · Core
 
@@ -305,8 +363,16 @@ Activation numbers cannot see the risks of a lever. A streak warning at midnight
 | How a mechanic leaves | Who can remove a mechanic, and when? | A yearly review; the owner removes what no longer earns its place. |
 | How a conflict is decided | What happens when brand, customer and business disagree? | Customer first, then credibility, then the business case; the board settles a tie. |
 
+**Who answers for a mechanic: rules and evidence**
+
+| Part | Evidence or rule | What it means |
+|---|---|---|
+| Who checks | Article 25 of the EU Digital Services Act forbids manipulative interface design on online platforms. | Have legal and the specialists check every ranking, notification and countdown. |
+| How a mechanic leaves | Effects decay after a mechanic ends or loses its novelty (Patel et al. 2017, as reported). | Review each mechanic every year; remove what no longer earns its place. |
+| Who owns | Meaningful gamification has to be designed around the user's purposes (Nicholson 2015). | Give one owner the principles and let every team build within them. |
+
 :::note Case assumption
-Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -321,4 +387,4 @@ Brightwater Savings, Vera, Kaspar, Rhea and Dominik are made up for this example
 A works council, a regulator and a journalist all ask the same thing in different words: who decided this, on what principle, and what would have led to a different decision? A company that can answer in one paragraph is in a different position from one that cannot, whatever the mechanic. In a field where trust is the product, a missing decision record is itself the finding. Write the paragraph before anyone asks.
 :::
 
-^src: Simon 1956 · Klein 2007 · Nicholson 2015
+^src: Simon 1956 · Klein 2007 · Nicholson 2015 · EU Digital Services Act · Patel et al. 2017
