@@ -10,8 +10,8 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is LifeSupport (see the Task document).
 intro: Today is about the feelings a digital product creates and why they matter as much as its functions. You learn how emotions steer attention, motivation, trust, memory and decisions, the difference between being usable and being a good experience, the emotional factors that matter in UX (safety, control, joy, belonging, frustration, uncertainty, recognition), how visual mood, interaction, tone and feedback create them, and where emotion turns into over-emotionalisation or manipulation. Then you use it on three products. This document holds everything you need to study Day 7 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: ux,governance,dark-pattern,case-assumption,tone-guide,activation,over-emotional,neuro-ux,incongruent,attention,experience-quality,touchpoint,brand,emotional-factor,perceived-competence,emotional-bond,peak-end,hypothesis,microcopy,cxo,design-logic,feedback,emotional-safety
-refs: norman2004,damasio1994,kahneman1993,hassenzahl2010,iso9241210,walter2011,norman2013,nielsen1994,mathur2019,fogg2003,lindgaard2006,gibbons2018,simon1956,klein2007
+glossary: ux,dark-pattern,tone-guide,governance,case-assumption,activation,over-emotional,neuro-ux,emotional-factor,incongruent,attention,touchpoint,brand,experience-quality,perceived-competence,hierarchy,emotional-bond,peak-end,hypothesis,microcopy,cxo,design-logic,feedback,component,emotional-safety
+refs: norman2004,damasio1994,kahneman1993,foggWeb2003,hassenzahl2010,iso9241210,walter2011,norman2013,nielsen1994,mailchimpVoice,mathur2019,fogg2003,dsa2022,planet49,lindgaard2006,gibbons2018,sillence2004,tractinsky2000,simon1956,klein2007
 ---
 
 [[CONTENTS]]
@@ -44,8 +44,17 @@ About 60 minutes, five cards. Levels 1 and 2: describe the emotional effect of a
 | Memory | What stays after the visit. | The end of a visit colours the whole of it. |
 | Decisions | What they choose next. | Uncertainty makes people postpone or go elsewhere. |
 
+**What a feeling acts on: evidence**
+
+| Effect | Real finding | What it means for a screen |
+|---|---|---|
+| Decisions | Damasio described patients with damage to the part of the brain that links feeling to decision-making: their reasoning stayed intact, but their everyday decisions were poor (Damasio 1994). | Feelings are part of how people decide, not noise around it; a screen that ignores them still has an effect. |
+| Memory | In a study with cold water, 22 of 32 participants (69%) chose to repeat a 90-second trial rather than a 60-second one, because it ended slightly warmer; the end of an episode weighs more than its length (Kahneman et al. 1993, as reported). | Take care with the end of a visit: the confirmation and the last screen colour the whole memory. |
+| Trust | The design look was the factor named most often when 2,684 people judged the credibility of 100 websites, in 46.1% of their comments (Fogg et al. 2003). | The look and the tone are read as signs of care before any content is judged. |
+| Motivation | Hassenzahl separates pragmatic quality, whether a product helps to reach a goal, from hedonic quality, whether it stimulates, expresses who one is and carries meaning (Hassenzahl 2010). | A product that only works can be used and still be left; hedonic quality is part of why people return. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The three levels of emotional design follow Norman (2004); emotion as part of reasoning follows Damasio (1994); the peak-end rule follows Kahneman et al. (1993).
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The three levels of emotional design follow Norman (2004); emotion as part of reasoning follows Damasio (1994); the peak-end rule follows Kahneman et al. (1993). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -60,7 +69,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The thre
 Norman (2004) describes three levels on which a product acts. The visceral level is the immediate reaction to how it looks. The behavioural level is how it feels to use: whether it works, responds and lets you stay in control. The reflective level is what it means to you afterwards, what you tell others about it. A product can win one level and lose another: beautiful at first sight, frustrating to use, and remembered as frustrating.
 :::
 
-^src: Norman 2004 · Damasio 1994 · Kahneman et al. 1993
+^src: Norman 2004 · Damasio 1994 · Kahneman et al. 1993 · Fogg et al. 2003 · Hassenzahl 2010
 
 ## A2 · Usable is not enough: the emotional factors of an experience · 12 min · Core
 
@@ -85,8 +94,16 @@ Norman (2004) describes three levels on which a product acts. The visceral level
 | Recognition | My effort is seen. | A finished task ends in silence. |
 | Frustration and uncertainty | I am stuck, or I do not know. | Errors that blame; waiting without a word. |
 
+**Emotional factors in the definitions and models**
+
+| Source | What it says | What it means for a screen |
+|---|---|---|
+| ISO 9241-210 | User experience covers the user's emotions, beliefs, preferences, perceptions and responses before, during and after use (ISO 9241-210). | Emotion is part of the standard definition, so a UX review that skips it is incomplete. |
+| Three levels (Norman 2004) | Norman names a visceral level (the first look and feel), a behavioural level (how it works in use) and a reflective level (what it means afterwards). | Check each level: first impression, use, and the story people tell later. |
+| Pragmatic and hedonic quality | Hassenzahl's model separates the quality of reaching goals from the quality of stimulation, identification and meaning (Hassenzahl 2010). | Name which of the emotional factors (safety, control, joy, belonging, recognition) your measure is for. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Experience beyond usability follows Hassenzahl (2010); user experience as perceptions and responses before, during and after use follows ISO 9241-210.
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Experience beyond usability follows Hassenzahl (2010); user experience as perceptions and responses before, during and after use follows ISO 9241-210. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -124,8 +141,17 @@ Hassenzahl (2010) separates what a product does (its pragmatic quality: useful, 
 | Tone | Whether the product sounds like a person on their side. | Would a helpful person say it this way? |
 | Feedback | Safety and recognition after each action. | Does it say what happened, what comes next, and that it went well? |
 
+**Where feelings come from: models and a real case**
+
+| Source | Real finding or example | What it means for a screen |
+|---|---|---|
+| A hierarchy of needs | Walter ordered the needs of users as functional, reliable, usable, pleasurable and meaningful; pleasure is built on a product that works (Walter 2011). | Fix what fails before adding delight. |
+| Tone follows the reader | Mailchimp's content guide keeps its voice steady and lets its tone change with the situation: you would not speak in the same tone to someone who is upset as to someone who is laughing (Mailchimp, Voice and Tone). | Write a tone guide by situation: success, error, waiting, money. |
+| Feedback and control | One of the ten heuristics asks that the system always tells users what is going on, through appropriate feedback within a reasonable time (Nielsen 1994). | Each action gets a clear answer: what happened and what comes next. |
+| The end counts | The end of an episode weighs more than its length in the memory of it (Kahneman et al. 1993, as reported). | Make the last step of a task a calm, clear confirmation. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Tone and personality in interfaces follow Walter (2011); visibility of system status and helpful error messages are Nielsen's heuristics (1994); feedback as a basic design principle follows Norman (2013).
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Tone and personality in interfaces follow Walter (2011); visibility of system status and helpful error messages are Nielsen's heuristics (1994); feedback as a basic design principle follows Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -140,7 +166,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Tone and
 A supportive error message has four parts: what happened, in plain words; what it means for the person (was anything lost or charged?); what they can do now; and where help is. It never blames, never hides behind a code, and never jokes about a problem the person feels. The same four parts work for waiting: what is happening, how long it may take, what the person can do meanwhile.
 :::
 
-^src: Walter 2011 · Norman 2013 · Nielsen 1994
+^src: Walter 2011 · Norman 2013 · Nielsen 1994 · Mailchimp, Voice and Tone · Kahneman et al. 1993
 
 ## A4 · Activation, overload and manipulation: when emotion turns against use · 12 min · Core
 
@@ -163,8 +189,17 @@ A supportive error message has four parts: what happened, in plain words; what i
 | Incongruent address | A feeling that does not fit the situation. | People feel not taken seriously. |
 | Manipulation | Emotion used against people's interest: false urgency, guilt, hidden costs. | Short-term clicks, long-term loss of trust. |
 
+**When emotion turns against use: real findings**
+
+| Finding | What was measured | What it means for a screen |
+|---|---|---|
+| Dark patterns at scale | A crawl of about 11,000 shopping websites found 1,818 instances of dark patterns, of 15 types in 7 categories, on 1,254 websites (about 11.1%); some, such as countdown timers and low-stock messages, work through false urgency and scarcity (Mathur et al. 2019). | Pressure and guilt sell in the short term; people who learn they were pushed stop trusting. |
+| Sold as a service | The same study identified 22 third parties that offer dark patterns to shops as a ready-made feature (Mathur et al. 2019). | A team can adopt manipulation by installing a plug-in without noticing. |
+| The legal line | The EU Digital Services Act (Article 25) forbids online platforms to design interfaces that deceive or manipulate users, and the Court of Justice ruled in Planet49 (2019) that a pre-ticked box is not valid consent. | Emotional pressure that works against the person's interest is a legal risk, not only an ethical one. |
+| Credibility | Credibility is judged from the elements people notice and how they interpret them (Fogg 2003). | An exaggerated message looks less credible: match the feeling to the situation. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. False urgency, scarcity and confirmshaming as dark patterns follow Mathur et al. (2019); the ethics of persuasive technology follow Fogg (2003).
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. False urgency, scarcity and confirmshaming as dark patterns follow Mathur et al. (2019); the ethics of persuasive technology follow Fogg (2003). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -179,7 +214,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. False ur
 A simple test for manipulation: would the message still work if the person knew exactly why it was written this way? A care reminder still works when people know it is meant to keep their plants alive. A countdown that resets every visit stops working the moment people see through it, and takes their trust in the next message with it.
 :::
 
-^src: Mathur et al. 2019 · Fogg 2003 · Walter 2011
+^src: Mathur et al. 2019 · Fogg 2003 · Walter 2011 · EU Digital Services Act · CJEU Planet49 2019
 
 ## A5 · Trust and perceived competence, and weighing a measure · 12 min · Core
 
@@ -195,8 +230,17 @@ A simple test for manipulation: would the message still work if the person knew 
 
 ![Moss & Pine weighs three measures on effect on users, feasibility, risk and time pressure.](_figures/d7_A5_1.png)
 
+**Trust and perceived competence: findings**
+
+| Finding | What was measured | What it means for a measure |
+|---|---|---|
+| Speed of judgement | People rate the appeal of a web page after 50 ms (Lindgaard et al. 2006). | The first feeling of competence is formed before anything is read. |
+| Design and rejection | In a four-week study, women searching for health advice rejected sites because of their design appeal, and chose sites for the credibility of the content (Sillence et al. 2004). | Design earns the right to be read; content earns the trust. |
+| Beauty and ease | People rate an attractive interface as easier to use before they have used it (Tractinsky et al. 2000). | A polished look raises expectations: the interface must live up to them. |
+| Credibility | The design look was named in 46.1% of the comments on credibility (Fogg et al. 2003). | Count a care detail (spelling, alignment, tone) as a trust measure. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Credibility and perceived competence follow Fogg (2003); first impressions within a fraction of a second follow Lindgaard et al. (2006); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Credibility and perceived competence follow Fogg (2003); first impressions within a fraction of a second follow Lindgaard et al. (2006); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -211,7 +255,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Credibil
 Fogg (2003) found that people judge the credibility of a website largely from surface signals: design, clarity, small errors. This is why a typo or a technical error message can cost more trust than its size suggests, and why careful wording in confirmations and errors is one of the cheapest ways to build it.
 :::
 
-^src: Fogg 2003 · Lindgaard et al. 2006 · Gibbons 2018
+^src: Fogg 2003 · Lindgaard et al. 2006 · Gibbons 2018 · Sillence et al. 2004 · Tractinsky et al. 2000 · Fogg et al. 2003
 
 # Materi B · Route 2 · Level 3
 
@@ -233,8 +277,16 @@ About 60 minutes, three cards, led by the facilitator. Level 3 in the Chief Expe
 
 ![The layers of emotional UX, from a guiding vision to every message.](_figures/d7_B1_1.png)
 
+**Emotional UX in the architecture: real structures**
+
+| Part | Real example | What it means |
+|---|---|---|
+| Voice and tone as a system | Mailchimp publishes a voice and tone guide with a steady voice and a tone that follows the situation of the reader (Mailchimp, Voice and Tone). | Treat the tone as a written, shared standard, not as the taste of one writer. |
+| Layers of emotional effect | Norman's three levels and Walter's hierarchy give a structure to plan for: first look, use, meaning (Norman 2004; Walter 2011). | Decide which level each touchpoint must serve. |
+| Part of the definition | ISO 9241-210 includes emotions in the definition of user experience. | A UX strategy that leaves emotion out is not complete by the standard's own definition. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Emotion as a property of the product follows Norman (2004) and Hassenzahl (2010); tone and personality as a design system of their own follow Walter (2011).
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Emotion as a property of the product follows Norman (2004) and Hassenzahl (2010); tone and personality as a design system of their own follow Walter (2011). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -249,7 +301,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Emotion 
 A guiding vision for emotional UX is short and testable: one sentence that names the feeling and covers the hard moments. “Customers feel looked after and sure of what happens, also when something goes wrong” can be checked on every screen. “We delight our customers” cannot, and it invites over-emotionalisation.
 :::
 
-^src: Norman 2004 · Walter 2011 · Hassenzahl 2010
+^src: Norman 2004 · Walter 2011 · Hassenzahl 2010 · Mailchimp, Voice and Tone · ISO 9241-210
 
 ## B2 · Seriousness against closeness: the conflicts of emotional UX · 20 min · Core
 
@@ -271,8 +323,16 @@ A guiding vision for emotional UX is short and testable: one sentence that names
 | Activation against credibility | Marketing's targets, against long-term trust. | Would the message still work if people knew why it was written? |
 | Brand effect against user effect | What the company wants to say, against what the person needs now. | What does this person need in this situation? |
 
+**Conflicts of emotional UX, with evidence**
+
+| Conflict | What the evidence says | A way to decide |
+|---|---|---|
+| Seriousness against closeness | Tone can change with the situation while the voice stays the same (Mailchimp, Voice and Tone). | Keep the voice of the brand and set the tone by the situation: warm for a welcome, plain for an error. |
+| Activation against credibility | Pressure patterns were found on about 11% of the crawled shopping websites (Mathur et al. 2019), and exaggeration lowers credibility (Fogg 2003). | Apply the test: would the message still work if people knew why it was written? |
+| Brand effect against user effect | The design look drives judgements of credibility (Fogg et al. 2003), and design appeal decides rejection (Sillence et al. 2004). | Judge a campaign by what the person needs now, then by the brand. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The four situations are a reading of the example, not a rule for every product.
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The four situations are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -287,7 +347,7 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. The four
 Over-emotionalisation is often a symptom of a conflict that was never settled: marketing adds warmth to every message because no one decided where warmth belongs. A short matrix in the tone guide (which feeling for which situation) settles it once and gives every team the same answer.
 :::
 
-^src: Mathur et al. 2019 · Fogg 2003 · Gibbons 2018
+^src: Mathur et al. 2019 · Fogg 2003 · Gibbons 2018 · Mailchimp, Voice and Tone · Fogg et al. 2003 · Sillence et al. 2004
 
 ## B3 · Who owns emotional UX, and deciding with little data on feelings · 20 min · Core
 
@@ -309,8 +369,16 @@ Over-emotionalisation is often a symptom of a conflict that was never settled: m
 | Who checks | Who makes sure warmth stays correct? | The nursery checks care advice; marketing checks the brand. |
 | How a conflict is decided | What happens when brand, expertise and user effect disagree? | Correctness, then the customer, then the brand; the product owner settles a tie. |
 
+**Owning emotional UX: real rules and a real case**
+
+| Part | Real example or rule | What it means |
+|---|---|---|
+| Who owns the tone | Mailchimp's voice and tone guide is a public document that its writers share (Mailchimp, Voice and Tone). | Name an owner and publish the guide. |
+| Who checks | Manipulative patterns can be bought as a ready-made feature (Mathur et al. 2019), so someone has to check what is installed. | Review third-party components for pressure and guilt. |
+| The legal check | Article 25 of the EU Digital Services Act forbids manipulative interface design on online platforms. | Add a legal check to the release of emotional features. |
+
 :::note Case assumption
-Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).
+Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.
 :::
 
 :::rules How to decide when this comes up in the task
@@ -325,4 +393,4 @@ Moss & Pine, Hana, Jonas, Wanda and Bruno are made up for this example. Deciding
 Imagine it is a year later and the new tone has failed, and ask why (Klein 2007). The usual answers: it sounded friendly but stopped being precise, so the experts withdrew; marketing used it for urgency; each team bent it until there were five tones again. Each answer is a governance gap, not a writing gap.
 :::
 
-^src: Simon 1956 · Klein 2007 · Walter 2011
+^src: Simon 1956 · Klein 2007 · Walter 2011 · Mailchimp, Voice and Tone · Mathur et al. 2019 · EU Digital Services Act

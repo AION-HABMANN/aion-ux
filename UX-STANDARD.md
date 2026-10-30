@@ -246,6 +246,7 @@ Day 1 is the reference (commit `d6b6076`): the term table with a finding per wor
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-10-30 | Day 7 Materi deepened under rule 2.17: all 12 Wissen bullets now full, with verified real findings and cases (Damasio, peak-end, ISO 9241-210, Norman's levels, Walter's hierarchy, Mailchimp voice and tone, dark patterns at scale, DSA Article 25), Day 7 added to `DEPTH_CHECKED`. | Day 7 |
 | 2026-10-30 | Day 6 Materi deepened under rule 2.17: all 13 Wissen bullets now full, with verified real findings and cases (Gestalt origins and common region, the isolation effect, the limit of progressive disclosure, Grudin's case against consistency, the GOV.UK Design System process), Day 6 added to `DEPTH_CHECKED`. | Day 6 |
 | 2026-10-30 | Day 5 Materi deepened under rule 2.17: all 12 Wissen bullets now full, with verified real findings and rules (Fitts formula, thumb target sizes, grip, WCAG 2.5.8 and 2.5.5, Hick-Hyman, progressive disclosure limit, chunking evidence, Baymard), Day 5 added to `DEPTH_CHECKED`. | Day 5 |
 | 2026-10-30 | Day 4 Materi deepened under rule 2.17: all 12 Wissen bullets now full, with verified real findings and rules (intuitive equals familiar, Baymard checkout abandonment, Hick-Hyman, depth against breadth, Fitts, WCAG 2.5.8 and 2.5.5, Miller and Cowan, one-click ordering), a working example of help topics in three structures, minutes A3 13 and A5 11, Day 4 added to `DEPTH_CHECKED`. | Day 4 |
