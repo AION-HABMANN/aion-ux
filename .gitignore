@@ -14,3 +14,6 @@ ux-lab/public/css/
 
 # Local accessibility audit helper (copied from axe-core, not part of the app)
 __axe.min.js
+
+# Trainer model answers inside the Habmann submission folders stay local
+habmann-submission/*/Dozent-intern/
