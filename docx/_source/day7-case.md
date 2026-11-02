@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: LifeSupport, the day's case study
 intro: This is the case study of Day 7. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ux,activation,experience-quality,orientation,touchpoint,governance,case-assumption,emotional-bond,emotional-safety,dark-pattern,stakeholder,cxo,tone-guide,perceived-competence,decision-arch
-footer: AION UX Developer · Day 7 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 7 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

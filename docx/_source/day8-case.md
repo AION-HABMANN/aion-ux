@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: GreenHome, the day's case study
 intro: This is the case study of Day 8. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ux,dramaturgy,onboarding,storytelling-ux,orientation,experience-quality,activation,governance,case-assumption,narrative-guidance,user-journey,touchpoint,stakeholder,cxo,transition,milestone,decision-arch
-footer: AION UX Developer · Day 8 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 8 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

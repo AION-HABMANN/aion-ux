@@ -1,4 +1,9 @@
-"""Small helpers on top of python-pptx for the Habmann slide decks (16:9, Calibri, one palette)."""
+"""Small helpers on top of python-pptx for the Habmann slide decks.
+
+Built on the official Habmann master template (`../../Template Blockstart V1 10_2025.pptx`): its layouts, logo, chevron artwork,
+Gill Sans MT and the Habmann palette (navy 1A3381, green 51AE2F). Standard: see ../STYLE-STANDARD.md.
+"""
+import copy
 import math
 import os
 
@@ -11,19 +16,24 @@ from pptx.oxml.ns import qn
 from pptx.util import Emu, Inches, Pt
 from lxml import etree
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE = os.path.normpath(os.path.join(HERE, "..", "..", "Template Blockstart V1 10_2025.pptx"))
 W, H = 13.333, 7.5
 MX = 0.6
-INK = "1B2540"
-TEAL = "0F8B8D"
-CORAL = "D9482B"
-CARD = "EEF2F6"
-CARD2 = "E3F1F1"
-LINE = "D5DCE5"
+DY = 0.45          # content slides: the template's title bar is lower than a free title, content moves up by this much
+INK = "1A3381"     # Habmann navy
+TEAL = "51AE2F"    # Habmann green (fills, with bold white text)
+GREEN_TXT = "3A7F1F"  # darker green for small text on white
+CORAL = "5F6FB5"   # second accent (periwinkle, from the template's chevron) for case/level-3 marks
+CARD = "ECEEF7"
+CARD2 = "E5F2DF"
+LINE = "D5DAEA"
 TXT = "1F2937"
 MUTED = "5B6577"
 WHITE = "FFFFFF"
-FONT = "Calibri"
-HEAD = "Calibri"
+FONT = "Gill Sans MT"
+HEAD = "Gill Sans MT"
+LAYOUT_TITLE, LAYOUT_SECTION, LAYOUT_CONTENT = 2, 5, 11   # Abschnitts-Ueberschrift, Leer, Title and Footer
 
 
 def rgb(h):
@@ -72,46 +82,65 @@ def table_fit(head, rows, total, sizes=(16, 15, 14, 13, 12), maxh=4.85):
 
 class Deck:
     def __init__(self, day, label):
-        self.prs = Presentation()
-        self.prs.slide_width = Inches(W)
-        self.prs.slide_height = Inches(H)
+        self.prs = Presentation(TEMPLATE)
+        lst = self.prs.slides._sldIdLst
+        for sid in list(lst):
+            self.prs.part.drop_rel(sid.rId)
+            lst.remove(sid)
         self.day = day
         self.label = label
         self.n = 0
-        self.layout = self.prs.slide_layouts[5]  # Title Only
+
+    def _clone_ph(self, s, layout, kinds, text=None):
+        for sh in layout.placeholders:
+            t = sh._element.xpath("./p:nvSpPr/p:nvPr/p:ph/@type")
+            if t and t[0] in kinds:
+                el = copy.deepcopy(sh._element)
+                s.shapes._spTree.append(el)
+                if text is not None and t[0] == "ftr":
+                    for r in el.xpath(".//a:r"):
+                        r.getparent().remove(r)
+                    txb = el.find(qn("p:txBody"))
+                    para = txb.find(qn("a:p"))
+                    for e in para.findall(qn("a:endParaRPr")):
+                        para.remove(e)
+                    r = etree.SubElement(para, qn("a:r"))
+                    rpr = etree.SubElement(r, qn("a:rPr"))
+                    rpr.set("lang", "en-GB")
+                    rpr.set("sz", "1000")
+                    tt = etree.SubElement(r, qn("a:t"))
+                    tt.text = text
 
     # ---- slides
-    def slide(self, title="", dark=False, notes=None, size=None, footer=True, title_w=None):
-        s = self.prs.slides.add_slide(self.layout)
+    def slide(self, title="", notes=None, size=None, footer=True, layout=LAYOUT_CONTENT):
+        lay = self.prs.slide_layouts[layout]
+        s = self.prs.slides.add_slide(lay)
         self.n += 1
-        bg = s.background.fill
-        bg.solid()
-        bg.fore_color.rgb = rgb(INK if dark else WHITE)
-        t = s.shapes.title
-        t.left, t.top, t.width, t.height = Inches(MX), Inches(0.4), Inches(title_w or (W - 2 * MX)), Inches(1.0)
-        tf = t.text_frame
-        tf.word_wrap = True
-        tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
-        tf.vertical_anchor = MSO_ANCHOR.MIDDLE
-        tf.text = title
-        pt = size or fit([title], (title_w or (W - 2 * MX)), 1.0, 32, 22, 0)
-        p = tf.paragraphs[0]
-        p.alignment = PP_ALIGN.LEFT
-        for r in p.runs:
-            r.font.size = Pt(pt)
-            r.font.bold = True
-            r.font.name = HEAD
-            r.font.color.rgb = rgb(WHITE if dark else INK)
-        if footer:
-            self.footer(s, dark)
+        s._dy = DY if layout == LAYOUT_CONTENT else 0
+        if layout == LAYOUT_CONTENT:
+            t = s.shapes.title
+            t.left, t.top, t.width, t.height = Inches(0.667), Inches(0.12), Inches(11.0), Inches(0.72)
+            tf = t.text_frame
+            tf.word_wrap = True
+            tf.vertical_anchor = MSO_ANCHOR.BOTTOM
+            tf.margin_left = tf.margin_right = 0
+            tf.margin_top = tf.margin_bottom = Inches(0.03)
+            tf.text = title
+            pt = size or fit([title], 11.0 / 1.18, 0.66, 24, 15, 0)
+            p = tf.paragraphs[0]
+            for r in p.runs:
+                r.font.size = Pt(pt)
+                r.font.bold = True
+                r.font.name = HEAD
+                r.font.color.rgb = rgb(INK)
+                r._r.get_or_add_rPr().set("cap", "all")
+            if footer:
+                self._clone_ph(s, lay, ("ftr", "sldNum"), f"UX Developer · Day {self.day} · {self.label}")
+        elif layout == LAYOUT_SECTION:
+            pass
         if notes:
             s.notes_slide.notes_text_frame.text = notes
         return s
-
-    def footer(self, s, dark=False):
-        col = "AEB7C7" if dark else MUTED
-        text(s, MX, 7.08, 9.0, 0.25, [f"AION UX Developer · Day {self.day} · {self.label}"], size=10, color=col)
-        text(s, W - MX - 1.0, 7.08, 1.0, 0.25, [str(self.n)], size=10, color=col, align=PP_ALIGN.RIGHT)
 
     def save(self, path):
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -133,6 +162,7 @@ def _bullet(p, char="•", indent=0.22):
 def text(s, x, y, w, h, paras, size=16, color=TXT, bold=False, font=FONT, align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
          after=6, bullets=False, italic=False, name=None):
     """paras: list of str, or of (str, {size,bold,color,italic}) or of list of runs [(str, {..}), ...]."""
+    y -= getattr(s, "_dy", 0)
     tb = s.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
     if name:
         tb.name = name
@@ -166,6 +196,7 @@ def text(s, x, y, w, h, paras, size=16, color=TXT, bold=False, font=FONT, align=
 
 
 def box(s, x, y, w, h, fill=CARD, line=None, radius=0.05, shape=MSO_SHAPE.ROUNDED_RECTANGLE, name=None):
+    y -= getattr(s, "_dy", 0)
     sh = s.shapes.add_shape(shape, Inches(x), Inches(y), Inches(w), Inches(h))
     if shape == MSO_SHAPE.ROUNDED_RECTANGLE:
         sh.adjustments[0] = radius
@@ -221,7 +252,7 @@ def picture(s, path, x, y, w, h, alt=""):
         iw, ih = im.size
     r = min(w / iw, h / ih)
     pw, ph = iw * r, ih * r
-    px, py = x + (w - pw) / 2, y + (h - ph) / 2
+    px, py = x + (w - pw) / 2, y + (h - ph) / 2 - getattr(s, "_dy", 0)
     pic = s.shapes.add_picture(path, Inches(px), Inches(py), Inches(pw), Inches(ph))
     pic._element.nvPicPr.cNvPr.set("descr", alt)
     return px, py, pw, ph
@@ -230,6 +261,7 @@ def picture(s, path, x, y, w, h, alt=""):
 def table(s, x, y, w, col_w, head, rows, size=12, head_fill=INK, first_bold=True):
     """col_w in inches (sum = w). Row heights are estimated; PowerPoint grows a row when its text needs more."""
     n = len(rows) + 1
+    y -= getattr(s, "_dy", 0)
     gh = s.shapes.add_table(n, len(head), Inches(x), Inches(y), Inches(w), Inches(0.4 * n))
     t = gh.table
     t.first_row = True
@@ -265,7 +297,7 @@ def table(s, x, y, w, col_w, head, rows, size=12, head_fill=INK, first_bold=True
         put(t.cell(0, ci), hd, True, WHITE, head_fill, size)
     for ri, row in enumerate(rows, 1):
         for ci, c in enumerate(row):
-            put(t.cell(ri, ci), c, first_bold and ci == 0, TXT, WHITE if ri % 2 else "F4F7FA", size)
+            put(t.cell(ri, ci), c, first_bold and ci == 0, TXT, WHITE if ri % 2 else "F4F6FB", size)
     return gh, sum(heights)
 
 

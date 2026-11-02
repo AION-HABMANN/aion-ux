@@ -10,6 +10,6 @@ One folder per day, named after the four items in Habmann's e-mail (2026-11-01).
 | `4_Fallstudie_DayNN_<Case>.docx` | Block-specific case study | Part 2 of the Task (UE5-6), as its own document |
 | `Dozent-intern/Trainer-Musterloesung_DayNN_<Case>.docx` | not requested; the plan's "Musterlösung" | model answers; **do not give to participants** |
 
-Rules from the e-mail and how they are met: every picture is a screenshot of the Neuro-UX Lab with its AI label on the image and a source line under it; AI-assisted content is stated on the closing slide and on the document cover; sources are listed on the "Sources" slides. The HUI master template and logo are optional and not used. Language: English, like the Word documents.
+Rules from the e-mail and how they are met: every picture is a screenshot of the Neuro-UX Lab with its AI label on the image and a source line under it; AI-assisted content is stated on the closing slide and on the document cover; sources are listed on the "Sources" slides. Design: since 2026-11-02 all slides use the official Habmann master template and logo, Word documents the Habmann font, palette and logo, with no AION branding (see `STYLE-STANDARD.md`). Language: English, like the Word documents.
 
-Rebuild: `python _build/build_decks.py`, `python _build/make_casestudy.py`, `python _build/collect.py` (needs `../docx/_work` and `../docx/_figures`).
+Rebuild (see `STYLE-STANDARD.md`): `python _build/build_decks.py`, `python _build/make_casestudy.py`, `python _build/collect.py` (needs `../docx/_work` and `../docx/_figures`).

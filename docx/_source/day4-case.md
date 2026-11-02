@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: MyEnergy, the day's case study
 intro: This is the case study of Day 4. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ux,intuitive,orientation,touchpoint,action-logic,friction,governance,case-assumption,decision-effort,memory-load,cognition,self-service,stakeholder,cxo,ux-law,cog-load,decision-arch,feedback
-footer: AION UX Developer · Day 4 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 4 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

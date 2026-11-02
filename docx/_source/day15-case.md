@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: VisionMind Lab, the day's case study
 intro: This is the case study of Day 15. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: eye-tracking,ux,neurofeedback,bci,maturity,governance,heatmap,validity,attention,proximity,case-assumption,eeg,hypothesis,stakeholder,cxo,scanpath,neuro-ux,decision-arch,fixation,neurodata,evidence-grade
-footer: AION UX Developer · Day 15 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 15 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

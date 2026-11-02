@@ -38,7 +38,7 @@ def build(day):
     case = META[str(day)]["case"]
     fm.update(
         doc="task",
-        footer=f"AION UX Developer · Day {day} · Case study · v{release.VERSION} · {release.RELEASE_DATE}",
+        footer=f"UX Developer · Day {day} · Case study · v{release.VERSION} · {release.RELEASE_DATE}",
         kicker=f"DAY {day} · CASE STUDY · LEVEL 2 · 2 UE (UE5–6)",
         title=f"{case}: Case study",
         subtitle="The day's Level 2 case study with its questions; work on it alone, then compare in your group",

@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: NextWorld UX, the day's case study
 intro: This is the case study of Day 16. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ux,immersion,governance,scalable-solution,pilot,maturity,stakeholder,case-assumption,attention,decision-arch,cxo,consistency,transition,concept-idea,organisational-learning,heatmap,evaluation-grid,responsible-innovation
-footer: AION UX Developer · Day 16 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 16 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

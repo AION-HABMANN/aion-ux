@@ -170,39 +170,54 @@ def module_of(fm):
 
 # ------------------------------------------------------------------ shared slides
 def title_slide(d, kicker, title, sub, module, extra):
-    s = d.slide("", dark=True, footer=False)
-    s.shapes.title.text_frame.text = title
-    t = s.shapes.title
-    t.left, t.top, t.width, t.height = Inches(0.8), Inches(2.3), Inches(8.2), Inches(2.0)
-    t.text_frame.vertical_anchor = MSO_ANCHOR.TOP
-    pt = fit([title], 8.2, 2.0, 44, 28, 0)
-    for r in t.text_frame.paragraphs[0].runs:
+    """Habmann title slide: official logo from the template layout, centred navy title, no logo on later slides' body."""
+    s = d.slide(layout=LAYOUT_TITLE)
+    for sh in list(s.placeholders):
+        if sh.placeholder_format.idx == 0:
+            sh._element.getparent().remove(sh._element)
+    body = [sh for sh in s.placeholders if sh.placeholder_format.idx == 1][0]
+    body.left, body.top, body.width, body.height = Inches(1.2), Inches(3.7), Inches(10.9), Inches(1.1)
+    tf = body.text_frame
+    tf.word_wrap = True
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    tf.text = title
+    pt = fit([title], 10.9 / 1.2, 1.1, 40, 24, 0)
+    para = tf.paragraphs[0]
+    para.alignment = PP_ALIGN.CENTER
+    for r in para.runs:
         r.font.size = Pt(pt)
         r.font.bold = True
         r.font.name = HEAD
-        r.font.color.rgb = rgb(WHITE)
-    text(s, 0.8, 1.55, 8, 0.4, [kicker], size=16, color="7FD6D8", bold=True)
-    text(s, 0.8, 4.55, 8.2, 0.9, [sub], size=22, color="CBD5E1")
-    text(s, 0.8, 5.55, 8.2, 0.4, [module], size=16, color="AEB7C7")
-    text(s, 0.8, 6.0, 8.2, 0.4, [f"Trainer: {release.REVIEWER} · {extra}"], size=14, color="AEB7C7")
-    badge(s, 9.6, 1.7, 3.0, str(d.day), fill=TEAL, size=96)
-    text(s, 9.3, 5.0, 3.6, 0.8, ["Contains AI-assisted content"], size=14, color="AEB7C7", align=PP_ALIGN.CENTER)
+        r.font.color.rgb = rgb(INK)
+        r._r.get_or_add_rPr().set("cap", "all")
+    text(s, 1.2, 3.25, 10.9, 0.4, [kicker], size=16, color=GREEN_TXT, bold=True, align=PP_ALIGN.CENTER)
+    text(s, 1.2, 4.9, 10.9, 0.5, [sub], size=22, color=MUTED, align=PP_ALIGN.CENTER)
+    text(s, 1.2, 5.5, 10.9, 0.4, [module], size=16, color=INK, align=PP_ALIGN.CENTER)
+    text(s, 1.2, 5.9, 10.9, 0.4, [f"Trainer: {release.REVIEWER} · {extra}"], size=14, color=MUTED, align=PP_ALIGN.CENTER)
+    text(s, 1.2, 6.45, 8.0, 0.4, ["Contains AI-assisted content"], size=12, color=MUTED, align=PP_ALIGN.LEFT)
     return s
 
 
 def divider(d, big, small, body):
-    s = d.slide("", dark=True)
-    t = s.shapes.title
-    t.left, t.top, t.width, t.height = Inches(0.8), Inches(2.0), Inches(11.5), Inches(1.4)
-    t.text_frame.text = big
-    for r in t.text_frame.paragraphs[0].runs:
-        r.font.size = Pt(44)
+    """Section slide on the template's chevron artwork (circled number, navy title)."""
+    s = d.slide(layout=LAYOUT_SECTION)
+    num = "".join(ch for ch in big if ch.isalnum())[-1:].upper() or str(d.n)
+    ov = box(s, 5.84, 0.95, 1.2, 1.2, fill="C9C9C9", shape=MSO_SHAPE.OVAL)
+    ov.line.color.rgb = rgb(WHITE)
+    ov.line.width = Pt(6)
+    tf = ov.text_frame
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    tf.text = num
+    tf.paragraphs[0].alignment = PP_ALIGN.CENTER
+    for r in tf.paragraphs[0].runs:
+        r.font.size = Pt(36)
         r.font.bold = True
         r.font.name = HEAD
         r.font.color.rgb = rgb(WHITE)
-    text(s, 0.8, 1.45, 8, 0.4, [small], size=16, color="7FD6D8", bold=True)
-    pt = fit([body], 10.5, 2.4, 20, 14)
-    text(s, 0.8, 3.7, 10.5, 2.6, [body], size=pt, color="CBD5E1")
+    text(s, 1.2, 2.4, 10.9, 0.7, [big], size=40, color=INK, bold=True, align=PP_ALIGN.CENTER)
+    text(s, 1.2, 3.2, 10.9, 0.5, [small], size=20, color=GREEN_TXT, bold=True, align=PP_ALIGN.CENTER)
+    pt = fit([body], 8.4, 2.6, 20, 14)
+    text(s, 2.45, 3.9, 8.4, 2.6, [body], size=pt, color=INK, align=PP_ALIGN.CENTER)
     return s
 
 
@@ -248,7 +263,7 @@ def wissen(day):
     meta = META[str(day)]
     topic = topic_of(fm)
     d = Deck(day, "Knowledge transfer")
-    title_slide(d, f"AION UX DEVELOPER · DAY {day}", topic, "Knowledge transfer slides", module_of(fm), f"Materi A and B · v{release.VERSION}")
+    title_slide(d, f"UX DEVELOPER · DAY {day}", topic, "Knowledge transfer slides", module_of(fm), f"Materi A and B · v{release.VERSION}")
 
     # agenda
     s = d.slide("What we cover today")
@@ -361,7 +376,7 @@ def training(day):
     topic = topic_of(mfm)
     pe = PLAN_EN[day]
     d = Deck(day, "Training slides")
-    title_slide(d, f"AION UX DEVELOPER · DAY {day}", topic, "Training slides: tasks, coaching, case study and feedback", module_of(mfm),
+    title_slide(d, f"UX DEVELOPER · DAY {day}", topic, "Training slides: tasks, coaching, case study and feedback", module_of(mfm),
                 f"Case: {case}")
 
     # day at a glance
@@ -493,7 +508,7 @@ def feedback_slides(d, pe, day):
         if pe.get("fd"):
             x = 7.2
             box(s, x, 1.55, W - MX - x, 5.0, fill=INK)
-            text(s, x + 0.35, 1.75, 4.5, 0.35, ["DISCUSSION"], size=12, bold=True, color="7FD6D8")
+            text(s, x + 0.35, 1.75, 4.5, 0.35, ["DISCUSSION"], size=12, bold=True, color="BFE5AE")
             pt = fit([pe["fd"]], W - MX - x - 0.7, 3.8, 28, 16, 0)
             text(s, x + 0.35, 2.3, W - MX - x - 0.7, 4.0, [pe["fd"]], size=pt, color=WHITE, bold=True)
 

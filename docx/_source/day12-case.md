@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: CitizenConnect, the day's case study
 intro: This is the case study of Day 12. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: accessibility,contrast,ux,inclusive-design,governance,legibility,keyboard-operable,case-assumption,consistency,perception,component,assistive-technology,stakeholder,cxo,page-type,brand,decision-arch,wcag
-footer: AION UX Developer · Day 12 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 12 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

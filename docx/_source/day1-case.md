@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: SafeHome Online, the day's case study
 intro: This is the case study of Day 1. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ux,cog-load,touchpoint,attention,orientation,neuro-ux,hypothesis,governance,case-assumption,perception,conversion,ui,unconscious,self-service,abandonment,cxo,psych-ux,primary-action,decision-arch
-footer: AION UX Developer · Day 1 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 1 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

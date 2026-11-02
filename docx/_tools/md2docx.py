@@ -1,5 +1,5 @@
 """
-Markdown dialect -> .docx for the AION UX Developer Materi, Task and Trainer documents (adapted from the Digital Learning tool).
+Markdown dialect -> .docx for the UX Developer Materi, Task and Trainer documents (adapted from the Digital Learning tool).
 Dialect (see DOCX-EXPORT-GUIDE.md section 4):
   front matter  --- key: value ... ---
   # / ## / ### / ####  headings          **bold** *italic* `code`
@@ -22,7 +22,7 @@ from docx.enum.section import WD_ORIENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Cm, Emu, Pt, RGBColor
+from docx.shared import Cm, Emu, Inches, Pt, RGBColor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -34,16 +34,16 @@ from refs import REFS  # noqa: E402
 
 INK = "17212E"
 ASH = "556274"
-ACC = "1750A8"
-ACCSOFT = "E3ECFA"
+ACC = "1A3381"
+ACCSOFT = "E4E8F4"
 MIST = "E6ECF4"
 LINE = "D5DEE9"
-SIG = "0B6F69"
-SIGSOFT = "DCF0EE"
+SIG = "3A7F1F"
+SIGSOFT = "E5F2DF"
 RUST = "AD3F26"
 RUSTSOFT = "F8E4DE"
 CANVAS = "F3F6FA"
-FONT = "Calibri"
+FONT = "Gill Sans MT"
 
 TEXT_W = 9638  # dxa, A4 with 2 cm margins
 
@@ -365,7 +365,7 @@ class Builder:
         f = sec.footer
         p = f.paragraphs[0]
         p.text = ""
-        txt = self.meta.get("footer") or f"AION UX Developer · Day {self.meta.get('day', '')} · {self.meta.get('doc', '').title()} · v{release.VERSION} · {release.RELEASE_DATE}"
+        txt = self.meta.get("footer") or f"UX Developer · Day {self.meta.get('day', '')} · {self.meta.get('doc', '').title()} · v{release.VERSION} · {release.RELEASE_DATE}"
         r = p.add_run(txt + "   ·   Page ")
         r.font.size = Pt(8.5)
         r.font.color.rgb = RGBColor.from_string(ASH)
@@ -668,7 +668,10 @@ class Builder:
         day = m.get("day", "")
         trainer = m.get("doc") == "trainer"
         p = d.add_paragraph()
-        add_inline(p, "AION · UX DEVELOPER · PSYCHOLOGICAL UX DESIGN AND NEURO-UX", size=8.5, color=ASH, bold=True)
+        p.add_run().add_picture(os.path.join(os.path.dirname(os.path.abspath(__file__)), "habmann-logo.png"), width=Inches(2.3))
+        par_fmt(p, after=4)
+        p = d.add_paragraph()
+        add_inline(p, "UX DEVELOPER · PSYCHOLOGICAL UX DESIGN AND NEURO-UX", size=8.5, color=ASH, bold=True)
         par_fmt(p, after=14)
         p = d.add_paragraph()
         add_inline(p, m.get("kicker", ""), size=10, color=ACC, bold=True)
@@ -850,7 +853,7 @@ class Builder:
         if z is not None and z.get(qn("w:percent")) is None:
             z.set(qn("w:percent"), "100")
         self.doc.core_properties.title = self.meta.get("title", "")
-        self.doc.core_properties.author = "AION UX Developer"
+        self.doc.core_properties.author = "UX Developer"
         self.doc.core_properties.subject = self.meta.get("kicker", "")
         self.doc.save(path)
 

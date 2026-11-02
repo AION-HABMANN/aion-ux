@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: MoveWell, the day's case study
 intro: This is the case study of Day 9. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: activation,retention,gamification,badge,milestone,activation-architecture,leaderboard,ux,governance,case-assumption,self-efficacy,game-mechanic,streak,touchpoint,stakeholder,cxo,storytelling-ux,user-journey,playful-design,intrinsic,decision-arch
-footer: AION UX Developer · Day 9 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 9 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

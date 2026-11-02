@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: LifeGuide, the day's case study
 intro: This is the case study of Day 13. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: readability,ux,predictability,adaptation-mode,consistency,stimulus-load,governance,inclusive-pattern,orientation,case-assumption,accessibility,inclusive-design,assistive-technology,neurodiversity,adhd,autism,dyslexia,status-colour,design-logic,component,cog-load,stakeholder,cxo,density,brand,stimulus-reduction,attention,decision-arch,typography
-footer: AION UX Developer · Day 13 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 13 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

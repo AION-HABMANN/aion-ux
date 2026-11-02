@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: CampusNow, the day's case study
 intro: This is the case study of Day 2. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: ucd,touchpoint,perception,orientation,findability,ux,consistency,governance,case-assumption,visual-guidance,density,readability,self-service,scan,page-type,cog-load,stakeholder,cxo,recognition,timeliness,decision-arch,provider-centred,contrast,ia,effort
-footer: AION UX Developer · Day 2 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 2 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]

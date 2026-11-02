@@ -11,7 +11,7 @@ minutes: About 90 min (UE5–6), of which about 15–20 min of writing
 case: CityHelp Voice, the day's case study
 intro: This is the case study of Day 11. Read the case once, look at the picture, and write your answers in the boxes and tables. You can work on paper or type into the document. There are no answer keys in this document; the trainer closes the unit with the model solution.
 glossary: voice-ui,ux,error-handling,governance,case-assumption,neuro-ux,dialogue-logic,touchpoint,stakeholder,cxo,reachability,predictability,decision-arch,intelligent-interface
-footer: AION UX Developer · Day 11 · Case study · v1.0 · 29.10.2026
+footer: UX Developer · Day 11 · Case study · v1.0 · 29.10.2026
 ---
 
 [[CONTENTS]]
