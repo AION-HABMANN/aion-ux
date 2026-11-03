@@ -7,7 +7,7 @@ subtitle: Describe the effect, choose the measures as a team member, and decide 
 daytitle: Day 1 · Module 1 (day 1 of 1): Psychological UX design and neuro-design
 doctype: Task (worksheet with answer spaces). Task 1 (UX Analysis File) and Task 2 (UX Strategy Memo).
 route: Task 1 = Route 1, Levels 1 and 2 (draws on Materi A). Task 2 = Route 2, Level 3 (draws on Materi B).
-minutes: Task 1 about 58 min · Task 2 about 35 min
+minutes: Task 1 about 58 min · Task 2 about 20 min
 case: SafeHome Online, the day's case study; other products appear as warm-ups
 intro: This is the worksheet for Day 1. Read the case once, study the evidence printed in this document, and write your answers in the boxes and tables. You can work through it on paper or type into the document. All blocks are Core. There are no answer keys and no scores; the reason you give matters more than the choice.
 glossary: ux,cog-load,touchpoint,attention,orientation,neuro-ux,hypothesis,governance,case-assumption,perception,conversion,ui,unconscious,self-service,abandonment,cxo,psych-ux,primary-action,decision-arch
@@ -375,7 +375,7 @@ You are not to optimise single screens but to design a sound decision architectu
 
 | The framework | How the task runs · one block |
 |---|---|
-| • The budget is limited: not all touchpoints can be reworked at the same time<br>• The data is incomplete: only partial information from support, web analytics and sales<br>• The company wants to appear more innovative but must not lose trust<br>• Marketing wants activation, compliance wants safety, IT wants standardisation, sales wants closing<br>• First results should be visible in 3 months | • Block 3.1 asks eight questions, done together: a comparison of your two answers to the case study, a Neuro-UX guiding vision, three strategic decisions for 24 months, a prioritised order of touchpoints, a risk analysis, a governance model, one decision under uncertainty and a management statement. |
+| • The budget is limited: not all touchpoints can be reworked at the same time<br>• The data is incomplete: only partial information from support, web analytics and sales<br>• The company wants to appear more innovative but must not lose trust<br>• Marketing wants activation, compliance wants safety, IT wants standardisation, sales wants closing<br>• First results should be visible in 3 months | • Block 3.1 asks seven questions: a Neuro-UX guiding vision, three strategic decisions for 24 months, a prioritised order of touchpoints, a risk analysis, a governance model, one decision under uncertainty and a management statement. |
 
 **What is known and what is open**
 
@@ -409,11 +409,11 @@ Those are the plan's facts. That the company is the insurer of Route 1 and the f
 UE8: the trainer presents Materi B and sets the role. UE9: you write the memo. UE10: you present the decision and what you give up; the trainer debriefs.
 :::
 
-## Block 3.1 · A Neuro-UX strategy for a digital service ecosystem · JUDGED · Core · about 35 min
+## Block 3.1 · A Neuro-UX strategy for a digital service ecosystem · JUDGED · Core · about 20 min
 
 **Draws on:** B1 · Design steers perception, behaviour and decision · B2 · Conflicting goals · B3 · Accountable decisions under uncertainty.
 
-Develop a strategic decision concept for the insurer. Your desk holds what the management, the departments and the data say. Open it, then answer the eight questions together; your answers build the memo below.
+Develop a strategic decision concept for the insurer. Your desk holds what the management, the departments and the data say. Open it, then answer the seven questions; your answers build the memo below.
 
 ![Your desk: the messages that wait for you, shown in the lab as a mailbox (1 of 7).](_figures/d1_b3-1_0.png)
 
@@ -441,19 +441,7 @@ Develop a strategic decision concept for the insurer. Your desk holds what the m
 
 ![The platform as it is today, as the lab lets you observe it (6 of 6).](_figures/d1_b3-1_12.png)
 
-**Question 1 of 8 · optional · Compare your answers from Block 2.1 with your colleague: where do you differ, and what does the difference tell you?**
-
-Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy. This question is optional: if it does not fit, skip it; the export works without it.
-
-*How to build the answer:*
-
-- Take turns: each reads out their problems, their first measure and their sketch, without defending them yet.
-- Find one point where you agree and one where you differ.
-- Ask what the difference says about the users, the data or the company, and write it down.
-
-[[ANSWER lines=4]]
-
-**Question 2 of 8 · A Neuro-UX guiding vision for the company: which psychological effect on users should be created systematically?**
+**Question 1 of 7 · A Neuro-UX guiding vision for the company: which psychological effect on users should be created systematically?**
 
 One or two sentences about the effect every channel should create: what customers should perceive, understand and feel.
 
@@ -464,7 +452,7 @@ One or two sentences about the effect every channel should create: what customer
 
 [[ANSWER lines=3]]
 
-**Question 3 of 8 · Three strategic guiding decisions for the next 24 months, for example on the priority of orientation, trust design, reducing cognitive load or consistency across channels**
+**Question 2 of 7 · Three strategic guiding decisions for the next 24 months, for example on the priority of orientation, trust design, reducing cognitive load or consistency across channels**
 
 *How to build the answer:*
 
@@ -475,7 +463,7 @@ Write them as a list, one decision per line, each with what it gives up.
 
 [[ANSWER lines=5]]
 
-**Question 4 of 8 · A prioritised intervention architecture: which touchpoints are changed first, and why these in particular?**
+**Question 3 of 7 · A prioritised intervention architecture: which touchpoints are changed first, and why these in particular?**
 
 Put the touchpoints in an order and give the reason for the first ones.
 
@@ -487,7 +475,7 @@ Put the touchpoints in an order and give the reason for the first ones.
 
 [[ANSWER lines=4]]
 
-**Question 5 of 8 · A risk analysis: which wrong assumptions would be especially dangerous, and what happens if you optimise for aesthetics instead of effect?**
+**Question 4 of 7 · A risk analysis: which wrong assumptions would be especially dangerous, and what happens if you optimise for aesthetics instead of effect?**
 
 Name two or three assumptions your strategy makes and the harm if each is wrong, and say what optimising for looks would do.
 
@@ -499,7 +487,7 @@ Name two or three assumptions your strategy makes and the harm if each is wrong,
 
 [[ANSWER lines=5]]
 
-**Question 6 of 8 · A governance model: who may take UX-relevant decisions, who carries the professional responsibility, and how are conflicts of goals decided?**
+**Question 5 of 7 · A governance model: who may take UX-relevant decisions, who carries the professional responsibility, and how are conflicts of goals decided?**
 
 Name roles, not people: who decides, who answers for it, and how a conflict between marketing, compliance, IT and sales is settled.
 
@@ -511,7 +499,7 @@ Name roles, not people: who decides, who answers for it, and how a conflict betw
 
 [[ANSWER lines=5]]
 
-**Question 7 of 8 · A decision under uncertainty: make at least one prioritised decision although important information is missing, and say why it is still responsible**
+**Question 6 of 7 · A decision under uncertainty: make at least one prioritised decision although important information is missing, and say why it is still responsible**
 
 Say what you decide, what you do not know, and why the decision is responsible all the same, for example when you would reverse it.
 
@@ -523,7 +511,7 @@ Say what you decide, what you do not know, and why the decision is responsible a
 
 [[ANSWER lines=5]]
 
-**Question 8 of 8 · A management statement: a short statement to the board in which you stand for your strategy**
+**Question 7 of 7 · A management statement: a short statement to the board in which you stand for your strategy**
 
 Four to six sentences: the direction first, then the reason, then what you ask of the board.
 

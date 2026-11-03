@@ -367,11 +367,11 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
       {b.lead && <Prose text={b.lead} className="max-w-prose text-body text-ink" />}
       {b.sharedDocId && (
         <div className="max-w-prose rounded-lg border border-line bg-canvas p-3 text-caption" id="shared-doc">
-          <p className="text-body font-semibold text-ink">{tt("Work together in Google Docs", "Gemeinsam in Google Docs arbeiten")}</p>
+          <p className="text-body font-semibold text-ink">{tt("Google Docs worksheet", "Arbeitsblatt in Google Docs")}</p>
           <p className="mt-1 text-ink">
             {tt(
-              "Open the worksheet, make your own copy (File → Make a copy) and answer the questions there together. You can also type your answers here in the lab; the export builds your memo.",
-              "Öffnen Sie das Arbeitsblatt, legen Sie eine eigene Kopie an (Datei → Kopie erstellen) und beantworten Sie die Fragen dort gemeinsam. Sie können die Antworten auch hier im Lab eintragen; der Export erstellt Ihr Memo.",
+              "The questions of this block as a Google Doc, with the case, the steps and an example, if you would rather write there. Make your own copy (File → Make a copy). You can also type your answers here in the lab; the export uses what is typed here.",
+              "Die Fragen dieses Blocks als Google-Dokument, mit Fall, Schritten und einem Beispiel, falls Sie lieber dort schreiben. Legen Sie eine eigene Kopie an (Datei → Kopie erstellen). Sie können die Antworten auch hier im Lab eintragen; der Export verwendet, was hier steht.",
             )}
           </p>
           <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1">

@@ -134,7 +134,7 @@ function optionalQ(q: [number, number], f: Raw<TextField>): Raw<TextField> {
 }
 
 /**
- * The low-fidelity sketch of a case study's first measure (added after the measures, for a class of seniors, 2026-11-03). The learner uses any tool
+ * The low-fidelity sketch of a case study's first measure (added after the measures, 2026-11-03). The learner uses any tool
  * (Figma, Excalidraw, an AI to help draw) and pastes a link; the analysis stays theirs. `model` and `example` say what the sketch would show.
  */
 export function sketchField(o: {
@@ -163,34 +163,9 @@ export function sketchField(o: {
     example: o.example,
     doc: "Low-fidelity sketch of the first measure",
     guide: {
-      why: "The plan does not ask for a sketch. It is added for a class of senior participants so that the chosen measure becomes visible and can be discussed in Block 3.1. The tool and the AI are only a means to draw; what is judged is the sentence that links the sketch to a problem and an effect.",
+      why: "The plan does not ask for a sketch. It is added for a class of senior participants so that the chosen measure becomes visible and can be discussed. The tool and the AI are only a means to draw; what is judged is the sentence that links the sketch to a problem and an effect.",
       lookFor: ["A link that opens.", "One screen, not a whole redesign.", `A sentence that names a problem from question ${o.problemsQ} and an effect.`],
       pitfalls: ["A polished picture with no link to a problem.", "An AI-made design the participant cannot explain.", "Sketching every measure at once."],
-    },
-  }));
-}
-
-/** The opener of the strategy block, done together (added 2026-11-03): compare the answers of the case study. */
-export function compareField(o: { q: [number, number]; model: P; example: P }): Raw<TextField> {
-  return optionalQ(o.q, textField({
-    id: "compare", q: o.q,
-    label: "Compare your answers from Block 2.1 with your colleague: where do you differ, and what does the difference tell you?",
-    help: "Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy. At least 80 characters. This question is optional: if it does not fit, skip it; the export works without it.",
-    min: 80, rows: 4,
-    missing: "write what you share, where you differ and what it means",
-    steps: [
-      "Take turns: each reads out their problems, their first measure and their sketch, without defending them yet.",
-      "Find one point where you agree and one where you differ.",
-      "Ask what the difference says about the users, the data or the company, and write it down.",
-    ],
-    refs: [],
-    model: o.model,
-    example: o.example,
-    doc: "Comparison of the two answers to the case study",
-    guide: {
-      why: "The tasks of Blocks 1.1 to 2.1 are done alone so that each person forms their own view. This question starts the shared work of Block 3.1: a difference between two answers is the material for the questions on conflicts, governance and deciding without full data.",
-      lookFor: ["Names a point both found.", "Names a real difference, not a wording difference.", "Says what the difference means for the strategy."],
-      pitfalls: ["Agreeing on everything to finish quickly.", "Arguing who is right instead of what the difference shows."],
     },
   }));
 }

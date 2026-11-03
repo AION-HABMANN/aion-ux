@@ -65,8 +65,7 @@ for (const day of want) {
 
     // 1 · the shape: the plan's numbered questions, every block Core, nothing the plan does not print
     ok(blocksOf(spec, 1).map((b) => b.id).join() === "1.1,1.2,2.1" && spec.block2.id === "3.1", "Route 1 has the blocks 1.1, 1.2 and 2.1; Route 2 has block 3.1");
-    // the opener "compare" (added 2026-11-03 for a class done in pairs) is not one of the plan's questions
-    ok(f2.filter((f) => f.id !== "compare").length === 6 || f2.filter((f) => f.id !== "compare").length === 7, "Block 3.1 asks the questions of the transfer project (six, or seven where one item has two parts), plus at most the shared opener");
+    ok(f2.length === 6 || f2.length === 7, "Block 3.1 asks the questions of the transfer project (six, or seven where one item has two parts)");
     // every "see above" reference lands on a field that exists (a list is answered in a box whose id ends in Text)
     const domIds = new Set(f1.concat(f2).flatMap((f) => (f.kind === "lists" ? f.lists.map((l) => l.id) : [f.id])));
     const refTargets = f1.concat(f2).flatMap((f) => f.refs ?? []).map((r) => r.target);

@@ -144,7 +144,7 @@ export type BlockSpec = {
   lead?: string;
   /** Slots rendered before the first field, in order. */
   slots?: string[];
-  /** The id of a Google Doc worksheet for working on this block together (a pair copies it); shown as a box under the lead (UX-STANDARD 2.18). */
+  /** The id of a Google Doc worksheet of this block (anyone copies it and writes there); shown as a box under the lead, worded neutrally: it does not say whether the block is done alone or together (UX-STANDARD 2.18). */
   sharedDocId?: string;
   fields: FreeField[];
   /** The heading of this block in the exported file. */
