@@ -21,7 +21,7 @@ type Jobs = { accent: boolean; warn: boolean; areas: boolean };
 function Basket({ ctx, j }: { ctx: LabCtx; j: Jobs }) {
   if (ctx.finished) return <Done text={tt("Order placed · delivery tomorrow 14:00 to 16:00")} />;
   const area = (name: string, items: string, loud: string, calm: string) => (
-    <button type="button" onClick={() => ctx.miss(tt(`Opened ${name}`))} className="block w-full rounded px-2 py-1.5 text-left text-[12px]" style={{ background: j.areas ? calm : loud, color: j.areas ? "#1F2937" : "#FFFFFF" }}>
+    <button type="button" onClick={() => ctx.miss(tt(`Opened ${name}`, `${name} geöffnet`))} className="block w-full rounded px-2 py-1.5 text-left text-[12px]" style={{ background: j.areas ? calm : loud, color: j.areas ? "#1F2937" : "#FFFFFF" }}>
       <b>{name}</b> · {items}
     </button>
   );
@@ -75,9 +75,9 @@ function Orders({ ctx, fn }: { ctx: LabCtx; fn: boolean }) {
       <p className="text-[14px] font-bold">{tt("Your orders")}</p>
       {orders.map((o) => (
         <div key={o.id} className="rounded border border-[#E2E8F0] p-2">
-          <button type="button" onClick={() => { setOpen(o.id); (o.id === "1044" ? ctx.hit : ctx.miss)(tt(`Opened order ${o.id}`)); }} className="flex w-full items-center gap-2 text-left">
+          <button type="button" onClick={() => { setOpen(o.id); (o.id === "1044" ? ctx.hit : ctx.miss)(tt(`Opened order ${o.id}`, `Bestellung ${o.id} geöffnet`)); }} className="flex w-full items-center gap-2 text-left">
             <span className="h-3 w-3 rounded-full" style={{ background: fn ? o.c : o.dot }} aria-hidden />
-            <span className="font-semibold">{tt(`Order ${o.id}`)}</span>
+            <span className="font-semibold">{tt(`Order ${o.id}`, `Bestellung ${o.id}`)}</span>
             {fn && <span className="ml-auto text-[12px] font-semibold" style={{ color: o.c }}>{`${o.sym} ${o.state}`}</span>}
           </button>
           {open === o.id && (
@@ -135,7 +135,7 @@ function Notice({ ctx, l }: { ctx: LabCtx; l: Levers }) {
       )}
       {pick && (
         <div className="space-y-1 rounded bg-[#EFF6FF] p-2">
-          {[tt("Tomorrow 18:00 to 20:00"), tt("Saturday 09:00 to 11:00")].map((x) => <button key={x} type="button" onClick={() => (x.includes("Saturday") ? ctx.done(tt("Moved to Saturday")) : ctx.miss(tt(`Picked ${x}`)))} className="block w-full rounded border border-[#93C5FD] bg-white px-2 py-1 text-left">{x}</button>)}
+          {[tt("Tomorrow 18:00 to 20:00"), tt("Saturday 09:00 to 11:00")].map((x) => <button key={x} type="button" onClick={() => (x.includes("Saturday") ? ctx.done(tt("Moved to Saturday")) : ctx.miss(tt(`Picked ${x}`, `${x} gewählt`)))} className="block w-full rounded border border-[#93C5FD] bg-white px-2 py-1 text-left">{x}</button>)}
         </div>
       )}
     </AppScreen>
@@ -216,7 +216,7 @@ function Terms({ ctx, ch }: { ctx: LabCtx; ch: number }) {
       <p className="mx-auto text-[13px] leading-snug" style={{ maxWidth: `${ch}ch` }}>
         {TERMS().map((x, i) =>
           /^\d\d:\d\d$/.test(x) ? (
-            <button key={i} type="button" onClick={() => (x === "22:00" ? ctx.done(tt("Tapped 22:00")) : ctx.miss(tt(`Tapped ${x}`)))} className="mx-0.5 rounded bg-[#F1F5F9] px-1 font-semibold">{x}</button>
+            <button key={i} type="button" onClick={() => (x === "22:00" ? ctx.done(tt("Tapped 22:00")) : ctx.miss(tt(`Tapped ${x}`, `${x} angetippt`)))} className="mx-0.5 rounded bg-[#F1F5F9] px-1 font-semibold">{x}</button>
           ) : (
             <span key={i}>{x.startsWith(".") ? x + " " : ` ${x} `}</span>
           ),
