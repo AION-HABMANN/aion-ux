@@ -64,7 +64,7 @@ function Showings({ ctx, staged }: { ctx: LabCtx; staged: boolean }) {
   const [day, setDay] = useState<string | null>(null);
   const [film, setFilm] = useState<string | null>(null);
   if (ctx.finished) return <Done text={tt("Booked: The Long Summer, Saturday 20:00")} />;
-  const pick = (d: string, fl: string, t: string) => (d === tt("Saturday") && fl === tt("The Long Summer") && t === "20:00" ? ctx.done(tt("Picked the right showing")) : ctx.miss(tt(`Picked ${d} ${t}, ${fl}`)));
+  const pick = (d: string, fl: string, t: string) => (d === tt("Saturday") && fl === tt("The Long Summer") && t === "20:00" ? ctx.done(tt("Picked the right showing")) : ctx.miss(tt(`Picked ${d} ${t}, ${fl}`, `${d} ${t}, ${fl} gewählt`)));
   if (!staged)
     return (
       <AppScreen brand={Brand} color="#111827">
@@ -81,10 +81,10 @@ function Showings({ ctx, staged }: { ctx: LabCtx; staged: boolean }) {
     );
   return (
     <AppScreen brand={Brand} color="#111827">
-      <p className="text-[11px] text-[#475569]">{tt(`Step ${!day ? 1 : !film ? 2 : 3} of 3`)}</p>
-      {!day && <><p className="font-bold">{tt("Which day?")}</p>{DAYS().map((d) => <button key={d} type="button" onClick={() => { setDay(d); (d === tt("Saturday") ? ctx.hit : ctx.miss)(tt(`Day: ${d}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-2 text-left">{d}</button>)}</>}
-      {day && !film && <><p className="font-bold">{tt(`Films on ${day}`)}</p>{FILMS().map((fl) => <button key={fl} type="button" onClick={() => { setFilm(fl); (fl === tt("The Long Summer") ? ctx.hit : ctx.miss)(tt(`Film: ${fl}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-2 text-left">{fl}</button>)}<button type="button" onClick={() => setDay(null)} className="text-[12px] underline">{tt("← Day")}</button></>}
-      {day && film && <><p className="font-bold">{tt(`${film} · ${day}`)}</p><div className="grid grid-cols-2 gap-1">{TIMES.map((t) => <button key={t} type="button" onClick={() => pick(day, film, t)} className={clsx("rounded border px-2 py-2", t === "20:00" ? "border-[#B91C1C] font-semibold" : "border-[#CBD5E1]")}>{t}{t === "20:00" ? tt(" · popular") : ""}</button>)}</div><button type="button" onClick={() => setFilm(null)} className="text-[12px] underline">{tt("← Film")}</button></>}
+      <p className="text-[11px] text-[#475569]">{tt(`Step ${!day ? 1 : !film ? 2 : 3} of 3`, `Schritt ${!day ? 1 : !film ? 2 : 3} von 3`)}</p>
+      {!day && <><p className="font-bold">{tt("Which day?")}</p>{DAYS().map((d) => <button key={d} type="button" onClick={() => { setDay(d); (d === tt("Saturday") ? ctx.hit : ctx.miss)(tt(`Day: ${d}`, `Tag: ${d}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-2 text-left">{d}</button>)}</>}
+      {day && !film && <><p className="font-bold">{tt(`Films on ${day}`, `Filme am ${day}`)}</p>{FILMS().map((fl) => <button key={fl} type="button" onClick={() => { setFilm(fl); (fl === tt("The Long Summer") ? ctx.hit : ctx.miss)(tt(`Film: ${fl}`, `Film: ${fl}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-2 text-left">{fl}</button>)}<button type="button" onClick={() => setDay(null)} className="text-[12px] underline">{tt("← Day")}</button></>}
+      {day && film && <><p className="font-bold">{tt(`${film} · ${day}`, `${film} · ${day}`)}</p><div className="grid grid-cols-2 gap-1">{TIMES.map((t) => <button key={t} type="button" onClick={() => pick(day, film, t)} className={clsx("rounded border px-2 py-2", t === "20:00" ? "border-[#B91C1C] font-semibold" : "border-[#CBD5E1]")}>{t}{t === "20:00" ? tt(" · popular") : ""}</button>)}</div><button type="button" onClick={() => setFilm(null)} className="text-[12px] underline">{tt("← Film")}</button></>}
     </AppScreen>
   );
 }
@@ -177,7 +177,7 @@ function Menu({ ctx, l }: { ctx: LabCtx; l: Laws }) {
   const all = ITEMS();
   const top = [tt("Films"), tt("My tickets"), tt("Snacks"), tt("Cinemas")];
   const shown = l.hick && !more ? top : all;
-  const btn = (x: string) => <button key={x} type="button" onClick={() => (x === tt("My tickets") ? ctx.done(tt("Opened My tickets")) : ctx.miss(tt(`Opened ${x}`)))} className={clsx("block w-full border-b border-[#E5E7EB] px-2 text-left", l.fitts ? "py-2.5 text-[14px]" : "py-0 text-[10.5px] leading-tight")}>{x}</button>;
+  const btn = (x: string) => <button key={x} type="button" onClick={() => (x === tt("My tickets") ? ctx.done(tt("Opened My tickets")) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))} className={clsx("block w-full border-b border-[#E5E7EB] px-2 text-left", l.fitts ? "py-2.5 text-[14px]" : "py-0 text-[10.5px] leading-tight")}>{x}</button>;
   const groups: [string, string[]][] = [[tt("Going to the cinema"), shown.filter((x) => [tt("Films"), tt("Events"), tt("My tickets"), tt("Snacks"), tt("Cinemas")].includes(x))], [tt("Your account"), shown.filter((x) => ![tt("Films"), tt("Events"), tt("My tickets"), tt("Snacks"), tt("Cinemas")].includes(x))]];
   return (
     <AppScreen brand={Brand} color="#111827">
