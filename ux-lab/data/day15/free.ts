@@ -454,6 +454,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the research board below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1q8DXxI5SNNEP-Y4-JkMIZuD-nfkcd79wFPBqga3dUug",
       doc: t("2.1 · Case study: VisionMind Lab"),
       lead: t(
         "A company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal.\n\nThe aim is to understand attention paths better, to recognise overload and, in the long run, to open up new forms of interaction.\n\nInside there is great excitement about what can be measured; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing.\n\nThe observed problems:\n• research, innovation and product optimisation are mixed without a clear separation\n• a high gain in insight is hoped for without hypotheses and limits being clearly defined\n• it is unclear which methods can be used near the product and which only for exploration\n• data protection, consent and acceptance are not yet addressed enough\n• departments want fast results although the methods need much explanation and interpretation\n• there is no robust governance for neuro-based research\n\nThe conditions:\n• a budget of €240,000 for research, piloting and evaluation\n• 18 weeks for the first pilot and decision phase\n• the company wants to appear innovative but must not create trust risks\n• product integration is only realistic to a limited extent in the short term\n• there is little data in its own market\n• first insights must be prepared for management\n\nYou work through six steps.",
@@ -624,7 +625,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1wDI0sDieHvEnbORO6YTAiKEFaREbx0iCCVnqQWdryyA",
+    sharedDocId: "1Xh1NGIiVRX8ykxFyCcAdOV9t3r8gqpmf_e8KXyt93eE",
     doc: t("3.1 · A research and UX architecture for neuro-based technologies"),
     lead: t("Develop a strategic concept for the company. Your desk holds what the management, the innovation lead, research, product, the data protection officer and the works council say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

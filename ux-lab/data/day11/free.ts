@@ -461,6 +461,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the assistant below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "16CV8BWnj3YvrBUUwH1A5rBFnnuVH81bh5ajIsaftWfw",
       doc: t("2.1 · Case study: CityHelp Voice"),
       lead: t(
         "A municipal service platform wants to introduce a voice assistant, CityHelp Voice, for appointments, status queries and simple citizen requests.\n\nThe aim is to lower barriers to use, improve reachability and relieve service processes. At the same time there is uncertainty about comprehensibility, error-proneness, acceptance and the quality of AI-supported answers.\n\nThe observed problems:\n• first prototypes understand simple requests well but fail on ambiguous ones\n• users often do not know which inputs are possible or sensible\n• errors are reported technically instead of helpfully\n• the combination of voice and AI seems efficient in some situations and hard to control in others\n• test runs show acceptance for simple tasks but distrust for more sensitive requests\n• the departments see relief, while data protection and citizen service warn of reputational risks\n\nThe conditions:\n• a budget of €190,000\n• 14 weeks for the implementation\n• no full multichannel solution at once\n• a system that people who are not at home with technology can follow\n• limited data from earlier tests\n• first results that must show soon\n\nYou work through six steps.",
@@ -630,7 +631,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1zBzxhhokcVy1JK9QURqYsvfqQez2jIEZSiQwprgYMA0",
+    sharedDocId: "1cSiclJJ-2t61R7GtwjbZgKTI-0sk2sIFVtl38jtF1uE",
     doc: t("3.1 · A UX architecture for voice, AI interaction and testing"),
     lead: t("Develop a strategic concept for the city's service company. Your desk holds what the management, the digital team, citizen service, data protection, the product team and the test lab say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

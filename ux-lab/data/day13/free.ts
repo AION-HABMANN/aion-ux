@@ -449,6 +449,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "16usAiqE3UzMkYwHTcCBU9RK_cugPOcCOyvuHK5h4iTw",
       doc: t("2.1 · Case study: LifeGuide"),
       lead: t(
         "A digital portal for health, counselling and support offers is to be reworked for a very diverse group of users.\n\nFirst feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility.\n\nThe organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype.\n\nThe observed problems:\n• many simultaneous stimuli and competing information areas on central pages\n• inconsistent navigation patterns and low predictability\n• texts that are correct in content but hard to access in language and typography\n• long forms with little supportive structure\n• error messages and feedback that help too little in stressful situations\n• no options to reduce stimuli or simplify the display\n\nThe conditions:\n• a budget of €175,000\n• 14 weeks for the implementation\n• no complete relaunch\n• the platform must stay usable for broad groups\n• only limited test data from different groups exists\n• first prototypes are to be tried soon\n\nYou work through six steps; step 5 is the start of the practice project.",
@@ -621,7 +622,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the organisation below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1kDotBiZdlm70GMCYJ-I69rBnGlleCK16EiuCpFP0Lvg",
+    sharedDocId: "1AVLxyU4t-HlkfB3SvzTpWHsg_Rw9Z-gRwiHVrvImz1w",
     doc: t("3.1 · A UX architecture for neurodiverse and adaptive use"),
     lead: t("Develop a strategic concept for the organisation. Your desk holds what the management, marketing, the product team, the design system team, user research and the support team say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

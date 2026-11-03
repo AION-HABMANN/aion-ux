@@ -477,6 +477,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the platform below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1uYUgyT44KAFaFyznMNRng1xM7farKJU9DfGXNi9sfzQ",
       doc: t("2.1 · Case study: CitizenFlow"),
       lead: t(
         "A public service platform gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming.\n\nUsers often lose orientation, abandon applications or contact support although self-service is available.\n\nThe observed problems:\n• different page types group content differently\n• primary and secondary actions are not cleanly separated\n• forms show all fields at once, also optional and context-dependent ones\n• navigation patterns vary between areas with a similar function\n• additional information, help and warnings are not cleanly prioritised\n• users have to work out themselves which information is relevant and which is only supplementary\n\nThe conditions:\n• a budget of €170,000\n• 14 weeks for the implementation\n• a complete relaunch is ruled out\n• several departments have their own requirements\n• consistency across the service areas is low so far\n• usage data is only partly available\n\nYou work through six steps.",
@@ -655,7 +656,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1rQq4YRCQrzZECYsaYpidNOzClpdE1wwJZ1hJspIeAt4",
+    sharedDocId: "1TXayvm-OQx7EmjE5H1qmrxl94xPb5P9sUC29oi2eFtw",
     doc: t("3.1 · A systemic UX architecture for navigation, disclosure and design governance"),
     lead: t(
       "Develop a strategic concept for the administration. Your desk holds what the management, the teams and the data say. Open it, then answer the seven questions; your answers build the memo below.",

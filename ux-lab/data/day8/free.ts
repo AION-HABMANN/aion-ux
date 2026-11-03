@@ -477,6 +477,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the onboarding below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "19Rp5xG-MpvFFlVMSpNZioH_nlj_oC2OK3gpC4mShX6c",
       doc: t("2.1 · Case study: GreenHome"),
       lead: t(
         "A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support.\n\nThe onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end.\n\nThe company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity.\n\nThe observed problems:\n• the entry explains functions, but not the personal benefit or the goal for users\n• the sequence of steps feels administrative rather than developmental\n• intermediate states and progress are barely visible\n• help and hints explain but do not motivate\n• finishing a step does not feel like progress\n• the whole feels like a form process rather than an accompanied journey\n\nThe conditions:\n• a budget of €155,000\n• 12 weeks for the implementation\n• contents and specialist logic must largely be kept\n• the company wants to look inspiring but serious\n• user data is only partly available\n• a complete relaunch is not possible\n\nYou work through six steps.",
@@ -657,7 +658,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1LseLxjPAAbQQYp1nws6ajt-1zIlh0s77U8rHVwmMFwQ",
+    sharedDocId: "1wO-d7bw2H7khaabJ-3lpMUtQ-bTwsM7eGHwbO3iTAXs",
     doc: t("3.1 · A narrative UX strategy for the digital user journeys"),
     lead: t(
       "Develop a strategic concept for the provider. Your desk holds what the management, marketing, the specialist department and the data say. Open it, then answer the seven questions; your answers build the memo below.",

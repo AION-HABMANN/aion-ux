@@ -473,6 +473,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1hSuiTMRVko1oGL2EUIjQzCoyPAxlVWTurXpsinpuZ9Q",
       doc: t("2.1 · Case study: MoveEasy"),
       lead: t(
         "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.\n\nThe portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.\n\nThe observed problems:\n• central booking buttons are small and partly badly placed\n• too many options at once on the start page raise uncertainty\n• users have to remember several tariffs and conditions at once\n• important actions lie in long lists of similar options\n• process steps offer too many equal choices\n• mobile interaction is hard because touch targets are too small\n\nThe conditions:\n• a budget of €140,000\n• 10 weeks for the implementation\n• mobile use is already above 60 %\n• a complete relaunch is not possible\n• marketing wants to keep as many offers visible as possible\n• support demands fewer operating errors and questions\n\nYou work through six steps.",
@@ -651,7 +652,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1AZFxeze9NGlC5ZQY3RiNivVDq30UMArauSZgrsZ6SNE",
+    sharedDocId: "17AH2H8lSbcqjaekPDzQY1c_AKfHRHYfFoO4tBmbcii4",
     doc: t("3.1 · An interaction strategy for efficient and low-load digital use"),
     lead: t(
       "Develop a strategic concept for the mobility provider. Your desk holds what the management, the teams and the data say. Open it, then answer the seven questions; your answers build the memo below.",

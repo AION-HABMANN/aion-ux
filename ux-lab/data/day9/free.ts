@@ -477,6 +477,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the platform below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1EsaBrE0rkjIEReLyXr7mas6jCX2TSE4ZX8tHbJCpbI8",
       doc: t("2.1 · Case study: MoveWell"),
       lead: t(
         "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.\n\nThe platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.\n\nThe observed problems:\n• progress is only faintly visible\n• successes are hardly fed back or emotionally reinforced\n• motivating intermediate goals and stages are missing\n• the user journey is functional but not very activating\n• there is no clear link between individual development and the experience of use\n• the feedback so far is technical and not very stimulating\n\nThe conditions:\n• a budget of €150,000\n• 12 weeks for the implementation\n• a brand that must stay trustworthy and close to health\n• no complete relaunch\n• limited technical resources for complex features\n• only partial user data\n\nYou work through six steps.",
@@ -657,7 +658,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1NhnFVOcYwZOFfs6oeRfHHm65bfE2-YqLQxJ8CMOcejQ",
+    sharedDocId: "1E5OlA4H3L_dKirR_ugwlERjO3ebvb852WSc_MS5c0ZQ",
     doc: t("3.1 · An activation and retention architecture for the digital offers"),
     lead: t(
       "Develop a strategic concept for the health provider. Your desk holds what the management, marketing, the medical advisory board, the product team and the data say. Open it, then answer the seven questions; your answers build the memo below.",

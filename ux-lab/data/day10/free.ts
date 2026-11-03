@@ -464,6 +464,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1K8TyAEAN5vKT5oXheBcDoRRRQtIg0dTt-GqzdihFnIE",
       doc: t("2.1 · Case study: CareGuide"),
       lead: t(
         "A provider in health and prevention runs CareGuide, a digital portal for information, appointment management, documents and individual recommendations.\n\nThe company wants to make the portal more intelligent, so that users get suitable content, next steps and relevant help faster.\n\nAt the same time it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.\n\nThe observed problems:\n• recommendations seem partly helpful, but partly do not fit the current situation\n• users do not always understand why certain content is shown\n• there are no clear hints how strongly the system personalises\n• the users' ways to intervene are limited or unclear\n• the platform saves time in simple cases but seems hard to follow in exceptions\n• departments see chances for efficiency while data protection warns of opacity and loss of trust\n\nThe conditions:\n• a budget of €180,000\n• 14 weeks for the implementation\n• no complete relaunch\n• a brand that must stay trustworthy and supportive\n• data quality that is partly heterogeneous\n• first results that must show soon\n\nYou work through six steps.",
@@ -633,7 +634,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1H-a7l7282Yly_JCO_Pa1yXS-IMRA7gWaK8PRraei-cI",
+    sharedDocId: "165q1Ui4G1iTapqBGGkASgV7wQK55O5kqavWa04I3FuM",
     doc: t("3.1 · A UX architecture for intelligent and adaptive interfaces"),
     lead: t("Develop a strategic concept for the provider. Your desk holds what the management, the innovation team, data protection, the doctors, the product team and the data say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

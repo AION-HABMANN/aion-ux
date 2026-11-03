@@ -476,6 +476,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1g4sGCKu_kvM9xmTT21VeHgxATL80cZIGLKsbY3RiMxM",
       doc: t("2.1 · Case study: LifeSupport"),
       lead: t(
         "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.\n\nTechnically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.\n\nThe observed problems:\n• the visual language is factual but emotionally distant\n• feedback after actions is technical instead of supportive\n• critical situations such as error messages create uncertainty instead of orientation\n• positive experiences are not visibly reinforced\n• the tone is correct but does not build trust or motivate\n• the interaction is functional but does not build a relationship\n\nThe conditions:\n• a budget of €145,000\n• 12 weeks for the implementation\n• no complete relaunch\n• the brand should stay serious but become emotionally more approachable\n• user data is only partly available\n• the department and marketing set different priorities\n\nYou work through six steps.",
@@ -654,7 +655,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1iTcPAkpMIaKBQrrwDgsx70iDG2m15ZDNV3MWnW7SebM",
+    sharedDocId: "1Rk8x6bSsOxhKD1q2MuoBCl-xwzjLDDG-ILH7Bzl10p4",
     doc: t("3.1 · An emotionally effective UX strategy for the digital services"),
     lead: t(
       "Develop a strategic concept for the provider. Your desk holds what the management, marketing, the department and the data say. Open it, then answer the seven questions; your answers build the memo below.",

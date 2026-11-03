@@ -452,6 +452,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the pilot board below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1dOcUUeBK7CUu00GsieYbxP1Xx6BHNTBIqO8QbNsm_jY",
       doc: t("2.1 · Case study: IndustryXR"),
       lead: t(
         "An industrial company plans to develop its training, maintenance and support processes with immersive technologies.\n\nAR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering are being discussed.\n\nInside there is enthusiasm for the technology, but robust experience of acceptance, economic viability and fit with existing processes is missing.\n\nThe observed problems:\n• it is unclear which use cases really offer immersive value\n• single pilot ideas are technically exciting but hardly prioritised by effect and benefit\n• stakeholders pursue divergent goals between innovation, safety, efficiency and cost control\n• usage risks such as overload, technical failures and acceptance problems have not been assessed enough\n• the link between technical fascination and strategic relevance is unclear\n• there is no robust roadmap for introduction, testing and scaling\n\nThe conditions:\n• a budget of €220,000 for the first phase\n• 16 weeks for piloting and decision preparation\n• full technological integration not possible in the short term\n• several business units that want to take part\n• hardly any data from real user tests\n• first visible innovation steps the management wants to see soon\n\nYou work through six steps.",
@@ -622,7 +623,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1ap0fOese5212W9o8q8u6EXqFdrzBGjR-K6hyZfj6ET0",
+    sharedDocId: "14_DddrWIvqw5jTCaDltjwUhmcGL0648-mDCn1N1z_xg",
     doc: t("3.1 · A UX innovation architecture for future technologies"),
     lead: t("Develop a strategic concept for the company. Your desk holds what the management, the innovation lab, service, training, safety and finance say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

@@ -456,6 +456,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the decision board below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1x4CxRZ8EOFIb8gi4acJ0zZknhEi_w7-_yA9PWdBHitM",
       doc: t("2.1 · Case study: NextWorld UX"),
       lead: t(
         "Over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research. First results are promising but uneven.\n\nSome users experience high value, others show overload or scepticism. The management now demands a decision on which approaches are scaled, which are tested further and which are stopped for now.\n\nThe observed problems:\n• the prototypes were developed with different depth and without a common evaluation logic\n• user feedback exists but is not systematically comparable\n• ethical and organisational implications were handled differently in the single projects\n• some pilot ideas attract strong attention but have only limited practical use\n• investment decisions are under time pressure although maturity varies strongly\n• an overarching future strategy and governance structure is missing\n\nThe conditions:\n• a budget of €260,000 for the next scaling and pilot phase\n• 16 weeks for prioritisation, building governance and planning new pilots\n• not all approaches can be continued at once\n• stakeholders from innovation, IT, the department, data protection and management pursue different goals\n• first market signals should stay visible\n• wrong decisions could increase costs, reputational risks and internal blockades\n\nYou work through six steps.",
@@ -626,7 +627,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1IobnaejFH8YxYtZl8LCwqL9csB3jPhhekrPTyYn5CfY",
+    sharedDocId: "1EzvuEjXxWsAbtxxaE_KAA2KxwKFXKfLFFfp-xMvvfS8",
     doc: t("3.1 · A future-proof UX and innovation governance"),
     lead: t("Develop a strategic concept for the company. Your desk holds what the management, innovation, IT, the department, data protection and the works council say about the five lines of innovation. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

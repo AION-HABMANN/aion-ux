@@ -446,6 +446,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1yahZI6BmmgVMFAMmmkP1vFZQItr4jfrUVq1_SdWcwoE",
       doc: t("2.1 · Case study: CitizenConnect"),
       lead: t(
         "A municipal service platform offers information, appointment bookings and application processes digitally.\n\nIt is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming.\n\nThe organisation wants to make the portal more accessible and inclusive without a complete relaunch.\n\nThe observed problems:\n• weak contrast makes central information hard to read\n• forms are not cleanly structured and contain unclear error messages\n• keyboard operation is patchy\n• important hints are differentiated visually but not in words\n• content is partly complicated\n• different page types are not built consistently\n\nThe conditions:\n• a budget of €160,000\n• 14 weeks for the implementation\n• no complete relaunch\n• legal requirements that must be considered first\n• several departments that supply content\n• first improvements that must show soon\n\nYou work through six steps.",
@@ -614,7 +615,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the organisation below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1CJIruF8qoJiy3b6eCtNHaw73I6CvTHqRbTWK3OOo3IE",
+    sharedDocId: "12Hdt_oqRiVjnG-yvw_YUS7a1v3J5DAfGD4f6ELDlZnM",
     doc: t("3.1 · An accessibility and inclusion architecture"),
     lead: t("Develop a strategic concept for the organisation. Your desk holds what the management, the legal team, the brand team, the departments, the template agency and citizen service say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],
