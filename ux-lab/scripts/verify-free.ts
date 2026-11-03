@@ -134,7 +134,8 @@ for (const day of want) {
         ok(miss(withKey(spec, (r) => route === 1 && (r.picks[f.id] = null))).some((m) => m.id === `${f.id}-field`) || route === 2, `pick ${f.id}: no choice is named as missing`);
       } else {
         const short = withKey(spec, (r) => route === 1 && (r.text[f.id] = "too short"), (r) => route === 2 && (r.text[f.id] = "too short"));
-        ok(miss(short).some((m) => m.id === `${f.id}-field`), `text ${f.id}: a too-short answer is named`);
+        if (f.optional) ok(!miss(short).some((m) => m.id === `${f.id}-field`) && !miss(withKey(spec, () => {})).some((m) => m.id === `${f.id}-field`), `text ${f.id}: an optional question is never named as missing`);
+        else ok(miss(short).some((m) => m.id === `${f.id}-field`), `text ${f.id}: a too-short answer is named`);
       }
     }
 

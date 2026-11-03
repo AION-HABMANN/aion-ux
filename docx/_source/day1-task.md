@@ -269,9 +269,9 @@ Write them as a numbered list, the first priority first, each with what it chang
 
 [[ANSWER lines=6]]
 
-**Question 4 of 6 · Sketch your first measure in low fidelity and share the link**
+**Question 4 of 6 · optional · Sketch your first measure in low fidelity and share the link**
 
-Paste the link to your sketch (Google Drive, Figma, Excalidraw or similar, set so that anyone with the link can view), then one or two sentences: which problem it removes and through which effect.
+Paste the link to your sketch (Google Drive, Figma, Excalidraw or similar, set so that anyone with the link can view), then one or two sentences: which problem it removes and through which effect. This question is optional: if it is too heavy, skip it; the export works without it.
 
 *How to build the answer:*
 
@@ -369,9 +369,9 @@ Develop a strategic decision concept for the insurer. Your desk holds what the m
 
 ![The platform as it is today, as the lab lets you observe it (6 of 6).](_figures/d1_b3-1_12.png)
 
-**Question 1 of 8 · Compare your answers from Block 2.1 with your colleague: where do you differ, and what does the difference tell you?**
+**Question 1 of 8 · optional · Compare your answers from Block 2.1 with your colleague: where do you differ, and what does the difference tell you?**
 
-Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy.
+Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy. This question is optional: if it does not fit, skip it; the export works without it.
 
 *How to build the answer:*
 

@@ -128,6 +128,11 @@ export function textField(o: {
   };
 }
 
+/** Marks a question optional (UX-STANDARD 2.18): "Question 4 of 6 · optional", never missing, and out of the export when empty. */
+function optionalQ(q: [number, number], f: Raw<TextField>): Raw<TextField> {
+  return { ...f, optional: true, qLabel: t(`Question ${q[0]} of ${q[1]} · optional`, `Frage ${q[0]} von ${q[1]} · optional`) };
+}
+
 /**
  * The low-fidelity sketch of a case study's first measure (added after the measures, for a class of seniors, 2026-11-03). The learner uses any tool
  * (Figma, Excalidraw, an AI to help draw) and pastes a link; the analysis stays theirs. `model` and `example` say what the sketch would show.
@@ -141,10 +146,10 @@ export function sketchField(o: {
   model: P;
   example: P;
 }): Raw<TextField> {
-  return textField({
+  return optionalQ(o.q, textField({
     id: "sketch", q: o.q,
     label: "Sketch your first measure in low fidelity and share the link",
-    help: "Paste the link to your sketch (Google Drive, Figma, Excalidraw or similar, set so that anyone with the link can view), then one or two sentences: which problem it removes and through which effect. At least 60 characters.",
+    help: "Paste the link to your sketch (Google Drive, Figma, Excalidraw or similar, set so that anyone with the link can view), then one or two sentences: which problem it removes and through which effect. At least 60 characters. This question is optional: if it is too heavy, skip it; the export works without it.",
     min: 60, rows: 4,
     placeholder: "https://… This screen removes problem 4, because …",
     missing: "paste the link to your sketch and say which problem it removes",
@@ -162,15 +167,15 @@ export function sketchField(o: {
       lookFor: ["A link that opens.", "One screen, not a whole redesign.", `A sentence that names a problem from question ${o.problemsQ} and an effect.`],
       pitfalls: ["A polished picture with no link to a problem.", "An AI-made design the participant cannot explain.", "Sketching every measure at once."],
     },
-  });
+  }));
 }
 
 /** The opener of the strategy block, done together (added 2026-11-03): compare the answers of the case study. */
 export function compareField(o: { q: [number, number]; model: P; example: P }): Raw<TextField> {
-  return textField({
+  return optionalQ(o.q, textField({
     id: "compare", q: o.q,
     label: "Compare your answers from Block 2.1 with your colleague: where do you differ, and what does the difference tell you?",
-    help: "Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy. At least 80 characters.",
+    help: "Do this together. Each reads out the problems, the first measure and the sketch. Write down one thing you both found, one where you differ, and what the difference means for the strategy. At least 80 characters. This question is optional: if it does not fit, skip it; the export works without it.",
     min: 80, rows: 4,
     missing: "write what you share, where you differ and what it means",
     steps: [
@@ -187,7 +192,7 @@ export function compareField(o: { q: [number, number]; model: P; example: P }): 
       lookFor: ["Names a point both found.", "Names a real difference, not a wording difference.", "Says what the difference means for the strategy."],
       pitfalls: ["Agreeing on everything to finish quickly.", "Arguing who is right instead of what the difference shows."],
     },
-  });
+  }));
 }
 
 /** One answer per option (A, B, C) on the same terms, as a box each or a guided table with a Low / Medium / High suggestion. */

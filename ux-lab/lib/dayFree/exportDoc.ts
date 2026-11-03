@@ -18,6 +18,7 @@ const list = (text: string) => {
 };
 
 function fieldHtml(f: FreeField, r: FreeRoute, level: "h3" | "h2", n?: number): string {
+  if (f.optional && f.kind === "text" && !f.table && !(r.text[f.id] ?? "").trim()) return "";
   const H = (s: string) => (level === "h2" ? `<h2>${n ? `${n} · ` : ""}${esc(s)}</h2>` : `<h3>${esc(s)}</h3>`);
   if (f.kind === "text") {
     if (f.table && tableMode(f, r)) {

@@ -72,6 +72,8 @@ type Base = {
   qLabel?: string;
   /** The name of a slot (a picture or a simulation) rendered just above this field. */
   slot?: string;
+  /** An optional question: never listed as missing, left out of the export when empty (UX-STANDARD 2.18). */
+  optional?: boolean;
 };
 
 export type TextField = Base & {

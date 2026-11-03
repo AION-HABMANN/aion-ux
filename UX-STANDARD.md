@@ -206,7 +206,8 @@ The plan's day is 8 UE. For a class of two senior participants the tasks are spl
 1. **Blocks 1.1, 1.2 and 2.1 are done alone**, so each forms their own view. The block text says so ("Do this block on your own").
 2. **Block 2.1 gets one added question after the measures: a low-fidelity sketch.** The participant sketches the first measure in any tool they like (Figma, Excalidraw, an AI that helps draw) and pastes a link (Google Drive or the tool's share link) with one or two sentences: which problem from question 1 it removes, and through which effect. The tool and the AI are only a means to draw; the analysis stays the participant's. Builder: `sketchField` in `data/free/kit.ts`.
 3. **Block 3.1 is done together and opens with a comparison question**: the two read out their 2.1 answers, name one thing they share and one where they differ, and say what the difference means for the strategy. Builder: `compareField`. The existing questions move down by one.
-4. The added questions are not the plan's, so `verify:free` does not count the opener `compare` among the plan's questions of 3.1. Minutes of 2.1 and 3.1 grow to 40 and 35 (draft estimates, to be replaced by timed runs with the two participants).
+4. **Both added questions are optional** (decided 2026-11-03): labelled "Question 4 of 6 · optional", never listed as missing, left out of the export when empty, with a line that says skipping is fine. A participant who finds the sketch too heavy, or a pair who prefers not to compare, still exports a complete document. The field flag is `optional` (`lib/dayFree/spec.ts`).
+5. The added questions are not the plan's, so `verify:free` does not count the opener `compare` among the plan's questions of 3.1. Minutes of 2.1 and 3.1 grow to 40 and 35 (draft estimates, to be replaced by timed runs with the two participants).
 
 ## 3. Status of the eight existing days against this draft
 

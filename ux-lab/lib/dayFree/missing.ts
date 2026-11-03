@@ -26,6 +26,7 @@ export function freeMissing(p: Persisted, spec: FreeSpec, route: 1 | 2): Missing
   for (const b of blocksOf(spec, route)) {
     const pre = `Block ${b.id}: `;
     for (const f of b.fields) {
+      if (f.optional) continue;
       if (f.kind === "text") {
         if (tableMode(f, r) && f.table) {
           if (f.table.kind === "rows") {
