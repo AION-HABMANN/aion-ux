@@ -10,7 +10,7 @@ import { tt } from "@/lib/lang";
  * must work out what is relevant) and nothing is added that changes the answer. The names and contents are made up; nothing is marked right or wrong, and no figure is
  * printed that the plan does not print.
  */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 /** Equally strong buttons for actions of different weight, as the plan names them. */
 const EQUAL = { background: "#546E7A", color: "#fff", borderColor: "#546E7A" } as const;

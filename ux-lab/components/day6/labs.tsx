@@ -24,7 +24,7 @@ function Links({ ctx, g }: { ctx: LabCtx; g: G }) {
   const info = [tt("Timetable"), tt("Luggage rules"), tt("Getting to the port")];
   const mixed = ["#DBEAFE", "#FEF3C7", "#DCFCE7", "#FCE7F3", "#EDE9FE", "#FFEDD5"];
   const link = (x: string, i: number, grp: "t" | "i") => (
-    <button key={x} type="button" onClick={() => (x === tt("Luggage rules") ? ctx.done(tt("Found the luggage rules")) : ctx.miss(tt(`Opened ${x}`)))} className="block w-full rounded px-2 py-2 text-left text-[12.5px]" style={{ background: g.similarity ? (grp === "t" ? "#E0F2FE" : "#F1F5F9") : mixed[(i * 2 + (grp === "i" ? 1 : 0)) % 6] }}>{x}</button>
+    <button key={x} type="button" onClick={() => (x === tt("Luggage rules") ? ctx.done(tt("Found the luggage rules")) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))} className="block w-full rounded px-2 py-2 text-left text-[12.5px]" style={{ background: g.similarity ? (grp === "t" ? "#E0F2FE" : "#F1F5F9") : mixed[(i * 2 + (grp === "i" ? 1 : 0)) % 6] }}>{x}</button>
   );
   const T = tickets.map((x, i) => link(x, i, "t"));
   const I = info.map((x, i) => link(x, i, "i"));
@@ -63,7 +63,7 @@ function Step({ ctx, clear }: { ctx: LabCtx; clear: boolean }) {
   const [saved, setSaved] = useState(false);
   if (ctx.finished) return <Done text={tt("On to payment · Harbour to Isle, Friday 08:15")} />;
   const opt = (label: string, ok: boolean, main = false) => (
-    <button type="button" onClick={() => (ok ? ctx.done(tt("Continued to payment")) : (label === tt("Save for later") && setSaved(true), ctx.miss(tt(`Pressed ${label}`))))} className={clsx(clear ? (main ? "w-full rounded-lg py-3 text-[15px] font-bold text-white" : "text-[12px] underline") : "rounded-lg border-2 border-[#0F172A] py-2.5 text-[13px] font-bold")} style={clear && main ? { background: ACC } : undefined}>{label}</button>
+    <button type="button" onClick={() => (ok ? ctx.done(tt("Continued to payment")) : (label === tt("Save for later") && setSaved(true), ctx.miss(tt(`Pressed ${label}`, `${label} gedrückt`))))} className={clsx(clear ? (main ? "w-full rounded-lg py-3 text-[15px] font-bold text-white" : "text-[12px] underline") : "rounded-lg border-2 border-[#0F172A] py-2.5 text-[13px] font-bold")} style={clear && main ? { background: ACC } : undefined}>{label}</button>
   );
   return (
     <AppScreen brand={Brand} color={ACC}>
@@ -128,7 +128,7 @@ function Form({ ctx, kind }: { ctx: LabCtx; kind: "all" | "steps" | "hidden" }) 
         <p className="text-[14px] font-bold">{tt("Booking")}</p>
         <div className="grid grid-cols-2 gap-1 text-[10.5px]">
           {[tt("Departure"), tt("Return"), tt("Adults"), tt("Children"), tt("Vehicle type"), tt("Vehicle length"), tt("Freight weight"), tt("Group leader"), tt("Pet passport"), tt("Cabin"), tt("Promo code")].map((f) => (
-            <label key={f} className="block">{f}<input onFocus={() => ctx.miss(tt(`Looked at ${f}`))} className="mt-0.5 w-full rounded border border-[#CBD5E1] px-1" /></label>
+            <label key={f} className="block">{f}<input onFocus={() => ctx.miss(tt(`Looked at ${f}`, `${f} angesehen`))} className="mt-0.5 w-full rounded border border-[#CBD5E1] px-1" /></label>
           ))}
         </div>
         {bagField(false)}
@@ -149,10 +149,10 @@ function Form({ ctx, kind }: { ctx: LabCtx; kind: "all" | "steps" | "hidden" }) 
     );
   return (
     <AppScreen brand={Brand} color={ACC}>
-      <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3`)}</p>
+      <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3`, `Schritt ${step} von 3`)}</p>
       {step === 1 && <><p className="text-[14px] font-bold">{tt("Who travels, and when?")}</p><p className="rounded border border-[#CBD5E1] px-2 py-1">{tt("1 adult · 14 June · on foot")}</p><p className="text-[11px]"><button type="button" onClick={() => ctx.miss(tt("Opened Add a vehicle"))} className="underline">{tt("+ Add a vehicle")}</button> · <button type="button" onClick={() => ctx.miss(tt("Opened Add a pet"))} className="underline">{tt("+ Add a pet")}</button></p><button type="button" onClick={() => { setStep(2); ctx.hit(tt("Step 1 done")); }} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Continue")}</button></>}
       {step === 2 && <><p className="text-[14px] font-bold">{tt("Luggage")}</p>{bagField(true)}<button type="button" onClick={() => { setStep(3); ctx.hit(tt("Step 2 done")); }} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Continue")}</button></>}
-      {step === 3 && <><p className="text-[14px] font-bold">{tt("Check and book")}</p><p>{tt(`1 adult · 14 June · ${bags} bags${extra ? " (1 extra)" : ""}`)}</p><button type="button" onClick={book} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Book")}</button></>}
+      {step === 3 && <><p className="text-[14px] font-bold">{tt("Check and book")}</p><p>{tt(`1 adult · 14 June · ${bags} bags${extra ? " (1 extra)" : ""}`, `1 Erwachsener · 14. Juni · ${bags} Gepäckstücke${extra ? " (1 zusätzlich)" : ""}`)}</p><button type="button" onClick={book} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Book")}</button></>}
     </AppScreen>
   );
 }
