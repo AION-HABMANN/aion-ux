@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
@@ -319,11 +319,12 @@ const BOARD = (ordered: boolean): Dep[] => {
 function Board({ rows, ordered, onRow }: { rows: Dep[]; ordered: boolean; onRow?: (d: Dep) => void }) {
   return (
     <div className="space-y-1 p-2">
-      <p className="text-[13px] font-bold">{tt("Ferry departures · today")}</p>
-      {ordered && <p className="grid grid-cols-[1fr_auto_auto] gap-3 px-2 text-[10.5px] font-semibold text-[#475569]"><span>{tt("To")}</span><span>{tt("Time")}</span><span>{tt("Gate")}</span></p>}
+      <p data-title className="text-[13px] font-bold">{tt("Ferry departures · today")}</p>
+      {ordered && <p data-head className="grid grid-cols-[1fr_auto_auto] gap-3 px-2 text-[10.5px] font-semibold text-[#475569]"><span>{tt("To")}</span><span>{tt("Time")}</span><span>{tt("Gate")}</span></p>}
       {rows.map((d, i) => (
         <button
           key={i}
+          data-row={i}
           type="button"
           tabIndex={onRow ? 0 : -1}
           onClick={() => onRow?.(d)}
@@ -339,11 +340,150 @@ function Board({ rows, ordered, onRow }: { rows: Dep[]; ordered: boolean; onRow?
   );
 }
 
+/* ------------------------------------------------------------------ A2 · a model path, played slowly */
+
+type At = "title" | "head" | { row: number; cell?: number };
+type Step = { at: At; say: string };
+const STEP_MS = 2800;
+
+/** The model path of a reader who looks for Bergen: scripted from the layout, one fixation per line or cell. An illustration, not measured data. */
+function modelSteps(ordered: boolean, rows: Dep[]): Step[] {
+  const bi = rows.findIndex((d) => d.to === tt("Bergen"));
+  if (ordered) {
+    return [
+      { at: "title", say: tt("The eye lands on the title first. Nothing yet says where Bergen is.") },
+      { at: "head", say: tt("The bold header says what each column is, and the destination comes first. Now the eye knows where to look.") },
+      { at: { row: 0, cell: 0 }, say: tt(`${rows[0].to}: the first name in the destination column, in bold. Bergen starts with B, so it must be very close.`) },
+      { at: { row: bi, cell: 0 }, say: tt("Bergen: found. Prior knowledge of the alphabet steered the jump: B comes right after A.") },
+      { at: { row: bi, cell: 2 }, say: tt(`The gate sits in the same row, in bold: ${rows[bi].gate}. One more fixation, and the search is over.`) },
+    ];
+  }
+  const steps: Step[] = [{ at: "title", say: tt("The eye lands on the title, the biggest and boldest thing. Nothing here says where Bergen is.") }];
+  for (let i = 0; i <= bi; i++) {
+    const d = rows[i];
+    steps.push({
+      at: { row: i },
+      say: i === bi
+        ? tt(`Bergen: found, with its gate in the same line (${d.gate}). The destination came last in the line, so every line had to be read to its end.`)
+        : d.ad
+          ? tt(`The yellow advert “${d.to}” pulls the eye: colour and contrast stand out before any thinking. One fixation spent on something that is not a ferry.`)
+          : tt(`${d.to}: not Bergen. The line starts with a time, so the eye had to read to the end of the line to learn the destination.`),
+    });
+  }
+  return steps;
+}
+
+function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number; tried: boolean }) {
+  const rows = BOARD(ordered);
+  const steps = modelSteps(ordered, rows);
+  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState(-1);
+  const [playing, setPlaying] = useState(false);
+  const [slow, setSlow] = useState(false);
+  const [reduce, setReduce] = useState(false);
+  const [pts, setPts] = useState<{ x: number; y: number }[]>([]);
+  const wrap = useRef<HTMLDivElement>(null);
+  useEffect(() => { setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
+  useLayoutEffect(() => {
+    const w = wrap.current;
+    if (!w || !open) return;
+    const wb = w.getBoundingClientRect();
+    setPts(steps.map((st) => {
+      let el: HTMLElement | null = null;
+      if (st.at === "title") el = w.querySelector("[data-title]");
+      else if (st.at === "head") el = w.querySelector("[data-head]");
+      else {
+        const r = w.querySelector<HTMLElement>(`[data-row="${st.at.row}"]`);
+        el = st.at.cell !== undefined && r ? (r.children[st.at.cell] as HTMLElement) : r;
+      }
+      if (!el) return { x: 0, y: 0 };
+      const b = el.getBoundingClientRect();
+      return { x: b.left - wb.left + (b.width > 120 ? 64 : b.width / 2), y: b.top - wb.top + b.height / 2 };
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, ordered]);
+  useEffect(() => {
+    if (!playing) return;
+    if (step >= steps.length - 1) { setPlaying(false); return; }
+    const id = window.setTimeout(() => setStep((k) => k + 1), (slow ? 2 : 1) * STEP_MS);
+    return () => window.clearTimeout(id);
+  }, [playing, step, slow, steps.length]);
+
+  const last = steps.length - 1;
+  const play = () => {
+    if (playing) return setPlaying(false);
+    if (step >= last) setStep(0);
+    else if (step < 0) setStep(0);
+    setPlaying(true);
+  };
+  const spot = step >= 0 ? pts[step] : undefined;
+  const btn = "btn btn-sm min-h-[40px] border border-line bg-paper text-ink hover:border-ash disabled:opacity-40";
+
+  if (!tried) {
+    return <p className="mt-3 text-caption text-ash">{tt("Try the task first. After your first tap you can watch a model path and compare it with yours.")}</p>;
+  }
+  if (!open) {
+    return (
+      <div className="mt-3">
+        <button type="button" onClick={() => setOpen(true)} className="btn btn-sm min-h-[40px] border border-accent bg-accent text-white hover:bg-accentHi">
+          {tt("Watch a model path")}
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div className="mt-3 space-y-2 rounded-lg border border-line bg-paper p-3">
+      <p className="smallcaps text-ash">{tt("Model path · an illustration, not measured data")}</p>
+      <AppScreen brand={Brand} color={ACC} status={step >= 0 ? tt(`fixations: ${step + 1}`) : undefined}>
+        <div ref={wrap} aria-hidden className="relative select-none">
+          <div style={{ filter: "blur(3.5px)" }}><Board rows={rows} ordered={ordered} /></div>
+          <div
+            className="absolute inset-0"
+            style={{ clipPath: spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)", transition: reduce ? undefined : "clip-path 600ms ease" }}
+          >
+            <Board rows={rows} ordered={ordered} />
+          </div>
+          <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible">
+            {step >= 1 && <polyline points={pts.slice(0, step + 1).map((q) => `${q.x},${q.y}`).join(" ")} fill="none" stroke="#1750A8" strokeWidth="1.6" strokeDasharray="4 3" />}
+            {pts.slice(0, step + 1).map((q, i) => (
+              <g key={i}>
+                <circle cx={q.x} cy={q.y} r="3.5" fill="#1750A8" stroke="#fff" strokeWidth="1" />
+                <circle cx="-3" cy={q.y} r="7" fill="#1750A8" stroke="#fff" strokeWidth="1.2" />
+                <text x="-3" y={q.y + 3.4} textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#fff">{i + 1}</text>
+              </g>
+            ))}
+          </svg>
+        </div>
+      </AppScreen>
+      <p className="text-caption font-semibold text-ash" aria-live="polite">
+        {step < 0 ? tt("Press Play or Step to start.") : tt(`Fixation ${step + 1} of ${steps.length}`)}
+      </p>
+      <p className="min-h-[3.5rem] max-w-prose text-body text-ink" aria-live="polite">
+        {step >= 0 ? steps[step].say : tt("The model looks for Bergen the way the card describes: one sharp spot, one jump at a time.")}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep((k) => Math.max(0, k - 1)); }} disabled={step <= 0}>{tt("◀ Back")}</button>
+        <button type="button" className={btn} onClick={play} disabled={reduce} aria-pressed={playing}>{playing ? tt("Pause") : step >= last ? tt("Replay") : tt("Play")}</button>
+        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep((k) => Math.min(last, k + 1)); }} disabled={step >= last}>{tt("Step ▶")}</button>
+        <button type="button" className={btn} onClick={() => setSlow((v) => !v)} aria-pressed={slow} disabled={reduce}>{tt("Slow")}</button>
+        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep(-1); setOpen(false); }}>{tt("Close")}</button>
+      </div>
+      {reduce && <p className="text-caption text-ash">{tt("Your device asks for reduced motion, so nothing plays by itself: use Step.")}</p>}
+      {step >= last && (
+        <p className="max-w-prose rounded bg-accentSoft p-2 text-caption text-ink">
+          {tt(`The model needs ${steps.length} fixations to find Bergen and its gate on this board${yours > 0 ? `; you used ${yours}` : ""}. It is a scripted illustration with one fixation per line or cell; real eyes vary. With only eight rows the gap is small. On a longer board the mixed search would grow row by row while the alphabetical lookup stays short (reasoning, not a measurement). Basis: a fixation takes in only about 2° (Rayner 1998).`)}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: boolean }) {
   const [spot, setSpot] = useState<{ x: number; y: number } | null>(null);
   const [n, setN] = useState(0);
   const rows = BOARD(ordered);
-  if (ctx.finished) return <AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`)}</p></AppScreen>;
+  const player = blur ? <ModelPath ordered={ordered} yours={n} tried={n > 0 || ctx.finished} /> : null;
+  if (ctx.finished) return <><AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`)}</p></AppScreen>{player}</>;
   const fixate = (x: number, y: number) => { setSpot({ x, y }); setN((k) => k + 1); ctx.hit(tt(`Fixation ${n + 1}`)); };
   const centre = (el: HTMLElement) => {
     const box = el.offsetParent?.getBoundingClientRect(), r = el.getBoundingClientRect();
@@ -355,6 +495,7 @@ function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: bo
   };
   const clip = spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)";
   return (
+    <>
     <AppScreen brand={Brand} color={ACC} status={blur ? tt(`fixations: ${n}`) : undefined}>
       {blur ? (
         <div
@@ -370,6 +511,8 @@ function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: bo
         <Board rows={rows} ordered={ordered} onRow={onRow} />
       )}
     </AppScreen>
+    {player}
+    </>
   );
 }
 
