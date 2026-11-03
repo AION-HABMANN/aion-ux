@@ -51,7 +51,7 @@ function Loud({ doneUnits }: { doneUnits: number }) {
         <span className="rounded-full bg-[#B91C1C] px-2 py-0.5">🔥 {tt("1-day streak: don't break it tomorrow!")}</span>
         <span className="rounded-full bg-[#92400E] px-2 py-0.5">🏆 {tt("You are #7 of 24 in your cohort")}</span>
       </div>
-      <p className="rounded bg-[#B91C1C] px-2 py-1 text-[13px] font-bold motion-safe:animate-pulse">⏰ {tt(`DOUBLE XP ends in ${mm}:${ss}! Read one more card NOW!`)}</p>
+      <p className="rounded bg-[#B91C1C] px-2 py-1 text-[13px] font-bold motion-safe:animate-pulse">⏰ {tt(`DOUBLE XP ends in ${mm}:${ss}! Read one more card NOW!`, `DOPPELTE XP enden in ${mm}:${ss}! Lies JETZT noch eine Karte!`)}</p>
       <p className="text-[13px]">🎁 {tt("Mystery reward unlocked! Mark 2 more cards as read to open it.")} <span className="font-bold">{tt("3 people in your cohort just passed you. 👀")}</span></p>
       <p className="text-micro text-[#E9D5FF]">{tt("Demonstration of manipulative gamification. None of this is real: no XP, no streak, no ranking, no reward is counted or stored. Notice how it makes you feel, then switch it off.")}</p>
     </div>
@@ -88,7 +88,7 @@ export function Day9Experience({ route }: { route: Route }) {
         <div>
           <p className="smallcaps text-accent">{tt("Today you learn gamification by using it")}</p>
           <h2 id="journey-h" className="text-h3">
-            {tt(`Your Day 9 journey · ${reached} of ${stages.length} stages reached`)}
+            {tt(`Your Day 9 journey · ${reached} of ${stages.length} stages reached`, `Ihre Tag-9-Reise · ${reached} von ${stages.length} Etappen erreicht`)}
             <Tag on={inspect}>{tt("Visible progress · lever: the experience of progress")}</Tag>
           </h2>
         </div>
@@ -116,7 +116,7 @@ export function Day9Experience({ route }: { route: Route }) {
                 {s.name}
                 {i === 0 && <Tag on={inspect}>{tt("Named stages · lever: story and progress")}</Tag>}
               </p>
-              <p className="text-ash">{tt(`${hydrated ? s.done : 0} of ${s.total} done · ${s.cards.length ? `cards ${s.cards.join(", ")}` : `block${s.blocks.length > 1 ? "s" : ""} ${s.blocks.join(", ")}`}`)}</p>
+              <p className="text-ash">{tt(`${hydrated ? s.done : 0} of ${s.total} done · ${s.cards.length ? `cards ${s.cards.join(", ")}` : `block${s.blocks.length > 1 ? "s" : ""} ${s.blocks.join(", ")}`}`, `${hydrated ? s.done : 0} von ${s.total} erledigt · ${s.cards.length ? `Karten ${s.cards.join(", ")}` : `${s.blocks.length > 1 ? "Blöcke" : "Block"} ${s.blocks.join(", ")}`}`)}</p>
               {ok && (
                 <p className="mt-1 text-ink">
                   {s.canNow}
@@ -132,7 +132,7 @@ export function Day9Experience({ route }: { route: Route }) {
         {msg && (
           <div className="flex items-start justify-between gap-3 rounded-lg border-l-4 border-signal bg-signalSoft px-3 py-2 text-body text-ink">
             <p>
-              <span className="font-semibold">{tt(`Reached: ${msg.name}.`)}</span> {msg.canNow}
+              <span className="font-semibold">{tt(`Reached: ${msg.name}.`, `Erreicht: ${msg.name}.`)}</span> {msg.canNow}
               <Tag on={inspect}>{tt("Milestone message · lever: competence")}</Tag>
             </p>
             <button type="button" onClick={() => setMsg(null)} className="btn btn-sm min-h-[40px] shrink-0 border border-line bg-paper">{tt("Close")}</button>
@@ -146,7 +146,7 @@ export function Day9Experience({ route }: { route: Route }) {
           <ul className="space-y-1">
             {USED.map((u) => (
               <li key={u.id}>
-                <span className="font-semibold">{u.mechanic}</span> · {u.where} · <span className="text-[#5B21B6]">{tt(`lever: ${u.lever}`)}</span>
+                <span className="font-semibold">{u.mechanic}</span> · {u.where} · <span className="text-[#5B21B6]">{tt(`lever: ${u.lever}`, `Hebel: ${u.lever}`)}</span>
               </li>
             ))}
           </ul>

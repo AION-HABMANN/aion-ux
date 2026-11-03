@@ -15,7 +15,7 @@ import { tt } from "@/lib/lang";
  * reward inflation instead of reading about them. Points, levels, league places and step targets are interface labels of a made-up app, not figures about users.
  * The names and contents are made up; nothing is marked right or wrong.
  */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 /** Small grey text, as the plan's "only faintly visible" progress. */
 const FAINT = { fontSize: 11, color: "#6B7280" } as const;
@@ -155,7 +155,7 @@ export const hjB = (): PlatformCfg => ({
       { t: "h", text: tt("Your plan: more movement in everyday life") },
       { t: "progress", label: tt("Weeks of your plan you have looked at"), of: WEEKS },
       { t: "p", text: tt("Four weeks, one small step each. Open the week you are in.") },
-      { t: "links", items: WEEKS.map((w, i) => ({ label: tt(`Week ${i + 1}`), go: w, track: true })) },
+      { t: "links", items: WEEKS.map((w, i) => ({ label: tt(`Week ${i + 1}`, `Woche ${i + 1}`), go: w, track: true })) },
       { t: "links", small: true, items: [{ label: tt("Log an activity"), go: "log" }] },
     ] },
     w1: { title: tt("Week 1"), section: "home", blocks: [{ t: "progress", label: tt("Your plan"), of: WEEKS }, { t: "h", text: tt("Week 1 · A walk on three days") }, { t: "p", text: tt("Milestone this week: three days with a walk of at least 15 minutes.") }, { t: "links", items: [{ label: tt("Next: week 2"), go: "w2" }] }] },

@@ -42,7 +42,7 @@ function Goal({ ctx, kind }: { ctx: LabCtx; kind: "structure" | "tone" | "game" 
   );
   return (
     <AppScreen brand={Brand} color={kind === "tone" ? "#BE185D" : kind === "game" ? "#7C2D12" : ACC}>
-      {kind === "structure" && <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3 · ${["Goal", "Amount", "Check"][step - 1]}`)}</p>}
+      {kind === "structure" && <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3 · ${["Goal", "Amount", "Check"][step - 1]}`, `Schritt ${step} von 3 · ${["Ziel", "Betrag", "Prüfung"][step - 1]}`)}</p>}
       {kind === "tone" && <p className="text-center text-[30px]" aria-hidden>🐷✨💖</p>}
       {kind === "game" && <p className="text-[11px]">{tt("❤️❤️❤️ · Chapter 1 of 5")}</p>}
       {fields}
@@ -129,7 +129,7 @@ function Home({ ctx, n }: { ctx: LabCtx; n: 2 | 5 | 8 }) {
     <AppScreen brand={Brand} color={ACC}>
       {sig.filter(([s]) => !closed.includes(s)).map(([s, c], i) => (
         <div key={s} className={clsx("flex items-center justify-between rounded px-2 text-[12px]", i % 3 === 2 ? "py-2 font-bold" : "py-1")} style={{ background: c }}>
-          <button type="button" onClick={() => ctx.miss(tt(`Tapped “${s}”`))} className="text-left">{s}</button>
+          <button type="button" onClick={() => ctx.miss(tt(`Tapped “${s}”`, `„${s}“ angetippt`))} className="text-left">{s}</button>
           {n > 2 && <button type="button" aria-label={tt("Dismiss")} onClick={() => setClosed((c2) => [...c2, s])} className="px-1">×</button>}
         </div>
       ))}
