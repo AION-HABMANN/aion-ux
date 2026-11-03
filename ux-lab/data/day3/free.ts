@@ -490,6 +490,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1Rh_bRAGKw2hPKlG4e6bvUB_MkwnFSIRzs53nTwbYL4E",
       doc: t("2.1 · Case study: SecureLife"),
       lead: t(
         "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through six steps.",
@@ -678,7 +679,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1d2jh8F9uf5AHZNpXjPGdaJGqZJou-C3Ct4hP_-G_a4s",
+    sharedDocId: "1Ai_0EqukeNiWZyIfWZyq3htUrXmBGg7xeFJwOgZVQNc",
     doc: t("3.1 · A strategic design logic for colour, typography and user guidance"),
     lead: t(
       "Develop a strategic concept for the insurer. Your desk holds what the management, the brand team, marketing, IT and the data say. Open it, then answer the seven questions; your answers build the memo below.",

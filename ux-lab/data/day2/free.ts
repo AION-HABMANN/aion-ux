@@ -498,6 +498,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
+      sharedDocId: "1uFKYAIDV5A1YyxCZPFo8TMMQhUv9y59Tf8QZuAWxdYE",
       doc: t("2.1 · Case study: CampusNow"),
       lead: t(
         "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through six steps.",
@@ -696,7 +697,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
-    sharedDocId: "1Ha7DQ3br8Qd2CTTSu42dlmvf2Q53-EH1vaaSYQWLY28",
+    sharedDocId: "1PMyKXBmVQ1pQzzxVA1EU1KzlDwQsII4UdoPeNc_iVgs",
     doc: t("3.1 · A user-centred design architecture for the digital services"),
     lead: t(
       "Develop a strategic concept for the education organisation. Your desk holds what the management, the departments and the data say. Open it, then answer the seven questions; your answers build the memo below.",
