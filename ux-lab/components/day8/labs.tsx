@@ -50,7 +50,7 @@ function Planner({ ctx, journey }: { ctx: LabCtx; journey: boolean }) {
       <p className="text-[15px] font-bold">{tt("Kitchen planner")}</p>
       <div className="grid grid-cols-2 gap-1">
         {[tt("Catalogue"), tt("Styles"), tt("Appliances"), tt("Room dimensions"), tt("Showrooms"), tt("Request an offer")].map((x) => (
-          <button key={x} type="button" onClick={() => (x === tt("Room dimensions") ? (setRoom(true), ctx.hit(tt("Found Room dimensions"))) : ctx.miss(tt(`Opened ${x}`)))} className="rounded bg-[#F5F5F4] py-3 text-[12px]">{x}</button>
+          <button key={x} type="button" onClick={() => (x === tt("Room dimensions") ? (setRoom(true), ctx.hit(tt("Found Room dimensions"))) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))} className="rounded bg-[#F5F5F4] py-3 text-[12px]">{x}</button>
         ))}
       </div>
     </AppScreen>
@@ -100,11 +100,11 @@ function Stages({ ctx, e }: { ctx: LabCtx; e: E }) {
     <AppScreen brand={Brand} color={ACC}>
       {e.goal && <p className="rounded bg-[#FEF3C7] px-2 py-1 text-[11.5px]">{tt("Goal: a plan you can change, and an offer from your studio.")}</p>}
       {e.progress && (
-        <div role="img" className="flex gap-1" aria-label={tt(`Stage ${i + 1} of 4`)}>
+        <div role="img" className="flex gap-1" aria-label={tt(`Stage ${i + 1} of 4`, `Etappe ${i + 1} von 4`)}>
           {st.map((x, k) => <span key={x} className={clsx("h-1.5 flex-1 rounded", k <= i ? "bg-[#92400E]" : "bg-[#E7E5E4]")} />)}
         </div>
       )}
-      {e.progress && <p className="text-[11px] text-[#57534E]">{tt(`Stage ${i + 1} of 4 · ${st[i]}`)}</p>}
+      {e.progress && <p className="text-[11px] text-[#57534E]">{tt(`Stage ${i + 1} of 4 · ${st[i]}`, `Etappe ${i + 1} von 4 · ${st[i]}`)}</p>}
       <p className="text-[14px] font-bold">{st[i]}</p>
       <div className="grid grid-cols-2 gap-1">
         {[[tt("Option A"), tt("Option B")], [tt("Oak"), tt("White gloss")], [tt("Induction"), tt("Gas")], [tt("Send to studio"), tt("Download")]][i].map((o) => (
@@ -168,7 +168,7 @@ function Between({ ctx, kind }: { ctx: LabCtx; kind: "bare" | "staged" | "short"
       {step === 3 && (
         <>
           <p className="font-bold">{tt("Your style")}</p>
-          <div className="grid grid-cols-2 gap-1">{[tt("Oak"), tt("White gloss")].map((o) => <button key={o} type="button" onClick={() => ctx.done(tt(`Chose ${o}`))} className="rounded border border-[#D6D3D1] py-3">{o}</button>)}</div>
+          <div className="grid grid-cols-2 gap-1">{[tt("Oak"), tt("White gloss")].map((o) => <button key={o} type="button" onClick={() => ctx.done(tt(`Chose ${o}`, `${o} gewählt`))} className="rounded border border-[#D6D3D1] py-3">{o}</button>)}</div>
           {kind === "bare" && <p className="text-[11px] text-[#57534E]">{tt("(Was the room saved? Nothing said so.)")}</p>}
         </>
       )}

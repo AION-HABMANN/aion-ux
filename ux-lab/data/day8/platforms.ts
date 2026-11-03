@@ -10,7 +10,7 @@ import { tt } from "@/lib/lang";
  * progress, a form instead of a journey) and nothing is added that changes the answer. The names and contents are made up; nothing is marked right or wrong, and no
  * figure is printed that the plan does not print.
  */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 /** Small grey text, as the plan's "barely visible" progress. */
 const FAINT = { fontSize: 11, color: "#6B7280" } as const;
