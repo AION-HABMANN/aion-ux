@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, compareField, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 1 · psychological UX design and neuro-design (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as free answers, every block Core.
@@ -65,7 +65,7 @@ export const SPEC = defineSpec({
     blurb: t("Level 3 in the Chief Experience Officer's chair: a Neuro-UX guiding vision, three strategic decisions for 24 months, an order of touchpoints, a risk analysis, a governance model, one decision under uncertainty and a statement to the board."),
     kicker: t("Day 1 · Route 2 · Level 3 · Management decision"),
     h1: t("A Neuro-UX strategy for a digital service ecosystem: vision, decisions, order, risks, governance and a decision under uncertainty"),
-    order: t("Materi B (three cards) → the UX Strategy task: one block with seven questions and a memo that builds below. Your desk can be opened and read. Route 1 is a good start but not needed; every section stays open."),
+    order: t("Materi B (three cards) → the UX Strategy task: one block with eight questions, done together, and a memo that builds below. Your desk can be opened and read. Route 1 is a good start but not needed; every section stays open."),
     materiSub: t("Level 3 · design steers behaviour and decision"),
     subject: t("A Neuro-UX strategy for our digital touchpoints"),
     to: t("The management board"),
@@ -130,7 +130,7 @@ export const SPEC = defineSpec({
       ],
     },
     runTitle: t("How the task runs · one block"),
-    run: [t("Block 3.1 asks seven questions: a Neuro-UX guiding vision, three strategic decisions for 24 months, a prioritised order of touchpoints, a risk analysis, a governance model, one decision under uncertainty and a management statement.")],
+    run: [t("Block 3.1 asks eight questions, done together: a comparison of your two answers to the case study, a Neuro-UX guiding vision, three strategic decisions for 24 months, a prioritised order of touchpoints, a risk analysis, a governance model, one decision under uncertainty and a management statement.")],
     known: known(
       [
         t("Website, customer portal, app and chatbot; users are lost between them."),
@@ -485,9 +485,9 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: redesigning SafeHome Online"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the five questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. Do this block on your own; you compare answers in Block 3.1."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
+      minutes: 40,
       doc: t("2.1 · Case study: SafeHome Online"),
       lead: t(
         "An insurance company runs SafeHome Online, a self-service portal for damage reports, contract overviews and document downloads. It is judged complete in content but has massive usage problems: 46 % of damage reports are abandoned, many customers call the service centre although the functions exist online, users call the portal “complicated”, “cold” and “unsafe”, the specialist departments want to add more notices and safeguards, and the management wants a modern, trustworthy and more efficient customer experience. The current portal: very many blocks of text and legal notices on the entry page, primary actions that are not visually emphasised, no visible progress in the process, warning colours used often, even for neutral information, an upload that is formally correct but worded in an off-putting way, and important actions partly placed below long texts. The conditions: €180,000 and 12 weeks for a first optimisation, the legal notices must stay, IT can only intervene to a limited extent at short notice, and there is no full relaunch, so the measures must be targeted. You carry out a simplified psychological UX analysis in five steps.",
@@ -495,7 +495,7 @@ export const SPEC = defineSpec({
       slots: ["safehome"],
       fields: [
         listsField({
-          id: "problems", q: [1, 5],
+          id: "problems", q: [1, 6],
           label: "Identify at least 5 central effect problems in the current portal",
           steps: [
             "Open SafeHome Online and start a damage report as a customer would.",
@@ -535,7 +535,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "cats", q: [2, 5],
+          id: "cats", q: [2, 6],
           label: "Assign the problems to the categories perception, cognitive load, trust, emotional effect and action guidance",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the SafeHome problems that belong to it.",
@@ -567,7 +567,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: perception, cognitive load, trust, emotional effect, action guidance. The Musterlösung's five problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "measures", q: [3, 5],
+          id: "measures", q: [3, 6],
           label: "Develop 4 prioritised improvement measures",
           steps: [
             "Turn each group of problems into something you could change within 12 weeks and with little IT capacity.",
@@ -603,8 +603,13 @@ export const SPEC = defineSpec({
             { measure: "Rewritten microcopy and upload wording", changes: "Fewer hurdles, more trust" },
           ],
         }),
+        sketchField({
+          q: [4, 6], measuresId: "measuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows one screen of the damage report as a six-step flow: “Step 3 of 6” at the top, one strong “Continue” button where the thumb rests, a calm grey note where the red box was, and the upload in plain words. This screen removes problem 4 (no sense of progress) and problem 2 (no hierarchy of actions), because customers see how far they are and what to do next, so they stop less often.",
+          example: "A tax-return service: a sketch of the first page with a step counter, one main button and the rules folded away. It removes “people do not know where to start”, because the first move is the only strong thing on the page.",
+        }),
         textField({
-          id: "justify", q: [4, 5],
+          id: "justify", q: [5, 6],
           label: "Justify your prioritisation using the criteria effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your order. At least 80 characters.",
           min: 80, rows: 5,
@@ -633,13 +638,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "rec", q: [5, 5],
+          id: "rec", q: [6, 6],
           label: "Formulate a short recommendation to the management",
           help: "Three to five sentences: what you recommend, what you do not, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write a short recommendation to the management",
           steps: ["Lead with the recommendation.", "Give the one reason that will carry the management.", "Say what you expect to change."],
-          refs: [ref("Your justification (question 4)", "above", "justify-field")],
+          refs: [ref("Your justification (question 5)", "above", "justify-field")],
           model: "We do not prioritise a cosmetic modernisation but an effect-oriented reorganisation of user guidance. The portal must first be relieved psychologically, structured for orientation and worded to build trust. That lowers abandonment and support effort at a justifiable budget and implementation risk.",
           example: "A tax-return service: we recommend relief before restyling. First we reduce what people have to read at once and show them how far they are. The new look can wait; abandonment and calls will drop sooner with the first step.",
           guide: { why: "The plan asks for a short recommendation to the management; its Musterlösung recommends an effect-oriented reorganisation of user guidance instead of a cosmetic modernisation. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Gives a reason.", "Says what will change."] },
@@ -650,17 +655,22 @@ export const SPEC = defineSpec({
   block2: {
     id: "3.1",
     title: t("Block 3.1 · A Neuro-UX strategy for a digital service ecosystem"),
-    findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
+    findIt: t("Route 2 → Task 2 → your desk below, then the eight questions; the memo builds underneath. Do this block together with your colleague."),
     refs: ["B1", "B2", "B3"],
-    minutes: 20,
+    minutes: 35,
     doc: t("3.1 · A Neuro-UX strategy for the digital service ecosystem"),
     lead: t(
-      "Develop a strategic decision concept for the insurer. Your desk holds what the management, the departments and the data say. Open it, then answer the seven questions; your answers build the memo below.",
+      "Develop a strategic decision concept for the insurer. Your desk holds what the management, the departments and the data say. Open it, then answer the eight questions together; your answers build the memo below.",
     ),
     slots: ["desk", "observe"],
     fields: [
+      compareField({
+        q: [1, 8],
+        model: "We both found that the start of the damage report loses people, and both would put a step counter and one main action first. We differ on the warnings: one of us would remove most red boxes, the other would keep them for the legal notices. That difference shows that we do not yet know which warnings the customers actually need, so the strategy has to name who decides what counts as a real risk, and what we test before we change it.",
+        example: "Two colleagues on a tax-return service agree that people give up at the first page. One wants fewer rules on it, the other wants them kept for legal reasons. The difference says the company has no owner for the wording of rules.",
+      }),
       textField({
-        id: "vision", q: [1, 7],
+        id: "vision", q: [2, 8],
         label: "A Neuro-UX guiding vision for the company: which psychological effect on users should be created systematically?",
         help: "One or two sentences about the effect every channel should create: what customers should perceive, understand and feel. At least 60 characters.",
         min: 60, rows: 3,
@@ -672,10 +682,10 @@ export const SPEC = defineSpec({
         guide: { why: "The plan asks for a Neuro-UX guiding vision: which psychological effect on users should be created systematically. The vision names one effect for all channels; it is the base of the three decisions.", lookFor: ["Names one effect on customers.", "Holds for every channel."], pitfalls: ["A slogan with no effect, such as “the best portal”."] },
       }),
       listsField({
-        id: "decisions", q: [2, 7],
+        id: "decisions", q: [3, 8],
         label: "Three strategic guiding decisions for the next 24 months, for example on the priority of orientation, trust design, reducing cognitive load or consistency across channels",
         steps: ["Take your vision and ask which three choices would make it real.", "Write each as “we will …, even though that means …”."],
-        refs: [ref("Conflicting goals (Materi B2)", "aesthetics · innovation · activation", "mat-B2", "B2"), ref("Your vision (question 1)", "above", "vision-field")],
+        refs: [ref("Conflicting goals (Materi B2)", "aesthetics · innovation · activation", "mat-B2", "B2"), ref("Your vision (question 2)", "above", "vision-field")],
         n: 3,
         help: "Write them as a list, one decision per line, each with what it gives up.",
         placeholder: "1. We will …, even though …",
@@ -703,7 +713,7 @@ export const SPEC = defineSpec({
         ],
       }),
       textField({
-        id: "order", q: [3, 7],
+        id: "order", q: [4, 8],
         label: "A prioritised intervention architecture: which touchpoints are changed first, and why these in particular?",
         help: "Put the touchpoints in an order and give the reason for the first ones. At least 60 characters.",
         min: 60, rows: 4,
@@ -730,7 +740,7 @@ export const SPEC = defineSpec({
         }),
       }),
       textField({
-        id: "risk", q: [4, 7],
+        id: "risk", q: [5, 8],
         label: "A risk analysis: which wrong assumptions would be especially dangerous, and what happens if you optimise for aesthetics instead of effect?",
         help: "Name two or three assumptions your strategy makes and the harm if each is wrong, and say what optimising for looks would do. At least 80 characters.",
         min: 80, rows: 5,
@@ -755,7 +765,7 @@ export const SPEC = defineSpec({
         }),
       }),
       textField({
-        id: "gov", q: [5, 7],
+        id: "gov", q: [6, 8],
         label: "A governance model: who may take UX-relevant decisions, who carries the professional responsibility, and how are conflicts of goals decided?",
         help: "Name roles, not people: who decides, who answers for it, and how a conflict between marketing, compliance, IT and sales is settled. At least 80 characters.",
         min: 80, rows: 5,
@@ -778,7 +788,7 @@ export const SPEC = defineSpec({
         }),
       }),
       textField({
-        id: "uncertain", q: [6, 7],
+        id: "uncertain", q: [7, 8],
         label: "A decision under uncertainty: make at least one prioritised decision although important information is missing, and say why it is still responsible",
         help: "Say what you decide, what you do not know, and why the decision is responsible all the same, for example when you would reverse it. At least 80 characters.",
         min: 80, rows: 5,
@@ -798,7 +808,7 @@ export const SPEC = defineSpec({
         ),
       }),
       textField({
-        id: "board", q: [7, 7],
+        id: "board", q: [8, 8],
         label: "A management statement: a short statement to the board in which you stand for your strategy",
         help: "Four to six sentences: the direction first, then the reason, then what you ask of the board. At least 100 characters.",
         min: 100, rows: 5,

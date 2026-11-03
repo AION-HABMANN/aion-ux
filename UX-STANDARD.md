@@ -199,6 +199,15 @@ A Materi card is not finished when it names a topic of the plan's Wissen; it is 
 
 Day 1 is the reference (commit `d6b6076`): the term table with a finding per word (A1), the four neural steps with real numbers and a fovea lab (A2), prior knowledge, expectations, context and habits with evidence (A3), liking and trust in numbers (A4), and the levers that steer behaviour with their legal limits (B1). Days 2 to 16 followed on 2026-10-30, one day at a time and each pushed on its own: all 16 days are now in `DEPTH_CHECKED` of `verify:depth`, and their coverage maps are in the day sections of `ux-lab/README.md`.
 
+### 2.18 A class of two seniors works alone first, then together (Decided 2026-11-03, by the user; Day 1 built, Days 2 to 16 pending)
+
+The plan's day is 8 UE. For a class of two senior participants the tasks are split by who works:
+
+1. **Blocks 1.1, 1.2 and 2.1 are done alone**, so each forms their own view. The block text says so ("Do this block on your own").
+2. **Block 2.1 gets one added question after the measures: a low-fidelity sketch.** The participant sketches the first measure in any tool they like (Figma, Excalidraw, an AI that helps draw) and pastes a link (Google Drive or the tool's share link) with one or two sentences: which problem from question 1 it removes, and through which effect. The tool and the AI are only a means to draw; the analysis stays the participant's. Builder: `sketchField` in `data/free/kit.ts`.
+3. **Block 3.1 is done together and opens with a comparison question**: the two read out their 2.1 answers, name one thing they share and one where they differ, and say what the difference means for the strategy. Builder: `compareField`. The existing questions move down by one.
+4. The added questions are not the plan's, so `verify:free` does not count the opener `compare` among the plan's questions of 3.1. Minutes of 2.1 and 3.1 grow to 40 and 35 (draft estimates, to be replaced by timed runs with the two participants).
+
 ## 3. Status of the eight existing days against this draft
 
 **Since 2026-10-28 Days 9 to 16 run inside `ux-lab/`** as their *original idea*, at `/day/N/original/` (code in `ux-lab/original/` and `ux-lab/app/(original-*)`, moved from `playground-ux/` without content changes; `verify:original` and `verify:original-day9` check them). **Day 9's lab version is built (2026-10-28, section 2.14)**; for Days 10 to 16 the lab's own page (`/day/N/`) says that the lab version is not built yet and opens the original idea; once a day is rebuilt to this standard, its original idea stays reachable under the day's home (it is not deleted). `playground-ux/` is parked. Each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
@@ -246,6 +255,7 @@ Day 1 is the reference (commit `d6b6076`): the term table with a finding per wor
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-03 | New rule 2.18 for a class of two seniors: Blocks 1.1, 1.2 and 2.1 alone, a low-fidelity sketch question (link, any tool, AI only to draw) added after the measures in 2.1, Block 3.1 done together with a comparison of the 2.1 answers as its first question. Built for Day 1 (`sketchField`, `compareField`, `verify:free` allows the opener); Days 2 to 16 follow after Day 1 has been run with the two participants. | Day 1 |
 | 2026-10-30 | Day 16 Materi deepened under rule 2.17: all 13 Wissen topics now full, with real instruments and frameworks (Simulator Sickness Questionnaire, Presence Questionnaire, stage-gate, GOV.UK phases, the four dimensions of responsible innovation, EU AI Act Articles 5 and 50) and a real product path (Google Glass, as reported), Day 16 added to `DEPTH_CHECKED`; all 16 days are now covered by rule 2.17. | Day 16 |
 | 2026-10-30 | Day 15 Materi deepened under rule 2.17: all 13 Wissen topics now full, with verified real findings and rules (fixations and the eye–mind assumption, sample-size advice, the ADHD neurofeedback meta-analysis, BCI definition, EU AI Act Article 5(1)(f), ICO neurotechnology report, neurorights), Day 15 added to `DEPTH_CHECKED`. | Day 15 |
 | 2026-10-30 | Day 14 Materi deepened under rule 2.17: all 13 Wissen topics now full, with verified real findings and practice (the reality–virtuality continuum, presence, cybersickness range, the training meta-analysis, the GOV.UK phases and Service Standard, identifiability of VR tracking data, Apple's immersion guidance), Day 14 added to `DEPTH_CHECKED`. | Day 14 |
