@@ -71,7 +71,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} User-centred design follows ISO 9241-210 and the principles of Gould and Lewis (1985): an early focus on users and their tasks, testing with real users, and iteration. The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("User-centred design follows ISO 9241-210 and the principles of Gould and Lewis (1985): an early focus on users and their tasks, testing with real users, and iteration. The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("ISO 9241-210 calls it human-centred design and names four activities that repeat: understand the context of use, specify the users' requirements, produce design solutions, and evaluate them against the requirements. The point is the loop: a design is not finished when it is complete, but when users can do what they came for.")}</p>
@@ -117,7 +117,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Scanning follows Nielsen (1997); the F-shaped pattern on unstructured text follows Pernice (2017); the pull of strong signals follows Itti and Koch (2001). The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Scanning follows Nielsen (1997); the F-shaped pattern on unstructured text follows Pernice (2017); the pull of strong signals follows Itti and Koch (2001). The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("The F-pattern is not a rule to design for; it is a sign that a page gives the eye nothing better. Pernice (2017) describes how headings, bullet points, bold key words and short paragraphs change the pattern: the eye then jumps from anchor to anchor instead of skimming the top and sliding down the left edge.")}</p>
@@ -177,7 +177,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Grouping by proximity and similarity follows the Gestalt research summarised by Wagemans et al. (2012); contrast and visual search follow Ware (2012); the meaning of colour follows Elliot and Maier (2014); not using colour alone follows WCAG 2.2, criterion 1.4.1. The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Grouping by proximity and similarity follows the Gestalt research summarised by Wagemans et al. (2012); contrast and visual search follow Ware (2012); the meaning of colour follows Elliot and Maier (2014); not using colour alone follows WCAG 2.2, criterion 1.4.1. The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Proximity usually wins over colour: two items close together are read as a group even if their colours differ, and a heading placed nearer the text below it than the text above it is read as belonging to the text below. Much visual guidance is therefore done with spacing alone, before any colour is chosen.")}</p>
@@ -220,7 +220,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Cognitive load follows Sweller (1988); the aesthetic-usability effect follows Kurosu and Kashimura (1995) and Tractinsky et al. (2000); simplicity as a facet of visual aesthetics follows Moshagen and Thielsch (2010). The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Cognitive load follows Sweller (1988); the aesthetic-usability effect follows Kurosu and Kashimura (1995) and Tractinsky et al. (2000); simplicity as a facet of visual aesthetics follows Moshagen and Thielsch (2010). The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Moshagen and Thielsch (2010) found four facets of how good a website looks: simplicity, diversity, colour and craftsmanship. Simplicity, the order and clarity of the layout, is the one a crowded page loses first. That is why an overloaded portal is judged not only harder to use but also of lower quality, even when its content is complete.")}</p>
@@ -255,7 +255,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Recognition rather than recall and aesthetic and minimalist design are Nielsen's heuristics (1994); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Recognition rather than recall and aesthetic and minimalist design are Nielsen's heuristics (1994); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Effort on this course is always time and people: who has to work on a measure and for how long. That keeps the comparison honest when the money is fixed, and it shows where a measure needs a department's time, such as agreeing new names, rather than a developer's.")}</p>
@@ -292,7 +292,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} That organisations build what mirrors their communication structure follows Conway (1968); labelling in the users' language follows Rosenfeld, Morville and Arango (2015); card sorting follows Spencer (2009). The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("That organisations build what mirrors their communication structure follows Conway (1968); labelling in the users' language follows Rosenfeld, Morville and Arango (2015); card sorting follows Spencer (2009). The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A card sort is simple: write the names of the content on cards, ask a few users to group them and name the groups, and compare their groups with your menu. Where users put things together that your menu keeps apart, the structure follows the inside logic.")}</p>
@@ -335,7 +335,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Progressive disclosure has one condition: the first level must hold what most people need most of the time. If it does not, people dig through the second level for everything and the design is slower than a crowded page. Choosing the first level is therefore the real decision, and it needs evidence about the users' tasks.")}</p>
@@ -379,7 +379,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results and real cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results and real cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Before committing, imagine it is a year later and the reorganisation has failed, and ask why (Klein 2007). The answers are usually wrong assumptions about users: that they browse when they search, that they know a term they do not, that they use a desktop when they use a phone. Those are the assumptions to check first.")}</p>

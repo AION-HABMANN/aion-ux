@@ -60,7 +60,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Gamification as game design elements in non-game contexts, apart from playful design and full games, follows Deterding et al. (2011); its context-dependent effects follow Hamari et al. (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Gamification as game design elements in non-game contexts, apart from playful design and full games, follows Deterding et al. (2011); its context-dependent effects follow Hamari et al. (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("A health insurer, a bank or a public service can use the structure layer freely: visible progress, milestones, confirmation. What it can rarely risk is the playful tone: the moment a claims or a savings screen looks cheerful, people read it as a company that takes their situation less seriously than they do. Most failed gamification projects tried to build the fiction layer with the time and the team of a structure project.")}</p>
@@ -108,7 +108,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Competence, autonomy and relatedness as needs behind lasting motivation follow Ryan and Deci (2000); self-efficacy follows Bandura (1977); social comparison follows Festinger (1954). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Competence, autonomy and relatedness as needs behind lasting motivation follow Ryan and Deci (2000); self-efficacy follows Bandura (1977); social comparison follows Festinger (1954). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("In a prevention or health product, the people who most need to continue are often the ones doing worst. A ranking tells exactly those people, every week, that they are at the bottom, in a field where being at the bottom is already a source of shame. It works on the fittest few, who need it least. That is the clearest case of a mechanic that raises the average while harming the people the product exists for.")}</p>
@@ -157,7 +157,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Mixed effects of gamification follow Hamari et al. (2014); rewards lowering intrinsic motivation follow Deci et al. (1999); loss aversion, the lever behind “don't lose your streak”, follows Tversky and Kahneman (1991). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Mixed effects of gamification follow Hamari et al. (2014); rewards lowering intrinsic motivation follow Deci et al. (1999); loss aversion, the lever behind “don't lose your streak”, follows Tversky and Kahneman (1991). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("The five failures are not equally repairable. Overstimulation and lost motivation can be fixed by removing things. Reward inflation can be fixed slowly, because people expect the bigger rewards. Lost trust hardly repairs: once people decide a product is trying to trick them, they discount everything it says. In a game they would leave; in a bank, a health service or a public service they often cannot, so they stay and stop believing the messages. That is worse than leaving.")}</p>
@@ -193,7 +193,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Meaningful gamification built on the person's own goals follows Nicholson (2015); people speeding up as a goal comes closer follows Kivetz et al. (2006). The bars in the second picture are a typical pattern to think with, not measured data. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Meaningful gamification built on the person's own goals follows Nicholson (2015); people speeding up as a goal comes closer follows Kivetz et al. (2006). The bars in the second picture are a typical pattern to think with, not measured data. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("The best story material in a serious field is usually the real process, described well: what changes at each stage, why the third week is the hard one, what the person can do now that they could not before. That is storytelling: it has stages, causes and stakes, and none of it is invented. Inventing a quest is what teams do when they have not looked closely at what people actually go through.")}</p>
@@ -229,7 +229,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} The overjustification effect follows Lepper et al. (1973) and Deci et al. (1999); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("The overjustification effect follows Lepper et al. (1973) and Deci et al. (1999); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("In professional learning, health and public services, the people who take part without being pushed are the intrinsically motivated ones, and they are exactly the people a reward layer can damage. The people a points programme moves are often those who were not taking part, and they tend to stop again when the points stop. So a successful points quarter can leave a product weaker than it started: it lost some of the people it had and rented the people it wanted.")}</p>
@@ -265,7 +265,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Lasting motivation through competence and autonomy follows Ryan and Deci (2000); meaningful gamification follows Nicholson (2015). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Lasting motivation through competence and autonomy follows Ryan and Deci (2000); meaningful gamification follows Nicholson (2015). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for activation is short and testable. “Customers keep saving because they see their cushion grow, not because we push them” can be checked on every screen: does this element show growth, or does it push? “Make saving fun” cannot be checked, and it invites every mechanic anyone suggests.")}</p>
@@ -310,7 +310,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} The three levers are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("The three levers are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Activation numbers cannot see the risks of a lever. A streak warning at midnight raises daily activity; it does not show the people who stopped altogether after the streak broke, or the ones who now open the app with a small feeling of dread. Decide which numbers you will look at, and over which period, before you decide on the lever, or the lever will choose the numbers for you.")}</p>
@@ -355,7 +355,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BW()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BW()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("A works council, a regulator and a journalist all ask the same thing in different words: who decided this, on what principle, and what would have led to a different decision? A company that can answer in one paragraph is in a different position from one that cannot, whatever the mechanic. In a field where trust is the product, a missing decision record is itself the finding. Write the paragraph before anyone asks.")}</p>

@@ -62,7 +62,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} Disability as a mismatch between person and design, and permanent, temporary and situational limits, follow Holmes (2018). Public bodies' duty to make websites and apps accessible follows the EU Web Accessibility Directive (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("Disability as a mismatch between person and design, and permanent, temporary and situational limits, follow Holmes (2018). Public bodies' duty to make websites and apps accessible follows the EU Web Accessibility Directive (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("A product can meet every technical rule and still exclude people, and it can fail a rule and still be usable for most. Accessibility is about the person completing the task, not about the checklist. The checklist is how a team makes sure it did not forget anyone; it is not the goal.")}</p>
@@ -99,7 +99,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} The contrast ratios and the rule against colour alone follow WCAG 2.2; the ratio in the picture is computed with the standard's formula. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("The contrast ratios and the rule against colour alone follow WCAG 2.2; the ratio in the picture is computed with the standard's formula. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Light grey secondary text is the most common accessibility failure on the web, and it usually comes from a brand guide, not from a developer. It looks refined on a large, bright designer's screen and fails on a phone in the sun. That makes contrast a brand decision as much as a design one.")}</p>
@@ -146,7 +146,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} Keyboard operability, focus order and visible focus follow WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("Keyboard operability, focus order and visible focus follow WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("A team without a keyboard user often never notices a keyboard barrier, because every one of them uses a mouse. That is why the most damaging barriers are often invisible inside the company: the people who meet them are not in the room. The ten-second test puts them in the room.")}</p>
@@ -192,7 +192,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} The reading advice follows the British Dyslexia Association's style guide (2023); labels, instructions and error suggestions follow WCAG 2.2. Day 13 goes deeper into neurodiversity. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("The reading advice follows the British Dyslexia Association's style guide (2023); labels, instructions and error suggestions follow WCAG 2.2. Day 13 goes deeper into neurodiversity. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Plain language is often resisted as “dumbing down”, especially in legal and public services. It is the opposite: saying something precisely in everyday words is harder than saying it in jargon, and it is the cheapest accessibility measure with the widest effect, because everyone reads faster and makes fewer mistakes.")}</p>
@@ -229,7 +229,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} The principles and levels follow WCAG 2.2; the dates follow the European Accessibility Act (Directive (EU) 2019/882) and the Web Accessibility Directive (2016/2102). Check the current state of the law before a course run. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("The principles and levels follow WCAG 2.2; the dates follow the European Accessibility Act (Directive (EU) 2019/882) and the Web Accessibility Directive (2016/2102). Check the current state of the law before a course run. Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Retrofitting costs more than building in, for a simple reason: a barrier in a shared component is copied into every page that uses it, and every copy must then be found and fixed. A contrast rule written into the design system costs one decision; the same rule discovered in an audit costs a project.")}</p>
@@ -265,7 +265,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} Inclusion as a design approach follows Holmes (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("Inclusion as a design approach follows Holmes (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for participation is short and testable. “Every customer can find, choose and pay on their own” can be checked on every page: can Kofi pay with his screen reader? “We are committed to accessibility” cannot be checked, and it is what most accessibility statements say.")}</p>
@@ -311,7 +311,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} The conflicts are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("The conflicts are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("The assumption that disabled users are a small group is the one that most often distorts the trade-off. Counting permanent, temporary and situational limits, older users and different minds together, the people who benefit from an accessible default are a large share of customers, and the share grows with an ageing population.")}</p>
@@ -357,7 +357,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${GW()} The accessibility statement for public bodies follows the Web Accessibility Directive (2016); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${GW()} ${tt("The accessibility statement for public bodies follows the Web Accessibility Directive (2016); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("An audit list without an owner ages quickly: by the time the last item is fixed, new pages have added new barriers. What lasts is a check that runs every release and a person who may say no. That is the difference between doing accessibility and anchoring it.")}</p>

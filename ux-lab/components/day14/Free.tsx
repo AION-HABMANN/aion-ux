@@ -64,11 +64,11 @@ function Thumb({ which }: { which: "A" | "B" | "C" }) {
   const head = which === "A" ? "#4C1D95" : which === "B" ? "#0F766E" : "#1E3A5F";
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>HealthSpace</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>{tt("HealthSpace")}</div>
       <div className="space-y-1 p-1.5">
-        {which === "A" && <div className="rounded bg-[#EDE9FE] px-1">🥽 Enter your immersive health world</div>}
-        {which === "B" && <div className="rounded bg-[#CCFBF1] px-1">📱 AR: practise your inhaler, step 1 of 4</div>}
-        {which === "C" && <div>Your plan · video · guide · call</div>}
+        {which === "A" && <div className="rounded bg-[#EDE9FE] px-1">{tt("🥽 Enter your immersive health world")}</div>}
+        {which === "B" && <div className="rounded bg-[#CCFBF1] px-1">{tt("📱 AR: practise your inhaler, step 1 of 4")}</div>}
+        {which === "C" && <div>{tt("Your plan · video · guide · call")}</div>}
       </div>
     </div>
   );

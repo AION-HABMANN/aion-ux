@@ -64,7 +64,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} The effects of colour follow Elliot and Maier (2014); colour and brand perception follow Labrecque and Milne (2012); red as caution and blue as approach follow Mehta and Zhu (2009). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("The effects of colour follow Elliot and Maier (2014); colour and brand perception follow Labrecque and Milne (2012); red as caution and blue as approach follow Mehta and Zhu (2009). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Elliot and Maier (2014) stress that colour effects depend on context: the same red that improves attention to detail in one study can make people avoid a task in another, and the meaning of a colour differs between cultures. For an interface this means: decide the meaning of each colour for your users and your context, and check it; do not rely on a colour chart.")}</p>
@@ -110,7 +110,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} That colour must not be the only way to convey information is WCAG 2.2, criterion 1.4.1; consistency and standards is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("That colour must not be the only way to convey information is WCAG 2.2, criterion 1.4.1; consistency and standards is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("A noticeable share of people, more men than women, see some colours differently, most often red and green. A status shown only as a red or green dot can look the same to them. A word or a symbol next to the colour is therefore not a nicety but the only way the information reaches everyone.")}</p>
@@ -159,7 +159,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} The effect of type size and line spacing on screen reading follows Rello, Pielot and Marcos (2016); layout and line length follow Dyson (2004); legibility of letter shapes and weights follows Beier (2012); minimum text contrast is WCAG 2.2, criterion 1.4.3. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("The effect of type size and line spacing on screen reading follows Rello, Pielot and Marcos (2016); layout and line length follow Dyson (2004); legibility of letter shapes and weights follows Beier (2012); minimum text contrast is WCAG 2.2, criterion 1.4.3. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("In the study by Rello, Pielot and Marcos (2016), larger type improved both reading and comprehension on screen, while line spacing mattered much less. A practical consequence: when a team has room to change only one thing about its body text, a larger size usually helps more than any other single change.")}</p>
@@ -205,7 +205,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} Hierarchy as a service to the reader follows Bringhurst (2004); headings that change how people scan follow Pernice (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("Hierarchy as a service to the reader follows Bringhurst (2004); headings that change how people scan follow Pernice (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Important information is often placed in the “note” level because it feels secondary to the designer: a condition, a deadline, a fee. That is the level users skip. A useful check: read only the headings and the body text of a page; if the user would miss something that can cost them money or time, it is in the wrong level.")}</p>
@@ -241,7 +241,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("The plan's transfer question is how colour and type decisions act on behaviour, understanding and trust. A useful habit is to write each measure as “so that”: one action colour, so that customers find what to press; a word with every state, so that nobody misreads a failed payment. A measure without a “so that” is decoration.")}</p>
@@ -278,7 +278,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} Building interfaces from shared rules and components follows Frost (2016); consistency and standards is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("Building interfaces from shared rules and components follows Frost (2016); consistency and standards is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("Many teams keep their rules as a short list of named values, such as “action colour”, “warning colour”, “heading 2” and “body text size”, which every channel uses instead of raw colour codes and sizes. When a value changes, it changes everywhere at once, and a campaign can no longer change a button by accident.")}</p>
@@ -322,7 +322,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} The minimum contrast and the use of colour follow WCAG 2.2; the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("The minimum contrast and the use of colour follow WCAG 2.2; the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A brand colour that fails the contrast minimum for text can still be used: as a background for large headings, in the logo, as a thin accent line, or darkened by a step for text. The brand team keeps its colour, and the text stays readable. Most brand-against-accessibility conflicts end there once someone asks where exactly the colour has to appear.")}</p>
@@ -365,7 +365,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${KC()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${KC()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Before the standards go live, imagine it is a year later and customers still misread states and miss conditions, and ask why (Klein 2007). The usual answers: a team kept its own components, a campaign overrode a rule, or the minimum was written but nobody checked it. Each answer names an owner who is missing.")}</p>

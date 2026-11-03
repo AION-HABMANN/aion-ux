@@ -6,11 +6,11 @@ import clsx from "clsx";
 import { COURSE, dayHref, dayOf, extraHref, hasExtra, parsePath, routeHref } from "@/data/course";
 import type { RouteNo } from "@/data/course";
 import { tt } from "@/lib/lang";
+import { LangSwitch } from "@/lib/i18n";
 
 const ROUTE_SHORT = (r: RouteNo) => (r === 1 ? tt("Analyse and choose", "Analysieren und wählen") : tt("Decide", "Entscheiden"));
 
-/** Persistent top bar: the site name, the current day, its two routes and, for a day with an original idea, Route 3 · Extra. Nothing is locked: every route is always reachable. The EN | DE switch of
- * Digital Learning comes back when the German texts are written (UX-STANDARD decision 4: English first). */
+/** Persistent top bar: the site name, the current day, its two routes and, for a day with an original idea, Route 3 · Extra. Nothing is locked: every route is always reachable. The EN | DE switch is on every page (UX-STANDARD 2.20: English stays as it is, the German is added beside it). */
 export function TopBar() {
   const pathname = usePathname() ?? "";
   const { day, route, extra } = parsePath(pathname);
@@ -60,6 +60,7 @@ export function TopBar() {
               </ol>
             </nav>
           )}
+          <LangSwitch className="flex shrink-0 overflow-hidden rounded-full border border-paper/30" />
         </div>
       </div>
     </header>

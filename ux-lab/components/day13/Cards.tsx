@@ -61,7 +61,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} The load factors are the ones the plan names; ADHD as a difference in attention and executive function follows Barkley (2015); the dos and don'ts follow the Home Office posters (Pun 2016) and the British Dyslexia Association (2023). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("The load factors are the ones the plan names; ADHD as a difference in attention and executive function follows Barkley (2015); the dos and don'ts follow the Home Office posters (Pun 2016) and the British Dyslexia Association (2023). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Many hurdles come less from technology than from the mental model of the people who design: a team that reads fast, ignores banners easily and likes variety builds a product for people like itself. Neurodiversity asks the team to design for minds that work differently from their own, and to test with them, because intuition is exactly what fails here.")}</p>
@@ -98,7 +98,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} Limiting interruptions, avoiding too much content and five or fewer main choices per screen follow the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("Limiting interruptions, avoiding too much content and five or fewer main choices per screen follow the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Stimulus reduction is often resisted because each element has an owner who wants it seen. The page fills up one reasonable request at a time. A rule such as “one main task per screen, everything else quiet” protects the page from its own stakeholders, and it helps the customers who never asked for the extras.")}</p>
@@ -144,7 +144,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} Descriptive buttons, simple consistent layouts and no figures of speech follow the Home Office poster for users on the autistic spectrum (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("Descriptive buttons, simple consistent layouts and no figures of speech follow the Home Office poster for users on the autistic spectrum (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Playful copy (“Oops!”, “Let's go!”) is often added to make a product feel friendly. For many autistic people, and for anyone using a translation tool or reading in a second language, it does the opposite: it hides what happened. Friendliness can be in the tone of a literal sentence; it does not need idioms.")}</p>
@@ -180,7 +180,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} The typography advice follows the British Dyslexia Association's style guide (2023) and the Home Office poster for users with dyslexia (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("The typography advice follows the British Dyslexia Association's style guide (2023) and the Home Office poster for users with dyslexia (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Justified text is a print habit. On paper, with careful hyphenation, it looks tidy; on a screen it opens uneven gaps between words that form “rivers” down the text, and readers with dyslexia lose their place in them. Left alignment costs nothing and removes the problem.")}</p>
@@ -229,7 +229,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} Including people in usability testing and asking ahead about support follow the W3C's “Making Content Usable” (2021); choosing a prototype by its question follows Houde and Hill (1997) and Kelley (1984); rating options on the same criteria follows Gibbons (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("Including people in usability testing and asking ahead about support follow the W3C's “Making Content Usable” (2021); choosing a prototype by its question follows Houde and Hill (1997) and Kelley (1984); rating options on the same criteria follows Gibbons (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Inclusive design is often presented as adaptation: extra options for people who need them. The stronger argument is architecture: the patterns that neurodivergent people need most (calm, consistent, readable, step by step) make the product better for nearly everyone, and they make assistive technology work. A better base is cheaper than many special cases.")}</p>
@@ -265,7 +265,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} Inclusion as better design for many follows Holmes (2018); a simplified version from the same code base follows the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("Inclusion as better design for many follows Holmes (2018); a simplified version from the same code base follows the W3C's “Making Content Usable” (2021). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("The “easy mode” is attractive to management because it is visible and contained: one switch, one announcement. It is also the version that changes least for most customers. The harder message for a board is that the default itself is the product most people use, and that is where inclusion has to happen.")}</p>
@@ -310,7 +310,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} That some needs pull in different directions, and that testing finds the balance, follows the Home Office's note on its posters (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("That some needs pull in different directions, and that testing finds the balance, follows the Home Office's note on its posters (Pun 2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("The most expensive assumption is usually “neurodivergent customers are a small group”. Many people never had a diagnosis, and anyone under stress (after a high bill, a bereavement, a move) processes like someone with less attention to spare. Designing for the stressed customer is designing for a large share of the customers who matter most to a service.")}</p>
@@ -355,7 +355,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${HE()} Including people with cognitive and learning disabilities in research and testing follows the W3C's “Making Content Usable” (2021); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${HE()} ${tt("Including people with cognitive and learning disabilities in research and testing follows the W3C's “Making Content Usable” (2021); deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Without an owner, a design system drifts: each product adds one exception, and two years later the consistency that autistic customers relied on is gone. Owning the patterns means saying no to exceptions, and it is the least visible and most important job in neurodiverse UX.")}</p>

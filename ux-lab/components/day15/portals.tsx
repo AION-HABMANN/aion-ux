@@ -30,7 +30,7 @@ const LH = "#3730A3";
 function LessonPage() {
   return (
     <div className="absolute inset-0 text-[10.5px] leading-snug text-[#1D2733]">
-      <Box x={0} y={0} w={100} h={9} bg={LH} className="flex items-center justify-between px-3 text-white"><b>LearnHub</b><span className="text-[10px]">{tt("Home · Courses · Forum · Help")}</span></Box>
+      <Box x={0} y={0} w={100} h={9} bg={LH} className="flex items-center justify-between px-3 text-white"><b>{tt("LearnHub")}</b><span className="text-[10px]">{tt("Home · Courses · Forum · Help")}</span></Box>
       <Box x={0} y={9} w={19} h={91} bg="#EEF0FA" className="space-y-1 p-2 text-[10px]">
         <b>{tt("Module 4")}</b>
         {[1, 2, 3, 4, 5, 6].map((n) => <div key={n} className={n === 3 ? "font-bold text-[#3730A3]" : ""}>{tt(`Lesson ${n}`)}</div>)}
@@ -159,7 +159,7 @@ export function LearningPulse({ variant }: { variant: "A" | "B" | "C" }) {
     return (
       <div className="space-y-2 rounded-lg border border-line bg-white p-3 text-[12.5px] text-[#26323F]">
         <div className="flex items-center justify-between rounded px-2 py-1 text-white" style={{ background: "#7C2D12" }}>
-          <b>LearningPulse</b>
+          <b>{tt("LearningPulse")}</b>
           <span className="text-[11px]">{tt("📷 camera on · 🧠 headband connected")}</span>
         </div>
         <p className="font-semibold">{tt("Lesson 7: Fractions in everyday life")}</p>
@@ -219,7 +219,7 @@ export function LearningPulse({ variant }: { variant: "A" | "B" | "C" }) {
 function PortalHome({ t }: { t: number }) {
   return (
     <div className="absolute inset-0 text-[10.5px] leading-snug text-[#1D2733]">
-      <Box x={0} y={0} w={100} h={9} bg="#0F3D5E" className="flex items-center justify-between px-3 text-white"><b>VisionMind</b><span className="text-[10px]">{tt("Service · My contracts · Help")}</span></Box>
+      <Box x={0} y={0} w={100} h={9} bg="#0F3D5E" className="flex items-center justify-between px-3 text-white"><b>{tt("VisionMind")}</b><span className="text-[10px]">{tt("Service · My contracts · Help")}</span></Box>
       <Box x={4} y={12} w={92} h={22} bg={t % 2 ? "#F59E0B" : "#FB923C"} className="flex items-center justify-center rounded text-[14px] font-bold text-white">{tt("🎉 Switch now and get 3 months free! 🎉")}</Box>
       <Box x={4} y={38} w={60} h={7} className="text-[13px] font-bold">{tt("What would you like to do?")}</Box>
       {[tt("Change my tariff"), tt("Report a problem"), tt("Documents"), tt("Payment details"), tt("More services (14)"), tt("Contracts")].map((l, i) => (

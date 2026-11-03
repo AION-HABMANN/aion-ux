@@ -64,14 +64,14 @@ function Thumb({ which }: { which: "A" | "B" | "C" }) {
   const head = which === "A" ? "#9F1239" : which === "B" ? "#0F766E" : "#5B21B6";
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>🎙 CareVoice</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>{tt("🎙 CareVoice")}</div>
       <div className="space-y-1 p-1.5">
-        {which === "A" && <div className="rounded bg-[#FCE7EC] px-1">🔊 Just tell me what you need, in your own words! 😊</div>}
-        {which === "B" && <div className="rounded bg-[#E6F4F1] px-1">🔊 Say one, appointments; two, prescriptions; three, results.</div>}
+        {which === "A" && <div className="rounded bg-[#FCE7EC] px-1">{tt("🔊 Just tell me what you need, in your own words! 😊")}</div>}
+        {which === "B" && <div className="rounded bg-[#E6F4F1] px-1">{tt("🔊 Say one, appointments; two, prescriptions; three, results.")}</div>}
         {which === "C" && (
           <>
-            <div className="rounded bg-[#EFE9FB] px-1">🔊 Which time? It is on your screen.</div>
-            <div className="rounded border border-line px-1">📱 [Tomorrow 9:20] [Fri 11:00]</div>
+            <div className="rounded bg-[#EFE9FB] px-1">{tt("🔊 Which time? It is on your screen.")}</div>
+            <div className="rounded border border-line px-1">{tt("📱 [Tomorrow 9:20] [Fri 11:00]")}</div>
           </>
         )}
       </div>

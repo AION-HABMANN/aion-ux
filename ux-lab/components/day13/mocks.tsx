@@ -69,11 +69,11 @@ export const AT_TEXT = () => tt("Your meter reading is due by 31 October. You ca
 export function MeasureThumb({ kind }: { kind: "calm" | "easy" | "steps" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>Hearth Energy</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>{tt("Hearth Energy")}</div>
       <div className="space-y-1 p-1.5">
-        {kind === "calm" && <><div className="font-semibold">Your next step</div><div className="rounded bg-[#9A3412] px-1 text-white">Send meter reading</div></>}
-        {kind === "easy" && <><div className="rounded bg-[#FDE68A] px-1">⚡ Offers · 🔔 4 · 🎁</div><div className="text-[#6B6560]">Settings › Easy mode (off)</div></>}
-        {kind === "steps" && <><div>Step 1 of 3</div><div className="h-1 rounded bg-[#9A3412]" /></>}
+        {kind === "calm" && <><div className="font-semibold">{tt("Your next step")}</div><div className="rounded bg-[#9A3412] px-1 text-white">{tt("Send meter reading")}</div></>}
+        {kind === "easy" && <><div className="rounded bg-[#FDE68A] px-1">{tt("⚡ Offers · 🔔 4 · 🎁")}</div><div className="text-[#6B6560]">{tt("Settings › Easy mode (off)")}</div></>}
+        {kind === "steps" && <><div>{tt("Step 1 of 3")}</div><div className="h-1 rounded bg-[#9A3412]" /></>}
       </div>
     </div>
   );

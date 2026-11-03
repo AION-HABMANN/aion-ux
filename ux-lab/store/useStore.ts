@@ -147,7 +147,7 @@ export const useStore = create<Persisted & Session & Actions>()(
       migrate: (persisted) => migratePersisted(persisted),
       merge: (persisted, current) => {
         const merged = mergeDefaults(emptyPersisted(), (persisted ?? {}) as Partial<Persisted>);
-        merged.ui.lang = "en";
+        merged.ui.lang = merged.ui.lang === "de" ? "de" : "en";
         return { ...current, ...merged };
       },
     },

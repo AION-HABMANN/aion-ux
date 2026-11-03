@@ -67,7 +67,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The definition of user experience follows ISO 9241-210 and Norman and Nielsen; mental models follow Norman (2013). The findings in the second table are real research results; the sources are listed below.`)}</p>
+        <p>{`${NW()} ${tt("The definition of user experience follows ISO 9241-210 and Norman and Nielsen; mental models follow Norman (2013). The findings in the second table are real research results; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("People rate an attractive interface as easier to use before they have used it (Tractinsky, Katz and Ikar 2000). That is why looks matter, and also why they mislead: the first judgement is not the experience. Psychological UX design takes both seriously and tests which one holds.")}</p>
@@ -113,7 +113,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} Bottom-up attention follows Itti and Koch (2001); the two attention systems follow Corbetta and Shulman (2002). The numbers in the table of the four steps are real research results; the ferry board is made up.`)}</p>
+        <p>{`${NW()} ${tt("Bottom-up attention follows Itti and Koch (2001); the two attention systems follow Corbetta and Shulman (2002). The numbers in the table of the four steps are real research results; the ferry board is made up.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Feature-integration theory explains why a single red item among grey ones pops out immediately, while a red square among red circles and grey squares has to be searched item by item (Treisman and Gelade 1980). For a screen, it means: the important thing should differ from the rest in one clear way, and only a few things should differ at all.")}</p>
@@ -158,7 +158,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The orientation questions follow Krug (2014); consistency and minimalist design follow Nielsen (1994); cognitive load follows Sweller (1988). The evidence in the first table is real research; the sources are listed below.`)}</p>
+        <p>{`${NW()} ${tt("The orientation questions follow Krug (2014); consistency and minimalist design follow Nielsen (1994); cognitive load follows Sweller (1988). The evidence in the first table is real research; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Context changes the effect: the same screen is read differently by someone in a hurry, someone worried, or someone using it for the first time. A health app or an insurance portal is often opened in a stressful moment, so every extra signal weighs more than it would in a game.")}</p>
@@ -203,7 +203,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The first impression follows Lindgaard et al. (2006); reactance follows Brehm (1966); how people judge credibility follows Fogg (2003). The numbers in the second table are real research results.`)}</p>
+        <p>{`${NW()} ${tt("The first impression follows Lindgaard et al. (2006); reactance follows Brehm (1966); how people judge credibility follows Fogg (2003). The numbers in the second table are real research results.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Kahneman (2011) describes two ways of judging: a fast, automatic one and a slow, deliberate one. Most of what a design does to people happens in the fast one, which is why users can rarely tell you that a red banner made them uneasy; they only know they did not trust the page.")}</p>
@@ -229,7 +229,7 @@ export function CardA5() {
       <ComicButton comic={COMICS_D1.A5} art={ART_D1} />
       <WeighFig4 />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.`)}</p>
+        <p>{`${NW()} ${tt("Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Many teams use Low, Medium and High for each criterion. The scale only helps if the reason is written next to it; without the reason, nobody can tell later why one measure came first, and nobody can check whether the reason still holds.")}</p>
@@ -265,7 +265,7 @@ export function CardB1() {
       />
       <ChannelsFig />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The chain from perception to decision restates the plan's “design as the steering of perception, behaviour and decision”. The evidence in the table of levers is real research and real law; the sources are listed below.`)}</p>
+        <p>{`${NW()} ${tt("The chain from perception to decision restates the plan's “design as the steering of perception, behaviour and decision”. The evidence in the table of levers is real research and real law; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("User experience, in Norman and Nielsen's definition, covers every part of a person's interaction with a company, its services and its products. A strategy therefore cannot stop at one channel: the customer judges the company by the whole journey, including the moment of moving from one channel to the next.")}</p>
@@ -300,7 +300,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} The three conflicts are the plan's own; the matrix is a reading of the example, not a score.`)}</p>
+        <p>{`${NW()} ${tt("The three conflicts are the plan's own; the matrix is a reading of the example, not a score.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Krug (2014) argues that conventions are a gift to the user: a pattern people already know needs no thinking. That is why innovation in an interface has a price paid by the user, and why it should be spent where it changes something that matters to them.")}</p>
@@ -335,7 +335,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NW()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).`)}</p>
+        <p>{`${NW()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Simon (1956) showed that people with limited time and information choose an option that is good enough rather than search for the best one. A manager who waits for complete data is not more careful; they have only postponed a decision under uncertainty and paid for the wait.")}</p>

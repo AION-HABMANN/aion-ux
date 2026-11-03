@@ -51,14 +51,14 @@ function Path({ y, at }: { y: number; at: number }) {
 
 function Planner({ journey }: { journey: boolean }) {
   return (
-    <Site title="PLANNER">
+    <Site title={tt("PLANNER")}>
       {journey ? (
         <g>
           <rect x={42} y={12} width={76} height={14} fill="#F6EDE4" />
-          <Txt x={44} y={18} size={2.9}>YOUR NEW KITCHEN</Txt>
-          <Txt x={44} y={23.5} size={2.4} c="#556274">4 STAGES · PLAN + OFFER</Txt>
+          <Txt x={44} y={18} size={2.9}>{tt("YOUR NEW KITCHEN")}</Txt>
+          <Txt x={44} y={23.5} size={2.4} c="#556274">{tt("4 STAGES · PLAN + OFFER")}</Txt>
           <Path y={34} at={0} />
-          <Btn x={43} y={44} w={74} h={8} label="START WITH YOUR ROOM" strong />
+          <Btn x={43} y={44} w={74} h={8} label={tt("START WITH YOUR ROOM")} strong />
         </g>
       ) : (
         ["ROOM", "CATALOGUE", "WORKTOPS", "APPLIANCES", "PRICES", "SAVED"].map((l, i) => <Btn key={l} x={43 + (i % 2) * 38} y={14 + Math.floor(i / 2) * 11} w={36} h={8} label={l} />)
@@ -69,20 +69,20 @@ function Planner({ journey }: { journey: boolean }) {
 
 function Stage({ good }: { good: boolean }) {
   return (
-    <Site title="LAYOUT">
+    <Site title={tt("LAYOUT")}>
       {good ? (
         <g>
-          <Txt x={44} y={16} size={2.6} c={ACC}>GOAL: PLAN + OFFER</Txt>
+          <Txt x={44} y={16} size={2.6} c={ACC}>{tt("GOAL: PLAN + OFFER")}</Txt>
           <Path y={24} at={4} />
           <rect x={42} y={31} width={76} height={12} fill="#F6EDE4" />
-          <Txt x={44} y={38.5} size={2.9}>YOUR PLAN IS READY</Txt>
-          <Btn x={43} y={47} w={50} h={7} label="SEE MY PLAN" strong />
+          <Txt x={44} y={38.5} size={2.9}>{tt("YOUR PLAN IS READY")}</Txt>
+          <Btn x={43} y={47} w={50} h={7} label={tt("SEE MY PLAN")} strong />
         </g>
       ) : (
         <g>
           <rect x={42} y={18} width={76} height={12} fill={NEU} />
-          <Txt x={44} y={25.5} size={2.9} c="#556274">DATA SAVED.</Txt>
-          <Btn x={43} y={44} w={30} h={7} label="NEXT" />
+          <Txt x={44} y={25.5} size={2.9} c="#556274">{tt("DATA SAVED.")}</Txt>
+          <Btn x={43} y={44} w={30} h={7} label={tt("NEXT")} />
         </g>
       )}
     </Site>
@@ -91,24 +91,24 @@ function Stage({ good }: { good: boolean }) {
 
 function Between({ kind }: { kind: "bare" | "staged" | "short" }) {
   return (
-    <Site title="PLANNER">
-      <Txt x={44} y={15} size={2.5} c="#556274">STEP 1 · ROOM · DONE</Txt>
-      {kind === "bare" && <Btn x={43} y={40} w={30} h={7} label="NEXT" />}
+    <Site title={tt("PLANNER")}>
+      <Txt x={44} y={15} size={2.5} c="#556274">{tt("STEP 1 · ROOM · DONE")}</Txt>
+      {kind === "bare" && <Btn x={43} y={40} w={30} h={7} label={tt("NEXT")} />}
       {kind === "staged" && (
         <g>
           <rect x={42} y={18} width={76} height={26} fill="#EADBCB" />
-          <Txt x={44} y={25} size={2.5}>IMAGINE A SUNDAY…</Txt>
-          <Txt x={44} y={31} size={2.5}>THE SMELL OF COFFEE…</Txt>
-          <Txt x={44} y={37} size={2.5}>MEMORIES ARE MADE…</Txt>
-          <Btn x={43} y={48} w={50} h={7} label="CONTINUE THE STORY" />
+          <Txt x={44} y={25} size={2.5}>{tt("IMAGINE A SUNDAY…")}</Txt>
+          <Txt x={44} y={31} size={2.5}>{tt("THE SMELL OF COFFEE…")}</Txt>
+          <Txt x={44} y={37} size={2.5}>{tt("MEMORIES ARE MADE…")}</Txt>
+          <Btn x={43} y={48} w={50} h={7} label={tt("CONTINUE THE STORY")} />
         </g>
       )}
       {kind === "short" && (
         <g>
           <rect x={42} y={19} width={76} height={14} fill="#F6EDE4" />
-          <Txt x={44} y={25} size={2.8}>YOUR ROOM IS IN.</Txt>
-          <Txt x={44} y={30.5} size={2.4} c="#556274">NEXT: YOUR STYLE</Txt>
-          <Btn x={43} y={40} w={50} h={7} label="CHOOSE STYLE" strong />
+          <Txt x={44} y={25} size={2.8}>{tt("YOUR ROOM IS IN.")}</Txt>
+          <Txt x={44} y={30.5} size={2.4} c="#556274">{tt("NEXT: YOUR STYLE")}</Txt>
+          <Btn x={43} y={40} w={50} h={7} label={tt("CHOOSE STYLE")} strong />
         </g>
       )}
     </Site>
@@ -117,10 +117,10 @@ function Between({ kind }: { kind: "bare" | "staged" | "short" }) {
 
 function Film() {
   return (
-    <Site title="PLANNER">
+    <Site title={tt("PLANNER")}>
       <rect x={44} y={13} width={72} height={30} fill="#3A2A1E" />
-      <Txt x={80} y={30} size={3} anchor="middle" c="#FFFFFF">▶ OUR STORY</Txt>
-      <Btn x={43} y={47} w={74} h={7} label="SCROLL TO CONTINUE ↓" />
+      <Txt x={80} y={30} size={3} anchor="middle" c="#FFFFFF">{tt("▶ OUR STORY")}</Txt>
+      <Btn x={43} y={47} w={74} h={7} label={tt("SCROLL TO CONTINUE ↓")} />
     </Site>
   );
 }
@@ -130,10 +130,10 @@ function Matrix() {
     <Board x={36} y={4} w={88} h={60}>
       <line x1={46} y1={56} x2={118} y2={56} stroke="#1B1B1F" strokeWidth={0.8} />
       <line x1={46} y1={10} x2={46} y2={56} stroke="#1B1B1F" strokeWidth={0.8} />
-      <Txt x={82} y={62} size={2.8} anchor="middle" c="#556274">CLEAR →</Txt>
-      <Txt x={40} y={34} size={2.8} anchor="middle" c="#556274">STORY</Txt>
+      <Txt x={82} y={62} size={2.8} anchor="middle" c="#556274">{tt("CLEAR →")}</Txt>
+      <Txt x={40} y={34} size={2.8} anchor="middle" c="#556274">{tt("STORY")}</Txt>
       <rect x={88} y={12} width={28} height={18} fill="#B5E3C8" />
-      <Txt x={102} y={22.5} size={3} anchor="middle">THE AIM</Txt>
+      <Txt x={102} y={22.5} size={3} anchor="middle">{tt("THE AIM")}</Txt>
       {[[54, 14, "A"], [104, 20, "B"], [110, 48, "C"], [66, 50, "D"], [88, 34, "E"]].map(([x, y, l]) => (
         <g key={l as string}>
           <rect x={(x as number) - 2.5} y={(y as number) - 2.5} width={5} height={5} fill={ACC} />
@@ -155,7 +155,7 @@ function Journeys() {
           <Txt x={48 + i * 32} y={45} size={2.2} anchor="middle" c="#556274">{b}</Txt>
         </g>
       ))}
-      <Txt x={80} y={57} size={3.2} anchor="middle" c="#556274">SIZED TO THE JOURNEY</Txt>
+      <Txt x={80} y={57} size={3.2} anchor="middle" c="#556274">{tt("SIZED TO THE JOURNEY")}</Txt>
     </Board>
   );
 }
@@ -172,7 +172,7 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a1-2": (
     <Duo label={S("Iris browses and puts it off")} left={{ who: "iris", face: "sad" }}>
-      <Notes x={40} y={6} w={112} title="WITHOUT A JOURNEY" items={[{ icon: "ask", text: "WHERE DO I START?" }, { icon: "clock", text: "ANOTHER DAY" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WITHOUT A JOURNEY")} items={[{ icon: "ask", text: "WHERE DO I START?" }, { icon: "clock", text: "ANOTHER DAY" }]} />
     </Duo>
   ),
   "a1-3": (
@@ -183,7 +183,7 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a1-4": (
     <Duo label={S("The rule: a beginning, a goal, a way and an end")} left={{ who: "june", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="PEOPLE ASK" items={[{ icon: "play", text: "WHERE DO I START?" }, { icon: "eye", text: "WHERE AM I GOING?" }, { icon: "chart", text: "HOW FAR AM I?" }, { icon: "check", text: "AM I DONE?" }]} />
+      <Notes x={40} y={6} w={112} title={tt("PEOPLE ASK")} items={[{ icon: "play", text: "WHERE DO I START?" }, { icon: "eye", text: "WHERE AM I GOING?" }, { icon: "chart", text: "HOW FAR AM I?" }, { icon: "check", text: "AM I DONE?" }]} />
     </Duo>
   ),
 
@@ -196,7 +196,7 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a2-2": (
     <Duo label={S("June lists the seven elements and circles goal, progress and resolution")} left={{ who: "june", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="SEVEN ELEMENTS" items={[{ text: "START, GOAL, RELEVANCE" }, { text: "OBSTACLE, SUPPORT" }, { text: "PROGRESS, RESOLUTION" }]} sub="MISSING: GOAL, PATH, END" />
+      <Notes x={40} y={6} w={112} title={tt("SEVEN ELEMENTS")} items={[{ text: "START, GOAL, RELEVANCE" }, { text: "OBSTACLE, SUPPORT" }, { text: "PROGRESS, RESOLUTION" }]} sub="MISSING: GOAL, PATH, END" />
     </Duo>
   ),
   "a2-3": (
@@ -207,7 +207,7 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a2-4": (
     <Duo label={S("The rule: show the goal, show the way, end it")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="NARRATIVE GUIDANCE" items={[{ tick: true, text: "A GOAL TO SEE" }, { tick: true, text: "PROGRESS TO SEE" }, { tick: true, text: "AN ENDING" }]} />
+      <Notes x={40} y={6} w={112} title={tt("NARRATIVE GUIDANCE")} items={[{ tick: true, text: "A GOAL TO SEE" }, { tick: true, text: "PROGRESS TO SEE" }, { tick: true, text: "AN ENDING" }]} />
     </Duo>
   ),
 
@@ -232,7 +232,7 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a3-4": (
     <Duo label={S("The rule: put the dramaturgy into the journey, in small places")} left={{ who: "june", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="DRAMATURGY" items={[{ text: "TENSION, EXPECTATION" }, { text: "SEQUENCE, TRANSITION" }, { text: "CONFIRMATION, CONTEXT" }]} sub="IN SMALL PLACES" />
+      <Notes x={40} y={6} w={112} title={tt("DRAMATURGY")} items={[{ text: "TENSION, EXPECTATION" }, { text: "SEQUENCE, TRANSITION" }, { text: "CONFIRMATION, CONTEXT" }]} sub="IN SMALL PLACES" />
     </Duo>
   ),
 
@@ -255,29 +255,29 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "a4-4": (
     <Duo label={S("The rule: if the steps are harder to find, the story is too big")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="NOT THIS" items={[{ cross: true, text: "TOO MUCH STAGING" }, { cross: true, text: "LONG TEXTS" }, { cross: true, text: "LONGER PATHS" }]} sub="A CLEAR STORY" />
+      <Notes x={40} y={6} w={112} title={tt("NOT THIS")} items={[{ cross: true, text: "TOO MUCH STAGING" }, { cross: true, text: "LONG TEXTS" }, { cross: true, text: "LONGER PATHS" }]} sub="A CLEAR STORY" />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ A5 */
   "a5-1": (
     <Duo label={S("Arne has three ideas: a goal, a path, a film")} left={{ who: "arne", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="THREE IDEAS" items={[{ icon: "eye", text: "GOAL ON SCREEN ONE" }, { icon: "chart", text: "PATH OF 4 STAGES" }, { icon: "play", text: "BRAND FILM" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THREE IDEAS")} items={[{ icon: "eye", text: "GOAL ON SCREEN ONE" }, { icon: "chart", text: "PATH OF 4 STAGES" }, { icon: "play", text: "BRAND FILM" }]} />
     </Duo>
   ),
   "a5-2": (
     <Duo label={S("June weighs the goal on the first screen: big effect, easy, low risk")} left={{ who: "june", face: "think" }}>
-      <Rate x={40} y={6} w={112} title="GOAL ON SCREEN ONE" rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 3, "HIGH"], ["RISK", 1, "LOW"]]} />
+      <Rate x={40} y={6} w={112} title={tt("GOAL ON SCREEN ONE")} rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 3, "HIGH"], ["RISK", 1, "LOW"]]} />
     </Duo>
   ),
   "a5-3": (
     <Duo label={S("The film: little effect, hard to make, high risk")} left={{ who: "arne", face: "surprised" }}>
-      <Rate x={40} y={6} w={112} title="BRAND FILM" rows={[["EFFECT", 1, "LOW"], ["FEASIBLE", 1, "LOW"], ["RISK", 3, "HIGH"]]} />
+      <Rate x={40} y={6} w={112} title={tt("BRAND FILM")} rows={[["EFFECT", 1, "LOW"], ["FEASIBLE", 1, "LOW"], ["RISK", 3, "HIGH"]]} />
     </Duo>
   ),
   "a5-4": (
     <Duo label={S("The rule: give each action a context and a place, and weigh every measure")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="ACTION TO MEANING" items={[{ text: "AN ACTION" }, { text: "ITS CONTEXT" }, { text: "ITS PLACE" }, { text: "A MEANING" }]} />
+      <Notes x={40} y={6} w={112} title={tt("ACTION TO MEANING")} items={[{ text: "AN ACTION" }, { text: "ITS CONTEXT" }, { text: "ITS PLACE" }, { text: "A MEANING" }]} />
     </Duo>
   ),
 
@@ -290,24 +290,24 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "b1-2": (
     <Duo label={S("June: the product teams build the journeys, step by step")} left={{ who: "june", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="WHERE IT LIVES" items={[{ text: "THE FIRST SCREEN" }, { text: "BETWEEN THE STEPS" }, { text: "THE ENDING" }]} sub="NOBODY DECIDED HOW" />
+      <Notes x={40} y={6} w={112} title={tt("WHERE IT LIVES")} items={[{ text: "THE FIRST SCREEN" }, { text: "BETWEEN THE STEPS" }, { text: "THE ENDING" }]} sub="NOBODY DECIDED HOW" />
     </Duo>
   ),
   "b1-3": (
     <Duo label={S("A guiding vision and patterns for every journey")} left={{ who: "arne", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="NARRATIVE UX" items={[{ tick: true, text: "A GUIDING VISION" }, { tick: true, text: "PRINCIPLES" }, { tick: true, text: "PATTERNS" }]} />
+      <Notes x={40} y={6} w={112} title={tt("NARRATIVE UX")} items={[{ tick: true, text: "A GUIDING VISION" }, { tick: true, text: "PRINCIPLES" }, { tick: true, text: "PATTERNS" }]} />
     </Duo>
   ),
   "b1-4": (
     <Duo label={S("The rule: narrative structure belongs in the experience architecture")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="THE LAYERS" items={[{ text: "VISION" }, { text: "PRINCIPLES" }, { text: "PATTERNS" }, { text: "EVERY JOURNEY" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE LAYERS")} items={[{ text: "VISION" }, { text: "PRINCIPLES" }, { text: "PATTERNS" }, { text: "EVERY JOURNEY" }]} />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ B2 */
   "b2-1": (
     <Duo label={S("Arne wants story everywhere; June thinks of Pavel and his handle")} left={{ who: "arne", face: "happy", pose: "point" }} right={{ who: "june", face: "think" }}>
-      <Notes x={34} y={6} w={92} title="TWO GOALS" items={[{ icon: "heart", text: "STORY EVERYWHERE" }, { icon: "clock", text: "JUST A HANDLE" }]} />
+      <Notes x={34} y={6} w={92} title={tt("TWO GOALS")} items={[{ icon: "heart", text: "STORY EVERYWHERE" }, { icon: "clock", text: "JUST A HANDLE" }]} />
     </Duo>
   ),
   "b2-2": (
@@ -317,34 +317,34 @@ export const ART_D8: Record<string, ReactNode> = {
   ),
   "b2-3": (
     <Duo label={S("They agree: the story sized to each journey, the brand story on the website")} left={{ who: "arne", face: "neutral" }}>
-      <Notes x={40} y={6} w={112} title="WE CHOOSE" items={[{ tick: true, text: "REORDER: NO STORY" }, { tick: true, text: "KITCHEN: FULL GUIDANCE" }, { cross: true, text: "GIVE UP: THE FILM" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WE CHOOSE")} items={[{ tick: true, text: "REORDER: NO STORY" }, { tick: true, text: "KITCHEN: FULL GUIDANCE" }, { cross: true, text: "GIVE UP: THE FILM" }]} />
     </Duo>
   ),
   "b2-4": (
     <Duo label={S("The rule: story where it serves the task, sized to the journey")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="CONFLICTS" items={[{ text: "QUICK VS STORY" }, { text: "INSPIRING VS SERIOUS" }, { text: "BRAND VS TASK" }]} sub="SIZE IT TO THE JOURNEY" />
+      <Notes x={40} y={6} w={112} title={tt("CONFLICTS")} items={[{ text: "QUICK VS STORY" }, { text: "INSPIRING VS SERIOUS" }, { text: "BRAND VS TASK" }]} sub="SIZE IT TO THE JOURNEY" />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ B3 */
   "b3-1": (
     <Duo label={S("Arne: nobody knows where customers stop; should we measure first?")} left={{ who: "arne", face: "worried" }}>
-      <Notes x={40} y={6} w={112} title="WE DO NOT KNOW" items={[{ icon: "ask", text: "WHERE THEY STOP" }, { icon: "clock", text: "WAIT FOR DATA?" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WE DO NOT KNOW")} items={[{ icon: "ask", text: "WHERE THEY STOP" }, { icon: "clock", text: "WAIT FOR DATA?" }]} />
     </Duo>
   ),
   "b3-2": (
     <Duo label={S("June decides on the goal and the path first and says when she would reverse it")} left={{ who: "june", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="A DECISION" items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
+      <Notes x={40} y={6} w={112} title={tt("A DECISION")} items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
     </Duo>
   ),
   "b3-3": (
     <Duo label={S("Who decides: clear first, then the customer, then the brand")} left={{ who: "june", face: "neutral" }} right={{ who: "arne", face: "happy" }}>
-      <Notes x={34} y={6} w={92} title="WHO OWNS IT" items={[{ text: "CX LEAD: JOURNEYS" }, { text: "EXPERTS: FACTS" }, { text: "MARKETING: BRAND" }]} />
+      <Notes x={34} y={6} w={92} title={tt("WHO OWNS IT")} items={[{ text: "CX LEAD: JOURNEYS" }, { text: "EXPERTS: FACTS" }, { text: "MARKETING: BRAND" }]} />
     </Duo>
   ),
   "b3-4": (
     <Duo label={S("The rule: an owner of the journeys, a rule for conflicts, decide then check")} left={{ who: "june", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="GOVERNANCE" items={[{ tick: true, text: "AN OWNER OF JOURNEYS" }, { tick: true, text: "A RULE FOR CONFLICTS" }, { tick: true, text: "DECIDE, THEN CHECK" }]} />
+      <Notes x={40} y={6} w={112} title={tt("GOVERNANCE")} items={[{ tick: true, text: "AN OWNER OF JOURNEYS" }, { tick: true, text: "A RULE FOR CONFLICTS" }, { tick: true, text: "DECIDE, THEN CHECK" }]} />
     </Duo>
   ),
 };

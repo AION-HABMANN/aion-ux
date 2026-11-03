@@ -67,23 +67,23 @@ function Thumb({ which }: { which: "A" | "B" | "C" }) {
       <svg aria-hidden viewBox="0 0 150 60" className="mx-auto block w-full max-w-[150px] rounded-lg" style={{ background: "#FAFAFD" }}>
         <defs><linearGradient id="la-a" x1="0" x2="1"><stop offset="0" stopColor="#C7B8F5" /><stop offset="1" stopColor="#9FD8F2" /></linearGradient></defs>
         <rect width="150" height="16" fill="url(#la-a)" />
-        <text x="6" y="11" fontSize="7" fill="#FFFFFF">LEARNACCESS · Project basics</text>
-        <text x="6" y="30" fontSize="7" fill="#B4B9C4">A milestone marks a point in</text>
-        <text x="6" y="40" fontSize="7" fill="#B4B9C4">the project where something</text>
-        <text x="6" y="50" fontSize="7" fill="#B4B9C4">important is finished…</text>
+        <text x="6" y="11" fontSize="7" fill="#FFFFFF">{tt("LEARNACCESS · Project basics")}</text>
+        <text x="6" y="30" fontSize="7" fill="#B4B9C4">{tt("A milestone marks a point in")}</text>
+        <text x="6" y="40" fontSize="7" fill="#B4B9C4">{tt("the project where something")}</text>
+        <text x="6" y="50" fontSize="7" fill="#B4B9C4">{tt("important is finished…")}</text>
       </svg>
     );
   if (which === "B")
     return (
       <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border-2 border-[#1F2937] bg-white text-[10px] font-semibold leading-tight text-[#111827]">
-        <div className="border-b-2 border-[#1F2937] bg-[#F3F4F6] px-2 py-1">LearnAccess</div>
-        <div className="p-1.5">Lesson 3 · Planning with milestones</div>
+        <div className="border-b-2 border-[#1F2937] bg-[#F3F4F6] px-2 py-1">{tt("LearnAccess")}</div>
+        <div className="p-1.5">{tt("Lesson 3 · Planning with milestones")}</div>
       </div>
     );
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#374151]">
-      <div className="flex justify-between px-2 py-1 text-white" style={{ background: "#5B3FBF" }}><span>LearnAccess</span><span>Aa</span></div>
-      <div className="p-1.5">A · A+ · A++ · contrast · spacing</div>
+      <div className="flex justify-between px-2 py-1 text-white" style={{ background: "#5B3FBF" }}><span>{tt("LearnAccess")}</span><span>Aa</span></div>
+      <div className="p-1.5">{tt("A · A+ · A++ · contrast · spacing")}</div>
     </div>
   );
 }

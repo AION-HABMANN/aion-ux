@@ -62,11 +62,11 @@ function StudyPath() {
 function Thumb({ which }: { which: "A" | "B" | "C" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: which === "A" ? "#0F172A" : which === "B" ? "#1F4E5F" : "#6D28D9" }}>JobAccess</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: which === "A" ? "#0F172A" : which === "B" ? "#1F4E5F" : "#6D28D9" }}>{tt("JobAccess")}</div>
       <div className="space-y-1 p-1.5">
         {which === "A" && <div className="grid grid-cols-3 gap-0.5">{Array.from({ length: 6 }, (_, i) => <div key={i} className="h-3 rounded bg-[#334155]" />)}</div>}
-        {which === "B" && <><div className="font-semibold">My applications</div><div className="rounded border border-[#1F4E5F] px-1">Next step: interview Tue</div></>}
-        {which === "C" && <><div className="font-semibold">My applications</div><div>Display ▾ reading · calm · simple</div></>}
+        {which === "B" && <><div className="font-semibold">{tt("My applications")}</div><div className="rounded border border-[#1F4E5F] px-1">{tt("Next step: interview Tue")}</div></>}
+        {which === "C" && <><div className="font-semibold">{tt("My applications")}</div><div>{tt("Display ▾ reading · calm · simple")}</div></>}
       </div>
     </div>
   );

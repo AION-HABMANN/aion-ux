@@ -138,7 +138,7 @@ export function HealthSpace({ variant }: { variant: "A" | "B" | "C" }) {
   const [step, setStep] = useState(0);
   if (variant === "A")
     return (
-      <Screen title="HealthSpace XR" color="#4C1D95">
+      <Screen title={tt("HealthSpace XR")} color="#4C1D95">
         {step === 0 && (
           <>
             <div className="rounded bg-gradient-to-br from-[#4C1D95] to-[#0E7490] p-3 text-white">
@@ -173,7 +173,7 @@ export function HealthSpace({ variant }: { variant: "A" | "B" | "C" }) {
     );
   if (variant === "B")
     return (
-      <Screen title="HealthSpace" color="#0F766E">
+      <Screen title={tt("HealthSpace")} color="#0F766E">
         <p className="font-semibold">{tt("Your inhaler: practise the technique")}</p>
         <p>{tt("Point your phone camera at a table. A 3D inhaler appears and shows the four steps, one at a time, at real size.")}</p>
         <div className="flex gap-1" aria-hidden>{[0, 1, 2, 3].map((i) => <div key={i} className="h-1.5 flex-1 rounded" style={{ background: i <= step ? "#0F766E" : "#D1D5DB" }} />)}</div>
@@ -185,7 +185,7 @@ export function HealthSpace({ variant }: { variant: "A" | "B" | "C" }) {
       </Screen>
     );
   return (
-    <Screen title="HealthSpace" color="#1E3A5F">
+    <Screen title={tt("HealthSpace")} color="#1E3A5F">
       <p className="font-semibold">{tt("Your prevention plan")}</p>
       <ul className="space-y-1">
         <li className="rounded border border-[#C3CCD6] p-2">{tt("Inhaler technique · video and step-by-step text")}</li>

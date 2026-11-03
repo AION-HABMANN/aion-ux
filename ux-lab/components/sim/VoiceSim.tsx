@@ -169,7 +169,7 @@ export function VoiceSim({ cfg, tryThese }: { cfg: VoiceCfg; tryThese?: string[]
             <span>🎙 {cfg.name}</span>
             <button type="button" onClick={reset} className="rounded border border-white/60 px-2 py-0.5 text-[12px] font-semibold">{tt("↺ Start again")}</button>
           </div>
-          <div role="log" aria-live="polite" aria-label={tt(`Conversation with ${cfg.name}`)} className="max-h-[320px] min-h-[180px] space-y-2 overflow-y-auto p-3 text-[14px] text-[#26323F]">
+          <div role="log" aria-live="polite" aria-label={tt(`Conversation with ${cfg.name}`, `Gespräch mit ${cfg.name}`)} className="max-h-[320px] min-h-[180px] space-y-2 overflow-y-auto p-3 text-[14px] text-[#26323F]">
             {log.map((m, k) => (
               <div key={k} className={clsx("max-w-[88%] rounded-lg px-3 py-1.5", m.who === "you" ? "ml-auto bg-[#EEF2F7]" : "border border-[#E1E5EA] bg-[#FAFBFC]")}>
                 <span className="sr-only">{m.who === "you" ? tt("You: ") : `${cfg.name}: `}</span>
@@ -177,7 +177,7 @@ export function VoiceSim({ cfg, tryThese }: { cfg: VoiceCfg; tryThese?: string[]
                 {m.text}
               </div>
             ))}
-            {busy && <div className="text-[13px] text-[#5F6B78]" aria-hidden>{tt(`${cfg.name} is answering …`)}</div>}
+            {busy && <div className="text-[13px] text-[#5F6B78]" aria-hidden>{tt(`${cfg.name} is answering …`, `${cfg.name} antwortet …`)}</div>}
             <div ref={endRef} />
           </div>
           {chips.length > 0 && (
@@ -194,7 +194,7 @@ export function VoiceSim({ cfg, tryThese }: { cfg: VoiceCfg; tryThese?: string[]
               send(draft);
             }}
           >
-            <label htmlFor={`${uid}-say`} className="sr-only">{tt(`What you say to ${cfg.name}`)}</label>
+            <label htmlFor={`${uid}-say`} className="sr-only">{tt(`What you say to ${cfg.name}`, `Was Sie zu ${cfg.name} sagen`)}</label>
             <input id={`${uid}-say`} value={draft} onChange={(e) => setDraft(e.target.value)} placeholder={tt("Type what you would say …")} className="min-h-[40px] min-w-0 flex-1 rounded border border-[#B9C2CC] px-3 text-[14px]" autoComplete="off" />
             <button type="submit" className="min-h-[40px] rounded px-4 text-[14px] font-semibold text-white" style={{ background: cfg.color }}>{tt("Say it")}</button>
             {micOk && (

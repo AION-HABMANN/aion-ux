@@ -17,7 +17,7 @@ const INK = "#1D2733";
 export function TesselPage({ dim }: { dim?: boolean }) {
   return (
     <div className="absolute inset-0 text-[11px] leading-snug" style={{ color: INK, opacity: dim ? 0.55 : 1 }}>
-      <Box x={0} y={0} w={100} h={9} bg={BRAND} className="flex items-center justify-between px-3 text-white"><span className="font-bold">Tessel</span><span className="text-[10px] opacity-90">{tt("Accounts · Cards · Help · Log out")}</span></Box>
+      <Box x={0} y={0} w={100} h={9} bg={BRAND} className="flex items-center justify-between px-3 text-white"><span className="font-bold">{tt("Tessel")}</span><span className="text-[10px] opacity-90">{tt("Accounts · Cards · Help · Log out")}</span></Box>
       <Box x={4} y={12} w={60} h={8} className="text-[16px] font-bold">{tt("Send money")}</Box>
       <Box x={4} y={23} w={56} h={10} className="rounded border border-[#C9D3DD] px-2 py-1"><span className="text-[10px] text-[#55606E]">{tt("Recipient")}</span><br />{tt("Ana Ruiz")}</Box>
       <Box x={4} y={36} w={56} h={10} className="rounded border border-[#C9D3DD] px-2 py-1"><span className="text-[10px] text-[#55606E]">{tt("Account number")}</span><br />•••• 4417</Box>

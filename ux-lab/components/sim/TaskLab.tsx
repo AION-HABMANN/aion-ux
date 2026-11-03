@@ -126,7 +126,7 @@ export function TaskLab({
       const s = t0 === null ? 0 : Math.round((end - t0) / 100) / 10;
       setNow(end);
       setFinished(true);
-      setLog((l) => [tt(`● ${what ?? "Task complete"} · ${s} s`), ...l].slice(0, 5));
+      setLog((l) => [tt(`● ${what ?? "Task complete"} · ${s} s`, `● ${what ?? "Aufgabe erledigt"} · ${s} s`), ...l].slice(0, 5));
       setResults((r) => [...r.filter((x) => x.version !== cur), { version: cur, secs: s, misses }]);
     },
   };
@@ -160,12 +160,12 @@ export function TaskLab({
         <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_230px]">
           <div className="space-y-2 rounded-lg border border-line bg-[#F8FAFC] p-3">
             <div className="flex flex-wrap items-center gap-3 font-mono text-[12px] text-[#312E81]">
-              <span>{tt(`Time ${secs.toFixed(1)} s`)}</span>
-              <span>{tt(`Wrong taps ${misses}`)}</span>
+              <span>{tt(`Time ${secs.toFixed(1)} s`, `Zeit ${secs.toFixed(1).replace(".", ",")} s`)}</span>
+              <span>{tt(`Wrong taps ${misses}`, `Falsche Taps ${misses}`)}</span>
               <span aria-live="polite">{finished ? tt("Done") : t0 === null ? tt("Starts with your first tap") : tt("Running")}</span>
-              {on.includes("hurry") && !finished && <span className="rounded bg-[#FEE2E2] px-1.5 font-sans font-semibold text-[#991B1B]">{tt(`Your taxi leaves in ${Math.max(0, 30 - Math.floor(secs))} s`)}</span>}
+              {on.includes("hurry") && !finished && <span className="rounded bg-[#FEE2E2] px-1.5 font-sans font-semibold text-[#991B1B]">{tt(`Your taxi leaves in ${Math.max(0, 30 - Math.floor(secs))} s`, `Ihr Taxi fährt in ${Math.max(0, 30 - Math.floor(secs))} s ab`)}</span>}
             </div>
-            <div role="region" aria-label={tt(`The product, version: ${v.label}`)} className="relative mx-auto w-full" style={style}>
+            <div role="region" aria-label={tt(`The product, version: ${v.label}`, `Das Produkt, Version: ${v.label}`)} className="relative mx-auto w-full" style={style}>
               <div key={run}>{v.render(ctx)}</div>
               {ping && (
                 <div role="alertdialog" aria-label={tt("A message arrives")} className="absolute inset-x-2 top-2 z-10 rounded-lg bg-[#111827] p-2 text-[12px] text-white shadow-lg">
@@ -181,7 +181,7 @@ export function TaskLab({
                   <span className="text-ash">{feel[0]}</span>
                   {[1, 2, 3, 4, 5].map((n) => {
                     const cur = results.find((r) => r.version === v.id)?.feel;
-                    return <button key={n} type="button" aria-pressed={cur === n} aria-label={tt(`${n} of 5`)} onClick={() => setResults((rs) => rs.map((r) => (r.version === v.id ? { ...r, feel: n } : r)))} className={clsx("h-8 w-8 rounded-full border", cur === n ? "border-[#4F46E5] bg-[#4F46E5] text-white" : "border-line bg-white")}>{n}</button>;
+                    return <button key={n} type="button" aria-pressed={cur === n} aria-label={tt(`${n} of 5`, `${n} von 5`)} onClick={() => setResults((rs) => rs.map((r) => (r.version === v.id ? { ...r, feel: n } : r)))} className={clsx("h-8 w-8 rounded-full border", cur === n ? "border-[#4F46E5] bg-[#4F46E5] text-white" : "border-line bg-white")}>{n}</button>;
                   })}
                   <span className="text-ash">{feel[1]}</span>
                 </div>
@@ -191,7 +191,7 @@ export function TaskLab({
               <div className="flex flex-wrap items-center gap-2">
                 <button type="button" onClick={() => reset()} className="btn btn-sm min-h-[36px] border border-line bg-white text-ink">{tt("Try this version again")}</button>
                 {versions.filter((x) => !results.some((r) => r.version === x.id) && x.id !== cur).slice(0, 1).map((x) => (
-                  <button key={x.id} type="button" onClick={() => reset(x.id)} className="btn-primary btn-sm min-h-[36px]">{tt(`Now try: ${x.label}`)}</button>
+                  <button key={x.id} type="button" onClick={() => reset(x.id)} className="btn-primary btn-sm min-h-[36px]">{tt(`Now try: ${x.label}`, `Jetzt versuchen: ${x.label}`)}</button>
                 ))}
               </div>
             )}

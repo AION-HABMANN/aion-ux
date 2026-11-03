@@ -13,7 +13,7 @@ import { tt } from "@/lib/lang";
  */
 
 /** The footer of a product that is not a course (the course footer of courseKit names a teacher and reviews). */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 
 /* ------------------------------------------------------------------ CarePath, a health app */
 
@@ -107,7 +107,7 @@ export const skillFlowA = (): PlatformCfg => ({
   start: "start",
   color: "#6A1B9A",
   nav: [{ label: tt("Start"), go: "start" }, { label: tt("My course"), go: "course" }, ...shellNav()],
-  header: (v) => tt(`🔥 ${Math.min(v.length, 9)}-day streak`),
+  header: (v) => tt(`🔥 ${Math.min(v.length, 9)}-day streak`, `🔥 ${Math.min(v.length, 9)}-Tage-Serie`),
   pages: {
     ...sfBase(),
     start: {
@@ -143,7 +143,7 @@ export const skillFlowB = (): PlatformCfg => ({
       section: "start",
       blocks: [
         { t: "h", text: tt("Start") },
-        { t: "p", text: tt(`Your course: ${COURSE_NAME()}. You opened lesson 1 of ${LESSONS}.`) },
+        { t: "p", text: tt(`Your course: ${COURSE_NAME()}. You opened lesson 1 of ${LESSONS}.`, `Ihr Kurs: ${COURSE_NAME()}. Sie haben Lektion 1 von ${LESSONS} geöffnet.`) },
         { t: "links", items: [{ label: tt("Continue with lesson 2"), go: "lesson1" }, { label: tt("Open the course page"), go: "course" }, { label: tt("Find another course"), go: "catalog" }, { label: tt("Help"), go: "help" }] },
         { t: "progress", label: tt("Lessons visited"), of: lessonKeys(LESSONS) },
       ],

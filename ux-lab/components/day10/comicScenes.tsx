@@ -57,7 +57,7 @@ function RuleMsg() {
   return (
     <App>
       <Msg y={14} lines={["TRAIN 412 DELAYED", "+20 MIN. WE APOLOGISE."]} />
-      <Txt x={44} y={36} size={2.4} c="#556274">SENT TO EVERYONE</Txt>
+      <Txt x={44} y={36} size={2.4} c="#556274">{tt("SENT TO EVERYONE")}</Txt>
     </App>
   );
 }
@@ -65,9 +65,9 @@ function RuleMsg() {
 function NextTrain() {
   return (
     <App>
-      <Txt x={44} y={15} size={2.4} c={ACC}>YOU: PLATFORM 4</Txt>
+      <Txt x={44} y={15} size={2.4} c={ACC}>{tt("YOU: PLATFORM 4")}</Txt>
       <Msg y={18} lines={["CONNECTION MISSED", "NEXT: 8:12, PLATFORM 6"]} />
-      <Btn x={43} y={44} w={56} h={7} label="WAY TO PLATFORM 6" strong />
+      <Btn x={43} y={44} w={56} h={7} label={tt("WAY TO PLATFORM 6")} strong />
     </App>
   );
 }
@@ -75,10 +75,10 @@ function NextTrain() {
 function Departures() {
   return (
     <App>
-      <Txt x={44} y={15} size={2.4} c={ACC}>HANNOVER · 18:05</Txt>
-      <Txt x={44} y={23} size={2.6}>18:11 BERLIN</Txt>
-      <Txt x={44} y={30} size={2.6}>18:19 HAMBURG</Txt>
-      <Txt x={44} y={37} size={2.6}>18:26 BREMEN</Txt>
+      <Txt x={44} y={15} size={2.4} c={ACC}>{tt("HANNOVER · 18:05")}</Txt>
+      <Txt x={44} y={23} size={2.6}>{tt("18:11 BERLIN")}</Txt>
+      <Txt x={44} y={30} size={2.6}>{tt("18:19 HAMBURG")}</Txt>
+      <Txt x={44} y={37} size={2.6}>{tt("18:26 BREMEN")}</Txt>
     </App>
   );
 }
@@ -86,21 +86,21 @@ function Departures() {
 function OldTrip() {
   return (
     <App>
-      <Txt x={44} y={15} size={2.4} c={ACC}>YOUR FRIDAY TRIP</Txt>
+      <Txt x={44} y={15} size={2.4} c={ACC}>{tt("YOUR FRIDAY TRIP")}</Txt>
       <Msg y={18} bg={NEU} lines={["HANNOVER → HAMBURG", "18:19 · AS USUAL"]} />
-      <Btn x={43} y={44} w={40} h={7} label="BOOK AGAIN" strong />
+      <Btn x={43} y={44} w={40} h={7} label={tt("BOOK AGAIN")} strong />
     </App>
   );
 }
 
 function Voice() {
   return (
-    <App title="NORTHLINE · VOICE">
+    <App title={tt("NORTHLINE · VOICE")}>
       <rect x={70} y={14} width={46} height={8} fill={NEU} />
-      <Txt x={72} y={19.4} size={2.5}>"BREMEN, 8:19"</Txt>
+      <Txt x={72} y={19.4} size={2.5}>{tt("\"BREMEN, 8:19\"")}</Txt>
       <rect x={44} y={26} width={60} height={13} fill="#FFFFFF" stroke="#C9C1C5" strokeWidth={0.5} />
-      <Txt x={46} y={31.4} size={2.4}>BREMEN 8:19.</Txt>
-      <Txt x={46} y={36.4} size={2.4}>DID I GET THAT RIGHT?</Txt>
+      <Txt x={46} y={31.4} size={2.4}>{tt("BREMEN 8:19.")}</Txt>
+      <Txt x={46} y={36.4} size={2.4}>{tt("DID I GET THAT RIGHT?")}</Txt>
     </App>
   );
 }
@@ -129,8 +129,8 @@ function Rebooked({ why, change }: { why?: boolean; change?: boolean }) {
       {why && <Msg y={24} bg="#F3E9ED" lines={["WHY: 7:42 CANCELLED"]} />}
       {change && (
         <>
-          <Btn x={43} y={36} w={34} label="8:42 INSTEAD" />
-          <Btn x={80} y={36} w={36} label="UNDO" strong />
+          <Btn x={43} y={36} w={34} label={tt("8:42 INSTEAD")} />
+          <Btn x={80} y={36} w={36} label={tt("UNDO")} strong />
         </>
       )}
     </App>
@@ -140,9 +140,9 @@ function Rebooked({ why, change }: { why?: boolean; change?: boolean }) {
 function Holiday() {
   return (
     <App>
-      <Txt x={44} y={15} size={2.4} c={ACC}>TUESDAY · AUGUST</Txt>
+      <Txt x={44} y={15} size={2.4} c={ACC}>{tt("TUESDAY · AUGUST")}</Txt>
       <Msg y={18} bg="#EEF4FF" lines={["WE PICKED YOUR", "USUAL 7:42 FOR YOU"]} />
-      <Btn x={43} y={44} w={40} h={7} label="TAKE IT" strong />
+      <Btn x={43} y={44} w={40} h={7} label={tt("TAKE IT")} strong />
     </App>
   );
 }
@@ -153,7 +153,7 @@ function Many() {
       <Msg y={13} bg="#FFE1E1" lines={["TRY FIRST CLASS!"]} />
       <Msg y={24} bg="#EEF4FF" lines={["AI PICK: LOUNGE PASS"]} />
       <Msg y={35} bg={WARN} lines={["SMART TIP: BIKE"]} />
-      <Txt x={44} y={52} size={2.4} c="#556274">WHY? NOBODY KNOWS</Txt>
+      <Txt x={44} y={52} size={2.4} c="#556274">{tt("WHY? NOBODY KNOWS")}</Txt>
     </App>
   );
 }
@@ -161,10 +161,10 @@ function Many() {
 function Pattern() {
   return (
     <App>
-      <Txt x={44} y={16} size={2.6}>8:12 → BREMEN</Txt>
+      <Txt x={44} y={16} size={2.6}>{tt("8:12 → BREMEN")}</Txt>
       <Msg y={19} bg="#F3E9ED" lines={["BECAUSE 7:42 IS LATE"]} />
-      <Btn x={43} y={32} w={34} label="NOT FOR ME" />
-      <Btn x={80} y={32} w={36} label="UNDO" />
+      <Btn x={43} y={32} w={34} label={tt("NOT FOR ME")} />
+      <Btn x={80} y={32} w={36} label={tt("UNDO")} />
     </App>
   );
 }
@@ -175,7 +175,7 @@ export const ART_D10: Record<string, ReactNode> = {
   /* ------------------------------------------------------------------ A1 */
   "a1-1": (
     <Duo label={S("Bram brings the board's wish: make the app intelligent")} left={{ who: "bram", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="THE WISH" items={[{ icon: "idea", text: "MAKE IT SMART" }, { icon: "ask", text: "SMART HOW?" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE WISH")} items={[{ icon: "idea", text: "MAKE IT SMART" }, { icon: "ask", text: "SMART HOW?" }]} />
     </Duo>
   ),
   "a1-2": (
@@ -192,7 +192,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a1-4": (
     <Duo label={S("The rule: ask which kind of system before asking for AI")} left={{ who: "saskia", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="WHICH KIND?" items={[{ icon: "gear", text: "A RULE" }, { icon: "eye", text: "THE SITUATION" }, { icon: "book", text: "LEARNING" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WHICH KIND?")} items={[{ icon: "gear", text: "A RULE" }, { icon: "eye", text: "THE SITUATION" }, { icon: "book", text: "LEARNING" }]} />
     </Duo>
   ),
 
@@ -215,7 +215,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a2-4": (
     <Duo label={S("The rule: context first, personal data only where context is not enough")} left={{ who: "saskia", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="THREE WAYS" items={[{ tick: true, text: "CONTEXT: FIRST" }, { icon: "warn", text: "PERSONAL: IF NEEDED" }, { icon: "check", text: "VOICE: SAY IT BACK" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THREE WAYS")} items={[{ tick: true, text: "CONTEXT: FIRST" }, { icon: "warn", text: "PERSONAL: IF NEEDED" }, { icon: "check", text: "VOICE: SAY IT BACK" }]} />
     </Duo>
   ),
 
@@ -227,7 +227,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a3-2": (
     <Duo label={S("Bram wants to add more and more about Ilka")} left={{ who: "bram", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="ADD MORE" items={[{ icon: "chart", text: "HER LATE STARTS" }, { icon: "heart", text: "HER GYM CLASS" }, { icon: "eye", text: "HER SEAT" }]} />
+      <Notes x={40} y={6} w={112} title={tt("ADD MORE")} items={[{ icon: "chart", text: "HER LATE STARTS" }, { icon: "heart", text: "HER GYM CLASS" }, { icon: "eye", text: "HER SEAT" }]} />
     </Duo>
   ),
   "a3-3": (
@@ -238,7 +238,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a3-4": (
     <Duo label={S("The rule: fit the trip, not the person's whole life")} left={{ who: "saskia", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="GAINS · RISKS" items={[{ tick: true, text: "RELEVANCE · TIME" }, { cross: true, text: "OPACITY · NO CONTROL" }, { cross: true, text: "TOO PERSONAL · TRUST" }]} />
+      <Notes x={40} y={6} w={112} title={tt("GAINS · RISKS")} items={[{ tick: true, text: "RELEVANCE · TIME" }, { cross: true, text: "OPACITY · NO CONTROL" }, { cross: true, text: "TOO PERSONAL · TRUST" }]} />
     </Duo>
   ),
 
@@ -262,7 +262,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a4-4": (
     <Duo label={S("The rule: why, change, undo")} left={{ who: "saskia", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="THREE QUESTIONS" items={[{ icon: "ask", text: "WHY?" }, { icon: "pencil", text: "CHANGE?" }, { icon: "down", text: "UNDO?" }]} sub="THREE NO'S: IT DOESN'T SHIP" />
+      <Notes x={40} y={6} w={112} title={tt("THREE QUESTIONS")} items={[{ icon: "ask", text: "WHY?" }, { icon: "pencil", text: "CHANGE?" }, { icon: "down", text: "UNDO?" }]} sub="THREE NO'S: IT DOESN'T SHIP" />
     </Duo>
   ),
 
@@ -275,17 +275,17 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "a5-2": (
     <Duo label={S("Saskia traces the mistake back to the data")} left={{ who: "saskia", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="THE CHAIN" items={[{ icon: "book", text: "DATA: NO HOLIDAYS" }, { icon: "eye", text: "SITUATION: MISREAD" }, { cross: true, text: "SUGGESTION: WRONG" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE CHAIN")} items={[{ icon: "book", text: "DATA: NO HOLIDAYS" }, { icon: "eye", text: "SITUATION: MISREAD" }, { cross: true, text: "SUGGESTION: WRONG" }]} />
     </Duo>
   ),
   "a5-3": (
     <Duo label={S("The team weighs three measures on four questions")} left={{ who: "bram", face: "happy" }} right={{ who: "saskia", face: "neutral" }}>
-      <Notes x={40} y={6} w={80} title="WEIGH IT" items={[{ text: "EFFECT" }, { text: "FEASIBLE" }, { text: "RISK" }, { text: "TIME" }]} />
+      <Notes x={40} y={6} w={80} title={tt("WEIGH IT")} items={[{ text: "EFFECT" }, { text: "FEASIBLE" }, { text: "RISK" }, { text: "TIME" }]} />
     </Duo>
   ),
   "a5-4": (
     <Duo label={S("The rule: robust cases first, with a reason")} left={{ who: "saskia", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="FIRST" items={[{ tick: true, text: "REASONS + NOT FOR ME" }, { icon: "clock", text: "PERSONAL BOARD: LATER" }, { cross: true, text: "CHATBOT: NOT NOW" }]} />
+      <Notes x={40} y={6} w={112} title={tt("FIRST")} items={[{ tick: true, text: "REASONS + NOT FOR ME" }, { icon: "clock", text: "PERSONAL BOARD: LATER" }, { cross: true, text: "CHATBOT: NOT NOW" }]} />
     </Duo>
   ),
 
@@ -298,7 +298,7 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "b1-2": (
     <Duo label={S("Saskia drafts the guiding vision")} left={{ who: "saskia", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="THE VISION" items={[{ icon: "up", text: "HELP: NEXT GOOD STEP" }, { icon: "eye", text: "ALWAYS SAY WHY" }, { icon: "heart", text: "CHOICE STAYS THEIRS" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE VISION")} items={[{ icon: "up", text: "HELP: NEXT GOOD STEP" }, { icon: "eye", text: "ALWAYS SAY WHY" }, { icon: "heart", text: "CHOICE STAYS THEIRS" }]} />
     </Duo>
   ),
   "b1-3": (
@@ -308,29 +308,29 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "b1-4": (
     <Duo label={S("The rule: fewer, reliable suggestions first")} left={{ who: "saskia", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="THE LAYERS" items={[{ text: "VISION" }, { text: "PRINCIPLES" }, { text: "PATTERNS" }, { text: "TOUCHPOINTS" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE LAYERS")} items={[{ text: "VISION" }, { text: "PRINCIPLES" }, { text: "PATTERNS" }, { text: "TOUCHPOINTS" }]} />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ B2 */
   "b2-1": (
     <Duo label={S("Sales wants personal prices; data protection objects")} left={{ who: "bram", face: "happy", pose: "point" }} right={{ who: "saskia", face: "worried" }}>
-      <Notes x={40} y={6} w={80} title="TWO GOALS" items={[{ text: "BETTER OFFERS" }, { text: "VS" }, { text: "FAIR PRICES" }]} />
+      <Notes x={40} y={6} w={80} title={tt("TWO GOALS")} items={[{ text: "BETTER OFFERS" }, { text: "VS" }, { text: "FAIR PRICES" }]} />
     </Duo>
   ),
   "b2-2": (
     <Duo label={S("Three journeys, three depths")} left={{ who: "saskia", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="HOW DEEP" items={[{ tick: true, text: "REMINDERS: DEEP" }, { icon: "warn", text: "OFFERS: MEDIUM" }, { icon: "heart", text: "ASSISTANCE: A PERSON" }]} />
+      <Notes x={40} y={6} w={112} title={tt("HOW DEEP")} items={[{ tick: true, text: "REMINDERS: DEEP" }, { icon: "warn", text: "OFFERS: MEDIUM" }, { icon: "heart", text: "ASSISTANCE: A PERSON" }]} />
     </Duo>
   ),
   "b2-3": (
     <Duo label={S("They give up personal prices and say why")} left={{ who: "bram", face: "neutral" }}>
-      <Notes x={40} y={6} w={112} title="WE GIVE UP" items={[{ cross: true, text: "PRICES BY PERSON" }, { tick: true, text: "OFFERS BY ROUTE" }]} sub="AND WE SAY WHY" />
+      <Notes x={40} y={6} w={112} title={tt("WE GIVE UP")} items={[{ cross: true, text: "PRICES BY PERSON" }, { tick: true, text: "OFFERS BY ROUTE" }]} sub="AND WE SAY WHY" />
     </Duo>
   ),
   "b2-4": (
     <Duo label={S("The rule: deep where it is safe, a person where it is not")} left={{ who: "saskia", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="CONFLICTS" items={[{ text: "PERSONAL VS CLEAR" }, { text: "AUTO VS CHOICE" }, { text: "NEW VS TRUSTED" }]} sub="DECIDE PER JOURNEY" />
+      <Notes x={40} y={6} w={112} title={tt("CONFLICTS")} items={[{ text: "PERSONAL VS CLEAR" }, { text: "AUTO VS CHOICE" }, { text: "NEW VS TRUSTED" }]} sub="DECIDE PER JOURNEY" />
     </Duo>
   ),
 
@@ -343,17 +343,17 @@ export const ART_D10: Record<string, ReactNode> = {
   ),
   "b3-2": (
     <Duo label={S("Saskia writes the governance")} left={{ who: "saskia", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="GOVERNANCE" items={[{ tick: true, text: "AN OWNER" }, { tick: true, text: "A VETO" }, { tick: true, text: "A RECORD PER FUNCTION" }]} />
+      <Notes x={40} y={6} w={112} title={tt("GOVERNANCE")} items={[{ tick: true, text: "AN OWNER" }, { tick: true, text: "A VETO" }, { tick: true, text: "A RECORD PER FUNCTION" }]} />
     </Duo>
   ),
   "b3-3": (
     <Duo label={S("Saskia decides without the data and says when she would reverse it")} left={{ who: "saskia", face: "neutral" }}>
-      <Notes x={40} y={6} w={112} title="A DECISION" items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
+      <Notes x={40} y={6} w={112} title={tt("A DECISION")} items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
     </Duo>
   ),
   "b3-4": (
     <Duo label={S("The rule: write the record before anyone asks")} left={{ who: "saskia", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="THE RECORD" items={[{ text: "WHAT IT SUGGESTS" }, { text: "FROM WHICH DATA" }, { text: "HOW TO SWITCH OFF" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THE RECORD")} items={[{ text: "WHAT IT SUGGESTS" }, { text: "FROM WHICH DATA" }, { text: "HOW TO SWITCH OFF" }]} />
     </Duo>
   ),
 };

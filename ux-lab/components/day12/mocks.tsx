@@ -92,7 +92,7 @@ export function FormMock({ plain }: { plain: boolean }) {
       <div className="font-bold">{plain ? tt("Where should we deliver?") : tt("Specification of the delivery modality")}</div>
       {plain ? (
         <>
-          <div><div className="text-[10.5px]">{tt("Street and house number")}</div><div className="rounded border border-[#B9C6BE] bg-white px-2 py-1">Lindenstraße 4</div></div>
+          <div><div className="text-[10.5px]">{tt("Street and house number")}</div><div className="rounded border border-[#B9C6BE] bg-white px-2 py-1">{tt("Lindenstraße 4")}</div></div>
           <div><div className="text-[10.5px]">{tt("If nobody is home, we may leave it with: (optional)")}</div><div className="rounded border border-[#B9C6BE] bg-white px-2 py-1">{tt("a neighbour")}</div></div>
         </>
       ) : (
@@ -110,19 +110,19 @@ export function FormMock({ plain }: { plain: boolean }) {
 export function MeasureThumb({ kind }: { kind: "components" | "alt" | "overlay" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>Greenway</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>{tt("Greenway")}</div>
       <div className="space-y-1 p-1.5">
         {kind === "components" && (
           <>
-            <div className="rounded border-2 border-[#1D4ED8] px-1">[ Pay now ] ← focus</div>
-            <div>Button · Field · Tile: fixed once</div>
+            <div className="rounded border-2 border-[#1D4ED8] px-1">{tt("[ Pay now ] ← focus")}</div>
+            <div>{tt("Button · Field · Tile: fixed once")}</div>
           </>
         )}
-        {kind === "alt" && <div>4,000 product images → alt text</div>}
+        {kind === "alt" && <div>{tt("4,000 product images → alt text")}</div>}
         {kind === "overlay" && (
           <>
-            <div className="rounded-full bg-[#1D4ED8] px-1 text-white">♿ Accessibility widget</div>
-            <div className="text-[#B42318]">“100% compliant!”</div>
+            <div className="rounded-full bg-[#1D4ED8] px-1 text-white">{tt("♿ Accessibility widget")}</div>
+            <div className="text-[#B42318]">{tt("“100% compliant!”")}</div>
           </>
         )}
       </div>

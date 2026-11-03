@@ -98,29 +98,29 @@ function Thumb({ which }: { which: "A" | "B" | "C" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
       <div className="flex justify-between px-2 py-1 font-bold text-white" style={{ background: head }}>
-        <span>CareerNavigator</span>
+        <span>{tt("CareerNavigator")}</span>
         {which === "A" && <span>🤖</span>}
       </div>
       <div className="space-y-1 p-1.5">
         {which === "A" && (
           <>
-            <div className="font-semibold">We know what you need next 🚀</div>
+            <div className="font-semibold">{tt("We know what you need next 🚀")}</div>
             <div className="flex gap-0.5"><span className="rounded bg-[#B42318] px-1 text-white">98%</span><span className="rounded bg-[#C2410C] px-1 text-white">94%</span></div>
-            <div className="rounded bg-[#FDE2E2] px-1">✨ Enrolled automatically</div>
+            <div className="rounded bg-[#FDE2E2] px-1">{tt("✨ Enrolled automatically")}</div>
           </>
         )}
         {which === "B" && (
           <>
-            <div className="font-semibold">Find a course</div>
-            <div className="rounded border border-line px-1">Topic · experience · time</div>
-            <div>Why shown: matches “negotiation”</div>
+            <div className="font-semibold">{tt("Find a course")}</div>
+            <div className="rounded border border-line px-1">{tt("Topic · experience · time")}</div>
+            <div>{tt("Why shown: matches “negotiation”")}</div>
           </>
         )}
         {which === "C" && (
           <>
-            <div className="font-semibold">New role next month</div>
-            <div>Your first 90 days · because …</div>
-            <div className="text-[#5F5E5A]">Not my situation · Why?</div>
+            <div className="font-semibold">{tt("New role next month")}</div>
+            <div>{tt("Your first 90 days · because …")}</div>
+            <div className="text-[#5F5E5A]">{tt("Not my situation · Why?")}</div>
           </>
         )}
       </div>

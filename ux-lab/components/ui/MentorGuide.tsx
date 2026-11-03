@@ -2,7 +2,8 @@
 
 import type { MentorGuide as Guide } from "@/lib/mentorGuide";
 import { useStore } from "@/store/useStore";
-import { Prose } from "@/components/ui/Prose";
+import { Prose } from "@/components/ui/Prose";
+import { tt } from "@/lib/lang";
 
 /**
  * Mentor-only worked answer under a task question, shown once the passcode has been entered in the mentor
@@ -14,22 +15,22 @@ export function MentorGuide({ guide }: { guide: Guide }) {
   const unlocked = useStore((s) => s.mentorUnlocked);
   if (!unlocked) return null;
   return (
-    <aside aria-label={`Mentor worked answer: ${guide.title}`} className="fade-in rounded-lg border border-rust/50 bg-rustSoft p-3.5 text-caption text-ink print:hidden">
+    <aside aria-label={tt(`Mentor worked answer: ${guide.title}`, `Mentor-Musterantwort: ${guide.title}`)} className="fade-in rounded-lg border border-rust/50 bg-rustSoft p-3.5 text-caption text-ink print:hidden">
       <p className="smallcaps text-rust">Mentor · worked answer · {guide.title}</p>
       <p className="mt-1">
-        <span className="font-semibold">Model answer: </span>
+        <span className="font-semibold">{tt("Model answer:")} </span>
         {guide.answer}
       </p>
       {guide.steps && guide.steps.length > 0 && (
         <div className="mt-2 overflow-x-auto">
           <table className="w-full border-collapse">
-            <caption className="sr-only">Calculation steps</caption>
+            <caption className="sr-only">{tt("Calculation steps")}</caption>
             <thead>
               <tr className="text-left text-micro uppercase text-rust">
                 <th scope="col" className="w-6 py-1 pr-2 font-semibold">#</th>
-                <th scope="col" className="py-1 pr-2 font-semibold">Step</th>
-                <th scope="col" className="py-1 pr-2 font-semibold">Calculation</th>
-                <th scope="col" className="py-1 text-right font-semibold">Result</th>
+                <th scope="col" className="py-1 pr-2 font-semibold">{tt("Step")}</th>
+                <th scope="col" className="py-1 pr-2 font-semibold">{tt("Calculation")}</th>
+                <th scope="col" className="py-1 text-right font-semibold">{tt("Result")}</th>
               </tr>
             </thead>
             <tbody>
@@ -47,13 +48,13 @@ export function MentorGuide({ guide }: { guide: Guide }) {
       )}
       {guide.why && (
         <div className="mt-2">
-          <p className="font-semibold">Why:</p>
+          <p className="font-semibold">{tt("Why:")}</p>
           <Prose text={guide.why} />
         </div>
       )}
       {guide.lookFor && guide.lookFor.length > 0 && (
         <div className="mt-2">
-          <p className="font-semibold">A good answer:</p>
+          <p className="font-semibold">{tt("A good answer:")}</p>
           <ul className="list-disc space-y-0.5 pl-5">
             {guide.lookFor.map((l) => (
               <li key={l}>{l}</li>
@@ -63,7 +64,7 @@ export function MentorGuide({ guide }: { guide: Guide }) {
       )}
       {guide.pitfalls && guide.pitfalls.length > 0 && (
         <div className="mt-2 border-t border-rust/30 pt-2">
-          <p className="font-semibold">Common mistakes:</p>
+          <p className="font-semibold">{tt("Common mistakes:")}</p>
           <ul className="list-disc space-y-0.5 pl-5">
             {guide.pitfalls.map((p) => (
               <li key={p}>{p}</li>

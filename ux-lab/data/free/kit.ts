@@ -1,4 +1,4 @@
-import { t } from "@/lib/lang";
+import { deText, t } from "@/lib/lang";
 import type { Tx } from "@/lib/lang";
 import type { Raw, AssessField, ListsField, Ref, TextField, TextTable } from "@/lib/dayFree/spec";
 import type { MaterialId } from "@/data/materialTypes";
@@ -12,7 +12,7 @@ import type { MaterialId } from "@/data/materialTypes";
 /** A text: a plain English string, or a pair `[en, de]` once a German version is written (UX writes English first, UX-STANDARD decision 4). */
 export type P = string | [en: string, de?: string];
 const enOf = (p: P) => (Array.isArray(p) ? p[0] : p);
-const deOf = (p: P) => (Array.isArray(p) ? (p[1] ?? p[0]) : p);
+const deOf = (p: P) => (Array.isArray(p) ? (p[1] ?? deText(p[0])) : deText(p));
 export const tp = (p: P | Tx): Tx | string => (typeof p === "string" ? p : Array.isArray(p) ? t(p[0], p[1]) : p);
 export const Q = (i: number, n: number) => t(`Question ${i} of ${n}`, `Frage ${i} von ${n}`);
 const numbered = (ls: P[]) => t(ls.map((l, i) => `${i + 1}. ${enOf(l)}`).join("\n"), ls.map((l, i) => `${i + 1}. ${deOf(l)}`).join("\n"));

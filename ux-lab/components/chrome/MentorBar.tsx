@@ -6,6 +6,7 @@ import { isBuilt, parsePath } from "@/data/course";
 import { MENTOR_PASSCODE } from "@/lib/mentorKey";
 import { scrollToAndFlash } from "@/lib/flash";
 import { useStore } from "@/store/useStore";
+import { tt } from "@/lib/lang";
 
 /**
  * The mentor bar — the very first thing on every page. A mentor enters the
@@ -43,9 +44,9 @@ export function MentorBar() {
   };
 
   return (
-    <div className="border-b border-line bg-mist print:hidden" role="region" aria-label="Mentor">
+    <div className="border-b border-line bg-mist print:hidden" role="region" aria-label={tt("Mentor")}>
       <div className="mx-auto flex min-h-[36px] w-full max-w-[1100px] flex-wrap items-center gap-x-3 gap-y-1 px-4 py-1 md:px-6">
-        <span className="smallcaps">Mentor</span>
+        <span className="smallcaps">{tt("Mentor")}</span>
 
         {!open && !unlocked && (
           <button
@@ -56,7 +57,7 @@ export function MentorBar() {
             }}
             className="text-caption text-ash underline decoration-dotted underline-offset-2 hover:text-ink"
           >
-            Enter passcode to fill all model answers
+            {tt("Enter passcode to fill all model answers")}
           </button>
         )}
 
@@ -69,7 +70,7 @@ export function MentorBar() {
             }}
           >
             <label htmlFor="mentor-code" className="sr-only">
-              Mentor passcode
+              {tt("Mentor passcode")}
             </label>
             <input
               ref={inputRef}
@@ -83,7 +84,7 @@ export function MentorBar() {
               }}
               aria-invalid={error}
               aria-describedby="mentor-note"
-              placeholder="Passcode"
+              placeholder={tt("Passcode")}
               className="field !w-40 !py-1"
             />
             <button type="submit" className="btn-primary btn-sm">
@@ -98,15 +99,15 @@ export function MentorBar() {
               }}
               className="btn-ghost btn-sm"
             >
-              Cancel
+              {tt("Cancel")}
             </button>
             {error && (
               <span role="alert" className="text-caption text-rust">
-                Wrong passcode.
+                {tt("Wrong passcode.")}
               </span>
             )}
             <span id="mentor-note" className="text-micro normal-case tracking-normal text-ash">
-              A convenience gate in client code, not security.
+              {tt("A convenience gate in client code, not security.")}
             </span>
           </form>
         )}
@@ -125,7 +126,7 @@ export function MentorBar() {
                 setMsg(`Day ${day}: model answers filled in Routes 1 and 2. Nothing is left to type; export the documents.`);
               }}
             >
-              Fill all model answers
+              {tt("Fill all model answers")}
             </button>
             {exportId && (
               <button
@@ -162,7 +163,7 @@ export function MentorBar() {
                 setMsg("");
               }}
             >
-              Lock
+              {tt("Lock")}
             </button>
             <span role="status" className="text-caption text-signal">
               {msg}

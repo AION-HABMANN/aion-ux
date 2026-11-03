@@ -63,7 +63,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} The measures follow Holmqvist et al. (2011); how trackers work follows Duchowski (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("The measures follow Holmqvist et al. (2011); how trackers work follows Duchowski (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Which visualisation a meeting is shown is a decision someone made. A heatmap of all participants looks like a fact and hides that three people searched desperately while seven found the button at once. Ask for the scanpaths of the people who failed.")}</p>
@@ -99,7 +99,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} The working assumption that what is fixated is being processed, and that longer fixations can mean more effort, follows Just and Carpenter (1980). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("The working assumption that what is fixated is being processed, and that longer fixations can mean more effort, follows Just and Carpenter (1980). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("“Measurable” is often confused with “reliable”. A number feels objective because it is precise; but a precise measure of where the eye rested is not a precise measure of what the person thought. The more scientific a chart looks, the more carefully ask which step of the ladder it really stands on.")}</p>
@@ -144,7 +144,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} Neurofeedback follows Sitaram et al. (2017); brain-computer interfaces for communication and control follow Wolpaw et al. (2002). The placements are a reading of the example, not a ranking of products. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("Neurofeedback follows Sitaram et al. (2017); brain-computer interfaces for communication and control follow Wolpaw et al. (2002). The placements are a reading of the example, not a ranking of products. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Assistive use is where brain-computer interfaces matter most today: for someone who cannot move, a slow, tiring interface that works is life-changing. For everyone else, the same interface is slower than a thumb. Ask whose problem a neurotechnology solves before asking whether it is impressive.")}</p>
@@ -180,7 +180,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} Narrow questions, one feature at a time and measurable outcomes follow Tobii's own advice to UX researchers (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("Narrow questions, one feature at a time and measurable outcomes follow Tobii's own advice to UX researchers (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("A pilot without an exit criterion is not a pilot; it is a subscription. Write down before a study what result would make you stop, change course or go on. Otherwise every result will be read as a reason to continue.")}</p>
@@ -217,7 +217,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} Neurodata as high risk and the limits of consent follow the UK ICO (2023); mental privacy follows Ienca and Andorno (2017); rating options on the same criteria follows Gibbons (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("Neurodata as high risk and the limits of consent follow the UK ICO (2023); mental privacy follows Ienca and Andorno (2017); rating options on the same criteria follows Gibbons (2018). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Reputation risk is a cost with a slow fuse. A study that looks harmless inside can read very differently as a headline: “bank measured customers' eyes”. Ask before every study how it would sound if a customer described it to a journalist.")}</p>
@@ -253,7 +253,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} The regulator's concerns about neurodata follow the UK ICO (2023); framing each study narrowly follows Tobii (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("The regulator's concerns about neurodata follow the UK ICO (2023); framing each study narrowly follows Tobii (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("Your job is the standard, not the study. A leader does not need to read EEG curves; they need to decide which questions are worth asking, which methods may answer them, and what counts as an answer. That standard outlives every single study.")}</p>
@@ -299,7 +299,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} The bets are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("The bets are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A data-driven project becomes a trust problem when people learn about it from someone else. The same study, explained openly in advance, is research; discovered later, it is surveillance. Openness is cheap now and cannot be bought later.")}</p>
@@ -344,7 +344,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TS()} The limits of consent at work follow the UK ICO (2023); deciding with limited information follows Simon (1956); imagining the failure in advance (premortem) follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TS()} ${tt("The limits of consent at work follow the UK ICO (2023); deciding with limited information follows Simon (1956); imagining the failure in advance (premortem) follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Name the roles before you need them. When a study goes wrong, the first question is “who approved this?”; if nobody can answer, the problem is no longer the data, it is the company.")}</p>

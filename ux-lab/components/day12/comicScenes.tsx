@@ -41,84 +41,84 @@ function Btn({ x, y, w, label, strong, focus }: { x: number; y: number; w: numbe
 
 const Checkout = () => (
   <Shop>
-    <Txt x={44} y={17} size={2.6}>APPLES 1 KG   2.49</Txt>
-    <Txt x={44} y={24} size={2.6}>OAT MILK      1.79</Txt>
-    <Btn x={43} y={44} w={40} label="PAY NOW" strong />
+    <Txt x={44} y={17} size={2.6}>{tt("APPLES 1 KG 2.49")}</Txt>
+    <Txt x={44} y={24} size={2.6}>{tt("OAT MILK 1.79")}</Txt>
+    <Btn x={43} y={44} w={40} label={tt("PAY NOW")} strong />
   </Shop>
 );
 const Reader = () => (
-  <Shop title="SCREEN READER">
+  <Shop title={tt("SCREEN READER")}>
     <rect x={42} y={13} width={76} height={34} fill="#111827" />
-    <Txt x={44} y={20} size={2.6} c="#E5E7EB">"BUTTON."</Txt>
-    <Txt x={44} y={27} size={2.6} c="#E5E7EB">"BUTTON."</Txt>
-    <Txt x={44} y={34} size={2.6} c="#E5E7EB">"IMAGE."</Txt>
-    <Txt x={44} y={41} size={2.6} c="#E5E7EB">"CLICK HERE."</Txt>
+    <Txt x={44} y={20} size={2.6} c="#E5E7EB">{tt("\"BUTTON.\"")}</Txt>
+    <Txt x={44} y={27} size={2.6} c="#E5E7EB">{tt("\"BUTTON.\"")}</Txt>
+    <Txt x={44} y={34} size={2.6} c="#E5E7EB">{tt("\"IMAGE.\"")}</Txt>
+    <Txt x={44} y={41} size={2.6} c="#E5E7EB">{tt("\"CLICK HERE.\"")}</Txt>
   </Shop>
 );
 const Three = () => (
-  <Shop title="WHO MEETS IT">
-    <Txt x={44} y={18} size={2.6}>BLIND: ALWAYS</Txt>
-    <Txt x={44} y={26} size={2.6}>ARM IN CAST: 6 WEEKS</Txt>
-    <Txt x={44} y={34} size={2.6}>IN THE SUN: TODAY</Txt>
+  <Shop title={tt("WHO MEETS IT")}>
+    <Txt x={44} y={18} size={2.6}>{tt("BLIND: ALWAYS")}</Txt>
+    <Txt x={44} y={26} size={2.6}>{tt("ARM IN CAST: 6 WEEKS")}</Txt>
+    <Txt x={44} y={34} size={2.6}>{tt("IN THE SUN: TODAY")}</Txt>
   </Shop>
 );
 const Faint = () => (
   <Shop faint>
-    <Txt x={44} y={18} size={2.6} c="#C4CAD0">DELIVERY THU 18-20</Txt>
-    <Txt x={44} y={25} size={2.6} c="#C4CAD0">OAT MILK 1.79</Txt>
+    <Txt x={44} y={18} size={2.6} c="#C4CAD0">{tt("DELIVERY THU 18-20")}</Txt>
+    <Txt x={44} y={25} size={2.6} c="#C4CAD0">{tt("OAT MILK 1.79")}</Txt>
   </Shop>
 );
 const Ratio = () => (
-  <Shop title="CONTRAST">
-    <Txt x={44} y={18} size={2.8} c="#B0B6BC">GREY  2.4 : 1</Txt>
-    <Txt x={44} y={28} size={2.8} c="#3B4248">DARK  9.7 : 1</Txt>
-    <Txt x={44} y={40} size={2.4} c="#556274">NEEDED: 4.5 : 1</Txt>
+  <Shop title={tt("CONTRAST")}>
+    <Txt x={44} y={18} size={2.8} c="#B0B6BC">{tt("GREY 2.4 : 1")}</Txt>
+    <Txt x={44} y={28} size={2.8} c="#3B4248">{tt("DARK 9.7 : 1")}</Txt>
+    <Txt x={44} y={40} size={2.4} c="#556274">{tt("NEEDED: 4.5 : 1")}</Txt>
   </Shop>
 );
 const Words = () => (
   <Shop>
     <rect x={43} y={14} width={34} height={22} fill="#FFFFFF" stroke="#E06C6C" strokeWidth={0.8} />
-    <Txt x={60} y={24} size={2.6} anchor="middle">SPINACH</Txt>
-    <Txt x={60} y={31} size={2.3} anchor="middle" c="#8A1C1C">X OUT OF STOCK</Txt>
-    <Txt x={82} y={24} size={2.3}>ALT: BUNCH OF</Txt>
-    <Txt x={82} y={29} size={2.3}>FRESH SPINACH</Txt>
+    <Txt x={60} y={24} size={2.6} anchor="middle">{tt("SPINACH")}</Txt>
+    <Txt x={60} y={31} size={2.3} anchor="middle" c="#8A1C1C">{tt("X OUT OF STOCK")}</Txt>
+    <Txt x={82} y={24} size={2.3}>{tt("ALT: BUNCH OF")}</Txt>
+    <Txt x={82} y={29} size={2.3}>{tt("FRESH SPINACH")}</Txt>
   </Shop>
 );
 const TabJump = () => (
   <Shop>
-    <Txt x={44} y={17} size={2.4} c="#B42318">TAB 1: LOGO</Txt>
-    <Txt x={44} y={24} size={2.4} c="#B42318">TAB 2: FOOTER</Txt>
-    <Txt x={44} y={31} size={2.4} c="#B42318">TAB 3: LOGO</Txt>
-    <Btn x={43} y={44} w={40} label="PAY NOW" strong />
+    <Txt x={44} y={17} size={2.4} c="#B42318">{tt("TAB 1: LOGO")}</Txt>
+    <Txt x={44} y={24} size={2.4} c="#B42318">{tt("TAB 2: FOOTER")}</Txt>
+    <Txt x={44} y={31} size={2.4} c="#B42318">{tt("TAB 3: LOGO")}</Txt>
+    <Btn x={43} y={44} w={40} label={tt("PAY NOW")} strong />
   </Shop>
 );
 const Focused = () => (
   <Shop>
-    <Btn x={43} y={16} w={50} label="DELIVERY NOTE" />
-    <Btn x={43} y={27} w={50} label="VOUCHER" />
-    <Btn x={43} y={40} w={40} label="PAY NOW" strong focus />
+    <Btn x={43} y={16} w={50} label={tt("DELIVERY NOTE")} />
+    <Btn x={43} y={27} w={50} label={tt("VOUCHER")} />
+    <Btn x={43} y={40} w={40} label={tt("PAY NOW")} strong focus />
   </Shop>
 );
 const Dense = () => (
   <Shop>
-    <Txt x={44} y={16} size={2.2}>INSOFAR AS THE RECIPIENT IS</Txt>
-    <Txt x={44} y={21} size={2.2}>NOT PRESENT AT THE DELIVERY</Txt>
-    <Txt x={44} y={26} size={2.2}>ADDRESS SUBJECT TO SECTION 7(2)</Txt>
-    <Txt x={44} y={31} size={2.2}>THE DELIVERY MAY BE DEPOSITED…</Txt>
+    <Txt x={44} y={16} size={2.2}>{tt("INSOFAR AS THE RECIPIENT IS")}</Txt>
+    <Txt x={44} y={21} size={2.2}>{tt("NOT PRESENT AT THE DELIVERY")}</Txt>
+    <Txt x={44} y={26} size={2.2}>{tt("ADDRESS SUBJECT TO SECTION 7(2)")}</Txt>
+    <Txt x={44} y={31} size={2.2}>{tt("THE DELIVERY MAY BE DEPOSITED…")}</Txt>
   </Shop>
 );
 const Invalid = () => (
   <Shop>
-    <Txt x={44} y={17} size={2.6}>DATE: 31/02</Txt>
+    <Txt x={44} y={17} size={2.6}>{tt("DATE: 31/02")}</Txt>
     <rect x={42} y={22} width={76} height={9} fill="#FDE2E2" />
-    <Txt x={44} y={28} size={2.8} c="#8A1C1C">INVALID INPUT.</Txt>
+    <Txt x={44} y={28} size={2.8} c="#8A1C1C">{tt("INVALID INPUT.")}</Txt>
   </Shop>
 );
 const Plain = () => (
   <Shop>
-    <Txt x={44} y={17} size={2.6}>WHERE SHOULD WE DELIVER?</Txt>
+    <Txt x={44} y={17} size={2.6}>{tt("WHERE SHOULD WE DELIVER?")}</Txt>
     <rect x={42} y={22} width={76} height={13} fill="#F2FAF4" />
-    <Txt x={44} y={27} size={2.3}>WRITE THE DATE LIKE</Txt>
+    <Txt x={44} y={27} size={2.3}>{tt("WRITE THE DATE LIKE")}</Txt>
     <Txt x={44} y={32} size={2.3}>14.11.2026</Txt>
   </Shop>
 );
@@ -126,29 +126,29 @@ const Widget = () => (
   <Shop>
     <circle cx={108} cy={50} r={6} fill="#1D4ED8" />
     <Txt x={108} y={51.4} size={3} anchor="middle" c="#FFFFFF">A</Txt>
-    <Txt x={44} y={18} size={2.6} c="#B42318">"100% COMPLIANT!"</Txt>
-    <Txt x={44} y={26} size={2.4}>ONE LINE OF CODE</Txt>
+    <Txt x={44} y={18} size={2.6} c="#B42318">{tt("\"100% COMPLIANT!\"")}</Txt>
+    <Txt x={44} y={26} size={2.4}>{tt("ONE LINE OF CODE")}</Txt>
   </Shop>
 );
 const Audit = () => (
-  <Shop title="AUDIT 2026">
-    <Txt x={44} y={18} size={2.8} c="#B42318">140 FAILURES</Txt>
-    <Txt x={44} y={27} size={2.4}>"PARTIALLY COMPLIANT"</Txt>
-    <Txt x={44} y={34} size={2.4} c="#556274">SAME AS LAST YEAR</Txt>
+  <Shop title={tt("AUDIT 2026")}>
+    <Txt x={44} y={18} size={2.8} c="#B42318">{tt("140 FAILURES")}</Txt>
+    <Txt x={44} y={27} size={2.4}>{tt("\"PARTIALLY COMPLIANT\"")}</Txt>
+    <Txt x={44} y={34} size={2.4} c="#556274">{tt("SAME AS LAST YEAR")}</Txt>
   </Shop>
 );
 const Green = () => (
   <Shop>
     <Chip x={43} y={16} w={40} h={7} c="#7FD1A0" />
-    <Txt x={63} y={20.8} size={2.6} anchor="middle" c="#FFFFFF">ADD TO BASKET</Txt>
-    <Btn x={43} y={30} w={40} label="ADD TO BASKET" strong />
+    <Txt x={63} y={20.8} size={2.6} anchor="middle" c="#FFFFFF">{tt("ADD TO BASKET")}</Txt>
+    <Btn x={43} y={30} w={40} label={tt("ADD TO BASKET")} strong />
   </Shop>
 );
 const Trap = () => (
   <Shop>
     <rect x={44} y={16} width={70} height={14} fill="none" stroke="#B42318" strokeWidth={1} />
-    <Txt x={46} y={24} size={2.6}>VOUCHER CODE</Txt>
-    <Txt x={44} y={40} size={2.4} c="#B42318">TAB → BACK IN THE BOX</Txt>
+    <Txt x={46} y={24} size={2.6}>{tt("VOUCHER CODE")}</Txt>
+    <Txt x={44} y={40} size={2.4} c="#B42318">{tt("TAB → BACK IN THE BOX")}</Txt>
   </Shop>
 );
 
@@ -158,7 +158,7 @@ export const ART_D12: Record<string, ReactNode> = {
   "a1-1": (<Duo label={S("Henrik shows the new checkout; it works with a mouse")} left={{ who: "henrik", face: "happy", pose: "point" }}><Checkout /></Duo>),
   "a1-2": (<Duo label={S("Kofi's screen reader says button, button, image")} left={{ who: "kofi", face: "worried" }}><Reader /><Mark x={9} y={34} kind="ask" /></Duo>),
   "a1-3": (<Duo label={S("Sanne lists who else meets the same barrier")} left={{ who: "sanne", face: "think" }}><Three /></Duo>),
-  "a1-4": (<Duo label={S("The rule: ask who is left out")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title="WHO IS LEFT OUT?" items={[{ icon: "eye", text: "PERMANENT" }, { icon: "clock", text: "TEMPORARY" }, { icon: "warn", text: "SITUATIONAL" }]} sub="AND DIFFERENT MINDS" /></Duo>),
+  "a1-4": (<Duo label={S("The rule: ask who is left out")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title={tt("WHO IS LEFT OUT?")} items={[{ icon: "eye", text: "PERMANENT" }, { icon: "clock", text: "TEMPORARY" }, { icon: "warn", text: "SITUATIONAL" }]} sub="AND DIFFERENT MINDS" /></Duo>),
   "a2-1": (<Duo label={S("Light grey prices and delivery times")} left={{ who: "henrik", face: "happy" }}><Faint /></Duo>),
   "a2-2": (<Duo label={S("Outside in the sun, Liv cannot read her delivery time")} left={{ who: "liv", face: "worried" }}><Faint /><Mark x={9} y={34} kind="ask" /></Duo>),
   "a2-3": (<Duo label={S("Sanne measures the contrast and darkens the text")} left={{ who: "sanne", face: "think" }}><Ratio /></Duo>),
@@ -166,25 +166,25 @@ export const ART_D12: Record<string, ReactNode> = {
   "a3-1": (<Duo label={S("The focus jumps from the logo to the footer")} left={{ who: "kofi", face: "worried" }}><TabJump /><Mark x={9} y={34} kind="ask" /></Duo>),
   "a3-2": (<Duo label={S("Henrik tries without his mouse")} left={{ who: "henrik", face: "surprised" }}><TabJump /><Mark x={9} y={34} kind="sweat" /></Duo>),
   "a3-3": (<Duo label={S("Real buttons in reading order with a visible focus")} left={{ who: "kofi", face: "happy", pose: "up" }}><Focused /><Tick x={9} y={34} /></Duo>),
-  "a3-4": (<Duo label={S("The rule: ten seconds, no mouse, every release")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title="KEYBOARD TEST" items={[{ icon: "check", text: "TAB REACHES ALL" }, { icon: "eye", text: "FOCUS VISIBLE" }, { icon: "down", text: "ORDER MAKES SENSE" }]} /></Duo>),
+  "a3-4": (<Duo label={S("The rule: ten seconds, no mouse, every release")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title={tt("KEYBOARD TEST")} items={[{ icon: "check", text: "TAB REACHES ALL" }, { icon: "eye", text: "FOCUS VISIBLE" }, { icon: "down", text: "ORDER MAKES SENSE" }]} /></Duo>),
   "a4-1": (<Duo label={S("A forty-word sentence in the delivery form")} left={{ who: "liv", face: "worried" }}><Dense /><Mark x={9} y={34} kind="ask" /></Duo>),
   "a4-2": (<Duo label={S("The form says only invalid input")} left={{ who: "liv", face: "sad" }}><Invalid /></Duo>),
   "a4-3": (<Duo label={S("Plain words and an example date")} left={{ who: "liv", face: "happy" }}><Plain /><Tick x={9} y={34} /></Duo>),
-  "a4-4": (<Duo label={S("The rule: plain words, clear labels, errors that help")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title="UNDERSTANDABLE" items={[{ icon: "pencil", text: "PLAIN WORDS" }, { icon: "check", text: "CLEAR LABELS" }, { icon: "idea", text: "ERRORS THAT HELP" }]} /></Duo>),
+  "a4-4": (<Duo label={S("The rule: plain words, clear labels, errors that help")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title={tt("UNDERSTANDABLE")} items={[{ icon: "pencil", text: "PLAIN WORDS" }, { icon: "check", text: "CLEAR LABELS" }, { icon: "idea", text: "ERRORS THAT HELP" }]} /></Duo>),
   "a5-1": (<Duo label={S("A sales offer for a compliance widget")} left={{ who: "henrik", face: "happy", pose: "point" }}><Widget /></Duo>),
-  "a5-2": (<Duo label={S("Sanne shows the four principles")} left={{ who: "sanne", face: "think" }}><Notes x={40} y={6} w={112} title="WCAG 2.2 AA" items={[{ text: "PERCEIVABLE" }, { text: "OPERABLE" }, { text: "UNDERSTANDABLE" }, { text: "ROBUST" }]} /></Duo>),
-  "a5-3": (<Duo label={S("They rate three measures on five criteria")} left={{ who: "henrik", face: "happy" }} right={{ who: "sanne", face: "neutral" }}><Notes x={40} y={6} w={80} title="WEIGH IT" items={[{ text: "EFFECT · LAW" }, { text: "FEASIBLE" }, { text: "RISK · TIME" }]} /></Duo>),
-  "a5-4": (<Duo label={S("The rule: fix it where it is made")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title="FIRST" items={[{ tick: true, text: "SHARED COMPONENTS" }, { icon: "clock", text: "4,000 ALT TEXTS: LATER" }, { cross: true, text: "WIDGET: NO" }]} /></Duo>),
+  "a5-2": (<Duo label={S("Sanne shows the four principles")} left={{ who: "sanne", face: "think" }}><Notes x={40} y={6} w={112} title={tt("WCAG 2.2 AA")} items={[{ text: "PERCEIVABLE" }, { text: "OPERABLE" }, { text: "UNDERSTANDABLE" }, { text: "ROBUST" }]} /></Duo>),
+  "a5-3": (<Duo label={S("They rate three measures on five criteria")} left={{ who: "henrik", face: "happy" }} right={{ who: "sanne", face: "neutral" }}><Notes x={40} y={6} w={80} title={tt("WEIGH IT")} items={[{ text: "EFFECT · LAW" }, { text: "FEASIBLE" }, { text: "RISK · TIME" }]} /></Duo>),
+  "a5-4": (<Duo label={S("The rule: fix it where it is made")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title={tt("FIRST")} items={[{ tick: true, text: "SHARED COMPONENTS" }, { icon: "clock", text: "4,000 ALT TEXTS: LATER" }, { cross: true, text: "WIDGET: NO" }]} /></Duo>),
   "b1-1": (<Duo label={S("The yearly audit, again")} left={{ who: "henrik", face: "worried" }}><Audit /><Mark x={9} y={34} kind="sweat" /></Duo>),
-  "b1-2": (<Duo label={S("Sanne writes the guiding vision")} left={{ who: "sanne", face: "think" }}><Notes x={40} y={6} w={112} title="THE VISION" items={[{ icon: "heart", text: "EVERY CUSTOMER" }, { icon: "check", text: "ON THEIR OWN" }, { icon: "up", text: "WCAG 2.2 AA" }]} /></Duo>),
+  "b1-2": (<Duo label={S("Sanne writes the guiding vision")} left={{ who: "sanne", face: "think" }}><Notes x={40} y={6} w={112} title={tt("THE VISION")} items={[{ icon: "heart", text: "EVERY CUSTOMER" }, { icon: "check", text: "ON THEIR OWN" }, { icon: "up", text: "WCAG 2.2 AA" }]} /></Duo>),
   "b1-3": (<Duo label={S("Accessible components in the design system")} left={{ who: "henrik", face: "happy", pose: "point" }}><Focused /></Duo>),
-  "b1-4": (<Duo label={S("The rule: part of done")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title="THE LAYERS" items={[{ text: "VISION" }, { text: "PRINCIPLES + TARGET" }, { text: "COMPONENTS + RULES" }, { text: "EVERY PAGE" }]} /></Duo>),
+  "b1-4": (<Duo label={S("The rule: part of done")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title={tt("THE LAYERS")} items={[{ text: "VISION" }, { text: "PRINCIPLES + TARGET" }, { text: "COMPONENTS + RULES" }, { text: "EVERY PAGE" }]} /></Duo>),
   "b2-1": (<Duo label={S("The light brand green fails")} left={{ who: "henrik", face: "happy", pose: "point" }} right={{ who: "sanne", face: "worried" }}><Green /></Duo>),
   "b2-2": (<Duo label={S("Light green for shapes, dark green for text")} left={{ who: "sanne", face: "happy" }}><Green /><Tick x={9} y={34} /></Duo>),
-  "b2-3": (<Duo label={S("They write down what they assume")} left={{ who: "henrik", face: "think" }}><Notes x={40} y={6} w={112} title="WE ASSUME" items={[{ icon: "ask", text: "FEW DISABLED USERS?" }, { icon: "ask", text: "ONE AUDIT IS ENOUGH?" }, { icon: "ask", text: "A STATEMENT = SAFE?" }]} /></Duo>),
-  "b2-4": (<Duo label={S("The rule: fix once, options on top, law as the floor")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title="DECIDE" items={[{ tick: true, text: "FIX ONCE" }, { icon: "gear", text: "OPTIONS ON TOP" }, { icon: "lock", text: "LAW = FLOOR" }]} /></Duo>),
+  "b2-3": (<Duo label={S("They write down what they assume")} left={{ who: "henrik", face: "think" }}><Notes x={40} y={6} w={112} title={tt("WE ASSUME")} items={[{ icon: "ask", text: "FEW DISABLED USERS?" }, { icon: "ask", text: "ONE AUDIT IS ENOUGH?" }, { icon: "ask", text: "A STATEMENT = SAFE?" }]} /></Duo>),
+  "b2-4": (<Duo label={S("The rule: fix once, options on top, law as the floor")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title={tt("DECIDE")} items={[{ tick: true, text: "FIX ONCE" }, { icon: "gear", text: "OPTIONS ON TOP" }, { icon: "lock", text: "LAW = FLOOR" }]} /></Duo>),
   "b3-1": (<Duo label={S("Kofi is trapped in the voucher box")} left={{ who: "kofi", face: "worried" }}><Trap /><Mark x={9} y={34} kind="bang" /></Duo>),
-  "b3-2": (<Duo label={S("Sanne writes the governance")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title="GOVERNANCE" items={[{ tick: true, text: "AN OWNER" }, { tick: true, text: "CHECK IN DONE" }, { tick: true, text: "A STOP RIGHT" }]} /></Duo>),
-  "b3-3": (<Duo label={S("Sanne decides without sorted data and says when she would change")} left={{ who: "sanne", face: "neutral" }}><Notes x={40} y={6} w={112} title="A DECISION" items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" /></Duo>),
-  "b3-4": (<Duo label={S("The rule: write the record before anyone asks")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title="THE RECORD" items={[{ text: "WHO OWNS IT" }, { text: "WHAT WE CHECK" }, { text: "WHO CAN STOP IT" }]} /></Duo>),
+  "b3-2": (<Duo label={S("Sanne writes the governance")} left={{ who: "sanne", face: "happy", pose: "point" }}><Notes x={40} y={6} w={112} title={tt("GOVERNANCE")} items={[{ tick: true, text: "AN OWNER" }, { tick: true, text: "CHECK IN DONE" }, { tick: true, text: "A STOP RIGHT" }]} /></Duo>),
+  "b3-3": (<Duo label={S("Sanne decides without sorted data and says when she would change")} left={{ who: "sanne", face: "neutral" }}><Notes x={40} y={6} w={112} title={tt("A DECISION")} items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" /></Duo>),
+  "b3-4": (<Duo label={S("The rule: write the record before anyone asks")} left={{ who: "sanne", face: "happy", pose: "up" }}><Notes x={40} y={6} w={112} title={tt("THE RECORD")} items={[{ text: "WHO OWNS IT" }, { text: "WHAT WE CHECK" }, { text: "WHO CAN STOP IT" }]} /></Duo>),
 };

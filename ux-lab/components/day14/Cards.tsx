@@ -63,7 +63,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} The continuum from the real world through AR to VR follows Milgram and Kishino (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("The continuum from the real world through AR to VR follows Milgram and Kishino (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Flat and spatial are not better and worse; they are good at different things. A list of steps is faster to scan on a flat screen; the place of a part is faster to find in space. Most good immersive products combine both: the step in a calm panel, the place on the object.")}</p>
@@ -109,7 +109,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} Presence follows Slater and Sanchez-Vives (2016); selective attention under load follows Lavie (2005). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("Presence follows Slater and Sanchez-Vives (2016); selective attention under load follows Lavie (2005). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Presence is double-edged. The feeling of being there is what makes VR training memorable, and it is also why a badly designed scene can feel threatening or exhausting. The same intensity that teaches a safety procedure can overwhelm someone who is already anxious.")}</p>
@@ -156,7 +156,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} Motion sickness in VR follows Rebenitsch and Owen (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("Motion sickness in VR follows Rebenitsch and Owen (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Users are often impressed in the first test and overwhelmed in the third week. The first test measures novelty; daily use measures value. A pilot that ends after the wow phase has not tested anything that matters for an investment decision.")}</p>
@@ -192,7 +192,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} Reserving immersion for meaningful moments follows Apple's guidelines; reframing a solution as a problem follows the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("Reserving immersion for meaningful moments follows Apple's guidelines; reframing a solution as a problem follows the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Demonstrative use cases are attractive because they are easy to show and hard to evaluate. A useful test: would a customer miss it if it disappeared next month? A descaling guide they used twice, yes; a trade-fair showroom they saw once, no.")}</p>
@@ -228,7 +228,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Neuro-informed design knows how attention works, which makes it powerful in both directions. The same knowledge that puts the right step in front of a technician can put an offer in front of a tired customer. The line between guidance and manipulation is whose interest the steering serves.")}</p>
@@ -264,7 +264,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} Discovery, alpha and the decision to go on or stop follow the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("Discovery, alpha and the decision to go on or stop follow the GOV.UK Service Manual. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("Innovation labs often produce demos rather than products, because a demo is the end of their task. A portfolio changes the task: the lab's job is to produce evidence for a decision, and a stopped pilot with clear evidence is a success.")}</p>
@@ -310,7 +310,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} The bets are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("The bets are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A future technology becomes a reputational risk when it is launched as a promise and experienced as a gimmick: when the headline outruns the product. The safest way to protect reputation is to let the evidence lead the announcement, not the other way round.")}</p>
@@ -355,7 +355,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${BL()} “It's not a failure to stop” follows the GOV.UK Service Manual; deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${BL()} ${tt("“It's not a failure to stop” follows the GOV.UK Service Manual; deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("The most expensive innovation decisions are the ones nobody made: pilots that were never stopped and never scaled, kept alive by goodwill. A gate with a date forces the decision. Write the stop criteria down before the pilot starts, when nobody is attached to it yet.")}</p>

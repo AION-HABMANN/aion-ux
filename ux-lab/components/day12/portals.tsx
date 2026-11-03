@@ -53,9 +53,9 @@ export function Portal({ kind }: { kind: "publicaccess" | "citizenconnect" }) {
   const nav = (
     <div className="relative" onMouseEnter={() => f.mouseOnly && setMenu(true)} onMouseLeave={() => f.mouseOnly && setMenu(false)}>
       {f.mouseOnly ? (
-        <MouseOnly onClick={() => setMenu((v) => !v)} className="px-3 py-2 text-[13px] font-semibold text-white">☰ Services ▾</MouseOnly>
+        <MouseOnly onClick={() => setMenu((v) => !v)} className="px-3 py-2 text-[13px] font-semibold text-white">{tt("☰ Services ▾")}</MouseOnly>
       ) : (
-        <button type="button" onClick={() => setMenu((v) => !v)} aria-expanded={menu} className="px-3 py-2 text-[13px] font-semibold text-white">☰ Services ▾</button>
+        <button type="button" onClick={() => setMenu((v) => !v)} aria-expanded={menu} className="px-3 py-2 text-[13px] font-semibold text-white">{tt("☰ Services ▾")}</button>
       )}
       {f.mouseOnly && menu && (
         <div className="absolute left-0 top-full z-10 w-56 rounded-b border border-[#C8D3DD] bg-white shadow-md">
@@ -229,7 +229,7 @@ function LearnA() {
   return (
     <div className="overflow-hidden rounded-xl text-[12px]" style={{ background: "#FAFAFD", color: "#9AA0AE", fontWeight: 300 }}>
       <div className="px-4 py-3" style={{ background: "linear-gradient(120deg,#C7B8F5,#9FD8F2)", color: "#FFFFFF" }}>
-        <div className="text-[11px] tracking-[0.25em]">LEARNACCESS</div>
+        <div className="text-[11px] tracking-[0.25em]">{tt("LEARNACCESS")}</div>
         <div className="text-[20px]" style={{ fontWeight: 200 }}>{c.title}</div>
       </div>
       <div className="space-y-3 p-4">
@@ -251,7 +251,7 @@ function LearnB() {
   return (
     <div className="overflow-hidden rounded-xl border-2 border-[#1F2937] bg-white text-[17px] leading-relaxed text-[#111827]">
       <div className="border-b-2 border-[#1F2937] bg-[#F3F4F6] px-4 py-3">
-        <div className="text-[14px] font-semibold">LearnAccess</div>
+        <div className="text-[14px] font-semibold">{tt("LearnAccess")}</div>
         <div className="text-[22px] font-bold">{c.title}</div>
       </div>
       <div className="space-y-3 p-4">
@@ -279,7 +279,7 @@ function LearnC() {
     <div className="overflow-hidden rounded-xl border border-[#D9D2F2]">
       <div className="flex items-center justify-between px-4 py-3 text-white" style={{ background: "#5B3FBF" }}>
         <div>
-          <div className="text-[12px] tracking-[0.15em]">LEARNACCESS</div>
+          <div className="text-[12px] tracking-[0.15em]">{tt("LEARNACCESS")}</div>
           <div className="text-[19px] font-semibold">{c.title}</div>
         </div>
         <button type="button" aria-expanded={open} onClick={() => setOpen((v) => !v)} className="min-h-[40px] rounded border border-white/70 px-3 text-[13px] font-semibold">Aa {tt("Display")}</button>

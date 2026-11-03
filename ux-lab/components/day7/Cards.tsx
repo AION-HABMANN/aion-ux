@@ -62,7 +62,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} The three levels of emotional design follow Norman (2004); emotion as part of reasoning follows Damasio (1994); the peak-end rule follows Kahneman et al. (1993). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("The three levels of emotional design follow Norman (2004); emotion as part of reasoning follows Damasio (1994); the peak-end rule follows Kahneman et al. (1993). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Norman (2004) describes three levels on which a product acts. The visceral level is the immediate reaction to how it looks. The behavioural level is how it feels to use: whether it works, responds and lets you stay in control. The reflective level is what it means to you afterwards, what you tell others about it. A product can win one level and lose another: beautiful at first sight, frustrating to use, and remembered as frustrating.")}</p>
@@ -109,7 +109,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} Experience beyond usability follows Hassenzahl (2010); user experience as perceptions and responses before, during and after use follows ISO 9241-210. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("Experience beyond usability follows Hassenzahl (2010); user experience as perceptions and responses before, during and after use follows ISO 9241-210. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Hassenzahl (2010) separates what a product does (its pragmatic quality: useful, usable) from what it means to people (its hedonic quality: stimulation, identification). Both shape the overall experience. A health or career product that is only pragmatic is used when people must; one that also gives a sense of competence and being understood is used when they could choose otherwise.")}</p>
@@ -155,7 +155,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} Tone and personality in interfaces follow Walter (2011); visibility of system status and helpful error messages are Nielsen's heuristics (1994); feedback as a basic design principle follows Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("Tone and personality in interfaces follow Walter (2011); visibility of system status and helpful error messages are Nielsen's heuristics (1994); feedback as a basic design principle follows Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("A supportive error message has four parts: what happened, in plain words; what it means for the person (was anything lost or charged?); what they can do now; and where help is. It never blames, never hides behind a code, and never jokes about a problem the person feels. The same four parts work for waiting: what is happening, how long it may take, what the person can do meanwhile.")}</p>
@@ -201,7 +201,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} False urgency, scarcity and confirmshaming as dark patterns follow Mathur et al. (2019); the ethics of persuasive technology follow Fogg (2003). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("False urgency, scarcity and confirmshaming as dark patterns follow Mathur et al. (2019); the ethics of persuasive technology follow Fogg (2003). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("A simple test for manipulation: would the message still work if the person knew exactly why it was written this way? A care reminder still works when people know it is meant to keep their plants alive. A countdown that resets every visit stops working the moment people see through it, and takes their trust in the next message with it.")}</p>
@@ -238,7 +238,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} Credibility and perceived competence follow Fogg (2003); first impressions within a fraction of a second follow Lindgaard et al. (2006); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("Credibility and perceived competence follow Fogg (2003); first impressions within a fraction of a second follow Lindgaard et al. (2006); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Fogg (2003) found that people judge the credibility of a website largely from surface signals: design, clarity, small errors. This is why a typo or a technical error message can cost more trust than its size suggests, and why careful wording in confirmations and errors is one of the cheapest ways to build it.")}</p>
@@ -274,7 +274,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} Emotion as a property of the product follows Norman (2004) and Hassenzahl (2010); tone and personality as a design system of their own follow Walter (2011). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("Emotion as a property of the product follows Norman (2004) and Hassenzahl (2010); tone and personality as a design system of their own follow Walter (2011). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for emotional UX is short and testable: one sentence that names the feeling and covers the hard moments. “Customers feel looked after and sure of what happens, also when something goes wrong” can be checked on every screen. “We delight our customers” cannot, and it invites over-emotionalisation.")}</p>
@@ -318,7 +318,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} The four situations are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("The four situations are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Over-emotionalisation is often a symptom of a conflict that was never settled: marketing adds warmth to every message because no one decided where warmth belongs. A short matrix in the tone guide (which feeling for which situation) settles it once and gives every team the same answer.")}</p>
@@ -362,7 +362,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${MP()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${MP()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Imagine it is a year later and the new tone has failed, and ask why (Klein 2007). The usual answers: it sounded friendly but stopped being precise, so the experts withdrew; marketing used it for urgency; each team bent it until there were five tones again. Each answer is a governance gap, not a writing gap.")}</p>

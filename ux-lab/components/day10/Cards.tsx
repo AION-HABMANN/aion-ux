@@ -60,7 +60,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} When an automated service should act, ask or wait follows Horvitz (1999); making clear what a system can do and why it did something follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("When an automated service should act, ask or wait follows Horvitz (1999); making clear what a system can do and why it did something follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Many products mix the three, and the people using them cannot tell which part is which. That matters: a rule that is wrong is wrong for everyone and is fixed once; a learning system that is wrong may be wrong only for some people, quietly, for months. When nobody can say which kind decided, nobody can say who to ask when it goes wrong. “Which type is this?” is the first question to ask of any smart-looking screen.")}</p>
@@ -104,7 +104,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} People reacting to an AI's agency, as convenient or intrusive depending on control, follows Sundar (2020). Voice interfaces go deeper on Day 11. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("People reacting to an AI's agency, as convenient or intrusive depending on control, follows Sundar (2020). Voice interfaces go deeper on Day 11. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Context is the cheapest and safest kind of intelligence, and the most often skipped. Teams reach for personal data because it feels more impressive, when the situation alone (where someone is, what they just did) would have answered the question without storing anything. Ask first whether the situation is enough; personalise only for what it cannot answer.")}</p>
@@ -151,7 +151,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} Personalisation narrowing what people see follows Pariser (2011); people abandoning automation after visible failures follows Parasuraman and Riley (1997); trust that should match what a system can do follows Lee and See (2004). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("Personalisation narrowing what people see follows Pariser (2011); people abandoning automation after visible failures follows Parasuraman and Riley (1997); trust that should match what a system can do follows Lee and See (2004). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Trust in automation is lost faster than it is gained. People who see a system make an obvious mistake often stop using it altogether, including for the things it does well. That is why a few confident wrong suggestions can cost more than many right ones bring: the risk is not one bad recommendation, but every recommendation after it.")}</p>
@@ -196,7 +196,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} Showing why, supporting dismissal and correction follows Amershi et al. (2019); perceived control shaping how people feel about automation follows Sundar (2020). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("Showing why, supporting dismissal and correction follows Amershi et al. (2019); perceived control shaping how people feel about automation follows Sundar (2020). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Automation and autonomy pull against each other. The more a system does on its own, the less the person decides, and the more it matters that they could decide if they wanted to. An undo that nobody uses is still worth building: knowing it is there is what makes people comfortable letting the system act at all.")}</p>
@@ -232,7 +232,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Data quality is rarely even. Most companies have one kind of data that is complete and current (bookings, appointments, contracts) and several that are patchy (reading history, preferences, free text). The robust core cases are where the good data is. An intelligent interface that starts there earns the trust it later needs for the harder cases; one that starts with the impressive cases on patchy data spends that trust before it has any.")}</p>
@@ -268,7 +268,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} Designing the human side of AI from the user's need follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("Designing the human side of AI from the user's need follows Amershi et al. (2019). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for intelligent UX is short and testable. “Northline helps passengers make the next good decision, says why and leaves the choice to them” can be checked on every screen: does this suggestion say why, and can the passenger decline it? “AI-first” cannot be checked, and it invites every feature anyone proposes.")}</p>
@@ -313,7 +313,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} The duty to inform people when they interact with an AI system follows the EU AI Act (2024); check the current state of its application before a course run. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("The duty to inform people when they interact with an AI system follows the EU AI Act (2024); check the current state of its application before a course run. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Click numbers cannot see the cost of a wrong suggestion. A recommendation that was clicked may have been clicked out of curiosity, confusion or alarm; one that was not clicked may have quietly lowered trust. Decide which signals you will look at (dismissals, reasons opened, controls used, complaints) before you decide how deep to personalise, or the click rate will decide for you.")}</p>
@@ -358,7 +358,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${NL()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${NL()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("When a passenger, a regulator or a journalist asks why the app suggested something, the answer has to exist before the question. A company that keeps a one-paragraph record per intelligent function (what it suggests, from which data, how it explains itself, how it is switched off, who owns it) can answer in a day. One that cannot has found its first governance gap.")}</p>

@@ -1,4 +1,3 @@
-import { bi } from "@/lib/lang";
 import type { Tx } from "@/lib/lang";
 import { REFS_D1 } from "@/data/refs/day1";
 import { REFS_D2 } from "@/data/refs/day2";
@@ -27,8 +26,8 @@ const RAW = { ...REFS_D1, ...REFS_D2, ...REFS_D3, ...REFS_D4, ...REFS_D5, ...REF
 export type RefKey = keyof typeof RAW;
 export type Reference = { key: RefKey; chip: string; full: string };
 
-export const REFERENCES: Record<RefKey, Reference> = bi(
-  Object.fromEntries(Object.entries(RAW).map(([key, v]) => [key, { key, chip: v.chip, full: v.full }])) as Record<RefKey, { key: RefKey; chip: string; full: Tx }>,
-) as unknown as Record<RefKey, Reference>;
+/** The bibliography stays in the language of the sources: the titles and the publishers are not translated (UX-STANDARD 2.20), so nothing here goes through `bi()`. */
+const plain = (x: string | Tx): string => (typeof x === "string" ? x : x.en);
+export const REFERENCES: Record<RefKey, Reference> = Object.fromEntries(Object.entries(RAW).map(([key, v]) => [key, { key, chip: plain(v.chip as string | Tx), full: plain(v.full as string | Tx) }])) as Record<RefKey, Reference>;
 export const refFull = (k: RefKey) => REFERENCES[k].full;
 export const REFERENCE_ORDER = Object.keys(REFERENCES) as RefKey[];

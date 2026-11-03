@@ -21,7 +21,7 @@ export function ParticipantStrip() {
           "Use the same name all week. It is how your submissions are matched. Each export names its own file from it, for example",
           "Verwenden Sie die ganze Woche denselben Namen, so werden Ihre Abgaben zugeordnet. Jeder Export bildet daraus seinen Dateinamen, zum Beispiel",
         )}{" "}
-        <span className="tnum">1-muchson-day1-l1l2-ux-analysis</span>.
+        <span className="tnum">{tt("1-muchson-day1-l1l2-ux-analysis")}</span>.
       </p>
       <input
         id="participant-name"

@@ -98,30 +98,30 @@ function Thumb({ which }: { which: "hjA" | "hjB" | "hjC" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
       <div className="flex justify-between px-2 py-1 font-bold text-white" style={{ background: head }}>
-        <span>HealthJourney</span>
+        <span>{tt("HealthJourney")}</span>
         {which === "hjA" && <span>⭐ 1240 · 🔥4</span>}
       </div>
       <div className="space-y-1 p-1.5">
         {which === "hjA" && (
           <>
-            <div className="rounded bg-[#DC2626] px-1 py-0.5 font-bold text-white">🎯 DOUBLE XP today!</div>
+            <div className="rounded bg-[#DC2626] px-1 py-0.5 font-bold text-white">{tt("🎯 DOUBLE XP today!")}</div>
             <div className="flex gap-0.5"><span className="rounded bg-[#B45309] px-1 text-white">🏅7</span><span className="rounded bg-[#475569] px-1 text-white">🥈 #14</span><span className="rounded bg-[#047857] px-1 text-white">+10</span></div>
-            <div className="rounded bg-[#FDE2E2] px-1">🔻 drop zone!</div>
+            <div className="rounded bg-[#FDE2E2] px-1">{tt("🔻 drop zone!")}</div>
           </>
         )}
         {which === "hjB" && (
           <>
-            <div className="font-semibold">Your plan</div>
+            <div className="font-semibold">{tt("Your plan")}</div>
             <div className="h-1.5 rounded bg-[#E4E0EC]"><div className="h-1.5 w-1/2 rounded bg-[#0F766E]" /></div>
-            <div>✓ Week 1 · milestone</div>
-            <div>Week 2 · four days</div>
+            <div>{tt("✓ Week 1 · milestone")}</div>
+            <div>{tt("Week 2 · four days")}</div>
           </>
         )}
         {which === "hjC" && (
           <>
-            <div className="font-semibold">Every healthy habit has a beginning.</div>
-            <div>Stage 1 · Finding your time</div>
-            <div className="text-[#5F5E5A]">Stage 2 · The first two weeks</div>
+            <div className="font-semibold">{tt("Every healthy habit has a beginning.")}</div>
+            <div>{tt("Stage 1 · Finding your time")}</div>
+            <div className="text-[#5F5E5A]">{tt("Stage 2 · The first two weeks")}</div>
           </>
         )}
       </div>

@@ -65,7 +65,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} What prototypes prototype follows Houde and Hill (1997) and Buchenau and Fulton Suri (2000); gates between stages follow Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("What prototypes prototype follows Houde and Hill (1997) and Buchenau and Fulton Suri (2000); gates between stages follow Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("The go/no-go meeting is the moment a ladder is either climbed or abandoned. It works only if the criteria were written before the rung, by people who will not be judged by the answer. Otherwise every prototype passes, because everyone in the room wants it to.")}</p>
@@ -114,7 +114,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Asking about presence follows Witmer and Singer (1998); asking about simulator sickness follows Kennedy et al. (1993); rating comfort on one scale before release follows Meta's store policies. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Asking about presence follows Witmer and Singer (1998); asking about simulator sickness follows Kennedy et al. (1993); rating comfort on one scale before release follows Meta's store policies. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Grade the evidence, not only the result. A finding from five colleagues in a quiet room is a hint; the same finding from thirty real guests on busy nights is evidence. Write the grade next to every result, so that a hint is never presented as proof.")}</p>
@@ -151,7 +151,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Anticipation, reflection, inclusion and responsiveness follow Stilgoe, Owen and Macnaghten (2013); the EU bans emotion recognition at work and in education and harmful manipulation (European Commission, AI Act). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Anticipation, reflection, inclusion and responsiveness follow Stilgoe, Owen and Macnaghten (2013); the EU bans emotion recognition at work and in education and harmful manipulation (European Commission, AI Act). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("The biggest blind spots sit between feasibility and responsibility: a team that can build something rarely asks whether it should, and the people who would ask are rarely in the room when it is built. Invite them to the concept stage, not the launch.")}</p>
@@ -187,7 +187,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Learning by questioning one's own assumptions follows Argyris and Schön (1978); deciding at gates follows Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Learning by questioning one's own assumptions follows Argyris and Schön (1978); deciding at gates follows Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Keep a quarter log: every three months, one line per initiative saying what was decided and why. After a year the log shows whether the company learns from its experiments, or only starts new ones.")}</p>
@@ -223,7 +223,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Rating options on the same criteria follows Gibbons (2018); the five criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("When ethics are only looked at after scaling, every answer is expensive: the system is built, people rely on it, and changing it means breaking promises. The same question asked at the concept stage costs a conversation.")}</p>
@@ -262,7 +262,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Responsible innovation follows Stilgoe, Owen and Macnaghten (2013); gates follow Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Responsible innovation follows Stilgoe, Owen and Macnaghten (2013); gates follow Cooper (1990). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A future project is strategically connected when it would still matter if the technology changed: when it serves a lasting need of customers or staff. If it only matters because the technology is new, it is symbolic innovation, and it will age with the technology.")}</p>
@@ -308,7 +308,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} The lines and their trade-offs are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("The lines and their trade-offs are a reading of the example, not a rule for every company. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Stopping an innovation is the better leadership decision when continuing it would teach nothing new, cost trust, or keep people from work that matters more. The sign of a mature portfolio is not how much it starts, but how calmly it stops.")}</p>
@@ -353,7 +353,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${FW()} Monitoring after launch follows the European Commission's summary of the AI Act; deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${FW()} ${tt("Monitoring after launch follows the European Commission's summary of the AI Act; deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Write the stop criteria before the pilot starts, when nobody is attached to it yet. The person who may stop an initiative should not be the person whose bonus depends on it.")}</p>

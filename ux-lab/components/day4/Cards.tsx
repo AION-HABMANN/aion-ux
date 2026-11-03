@@ -62,7 +62,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} Designing for how people perceive and act follows Norman (2013); the interaction principles (suitability for the task, self-descriptiveness, conformity with expectations) follow ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("Designing for how people perceive and act follows Norman (2013); the interaction principles (suitability for the task, self-descriptiveness, conformity with expectations) follow ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("ISO 9241-110 lists seven interaction principles: suitability for the task, self-descriptiveness, conformity with user expectations, learnability, controllability, use error robustness and user engagement. Most hesitations in a walkthrough break one of them, which gives the team a shared word for the problem.")}</p>
@@ -108,7 +108,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} Hick's law follows Hick (1952) and Hyman (1953); that many options can make people choose less follows Iyengar and Lepper (2000). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("Hick's law follows Hick (1952) and Hyman (1953); that many options can make people choose less follows Iyengar and Lepper (2000). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Hick and Hyman measured simple reactions to lights, not people choosing a tariff, so the law is a direction, not a formula for screens. What carries over is the shape: each extra equal option adds decision effort, and the effect shrinks when people already know where to look. That is why stable positions matter for experienced users as much as fewer options matter for new ones.")}</p>
@@ -154,7 +154,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} Mental models follow Norman (2013); Fitts's law follows Fitts (1954); conformity with user expectations is an interaction principle of ISO 9241-110; Jakob's law is described by Yablonski (2020). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("Mental models follow Norman (2013); Fitts's law follows Fitts (1954); conformity with user expectations is an interaction principle of ISO 9241-110; Jakob's law is described by Yablonski (2020). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Fitts's law has a corner case worth knowing: on a desktop screen, the edges and corners are effectively infinitely large targets, because the pointer stops there. On a phone the same thinking applies to the bottom of the screen, where the thumb rests: the most frequent actions belong there.")}</p>
@@ -200,7 +200,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} The limits of short-term memory follow Miller (1956) and Cowan (2001); cognitive load follows Sweller (1988); recognition rather than recall is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("The limits of short-term memory follow Miller (1956) and Cowan (2001); cognitive load follows Sweller (1988); recognition rather than recall is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Miller's “seven, plus or minus two” is often quoted as a rule for menus (“never more than seven items”). That is a misreading: Miller wrote about holding items in memory, not about choosing from items that stay visible. A visible menu with ten items does not have to be remembered; a code on the previous screen does.")}</p>
@@ -247,7 +247,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("A help text or a tutorial video is often the cheapest-looking fix and the weakest: it adds something to read and remember, and it helps only the people who find it. When a team proposes one, ask which step or choice could be removed instead, so that the help is not needed.")}</p>
@@ -282,7 +282,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} Designing for how people act follows Norman (2013); the interaction principles follow ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("Designing for how people act follows Norman (2013); the interaction principles follow ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A simple test for a roadmap: for each planned function, write the user problem it solves and the step or choice it adds. If the problem could be solved by removing a step, the function waits. Teams that apply it usually find that the first quarter's work is in existing processes, not new ones.")}</p>
@@ -326,7 +326,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} That many options can make people choose less follows Iyengar and Lepper (2000); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("That many options can make people choose less follows Iyengar and Lepper (2000); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Departments often fear that a function one step deeper will not be used. A useful agreement: move it, give it a clear entry and search, and look at the use after a quarter. If it really drops for customers who need it, it moves back up. The fear becomes a check instead of a veto.")}</p>
@@ -369,7 +369,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${PD()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${PD()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Imagine it is a year later and customers still call about the same tasks, and ask why (Klein 2007). Typical answers: a team added its function to the start screen anyway; a process was fixed in the app but not in the portal; the confirmation was written but never tested. Each answer points to a missing owner or a missing check.")}</p>

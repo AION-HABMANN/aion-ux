@@ -63,7 +63,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} Dialogue logic and the strengths and limits of spoken interfaces follow Cohen et al. (2004) and Pearl (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("Dialogue logic and the strengths and limits of spoken interfaces follow Cohen et al. (2004) and Pearl (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Voice is often launched as a symbol: it shows that a company is modern. The test of whether it is more than a symbol is simple: would people miss it if it were gone, for a task they do often? A timer while cooking passes; “ask me anything” usually does not. When voice is a symbol, the cost is paid by the people who believed it and got stuck.")}</p>
@@ -112,7 +112,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} Setting expectations, confirming and escalating errors follow Pearl (2016); feedback and visible options follow Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("Setting expectations, confirming and escalating errors follow Pearl (2016); feedback and visible options follow Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("The hotline loop everybody knows, “Sorry, I didn't understand. Returning to the main menu”, is not a technical failure but a design decision: someone decided that a misunderstanding ends where it began. Error handling is where a voice interface earns or loses trust, because it is the moment people need it most and have the least patience.")}</p>
@@ -149,7 +149,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} The small capacity of working memory follows Cowan (2001); extra load leaving less for the task follows Sweller (1988); mental models follow Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("The small capacity of working memory follows Cowan (2001); extra load leaving less for the task follows Sweller (1988); mental models follow Norman (2013). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("An intelligent interface can lower load (it remembers the recipe, the time, the last step) or raise it (it adds tips, offers and choices to every answer). The difference is rarely the technology; it is what the team decided to say. The calmer interface usually feels more intelligent, because people can follow it.")}</p>
@@ -194,7 +194,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} Choosing a prototype by its question follows Houde and Hill (1997); the Wizard-of-Oz method follows Kelley (1984). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("Choosing a prototype by its question follows Houde and Hill (1997); the Wizard-of-Oz method follows Kelley (1984). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Most voice tests use the easy cases, because they make the demo look good. The cases that decide trust are the ambiguous and the sensitive ones, and they are exactly the ones nobody wants to try in front of the board. A risk-based test plan forces them onto the list before the public finds them.")}</p>
@@ -230,7 +230,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} When voice is the wrong choice follows Pearl (2016); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("When voice is the wrong choice follows Pearl (2016); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("A narrow voice service that always works earns the trust a broad one later needs. Teams that start broad meet their hardest cases first, in public, and spend the trust before they have it. The responsible choice often looks less innovative at launch and more innovative a year later.")}</p>
@@ -266,7 +266,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} The design of spoken services follows Pearl (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("The design of spoken services follows Pearl (2016). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for voice is short and testable. “Ladle lets you cook with your hands full: short, clear, and you are always in charge” can be checked on every dialogue: is this answer short, is it clear what to say, can the cook stop it? “Voice-first” cannot be checked, and it invites voice everywhere.")}</p>
@@ -311,7 +311,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} The conflicts are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("The conflicts are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("Scalability is the assumption most voice plans get wrong. Each new journey adds new words, new misunderstandings and new test cases, and they multiply rather than add. A plan that says “three journeys now, twenty next year” should say what has to be true for the next seventeen, and how the company will know.")}</p>
@@ -356,7 +356,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LD()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LD()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("A test standard is only real if someone can say no. Without a stop right, a test board becomes a reporting step: it writes down the risks the launch then ignores. Give the right to stop to the people who will answer the complaints.")}</p>

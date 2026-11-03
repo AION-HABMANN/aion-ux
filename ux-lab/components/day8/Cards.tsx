@@ -61,7 +61,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} Narrative as a way of making sense of experience follows Bruner (1991); storytelling for user experience follows Quesenbery and Brooks (2010); design as a sequence with a beginning, tension and resolution follows Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("Narrative as a way of making sense of experience follows Bruner (1991); storytelling for user experience follows Quesenbery and Brooks (2010); design as a sequence with a beginning, tension and resolution follows Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("Bruner (1991) argued that people do not store experience as a list of facts but as stories with actors, goals and turns. In a digital product the actor is the user, the goal is what they came to do, and the turns are the steps, the obstacles and the help. A product that does not offer this structure leaves people to build it themselves, and many give up before they do.")}</p>
@@ -110,7 +110,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} The dramatic arc follows Freytag (1863); people speeding up as they see a goal come closer follows Kivetz et al. (2006). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("The dramatic arc follows Freytag (1863); people speeding up as they see a goal come closer follows Kivetz et al. (2006). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Kivetz et al. (2006) showed the goal-gradient effect: people work faster the closer they see themselves to a goal, and even an illusion of progress (a card that starts with two stamps already filled) makes them finish more often. In a journey this is why visible progress matters most in the middle, where people are furthest from both the start and the end and most likely to stop.")}</p>
@@ -156,7 +156,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} The dramatic arc follows Freytag (1863) and its use in design follows Lupton (2017); visibility of system status is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("The dramatic arc follows Freytag (1863) and its use in design follows Lupton (2017); visibility of system status is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("A good transition has three parts and fits in one line: a confirmation of what was done (“Your room is in.”), the expectation of what comes next (“Next: your style.”) and a word on its size or difficulty (“A few choices, all changeable.”). It is the cheapest piece of dramaturgy there is, and the one most often missing.")}</p>
@@ -202,7 +202,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} Being absorbed in a story and moved by it follows Green and Brock (2000); the goal-gradient effect follows Kivetz et al. (2006); not making people think follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("Being absorbed in a story and moved by it follows Green and Brock (2000); the goal-gradient effect follows Kivetz et al. (2006); not making people think follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Green and Brock (2000) found that stories move people when they are absorbed in them, and that absorption depends on the story fitting the reader. In a product, users absorbed in a staged story about someone else's kitchen are not absorbed in their own task. The narrative that works in a journey is the user's own: their goal, their progress, their result.")}</p>
@@ -238,7 +238,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} Designing around users' goals follows Quesenbery and Brooks (2010); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("Designing around users' goals follows Quesenbery and Brooks (2010); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Context turns a demand into a reason. “Enter your annual consumption” is a demand; “Your annual consumption shows which funding you can get” is the same field with a reason. The second needs a few more words, but it answers the question people ask silently at every field: why do they want this?")}</p>
@@ -274,7 +274,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} Storytelling as part of UX design follows Quesenbery and Brooks (2010) and Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("Storytelling as part of UX design follows Quesenbery and Brooks (2010) and Lupton (2017). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A guiding vision for narrative UX is short and testable: one sentence that names the beginning, the way and the end. “In every journey customers know where it leads, see how far they are, and finish with something in hand” can be checked on every flow. “Every click tells a story” cannot, and it invites staging.")}</p>
@@ -318,7 +318,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} The three journeys are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("The three journeys are a reading of the example, not a rule for every product. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A simple rule settles most conflicts: the amount of narrative guidance grows with the length of the journey and its weight for the user. A rule like this, written into the principles, lets marketing tell its story where people have time for it (the website) and keeps it out of the steps where they do not.")}</p>
@@ -362,7 +362,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${LK()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${LK()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Imagine it is a year later and the narrative journeys have failed, and ask why (Klein 2007). The usual answers: the story grew in every release until the steps were hard to find; marketing used the patterns for campaigns; the experts stopped checking the lines. Each answer is a governance gap, not a writing gap.")}</p>

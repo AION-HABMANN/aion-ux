@@ -56,7 +56,7 @@ export function FindIt({ path, analyse = true }: { path: string; analyse?: boole
   return (
     <div className="space-y-0.5">
       <p className="text-caption text-ash">
-        <span className="smallcaps mr-1 text-accent">FIND IT</span>· {path}
+        <span className="smallcaps mr-1 text-accent">{tt("FIND IT")}</span>· {path}
       </p>
       {analyse && <p className="text-caption italic text-ash">{tt("Analyse in the app. Write your result in the answer area below.", "Analysieren Sie in der App. Schreiben Sie Ihr Ergebnis in den Antwortbereich darunter.")}</p>}
     </div>

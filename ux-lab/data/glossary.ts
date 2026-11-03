@@ -1,4 +1,4 @@
-import { getLang } from "@/lib/lang";
+import { deText, getLang } from "@/lib/lang";
 import { GLOSSARY_D1 } from "@/data/gloss/day1";
 import { GLOSSARY_D2 } from "@/data/gloss/day2";
 import { GLOSSARY_D3 } from "@/data/gloss/day3";
@@ -42,7 +42,7 @@ export const GLOSS_BY_ID: Record<string, GlossEntry> = Object.fromEntries(GLOSSA
 
 /** The texts of an entry in the active language (the English text where a German version is missing). */
 export function glossText(g: GlossEntry): { title: string; plain: string; example?: string; from?: string } {
-  if (getLang() === "de" && g.de) return { title: g.de.title ?? g.title, plain: g.de.plain, example: g.de.example, from: g.from };
+  if (getLang() === "de") return { title: g.de?.title ?? deText(g.title), plain: g.de?.plain ?? deText(g.plain), example: g.de?.example ?? (g.example ? deText(g.example) : g.example), from: g.from };
   return { title: g.title, plain: g.plain, example: g.example, from: g.from };
 }
 
@@ -64,7 +64,7 @@ function build(forms: (g: GlossEntry) => string[] | undefined) {
 }
 
 const EN = build((g) => g.match);
-const DE = build((g) => g.de?.match);
+const DE = build((g) => g.de?.match ?? g.match);
 
 /** lowercase written form → its entry, and whether that form must be matched exactly. */
 export const GLOSS_LOOKUP = EN.lookup;

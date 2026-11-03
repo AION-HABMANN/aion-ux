@@ -63,11 +63,11 @@ function Thumb({ which }: { which: "A" | "B" | "C" }) {
   const head = which === "A" ? "#B91C1C" : which === "B" ? "#0F766E" : "#334155";
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>FutureInteraction Hub</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: head }}>{tt("FutureInteraction Hub")}</div>
       <div className="space-y-1 p-1.5">
-        {which === "A" && <div className="rounded bg-[#FEE2E2] px-1">7 functions · 5 areas · Q1</div>}
-        {which === "B" && <div className="rounded bg-[#CCFBF1] px-1">2 pilots · tests · gates</div>}
-        {which === "C" && <div>Watch list · reviews twice a year</div>}
+        {which === "A" && <div className="rounded bg-[#FEE2E2] px-1">{tt("7 functions · 5 areas · Q1")}</div>}
+        {which === "B" && <div className="rounded bg-[#CCFBF1] px-1">{tt("2 pilots · tests · gates")}</div>}
+        {which === "C" && <div>{tt("Watch list · reviews twice a year")}</div>}
       </div>
     </div>
   );

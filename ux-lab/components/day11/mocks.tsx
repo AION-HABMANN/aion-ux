@@ -79,20 +79,20 @@ export const loadReply = (level: number) =>
 export function ProtoMock({ kind }: { kind: "function" | "interaction" | "test" }) {
   if (kind === "function")
     return (
-      <Phone label={tt("A functional prototype: a bare screen that shows what the speech recognition heard in a noisy kitchen, word by word")} title="Ladle · Lab build">
+      <Phone label={tt("A functional prototype: a bare screen that shows what the speech recognition heard in a noisy kitchen, word by word")} title={tt("Ladle · Lab build")}>
         <Small>{tt("Recognition test · extractor fan on")}</Small>
         <div className="rounded border border-[#E7DCD5] bg-white p-2 font-mono text-[11px]">
-          <div>said: “add a pinch of nutmeg”</div>
-          <div>heard: “add a pinch of <span className="bg-[#FDE2E2]">nut meg</span>”</div>
-          <div>said: “thirty grams of butter”</div>
-          <div>heard: “<span className="bg-[#FDE2E2]">thirteen</span> grams of butter”</div>
+          <div>{tt("said: “add a pinch of nutmeg”")}</div>
+          <div>{tt("heard: “add a pinch of", "gehört: „eine Prise")} <span className="bg-[#FDE2E2]">{tt("nut meg", "Muskatnuss")}</span>{tt("”", "“")}</div>
+          <div>{tt("said: “thirty grams of butter”")}</div>
+          <div>{tt("heard: “", "gehört: „")}<span className="bg-[#FDE2E2]">{tt("thirteen", "dreizehn")}</span> {tt("grams of butter”", "Gramm Butter“")}</div>
         </div>
         <Small>{tt("Answers: does the technology hear well enough? Not: does the dialogue feel right.")}</Small>
       </Phone>
     );
   if (kind === "interaction")
     return (
-      <Phone label={tt("An interaction prototype, Wizard of Oz: Noor talks to a speaker while Freya, behind a screen, types the replies Ladle would give")} title="Ladle · Wizard of Oz">
+      <Phone label={tt("An interaction prototype, Wizard of Oz: Noor talks to a speaker while Freya, behind a screen, types the replies Ladle would give")} title={tt("Ladle · Wizard of Oz")}>
         <You>{tt("“Can I use oat milk instead?”")}</You>
         <It>{tt("“Yes, the same amount. The pancakes will be a little sweeter.”")}</It>
         <div className="rounded border border-dashed border-[#B23A0A] p-1.5 text-[10.5px] text-[#7A2A08]">{tt("Behind the screen: Freya types each reply. No speech technology is built yet.")}</div>
@@ -100,7 +100,7 @@ export function ProtoMock({ kind }: { kind: "function" | "interaction" | "test" 
       </Phone>
     );
   return (
-    <Phone label={tt("A test prototype: the near-real app in eight home kitchens, with a list of tasks, including an allergy question and a noisy moment")} title="Ladle · Test build">
+    <Phone label={tt("A test prototype: the near-real app in eight home kitchens, with a list of tasks, including an allergy question and a noisy moment")} title={tt("Ladle · Test build")}>
       <div className="font-bold">{tt("Test plan · 8 home cooks")}</div>
       <ul className="space-y-0.5">
         <li>☐ {tt("Cook a recipe hands-free")}</li>
@@ -118,16 +118,16 @@ export function ProtoMock({ kind }: { kind: "function" | "interaction" | "test" 
 export function MeasureThumb({ kind }: { kind: "hint" | "screen" | "free" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>Ladle · Voice</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>{tt("Ladle · Voice")}</div>
       <div className="space-y-1 p-1.5">
-        {kind === "hint" && <div className="rounded bg-[#F1E4DC] px-1">🔊 You can say: next, repeat, timer, stop.</div>}
+        {kind === "hint" && <div className="rounded bg-[#F1E4DC] px-1">{tt("🔊 You can say: next, repeat, timer, stop.")}</div>}
         {kind === "screen" && (
           <>
-            <div className="rounded bg-[#FFF1F1] px-1">🔊 Not sure: 5 or 15 min?</div>
-            <div className="rounded border border-line px-1">📱 [5 min] [15 min]</div>
+            <div className="rounded bg-[#FFF1F1] px-1">{tt("🔊 Not sure: 5 or 15 min?")}</div>
+            <div className="rounded border border-line px-1">{tt("📱 [5 min] [15 min]")}</div>
           </>
         )}
-        {kind === "free" && <div className="rounded bg-[#F1E4DC] px-1">🔊 Ask me anything about cooking! 🤖</div>}
+        {kind === "free" && <div className="rounded bg-[#F1E4DC] px-1">{tt("🔊 Ask me anything about cooking! 🤖")}</div>}
       </div>
     </div>
   );

@@ -53,29 +53,29 @@ function ScanBtn() {
   return (
     <Phone>
       <rect x={58} y={10} width={44} height={30} fill="#E8EDF2" />
-      <Txt x={59} y={45} size={2.4}>NEAREST: MARKET SQ.</Txt>
-      <Btn x={58} y={49} w={44} h={8} label="SCAN TO UNLOCK" strong />
+      <Txt x={59} y={45} size={2.4}>{tt("NEAREST: MARKET SQ.")}</Txt>
+      <Btn x={58} y={49} w={44} h={8} label={tt("SCAN TO UNLOCK")} strong />
     </Phone>
   );
 }
 
 function Passes({ few }: { few: boolean }) {
   return (
-    <Phone title="PASSES">
+    <Phone title={tt("PASSES")}>
       {few
         ? ["SINGLE RIDE", "DAY PASS", "MONTH PASS"].map((p, i) => <Btn key={p} x={58} y={11 + i * 12} w={44} h={9} label={p} strong={i === 0} />)
         : Array.from({ length: 12 }, (_, i) => <Btn key={i} x={58 + (i % 3) * 15} y={11 + Math.floor(i / 3) * 12} w={13} h={9} label={["1", "D", "W", "M", "ST", "SE", "CO", "FA", "NI", "TO", "FL", "WE"][i]} />)}
-      {few && <Txt x={80} y={52} size={2.6} anchor="middle" c={ACC}>ALL PASSES ›</Txt>}
+      {few && <Txt x={80} y={52} size={2.6} anchor="middle" c={ACC}>{tt("ALL PASSES ›")}</Txt>}
     </Phone>
   );
 }
 
 function Ride({ good }: { good: boolean }) {
   return (
-    <Phone title="RIDING">
+    <Phone title={tt("RIDING")}>
       <rect x={58} y={good ? 10 : 18} width={44} height={28} fill="#E8EDF2" />
       <Txt x={80} y={good ? 27 : 35} size={4} anchor="middle">12:04</Txt>
-      {good ? <Btn x={58} y={52} w={44} h={10} label="END RIDE" strong /> : <Txt x={101} y={13.5} size={2.2} anchor="end" c="#888888">finish</Txt>}
+      {good ? <Btn x={58} y={52} w={44} h={10} label={tt("END RIDE")} strong /> : <Txt x={101} y={13.5} size={2.2} anchor="end" c="#888888">{tt("finish")}</Txt>}
       {!good && <rect x={60} y={44} width={8} height={8} fill="#D9534F" />}
     </Phone>
   );
@@ -83,11 +83,11 @@ function Ride({ good }: { good: boolean }) {
 
 function Code({ carried }: { carried: boolean }) {
   return (
-    <Phone title="UNLOCK · 2">
-      <Txt x={59} y={16} size={2.8}>BIKE CODE</Txt>
+    <Phone title={tt("UNLOCK · 2")}>
+      <Txt x={59} y={16} size={2.8}>{tt("BIKE CODE")}</Txt>
       <rect x={58} y={19} width={44} height={8} fill="#FFFFFF" stroke="#9AA5B5" strokeWidth={0.6} />
       <Txt x={60} y={24.5} size={3} c={carried ? "#1B1B1F" : "#9AA5B5"}>{carried ? "B7K 2Q9" : "_ _ _ _ _ _"}</Txt>
-      {carried && <Txt x={59} y={32} size={2.4} c={ACC}>FROM YOUR SCAN</Txt>}
+      {carried && <Txt x={59} y={32} size={2.4} c={ACC}>{tt("FROM YOUR SCAN")}</Txt>}
       <Btn x={58} y={52} w={44} h={8} label={carried ? "CONFIRM" : "UNLOCK"} strong />
     </Phone>
   );
@@ -113,10 +113,10 @@ function Matrix() {
     <Board x={36} y={4} w={88} h={60}>
       <line x1={46} y1={56} x2={118} y2={56} stroke="#1B1B1F" strokeWidth={0.8} />
       <line x1={46} y1={10} x2={46} y2={56} stroke="#1B1B1F" strokeWidth={0.8} />
-      <Txt x={82} y={62} size={2.8} anchor="middle" c="#556274">FUNCTIONS SHOWN →</Txt>
-      <Txt x={40} y={34} size={2.8} anchor="middle" c="#556274">EASY</Txt>
+      <Txt x={82} y={62} size={2.8} anchor="middle" c="#556274">{tt("FUNCTIONS SHOWN →")}</Txt>
+      <Txt x={40} y={34} size={2.8} anchor="middle" c="#556274">{tt("EASY")}</Txt>
       <rect x={80} y={12} width={28} height={18} fill="#B5E3C8" />
-      <Txt x={94} y={22.5} size={3} anchor="middle">THE AIM</Txt>
+      <Txt x={94} y={22.5} size={3} anchor="middle">{tt("THE AIM")}</Txt>
       {[[112, 46, "A"], [94, 16, "B"], [52, 32, "C"], [100, 34, "D"]].map(([x, y, l]) => (
         <g key={l as string}>
           <rect x={(x as number) - 2.5} y={(y as number) - 2.5} width={5} height={5} fill={ACC} />
@@ -151,7 +151,7 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "a1-4": (
     <Duo label={S("The rule: intuitive use is designed for perception, attention, memory and action")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="FOUR STEPS" items={[{ icon: "eye", text: "PERCEIVE, ATTEND" }, { icon: "book", text: "REMEMBER" }, { icon: "play", text: "ACT, SEE IT WORKED" }]} sub="SIMPLE-LOOKING IS NOT INTUITIVE" />
+      <Notes x={40} y={6} w={112} title={tt("FOUR STEPS")} items={[{ icon: "eye", text: "PERCEIVE, ATTEND" }, { icon: "book", text: "REMEMBER" }, { icon: "play", text: "ACT, SEE IT WORKED" }]} sub="SIMPLE-LOOKING IS NOT INTUITIVE" />
     </Duo>
   ),
 
@@ -164,7 +164,7 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "a2-2": (
     <Duo label={S("Yusuf names the law: more equal options, longer decisions")} left={{ who: "yusuf", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="HICK'S LAW" items={[{ icon: "up", text: "MORE EQUAL OPTIONS" }, { icon: "clock", text: "LONGER DECISIONS" }, { icon: "warn", text: "WORST IF ALL LOOK ALIKE" }]} />
+      <Notes x={40} y={6} w={112} title={tt("HICK'S LAW")} items={[{ icon: "up", text: "MORE EQUAL OPTIONS" }, { icon: "clock", text: "LONGER DECISIONS" }, { icon: "warn", text: "WORST IF ALL LOOK ALIKE" }]} />
     </Duo>
   ),
   "a2-3": (
@@ -175,7 +175,7 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "a2-4": (
     <Duo label={S("The rule: frequent choices first, the rest one step deeper; delete nothing")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="FEWER EQUAL CHOICES" items={[{ tick: true, text: "FREQUENT ONES FIRST" }, { tick: true, text: "THE REST GROUPED" }, { cross: true, text: "NOT: DELETE FUNCTIONS" }]} />
+      <Notes x={40} y={6} w={112} title={tt("FEWER EQUAL CHOICES")} items={[{ tick: true, text: "FREQUENT ONES FIRST" }, { tick: true, text: "THE REST GROUPED" }, { cross: true, text: "NOT: DELETE FUNCTIONS" }]} />
     </Duo>
   ),
 
@@ -200,7 +200,7 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "a3-4": (
     <Duo label={S("The rule: where people expect it, large and close, the same everywhere")} left={{ who: "yusuf", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="EXPECTATIONS" items={[{ icon: "eye", text: "WHERE PEOPLE LOOK" }, { icon: "play", text: "FITTS: LARGE AND CLOSE" }, { icon: "gear", text: "SAME PATTERN EVERYWHERE" }]} />
+      <Notes x={40} y={6} w={112} title={tt("EXPECTATIONS")} items={[{ icon: "eye", text: "WHERE PEOPLE LOOK" }, { icon: "play", text: "FITTS: LARGE AND CLOSE" }, { icon: "gear", text: "SAME PATTERN EVERYWHERE" }]} />
     </Duo>
   ),
 
@@ -224,29 +224,29 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "a4-4": (
     <Duo label={S("The rule: working memory is small; let the system remember")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="MILLER'S RULE" items={[{ icon: "book", text: "A FEW THINGS AT ONCE" }, { icon: "warn", text: "LOAD: ERRORS, QUITTING" }, { icon: "check", text: "THE SYSTEM REMEMBERS" }]} />
+      <Notes x={40} y={6} w={112} title={tt("MILLER'S RULE")} items={[{ icon: "book", text: "A FEW THINGS AT ONCE" }, { icon: "warn", text: "LOAD: ERRORS, QUITTING" }, { icon: "check", text: "THE SYSTEM REMEMBERS" }]} />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ A5 */
   "a5-1": (
     <Duo label={S("Clara, the product owner, has three fixes and time for one first")} left={{ who: "clara", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="THREE FIXES" items={[{ icon: "up", text: "THREE PASSES FIRST" }, { icon: "book", text: "CARRY THE CODE" }, { icon: "play", text: "BIG END BUTTON" }]} />
+      <Notes x={40} y={6} w={112} title={tt("THREE FIXES")} items={[{ icon: "up", text: "THREE PASSES FIRST" }, { icon: "book", text: "CARRY THE CODE" }, { icon: "play", text: "BIG END BUTTON" }]} />
     </Duo>
   ),
   "a5-2": (
     <Duo label={S("Yusuf weighs the passes: high effect, easy, some risk, quick")} left={{ who: "yusuf", face: "think" }}>
-      <Rate x={40} y={6} w={112} title="THREE PASSES FIRST" rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 3, "HIGH"], ["RISK", 2, "MID"]]} />
+      <Rate x={40} y={6} w={112} title={tt("THREE PASSES FIRST")} rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 3, "HIGH"], ["RISK", 2, "MID"]]} />
     </Duo>
   ),
   "a5-3": (
     <Duo label={S("Carrying the code helps every unlock but needs the developers for weeks")} left={{ who: "clara", face: "think" }}>
-      <Rate x={40} y={6} w={112} title="CARRY THE CODE" rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 2, "MID"], ["RISK", 1, "LOW"]]} />
+      <Rate x={40} y={6} w={112} title={tt("CARRY THE CODE")} rows={[["EFFECT", 3, "HIGH"], ["FEASIBLE", 2, "MID"], ["RISK", 1, "LOW"]]} />
     </Duo>
   ),
   "a5-4": (
     <Duo label={S("The rule: each law points to a fix; weigh every fix with a reason")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="WEIGH A MEASURE" items={[{ tick: true, text: "EFFECT ON USERS" }, { tick: true, text: "FEASIBILITY, RISK" }, { tick: true, text: "TIME PRESSURE" }]} sub="THE REASON COUNTS" />
+      <Notes x={40} y={6} w={112} title={tt("WEIGH A MEASURE")} items={[{ tick: true, text: "EFFECT ON USERS" }, { tick: true, text: "FEASIBILITY, RISK" }, { tick: true, text: "TIME PRESSURE" }]} sub="THE REASON COUNTS" />
     </Duo>
   ),
 
@@ -258,7 +258,7 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "b1-2": (
     <Duo label={S("Yusuf: every new feature is also a new option and a new place to look")} left={{ who: "yusuf", face: "think" }}>
-      <Notes x={40} y={6} w={112} title="A NEW FEATURE IS" items={[{ text: "A NEW OPTION" }, { text: "A NEW WORD" }, { text: "A NEW PLACE TO LOOK" }]} sub="MORE LOAD, NOT LESS" />
+      <Notes x={40} y={6} w={112} title={tt("A NEW FEATURE IS")} items={[{ text: "A NEW OPTION" }, { text: "A NEW WORD" }, { text: "A NEW PLACE TO LOOK" }]} sub="MORE LOAD, NOT LESS" />
     </Duo>
   ),
   "b1-3": (
@@ -269,14 +269,14 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "b1-4": (
     <Duo label={S("The rule: reduce friction in the whole system before adding functions")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="USABILITY FIRST" items={[{ icon: "eye", text: "THE SCREEN" }, { icon: "play", text: "THE PROCESS" }, { icon: "gear", text: "THE PRIORITIES" }]} sub="WHAT IS DONE FIRST" />
+      <Notes x={40} y={6} w={112} title={tt("USABILITY FIRST")} items={[{ icon: "eye", text: "THE SCREEN" }, { icon: "play", text: "THE PROCESS" }, { icon: "gear", text: "THE PRIORITIES" }]} sub="WHAT IS DONE FIRST" />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ B2 */
   "b2-1": (
     <Duo label={S("The sales team wants every pass on the start screen; Nina just wants a bike")} left={{ who: "clara", face: "happy", pose: "point" }} right={{ who: "nina", face: "worried" }}>
-      <Notes x={34} y={6} w={92} title="TWO GOALS" items={[{ icon: "up", text: "SHOW EVERYTHING" }, { icon: "play", text: "JUST RIDE" }]} />
+      <Notes x={34} y={6} w={92} title={tt("TWO GOALS")} items={[{ icon: "up", text: "SHOW EVERYTHING" }, { icon: "play", text: "JUST RIDE" }]} />
     </Duo>
   ),
   "b2-2": (
@@ -286,34 +286,34 @@ export const ART_D4: Record<string, ReactNode> = {
   ),
   "b2-3": (
     <Duo label={S("Yusuf keeps every function, frequent tasks first, the rest one step deeper")} left={{ who: "yusuf", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="WE CHOOSE B" items={[{ tick: true, text: "FREQUENT TASKS FIRST" }, { tick: true, text: "ALL FUNCTIONS BELOW" }, { cross: true, text: "GIVE UP: ALL ON TOP" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WE CHOOSE B")} items={[{ tick: true, text: "FREQUENT TASKS FIRST" }, { tick: true, text: "ALL FUNCTIONS BELOW" }, { cross: true, text: "GIVE UP: ALL ON TOP" }]} />
     </Duo>
   ),
   "b2-4": (
     <Duo label={S("The rule: name the conflict, choose, and say what you give up")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="FOUR CONFLICTS" items={[{ text: "SCOPE VS SIMPLE" }, { text: "COMPLETE VS FAST" }, { text: "NEW VS EXPERT" }, { text: "IDEAL VS TIME" }]} />
+      <Notes x={40} y={6} w={112} title={tt("FOUR CONFLICTS")} items={[{ text: "SCOPE VS SIMPLE" }, { text: "COMPLETE VS FAST" }, { text: "NEW VS EXPERT" }, { text: "IDEAL VS TIME" }]} />
     </Duo>
   ),
 
   /* ------------------------------------------------------------------ B3 */
   "b3-1": (
     <Duo label={S("Clara: the app records crashes, not where riders give up; should we wait?")} left={{ who: "clara", face: "worried" }}>
-      <Notes x={40} y={6} w={112} title="WE DO NOT KNOW" items={[{ icon: "ask", text: "WHERE THEY GIVE UP" }, { icon: "clock", text: "WAIT FOR DATA?" }]} />
+      <Notes x={40} y={6} w={112} title={tt("WE DO NOT KNOW")} items={[{ icon: "ask", text: "WHERE THEY GIVE UP" }, { icon: "clock", text: "WAIT FOR DATA?" }]} />
     </Duo>
   ),
   "b3-2": (
     <Duo label={S("Yusuf decides to pause new features and fix two processes, and says when he would reverse it")} left={{ who: "yusuf", face: "happy", pose: "point" }}>
-      <Notes x={40} y={6} w={112} title="A DECISION" items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
+      <Notes x={40} y={6} w={112} title={tt("A DECISION")} items={[{ tick: true, text: "WE DECIDE" }, { icon: "ask", text: "WE DO NOT KNOW" }, { icon: "clock", text: "WE REVERSE IF" }]} sub="AND WHAT WE GIVE UP" />
     </Duo>
   ),
   "b3-3": (
     <Duo label={S("Who owns the interaction logic: UX owns the order and the steps, teams own their content")} left={{ who: "yusuf", face: "neutral" }} right={{ who: "clara", face: "happy" }}>
-      <Notes x={34} y={6} w={92} title="WHO OWNS IT" items={[{ text: "UX: ORDER AND STEPS" }, { text: "TEAMS: CONTENT" }, { text: "FREQUENCY DECIDES" }]} />
+      <Notes x={34} y={6} w={92} title={tt("WHO OWNS IT")} items={[{ text: "UX: ORDER AND STEPS" }, { text: "TEAMS: CONTENT" }, { text: "FREQUENCY DECIDES" }]} />
     </Duo>
   ),
   "b3-4": (
     <Duo label={S("The rule: someone owns the interaction logic, and a decision says when it is checked")} left={{ who: "yusuf", face: "happy", pose: "up" }}>
-      <Notes x={40} y={6} w={112} title="ACCOUNTABLE" items={[{ tick: true, text: "ONE OWNER OF THE LOGIC" }, { tick: true, text: "FREQUENCY AND SUPPORT" }, { tick: true, text: "DECIDE, THEN CHECK" }]} />
+      <Notes x={40} y={6} w={112} title={tt("ACCOUNTABLE")} items={[{ tick: true, text: "ONE OWNER OF THE LOGIC" }, { tick: true, text: "FREQUENCY AND SUPPORT" }, { tick: true, text: "DECIDE, THEN CHECK" }]} />
     </Duo>
   ),
 };

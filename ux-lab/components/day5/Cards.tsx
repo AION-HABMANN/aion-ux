@@ -61,7 +61,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Fitts's law follows Fitts (1954) and, for screens, MacKenzie (1992); small targets under the thumb follow Parhi, Karlson and Bederson (2006); how people hold phones follows Hoober (2013); WCAG 2.2 sets a minimum target size in criterion 2.5.8. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("Fitts's law follows Fitts (1954) and, for screens, MacKenzie (1992); small targets under the thumb follow Parhi, Karlson and Bederson (2006); how people hold phones follows Hoober (2013); WCAG 2.2 sets a minimum target size in criterion 2.5.8. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("WCAG 2.2 criterion 2.5.8 asks that a pointer target is at least 24 by 24 CSS pixels, or has enough space around it; the older enhanced criterion 2.5.5 asks for 44 by 44. Neither is a design goal: they are a floor below which people with less precise hands, or anyone on a moving bus, start to fail.")}</p>
@@ -106,7 +106,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Hick's law follows Hick (1952) and Hyman (1953); many options making people choose less follows Iyengar and Lepper (2000); showing options in stages follows Nielsen (2006) on progressive disclosure. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("Hick's law follows Hick (1952) and Hyman (1953); many options making people choose less follows Iyengar and Lepper (2000); showing options in stages follows Nielsen (2006) on progressive disclosure. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("Hick's law grows with the logarithm of the number of options, not in a straight line: going from two options to four costs about as much as going from four to eight. That is why the first few extra options hurt most, and why a short, well-ordered list often beats a cleverer structure with more steps.")}</p>
@@ -151,7 +151,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The limits of short-term memory follow Miller (1956) and Cowan (2001); chunking follows Gobet et al. (2001); recognition rather than recall is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("The limits of short-term memory follow Miller (1956) and Cowan (2001); chunking follows Gobet et al. (2001); recognition rather than recall is Nielsen's heuristic (1994). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Chunks are meaningful units, not just shorter pieces: an experienced traveller sees a train number and a platform as one chunk, a newcomer as several. That is why grouping by meaning (all the details of one ticket together) helps more than splitting text at a fixed length.")}</p>
@@ -194,7 +194,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The three laws together follow Yablonski (2020); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("The three laws together follow Yablonski (2020); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("The laws also trade against each other. Making every target large (Fitts) on a small screen leaves room for fewer options (Hick), which can push some into a second step that has to be remembered (Miller). Good interaction design looks for the arrangement that keeps all three costs low for the most frequent tasks.")}</p>
@@ -229,7 +229,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("The laws as practical tools follow Yablonski (2020); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("An aesthetic redesign can make all three laws worse at once: thinner buttons, more items in a sleek menu, information spread over a cleaner layout. A quick check before any visual change: is every main target as large and close as before, are there as few equal options, and is nothing new to remember?")}</p>
@@ -264,7 +264,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Building interfaces from shared rules and components follows Frost (2016); the target size floor follows WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("Building interfaces from shared rules and components follows Frost (2016); the target size floor follows WCAG 2.2. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("Interaction standards work best when they live in the shared components, not only in a document: a button component that cannot be smaller than the minimum, a menu that warns beyond a number of items. Then a team that builds a new screen gets the standard without having to remember it, which is Miller's rule applied to the organisation.")}</p>
@@ -308,7 +308,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Many options making people choose less follows Iyengar and Lepper (2000); progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("Many options making people choose less follows Iyengar and Lepper (2000); progressive disclosure follows Nielsen (2006); the matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A useful compromise for “everything visible”: keep every function one tap from the first screen, behind a clearly labelled entry, and give the first screen only to the few actions most users take. The department's functions are still reachable, and the users' main tasks are still fast.")}</p>
@@ -351,7 +351,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${TK()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${TK()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("When no one records mis-taps, the support contacts are the best available sign: “I booked the wrong ticket”, “I cancelled by mistake”. Counting them before and after a change is a simple way to check a decision made under uncertainty, without waiting for perfect data.")}</p>

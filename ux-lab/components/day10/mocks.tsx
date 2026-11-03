@@ -58,26 +58,26 @@ export const PERSONAL_LEVELS = () => [tt("Not personal"), tt("Fits the trip"), t
 export function MeasureThumb({ kind }: { kind: "reason" | "board" | "chat" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>Northline</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>{tt("Northline")}</div>
       <div className="space-y-1 p-1.5">
         {kind === "reason" && (
           <>
-            <div className="font-semibold">8:12 → Bremen</div>
-            <div className="rounded bg-[#F3E9ED] px-1">ⓘ because your 7:42 is late</div>
-            <div className="text-[#5D6670]">Not for me · Undo</div>
+            <div className="font-semibold">{tt("8:12 → Bremen")}</div>
+            <div className="rounded bg-[#F3E9ED] px-1">{tt("ⓘ because your 7:42 is late")}</div>
+            <div className="text-[#5D6670]">{tt("Not for me · Undo")}</div>
           </>
         )}
         {kind === "board" && (
           <>
-            <div className="font-semibold">Your departures</div>
-            <div>7:42 Bremen ★</div>
-            <div>18:19 Hamburg ★</div>
+            <div className="font-semibold">{tt("Your departures")}</div>
+            <div>{tt("7:42 Bremen ★")}</div>
+            <div>{tt("18:19 Hamburg ★")}</div>
           </>
         )}
         {kind === "chat" && (
           <>
-            <div className="rounded bg-[#F3E9ED] px-1">Ask me anything 🤖</div>
-            <div className="rounded border border-line px-1">Refund? Bike? Lost bag?</div>
+            <div className="rounded bg-[#F3E9ED] px-1">{tt("Ask me anything 🤖")}</div>
+            <div className="rounded border border-line px-1">{tt("Refund? Bike? Lost bag?")}</div>
           </>
         )}
       </div>

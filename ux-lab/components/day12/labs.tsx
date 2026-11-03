@@ -65,8 +65,8 @@ function Checkout({ ctx, who }: { ctx: LabCtx; who: Who }) {
         <div className="space-y-1">
           <p className="text-[11.5px] text-[#475569]">{tt("Arjun's arm is in a cast: no mouse, no touch. Press the keys below.")}</p>
           <div className="flex gap-1">
-            <button type="button" onClick={() => { const n = (focus + 1) % 3; setFocus(n); ctx.miss(tt(`Tab → ${[tt("logo"), tt("voucher field"), tt("delivery link")][n]} (no visible focus)`)); }} className="rounded border border-[#334155] px-3 py-1 font-mono">Tab</button>
-            <button type="button" onClick={() => ctx.miss(tt("Enter: nothing happened"))} className="rounded border border-[#334155] px-3 py-1 font-mono">Enter</button>
+            <button type="button" onClick={() => { const n = (focus + 1) % 3; setFocus(n); ctx.miss(tt(`Tab → ${[tt("logo"), tt("voucher field"), tt("delivery link")][n]} (no visible focus)`)); }} className="rounded border border-[#334155] px-3 py-1 font-mono">{tt("Tab")}</button>
+            <button type="button" onClick={() => ctx.miss(tt("Enter: nothing happened"))} className="rounded border border-[#334155] px-3 py-1 font-mono">{tt("Enter")}</button>
             <button type="button" onClick={() => ctx.done(tt("Gave up: Pay is never reached by keyboard"))} className="rounded border border-[#B91C1C] px-2 py-1 text-[11px] text-[#B91C1C]">{tt("Give up")}</button>
           </div>
           <p className="text-[11px] text-[#475569]">{tt(`Focus is on element ${focus + 1} of 3, but nothing on the screen shows where.`)}</p>

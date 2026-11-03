@@ -291,9 +291,9 @@ export function ContrastLab() {
       task={tt("You are Ana, on a train with the sun on your phone. Book the aqua fitness course.")}
       stresses={["sun", "eyes", "cvd"]}
       versions={[
-        { id: "pale", label: tt("Pale button"), render: (ctx) => <CourseCard ctx={ctx} fill="#B7E4EF" label="#FFFFFF" />, insight: tt("In plain words: the label is almost as light as the button, about 1.4 to 1. In a quiet room Ana can still find it; in sunlight the button fades into the card, and she taps Share or Details first.") },
-        { id: "brand", label: tt("Brand blue button"), render: (ctx) => <CourseCard ctx={ctx} fill="#0E7490" label="#FFFFFF" />, insight: tt("In plain words: white on the brand blue is about 5.4 to 1, above the 4.5 to 1 that WCAG asks for. The button is the strongest thing in its row, also in bright light.") },
-        { id: "dark", label: tt("Dark button"), render: (ctx) => <CourseCard ctx={ctx} fill="#164E63" label="#FFFFFF" />, insight: tt("In plain words: white on dark teal is about 9.1 to 1. It is found fastest and survives the older-eyes test; the price is that the brand colour is darker than in the logo.") },
+        { id: "pale", label: tt("Pale button"), render: (ctx) => <CourseCard ctx={ctx} fill="#B7E4EF" label={tt("#FFFFFF")} />, insight: tt("In plain words: the label is almost as light as the button, about 1.4 to 1. In a quiet room Ana can still find it; in sunlight the button fades into the card, and she taps Share or Details first.") },
+        { id: "brand", label: tt("Brand blue button"), render: (ctx) => <CourseCard ctx={ctx} fill="#0E7490" label={tt("#FFFFFF")} />, insight: tt("In plain words: white on the brand blue is about 5.4 to 1, above the 4.5 to 1 that WCAG asks for. The button is the strongest thing in its row, also in bright light.") },
+        { id: "dark", label: tt("Dark button"), render: (ctx) => <CourseCard ctx={ctx} fill="#164E63" label={tt("#FFFFFF")} />, insight: tt("In plain words: white on dark teal is about 9.1 to 1. It is found fastest and survives the older-eyes test; the price is that the brand colour is darker than in the logo.") },
       ]}
     />
   );

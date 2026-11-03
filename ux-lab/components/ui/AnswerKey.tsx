@@ -2,6 +2,7 @@
 
 import type { AnswerKeyBlock } from "@/lib/answerKey";
 import { useStore } from "@/store/useStore";
+import { tt } from "@/lib/lang";
 
 /**
  * Mentor-only answer key, shown next to an exercise with fixed options once the passcode has been entered in
@@ -12,10 +13,10 @@ export function AnswerKey({ block }: { block: AnswerKeyBlock }) {
   const unlocked = useStore((s) => s.mentorUnlocked);
   if (!unlocked) return null;
   return (
-    <aside aria-label={`Mentor answer key: ${block.title}`} className="fade-in rounded-lg border border-rust/50 bg-rustSoft p-3.5 text-caption text-ink print:hidden">
+    <aside aria-label={tt(`Mentor answer key: ${block.title}`, `Mentor-Antwortschlüssel: ${block.title}`)} className="fade-in rounded-lg border border-rust/50 bg-rustSoft p-3.5 text-caption text-ink print:hidden">
       <p className="smallcaps text-rust">Mentor · answer key · {block.title}</p>
       <p className="mt-1">
-        <span className="font-semibold">Expected: </span>
+        <span className="font-semibold">{tt("Expected:")} </span>
         {block.expected}
       </p>
       <ul className="mt-2 space-y-1">
@@ -32,7 +33,7 @@ export function AnswerKey({ block }: { block: AnswerKeyBlock }) {
       </ul>
       {block.teachingNote && (
         <p className="mt-2 border-t border-rust/30 pt-2">
-          <span className="font-semibold">Teaching note: </span>
+          <span className="font-semibold">{tt("Teaching note:")} </span>
           {block.teachingNote}
         </p>
       )}

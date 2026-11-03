@@ -63,7 +63,7 @@ export function CardA1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("The grouping laws follow Wertheimer (1923) and the review by Wagemans et al. (2012); common region follows Palmer (1992). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A1">
         <p>{tt("When the laws disagree, the stronger one wins. Palmer (1992) showed that a common region can override proximity: two dots far apart inside one frame are grouped, two close dots in different frames are not. In an interface this means a frame or background can rescue a layout where spacing alone does not work, and can also break one when it groups the wrong things.")}</p>
@@ -108,7 +108,7 @@ export function CardA2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("What pops out and guides the eye follows Ware (2012); a clear visual hierarchy follows Krug (2014). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A2">
         <p>{tt("A quick test for hierarchy: squint at the screen, or blur a screenshot. What remains visible is what the eye sees first. If it is the offer banner and not the primary action, the hierarchy steers attention away from the task.")}</p>
@@ -152,7 +152,7 @@ export function CardA3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("Progressive disclosure follows Nielsen (2006); cognitive load follows Sweller (1988). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A3">
         <p>{tt("Progressive disclosure has a cost that grows with each level: people have to know or guess that more exists. Nielsen (2006) advises keeping it to one, at most two levels, and making the step to the second level obvious. A third level of disclosure is usually a sign that the first level holds the wrong things.")}</p>
@@ -197,7 +197,7 @@ export function CardA4() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("Consistency and standards is Nielsen's heuristic (1994); conformity with user expectations is an interaction principle of ISO 9241-110. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A4">
         <p>{tt("Inconsistency usually grows from good intentions: each team improves its own area, and the improvements differ. That is why consistency is rarely fixed on the screen; it is fixed where the patterns come from, which is the subject of the next card and of Materi B.")}</p>
@@ -233,7 +233,7 @@ export function CardA5() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("Building interfaces from shared components follows Frost (2016) and Kholmatova (2017); rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="A5">
         <p>{tt("Evaluating a design system against the UX laws is a simple audit: take each component and ask whether it groups, ranks and discloses as the principles say. A button component that allows three equally strong buttons side by side, or a form component that cannot hide fields, will reproduce the problem on every screen that uses it.")}</p>
@@ -268,7 +268,7 @@ export function CardB1() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("Design systems and their parts follow Kholmatova (2017), Frost (2016) and Curtis (2010). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B1">
         <p>{tt("A design system is a product for internal users, the teams. Like any product, it fails when it is hard to use: missing components, poor documentation, slow answers to requests. Many organisations therefore give it a small permanent team and treat the other teams' adoption as its main measure of success.")}</p>
@@ -312,7 +312,7 @@ export function CardB2() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} The matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("The matrix is a reading of the example, not a score. The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B2">
         <p>{tt("A useful rule for exceptions: the first time a team needs something the system lacks, it may build it with a note; the second time another team needs the same thing, it becomes a component. The system grows from real needs, and nobody waits for a perfect library.")}</p>
@@ -356,7 +356,7 @@ export function CardB3() {
         ]}
       />
       <Callout label={tt("Case assumption")}>
-        <p>{tt(`${SB()} Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.`)}</p>
+        <p>{`${SB()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007). The findings in the table of real evidence are real research results, rules and cases; the sources are listed below.")}`}</p>
       </Callout>
       <Extra id="B3">
         <p>{tt("Imagine it is a year later and the design system has failed, and ask why (Klein 2007). The usual answers: the components came too late, so teams built their own; nobody answered requests; the principles were written but never enforced in reviews. Each answer is a governance gap, not a design gap.")}</p>

@@ -31,7 +31,7 @@ function Booking({ ctx, looks }: { ctx: LabCtx; looks: boolean }) {
   const [n, setN] = useState(1);
   const [sheet, setSheet] = useState<"" | "details" | "share">("");
   const book = () => {
-    if (n !== 2) return ctx.miss(tt(`Booked for ${n} traveller(s), not two`));
+    if (n !== 2) return ctx.miss(tt(`Booked for ${n} traveller(s), not two`, `Für ${n} Reisende gebucht, nicht für zwei`));
     ctx.done(tt("Booked: Lisbon, 12 to 15 May, two travellers"));
   };
   if (ctx.finished) return <AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Booking received")}</p><p>{tt("Lisbon · 12 to 15 May · two travellers")}</p></AppScreen>;
@@ -44,10 +44,10 @@ function Booking({ ctx, looks }: { ctx: LabCtx; looks: boolean }) {
             <span className="text-[24px] font-black leading-none text-white drop-shadow">{tt("Discover Lisbon")}</span>
           </button>
           <p className="text-[9.5px] text-[#767676]">{tt("3 nights · 12 to 15 May · free cancellation until 1 May")}</p>
-          <Stepper n={n} set={(v) => { setN(v); ctx.hit(tt(`Travellers: ${v}`)); }} faint />
+          <Stepper n={n} set={(v) => { setN(v); ctx.hit(tt(`Travellers: ${v}`, `Reisende: ${v}`)); }} faint />
           <div className="grid grid-cols-3 gap-2 pt-2">
             {[tt("Details"), tt("Book"), tt("Share")].map((l) => (
-              <button key={l} type="button" onClick={() => (l === tt("Book") ? book() : (setSheet(l === tt("Details") ? "details" : "share"), ctx.miss(tt(`Opened ${l}`))))} className="rounded-full border border-[#D4D4D4] py-1.5 text-[11px] text-[#737373]">{l}</button>
+              <button key={l} type="button" onClick={() => (l === tt("Book") ? book() : (setSheet(l === tt("Details") ? "details" : "share"), ctx.miss(tt(`Opened ${l}`, `${l} geöffnet`))))} className="rounded-full border border-[#D4D4D4] py-1.5 text-[11px] text-[#737373]">{l}</button>
             ))}
           </div>
           {sheet && <div className="rounded-lg bg-[#F5F5F5] p-2 text-[11px] text-[#525252]">{sheet === "details" ? tt("Hotel Alfama · breakfast · flight from your city · transfer") : tt("Share via message, mail or link")}<button type="button" onClick={() => setSheet("")} className="ml-2 underline">{tt("Close")}</button></div>}
@@ -59,7 +59,7 @@ function Booking({ ctx, looks }: { ctx: LabCtx; looks: boolean }) {
             <p className="text-[13px]">{tt("12 to 15 May · free cancellation until 1 May")}</p>
             <p className="text-[12px] text-[#475569]">{tt("Hotel and flight")}</p>
           </div>
-          <Stepper n={n} set={(v) => { setN(v); ctx.hit(tt(`Travellers: ${v}`)); }} />
+          <Stepper n={n} set={(v) => { setN(v); ctx.hit(tt(`Travellers: ${v}`, `Reisende: ${v}`)); }} />
           <button type="button" onClick={book} className="w-full rounded-lg py-3 text-[15px] font-bold text-white" style={{ background: ACC }}>{tt("Book now")}</button>
           <p className="text-center text-[11px] text-[#475569]">
             <button type="button" onClick={() => ctx.miss(tt("Opened Details"))} className="underline">{tt("Details")}</button> · <button type="button" onClick={() => ctx.miss(tt("Opened Share"))} className="underline">{tt("Share")}</button>
@@ -114,7 +114,7 @@ function TripPage({ ctx, mode }: { ctx: LabCtx; mode: "loud" | "goal" | "both" }
       ) : (
         <>
           <div className="grid grid-cols-2 gap-2">
-            {[tt("Extras"), tt("Upgrade your room"), tt("Rent a car"), tt("Tours")].map((l) => <button key={l} type="button" onClick={() => ctx.miss(tt(`Opened ${l}`))} className="rounded bg-[#F1F5F9] py-3 text-[12px]">{l}</button>)}
+            {[tt("Extras"), tt("Upgrade your room"), tt("Rent a car"), tt("Tours")].map((l) => <button key={l} type="button" onClick={() => ctx.miss(tt(`Opened ${l}`, `${l} geöffnet`))} className="rounded bg-[#F1F5F9] py-3 text-[12px]">{l}</button>)}
           </div>
           <p className="text-[10px] text-[#64748B]">
             <button type="button" onClick={() => { setPicker(true); ctx.hit(tt("Found “Change booking”")); }} className="text-[#2F5D8A] underline">{tt("Change booking")}</button> · <button type="button" onClick={() => ctx.miss(tt("Opened Cancel"))}>{tt("Cancel")}</button> · <button type="button" onClick={() => ctx.miss(tt("Opened Help"))}>{tt("Help")}</button>
@@ -124,7 +124,7 @@ function TripPage({ ctx, mode }: { ctx: LabCtx; mode: "loud" | "goal" | "both" }
       {picker && (
         <div className="space-y-1 rounded-lg bg-[#EEF2F7] p-2">
           <p className="font-semibold">{tt("New start date")}</p>
-          <div className="flex gap-1">{[12, 13, 14].map((d) => <button key={d} type="button" onClick={() => (d === 13 ? ctx.done(tt("Changed to 13 May")) : ctx.miss(tt(`Picked ${d} May`)))} className="flex-1 rounded border border-[#94A3B8] bg-white py-1.5">{tt(`${d} May`)}</button>)}</div>
+          <div className="flex gap-1">{[12, 13, 14].map((d) => <button key={d} type="button" onClick={() => (d === 13 ? ctx.done(tt("Changed to 13 May")) : ctx.miss(tt(`Picked ${d} May`, `${d}. Mai gewählt`)))} className="flex-1 rounded border border-[#94A3B8] bg-white py-1.5">{tt(`${d} May`, `${d}. Mai`)}</button>)}</div>
         </div>
       )}
     </AppScreen>
@@ -157,7 +157,7 @@ function CheckIn({ ctx, aims }: { ctx: LabCtx; aims: Aims }) {
   const next = () => {
     if (!seat) return ctx.miss(tt("Continued without a seat"));
     setStep(3);
-    ctx.hit(tt(`Seat ${seat} chosen`));
+    ctx.hit(tt(`Seat ${seat} chosen`, `Sitz ${seat} gewählt`));
   };
   return (
     <AppScreen brand={Brand} color={ACC} status={aims.menu ? undefined : ""}>
@@ -168,16 +168,16 @@ function CheckIn({ ctx, aims }: { ctx: LabCtx; aims: Aims }) {
       )}
       {menuOpen && (
         <div className="rounded border border-[#CBD5E1] bg-white p-1">
-          {[tt("My trips"), tt("Profile"), tt("Help")].map((l) => <button key={l} type="button" onClick={() => (l === tt("My trips") && step === 3 ? ctx.done(tt("Back in My trips with a boarding pass")) : ctx.miss(tt(`Opened ${l}`)))} className="block w-full px-2 py-1 text-left">{l}</button>)}
+          {[tt("My trips"), tt("Profile"), tt("Help")].map((l) => <button key={l} type="button" onClick={() => (l === tt("My trips") && step === 3 ? ctx.done(tt("Back in My trips with a boarding pass")) : ctx.miss(tt(`Opened ${l}`, `${l} geöffnet`)))} className="block w-full px-2 py-1 text-left">{l}</button>)}
         </div>
       )}
-      <p className={clsx("text-[11px]", aims.where ? "text-[#475569]" : "text-[#64748B]")}>{aims.where ? tt(`Check-in · Step ${step} of 3 · ${step === 2 ? "Seats" : "Boarding pass"}`) : tt("Check-in")}</p>
+      <p className={clsx("text-[11px]", aims.where ? "text-[#475569]" : "text-[#64748B]")}>{aims.where ? tt(`Check-in · Step ${step} of 3 · ${step === 2 ? "Seats" : "Boarding pass"}`, `Check-in · Schritt ${step} von 3 · ${step === 2 ? "Sitze" : "Bordkarte"}`) : tt("Check-in")}</p>
       {step === 2 ? (
         <>
           <p className="text-[14px] font-bold">{tt("Choose your seat")}</p>
           <p className="text-[11px] text-[#64748B]">{tt("A and F are window seats.")}</p>
           <div className="grid grid-cols-6 gap-1">
-            {seats.map((s) => <button key={s} type="button" aria-pressed={seat === s} onClick={() => { setSeat(s); (s.endsWith("A") || s.endsWith("F") ? ctx.hit : ctx.miss)(tt(`Tapped seat ${s}`)); }} className={clsx("h-10 rounded text-[10px]", seat === s ? "bg-[#2F5D8A] text-white" : "bg-[#E2E8F0]")}>{s}</button>)}
+            {seats.map((s) => <button key={s} type="button" aria-pressed={seat === s} onClick={() => { setSeat(s); (s.endsWith("A") || s.endsWith("F") ? ctx.hit : ctx.miss)(tt(`Tapped seat ${s}`, `Sitz ${s} getippt`)); }} className={clsx("h-10 rounded text-[10px]", seat === s ? "bg-[#2F5D8A] text-white" : "bg-[#E2E8F0]")}>{s}</button>)}
           </div>
           {aims.one ? (
             <>
@@ -186,7 +186,7 @@ function CheckIn({ ctx, aims }: { ctx: LabCtx; aims: Aims }) {
             </>
           ) : (
             <div className="grid grid-cols-2 gap-1">
-              {[tt("Extras"), tt("Skip"), tt("Change flight"), tt("Continue")].map((l) => <button key={l} type="button" onClick={() => (l === tt("Continue") ? next() : ctx.miss(tt(`Tapped ${l}`)))} className="rounded border border-[#334155] py-2 text-[12px]">{l}</button>)}
+              {[tt("Extras"), tt("Skip"), tt("Change flight"), tt("Continue")].map((l) => <button key={l} type="button" onClick={() => (l === tt("Continue") ? next() : ctx.miss(tt(`Tapped ${l}`, `${l} getippt`)))} className="rounded border border-[#334155] py-2 text-[12px]">{l}</button>)}
             </div>
           )}
         </>
@@ -194,7 +194,7 @@ function CheckIn({ ctx, aims }: { ctx: LabCtx; aims: Aims }) {
         <>
           <div className="rounded-lg border-2 border-dashed border-[#2F5D8A] p-2">
             <p className="font-bold">{tt("Boarding pass · NW 482")}</p>
-            <p>{tt(`Seat ${seat} · Gate B12 · boarding 07:40`)}</p>
+            <p>{tt(`Seat ${seat} · Gate B12 · boarding 07:40`, `Sitz ${seat} · Gate B12 · Boarding 07:40`)}</p>
           </div>
           <p className="text-[11px] text-[#64748B]">{tt("Now go back to My trips.")}</p>
         </>
@@ -253,7 +253,7 @@ function Pay({ ctx, tone }: { ctx: LabCtx; tone: "alarm" | "pressure" | "calm" }
       )}
       {tone === "pressure" && (
         <>
-          <p className="rounded bg-[#B45309] px-2 py-1 text-[12px] font-bold text-white">{tt(`⏱ Your seat is held for ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`)}</p>
+          <p className="rounded bg-[#B45309] px-2 py-1 text-[12px] font-bold text-white">{tt(`⏱ Your seat is held for ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`, `⏱ Ihr Sitzplatz ist reserviert für ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`)}</p>
           <p className="text-[12px] font-bold text-[#C0392B]">{tt("Only 1 seat left! 14 people are looking right now.")}</p>
         </>
       )}
@@ -333,7 +333,7 @@ function Board({ rows, ordered, onRow }: { rows: Dep[]; ordered: boolean; onRow?
             d.ad ? "bg-[#FDE68A] font-bold text-[#78350F]" : ordered ? "grid grid-cols-[1fr_auto_auto] gap-3 bg-[#EEF2F7]" : "block bg-[#F1F5F9] text-[11.5px]",
           )}
         >
-          {d.ad ? d.to : ordered ? (<><span className="font-bold">{d.to}</span><span>{d.time}</span><span className="font-bold">{d.gate}</span></>) : tt(`${d.time} · gate ${d.gate} · ${d.to}`)}
+          {d.ad ? d.to : ordered ? (<><span className="font-bold">{d.to}</span><span>{d.time}</span><span className="font-bold">{d.gate}</span></>) : tt(`${d.time} · gate ${d.gate} · ${d.to}`, `${d.time} · Gate ${d.gate} · ${d.to}`)}
         </button>
       ))}
     </div>
@@ -353,9 +353,9 @@ function modelSteps(ordered: boolean, rows: Dep[]): Step[] {
     return [
       { at: "title", say: tt("The eye lands on the title first. Nothing yet says where Bergen is.") },
       { at: "head", say: tt("The bold header says what each column is, and the destination comes first. Now the eye knows where to look.") },
-      { at: { row: 0, cell: 0 }, say: tt(`${rows[0].to}: the first name in the destination column, in bold. Bergen starts with B, so it must be very close.`) },
+      { at: { row: 0, cell: 0 }, say: tt(`${rows[0].to}: the first name in the destination column, in bold. Bergen starts with B, so it must be very close.`, `${rows[0].to}: der erste Name in der Zielspalte, fett. Bergen beginnt mit B, also muss es ganz nah sein.`) },
       { at: { row: bi, cell: 0 }, say: tt("Bergen: found. Prior knowledge of the alphabet steered the jump: B comes right after A.") },
-      { at: { row: bi, cell: 2 }, say: tt(`The gate sits in the same row, in bold: ${rows[bi].gate}. One more fixation, and the search is over.`) },
+      { at: { row: bi, cell: 2 }, say: tt(`The gate sits in the same row, in bold: ${rows[bi].gate}. One more fixation, and the search is over.`, `Das Gate steht in derselben Zeile, fett: ${rows[bi].gate}. Noch eine Fixation, und die Suche ist vorbei.`) },
     ];
   }
   const steps: Step[] = [{ at: "title", say: tt("The eye lands on the title, the biggest and boldest thing. Nothing here says where Bergen is.") }];
@@ -364,10 +364,10 @@ function modelSteps(ordered: boolean, rows: Dep[]): Step[] {
     steps.push({
       at: { row: i },
       say: i === bi
-        ? tt(`Bergen: found, with its gate in the same line (${d.gate}). The destination came last in the line, so every line had to be read to its end.`)
+        ? tt(`Bergen: found, with its gate in the same line (${d.gate}). The destination came last in the line, so every line had to be read to its end.`, `Bergen: gefunden, mit seinem Gate in derselben Zeile (${d.gate}). Das Ziel kam am Ende der Zeile, also musste jede Zeile bis zum Ende gelesen werden.`)
         : d.ad
-          ? tt(`The yellow advert “${d.to}” pulls the eye: colour and contrast stand out before any thinking. One fixation spent on something that is not a ferry.`)
-          : tt(`${d.to}: not Bergen. The line starts with a time, so the eye had to read to the end of the line to learn the destination.`),
+          ? tt(`The yellow advert “${d.to}” pulls the eye: colour and contrast stand out before any thinking. One fixation spent on something that is not a ferry.`, `Die gelbe Anzeige „${d.to}“ zieht das Auge an: Farbe und Kontrast fallen auf, bevor irgendein Denken einsetzt. Eine Fixation, verbraucht für etwas, das keine Fähre ist.`)
+          : tt(`${d.to}: not Bergen. The line starts with a time, so the eye had to read to the end of the line to learn the destination.`, `${d.to}: nicht Bergen. Die Zeile beginnt mit einer Zeit, also musste das Auge bis zum Zeilenende lesen, um das Ziel zu erfahren.`),
     });
   }
   return steps;
@@ -434,7 +434,7 @@ function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number;
   return (
     <div className="mt-3 space-y-2 rounded-lg border border-line bg-paper p-3">
       <p className="smallcaps text-ash">{tt("Model path · an illustration, not measured data")}</p>
-      <AppScreen brand={Brand} color={ACC} status={step >= 0 ? tt(`fixations: ${step + 1}`) : undefined}>
+      <AppScreen brand={Brand} color={ACC} status={step >= 0 ? tt(`fixations: ${step + 1}`, `Fixationen: ${step + 1}`) : undefined}>
         <div ref={wrap} aria-hidden className="relative select-none">
           <div style={{ filter: "blur(3.5px)" }}><Board rows={rows} ordered={ordered} /></div>
           <div
@@ -456,7 +456,7 @@ function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number;
         </div>
       </AppScreen>
       <p className="text-caption font-semibold text-ash" aria-live="polite">
-        {step < 0 ? tt("Press Play or Step to start.") : tt(`Fixation ${step + 1} of ${steps.length}`)}
+        {step < 0 ? tt("Press Play or Step to start.") : tt(`Fixation ${step + 1} of ${steps.length}`, `Fixation ${step + 1} von ${steps.length}`)}
       </p>
       <p className="min-h-[3.5rem] max-w-prose text-body text-ink" aria-live="polite">
         {step >= 0 ? steps[step].say : tt("The model looks for Bergen the way the card describes: one sharp spot, one jump at a time.")}
@@ -471,7 +471,7 @@ function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number;
       {reduce && <p className="text-caption text-ash">{tt("Your device asks for reduced motion, so nothing plays by itself: use Step.")}</p>}
       {step >= last && (
         <p className="max-w-prose rounded bg-accentSoft p-2 text-caption text-ink">
-          {tt(`The model needs ${steps.length} fixations to find Bergen and its gate on this board${yours > 0 ? `; you used ${yours}` : ""}. It is a scripted illustration with one fixation per line or cell; real eyes vary. With only eight rows the gap is small. On a longer board the mixed search would grow row by row while the alphabetical lookup stays short (reasoning, not a measurement). Basis: a fixation takes in only about 2° (Rayner 1998).`)}
+          {tt(`The model needs ${steps.length} fixations to find Bergen and its gate on this board${yours > 0 ? `; you used ${yours}` : ""}. It is a scripted illustration with one fixation per line or cell; real eyes vary. With only eight rows the gap is small. On a longer board the mixed search would grow row by row while the alphabetical lookup stays short (reasoning, not a measurement). Basis: a fixation takes in only about 2° (Rayner 1998).`, `Das Modell braucht ${steps.length} Fixationen, um Bergen und sein Gate auf dieser Tafel zu finden${yours > 0 ? `; Sie brauchten ${yours}` : ""}. Es ist eine geskriptete Veranschaulichung mit einer Fixation pro Zeile oder Zelle; echte Augen variieren. Bei nur acht Zeilen ist der Abstand klein. Auf einer längeren Tafel würde die gemischte Suche Zeile für Zeile wachsen, während das alphabetische Nachschlagen kurz bleibt (eine Überlegung, keine Messung). Grundlage: Eine Fixation nimmt nur etwa 2° auf (Rayner 1998).`)}
         </p>
       )}
     </div>
@@ -483,20 +483,20 @@ function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: bo
   const [n, setN] = useState(0);
   const rows = BOARD(ordered);
   const player = blur ? <ModelPath ordered={ordered} yours={n} tried={n > 0 || ctx.finished} /> : null;
-  if (ctx.finished) return <><AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`)}</p></AppScreen>{player}</>;
+  if (ctx.finished) return <><AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`, `Bergen · 09:40 · Gate C7 · ${n} Fixation(en)`)}</p></AppScreen>{player}</>;
   const fixate = (x: number, y: number) => { setSpot({ x, y }); setN((k) => k + 1); ctx.hit(tt(`Fixation ${n + 1}`)); };
   const centre = (el: HTMLElement) => {
     const box = el.offsetParent?.getBoundingClientRect(), r = el.getBoundingClientRect();
     return box ? { x: r.left - box.left + Math.min(r.width / 2, 60), y: r.top - box.top + r.height / 2 } : { x: 0, y: 0 };
   };
   const onRow = (d: Dep) => {
-    if (d.to === tt("Bergen")) ctx.done(tt(`Found Bergen, gate C7, after ${n} fixation(s)`));
+    if (d.to === tt("Bergen")) ctx.done(tt(`Found Bergen, gate C7, after ${n} fixation(s)`, `Bergen gefunden, Gate C7, nach ${n} Fixation(en)`));
     else ctx.miss(tt(d.ad ? `Tapped “${d.to}”` : `Read ${d.to}, not Bergen`));
   };
   const clip = spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)";
   return (
     <>
-    <AppScreen brand={Brand} color={ACC} status={blur ? tt(`fixations: ${n}`) : undefined}>
+    <AppScreen brand={Brand} color={ACC} status={blur ? tt(`fixations: ${n}`, `Fixationen: ${n}`) : undefined}>
       {blur ? (
         <div
           className="relative cursor-crosshair"

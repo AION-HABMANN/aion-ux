@@ -1,6 +1,7 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { tt } from "@/lib/lang";
 
 /**
  * Day 14 · the drawn screens of the study cards (CLAUDE.md #52): Brewline, a made-up maker of coffee machines with an app, so no task is answered here. The real 3D
@@ -44,11 +45,11 @@ const Tag = ({ x, y, children, warn }: { x: string; y: string; children: ReactNo
 export function MeasureThumb({ kind }: { kind: "descale" | "showroom" | "eye" }) {
   return (
     <div aria-hidden className="mx-auto w-full max-w-[150px] overflow-hidden rounded-lg border border-line bg-white text-[9px] leading-tight text-[#26323F]">
-      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>Brewline</div>
+      <div className="px-2 py-1 font-bold text-white" style={{ background: BRAND }}>{tt("Brewline")}</div>
       <div className="space-y-1 p-1.5">
-        {kind === "descale" && <><div>📱 AR: descale in 4 steps</div><div className="h-1 rounded bg-[#6B3E26]" /></>}
-        {kind === "showroom" && <div>🥽 VR café showroom · trade fair</div>}
-        {kind === "eye" && <div>👁 Eye-tracking ads in the app</div>}
+        {kind === "descale" && <><div>{tt("📱 AR: descale in 4 steps")}</div><div className="h-1 rounded bg-[#6B3E26]" /></>}
+        {kind === "showroom" && <div>{tt("🥽 VR café showroom · trade fair")}</div>}
+        {kind === "eye" && <div>{tt("👁 Eye-tracking ads in the app")}</div>}
       </div>
     </div>
   );
