@@ -47,7 +47,7 @@ function Unlock({ ctx, intuitive }: { ctx: LabCtx; intuitive: boolean }) {
           <Map />
           <div className="flex justify-around pt-2">
             {[["⚙", tt("settings")], ["◎", tt("locate me")], ["⊕", tt("unlock")], ["☰", tt("menu")]].map(([icon, what]) => (
-              <button key={icon} type="button" aria-label={tt(`Round icon ${icon}`)} onClick={() => (what === tt("unlock") ? (setScan(true), ctx.hit(tt("Guessed the unlock icon"))) : ctx.miss(tt(`The icon was ${what}`)))} className="h-11 w-11 rounded-full border border-[#D1D5DB] text-[18px] text-[#4B5563]">{icon}</button>
+              <button key={icon} type="button" aria-label={tt(`Round icon ${icon}`, `Rundes Icon ${icon}`)} onClick={() => (what === tt("unlock") ? (setScan(true), ctx.hit(tt("Guessed the unlock icon"))) : ctx.miss(tt(`The icon was ${what}`, `Das Icon war „${what}“`)))} className="h-11 w-11 rounded-full border border-[#D1D5DB] text-[18px] text-[#4B5563]">{icon}</button>
             ))}
           </div>
         </>
@@ -88,14 +88,14 @@ function Passes({ ctx, rec }: { ctx: LabCtx; rec: boolean }) {
       <p className="text-[14px] font-bold">{tt("Choose a pass")}</p>
       <div className={clsx("grid gap-1", all && !rec ? "grid-cols-3" : "grid-cols-1")}>
         {show.map(([n, d]) => (
-          <button key={n} type="button" onClick={() => { setSel(n); ctx.hit(tt(`Looked at ${n}`)); }} className={clsx("rounded border px-2 py-1.5 text-left", sel === n ? "border-[#15803D] bg-[#F0FDF4]" : "border-[#CBD5E1]")}>
+          <button key={n} type="button" onClick={() => { setSel(n); ctx.hit(tt(`Looked at ${n}`, `${n} angesehen`)); }} className={clsx("rounded border px-2 py-1.5 text-left", sel === n ? "border-[#15803D] bg-[#F0FDF4]" : "border-[#CBD5E1]")}>
             <span className="block font-semibold">{n}</span>
-            {(rec || sel === n) && <span className="block text-[11px] text-[#475569]">{rec && !all ? tt(`For you if: ${d}`) : d}</span>}
+            {(rec || sel === n) && <span className="block text-[11px] text-[#475569]">{rec && !all ? tt(`For you if: ${d}`, `Für Sie, wenn: ${d}`) : d}</span>}
           </button>
         ))}
       </div>
       {rec && !all && <button type="button" onClick={() => { setAll(true); ctx.miss(tt("Opened all passes")); }} className="text-[12px] underline">{tt("All passes (12)")}</button>}
-      <button type="button" disabled={!sel} onClick={() => (sel === tt("Single ride") ? ctx.done(tt("Bought a single ride")) : ctx.miss(tt(`Bought ${sel} instead of a single ride`)))} className="w-full rounded-lg py-2 font-bold text-white disabled:opacity-50" style={{ background: ACC }}>{tt("Buy")}</button>
+      <button type="button" disabled={!sel} onClick={() => (sel === tt("Single ride") ? ctx.done(tt("Bought a single ride")) : ctx.miss(tt(`Bought ${sel} instead of a single ride`, `${sel} gekauft statt einer Einzelfahrt`)))} className="w-full rounded-lg py-2 font-bold text-white disabled:opacity-50" style={{ background: ACC }}>{tt("Buy")}</button>
     </AppScreen>
   );
 }
@@ -125,7 +125,7 @@ function Ride({ ctx, e }: { ctx: LabCtx; e: Exp }) {
     const id = window.setInterval(() => setSecs((s) => s + 1), 1000);
     return () => window.clearInterval(id);
   }, [paused, ctx.finished]);
-  if (ctx.finished) return <Done text={tt(`Ride ended after ${Math.floor(secs / 60)} min · bike locked`)} />;
+  if (ctx.finished) return <Done text={tt(`Ride ended after ${Math.floor(secs / 60)} min · bike locked`, `Fahrt nach ${Math.floor(secs / 60)} Min beendet · Rad gesperrt`)} />;
   const end = e.expect ? (
     <button type="button" onClick={() => ctx.done(tt("Ended the ride"))} className={clsx("rounded-lg font-bold text-white", e.near ? "w-full py-3 text-[15px]" : "px-2 py-0.5 text-[10px]")} style={{ background: ACC }}>{tt("End ride")}</button>
   ) : (
@@ -195,7 +195,7 @@ function Code({ ctx, carry }: { ctx: LabCtx; carry: boolean }) {
           )}
           <button type="button" onClick={() => {
             if (carry || val.replace(/\s|-/g, "") === CODE) ctx.done(tt("Unlocked"));
-            else { ctx.miss(tt(`Code “${val || "(empty)"}” is wrong`)); setVal(""); }
+            else { ctx.miss(tt(`Code “${val || "(empty)"}” is wrong`, `Code „${val || "(leer)"}“ ist falsch`)); setVal(""); }
           }} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Unlock")}</button>
           {!carry && <button type="button" onClick={() => { setStep(1); ctx.miss(tt("Went back to look at the code")); }} className="text-[12px] underline">{tt("← Back")}</button>}
         </>
@@ -242,7 +242,7 @@ function Help({ ctx, kind }: { ctx: LabCtx; kind: "flat" | "two" | "three" }) {
         : { label: "", kids: [{ label: tt("Using a bike"), kids: [groups[0], groups[1]] }, { label: tt("My account"), kids: [groups[2], groups[3]] }] };
   let node = root;
   for (const i of path) node = node.kids![i];
-  if (ctx.finished) return <Done text={tt(`Found “Report a broken bike” in ${path.length} step(s)`)} />;
+  if (ctx.finished) return <Done text={tt(`Found “Report a broken bike” in ${path.length} step(s)`, `„Ein defektes Rad melden“ in ${path.length} Schritt(en) gefunden`)} />;
   return (
     <AppScreen brand={Brand} color={ACC}>
       <p className="text-[14px] font-bold">{tt("Help")}</p>
@@ -253,9 +253,9 @@ function Help({ ctx, kind }: { ctx: LabCtx; kind: "flat" | "two" | "three" }) {
             key={k.label + i}
             type="button"
             onClick={() => {
-              if (k.kids) { setPath([...path, i]); ctx.hit(tt(`Opened ${k.label}`)); }
+              if (k.kids) { setPath([...path, i]); ctx.hit(tt(`Opened ${k.label}`, `${k.label} geöffnet`)); }
               else if (k.label === tt("Report a broken bike")) ctx.done(tt("Opened Report a broken bike"));
-              else ctx.miss(tt(`Opened ${k.label}`));
+              else ctx.miss(tt(`Opened ${k.label}`, `${k.label} geöffnet`));
             }}
             className="block w-full rounded border border-[#CBD5E1] bg-white px-2 py-1.5 text-left text-[12.5px]"
           >
