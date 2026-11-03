@@ -27,7 +27,7 @@ function Home({ ctx, side }: { ctx: LabCtx; side: "provider" | "user" }) {
   const slots = (
     <div className="space-y-1">
       <p className="font-semibold">{tt("Lane swimming · choose a time")}</p>
-      {[tt("Saturday 07:00"), tt("Saturday 09:00"), tt("Saturday 18:00")].map((t) => <Item key={t} onClick={() => (t.includes("09:00") ? ctx.done(tt("Booked Saturday 09:00")) : ctx.miss(tt(`Picked ${t}`)))}>{t}</Item>)}
+      {[tt("Saturday 07:00"), tt("Saturday 09:00"), tt("Saturday 18:00")].map((t) => <Item key={t} onClick={() => (t.includes("09:00") ? ctx.done(tt("Booked Saturday 09:00")) : ctx.miss(tt(`Picked ${t}`, `${t} gewählt`)))}>{t}</Item>)}
     </div>
   );
   if (side === "user")
@@ -62,8 +62,8 @@ function Home({ ctx, side }: { ctx: LabCtx; side: "provider" | "user" }) {
           <p className="text-[11px] text-[#475569]">{level === 0 ? tt("Departments") : here}</p>
           {(tree[here] ?? []).map((x) => (
             <Item key={x} onClick={() => {
-              if (x === right[level]) { setPath((p) => [...p, x]); ctx.hit(tt(`Opened ${x}`)); }
-              else ctx.miss(tt(`Opened ${x}`));
+              if (x === right[level]) { setPath((p) => [...p, x]); ctx.hit(tt(`Opened ${x}`, `${x} geöffnet`)); }
+              else ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`));
             }}>{x}</Item>
           ))}
         </div>
@@ -147,11 +147,11 @@ function Offers({ ctx, m }: { ctx: LabCtx; m: Means }) {
   const random = ["#FDE68A", "#BFDBFE", "#FBCFE8", "#BBF7D0", "#DDD6FE", "#FED7AA"];
   const box = (x: string, i: number, group: "f" | "c") => (
     <div key={x} className={clsx("rounded border p-2", m.grouping ? (group === "f" ? "border-[#94A3B8] bg-[#F1F5F9]" : "border-[#0E7490] bg-[#ECFEFF]") : "border-transparent")} style={m.grouping ? undefined : { background: random[(i + (group === "c" ? 3 : 0)) % 6] }}>
-      <button type="button" onClick={() => { setOpen(x); (x === tt("Aqua fitness") ? ctx.hit : ctx.miss)(tt(`Opened ${x}`)); }} className="font-semibold">{x}</button>
+      <button type="button" onClick={() => { setOpen(x); (x === tt("Aqua fitness") ? ctx.hit : ctx.miss)(tt(`Opened ${x}`, `${x} geöffnet`)); }} className="font-semibold">{x}</button>
       {open === x && group === "c" && (
         <div className="mt-1">
           <p className="text-[11px]">{tt("Thursdays 19:00")}</p>
-          <button type="button" onClick={() => (x === tt("Aqua fitness") ? ctx.done(tt("Booked aqua fitness")) : ctx.miss(tt(`Booked ${x}`)))} className={clsx("mt-1 rounded px-2 py-0.5 text-[11.5px]", m.contrast ? "bg-[#0E7490] font-bold text-white" : "border border-[#D4D4D4] text-[#737373]")}>{tt("Book")}</button>
+          <button type="button" onClick={() => (x === tt("Aqua fitness") ? ctx.done(tt("Booked aqua fitness")) : ctx.miss(tt(`Booked ${x}`, `${x} gebucht`)))} className={clsx("mt-1 rounded px-2 py-0.5 text-[11.5px]", m.contrast ? "bg-[#0E7490] font-bold text-white" : "border border-[#D4D4D4] text-[#737373]")}>{tt("Book")}</button>
         </div>
       )}
     </div>
@@ -203,7 +203,7 @@ function Start({ ctx, kind }: { ctx: LabCtx; kind: "crowded" | "balanced" | "spa
         <button type="button" onClick={() => ctx.miss(tt("Tapped the banner"))} className="w-full rounded bg-[#9333EA] py-2 font-bold text-white">{tt("SUMMER PARTY · DJ · FOAM POOL")}</button>
         <div className="grid grid-cols-3 gap-1">
           {[tt("News"), tt("Gym"), tt("Sauna"), tt("Kids"), tt("Shop"), tt("Jobs"), tt("Events"), tt("Spa"), tt("Café"), tt("Partners"), tt("Press"), tt("Gift cards")].map((x, i) => (
-            <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`))} className="rounded py-2 text-[10.5px]" style={{ background: ["#FEF3C7", "#DBEAFE", "#FCE7F3", "#DCFCE7"][i % 4] }}>{x}</button>
+            <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`))} className="rounded py-2 text-[10.5px]" style={{ background: ["#FEF3C7", "#DBEAFE", "#FCE7F3", "#DCFCE7"][i % 4] }}>{x}</button>
           ))}
         </div>
         <p className="text-[10.5px] text-[#475569]">{tt("Welcome to Brightwater! Opening hours vary by facility and season; see the facility pages, the notice board and the hours box below for details. Our team is happy to help.")} <span className="text-[10.5px]">{hours}</span></p>
@@ -214,7 +214,7 @@ function Start({ ctx, kind }: { ctx: LabCtx; kind: "crowded" | "balanced" | "spa
       <AppScreen brand={Brand} color={ACC}>
         <p className="text-[14px] font-bold">{tt("Today at Brightwater")}</p>
         <div className="rounded bg-[#ECFEFF] p-2 text-[12.5px] font-semibold">{hours}<br /><span className="font-normal text-[#475569]">{tt("Gym 06:00 to 22:00 · Sauna 12:00 to 21:00")}</span></div>
-        {[tt("Book a swim"), tt("Join a course"), tt("Memberships")].map((x) => <Item key={x} onClick={() => ctx.miss(tt(`Opened ${x}`))}>{x}</Item>)}
+        {[tt("Book a swim"), tt("Join a course"), tt("Memberships")].map((x) => <Item key={x} onClick={() => ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`))}>{x}</Item>)}
         <p className="text-[11px] text-[#475569]">{tt("News: the sauna reopens on Monday.")}</p>
       </AppScreen>
     );
@@ -224,8 +224,8 @@ function Start({ ctx, kind }: { ctx: LabCtx; kind: "crowded" | "balanced" | "spa
       <button type="button" onClick={() => { setMenu((m) => !m); ctx.hit(tt("Opened the menu")); }} className="rounded border border-[#0E7490] px-3 py-1 text-[#0E7490]">{tt("☰ Menu")}</button>
       {menu && (
         <div className="space-y-1">
-          {[tt("Discover"), tt("Visit"), tt("Members")].map((x) => <Item key={x} onClick={() => (x === tt("Visit") ? (setVisit(true), ctx.hit(tt("Opened Visit"))) : ctx.miss(tt(`Opened ${x}`)))}>{x}</Item>)}
-          {visit && <div className="pl-3">{[tt("Getting here"), tt("Opening hours"), tt("Prices")].map((x) => <Item key={x} onClick={() => (x === tt("Opening hours") ? ctx.done(tt("Found the hours after three taps")) : ctx.miss(tt(`Opened ${x}`)))}>{x}</Item>)}</div>}
+          {[tt("Discover"), tt("Visit"), tt("Members")].map((x) => <Item key={x} onClick={() => (x === tt("Visit") ? (setVisit(true), ctx.hit(tt("Opened Visit"))) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))}>{x}</Item>)}
+          {visit && <div className="pl-3">{[tt("Getting here"), tt("Opening hours"), tt("Prices")].map((x) => <Item key={x} onClick={() => (x === tt("Opening hours") ? ctx.done(tt("Found the hours after three taps")) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))}>{x}</Item>)}</div>}
         </div>
       )}
     </AppScreen>
@@ -277,7 +277,7 @@ function CourseCard({ ctx, fill, label }: { ctx: LabCtx; fill: string; label: st
         </button>
       </div>
       <p className="rounded bg-[#F1F5F9] px-2 py-1 font-mono text-[11px] text-[#334155]">
-        {tt(`Inspector · Book: ${label} on ${fill} = ${r.toFixed(1)} to 1 (WCAG 2.2 asks for at least 4.5 to 1 for the text and 3 to 1 for the button itself)`)}
+        {tt(`Inspector · Book: ${label} on ${fill} = ${r.toFixed(1)} to 1 (WCAG 2.2 asks for at least 4.5 to 1 for the text and 3 to 1 for the button itself)`, `Inspector · Buchen: ${label} auf ${fill} = ${r.toFixed(1).replace(".", ",")} zu 1 (WCAG 2.2 verlangt mindestens 4,5 zu 1 für den Text und 3 zu 1 für den Button selbst)`)}
       </p>
     </AppScreen>
   );

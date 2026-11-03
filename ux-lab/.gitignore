@@ -1,2 +1,5 @@
 .vercel
 .env*
+
+# German work files (UX-STANDARD 2.20)
+/de-todo/

@@ -13,7 +13,7 @@ import { tt } from "@/lib/lang";
  */
 
 /** The footer of a product that is not a course (the course footer of courseKit names a teacher and reviews). */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 
 /* ------------------------------------------------------------------ CityDesk, a booking portal for municipal services */
