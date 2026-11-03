@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: SmartAssist, a service platform for insurance matters, contract overviews and claims, and CareerNavigator, a platform for professional development with three designs for how it could personalise. The main case is CareGuide, the digital portal of a provider in health and prevention, for information, appointments, documents and individual recommendations. The provider wants it to become more intelligent, so that members find suitable content, next steps and help faster, but it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: SmartAssist, a service platform for insurance matters, contract overviews and claims, and CareerNavigator, a platform for professional development with three designs for how it could personalise.
+
+The main case is CareGuide, the digital portal of a provider in health and prevention, for information, appointments, documents and individual recommendations.
+
+The provider wants it to become more intelligent, so that members find suitable content, next steps and help faster, but it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: SmartAssist's history-based recommendations, unexplained next steps, partly fitting content, automatic help without clear control, simple standard processes, unclear complex situations and rules indistinguishable from AI; CareerNavigator's three designs (A strong personalisation with little transparency, B restrained and explainable with high control but less comfort, C adaptive and situational with optional intervention but more effort) for working people with different experience, modern, helpful and trustworthy, a limited budget, 12 weeks, partial data, service quality against transparency and control; CareGuide's partly fitting recommendations, unclear why and how deep, limited control, time saved in simple cases, unclear exceptions, efficiency against data protection, €180,000, 14 weeks, no relaunch, a trustworthy and supportive brand, heterogeneous data, first results soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- SmartAssist's history-based recommendations, unexplained next steps, partly fitting content, automatic help without clear control, simple standard processes, unclear complex situations and rules indistinguishable from AI
+- CareerNavigator's three designs (A strong personalisation with little transparency, B restrained and explainable with high control but less comfort, C adaptive and situational with optional intervention but more effort) for working people with different experience, modern, helpful and trustworthy, a limited budget, 12 weeks, partial data, service quality against transparency and control
+- CareGuide's partly fitting recommendations, unclear why and how deep, limited control, time saved in simple cases, unclear exceptions, efficiency against data protection, €180,000, 14 weeks, no relaunch, a trustworthy and supportive brand, heterogeneous data, first results soon
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find chances and risks, and weigh personalisation designs · Level 1 · Knowledge
@@ -61,7 +73,13 @@ The brief says: SmartAssist's history-based recommendations, unexplained next st
 
 **Draws on:** A1 · Rule-based, adaptive or learning · A2 · How AI guides, recommends and helps · A3 · What intelligent interfaces give, and how they go wrong · A4 · Why, change, undo.
 
-You receive the description of a fictional service platform, SmartAssist, for insurance matters, contract overviews and claims. Open it and use it as a customer: look at your recommendations, follow the assistant's next step, report a simple claim and a complicated one. You need no prior knowledge: notice when the platform seems to know what you need, and when you do not know why it does what it does. The aim is to recognise intelligent interaction patterns systematically and judge them from the user's side.
+You receive the description of a fictional service platform, SmartAssist, for insurance matters, contract overviews and claims.
+
+Open it and use it as a customer: look at your recommendations, follow the assistant's next step, report a simple claim and a complicated one.
+
+You need no prior knowledge: notice when the platform seems to know what you need, and when you do not know why it does what it does.
+
+The aim is to recognise intelligent interaction patterns systematically and judge them from the user's side.
 
 ![SmartAssist, as the platform shows it.](_figures/d10_b1-1_0.png)
 
@@ -132,7 +150,24 @@ Write four lines: chance 1, chance 2, risk 1, risk 2, each with why it weighs mo
 
 **Draws on:** A2 · How AI guides, recommends and helps · A4 · Why, change, undo · A5 · Data, context and situation, and weighing a measure.
 
-CareerNavigator is a platform for professional development and learning recommendations. Three designs for its further development are described in words: A) strong personalisation based on past use and automatic recommendations, but little transparency about the selection criteria; B) restrained personalisation with clear explainability and high user control, but less comfort and less automation; C) adaptive support with situational recommendations and optional ways to intervene, but a higher implementation effort. The conditions: the target group is working people with different levels of experience, the company wants to look modern, helpful and trustworthy, the budget for the technical implementation is limited, the release is in 12 weeks, user data is only partly available, and the department demands high service quality while the data protection officers demand transparency and ways to control. Decide anyway, and say what you assume.
+CareerNavigator is a platform for professional development and learning recommendations.
+
+Three designs for its further development are described in words:
+
+- A) strong personalisation based on past use and automatic recommendations, but little transparency about the selection criteria
+- B) restrained personalisation with clear explainability and high user control, but less comfort and less automation
+- C) adaptive support with situational recommendations and optional ways to intervene, but a higher implementation effort
+
+The conditions:
+
+- the target group is working people with different levels of experience
+- the company wants to look modern, helpful and trustworthy
+- the budget for the technical implementation is limited
+- the release is in 12 weeks
+- user data is only partly available
+- the department demands high service quality while the data protection officers demand transparency and ways to control
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d10_b1-2_0.png)
 
@@ -219,7 +254,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Rule-based, adaptive or learning · A2 · How AI guides, recommends and helps · A3 · What intelligent interfaces give, and how they go wrong · A4 · Why, change, undo · A5 · Data, context and situation, and weighing a measure.
 
-A provider in health and prevention runs CareGuide, a digital portal for information, appointment management, documents and individual recommendations. The company wants to make the portal more intelligent, so that users get suitable content, next steps and relevant help faster. At the same time it is unsure about trust, comprehensibility and the danger of unsuitable personalisation. The observed problems: recommendations seem partly helpful, but partly do not fit the current situation; users do not always understand why certain content is shown; there are no clear hints how strongly the system personalises; the users' ways to intervene are limited or unclear; the platform saves time in simple cases but seems hard to follow in exceptions; and departments see chances for efficiency while data protection warns of opacity and loss of trust. The conditions: a budget of €180,000, 14 weeks for the implementation, no complete relaunch, a brand that must stay trustworthy and supportive, data quality that is partly heterogeneous, and first results that must show soon. You work through six steps.
+A provider in health and prevention runs CareGuide, a digital portal for information, appointment management, documents and individual recommendations.
+
+The company wants to make the portal more intelligent, so that users get suitable content, next steps and relevant help faster.
+
+At the same time it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.
+
+The observed problems:
+
+- recommendations seem partly helpful, but partly do not fit the current situation
+- users do not always understand why certain content is shown
+- there are no clear hints how strongly the system personalises
+- the users' ways to intervene are limited or unclear
+- the platform saves time in simple cases but seems hard to follow in exceptions
+- departments see chances for efficiency while data protection warns of opacity and loss of trust
+
+The conditions:
+
+- a budget of €180,000
+- 14 weeks for the implementation
+- no complete relaunch
+- a brand that must stay trustworthy and supportive
+- data quality that is partly heterogeneous
+- first results that must show soon
+
+You work through six steps.
 
 ![CareGuide today.](_figures/d10_b2-1_0.png)
 
@@ -305,7 +364,17 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the health and prevention provider that runs CareGuide. The company has a customer portal, an app and a service platform, and plans to make its digital offers more AI-supported and personalised. First pilot functions show potential, but also risks: users do not understand recommendations, partly feel patronised, or get suggestions that do not fit. Inside the company AI is seen mostly as an innovation signal, while questions of trust, steerability and transparency are not yet answered. The management expects a sound strategy for integrating intelligent interfaces responsibly and effectively. You are not to choose single AI features, but to develop a sound decision architecture for adaptive guidance, personalisation and trustworthy interaction.
+You take the perspective of the Chief Experience Officer of the health and prevention provider that runs CareGuide.
+
+The company has a customer portal, an app and a service platform, and plans to make its digital offers more AI-supported and personalised.
+
+First pilot functions show potential, but also risks: users do not understand recommendations, partly feel patronised, or get suggestions that do not fit.
+
+Inside the company AI is seen mostly as an innovation signal, while questions of trust, steerability and transparency are not yet answered.
+
+The management expects a sound strategy for integrating intelligent interfaces responsibly and effectively.
+
+You are not to choose single AI features, but to develop a sound decision architecture for adaptive guidance, personalisation and trustworthy interaction.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +389,21 @@ You take the perspective of the Chief Experience Officer of the health and preve
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a customer portal, an app and a service platform that plans more AI and personalisation, pilots that users do not understand, that patronise or misfit, AI seen inside as an innovation signal, trust, steerability and transparency not yet clarified, a limited budget, several stakeholders, inconsistent data quality, trust and brand that must hold, not all systems at once, first improvements soon, and the warning that wrong decisions can cause reputational damage, mis-steering and low acceptance. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a customer portal, an app and a service platform that plans more AI and personalisation
+- pilots that users do not understand, that patronise or misfit
+- AI seen inside as an innovation signal
+- trust, steerability and transparency not yet clarified
+- a limited budget
+- several stakeholders
+- inconsistent data quality
+- trust and brand that must hold
+- not all systems at once
+- first improvements soon
+- the warning that wrong decisions can cause reputational damage, mis-steering and low acceptance
+
+Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A UX architecture for intelligent and adaptive interfaces.*

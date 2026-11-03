@@ -79,7 +79,7 @@ export const SPEC = defineSpec({
     heading: t("The case: two platforms on the UX team's desk, and MoveWell"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: SkillRise, a learning and development platform for professional further training, and HealthJourney, a prevention platform that has three designs for how it should activate its users. The main case is MoveWell, a health provider's platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time: they find it sensible, but not very motivating. The provider wants more activation and retention without losing seriousness or credibility.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: SkillRise, a learning and development platform for professional further training, and HealthJourney, a prevention platform that has three designs for how it should activate its users.\n\nThe main case is MoveWell, a health provider's platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time: they find it sensible, but not very motivating.\n\nThe provider wants more activation and retention without losing seriousness or credibility.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -115,14 +115,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: SkillRise with learning paths, tasks and certificates, little visible progress, neutral system messages, no intermediate goals or milestones, content that is sensible but not activating, and nothing that shows development or success; HealthJourney's three designs (A strong gamification with points, badges, daily challenges and rankings; B progress displays, milestones and confirming feedback; C a narrative journey with stages but fewer classic rewards) for adults aged 25 to 65, motivating but serious, a limited budget, no tests, 10 weeks, marketing against the department; MoveWell with good content, many who leave early, faint progress, hardly any feedback on successes, no stages, a functional journey, no link between development and use, technical messages, €150,000, 12 weeks, a trustworthy brand close to health, no relaunch, limited resources and partial data. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• SkillRise with learning paths, tasks and certificates, little visible progress, neutral system messages, no intermediate goals or milestones, content that is sensible but not activating, and nothing that shows development or success\n• HealthJourney's three designs (A strong gamification with points, badges, daily challenges and rankings\n• B progress displays, milestones and confirming feedback\n• C a narrative journey with stages but fewer classic rewards) for adults aged 25 to 65, motivating but serious, a limited budget, no tests, 10 weeks, marketing against the department\n• MoveWell with good content, many who leave early, faint progress, hardly any feedback on successes, no stages, a functional journey, no link between development and use, technical messages, €150,000, 12 weeks, a trustworthy brand close to health, no relaunch, limited resources and partial data\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the health provider behind MoveWell, many who start and few who stay"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the health provider that runs MoveWell. The company has an app, a customer portal and a digital service offer. It sees that many users start, but only some stay active over time. The offers are experienced as good in content, but not very motivating and hardly binding. Inside the company there is a debate about whether stronger gamification is the answer, without anyone being clear which mechanics fit the brand, the target group and the situations people use the products in. The management expects a sound strategy for designing activation, storytelling and retention systematically and responsibly. You are not to choose single game mechanics, but to develop a sound decision architecture for motivation, the experience of progress, narrative activation and lasting retention.",
+      "You take the perspective of the Chief Experience Officer of the health provider that runs MoveWell. The company has an app, a customer portal and a digital service offer.\n\nIt sees that many users start, but only some stay active over time. The offers are experienced as good in content, but not very motivating and hardly binding.\n\nInside the company there is a debate about whether stronger gamification is the answer, without anyone being clear which mechanics fit the brand, the target group and the situations people use the products in.\n\nThe management expects a sound strategy for designing activation, storytelling and retention systematically and responsibly.\n\nYou are not to choose single game mechanics, but to develop a sound decision architecture for motivation, the experience of progress, narrative activation and lasting retention.",
     ),
     conditions: {
       title: t("The framework"),
@@ -157,7 +157,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with an app, a customer portal and a digital service offer, many who start and only some who stay, offers that are good in content but not very motivating or binding, an internal debate about stronger gamification without clarity on what fits the brand, target group and situation, a limited budget, several stakeholders, a credible brand, not all systems at once, partly incomplete data, first improvements soon, and the warning that wrong decisions can harm motivation, trust and the brand. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with an app, a customer portal and a digital service offer\n• many who start and only some who stay\n• offers that are good in content but not very motivating or binding\n• an internal debate about stronger gamification without clarity on what fits the brand, target group and situation\n• a limited budget\n• several stakeholders\n• a credible brand\n• not all systems at once\n• partly incomplete data\n• first improvements soon\n• the warning that wrong decisions can harm motivation, trust and the brand\n\nThose are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -169,7 +169,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Activation and retention potential (SkillRise)"),
       lead: t(
-        "You receive the description of a fictional learning and development platform, SkillRise, for professional further training. Open it and use it as an employee who has been given a learning path by their employer: finish a module and look at your progress. You need no prior knowledge: notice whether you want to come back tomorrow, not only whether the steps work. The aim is to recognise motivation and retention mechanisms systematically and tell them apart from pure functionality.",
+        "You receive the description of a fictional learning and development platform, SkillRise, for professional further training.\n\nOpen it and use it as an employee who has been given a learning path by their employer: finish a module and look at your progress.\n\nYou need no prior knowledge: notice whether you want to come back tomorrow, not only whether the steps work. The aim is to recognise motivation and retention mechanisms systematically and tell them apart from pure functionality.",
       ),
       slots: ["skillrise"],
       fields: [
@@ -343,7 +343,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate gamification under conflicting goals (HealthJourney)"),
       lead: t(
-        "HealthJourney is a platform for health prevention. Three designs for its activation logic are described in words: A) strong gamification with points, badges, daily challenges and rankings; B) a restrained activation logic with progress displays, milestones and confirming feedback; C) a narratively embedded user journey with motivating stages, but less visible classic reward elements. The conditions: the target group is adults aged 25 to 65, the company wants to motivate but stay serious and trustworthy, the budget for technical extensions is limited, there are no user tests yet, the release is in 10 weeks, and marketing demands high activation while the department warns against too playful an approach. Decide anyway, and say what you assume.",
+        "HealthJourney is a platform for health prevention.\n\nThree designs for its activation logic are described in words:\nA) strong gamification with points, badges, daily challenges and rankings\nB) a restrained activation logic with progress displays, milestones and confirming feedback\nC) a narratively embedded user journey with motivating stages, but less visible classic reward elements\n\nThe conditions:\n• the target group is adults aged 25 to 65\n• the company wants to motivate but stay serious and trustworthy\n• the budget for technical extensions is limited\n• there are no user tests yet\n• the release is in 10 weeks\n• marketing demands high activation while the department warns against too playful an approach\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["designs"],
       fields: [
@@ -479,7 +479,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: MoveWell"),
       lead: t(
-        "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time. The platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility. The observed problems: progress is only faintly visible; successes are hardly fed back or emotionally reinforced; motivating intermediate goals and stages are missing; the user journey is functional but not very activating; there is no clear link between individual development and the experience of use; and the feedback so far is technical and not very stimulating. The conditions: a budget of €150,000, 12 weeks for the implementation, a brand that must stay trustworthy and close to health, no complete relaunch, limited technical resources for complex features, and only partial user data. You work through six steps.",
+        "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.\n\nThe platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.\n\nThe observed problems:\n• progress is only faintly visible\n• successes are hardly fed back or emotionally reinforced\n• motivating intermediate goals and stages are missing\n• the user journey is functional but not very activating\n• there is no clear link between individual development and the experience of use\n• the feedback so far is technical and not very stimulating\n\nThe conditions:\n• a budget of €150,000\n• 12 weeks for the implementation\n• a brand that must stay trustworthy and close to health\n• no complete relaunch\n• limited technical resources for complex features\n• only partial user data\n\nYou work through six steps.",
       ),
       slots: ["movewell"],
       fields: [

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { MentorGuide } from "@/lib/mentorGuide";
 import { tt } from "@/lib/lang";
+import { Prose } from "@/components/ui/Prose";
 
 /**
  * A learner-facing, ungated "Show clue and example answer" control for a free-text (JUDGED) field: a small button, and on click a
@@ -50,7 +51,7 @@ export function ExampleAnswer({ id, guide }: { id: string; guide: MentorGuide })
             )
           : tt("One way to answer this — yours does not have to match it word for word.", "Eine Möglichkeit, dies zu beantworten – Ihre Antwort muss nicht wortgleich sein.")}
       </p>
-      <p className="mt-1.5 italic text-ink">{text}</p>
+      <Prose text={text} className="mt-1.5 italic text-ink" />
     </div>
   );
 }

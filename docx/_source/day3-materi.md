@@ -10,7 +10,7 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is SecureLife (see the Task document).
 intro: Today is about colour and type as tools that steer people, not as matters of taste. You learn what colours do to attention, trust, activation and warning, the difference between decorative and functional colour, what makes text readable on a screen (size, line spacing, contrast, weight and structure), and how a typographic hierarchy helps people scan. Then you use it on three products and decide what to change first. This document holds everything you need to study Day 3 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: contrast,hierarchy,readability,body-text,attention,consistency,line-spacing,scan,typography,governance,case-assumption,type-hierarchy,orientation,accessibility,ux,functional-colour,neuro-ux,corporate-design,primary-action,hypothesis,contrast-ratio,perception,cta,design-logic,brand,touchpoint,cxo,f-pattern,grouping,decorative-colour,status-colour,legibility,weight
+glossary: contrast,hierarchy,readability,body-text,attention,consistency,line-spacing,scan,typography,governance,case-assumption,type-hierarchy,ux,orientation,accessibility,neuro-ux,functional-colour,corporate-design,primary-action,hypothesis,contrast-ratio,perception,cta,design-logic,brand,touchpoint,cxo,f-pattern,grouping,decorative-colour,status-colour,legibility,weight
 refs: elliot2014,labrecque2012,mehta2009,ware2012,ittiKoch2001,madden2000,gnambs2020,wcag22,nielsen1994,wong2011,bowman2009,rello2016,dyson2004,beier2012,dyson2001,who2019,appleHig,bringhurst2004,pernice2017,nielsen1997,webaim2024,gibbons2018,sillence2004,foggWeb2003,frost2016,simon1956,klein2007
 ---
 
@@ -131,6 +131,8 @@ A noticeable share of people, more men than women, see some colours differently,
 :::
 
 ![A Kettle & Co delivery notice with and without readable type. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d3_A3_0.png)
+
+![The Kettle & Co delivery terms at three line lengths. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d3_A3_1.png)
 
 **Aesthetic typography and functional reading typography**
 

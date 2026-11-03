@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: ServicePoint, a self-service portal for contract changes, documents and support requests, and WorkFlow Hub, a work platform that has three variants for its navigation. The main case is MyEnergy, an energy supplier's portal for tariff changes, adjusting instalments, meter readings and bills. It offers many functions, but customers often say they cannot find tasks quickly, or they abandon processes. The company wants use to be more efficient and intuitive without cutting the functions much.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: ServicePoint, a self-service portal for contract changes, documents and support requests, and WorkFlow Hub, a work platform that has three variants for its navigation.
+
+The main case is MyEnergy, an energy supplier's portal for tariff changes, adjusting instalments, meter readings and bills.
+
+It offers many functions, but customers often say they cannot find tasks quickly, or they abandon processes. The company wants use to be more efficient and intuitive without cutting the functions much.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: ServicePoint with many equal menu items, hidden main functions, steps to remember, internal terms, new choices at every step and no feedback; WorkFlow Hub's three navigation variants for new and existing users, a department against the UX team, a limited budget, 9 weeks and partial tests; MyEnergy with too many equal items, unprioritised main tasks, invisible process logic, technical language, information to remember, unclear feedback, €160,000, 12 weeks, no relaunch and departments that want visibility. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- ServicePoint with many equal menu items, hidden main functions, steps to remember, internal terms, new choices at every step and no feedback
+- WorkFlow Hub's three navigation variants for new and existing users, a department against the UX team, a limited budget, 9 weeks and partial tests
+- MyEnergy with too many equal items, unprioritised main tasks, invisible process logic, technical language, information to remember, unclear feedback, €160,000, 12 weeks, no relaunch and departments that want visibility
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the friction and weigh variants · Level 1 · Knowledge
@@ -61,7 +73,11 @@ The brief says: ServicePoint with many equal menu items, hidden main functions, 
 
 **Draws on:** A1 · Intuitive use is designed · A2 · How people compare options and decide · A3 · Expectations, recognisability and a clear action logic · A4 · Memory and load.
 
-You receive the description of a fictional self-service portal, ServicePoint, for contract changes, document downloads and support requests. Open it and try to change your contract as a customer would. You need no prior knowledge: notice where you hesitate, search, have to remember something or are not sure you are on the right way. The aim is to observe usability from the user's side and to recognise cognitive friction step by step.
+You receive the description of a fictional self-service portal, ServicePoint, for contract changes, document downloads and support requests. Open it and try to change your contract as a customer would.
+
+You need no prior knowledge: notice where you hesitate, search, have to remember something or are not sure you are on the right way.
+
+The aim is to observe usability from the user's side and to recognise cognitive friction step by step.
 
 ![ServicePoint, as the portal shows it.](_figures/d4_b1-1_0.png)
 
@@ -132,7 +148,24 @@ Write them as a list, the bigger hurdle first, each with the reason it is so big
 
 **Draws on:** A2 · How people compare options and decide · A3 · Expectations, recognisability and a clear action logic · A5 · UX laws as tools against friction, and weighing a measure.
 
-WorkFlow Hub is a work platform. Three variants for its navigation are described in words: A) very many options directly visible and a large scope of functions, but a complex first impression; B) a reduced navigation with a clear focus on the main tasks, but some rare functions lie deeper in the system; C) a modern presentation with interactive elements, but patterns that change between the areas. The conditions: the product must work for new and for existing users, the department demands that all functions are fully visible, the UX team demands reduction and a clear priority, the budget for deep changes is limited, the release is in 9 weeks, and user tests are only partly available. Decide anyway, and say what you assume.
+WorkFlow Hub is a work platform.
+
+Three variants for its navigation are described in words:
+
+- A) very many options directly visible and a large scope of functions, but a complex first impression
+- B) a reduced navigation with a clear focus on the main tasks, but some rare functions lie deeper in the system
+- C) a modern presentation with interactive elements, but patterns that change between the areas
+
+The conditions:
+
+- the product must work for new and for existing users
+- the department demands that all functions are fully visible
+- the UX team demands reduction and a clear priority
+- the budget for deep changes is limited
+- the release is in 9 weeks
+- user tests are only partly available
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (navigation).](_figures/d4_b1-2_0.png)
 
@@ -219,7 +252,28 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Intuitive use is designed · A2 · How people compare options and decide · A3 · Expectations, recognisability and a clear action logic · A4 · Memory and load · A5 · UX laws as tools against friction, and weighing a measure.
 
-An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills. The portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much. The observed problems: too many navigation items of equal rank make orientation hard, important tasks are not clearly prioritised, process steps build on each other without the logic being visible, technical language raises the effort of understanding, users have to remember information across several steps, and feedback in the process is unclear or too general. The conditions: a budget of €160,000, 12 weeks for the implementation, no complete relaunch, several departments want to keep their functions prominently visible, and user data is only partly available. You work through six steps.
+An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.
+
+The portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.
+
+The observed problems:
+
+- too many navigation items of equal rank make orientation hard
+- important tasks are not clearly prioritised
+- process steps build on each other without the logic being visible
+- technical language raises the effort of understanding
+- users have to remember information across several steps
+- feedback in the process is unclear or too general
+
+The conditions:
+
+- a budget of €160,000
+- 12 weeks for the implementation
+- no complete relaunch
+- several departments want to keep their functions prominently visible
+- user data is only partly available
+
+You work through six steps.
 
 ![MyEnergy today, as the portal shows it.](_figures/d4_b2-1_0.png)
 
@@ -304,7 +358,13 @@ Three to five sentences: what you recommend, how, and what you expect to change.
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the energy supplier that runs MyEnergy. The company has a customer portal, a mobile app and a service platform. Customers can do most tasks in principle, but only with much searching, uncertainty and support. Inside the company the discussion is about new functions, while the central problems of use remain unsolved. The management expects a sound strategy for more orientation and efficiency across all digital touchpoints. You are not to correct single screens but to develop a sound decision architecture for intuitive use based on cognitive principles.
+You take the perspective of the Chief Experience Officer of the energy supplier that runs MyEnergy. The company has a customer portal, a mobile app and a service platform.
+
+Customers can do most tasks in principle, but only with much searching, uncertainty and support. Inside the company the discussion is about new functions, while the central problems of use remain unsolved.
+
+The management expects a sound strategy for more orientation and efficiency across all digital touchpoints.
+
+You are not to correct single screens but to develop a sound decision architecture for intuitive use based on cognitive principles.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -319,7 +379,19 @@ You take the perspective of the Chief Experience Officer of the energy supplier 
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a customer portal, a mobile app and a service platform, users who can do most tasks only with much searching, uncertainty and support, an inside discussion about new functions, a limited budget, several stakeholders, departments that want variety of functions, partial user data, first improvements in 3 months, and the warning that wrong priorities increase support costs, frustration and abandonment. Those are the plan's facts. That the company is the energy supplier of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a customer portal, a mobile app and a service platform
+- users who can do most tasks only with much searching, uncertainty and support
+- an inside discussion about new functions
+- a limited budget
+- several stakeholders
+- departments that want variety of functions
+- partial user data
+- first improvements in 3 months
+- the warning that wrong priorities increase support costs, frustration and abandonment
+
+Those are the plan's facts. That the company is the energy supplier of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A strategy for intuitive use across our digital touchpoints.*

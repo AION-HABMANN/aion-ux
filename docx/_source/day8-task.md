@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: StartSmart, a platform for start-up advice and funding applications, and FutureSkills, a further-training platform that has three journeys for its users. The main case is GreenHome, the onboarding of a provider of sustainable energy solutions, for advice, product selection and funding support. It is complete, but users find it sober, long-winded and not very motivating; many start it and abandon it before the end.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: StartSmart, a platform for start-up advice and funding applications, and FutureSkills, a further-training platform that has three journeys for its users.
+
+The main case is GreenHome, the onboarding of a provider of sustainable energy solutions, for advice, product selection and funding support.
+
+It is complete, but users find it sober, long-winded and not very motivating; many start it and abandon it before the end.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: StartSmart with much information but no journey, an entry about functions, no transitions or stopovers, no progress or milestones, help that does not connect and successful steps not picked up; FutureSkills's three journeys for working people with little time, a professional and inspiring brand, a limited budget, 10 weeks, activation against clarity and no tests; GreenHome sober, long-winded and unmotivating, with many who abandon, an entry without benefit or goal, an administrative sequence, barely visible progress, help that does not motivate, steps that do not feel like progress, a form instead of a journey, €155,000, 12 weeks, logic kept and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- StartSmart with much information but no journey, an entry about functions, no transitions or stopovers, no progress or milestones, help that does not connect and successful steps not picked up
+- FutureSkills's three journeys for working people with little time, a professional and inspiring brand, a limited budget, 10 weeks, activation against clarity and no tests
+- GreenHome sober, long-winded and unmotivating, with many who abandon, an entry without benefit or goal, an administrative sequence, barely visible progress, help that does not motivate, steps that do not feel like progress, a form instead of a journey, €155,000, 12 weeks, logic kept and no relaunch
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the narrative gaps and weigh journeys · Level 1 · Knowledge
@@ -61,7 +73,11 @@ The brief says: StartSmart with much information but no journey, an entry about 
 
 **Draws on:** A1 · Why people experience a process as a story · A2 · The elements of narrative guidance · A3 · Telling a story or guiding with one · A4 · Orientation, motivation and memorability, and the risk of overload.
 
-You receive the description of a fictional platform, StartSmart, for start-up advice and funding applications. Open it and use it as someone who wants to found a business: find out what you need and start an application. You need no prior knowledge: notice whether you know where you are going and how far you have come, not only whether the steps work. The aim is to recognise narrative gaps in the experience and tell them apart from a purely functional presentation of a process.
+You receive the description of a fictional platform, StartSmart, for start-up advice and funding applications. Open it and use it as someone who wants to found a business: find out what you need and start an application.
+
+You need no prior knowledge: notice whether you know where you are going and how far you have come, not only whether the steps work.
+
+The aim is to recognise narrative gaps in the experience and tell them apart from a purely functional presentation of a process.
 
 ![StartSmart, as the platform shows it.](_figures/d8_b1-1_0.png)
 
@@ -133,7 +149,24 @@ Write them as a list, the bigger weakness first, each with why it weighs most.
 
 **Draws on:** A3 · Telling a story or guiding with one · A4 · Orientation, motivation and memorability, and the risk of overload · A5 · Embedding an action in its context, and weighing a measure.
 
-FutureSkills is a further-training platform. Three journeys for its users are described in words: A) factual and efficient, with clear steps, but little emotional embedding or motivation; B) strongly narrative and emotionally activating, but with more text and longer guidance; C) a balanced mix of clarity, motivating address and visible progress, but with a somewhat higher implementation effort. The conditions: the target group is working people with little time, the company wants to look professional and inspiring, the budget is limited, the release is in 10 weeks, marketing demands stronger activation while the department demands high clarity, and there are no user tests yet. Decide anyway, and say what you assume.
+FutureSkills is a further-training platform.
+
+Three journeys for its users are described in words:
+
+- A) factual and efficient, with clear steps, but little emotional embedding or motivation
+- B) strongly narrative and emotionally activating, but with more text and longer guidance
+- C) a balanced mix of clarity, motivating address and visible progress, but with a somewhat higher implementation effort
+
+The conditions:
+
+- the target group is working people with little time
+- the company wants to look professional and inspiring
+- the budget is limited
+- the release is in 10 weeks
+- marketing demands stronger activation while the department demands high clarity
+- there are no user tests yet
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (journeys).](_figures/d8_b1-2_0.png)
 
@@ -220,7 +253,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Why people experience a process as a story · A2 · The elements of narrative guidance · A3 · Telling a story or guiding with one · A4 · Orientation, motivation and memorability, and the risk of overload · A5 · Embedding an action in its context, and weighing a measure.
 
-A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support. The onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end. The company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity. The observed problems: the entry explains functions, but not the personal benefit or the goal for users; the sequence of steps feels administrative rather than developmental; intermediate states and progress are barely visible; help and hints explain but do not motivate; finishing a step does not feel like progress; and the whole feels like a form process rather than an accompanied journey. The conditions: a budget of €155,000, 12 weeks for the implementation, contents and specialist logic must largely be kept, the company wants to look inspiring but serious, user data is only partly available, and a complete relaunch is not possible. You work through six steps.
+A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support.
+
+The onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end.
+
+The company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity.
+
+The observed problems:
+
+- the entry explains functions, but not the personal benefit or the goal for users
+- the sequence of steps feels administrative rather than developmental
+- intermediate states and progress are barely visible
+- help and hints explain but do not motivate
+- finishing a step does not feel like progress
+- the whole feels like a form process rather than an accompanied journey
+
+The conditions:
+
+- a budget of €155,000
+- 12 weeks for the implementation
+- contents and specialist logic must largely be kept
+- the company wants to look inspiring but serious
+- user data is only partly available
+- a complete relaunch is not possible
+
+You work through six steps.
 
 ![The GreenHome onboarding today.](_figures/d8_b2-1_0.png)
 
@@ -306,7 +363,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the sustainable-energy provider that runs GreenHome. The company has a website, an advisory platform and self-service flows. Its digital processes work, but they create little relevance and bond: users complete their tasks but experience the journey as administrative, interchangeable and not very motivating. Inside the company, storytelling is seen only as a means of communication, not as part of the UX architecture. The management expects a sound strategy for integrating narrative structure and dramaturgical guidance systematically into the digital offers. You are not to write beautiful texts but to develop a sound decision architecture for storytelling, user relevance and dramaturgical guidance.
+You take the perspective of the Chief Experience Officer of the sustainable-energy provider that runs GreenHome. The company has a website, an advisory platform and self-service flows.
+
+Its digital processes work, but they create little relevance and bond: users complete their tasks but experience the journey as administrative, interchangeable and not very motivating.
+
+Inside the company, storytelling is seen only as a means of communication, not as part of the UX architecture.
+
+The management expects a sound strategy for integrating narrative structure and dramaturgical guidance systematically into the digital offers.
+
+You are not to write beautiful texts but to develop a sound decision architecture for storytelling, user relevance and dramaturgical guidance.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -321,7 +386,21 @@ You take the perspective of the Chief Experience Officer of the sustainable-ener
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a website, an advisory platform and self-service flows, processes that work but create little relevance and bond, journeys experienced as administrative, interchangeable and not very motivating, storytelling seen inside only as communication, a limited budget, several stakeholders, specialist clarity that must stay, not all journeys at once, partly incomplete data, first improvements soon, and the warning that wrong decisions can lengthen processes, weaken credibility or deter users. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a website, an advisory platform and self-service flows
+- processes that work but create little relevance and bond
+- journeys experienced as administrative, interchangeable and not very motivating
+- storytelling seen inside only as communication
+- a limited budget
+- several stakeholders
+- specialist clarity that must stay
+- not all journeys at once
+- partly incomplete data
+- first improvements soon
+- the warning that wrong decisions can lengthen processes, weaken credibility or deter users
+
+Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A narrative UX strategy for our digital user journeys.*

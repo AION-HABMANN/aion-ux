@@ -78,7 +78,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three platforms on the UX team's desk, and CitizenFlow"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: OfficeSphere, an internal administration portal for processes, requests and approvals, and CareAssist, a service platform that has three possible structures. The main case is CitizenFlow, a public service platform that gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming: users often lose their orientation, abandon applications or contact support although self-service is available.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: OfficeSphere, an internal administration portal for processes, requests and approvals, and CareAssist, a service platform that has three possible structures.\n\nThe main case is CitizenFlow, a public service platform that gives citizens access to applications, appointment bookings, certificates and status queries.\n\nIt is extensive in functions, but in many areas it feels inconsistent and overwhelming: users often lose their orientation, abandon applications or contact support although self-service is available.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -114,14 +114,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: OfficeSphere without clear grouping, with differently designed similar functions, equal primary and secondary actions, every form field at once, competing elements and different patterns; CareAssist's three structures for experienced and inexperienced users, departments against the UX team, limited resources, 8 weeks and little data; CitizenFlow with inconsistent grouping, unseparated actions, every field at once, varying navigation, unprioritised help and warnings, €170,000, 14 weeks, no relaunch, several departments and low consistency. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• OfficeSphere without clear grouping, with differently designed similar functions, equal primary and secondary actions, every form field at once, competing elements and different patterns\n• CareAssist's three structures for experienced and inexperienced users, departments against the UX team, limited resources, 8 weeks and little data\n• CitizenFlow with inconsistent grouping, unseparated actions, every field at once, varying navigation, unprioritised help and warnings, €170,000, 14 weeks, no relaunch, several departments and low consistency\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the administration behind CitizenFlow, and years of separate solutions"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the public administration that runs CitizenFlow. It has a citizen portal, an app and an internal administration interface, and over the years it has built many digital solutions. Single teams have set up different patterns for navigation, page structure, status displays and forms. Users therefore experience breaks, uncertainty and unnecessary searching. The management expects a sound strategy to turn the UX laws into an organisation-wide design system and into clear decision structures. You are not to correct single pages but to develop a sound decision architecture for visual hierarchy, progressive disclosure, navigation logic and design-system governance.",
+      "You take the perspective of the Chief Experience Officer of the public administration that runs CitizenFlow.\n\nIt has a citizen portal, an app and an internal administration interface, and over the years it has built many digital solutions.\n\nSingle teams have set up different patterns for navigation, page structure, status displays and forms. Users therefore experience breaks, uncertainty and unnecessary searching.\n\nThe management expects a sound strategy to turn the UX laws into an organisation-wide design system and into clear decision structures.\n\nYou are not to correct single pages but to develop a sound decision architecture for visual hierarchy, progressive disclosure, navigation logic and design-system governance.",
     ),
     conditions: {
       title: t("The framework"),
@@ -156,7 +156,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a customer portal, an app and an internal administration interface, many solutions built over years, teams with different patterns for navigation, page structure, status displays and forms, users with breaks, uncertainty and searching, a limited budget, teams working in parallel, different priorities, weak consistency, partly incomplete data, first improvements in 3 months, and the warning that wrong decisions raise support effort, frustration and follow-up costs. Those are the plan's facts. That the company is the public administration of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a customer portal, an app and an internal administration interface\n• many solutions built over years\n• teams with different patterns for navigation, page structure, status displays and forms\n• users with breaks, uncertainty and searching\n• a limited budget\n• teams working in parallel\n• different priorities\n• weak consistency\n• partly incomplete data\n• first improvements in 3 months\n• the warning that wrong decisions raise support effort, frustration and follow-up costs\n\nThose are the plan's facts. That the company is the public administration of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -168,7 +168,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Navigation and structure problems (OfficeSphere)"),
       lead: t(
-        "You receive the description of a fictional administration portal, OfficeSphere, for internal processes, requests and approvals. Open it and try to request leave and approve a colleague's request, as an employee would. You need no prior knowledge: notice where the page feels unclear or overwhelming and where you cannot tell what belongs together. The aim is to recognise Gestalt and structure problems step by step and to describe their influence on navigation and mental load.",
+        "You receive the description of a fictional administration portal, OfficeSphere, for internal processes, requests and approvals. Open it and try to request leave and approve a colleague's request, as an employee would.\n\nYou need no prior knowledge: notice where the page feels unclear or overwhelming and where you cannot tell what belongs together.\n\nThe aim is to recognise Gestalt and structure problems step by step and to describe their influence on navigation and mental load.",
       ),
       slots: ["officesphere"],
       fields: [
@@ -343,7 +343,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate progressive disclosure and hierarchy under conflicting goals (CareAssist)"),
       lead: t(
-        "CareAssist is a service platform. Three structures are described in words: A) all information and options directly visible, a high transparency but a strong density of information; B) central content clearly prioritised, additional information only shown step by step; C) a modern, reduced layout with strong compression, but important context information partly hidden too deep. The conditions: the target group includes experienced and inexperienced users, the departments want as much information as possible visible at once, the UX team asks for a stronger hierarchy and progressive disclosure, technical resources for large changes are limited, the release is in 8 weeks, and only little user data is available. Decide anyway, and say what you assume.",
+        "CareAssist is a service platform.\n\nThree structures are described in words:\nA) all information and options directly visible, a high transparency but a strong density of information\nB) central content clearly prioritised, additional information only shown step by step\nC) a modern, reduced layout with strong compression, but important context information partly hidden too deep\n\nThe conditions:\n• the target group includes experienced and inexperienced users\n• the departments want as much information as possible visible at once\n• the UX team asks for a stronger hierarchy and progressive disclosure\n• technical resources for large changes are limited\n• the release is in 8 weeks\n• only little user data is available\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["structures"],
       fields: [
@@ -479,7 +479,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: CitizenFlow"),
       lead: t(
-        "A public service platform gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming. Users often lose orientation, abandon applications or contact support although self-service is available. The observed problems: different page types group content differently, primary and secondary actions are not cleanly separated, forms show all fields at once, also optional and context-dependent ones, navigation patterns vary between areas with a similar function, additional information, help and warnings are not cleanly prioritised, and users have to work out themselves which information is relevant and which is only supplementary. The conditions: a budget of €170,000, 14 weeks for the implementation, a complete relaunch is ruled out, several departments have their own requirements, consistency across the service areas is low so far, and usage data is only partly available. You work through six steps.",
+        "A public service platform gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming.\n\nUsers often lose orientation, abandon applications or contact support although self-service is available.\n\nThe observed problems:\n• different page types group content differently\n• primary and secondary actions are not cleanly separated\n• forms show all fields at once, also optional and context-dependent ones\n• navigation patterns vary between areas with a similar function\n• additional information, help and warnings are not cleanly prioritised\n• users have to work out themselves which information is relevant and which is only supplementary\n\nThe conditions:\n• a budget of €170,000\n• 14 weeks for the implementation\n• a complete relaunch is ruled out\n• several departments have their own requirements\n• consistency across the service areas is low so far\n• usage data is only partly available\n\nYou work through six steps.",
       ),
       slots: ["citizenflow"],
       fields: [

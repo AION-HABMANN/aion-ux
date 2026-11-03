@@ -77,7 +77,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three products on the UX team's desk, and MoveEasy"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: BankDirect, a customer portal for transfers, card management and contract services, and AdminFlow, an administration platform that has three variants for its main navigation. The main case is MoveEasy, a mobility provider's portal where users book trips, manage tickets, change payment data and send support requests. It is rich in functions, but using it is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: BankDirect, a customer portal for transfers, card management and contract services, and AdminFlow, an administration platform that has three variants for its main navigation.\n\nThe main case is MoveEasy, a mobility provider's portal where users book trips, manage tickets, change payment data and send support requests.\n\nIt is rich in functions, but using it is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -113,14 +113,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: BankDirect with 14 equal options, a small “start transfer” link, similar buttons close together, crowded forms, numbers to remember and small mobile buttons; AdminFlow's three navigation variants for frequent and occasional users, a department against IT, rising mobile use, 7 weeks and limited test data; MoveEasy with small, badly placed buttons, too many options, things to remember, long similar lists, small touch targets, €140,000, 10 weeks, mobile use above 60 % and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• BankDirect with 14 equal options, a small “start transfer” link, similar buttons close together, crowded forms, numbers to remember and small mobile buttons\n• AdminFlow's three navigation variants for frequent and occasional users, a department against IT, rising mobile use, 7 weeks and limited test data\n• MoveEasy with small, badly placed buttons, too many options, things to remember, long similar lists, small touch targets, €140,000, 10 weeks, mobile use above 60 % and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the mobility provider behind MoveEasy, and all its interfaces"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the mobility provider that runs MoveEasy. The company has a customer portal, a service app and an administration interface. Many digital processes work, but they are unnecessarily slow, error-prone and hard to access for first-time users. Inside the company new functions are prioritised, although known problems of reach, choice complexity and information overload remain unsolved. The management demands a sound strategy to improve efficiency, orientation and the quality of interaction. You are not to correct single buttons or menus but to develop a sound decision architecture for navigation, interaction and action logic based on Fitts's law, Hick's law and Miller's rule.",
+      "You take the perspective of the Chief Experience Officer of the mobility provider that runs MoveEasy. The company has a customer portal, a service app and an administration interface.\n\nMany digital processes work, but they are unnecessarily slow, error-prone and hard to access for first-time users.\n\nInside the company new functions are prioritised, although known problems of reach, choice complexity and information overload remain unsolved.\n\nThe management demands a sound strategy to improve efficiency, orientation and the quality of interaction.\n\nYou are not to correct single buttons or menus but to develop a sound decision architecture for navigation, interaction and action logic based on Fitts's law, Hick's law and Miller's rule.",
     ),
     conditions: {
       title: t("The framework"),
@@ -155,7 +155,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a customer portal, a service app and an administration interface, processes that work but are slow, error-prone and hard for first-time users, new functions prioritised over known problems of reach, choice complexity and information overload, a limited budget, strongly growing mobile use, conflicting stakeholders, not all systems at once, partial user data, first results soon, and the warning that wrong decisions increase support costs, abandonment and frustration. Those are the plan's facts. That the company is the mobility provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a customer portal, a service app and an administration interface\n• processes that work but are slow, error-prone and hard for first-time users\n• new functions prioritised over known problems of reach, choice complexity and information overload\n• a limited budget\n• strongly growing mobile use\n• conflicting stakeholders\n• not all systems at once\n• partial user data\n• first results soon\n• the warning that wrong decisions increase support costs, abandonment and frustration\n\nThose are the plan's facts. That the company is the mobility provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -167,7 +167,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Interaction hurdles (BankDirect)"),
       lead: t(
-        "You receive the description of a fictional customer portal, BankDirect, for transfers, card management and contract services. Open it, on the desktop and on a phone, and try to start a transfer as a customer would. You need no prior knowledge: notice where you are slow, unsure or close to a mistake. The aim is to recognise the three UX laws in concrete problems of use and to describe their effect step by step.",
+        "You receive the description of a fictional customer portal, BankDirect, for transfers, card management and contract services. Open it, on the desktop and on a phone, and try to start a transfer as a customer would.\n\nYou need no prior knowledge: notice where you are slow, unsure or close to a mistake. The aim is to recognise the three UX laws in concrete problems of use and to describe their effect step by step.",
       ),
       slots: ["bankdirect"],
       fields: [
@@ -338,7 +338,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate navigation concepts under conflicting goals (AdminFlow)"),
       lead: t(
-        "AdminFlow is an administration platform. Three variants for its main navigation are described in words: A) all functions visible at a glance, so a high access to functions, but many options at once; B) the central tasks are large and easy to reach, while rare functions lie deeper in submenus; C) a modern, minimalist layout with few visible options, but many steps to the actual action. The conditions: the target group is frequent and occasional users, the department demands that all functions are visible, IT wants to manage with little rework, mobile use is rising strongly, the release is in 7 weeks, and only limited user test data exists. Decide anyway, and say what you assume.",
+        "AdminFlow is an administration platform.\n\nThree variants for its main navigation are described in words:\nA) all functions visible at a glance, so a high access to functions, but many options at once\nB) the central tasks are large and easy to reach, while rare functions lie deeper in submenus\nC) a modern, minimalist layout with few visible options, but many steps to the actual action\n\nThe conditions:\n• the target group is frequent and occasional users\n• the department demands that all functions are visible\n• IT wants to manage with little rework\n• mobile use is rising strongly\n• the release is in 7 weeks\n• only limited user test data exists\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["adminnav"],
       fields: [
@@ -475,7 +475,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: MoveEasy"),
       lead: t(
-        "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests. The portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up. The observed problems: central booking buttons are small and partly badly placed, too many options at once on the start page raise uncertainty, users have to remember several tariffs and conditions at once, important actions lie in long lists of similar options, process steps offer too many equal choices, and mobile interaction is hard because touch targets are too small. The conditions: a budget of €140,000, 10 weeks for the implementation, mobile use is already above 60 %, a complete relaunch is not possible, marketing wants to keep as many offers visible as possible, and support demands fewer operating errors and questions. You work through six steps.",
+        "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.\n\nThe portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.\n\nThe observed problems:\n• central booking buttons are small and partly badly placed\n• too many options at once on the start page raise uncertainty\n• users have to remember several tariffs and conditions at once\n• important actions lie in long lists of similar options\n• process steps offer too many equal choices\n• mobile interaction is hard because touch targets are too small\n\nThe conditions:\n• a budget of €140,000\n• 10 weeks for the implementation\n• mobile use is already above 60 %\n• a complete relaunch is not possible\n• marketing wants to keep as many offers visible as possible\n• support demands fewer operating errors and questions\n\nYou work through six steps.",
       ),
       slots: ["moveeasy"],
       fields: [

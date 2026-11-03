@@ -10,7 +10,7 @@ route: Materi A serves Route 1 (Levels 1 and 2, Task 1). Materi B serves Route 2
 minutes: Materi A about 60 min · Materi B about 60 min (facilitator-led)
 case: Worked examples use a made-up company in each card. The task case is MyEnergy (see the Task document).
 intro: Today is about why some interfaces feel effortless and others make people search, remember and guess. You learn how perception, attention, memory and action work together, three classic UX laws (Hick's law on choices, Miller's rule and the limits of working memory, Fitts's law on reaching a target), and what expectations, recognisability, mental models and a clear action logic do for intuitive use. Then you use them on three products and decide what to change first. This document holds everything you need to study Day 4 without the website. Every card says what the idea is in plain words, shows it in a picture, gives the details and ends with the rules you use in the tasks.
-glossary: friction,ux,intuitive,fitts,mental-model,governance,case-assumption,hick,consistency,chunk,grouping,progressive,miller,action-logic,primary-action,neuro-ux,ux-law,working-memory,expectation,jakob,perception,attention,cognition,cog-load,orientation,self-service,abandonment,cxo,findability,recognition,decision-effort
+glossary: friction,ux,intuitive,fitts,mental-model,governance,case-assumption,hick,consistency,chunk,neuro-ux,grouping,progressive,miller,action-logic,primary-action,ux-law,working-memory,expectation,jakob,perception,attention,cognition,cog-load,orientation,self-service,abandonment,cxo,findability,recognition,decision-effort
 refs: norman2013,iso9241110,krug2014,raskin1994,baymard2024,rayner1998,cowan2001,hick1952,hyman1953,iyengar2000,yablonski2020,larson1998,fitts1954,wcag22,appleHig,nielsen2000,nielsen1994,miller1956,sweller1988,iso13616,gibbons2018,us5960411,simon1956,klein2007,conway1968,frost2016
 ---
 
@@ -82,6 +82,8 @@ ISO 9241-110 lists seven interaction principles: suitability for the task, self-
 :::
 
 ![One Pedalo pass page with twelve equal passes and with three recommended passes. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d4_A2_0.png)
+
+![The same sixteen Pedalo help topics in three structures. Shown here in its starting state; in the Neuro-UX Lab every version and every stress test can be used.](_figures/d4_A2_1.png)
 
 **When many options hurt, and when they do not**
 

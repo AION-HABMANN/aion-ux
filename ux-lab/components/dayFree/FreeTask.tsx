@@ -36,6 +36,7 @@ import { showCardPart } from "@/store/useCardMore";
 import type { FreeRoute } from "@/store/dayTypesFree";
 import { usePersisted } from "@/store/usePersisted";
 import { useHydrated, useStore } from "@/store/useStore";
+import { Prose } from "@/components/ui/Prose";
 
 /**
  * The two tasks of a free-form day (DL-STANDARD v1.1, CLAUDE.md #57), drawn from the day's spec: the plan's own questions as free answers, every block Core,
@@ -73,9 +74,7 @@ function CaseBrief({ spec, route }: { spec: FreeSpec; route: 1 | 2 }) {
         <h2 id={`case-h-${route}`}>{b.heading}</h2>
         <span className="smallcaps">{b.readTime}</span>
       </div>
-      <p className="max-w-prose text-body text-ink">
-        <Gloss>{b.paragraph}</Gloss>
-      </p>
+      <Prose gloss text={b.paragraph} className="max-w-prose text-body text-ink" />
       <div className="grid gap-3 md:grid-cols-2">
         <div className="rounded-lg border border-line bg-canvas p-3 text-caption">
           <p className="smallcaps">{b.conditions.title}</p>
@@ -112,7 +111,7 @@ function CaseBrief({ spec, route }: { spec: FreeSpec; route: 1 | 2 }) {
       )}
       {b.known && <CaseKnown id={route === 1 ? "case-known" : "case-known-2"} title={b.known.title} columns={b.known.columns} note={b.known.note} />}
       <Callout label={tt("Case assumption", "Fallannahme")}>
-        <p>{b.assumption}</p>
+        <Prose text={b.assumption} />
       </Callout>
     </section>
   );
@@ -365,7 +364,7 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
   return (
     <AnswerBlock id={`block-${b.id.replace(".", "-")}`} title={b.title} kind="JUDGED" core minutes={b.minutes} findIt={b.findIt}>
       <MaterialRefs refs={b.refs} />
-      {b.lead && <p className="max-w-prose text-body text-ink">{b.lead}</p>}
+      {b.lead && <Prose text={b.lead} className="max-w-prose text-body text-ink" />}
       {b.sharedDocId && (
         <div className="max-w-prose rounded-lg border border-line bg-canvas p-3 text-caption" id="shared-doc">
           <p className="text-body font-semibold text-ink">{tt("Work together in Google Docs", "Gemeinsam in Google Docs arbeiten")}</p>

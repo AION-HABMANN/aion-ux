@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: WellTrack, a health platform for prevention, appointments and personal recommendations, and CareerPath, a platform for career development and further training that has three designs for its interface. The main case is LifeSupport, the portal of a health-prevention provider for advice, appointments and documents. It does its job, but users call it impersonal, exhausting and not very supportive, and its use stays below expectations although it offers a lot.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: WellTrack, a health platform for prevention, appointments and personal recommendations, and CareerPath, a platform for career development and further training that has three designs for its interface.
+
+The main case is LifeSupport, the portal of a health-prevention provider for advice, appointments and documents.
+
+It does its job, but users call it impersonal, exhausting and not very supportive, and its use stays below expectations although it offers a lot.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: WellTrack correct but cool, with technical errors, no positive feedback, sober health information, no orientation or relevance, and an unapproachable design; CareerPath's three designs for working people from 25 to 60, a professional yet approachable brand, a limited budget, no tests, 9 weeks, seriousness against activation; LifeSupport impersonal, exhausting and unsupportive, with a distant visual language, technical feedback, unsettling critical moments, no positive reinforcement, a cold tone, €145,000, 12 weeks and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- WellTrack correct but cool, with technical errors, no positive feedback, sober health information, no orientation or relevance, and an unapproachable design
+- CareerPath's three designs for working people from 25 to 60, a professional yet approachable brand, a limited budget, no tests, 9 weeks, seriousness against activation
+- LifeSupport impersonal, exhausting and unsupportive, with a distant visual language, technical feedback, unsettling critical moments, no positive reinforcement, a cold tone, €145,000, 12 weeks and no relaunch
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Name the emotional effect and weigh designs · Level 1 · Knowledge
@@ -61,7 +73,11 @@ The brief says: WellTrack correct but cool, with technical errors, no positive f
 
 **Draws on:** A1 · Emotions steer behaviour · A2 · Usable is not enough · A3 · Where feelings come from · A4 · Activation, overload and manipulation.
 
-You receive the description of a fictional health platform, WellTrack, for prevention, appointment management and personal recommendations. Open it and use it as someone who has just signed up: book a check-up and read your recommendations. You need no prior knowledge: notice how it makes you feel, not only whether it works. The aim is to recognise emotional effect step by step and to tell it apart from a purely functional judgement.
+You receive the description of a fictional health platform, WellTrack, for prevention, appointment management and personal recommendations.
+
+Open it and use it as someone who has just signed up: book a check-up and read your recommendations. You need no prior knowledge: notice how it makes you feel, not only whether it works.
+
+The aim is to recognise emotional effect step by step and to tell it apart from a purely functional judgement.
 
 ![WellTrack, as the platform shows it.](_figures/d7_b1-1_0.png)
 
@@ -133,7 +149,24 @@ Write them as a list, the bigger weakness first, each with why it weighs most.
 
 **Draws on:** A2 · Usable is not enough · A4 · Activation, overload and manipulation · A5 · Trust and perceived competence, and weighing a measure.
 
-CareerPath is a platform for career development and further training. Three designs for its interface are described in words: A) modern, warm and motivating, but with many emotional stimuli and activating messages; B) factual, clear and trustworthy, but not very inspiring or connecting; C) high quality and personal in feel, but in some situations a little unclear in its interaction feedback. The conditions: the target group is working people between 25 and 60, the company wants to look professional and approachable, the budget for a deep revision is limited, there are no user tests yet, the release is in 9 weeks, and the department demands seriousness while marketing demands stronger activation. Decide anyway, and say what you assume.
+CareerPath is a platform for career development and further training.
+
+Three designs for its interface are described in words:
+
+- A) modern, warm and motivating, but with many emotional stimuli and activating messages
+- B) factual, clear and trustworthy, but not very inspiring or connecting
+- C) high quality and personal in feel, but in some situations a little unclear in its interaction feedback
+
+The conditions:
+
+- the target group is working people between 25 and 60
+- the company wants to look professional and approachable
+- the budget for a deep revision is limited
+- there are no user tests yet
+- the release is in 9 weeks
+- the department demands seriousness while marketing demands stronger activation
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (careerdesigns).](_figures/d7_b1-2_0.png)
 
@@ -220,7 +253,29 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Emotions steer behaviour · A2 · Usable is not enough · A3 · Where feelings come from · A4 · Activation, overload and manipulation · A5 · Trust and perceived competence, and weighing a measure.
 
-A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management. Technically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large. The observed problems: the visual language is factual but emotionally distant, feedback after actions is technical instead of supportive, critical situations such as error messages create uncertainty instead of orientation, positive experiences are not visibly reinforced, the tone is correct but does not build trust or motivate, and the interaction is functional but does not build a relationship. The conditions: a budget of €145,000, 12 weeks for the implementation, no complete relaunch, the brand should stay serious but become emotionally more approachable, user data is only partly available, and the department and marketing set different priorities. You work through six steps.
+A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.
+
+Technically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.
+
+The observed problems:
+
+- the visual language is factual but emotionally distant
+- feedback after actions is technical instead of supportive
+- critical situations such as error messages create uncertainty instead of orientation
+- positive experiences are not visibly reinforced
+- the tone is correct but does not build trust or motivate
+- the interaction is functional but does not build a relationship
+
+The conditions:
+
+- a budget of €145,000
+- 12 weeks for the implementation
+- no complete relaunch
+- the brand should stay serious but become emotionally more approachable
+- user data is only partly available
+- the department and marketing set different priorities
+
+You work through six steps.
 
 ![LifeSupport today, as the portal shows it.](_figures/d7_b2-1_0.png)
 
@@ -305,7 +360,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the health-prevention provider that runs LifeSupport. The company has a website, a customer portal and an app. Its digital offers are functionally solid but create little emotional bond: users find them correct, but not supportive, trust-building or motivating. Inside the company, emotion is mostly seen as a question of communication or marketing, not as part of the UX architecture. The management expects a sound strategy for building emotional quality systematically into the digital product experience. You are not to polish single screens but to develop a sound decision architecture for emotional bonding, trust design and experience quality.
+You take the perspective of the Chief Experience Officer of the health-prevention provider that runs LifeSupport. The company has a website, a customer portal and an app.
+
+Its digital offers are functionally solid but create little emotional bond: users find them correct, but not supportive, trust-building or motivating.
+
+Inside the company, emotion is mostly seen as a question of communication or marketing, not as part of the UX architecture.
+
+The management expects a sound strategy for building emotional quality systematically into the digital product experience.
+
+You are not to polish single screens but to develop a sound decision architecture for emotional bonding, trust design and experience quality.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +383,21 @@ You take the perspective of the Chief Experience Officer of the health-preventio
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a website, a customer portal and an app, functionally solid offers with little emotional bond, users who find them correct but not supportive, trust-building or motivating, emotion seen inside as communication or marketing, a limited budget, different stakeholders, a professional brand, not all systems at once, partial data on emotional effect, first improvements soon, and the warning that wrong decisions can weaken credibility and acceptance. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a website, a customer portal and an app
+- functionally solid offers with little emotional bond
+- users who find them correct but not supportive, trust-building or motivating
+- emotion seen inside as communication or marketing
+- a limited budget
+- different stakeholders
+- a professional brand
+- not all systems at once
+- partial data on emotional effect
+- first improvements soon
+- the warning that wrong decisions can weaken credibility and acceptance
+
+Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: An emotionally effective UX strategy for our digital services.*

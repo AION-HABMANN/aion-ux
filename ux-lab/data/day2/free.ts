@@ -77,7 +77,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three portals on the UX team's desk, and CampusNow"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: CityDesk, a booking portal for municipal services, and EduFlex, a platform for professional further education that has three designs for its start page. The main case is CampusNow, the portal of an education organisation for course booking, certificates, dates and learning materials. All the content is there, but people cannot find many functions, complaints are rising, bookings are abandoned more often, and using it on a phone is especially hard.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: CityDesk, a booking portal for municipal services, and EduFlex, a platform for professional further education that has three designs for its start page.\n\nThe main case is CampusNow, the portal of an education organisation for course booking, certificates, dates and learning materials.\n\nAll the content is there, but people cannot find many functions, complaints are rising, bookings are abandoned more often, and using it on a phone is especially hard.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -113,14 +113,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: CityDesk with 12 equally weighted menu items, unemphasised main services, dense text, competing boxes, an inconspicuous search and forms far down; EduFlex's three start pages under 10 weeks, a target group with little time, a limited test budget and no user data; CampusNow with an overloaded start page, internal naming, inconsistent page types, long texts, €150,000, 14 weeks and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• CityDesk with 12 equally weighted menu items, unemphasised main services, dense text, competing boxes, an inconspicuous search and forms far down\n• EduFlex's three start pages under 10 weeks, a target group with little time, a limited test budget and no user data\n• CampusNow with an overloaded start page, internal naming, inconsistent page types, long texts, €150,000, 14 weeks and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the education organisation behind CampusNow, and all its touchpoints"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the education organisation that runs CampusNow. It has several digital touchpoints: a website, the self-service portal CampusNow, an app and a support area. Many users do not finish their tasks efficiently. Inside the organisation the discussion is mostly about colours, layout questions and single screens, while the real cause lies deeper: too little user-centredness, inconsistent structures and no priorities in the information architecture. You are not to optimise single screens but to develop a sound decision architecture for user-centred design based on visual perception.",
+      "You take the perspective of the Chief Experience Officer of the education organisation that runs CampusNow. It has several digital touchpoints: a website, the self-service portal CampusNow, an app and a support area.\n\nMany users do not finish their tasks efficiently.\n\nInside the organisation the discussion is mostly about colours, layout questions and single screens, while the real cause lies deeper: too little user-centredness, inconsistent structures and no priorities in the information architecture.\n\nYou are not to optimise single screens but to develop a sound decision architecture for user-centred design based on visual perception.",
     ),
     conditions: {
       title: t("The framework"),
@@ -154,7 +154,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a website, a self-service portal, an app and a support area, users who do not finish tasks efficiently, an inside discussion about colours, layouts and single screens, a deeper cause in user-centredness, structure and information priority, a limited budget, only part of the systems in the short term, stakeholders with different goals, partly reliable data, first results in 3 months, and the warning that wrong priorities raise support costs and dissatisfaction. Those are the plan's facts. That the company is the education organisation of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a website, a self-service portal, an app and a support area\n• users who do not finish tasks efficiently\n• an inside discussion about colours, layouts and single screens\n• a deeper cause in user-centredness, structure and information priority\n• a limited budget\n• only part of the systems in the short term\n• stakeholders with different goals\n• partly reliable data\n• first results in 3 months\n• the warning that wrong priorities raise support costs and dissatisfaction\n\nThose are the plan's facts. That the company is the education organisation of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -166,7 +166,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Read an interface as a user (CityDesk)"),
       lead: t(
-        "You receive the description of a fictional booking portal, CityDesk, for municipal services such as an appointment at the citizens' office or a parking permit. Open it and use it as someone who has never seen it before. You need no prior knowledge: ask yourself where your eye goes, what you would look for and what stops you. The aim is to take the user's perspective and make perception problems visible step by step.",
+        "You receive the description of a fictional booking portal, CityDesk, for municipal services such as an appointment at the citizens' office or a parking permit. Open it and use it as someone who has never seen it before.\n\nYou need no prior knowledge: ask yourself where your eye goes, what you would look for and what stops you. The aim is to take the user's perspective and make perception problems visible step by step.",
       ),
       slots: ["citydesk"],
       fields: [
@@ -355,7 +355,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate user-centred design under conflicting goals (EduFlex)"),
       lead: t(
-        "EduFlex is a platform for professional further education. Three designs for its start page are described in words: A) much content directly visible and a high volume of information, but little visual calm; B) a clear structure and less information, but more clicks to the goal; C) strongly image-led and modern, but the central functions recede into the background. The conditions: the platform is to be published within 10 weeks, the target group is working people with little time, marketing wants high activation, the department wants a lot of information directly on the start page, the budget for test runs is limited and there is no real user data yet. Decide anyway, and say what you assume.",
+        "EduFlex is a platform for professional further education.\n\nThree designs for its start page are described in words:\nA) much content directly visible and a high volume of information, but little visual calm\nB) a clear structure and less information, but more clicks to the goal\nC) strongly image-led and modern, but the central functions recede into the background\n\nThe conditions:\n• the platform is to be published within 10 weeks\n• the target group is working people with little time\n• marketing wants high activation\n• the department wants a lot of information directly on the start page\n• the budget for test runs is limited and there is no real user data yet\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["variants"],
       fields: [
@@ -500,7 +500,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: CampusNow"),
       lead: t(
-        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty. Complaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic. The observed problems: the start page is overloaded with information, the navigation items are named after the internal organisation, important functions are not visually prioritised, different page types use different structures, the text blocks are long and hard to scan, and users often have to search instead of being guided directly. The conditions: a budget of €150,000, 14 weeks for the implementation, no complete relaunch, first improvements have to be visible quickly, and marketing asks for a modern look, support for fewer questions and IT for standardisation. You work through six steps.",
+        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through six steps.",
       ),
       slots: ["campusnow"],
       fields: [

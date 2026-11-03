@@ -37,7 +37,15 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX research team of a digital agency. This week three projects land on your desk. Two are warm-ups: FocusSense, an innovation project to analyse and improve a digital learning portal with eye-tracking and neurofeedback, and LearningPulse, a learning platform with three approaches to neuro-based technology. The main case is VisionMind Lab: a company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal. It wants to understand attention paths better, recognise overload and, in the long run, open up new forms of interaction. Inside, the excitement about what can be measured is great; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing.
+You work in the UX research team of a digital agency. This week three projects land on your desk.
+
+Two are warm-ups: FocusSense, an innovation project to analyse and improve a digital learning portal with eye-tracking and neurofeedback, and LearningPulse, a learning platform with three approaches to neuro-based technology.
+
+The main case is VisionMind Lab: a company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal.
+
+It wants to understand attention paths better, recognise overload and, in the long run, open up new forms of interaction.
+
+Inside, the excitement about what can be measured is great; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +60,15 @@ You work in the UX research team of a digital agency. This week three projects l
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: FocusSense's eye-tracking of what learners see first and where they get lost, neurofeedback for concentration and overload, “objective truth data” promised, design decisions to rest on measurements, unclear robustness in real use, data protection, ethics and acceptance only at the margin; LearningPulse's three approaches (A comprehensive eye-tracking and experimental neurofeedback, high effort and interpretation risk; B targeted eye-tracking for prototype tests without product integration; C exploratory BCI observation, low risk, high learning), innovative and close to science, a limited budget, a broad and unprepared group, sensitive ethics and data protection, few references, results within 5 months; VisionMind Lab's mixed research, innovation and product, no hypotheses, unclear product-nearness, consent and acceptance open, fast results demanded, no governance, €240,000, 18 weeks, no trust risks, limited product integration, little market data, insights for management. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the recordings and the facts marked “Clear”.
+The brief says:
+
+- FocusSense's eye-tracking of what learners see first and where they get lost, neurofeedback for concentration and overload, “objective truth data” promised, design decisions to rest on measurements, unclear robustness in real use, data protection, ethics and acceptance only at the margin
+- LearningPulse's three approaches (A comprehensive eye-tracking and experimental neurofeedback, high effort and interpretation risk
+- B targeted eye-tracking for prototype tests without product integration
+- C exploratory BCI observation, low risk, high learning), innovative and close to science, a limited budget, a broad and unprepared group, sensitive ethics and data protection, few references, results within 5 months
+- VisionMind Lab's mixed research, innovation and product, no hypotheses, unclear product-nearness, consent and acceptance open, fast results demanded, no governance, €240,000, 18 weeks, no trust risks, limited product integration, little market data, insights for management
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the recordings and the facts marked “Clear”.
 :::
 
 # Part 1 · Weigh a neuro-based project, and three approaches · Level 1 · Knowledge
@@ -61,7 +77,13 @@ The brief says: FocusSense's eye-tracking of what learners see first and where t
 
 **Draws on:** A1 · What eye-tracking measures · A2 · Looking is not understanding · A3 · Neurofeedback and brain-computer interfaces at their real maturity · A5 · Ethics, data protection and voluntariness, and weighing a measure.
 
-You receive the description of a fictional innovation project, FocusSense, for analysing and improving a digital learning portal. Open it: replay a learner's gaze on a lesson page, switch between the scanpath and the heatmap, look at the neurofeedback “concentration” curve, then read what the learner said afterwards and look at the recording under real conditions. You need no prior knowledge: notice what the data shows, and what someone would have to add to it. The aim is to judge neuro-based UX technologies in a differentiated way and to tell measurement, interpretation and management use apart.
+You receive the description of a fictional innovation project, FocusSense, for analysing and improving a digital learning portal.
+
+Open it: replay a learner's gaze on a lesson page, switch between the scanpath and the heatmap, look at the neurofeedback “concentration” curve, then read what the learner said afterwards and look at the recording under real conditions.
+
+You need no prior knowledge: notice what the data shows, and what someone would have to add to it.
+
+The aim is to judge neuro-based UX technologies in a differentiated way and to tell measurement, interpretation and management use apart.
 
 ![The product to read, as the lab shows it (focussense).](_figures/d15_b1-1_0.png)
 
@@ -132,7 +154,24 @@ Write four lines: chance 1, chance 2, risk 1, risk 2, each with why it weighs mo
 
 **Draws on:** A3 · Neurofeedback and brain-computer interfaces at their real maturity · A4 · Insight, interpretation risk and decision relevance · A5 · Ethics, data protection and voluntariness, and weighing a measure.
 
-LearningPulse is a learning platform. Three innovation approaches are described in words: A) comprehensive eye-tracking and experimental neurofeedback to optimise attention and learning flow, but with high effort and high interpretation risks; B) targeted eye-tracking for prototype tests and interface analysis, without direct integration into the product; C) exploratory observation of BCI technologies with little immediate product use, but low risk and high learning potential. The conditions: the company wants to appear innovative and close to science, the budget for research and piloting is limited, the target group is broad and not prepared for neuro-based technologies, data protection and ethical questions are sensitive, there are only few practical references in its own market, and first results are to be visible within 5 months. Decide anyway, and say what you assume.
+LearningPulse is a learning platform.
+
+Three innovation approaches are described in words:
+
+- A) comprehensive eye-tracking and experimental neurofeedback to optimise attention and learning flow, but with high effort and high interpretation risks
+- B) targeted eye-tracking for prototype tests and interface analysis, without direct integration into the product
+- C) exploratory observation of BCI technologies with little immediate product use, but low risk and high learning potential
+
+The conditions:
+
+- the company wants to appear innovative and close to science
+- the budget for research and piloting is limited
+- the target group is broad and not prepared for neuro-based technologies
+- data protection and ethical questions are sensitive
+- there are only few practical references in its own market
+- first results are to be visible within 5 months
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d15_b1-2_0.png)
 
@@ -219,7 +258,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · What eye-tracking measures · A2 · Looking is not understanding · A3 · Neurofeedback and brain-computer interfaces at their real maturity · A4 · Insight, interpretation risk and decision relevance · A5 · Ethics, data protection and voluntariness, and weighing a measure.
 
-A company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal. The aim is to understand attention paths better, to recognise overload and, in the long run, to open up new forms of interaction. Inside there is great excitement about what can be measured; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing. The observed problems: research, innovation and product optimisation are mixed without a clear separation; a high gain in insight is hoped for without hypotheses and limits being clearly defined; it is unclear which methods can be used near the product and which only for exploration; data protection, consent and acceptance are not yet addressed enough; departments want fast results although the methods need much explanation and interpretation; and there is no robust governance for neuro-based research. The conditions: a budget of €240,000 for research, piloting and evaluation, 18 weeks for the first pilot and decision phase, the company wants to appear innovative but must not create trust risks, product integration is only realistic to a limited extent in the short term, there is little data in its own market, and first insights must be prepared for management. You work through six steps.
+A company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal.
+
+The aim is to understand attention paths better, to recognise overload and, in the long run, to open up new forms of interaction.
+
+Inside there is great excitement about what can be measured; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing.
+
+The observed problems:
+
+- research, innovation and product optimisation are mixed without a clear separation
+- a high gain in insight is hoped for without hypotheses and limits being clearly defined
+- it is unclear which methods can be used near the product and which only for exploration
+- data protection, consent and acceptance are not yet addressed enough
+- departments want fast results although the methods need much explanation and interpretation
+- there is no robust governance for neuro-based research
+
+The conditions:
+
+- a budget of €240,000 for research, piloting and evaluation
+- 18 weeks for the first pilot and decision phase
+- the company wants to appear innovative but must not create trust risks
+- product integration is only realistic to a limited extent in the short term
+- there is little data in its own market
+- first insights must be prepared for management
+
+You work through six steps.
 
 ![The product to read, as the lab shows it (visionmind).](_figures/d15_b2-1_0.png)
 
@@ -305,7 +368,15 @@ Three to five sentences: what you recommend, what has priority, and what you hop
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of a company with complex digital products, the company behind VisionMind Lab. It wants to extend its UX research and is examining where eye-tracking, neurofeedback and, later, BCI-near approaches can be used sensibly. Innovation leads see great potential for differentiation and deeper insight into users; data protection, ethics and market maturity have not been structured. The management expects a sound strategy for building neuro-based technologies close to research, responsibly and in a steerable way. Your task is not to introduce new measurement methods uncritically, but to develop a sound decision architecture for insight, ethics governance, piloting and the strategic use of neuro-based UX technologies.
+You take the perspective of the Chief Experience Officer of a company with complex digital products, the company behind VisionMind Lab.
+
+It wants to extend its UX research and is examining where eye-tracking, neurofeedback and, later, BCI-near approaches can be used sensibly.
+
+Innovation leads see great potential for differentiation and deeper insight into users; data protection, ethics and market maturity have not been structured.
+
+The management expects a sound strategy for building neuro-based technologies close to research, responsibly and in a steerable way.
+
+Your task is not to introduce new measurement methods uncritically, but to develop a sound decision architecture for insight, ethics governance, piloting and the strategic use of neuro-based UX technologies.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +391,21 @@ You take the perspective of the Chief Experience Officer of a company with compl
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with complex digital products extending its UX research, examining eye-tracking, neurofeedback and later BCI-near approaches, innovation leads who see differentiation and insight, unstructured data protection, ethics and market maturity, a management that wants a strategy that is close to research, responsible and steerable, a limited budget, stakeholders with different goals, strongly varying maturity, high ethical sensitivity, patchy acceptance data, pilots to be set up soon, and the warning that wrong decisions cause reputational damage, bad investments and loss of trust. Those are the plan's facts. That the company is the one behind VisionMind Lab and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with complex digital products extending its UX research, examining eye-tracking, neurofeedback and later BCI-near approaches
+- innovation leads who see differentiation and insight
+- unstructured data protection, ethics and market maturity
+- a management that wants a strategy that is close to research, responsible and steerable
+- a limited budget
+- stakeholders with different goals
+- strongly varying maturity
+- high ethical sensitivity
+- patchy acceptance data
+- pilots to be set up soon
+- the warning that wrong decisions cause reputational damage, bad investments and loss of trust
+
+Those are the plan's facts. That the company is the one behind VisionMind Lab and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A research and UX architecture for eye-tracking, neurofeedback and BCI-near innovation.*

@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three voice assistants land on your desk. Two are warm-ups: HomeAssist Voice, a digital assistant for energy management, device control and service requests, and CareVoice, a voice assistant for a health platform, with three designs for how it could work. The main case is CityHelp Voice, the voice assistant of a municipal service platform for appointments, status queries and simple citizen requests. The city wants it to lower barriers, improve reachability and relieve its service staff, but it is unsure about comprehensibility, errors, acceptance and the quality of the AI's answers.
+You work in the UX team of a digital agency. This week three voice assistants land on your desk.
+
+Two are warm-ups: HomeAssist Voice, a digital assistant for energy management, device control and service requests, and CareVoice, a voice assistant for a health platform, with three designs for how it could work.
+
+The main case is CityHelp Voice, the voice assistant of a municipal service platform for appointments, status queries and simple citizen requests.
+
+The city wants it to lower barriers, improve reachability and relieve its service staff, but it is unsure about comprehensibility, errors, acceptance and the quality of the AI's answers.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three voice assistants la
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: HomeAssist Voice for energy, devices and service requests, fast but not always comprehensible on complex requests, standard answers on misunderstandings, no hints which commands are possible, partly surprising suggestions, time saved in simple cases and uncertainty in special ones; CareVoice's three designs (A natural free input with a higher error rate in complex situations, B guided dialogues with limited commands but high comprehensibility and robustness, C voice with visual support and AI help but more effort) for users of different ages and experience, innovative and reliable, a limited budget, 12 weeks, first user tests only, data protection, trust and error avoidance critical; CityHelp Voice's simple requests understood and ambiguous ones not, unknown possible inputs, technical errors, efficient but hard to control, acceptance for simple tasks and distrust for sensitive ones, relief against reputational risk, €190,000, 14 weeks, no full multichannel solution, understandable for people not at home with technology, limited test data, first results soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the dialogues, the simulations and the facts marked “Clear”.
+The brief says:
+
+- HomeAssist Voice for energy, devices and service requests, fast but not always comprehensible on complex requests, standard answers on misunderstandings, no hints which commands are possible, partly surprising suggestions, time saved in simple cases and uncertainty in special ones
+- CareVoice's three designs (A natural free input with a higher error rate in complex situations, B guided dialogues with limited commands but high comprehensibility and robustness, C voice with visual support and AI help but more effort) for users of different ages and experience, innovative and reliable, a limited budget, 12 weeks, first user tests only, data protection, trust and error avoidance critical
+- CityHelp Voice's simple requests understood and ambiguous ones not, unknown possible inputs, technical errors, efficient but hard to control, acceptance for simple tasks and distrust for sensitive ones, relief against reputational risk, €190,000, 14 weeks, no full multichannel solution, understandable for people not at home with technology, limited test data, first results soon
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the dialogues, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Analyse a voice assistant, and weigh voice designs · Level 1 · Knowledge
@@ -61,7 +73,13 @@ The brief says: HomeAssist Voice for energy, devices and service requests, fast 
 
 **Draws on:** A1 · Screen, chat or voice · A2 · A good voice dialogue · A3 · Neuro-design.
 
-You receive the description of a fictional digital assistant, HomeAssist Voice, for energy management, device control and service requests. Open it and talk to it as a customer: ask about your consumption, switch a device, ask something complicated, and report a fault. You need no prior knowledge: notice when it helps you, when you do not know what to say, and what happens when it misunderstands. The aim is to judge voice and AI interaction from the user's side, apart from what the technology can do.
+You receive the description of a fictional digital assistant, HomeAssist Voice, for energy management, device control and service requests.
+
+Open it and talk to it as a customer: ask about your consumption, switch a device, ask something complicated, and report a fault.
+
+You need no prior knowledge: notice when it helps you, when you do not know what to say, and what happens when it misunderstands.
+
+The aim is to judge voice and AI interaction from the user's side, apart from what the technology can do.
 
 ![The product to read, as the lab shows it (homeassist).](_figures/d11_b1-1_0.png)
 
@@ -132,7 +150,24 @@ Write two lines: weakness 1 and weakness 2, each with why it weighs most.
 
 **Draws on:** A1 · Screen, chat or voice · A2 · A good voice dialogue · A4 · Prototyping and testing an AI interface · A5 · Where voice belongs, and weighing a measure.
 
-CareVoice is a voice assistant for a platform in the health field. Three variants are described in words: A) very natural, free speech input with high flexibility, but a higher error rate in complex situations; B) clearly guided voice dialogues with a limited set of commands, but high comprehensibility and robustness; C) a combination of voice control, visual support and AI help, but a higher implementation effort. The conditions: the target group covers different ages and levels of experience, the company wants to look innovative and reliable at the same time, the budget for technical development is limited, the release is in 12 weeks, user tests exist only in first approaches, and data protection, trust and avoiding errors are critical. Decide anyway, and say what you assume.
+CareVoice is a voice assistant for a platform in the health field.
+
+Three variants are described in words:
+
+- A) very natural, free speech input with high flexibility, but a higher error rate in complex situations
+- B) clearly guided voice dialogues with a limited set of commands, but high comprehensibility and robustness
+- C) a combination of voice control, visual support and AI help, but a higher implementation effort
+
+The conditions:
+
+- the target group covers different ages and levels of experience
+- the company wants to look innovative and reliable at the same time
+- the budget for technical development is limited
+- the release is in 12 weeks
+- user tests exist only in first approaches
+- data protection, trust and avoiding errors are critical
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d11_b1-2_0.png)
 
@@ -219,7 +254,29 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Screen, chat or voice · A2 · A good voice dialogue · A3 · Neuro-design · A4 · Prototyping and testing an AI interface · A5 · Where voice belongs, and weighing a measure.
 
-A municipal service platform wants to introduce a voice assistant, CityHelp Voice, for appointments, status queries and simple citizen requests. The aim is to lower barriers to use, improve reachability and relieve service processes. At the same time there is uncertainty about comprehensibility, error-proneness, acceptance and the quality of AI-supported answers. The observed problems: first prototypes understand simple requests well but fail on ambiguous ones; users often do not know which inputs are possible or sensible; errors are reported technically instead of helpfully; the combination of voice and AI seems efficient in some situations and hard to control in others; test runs show acceptance for simple tasks but distrust for more sensitive requests; and the departments see relief, while data protection and citizen service warn of reputational risks. The conditions: a budget of €190,000, 14 weeks for the implementation, no full multichannel solution at once, a system that people who are not at home with technology can follow, limited data from earlier tests, and first results that must show soon. You work through six steps.
+A municipal service platform wants to introduce a voice assistant, CityHelp Voice, for appointments, status queries and simple citizen requests.
+
+The aim is to lower barriers to use, improve reachability and relieve service processes. At the same time there is uncertainty about comprehensibility, error-proneness, acceptance and the quality of AI-supported answers.
+
+The observed problems:
+
+- first prototypes understand simple requests well but fail on ambiguous ones
+- users often do not know which inputs are possible or sensible
+- errors are reported technically instead of helpfully
+- the combination of voice and AI seems efficient in some situations and hard to control in others
+- test runs show acceptance for simple tasks but distrust for more sensitive requests
+- the departments see relief, while data protection and citizen service warn of reputational risks
+
+The conditions:
+
+- a budget of €190,000
+- 14 weeks for the implementation
+- no full multichannel solution at once
+- a system that people who are not at home with technology can follow
+- limited data from earlier tests
+- first results that must show soon
+
+You work through six steps.
 
 ![The product to read, as the lab shows it (cityhelp).](_figures/d11_b2-1_0.png)
 
@@ -305,7 +362,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the company that runs the city's digital services: an app, a service portal and digital assistants. It plans to bring voice control and AI-supported interaction into several areas. First prototypes show comfort gains, but also problems with misunderstandings, loss of control and acceptance in sensitive situations. Inside the company the technology is seen strongly as an innovation signal, while robust usability, a test strategy and safe limits are not yet clear. The management expects a sound strategy for using intelligent interfaces responsibly. You are not to choose single voice features, but to develop a sound decision architecture for voice interfaces, AI interaction, prototyping and test governance.
+You take the perspective of the Chief Experience Officer of the company that runs the city's digital services: an app, a service portal and digital assistants.
+
+It plans to bring voice control and AI-supported interaction into several areas. First prototypes show comfort gains, but also problems with misunderstandings, loss of control and acceptance in sensitive situations.
+
+Inside the company the technology is seen strongly as an innovation signal, while robust usability, a test strategy and safe limits are not yet clear.
+
+The management expects a sound strategy for using intelligent interfaces responsibly.
+
+You are not to choose single voice features, but to develop a sound decision architecture for voice interfaces, AI interaction, prototyping and test governance.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +385,21 @@ You take the perspective of the Chief Experience Officer of the company that run
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with an app, a service portal and digital assistants that plans voice and AI in several areas, prototypes with comfort gains and problems with misunderstandings, loss of control and acceptance in sensitive situations, voice seen inside as an innovation signal, robust usability, test strategy and safe limits unclear, a limited budget, several stakeholders, not all interactions suited to voice, limited test data, trust and brand that must hold, first results soon, and the warning that wrong decisions can cause wrong operation, a loss of reputation and low acceptance. Those are the plan's facts. That the company is the city's service company of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with an app, a service portal and digital assistants that plans voice and AI in several areas
+- prototypes with comfort gains and problems with misunderstandings, loss of control and acceptance in sensitive situations
+- voice seen inside as an innovation signal
+- robust usability, test strategy and safe limits unclear
+- a limited budget
+- several stakeholders
+- not all interactions suited to voice
+- limited test data
+- trust and brand that must hold
+- first results soon
+- the warning that wrong decisions can cause wrong operation, a loss of reputation and low acceptance
+
+Those are the plan's facts. That the company is the city's service company of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A UX architecture for voice, AI interaction and testing.*

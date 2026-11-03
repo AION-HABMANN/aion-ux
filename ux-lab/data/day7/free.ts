@@ -78,7 +78,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three platforms on the UX team's desk, and LifeSupport"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: WellTrack, a health platform for prevention, appointments and personal recommendations, and CareerPath, a platform for career development and further training that has three designs for its interface. The main case is LifeSupport, the portal of a health-prevention provider for advice, appointments and documents. It does its job, but users call it impersonal, exhausting and not very supportive, and its use stays below expectations although it offers a lot.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: WellTrack, a health platform for prevention, appointments and personal recommendations, and CareerPath, a platform for career development and further training that has three designs for its interface.\n\nThe main case is LifeSupport, the portal of a health-prevention provider for advice, appointments and documents.\n\nIt does its job, but users call it impersonal, exhausting and not very supportive, and its use stays below expectations although it offers a lot.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -114,14 +114,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: WellTrack correct but cool, with technical errors, no positive feedback, sober health information, no orientation or relevance, and an unapproachable design; CareerPath's three designs for working people from 25 to 60, a professional yet approachable brand, a limited budget, no tests, 9 weeks, seriousness against activation; LifeSupport impersonal, exhausting and unsupportive, with a distant visual language, technical feedback, unsettling critical moments, no positive reinforcement, a cold tone, €145,000, 12 weeks and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• WellTrack correct but cool, with technical errors, no positive feedback, sober health information, no orientation or relevance, and an unapproachable design\n• CareerPath's three designs for working people from 25 to 60, a professional yet approachable brand, a limited budget, no tests, 9 weeks, seriousness against activation\n• LifeSupport impersonal, exhausting and unsupportive, with a distant visual language, technical feedback, unsettling critical moments, no positive reinforcement, a cold tone, €145,000, 12 weeks and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the provider behind LifeSupport, functionally solid and emotionally distant"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the health-prevention provider that runs LifeSupport. The company has a website, a customer portal and an app. Its digital offers are functionally solid but create little emotional bond: users find them correct, but not supportive, trust-building or motivating. Inside the company, emotion is mostly seen as a question of communication or marketing, not as part of the UX architecture. The management expects a sound strategy for building emotional quality systematically into the digital product experience. You are not to polish single screens but to develop a sound decision architecture for emotional bonding, trust design and experience quality.",
+      "You take the perspective of the Chief Experience Officer of the health-prevention provider that runs LifeSupport. The company has a website, a customer portal and an app.\n\nIts digital offers are functionally solid but create little emotional bond: users find them correct, but not supportive, trust-building or motivating.\n\nInside the company, emotion is mostly seen as a question of communication or marketing, not as part of the UX architecture.\n\nThe management expects a sound strategy for building emotional quality systematically into the digital product experience.\n\nYou are not to polish single screens but to develop a sound decision architecture for emotional bonding, trust design and experience quality.",
     ),
     conditions: {
       title: t("The framework"),
@@ -156,7 +156,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a website, a customer portal and an app, functionally solid offers with little emotional bond, users who find them correct but not supportive, trust-building or motivating, emotion seen inside as communication or marketing, a limited budget, different stakeholders, a professional brand, not all systems at once, partial data on emotional effect, first improvements soon, and the warning that wrong decisions can weaken credibility and acceptance. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a website, a customer portal and an app\n• functionally solid offers with little emotional bond\n• users who find them correct but not supportive, trust-building or motivating\n• emotion seen inside as communication or marketing\n• a limited budget\n• different stakeholders\n• a professional brand\n• not all systems at once\n• partial data on emotional effect\n• first improvements soon\n• the warning that wrong decisions can weaken credibility and acceptance\n\nThose are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -168,7 +168,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · The emotional effect (WellTrack)"),
       lead: t(
-        "You receive the description of a fictional health platform, WellTrack, for prevention, appointment management and personal recommendations. Open it and use it as someone who has just signed up: book a check-up and read your recommendations. You need no prior knowledge: notice how it makes you feel, not only whether it works. The aim is to recognise emotional effect step by step and to tell it apart from a purely functional judgement.",
+        "You receive the description of a fictional health platform, WellTrack, for prevention, appointment management and personal recommendations.\n\nOpen it and use it as someone who has just signed up: book a check-up and read your recommendations. You need no prior knowledge: notice how it makes you feel, not only whether it works.\n\nThe aim is to recognise emotional effect step by step and to tell it apart from a purely functional judgement.",
       ),
       slots: ["welltrack"],
       fields: [
@@ -342,7 +342,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate emotional UX under conflicting goals (CareerPath)"),
       lead: t(
-        "CareerPath is a platform for career development and further training. Three designs for its interface are described in words: A) modern, warm and motivating, but with many emotional stimuli and activating messages; B) factual, clear and trustworthy, but not very inspiring or connecting; C) high quality and personal in feel, but in some situations a little unclear in its interaction feedback. The conditions: the target group is working people between 25 and 60, the company wants to look professional and approachable, the budget for a deep revision is limited, there are no user tests yet, the release is in 9 weeks, and the department demands seriousness while marketing demands stronger activation. Decide anyway, and say what you assume.",
+        "CareerPath is a platform for career development and further training.\n\nThree designs for its interface are described in words:\nA) modern, warm and motivating, but with many emotional stimuli and activating messages\nB) factual, clear and trustworthy, but not very inspiring or connecting\nC) high quality and personal in feel, but in some situations a little unclear in its interaction feedback\n\nThe conditions:\n• the target group is working people between 25 and 60\n• the company wants to look professional and approachable\n• the budget for a deep revision is limited\n• there are no user tests yet\n• the release is in 9 weeks\n• the department demands seriousness while marketing demands stronger activation\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["careerdesigns"],
       fields: [
@@ -478,7 +478,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: LifeSupport"),
       lead: t(
-        "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management. Technically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large. The observed problems: the visual language is factual but emotionally distant, feedback after actions is technical instead of supportive, critical situations such as error messages create uncertainty instead of orientation, positive experiences are not visibly reinforced, the tone is correct but does not build trust or motivate, and the interaction is functional but does not build a relationship. The conditions: a budget of €145,000, 12 weeks for the implementation, no complete relaunch, the brand should stay serious but become emotionally more approachable, user data is only partly available, and the department and marketing set different priorities. You work through six steps.",
+        "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.\n\nTechnically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.\n\nThe observed problems:\n• the visual language is factual but emotionally distant\n• feedback after actions is technical instead of supportive\n• critical situations such as error messages create uncertainty instead of orientation\n• positive experiences are not visibly reinforced\n• the tone is correct but does not build trust or motivate\n• the interaction is functional but does not build a relationship\n\nThe conditions:\n• a budget of €145,000\n• 12 weeks for the implementation\n• no complete relaunch\n• the brand should stay serious but become emotionally more approachable\n• user data is only partly available\n• the department and marketing set different priorities\n\nYou work through six steps.",
       ),
       slots: ["lifesupport"],
       fields: [

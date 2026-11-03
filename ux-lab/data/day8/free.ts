@@ -79,7 +79,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three platforms on the UX team's desk, and GreenHome"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: StartSmart, a platform for start-up advice and funding applications, and FutureSkills, a further-training platform that has three journeys for its users. The main case is GreenHome, the onboarding of a provider of sustainable energy solutions, for advice, product selection and funding support. It is complete, but users find it sober, long-winded and not very motivating; many start it and abandon it before the end.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: StartSmart, a platform for start-up advice and funding applications, and FutureSkills, a further-training platform that has three journeys for its users.\n\nThe main case is GreenHome, the onboarding of a provider of sustainable energy solutions, for advice, product selection and funding support.\n\nIt is complete, but users find it sober, long-winded and not very motivating; many start it and abandon it before the end.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -115,14 +115,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: StartSmart with much information but no journey, an entry about functions, no transitions or stopovers, no progress or milestones, help that does not connect and successful steps not picked up; FutureSkills's three journeys for working people with little time, a professional and inspiring brand, a limited budget, 10 weeks, activation against clarity and no tests; GreenHome sober, long-winded and unmotivating, with many who abandon, an entry without benefit or goal, an administrative sequence, barely visible progress, help that does not motivate, steps that do not feel like progress, a form instead of a journey, €155,000, 12 weeks, logic kept and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• StartSmart with much information but no journey, an entry about functions, no transitions or stopovers, no progress or milestones, help that does not connect and successful steps not picked up\n• FutureSkills's three journeys for working people with little time, a professional and inspiring brand, a limited budget, 10 weeks, activation against clarity and no tests\n• GreenHome sober, long-winded and unmotivating, with many who abandon, an entry without benefit or goal, an administrative sequence, barely visible progress, help that does not motivate, steps that do not feel like progress, a form instead of a journey, €155,000, 12 weeks, logic kept and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the provider behind GreenHome, processes that work and journeys that do not"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the sustainable-energy provider that runs GreenHome. The company has a website, an advisory platform and self-service flows. Its digital processes work, but they create little relevance and bond: users complete their tasks but experience the journey as administrative, interchangeable and not very motivating. Inside the company, storytelling is seen only as a means of communication, not as part of the UX architecture. The management expects a sound strategy for integrating narrative structure and dramaturgical guidance systematically into the digital offers. You are not to write beautiful texts but to develop a sound decision architecture for storytelling, user relevance and dramaturgical guidance.",
+      "You take the perspective of the Chief Experience Officer of the sustainable-energy provider that runs GreenHome. The company has a website, an advisory platform and self-service flows.\n\nIts digital processes work, but they create little relevance and bond: users complete their tasks but experience the journey as administrative, interchangeable and not very motivating.\n\nInside the company, storytelling is seen only as a means of communication, not as part of the UX architecture.\n\nThe management expects a sound strategy for integrating narrative structure and dramaturgical guidance systematically into the digital offers.\n\nYou are not to write beautiful texts but to develop a sound decision architecture for storytelling, user relevance and dramaturgical guidance.",
     ),
     conditions: {
       title: t("The framework"),
@@ -157,7 +157,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a website, an advisory platform and self-service flows, processes that work but create little relevance and bond, journeys experienced as administrative, interchangeable and not very motivating, storytelling seen inside only as communication, a limited budget, several stakeholders, specialist clarity that must stay, not all journeys at once, partly incomplete data, first improvements soon, and the warning that wrong decisions can lengthen processes, weaken credibility or deter users. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a website, an advisory platform and self-service flows\n• processes that work but create little relevance and bond\n• journeys experienced as administrative, interchangeable and not very motivating\n• storytelling seen inside only as communication\n• a limited budget\n• several stakeholders\n• specialist clarity that must stay\n• not all journeys at once\n• partly incomplete data\n• first improvements soon\n• the warning that wrong decisions can lengthen processes, weaken credibility or deter users\n\nThose are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -169,7 +169,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · The narrative potential (StartSmart)"),
       lead: t(
-        "You receive the description of a fictional platform, StartSmart, for start-up advice and funding applications. Open it and use it as someone who wants to found a business: find out what you need and start an application. You need no prior knowledge: notice whether you know where you are going and how far you have come, not only whether the steps work. The aim is to recognise narrative gaps in the experience and tell them apart from a purely functional presentation of a process.",
+        "You receive the description of a fictional platform, StartSmart, for start-up advice and funding applications. Open it and use it as someone who wants to found a business: find out what you need and start an application.\n\nYou need no prior knowledge: notice whether you know where you are going and how far you have come, not only whether the steps work.\n\nThe aim is to recognise narrative gaps in the experience and tell them apart from a purely functional presentation of a process.",
       ),
       slots: ["startsmart"],
       fields: [
@@ -343,7 +343,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate storytelling approaches under conflicting goals (FutureSkills)"),
       lead: t(
-        "FutureSkills is a further-training platform. Three journeys for its users are described in words: A) factual and efficient, with clear steps, but little emotional embedding or motivation; B) strongly narrative and emotionally activating, but with more text and longer guidance; C) a balanced mix of clarity, motivating address and visible progress, but with a somewhat higher implementation effort. The conditions: the target group is working people with little time, the company wants to look professional and inspiring, the budget is limited, the release is in 10 weeks, marketing demands stronger activation while the department demands high clarity, and there are no user tests yet. Decide anyway, and say what you assume.",
+        "FutureSkills is a further-training platform.\n\nThree journeys for its users are described in words:\nA) factual and efficient, with clear steps, but little emotional embedding or motivation\nB) strongly narrative and emotionally activating, but with more text and longer guidance\nC) a balanced mix of clarity, motivating address and visible progress, but with a somewhat higher implementation effort\n\nThe conditions:\n• the target group is working people with little time\n• the company wants to look professional and inspiring\n• the budget is limited\n• the release is in 10 weeks\n• marketing demands stronger activation while the department demands high clarity\n• there are no user tests yet\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["journeys"],
       fields: [
@@ -479,7 +479,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: GreenHome"),
       lead: t(
-        "A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support. The onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end. The company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity. The observed problems: the entry explains functions, but not the personal benefit or the goal for users; the sequence of steps feels administrative rather than developmental; intermediate states and progress are barely visible; help and hints explain but do not motivate; finishing a step does not feel like progress; and the whole feels like a form process rather than an accompanied journey. The conditions: a budget of €155,000, 12 weeks for the implementation, contents and specialist logic must largely be kept, the company wants to look inspiring but serious, user data is only partly available, and a complete relaunch is not possible. You work through six steps.",
+        "A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support.\n\nThe onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end.\n\nThe company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity.\n\nThe observed problems:\n• the entry explains functions, but not the personal benefit or the goal for users\n• the sequence of steps feels administrative rather than developmental\n• intermediate states and progress are barely visible\n• help and hints explain but do not motivate\n• finishing a step does not feel like progress\n• the whole feels like a form process rather than an accompanied journey\n\nThe conditions:\n• a budget of €155,000\n• 12 weeks for the implementation\n• contents and specialist logic must largely be kept\n• the company wants to look inspiring but serious\n• user data is only partly available\n• a complete relaunch is not possible\n\nYou work through six steps.",
       ),
       slots: ["greenhome"],
       fields: [

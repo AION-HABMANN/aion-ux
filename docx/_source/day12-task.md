@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three platforms land on your desk. Two are warm-ups: PublicAccess, a service portal for citizen services, appointments and documents, and LearnAccess, a platform for digital further training with three redesigns to choose from. The main case is CitizenConnect, a city's service platform for information, appointment bookings and applications. It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The city wants it to become more accessible and inclusive, without a complete relaunch.
+You work in the UX team of a digital agency. This week three platforms land on your desk.
+
+Two are warm-ups: PublicAccess, a service portal for citizen services, appointments and documents, and LearnAccess, a platform for digital further training with three redesigns to choose from.
+
+The main case is CitizenConnect, a city's service platform for information, appointment bookings and applications.
+
+It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The city wants it to become more accessible and inclusive, without a complete relaunch.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three platforms land on y
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: PublicAccess with mouse-only navigation, colour-only hints, weak contrast in places, complex terms and long nested sentences in forms, insufficient error messages, and images and symbols that are not self-explanatory or described; LearnAccess's three redesigns (A modern and brand-strong with reduced contrast and small text, B structured, high-contrast, plain and well focusable but less premium, C good basic accessibility with optional adaptations but more technical effort) for a very heterogeneous group, modern and inclusive, a limited budget, 10 weeks, legal requirements, department against marketing; CitizenConnect's weak contrast, unstructured forms with unclear errors, patchy keyboard operation, visual-only hints, complicated content and inconsistent page types, €160,000, 14 weeks, no relaunch, legal requirements first, several departments supplying content, first improvements soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.
+The brief says:
+
+- PublicAccess with mouse-only navigation, colour-only hints, weak contrast in places, complex terms and long nested sentences in forms, insufficient error messages, and images and symbols that are not self-explanatory or described
+- LearnAccess's three redesigns (A modern and brand-strong with reduced contrast and small text, B structured, high-contrast, plain and well focusable but less premium, C good basic accessibility with optional adaptations but more technical effort) for a very heterogeneous group, modern and inclusive, a limited budget, 10 weeks, legal requirements, department against marketing
+- CitizenConnect's weak contrast, unstructured forms with unclear errors, patchy keyboard operation, visual-only hints, complicated content and inconsistent page types, €160,000, 14 weeks, no relaunch, legal requirements first, several departments supplying content, first improvements soon
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the barriers, and weigh redesigns · Level 1 · Knowledge
@@ -61,7 +73,11 @@ The brief says: PublicAccess with mouse-only navigation, colour-only hints, weak
 
 **Draws on:** A1 · Accessibility, usability and inclusive design · A2 · Barriers in perception · A3 · Barriers in interaction · A4 · Barriers in language and structure.
 
-You receive the description of a fictional service portal, PublicAccess, for citizen services, appointments and documents. Open it and use it as a citizen: book an appointment, find a document, fill in a form and make a mistake. Then try the same with the keyboard alone (Tab, Enter, the arrow keys). You need no prior knowledge: notice where you get stuck, and imagine who else would. The aim is to recognise barriers systematically and to understand accessibility from the user's side, not only as a technical matter.
+You receive the description of a fictional service portal, PublicAccess, for citizen services, appointments and documents. Open it and use it as a citizen: book an appointment, find a document, fill in a form and make a mistake.
+
+Then try the same with the keyboard alone (Tab, Enter, the arrow keys). You need no prior knowledge: notice where you get stuck, and imagine who else would.
+
+The aim is to recognise barriers systematically and to understand accessibility from the user's side, not only as a technical matter.
 
 ![The product to read, as the lab shows it (publicaccess).](_figures/d12_b1-1_0.png)
 
@@ -131,7 +147,24 @@ Write two lines: barrier 1 and barrier 2, each with why it weighs most.
 
 **Draws on:** A1 · Accessibility, usability and inclusive design · A2 · Barriers in perception · A4 · Barriers in language and structure · A5 · Standards, law and risk.
 
-LearnAccess is a platform for digital further training that is to be redesigned. Three variants are described in words: A) visually modern and brand-strong, but with reduced contrast and small text; B) clearly structured, high in contrast, in plain language and well focusable, but less “premium” in its brand; C) good basic accessibility with some optional adaptation functions, but a higher technical effort. The conditions: the target group is very heterogeneous, the company wants to look modern and inclusive, the budget for technical changes is limited, the release is in 10 weeks, legal requirements must be met, and the department and marketing set different priorities. Decide anyway, and say what you assume.
+LearnAccess is a platform for digital further training that is to be redesigned.
+
+Three variants are described in words:
+
+- A) visually modern and brand-strong, but with reduced contrast and small text
+- B) clearly structured, high in contrast, in plain language and well focusable, but less “premium” in its brand
+- C) good basic accessibility with some optional adaptation functions, but a higher technical effort
+
+The conditions:
+
+- the target group is very heterogeneous
+- the company wants to look modern and inclusive
+- the budget for technical changes is limited
+- the release is in 10 weeks
+- legal requirements must be met
+- the department and marketing set different priorities
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d12_b1-2_0.png)
 
@@ -218,7 +251,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Accessibility, usability and inclusive design · A2 · Barriers in perception · A3 · Barriers in interaction · A4 · Barriers in language and structure · A5 · Standards, law and risk.
 
-A municipal service platform offers information, appointment bookings and application processes digitally. It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The organisation wants to make the portal more accessible and inclusive without a complete relaunch. The observed problems: weak contrast makes central information hard to read; forms are not cleanly structured and contain unclear error messages; keyboard operation is patchy; important hints are differentiated visually but not in words; content is partly complicated; and different page types are not built consistently. The conditions: a budget of €160,000, 14 weeks for the implementation, no complete relaunch, legal requirements that must be considered first, several departments that supply content, and first improvements that must show soon. You work through six steps.
+A municipal service platform offers information, appointment bookings and application processes digitally.
+
+It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming.
+
+The organisation wants to make the portal more accessible and inclusive without a complete relaunch.
+
+The observed problems:
+
+- weak contrast makes central information hard to read
+- forms are not cleanly structured and contain unclear error messages
+- keyboard operation is patchy
+- important hints are differentiated visually but not in words
+- content is partly complicated
+- different page types are not built consistently
+
+The conditions:
+
+- a budget of €160,000
+- 14 weeks for the implementation
+- no complete relaunch
+- legal requirements that must be considered first
+- several departments that supply content
+- first improvements that must show soon
+
+You work through six steps.
 
 ![The product to read, as the lab shows it (citizenconnect).](_figures/d12_b2-1_0.png)
 
@@ -303,7 +360,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the organisation behind CitizenConnect: a website, a customer portal and digital service processes. Its systems formally work, but they are not equally accessible to all users, and complaints about legibility, operability and comprehensibility keep rising. Inside, accessibility is seen mostly as a compliance topic, not as an integral part of UX quality and service responsibility. The management expects a sound strategy for building accessibility and inclusive design systematically into product development and governance. You are not to repair single barriers, but to develop a sound decision architecture for accessibility, inclusion and legally secure UX quality.
+You take the perspective of the Chief Experience Officer of the organisation behind CitizenConnect: a website, a customer portal and digital service processes.
+
+Its systems formally work, but they are not equally accessible to all users, and complaints about legibility, operability and comprehensibility keep rising.
+
+Inside, accessibility is seen mostly as a compliance topic, not as an integral part of UX quality and service responsibility.
+
+The management expects a sound strategy for building accessibility and inclusive design systematically into product development and governance.
+
+You are not to repair single barriers, but to develop a sound decision architecture for accessibility, inclusion and legally secure UX quality.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -318,7 +383,20 @@ You take the perspective of the Chief Experience Officer of the organisation beh
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: an organisation with a website, a customer portal and digital service processes that formally work but are not equally accessible, rising complaints about legibility, operability and comprehensibility, accessibility seen inside as compliance, a limited budget, several stakeholders, binding legal requirements, not all systems at once, incomplete data on real barriers, first improvements soon, and the warning that wrong decisions can increase exclusion, reputational damage and legal risks. Those are the plan's facts. That the organisation is the one behind CitizenConnect and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- an organisation with a website, a customer portal and digital service processes that formally work but are not equally accessible
+- rising complaints about legibility, operability and comprehensibility
+- accessibility seen inside as compliance
+- a limited budget
+- several stakeholders
+- binding legal requirements
+- not all systems at once
+- incomplete data on real barriers
+- first improvements soon
+- the warning that wrong decisions can increase exclusion, reputational damage and legal risks
+
+Those are the plan's facts. That the organisation is the one behind CitizenConnect and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: An accessibility and inclusion architecture for our digital services.*

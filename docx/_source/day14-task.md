@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three projects land on your desk. Two are warm-ups: BuildVision, a platform for planning, training and remote support in technical service, and HealthSpace, a health and prevention platform with three innovation approaches. The main case is IndustryXR: an industrial company plans to develop its training, maintenance and support processes with immersive technologies, discussing AR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering. Inside, enthusiasm for the technology is high, but there is no robust experience of acceptance, economic viability or how it fits existing processes.
+You work in the UX team of a digital agency. This week three projects land on your desk.
+
+Two are warm-ups: BuildVision, a platform for planning, training and remote support in technical service, and HealthSpace, a health and prevention platform with three innovation approaches.
+
+The main case is IndustryXR: an industrial company plans to develop its training, maintenance and support processes with immersive technologies, discussing AR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering.
+
+Inside, enthusiasm for the technology is high, but there is no robust experience of acceptance, economic viability or how it fits existing processes.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three projects land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: BuildVision's AR overlays at the device, spatial procedures instead of a PDF, remote expert support, users impressed but overwhelmed in stress, technology unstable in some environments, use cases partly demonstrative; HealthSpace's three approaches (A strongly immersive with high effort, B single elements for defined situations, C classic UX with monitoring and later pilots), innovative but trustworthy and economic, a limited budget, a heterogeneous and not tech-savvy group, pilots in 6 months, hardly any data, management against departments; IndustryXR's unclear value, unprioritised pilots, divergent goals, unassessed risks, an unclear link between fascination and relevance and no roadmap, €220,000, 16 weeks, no full integration, several business units, hardly any test data, first visible steps wanted soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the 3D scene and the facts marked “Clear”.
+The brief says:
+
+- BuildVision's AR overlays at the device, spatial procedures instead of a PDF, remote expert support, users impressed but overwhelmed in stress, technology unstable in some environments, use cases partly demonstrative
+- HealthSpace's three approaches (A strongly immersive with high effort, B single elements for defined situations, C classic UX with monitoring and later pilots), innovative but trustworthy and economic, a limited budget, a heterogeneous and not tech-savvy group, pilots in 6 months, hardly any data, management against departments
+- IndustryXR's unclear value, unprioritised pilots, divergent goals, unassessed risks, an unclear link between fascination and relevance and no roadmap, €220,000, 16 weeks, no full integration, several business units, hardly any test data, first visible steps wanted soon
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the 3D scene and the facts marked “Clear”.
 :::
 
 # Part 1 · Analyse an immersive scenario, and weigh innovation approaches · Level 1 · Knowledge
@@ -61,7 +73,11 @@ The brief says: BuildVision's AR overlays at the device, spatial procedures inst
 
 **Draws on:** A1 · From screen to space · A2 · Presence, attention and load · A3 · Intensify or overwhelm · A4 · Fascination or impact.
 
-You receive the description of a fictional platform, BuildVision, for planning, training and remote support in technical service. Open it: a real 3D service device you can turn, with AR overlays of the maintenance steps. Compare the overlays with the PDF checklist, switch on the remote expert, then try it in a stressful situation and with a weak connection. You need no prior knowledge: notice what really helps you at the device and what only impresses. The aim is to analyse immersive technology not only as innovation, but as a system of effects with a logic of benefit and risk.
+You receive the description of a fictional platform, BuildVision, for planning, training and remote support in technical service. Open it: a real 3D service device you can turn, with AR overlays of the maintenance steps.
+
+Compare the overlays with the PDF checklist, switch on the remote expert, then try it in a stressful situation and with a weak connection.
+
+You need no prior knowledge: notice what really helps you at the device and what only impresses. The aim is to analyse immersive technology not only as innovation, but as a system of effects with a logic of benefit and risk.
 
 ![The product to read, as the lab shows it (buildvision).](_figures/d14_b1-1_0.png)
 
@@ -132,7 +148,24 @@ Write four lines: chance 1, chance 2, risk 1, risk 2, each with why it weighs mo
 
 **Draws on:** A3 · Intensify or overwhelm · A4 · Fascination or impact · A5 · Ethics and responsibility, and weighing a measure.
 
-HealthSpace is a platform in health and prevention. Three innovation approaches are described in words: A) a strongly immersive application with AR and VR components for counselling, training and motivation, but a high technical and organisational effort; B) targeted use of single immersive elements for clearly defined situations, with high practical relevance and a controllable scope; C) classic UX for now, with preparatory technology monitoring and later piloting. The conditions: the company wants to act innovatively but trustworthily and economically, the budget for future projects is limited, the target group is heterogeneous and not always tech-savvy, first pilot solutions can be released in 6 months, there is hardly any real user data on immersive formats yet, and the management wants visible innovation signals while the departments want robust value. Decide anyway, and say what you assume.
+HealthSpace is a platform in health and prevention.
+
+Three innovation approaches are described in words:
+
+- A) a strongly immersive application with AR and VR components for counselling, training and motivation, but a high technical and organisational effort
+- B) targeted use of single immersive elements for clearly defined situations, with high practical relevance and a controllable scope
+- C) classic UX for now, with preparatory technology monitoring and later piloting
+
+The conditions:
+
+- the company wants to act innovatively but trustworthily and economically
+- the budget for future projects is limited
+- the target group is heterogeneous and not always tech-savvy
+- first pilot solutions can be released in 6 months
+- there is hardly any real user data on immersive formats yet
+- the management wants visible innovation signals while the departments want robust value
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d14_b1-2_0.png)
 
@@ -219,7 +252,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · From screen to space · A2 · Presence, attention and load · A3 · Intensify or overwhelm · A4 · Fascination or impact · A5 · Ethics and responsibility, and weighing a measure.
 
-An industrial company plans to develop its training, maintenance and support processes with immersive technologies. AR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering are being discussed. Inside there is enthusiasm for the technology, but robust experience of acceptance, economic viability and fit with existing processes is missing. The observed problems: it is unclear which use cases really offer immersive value; single pilot ideas are technically exciting but hardly prioritised by effect and benefit; stakeholders pursue divergent goals between innovation, safety, efficiency and cost control; usage risks such as overload, technical failures and acceptance problems have not been assessed enough; the link between technical fascination and strategic relevance is unclear; and there is no robust roadmap for introduction, testing and scaling. The conditions: a budget of €220,000 for the first phase, 16 weeks for piloting and decision preparation, full technological integration not possible in the short term, several business units that want to take part, hardly any data from real user tests, and first visible innovation steps the management wants to see soon. You work through six steps.
+An industrial company plans to develop its training, maintenance and support processes with immersive technologies.
+
+AR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering are being discussed.
+
+Inside there is enthusiasm for the technology, but robust experience of acceptance, economic viability and fit with existing processes is missing.
+
+The observed problems:
+
+- it is unclear which use cases really offer immersive value
+- single pilot ideas are technically exciting but hardly prioritised by effect and benefit
+- stakeholders pursue divergent goals between innovation, safety, efficiency and cost control
+- usage risks such as overload, technical failures and acceptance problems have not been assessed enough
+- the link between technical fascination and strategic relevance is unclear
+- there is no robust roadmap for introduction, testing and scaling
+
+The conditions:
+
+- a budget of €220,000 for the first phase
+- 16 weeks for piloting and decision preparation
+- full technological integration not possible in the short term
+- several business units that want to take part
+- hardly any data from real user tests
+- first visible innovation steps the management wants to see soon
+
+You work through six steps.
 
 ![The product to read, as the lab shows it (industryxr).](_figures/d14_b2-1_0.png)
 
@@ -305,7 +362,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the company behind IndustryXR, which offers digital service, training and support solutions. It wants to extend its UX strategy with immersive technologies and neuroscience-informed interaction concepts. AR, VR and other future technologies are seen inside as a great chance for innovation, but clear priorities, evaluation standards and governance rules are missing. The management expects a sound strategy for bringing future technologies with real user value, controlled risk and economic viability into the UX portfolio. You are not to pick single trend technologies, but to develop a sound decision architecture for immersive UX, neuroscience-based user guidance and innovation governance.
+You take the perspective of the Chief Experience Officer of the company behind IndustryXR, which offers digital service, training and support solutions.
+
+It wants to extend its UX strategy with immersive technologies and neuroscience-informed interaction concepts.
+
+AR, VR and other future technologies are seen inside as a great chance for innovation, but clear priorities, evaluation standards and governance rules are missing.
+
+The management expects a sound strategy for bringing future technologies with real user value, controlled risk and economic viability into the UX portfolio.
+
+You are not to pick single trend technologies, but to develop a sound decision architecture for immersive UX, neuroscience-based user guidance and innovation governance.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +385,19 @@ You take the perspective of the Chief Experience Officer of the company behind I
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with digital service, training and support solutions that wants immersive and neuro-informed interaction in its UX strategy, AR and VR seen as a great chance, no priorities, evaluation standards or governance, a limited budget, several stakeholders, maturity varying by use case, patchy acceptance data, first pilots visible soon, and the warning that wrong decisions can raise costs, frustration and reputational damage. Those are the plan's facts. That the company is the one behind IndustryXR and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with digital service, training and support solutions that wants immersive and neuro-informed interaction in its UX strategy
+- AR and VR seen as a great chance
+- no priorities, evaluation standards or governance
+- a limited budget
+- several stakeholders
+- maturity varying by use case
+- patchy acceptance data
+- first pilots visible soon
+- the warning that wrong decisions can raise costs, frustration and reputational damage
+
+Those are the plan's facts. That the company is the one behind IndustryXR and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A UX innovation architecture for immersive and neuro-based technologies.*

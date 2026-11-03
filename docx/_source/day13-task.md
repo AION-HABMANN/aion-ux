@@ -37,7 +37,15 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three platforms land on your desk. Two are warm-ups: StudyPath, a learning platform for further training and exam organisation, and JobAccess, a platform for applications, further training and career planning, with three designs for how it could develop. The main case is LifeGuide, a digital portal for health, counselling and support offers that is to be reworked for a very diverse group of users. First feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility. The organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype.
+You work in the UX team of a digital agency. This week three platforms land on your desk.
+
+Two are warm-ups: StudyPath, a learning platform for further training and exam organisation, and JobAccess, a platform for applications, further training and career planning, with three designs for how it could develop.
+
+The main case is LifeGuide, a digital portal for health, counselling and support offers that is to be reworked for a very diverse group of users.
+
+First feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility.
+
+The organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +60,13 @@ You work in the UX team of a digital agency. This week three platforms land on y
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: StudyPath's crowded start page, unprioritised tasks, varying navigation, long dense complex texts, forms with many required fields and little help, and short unclear status messages; JobAccess's three designs (A compact and dense with changing navigation, B calm, readable and consistent but less dynamic and brand-strong, C a good base with optional reading mode, stimulus reduction and simplified view but more effort) for a very heterogeneous group, modern, inclusive and professional, a limited budget, 12 weeks, legal and reputational requirements, no neurodiverse test data; LifeGuide's simultaneous stimuli, inconsistent navigation, hard texts, long forms, unhelpful feedback in stress and missing options to reduce, €175,000, 14 weeks, no relaunch, broad usability, limited test data, prototypes to be tried soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.
+The brief says:
+
+- StudyPath's crowded start page, unprioritised tasks, varying navigation, long dense complex texts, forms with many required fields and little help, and short unclear status messages
+- JobAccess's three designs (A compact and dense with changing navigation, B calm, readable and consistent but less dynamic and brand-strong, C a good base with optional reading mode, stimulus reduction and simplified view but more effort) for a very heterogeneous group, modern, inclusive and professional, a limited budget, 12 weeks, legal and reputational requirements, no neurodiverse test data
+- LifeGuide's simultaneous stimuli, inconsistent navigation, hard texts, long forms, unhelpful feedback in stress and missing options to reduce, €175,000, 14 weeks, no relaunch, broad usability, limited test data, prototypes to be tried soon
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the hurdles, and weigh inclusive designs · Level 1 · Knowledge
@@ -61,7 +75,13 @@ The brief says: StudyPath's crowded start page, unprioritised tasks, varying nav
 
 **Draws on:** A1 · Neurodiversity · A2 · Stimuli and focus · A3 · Predictability · A4 · Readability.
 
-You receive the description of a fictional learning platform, StudyPath, for digital further training and exam organisation. Open it and use it as a learner: find what you have to do this week, move between two course areas, read a course text, and register for an exam. You need no prior knowledge: notice what pulls your attention, where you lose your way, and what tires you. Then ask how it would feel for someone with ADHD, an autistic person, or someone with dyslexia. The aim is to recognise neurodiverse requirements systematically and to tell them apart from general usability.
+You receive the description of a fictional learning platform, StudyPath, for digital further training and exam organisation.
+
+Open it and use it as a learner: find what you have to do this week, move between two course areas, read a course text, and register for an exam.
+
+You need no prior knowledge: notice what pulls your attention, where you lose your way, and what tires you. Then ask how it would feel for someone with ADHD, an autistic person, or someone with dyslexia.
+
+The aim is to recognise neurodiverse requirements systematically and to tell them apart from general usability.
 
 ![The product to read, as the lab shows it (studypath).](_figures/d13_b1-1_0.png)
 
@@ -132,7 +152,24 @@ Write two lines: hurdle 1 and hurdle 2, each with why it weighs most.
 
 **Draws on:** A2 · Stimuli and focus · A3 · Predictability · A4 · Readability · A5 · Inclusive patterns, assistive technologies, and testing a prototype.
 
-JobAccess is a platform for applications, further training and career planning. Three variants for its development are described in words: A) visually modern and compact, but information-dense and with changing navigation patterns; B) clearly structured, calm, readable and consistent, but less dynamic and less brand-strong; C) a good base structure with optional adaptation functions such as a reading mode, stimulus reduction and a simplified view, but a higher implementation effort. The conditions: the target group is very heterogeneous, the company wants to look modern, inclusive and professional, the budget for technical development is limited, the release is in 12 weeks, legal and reputational requirements are relevant, and data from specific neurodiverse user tests is not yet available. Decide anyway, and say what you assume.
+JobAccess is a platform for applications, further training and career planning.
+
+Three variants for its development are described in words:
+
+- A) visually modern and compact, but information-dense and with changing navigation patterns
+- B) clearly structured, calm, readable and consistent, but less dynamic and less brand-strong
+- C) a good base structure with optional adaptation functions such as a reading mode, stimulus reduction and a simplified view, but a higher implementation effort
+
+The conditions:
+
+- the target group is very heterogeneous
+- the company wants to look modern, inclusive and professional
+- the budget for technical development is limited
+- the release is in 12 weeks
+- legal and reputational requirements are relevant
+- data from specific neurodiverse user tests is not yet available
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d13_b1-2_0.png)
 
@@ -219,7 +256,31 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Neurodiversity · A2 · Stimuli and focus · A3 · Predictability · A4 · Readability · A5 · Inclusive patterns, assistive technologies, and testing a prototype.
 
-A digital portal for health, counselling and support offers is to be reworked for a very diverse group of users. First feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility. The organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype. The observed problems: many simultaneous stimuli and competing information areas on central pages; inconsistent navigation patterns and low predictability; texts that are correct in content but hard to access in language and typography; long forms with little supportive structure; error messages and feedback that help too little in stressful situations; and no options to reduce stimuli or simplify the display. The conditions: a budget of €175,000, 14 weeks for the implementation, no complete relaunch, the platform must stay usable for broad groups, only limited test data from different groups exists, and first prototypes are to be tried soon. You work through six steps; step 5 is the start of the practice project.
+A digital portal for health, counselling and support offers is to be reworked for a very diverse group of users.
+
+First feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility.
+
+The organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype.
+
+The observed problems:
+
+- many simultaneous stimuli and competing information areas on central pages
+- inconsistent navigation patterns and low predictability
+- texts that are correct in content but hard to access in language and typography
+- long forms with little supportive structure
+- error messages and feedback that help too little in stressful situations
+- no options to reduce stimuli or simplify the display
+
+The conditions:
+
+- a budget of €175,000
+- 14 weeks for the implementation
+- no complete relaunch
+- the platform must stay usable for broad groups
+- only limited test data from different groups exists
+- first prototypes are to be tried soon
+
+You work through six steps; step 5 is the start of the practice project.
 
 ![The product to read, as the lab shows it (lifeguide).](_figures/d13_b2-1_0.png)
 
@@ -305,7 +366,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the organisation behind LifeGuide, which runs a website, a portal and an app. Its digital offers are formally accessible, but not yet usable enough for people with different cognitive and sensory needs. Complaints about overload, unclarity and reading difficulties are rising. Inside, people discuss whether extra options are enough or whether the base architecture of the product has to be rethought. The management expects a sound strategy for building neurodiverse requirements, inclusive design patterns, assistive technologies and testing systematically into the UX architecture. You are not to adapt single screens, but to develop a sound decision architecture for neurodiverse usability, inclusive standards, prototyping and test governance.
+You take the perspective of the Chief Experience Officer of the organisation behind LifeGuide, which runs a website, a portal and an app.
+
+Its digital offers are formally accessible, but not yet usable enough for people with different cognitive and sensory needs. Complaints about overload, unclarity and reading difficulties are rising.
+
+Inside, people discuss whether extra options are enough or whether the base architecture of the product has to be rethought.
+
+The management expects a sound strategy for building neurodiverse requirements, inclusive design patterns, assistive technologies and testing systematically into the UX architecture.
+
+You are not to adapt single screens, but to develop a sound decision architecture for neurodiverse usability, inclusive standards, prototyping and test governance.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +389,20 @@ You take the perspective of the Chief Experience Officer of the organisation beh
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: an organisation with a website, a portal and an app, formally accessible but not usable enough for different cognitive and sensory needs, rising complaints about overload, unclarity and reading difficulties, a debate about extra options against a new base architecture, a limited budget, several stakeholders, not all systems at once, patchy test data, legal, reputational and quality requirements, first improvements soon, and the warning that wrong decisions can increase exclusion, support effort and loss of trust. Those are the plan's facts. That the organisation is the one behind LifeGuide and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- an organisation with a website, a portal and an app, formally accessible but not usable enough for different cognitive and sensory needs
+- rising complaints about overload, unclarity and reading difficulties
+- a debate about extra options against a new base architecture
+- a limited budget
+- several stakeholders
+- not all systems at once
+- patchy test data
+- legal, reputational and quality requirements
+- first improvements soon
+- the warning that wrong decisions can increase exclusion, support effort and loss of trust
+
+Those are the plan's facts. That the organisation is the one behind LifeGuide and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A UX architecture for neurodiverse and adaptive use.*

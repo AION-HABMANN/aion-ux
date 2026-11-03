@@ -16,6 +16,7 @@ import { tt } from "@/lib/lang";
 import { usePersisted } from "@/store/usePersisted";
 import { useHydrated } from "@/store/useStore";
 import type { Persisted } from "@/store/useStore";
+import { Prose } from "@/components/ui/Prose";
 
 /**
  * The page frames shared by the days built after Day 1 (Day 2, Day 3, …): a day's home page (CLAUDE.md #27) and its two routes (#28, #30).
@@ -69,12 +70,8 @@ export function DayHome({ cfg }: { cfg: DayConfig }) {
           <h2 id="today-h" className="text-h2">
             {tt("What today is about", "Worum es heute geht")}
           </h2>
-          <p className="max-w-prose text-body text-ink">
-            <Gloss>{cfg.intro.about}</Gloss>
-          </p>
-          <p className="max-w-prose text-body text-ink">
-            <Gloss>{cfg.intro.caseLine}</Gloss>
-          </p>
+          <Prose gloss text={cfg.intro.about} className="max-w-prose text-body text-ink" />
+          <Prose gloss text={cfg.intro.caseLine} className="max-w-prose text-body text-ink" />
         </div>
         <div className="space-y-2">
           <p className="smallcaps">{tt("One story, two routes", "Eine Geschichte, zwei Routen")}</p>

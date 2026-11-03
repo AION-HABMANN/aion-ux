@@ -68,7 +68,7 @@ export const SPEC = defineSpec({
     heading: t("The case: two platforms on the UX team's desk, and CitizenConnect"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three platforms land on your desk. Two are warm-ups: PublicAccess, a service portal for citizen services, appointments and documents, and LearnAccess, a platform for digital further training with three redesigns to choose from. The main case is CitizenConnect, a city's service platform for information, appointment bookings and applications. It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The city wants it to become more accessible and inclusive, without a complete relaunch.",
+      "You work in the UX team of a digital agency. This week three platforms land on your desk.\n\nTwo are warm-ups: PublicAccess, a service portal for citizen services, appointments and documents, and LearnAccess, a platform for digital further training with three redesigns to choose from.\n\nThe main case is CitizenConnect, a city's service platform for information, appointment bookings and applications.\n\nIt is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The city wants it to become more accessible and inclusive, without a complete relaunch.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -104,14 +104,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: PublicAccess with mouse-only navigation, colour-only hints, weak contrast in places, complex terms and long nested sentences in forms, insufficient error messages, and images and symbols that are not self-explanatory or described; LearnAccess's three redesigns (A modern and brand-strong with reduced contrast and small text, B structured, high-contrast, plain and well focusable but less premium, C good basic accessibility with optional adaptations but more technical effort) for a very heterogeneous group, modern and inclusive, a limited budget, 10 weeks, legal requirements, department against marketing; CitizenConnect's weak contrast, unstructured forms with unclear errors, patchy keyboard operation, visual-only hints, complicated content and inconsistent page types, €160,000, 14 weeks, no relaunch, legal requirements first, several departments supplying content, first improvements soon. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• PublicAccess with mouse-only navigation, colour-only hints, weak contrast in places, complex terms and long nested sentences in forms, insufficient error messages, and images and symbols that are not self-explanatory or described\n• LearnAccess's three redesigns (A modern and brand-strong with reduced contrast and small text, B structured, high-contrast, plain and well focusable but less premium, C good basic accessibility with optional adaptations but more technical effort) for a very heterogeneous group, modern and inclusive, a limited budget, 10 weeks, legal requirements, department against marketing\n• CitizenConnect's weak contrast, unstructured forms with unclear errors, patchy keyboard operation, visual-only hints, complicated content and inconsistent page types, €160,000, 14 weeks, no relaunch, legal requirements first, several departments supplying content, first improvements soon\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pages, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: services that formally work, but not for everyone"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the organisation behind CitizenConnect: a website, a customer portal and digital service processes. Its systems formally work, but they are not equally accessible to all users, and complaints about legibility, operability and comprehensibility keep rising. Inside, accessibility is seen mostly as a compliance topic, not as an integral part of UX quality and service responsibility. The management expects a sound strategy for building accessibility and inclusive design systematically into product development and governance. You are not to repair single barriers, but to develop a sound decision architecture for accessibility, inclusion and legally secure UX quality.",
+      "You take the perspective of the Chief Experience Officer of the organisation behind CitizenConnect: a website, a customer portal and digital service processes.\n\nIts systems formally work, but they are not equally accessible to all users, and complaints about legibility, operability and comprehensibility keep rising.\n\nInside, accessibility is seen mostly as a compliance topic, not as an integral part of UX quality and service responsibility.\n\nThe management expects a sound strategy for building accessibility and inclusive design systematically into product development and governance.\n\nYou are not to repair single barriers, but to develop a sound decision architecture for accessibility, inclusion and legally secure UX quality.",
     ),
     conditions: {
       title: t("The framework"),
@@ -146,7 +146,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: an organisation with a website, a customer portal and digital service processes that formally work but are not equally accessible, rising complaints about legibility, operability and comprehensibility, accessibility seen inside as compliance, a limited budget, several stakeholders, binding legal requirements, not all systems at once, incomplete data on real barriers, first improvements soon, and the warning that wrong decisions can increase exclusion, reputational damage and legal risks. Those are the plan's facts. That the organisation is the one behind CitizenConnect and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• an organisation with a website, a customer portal and digital service processes that formally work but are not equally accessible\n• rising complaints about legibility, operability and comprehensibility\n• accessibility seen inside as compliance\n• a limited budget\n• several stakeholders\n• binding legal requirements\n• not all systems at once\n• incomplete data on real barriers\n• first improvements soon\n• the warning that wrong decisions can increase exclusion, reputational damage and legal risks\n\nThose are the plan's facts. That the organisation is the one behind CitizenConnect and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -158,7 +158,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Barriers in a digital offer (PublicAccess)"),
       lead: t(
-        "You receive the description of a fictional service portal, PublicAccess, for citizen services, appointments and documents. Open it and use it as a citizen: book an appointment, find a document, fill in a form and make a mistake. Then try the same with the keyboard alone (Tab, Enter, the arrow keys). You need no prior knowledge: notice where you get stuck, and imagine who else would. The aim is to recognise barriers systematically and to understand accessibility from the user's side, not only as a technical matter.",
+        "You receive the description of a fictional service portal, PublicAccess, for citizen services, appointments and documents. Open it and use it as a citizen: book an appointment, find a document, fill in a form and make a mistake.\n\nThen try the same with the keyboard alone (Tab, Enter, the arrow keys). You need no prior knowledge: notice where you get stuck, and imagine who else would.\n\nThe aim is to recognise barriers systematically and to understand accessibility from the user's side, not only as a technical matter.",
       ),
       slots: ["publicaccess"],
       fields: [
@@ -312,7 +312,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Inclusive design under conflicting goals (LearnAccess)"),
       lead: t(
-        "LearnAccess is a platform for digital further training that is to be redesigned. Three variants are described in words: A) visually modern and brand-strong, but with reduced contrast and small text; B) clearly structured, high in contrast, in plain language and well focusable, but less “premium” in its brand; C) good basic accessibility with some optional adaptation functions, but a higher technical effort. The conditions: the target group is very heterogeneous, the company wants to look modern and inclusive, the budget for technical changes is limited, the release is in 10 weeks, legal requirements must be met, and the department and marketing set different priorities. Decide anyway, and say what you assume.",
+        "LearnAccess is a platform for digital further training that is to be redesigned.\n\nThree variants are described in words:\nA) visually modern and brand-strong, but with reduced contrast and small text\nB) clearly structured, high in contrast, in plain language and well focusable, but less “premium” in its brand\nC) good basic accessibility with some optional adaptation functions, but a higher technical effort\n\nThe conditions:\n• the target group is very heterogeneous\n• the company wants to look modern and inclusive\n• the budget for technical changes is limited\n• the release is in 10 weeks\n• legal requirements must be met\n• the department and marketing set different priorities\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["designs"],
       fields: [
@@ -448,7 +448,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: CitizenConnect"),
       lead: t(
-        "A municipal service platform offers information, appointment bookings and application processes digitally. It is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming. The organisation wants to make the portal more accessible and inclusive without a complete relaunch. The observed problems: weak contrast makes central information hard to read; forms are not cleanly structured and contain unclear error messages; keyboard operation is patchy; important hints are differentiated visually but not in words; content is partly complicated; and different page types are not built consistently. The conditions: a budget of €160,000, 14 weeks for the implementation, no complete relaunch, legal requirements that must be considered first, several departments that supply content, and first improvements that must show soon. You work through six steps.",
+        "A municipal service platform offers information, appointment bookings and application processes digitally.\n\nIt is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming.\n\nThe organisation wants to make the portal more accessible and inclusive without a complete relaunch.\n\nThe observed problems:\n• weak contrast makes central information hard to read\n• forms are not cleanly structured and contain unclear error messages\n• keyboard operation is patchy\n• important hints are differentiated visually but not in words\n• content is partly complicated\n• different page types are not built consistently\n\nThe conditions:\n• a budget of €160,000\n• 14 weeks for the implementation\n• no complete relaunch\n• legal requirements that must be considered first\n• several departments that supply content\n• first improvements that must show soon\n\nYou work through six steps.",
       ),
       slots: ["citizenconnect"],
       fields: [

@@ -45,6 +45,36 @@ def one(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def prose(s):
+    """A text with the lab's reading markup (blank line = paragraph, "• " = bullet, "A) " = option) as markdown; no word changes."""
+    s = str(s)
+    if "\n" not in s:
+        return one(s)
+    out = []
+    for chunk in re.split(r"\n{2,}", s):
+        lines = [one(l) for l in chunk.split("\n") if l.strip()]
+        para = []
+        for l in lines:
+            if l.startswith("• "):
+                if para:
+                    out.append(" ".join(para)); out.append("")
+                    para = []
+                out.append("- " + l[2:])
+            elif re.match(r"^[A-Z]\) ", l):
+                if para:
+                    out.append(" ".join(para)); out.append("")
+                    para = []
+                out.append("- " + l)
+            else:
+                if out and out[-1].startswith("- "):
+                    out.append("")
+                para.append(l)
+        if para:
+            out.append(" ".join(para))
+        out.append("")
+    return "\n".join(out).strip()
+
+
 WEB = re.compile("|".join(chr(92) + "b" + w + chr(92) + "b" for w in ("exports?", "the app", "mentor", "website", "the check", "flag", "the site")) + "|passcode", re.I)
 
 
@@ -247,7 +277,7 @@ def block_task(day, b, level_tag, out, kind="JUDGED"):
     draws = " · ".join(f"{r} · {one(mats[r]['title']).split(':')[0]}" for r in b["refs"])
     out.append(f"**Draws on:** {draws}.\n")
     if b.get("lead"):
-        out.append(one(b["lead"]) + "\n")
+        out.append(prose(b["lead"]) + "\n")
     for fg in fig_md(day, "b" + b["id"], f"Evidence for Block {b['id']}"):
         out.append(fg + "\n")
     for f in b["fields"]:
@@ -257,7 +287,7 @@ def block_task(day, b, level_tag, out, kind="JUDGED"):
 def brief_md(day, br, scope, out, h):
     out.append(f"## {one(br['heading'])}\n")
     out.append(f"*{one(br['readTime'])}*\n")
-    out.append(one(br["paragraph"]) + "\n")
+    out.append(prose(br["paragraph"]) + "\n")
     cond = br["conditions"]
     out.append(table([cond["title"], br["runTitle"]], [["<br>".join("• " + one(i) for i in cond["items"]), "<br>".join("• " + one(i) for i in br["run"])]]) + "\n")
     for fg in fig_md(day, scope, "The case"):
@@ -269,7 +299,7 @@ def brief_md(day, br, scope, out, h):
         out.append(table([c["title"] for c in cols], [["<br>".join("• " + one(i) for i in c["items"]) for c in cols]]) + "\n")
         if k.get("note"):
             out.append(f"*{one(k['note'])}*\n")
-    out.append(f":::note Case assumption\n{one(br['assumption'])}\n:::\n")
+    out.append(f":::note Case assumption\n{prose(br['assumption'])}\n:::\n")
 
 
 def task(day):
@@ -415,7 +445,7 @@ def trainer(day):
     out.append("# UE5–6 · Case study (2 UE)\n")
     out.append(f"## The case and what is known (UE5–6)\n")
     br = s["brief1"]
-    out.append(one(br["paragraph"]) + "\n")
+    out.append(prose(br["paragraph"]) + "\n")
     k = br.get("known")
     if k:
         out.append(f"**{one(k['title'])}**\n")
@@ -439,7 +469,7 @@ def trainer(day):
     out.append("# UE8–10 · Transfer project (3 UE)\n")
     out.append("## The situation and what is known (UE8–10)\n")
     b2r = s["brief2"]
-    out.append(one(b2r["paragraph"]) + "\n")
+    out.append(prose(b2r["paragraph"]) + "\n")
     k2 = b2r.get("known")
     if k2:
         out.append(f"**{one(k2['title'])}**\n")

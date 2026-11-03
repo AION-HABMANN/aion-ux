@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: CarePath, a health app for appointments, medication notes and contact with doctors, and SkillFlow, a learning platform that has three designs for its start page. The main case is SafeHome Online, the self-service portal of an insurer, where customers report damage, look at their contracts and download documents. It is complete in content, but people give up, call the service centre and call it complicated, cold and unsafe.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: CarePath, a health app for appointments, medication notes and contact with doctors, and SkillFlow, a learning platform that has three designs for its start page.
+
+The main case is SafeHome Online, the self-service portal of an insurer, where customers report damage, look at their contracts and download documents.
+
+It is complete in content, but people give up, call the service centre and call it complicated, cold and unsafe.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: CarePath with nine equally strong tiles, a red warning, three button colours, very small type, moving elements and data next to advertising; SkillFlow's three start pages under 8 weeks, a target group of working adults, a limited budget and no tests; SafeHome Online with a 46 % abandonment rate, €180,000, 12 weeks, legal notices that stay and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- CarePath with nine equally strong tiles, a red warning, three button colours, very small type, moving elements and data next to advertising
+- SkillFlow's three start pages under 8 weeks, a target group of working adults, a limited budget and no tests
+- SafeHome Online with a 46 % abandonment rate, €180,000, 12 weeks, legal notices that stay and no relaunch
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Describe the effect and weigh designs · Level 1 · Knowledge
@@ -61,7 +73,9 @@ The brief says: CarePath with nine equally strong tiles, a red warning, three bu
 
 **Draws on:** A1 · UX, UI and the psychology behind them · A2 · How people see · A3 · Expectations and habits, and three aims of an interface · A4 · Feelings that work before thinking.
 
-You receive the description of a fictional product, CarePath, a health app for organising appointments, medication notes and contact with doctors. Open it and use it as a patient would. You need no prior knowledge: ask yourself what feels confusing, stressful, unsafe or unclear. The aim is to see the effect before you judge it.
+You receive the description of a fictional product, CarePath, a health app for organising appointments, medication notes and contact with doctors. Open it and use it as a patient would.
+
+You need no prior knowledge: ask yourself what feels confusing, stressful, unsafe or unclear. The aim is to see the effect before you judge it.
 
 ![CarePath, the start page, as the app shows it.](_figures/d1_b1-1_0.png)
 
@@ -140,7 +154,23 @@ Say what you would improve first and why, and what can wait.
 
 **Draws on:** A3 · Expectations and habits, and three aims of an interface · A4 · Feelings that work before thinking · A5 · Weighing a design measure.
 
-SkillFlow is a learning platform. Three alternative designs for its start page are described in words: A) modern, strongly animated and emotionally activating, but dense with information; B) very sober and factual, clearly structured, but not very motivating; C) visually high quality with strong imagery and a reduced navigation, but less transparent about the next steps. The conditions: the product goes live within 8 weeks, the target group is working adults between 25 and 55, the budget for the revision is limited, management asks for a “modern effect” and the support team for “as few questions as possible”, and there are no user tests yet. As in most projects, how large the budget is and how many users there are is not set. Decide anyway, and say what you assume.
+SkillFlow is a learning platform.
+
+Three alternative designs for its start page are described in words:
+
+- A) modern, strongly animated and emotionally activating, but dense with information
+- B) very sober and factual, clearly structured, but not very motivating
+- C) visually high quality with strong imagery and a reduced navigation, but less transparent about the next steps
+
+The conditions:
+
+- the product goes live within 8 weeks
+- the target group is working adults between 25 and 55
+- the budget for the revision is limited
+- management asks for a “modern effect” and the support team for “as few questions as possible”
+- there are no user tests yet
+
+As in most projects, how large the budget is and how many users there are is not set. Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (variants).](_figures/d1_b1-2_0.png)
 
@@ -226,7 +256,33 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · UX, UI and the psychology behind them · A2 · How people see · A3 · Expectations and habits, and three aims of an interface · A4 · Feelings that work before thinking · A5 · Weighing a design measure.
 
-An insurance company runs SafeHome Online, a self-service portal for damage reports, contract overviews and document downloads. It is judged complete in content but has massive usage problems: 46 % of damage reports are abandoned, many customers call the service centre although the functions exist online, users call the portal “complicated”, “cold” and “unsafe”, the specialist departments want to add more notices and safeguards, and the management wants a modern, trustworthy and more efficient customer experience. The current portal: very many blocks of text and legal notices on the entry page, primary actions that are not visually emphasised, no visible progress in the process, warning colours used often, even for neutral information, an upload that is formally correct but worded in an off-putting way, and important actions partly placed below long texts. The conditions: €180,000 and 12 weeks for a first optimisation, the legal notices must stay, IT can only intervene to a limited extent at short notice, and there is no full relaunch, so the measures must be targeted. You carry out a simplified psychological UX analysis in five steps.
+An insurance company runs SafeHome Online, a self-service portal for damage reports, contract overviews and document downloads.
+
+It is judged complete in content but has massive usage problems:
+
+- 46 % of damage reports are abandoned
+- many customers call the service centre although the functions exist online
+- users call the portal “complicated”, “cold” and “unsafe”
+- the specialist departments want to add more notices and safeguards
+- the management wants a modern, trustworthy and more efficient customer experience
+
+The current portal:
+
+- very many blocks of text and legal notices on the entry page
+- primary actions that are not visually emphasised
+- no visible progress in the process
+- warning colours used often, even for neutral information
+- an upload that is formally correct but worded in an off-putting way
+- important actions partly placed below long texts
+
+The conditions:
+
+- €180,000 and 12 weeks for a first optimisation
+- the legal notices must stay
+- IT can only intervene to a limited extent at short notice
+- there is no full relaunch, so the measures must be targeted
+
+You carry out a simplified psychological UX analysis in five steps.
 
 ![SafeHome Online today, as the portal shows it.](_figures/d1_b2-1_0.png)
 
@@ -311,7 +367,11 @@ Three to five sentences: what you recommend, what you do not, and what you expec
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the insurer that runs SafeHome Online. The company has several digital touchpoints: a website, the customer portal, an app and a chatbot. It loses users when they move between them, complaints are rising, conversion is stagnating, and inside the company people discuss isolated design changes. The management wants a viable UX direction for the next 24 months. You are not to optimise single screens but to design a sound decision architecture for psychologically effective and responsible UX.
+You take the perspective of the Chief Experience Officer of the insurer that runs SafeHome Online. The company has several digital touchpoints: a website, the customer portal, an app and a chatbot.
+
+It loses users when they move between them, complaints are rising, conversion is stagnating, and inside the company people discuss isolated design changes. The management wants a viable UX direction for the next 24 months.
+
+You are not to optimise single screens but to design a sound decision architecture for psychologically effective and responsible UX.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -326,7 +386,19 @@ You take the perspective of the Chief Experience Officer of the insurer that run
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a mid-sized company with a website, a customer portal, an app and a chatbot that loses users between them, rising complaints, stagnating conversion, isolated design changes, a direction for 24 months, a limited budget, partial data, the wish to look more innovative without losing trust, four departments with competing goals and first results in 3 months. Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a mid-sized company with a website, a customer portal, an app and a chatbot that loses users between them
+- rising complaints
+- stagnating conversion
+- isolated design changes
+- a direction for 24 months
+- a limited budget
+- partial data
+- the wish to look more innovative without losing trust
+- four departments with competing goals and first results in 3 months
+
+Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management board. Subject: A Neuro-UX strategy for our digital touchpoints.*

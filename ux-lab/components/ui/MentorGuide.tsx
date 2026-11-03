@@ -2,6 +2,7 @@
 
 import type { MentorGuide as Guide } from "@/lib/mentorGuide";
 import { useStore } from "@/store/useStore";
+import { Prose } from "@/components/ui/Prose";
 
 /**
  * Mentor-only worked answer under a task question, shown once the passcode has been entered in the mentor
@@ -45,10 +46,10 @@ export function MentorGuide({ guide }: { guide: Guide }) {
         </div>
       )}
       {guide.why && (
-        <p className="mt-2">
-          <span className="font-semibold">Why: </span>
-          {guide.why}
-        </p>
+        <div className="mt-2">
+          <p className="font-semibold">Why:</p>
+          <Prose text={guide.why} />
+        </div>
       )}
       {guide.lookFor && guide.lookFor.length > 0 && (
         <div className="mt-2">

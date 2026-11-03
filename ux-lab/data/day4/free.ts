@@ -77,7 +77,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three products on the UX team's desk, and MyEnergy"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: ServicePoint, a self-service portal for contract changes, documents and support requests, and WorkFlow Hub, a work platform that has three variants for its navigation. The main case is MyEnergy, an energy supplier's portal for tariff changes, adjusting instalments, meter readings and bills. It offers many functions, but customers often say they cannot find tasks quickly, or they abandon processes. The company wants use to be more efficient and intuitive without cutting the functions much.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: ServicePoint, a self-service portal for contract changes, documents and support requests, and WorkFlow Hub, a work platform that has three variants for its navigation.\n\nThe main case is MyEnergy, an energy supplier's portal for tariff changes, adjusting instalments, meter readings and bills.\n\nIt offers many functions, but customers often say they cannot find tasks quickly, or they abandon processes. The company wants use to be more efficient and intuitive without cutting the functions much.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -113,14 +113,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: ServicePoint with many equal menu items, hidden main functions, steps to remember, internal terms, new choices at every step and no feedback; WorkFlow Hub's three navigation variants for new and existing users, a department against the UX team, a limited budget, 9 weeks and partial tests; MyEnergy with too many equal items, unprioritised main tasks, invisible process logic, technical language, information to remember, unclear feedback, €160,000, 12 weeks, no relaunch and departments that want visibility. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• ServicePoint with many equal menu items, hidden main functions, steps to remember, internal terms, new choices at every step and no feedback\n• WorkFlow Hub's three navigation variants for new and existing users, a department against the UX team, a limited budget, 9 weeks and partial tests\n• MyEnergy with too many equal items, unprioritised main tasks, invisible process logic, technical language, information to remember, unclear feedback, €160,000, 12 weeks, no relaunch and departments that want visibility\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the energy supplier behind MyEnergy, and all its touchpoints"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the energy supplier that runs MyEnergy. The company has a customer portal, a mobile app and a service platform. Customers can do most tasks in principle, but only with much searching, uncertainty and support. Inside the company the discussion is about new functions, while the central problems of use remain unsolved. The management expects a sound strategy for more orientation and efficiency across all digital touchpoints. You are not to correct single screens but to develop a sound decision architecture for intuitive use based on cognitive principles.",
+      "You take the perspective of the Chief Experience Officer of the energy supplier that runs MyEnergy. The company has a customer portal, a mobile app and a service platform.\n\nCustomers can do most tasks in principle, but only with much searching, uncertainty and support. Inside the company the discussion is about new functions, while the central problems of use remain unsolved.\n\nThe management expects a sound strategy for more orientation and efficiency across all digital touchpoints.\n\nYou are not to correct single screens but to develop a sound decision architecture for intuitive use based on cognitive principles.",
     ),
     conditions: {
       title: t("The framework"),
@@ -154,7 +154,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a customer portal, a mobile app and a service platform, users who can do most tasks only with much searching, uncertainty and support, an inside discussion about new functions, a limited budget, several stakeholders, departments that want variety of functions, partial user data, first improvements in 3 months, and the warning that wrong priorities increase support costs, frustration and abandonment. Those are the plan's facts. That the company is the energy supplier of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a customer portal, a mobile app and a service platform\n• users who can do most tasks only with much searching, uncertainty and support\n• an inside discussion about new functions\n• a limited budget\n• several stakeholders\n• departments that want variety of functions\n• partial user data\n• first improvements in 3 months\n• the warning that wrong priorities increase support costs, frustration and abandonment\n\nThose are the plan's facts. That the company is the energy supplier of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -166,7 +166,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · Hurdles of use (ServicePoint)"),
       lead: t(
-        "You receive the description of a fictional self-service portal, ServicePoint, for contract changes, document downloads and support requests. Open it and try to change your contract as a customer would. You need no prior knowledge: notice where you hesitate, search, have to remember something or are not sure you are on the right way. The aim is to observe usability from the user's side and to recognise cognitive friction step by step.",
+        "You receive the description of a fictional self-service portal, ServicePoint, for contract changes, document downloads and support requests. Open it and try to change your contract as a customer would.\n\nYou need no prior knowledge: notice where you hesitate, search, have to remember something or are not sure you are on the right way.\n\nThe aim is to observe usability from the user's side and to recognise cognitive friction step by step.",
       ),
       slots: ["servicepoint"],
       fields: [
@@ -341,7 +341,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate UX decisions under conflicting goals (WorkFlow Hub)"),
       lead: t(
-        "WorkFlow Hub is a work platform. Three variants for its navigation are described in words: A) very many options directly visible and a large scope of functions, but a complex first impression; B) a reduced navigation with a clear focus on the main tasks, but some rare functions lie deeper in the system; C) a modern presentation with interactive elements, but patterns that change between the areas. The conditions: the product must work for new and for existing users, the department demands that all functions are fully visible, the UX team demands reduction and a clear priority, the budget for deep changes is limited, the release is in 9 weeks, and user tests are only partly available. Decide anyway, and say what you assume.",
+        "WorkFlow Hub is a work platform.\n\nThree variants for its navigation are described in words:\nA) very many options directly visible and a large scope of functions, but a complex first impression\nB) a reduced navigation with a clear focus on the main tasks, but some rare functions lie deeper in the system\nC) a modern presentation with interactive elements, but patterns that change between the areas\n\nThe conditions:\n• the product must work for new and for existing users\n• the department demands that all functions are fully visible\n• the UX team demands reduction and a clear priority\n• the budget for deep changes is limited\n• the release is in 9 weeks\n• user tests are only partly available\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["navigation"],
       fields: [
@@ -477,7 +477,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: MyEnergy"),
       lead: t(
-        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills. The portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much. The observed problems: too many navigation items of equal rank make orientation hard, important tasks are not clearly prioritised, process steps build on each other without the logic being visible, technical language raises the effort of understanding, users have to remember information across several steps, and feedback in the process is unclear or too general. The conditions: a budget of €160,000, 12 weeks for the implementation, no complete relaunch, several departments want to keep their functions prominently visible, and user data is only partly available. You work through six steps.",
+        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through six steps.",
       ),
       slots: ["myenergy"],
       fields: [

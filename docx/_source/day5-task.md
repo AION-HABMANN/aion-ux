@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: BankDirect, a customer portal for transfers, card management and contract services, and AdminFlow, an administration platform that has three variants for its main navigation. The main case is MoveEasy, a mobility provider's portal where users book trips, manage tickets, change payment data and send support requests. It is rich in functions, but using it is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: BankDirect, a customer portal for transfers, card management and contract services, and AdminFlow, an administration platform that has three variants for its main navigation.
+
+The main case is MoveEasy, a mobility provider's portal where users book trips, manage tickets, change payment data and send support requests.
+
+It is rich in functions, but using it is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: BankDirect with 14 equal options, a small “start transfer” link, similar buttons close together, crowded forms, numbers to remember and small mobile buttons; AdminFlow's three navigation variants for frequent and occasional users, a department against IT, rising mobile use, 7 weeks and limited test data; MoveEasy with small, badly placed buttons, too many options, things to remember, long similar lists, small touch targets, €140,000, 10 weeks, mobile use above 60 % and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- BankDirect with 14 equal options, a small “start transfer” link, similar buttons close together, crowded forms, numbers to remember and small mobile buttons
+- AdminFlow's three navigation variants for frequent and occasional users, a department against IT, rising mobile use, 7 weeks and limited test data
+- MoveEasy with small, badly placed buttons, too many options, things to remember, long similar lists, small touch targets, €140,000, 10 weeks, mobile use above 60 % and no relaunch
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the law behind the hurdles and weigh variants · Level 1 · Knowledge
@@ -61,7 +73,9 @@ The brief says: BankDirect with 14 equal options, a small “start transfer” l
 
 **Draws on:** A1 · Fitts's law · A2 · Hick's law · A3 · Miller's rule · A4 · The three laws together.
 
-You receive the description of a fictional customer portal, BankDirect, for transfers, card management and contract services. Open it, on the desktop and on a phone, and try to start a transfer as a customer would. You need no prior knowledge: notice where you are slow, unsure or close to a mistake. The aim is to recognise the three UX laws in concrete problems of use and to describe their effect step by step.
+You receive the description of a fictional customer portal, BankDirect, for transfers, card management and contract services. Open it, on the desktop and on a phone, and try to start a transfer as a customer would.
+
+You need no prior knowledge: notice where you are slow, unsure or close to a mistake. The aim is to recognise the three UX laws in concrete problems of use and to describe their effect step by step.
 
 ![BankDirect, as the portal shows it.](_figures/d5_b1-1_0.png)
 
@@ -130,7 +144,24 @@ Write them as a list, the bigger weakness first, each with why it weighs most on
 
 **Draws on:** A1 · Fitts's law · A2 · Hick's law · A3 · Miller's rule · A5 · Less searching, fewer errors, less decision stress, and weighing a measure.
 
-AdminFlow is an administration platform. Three variants for its main navigation are described in words: A) all functions visible at a glance, so a high access to functions, but many options at once; B) the central tasks are large and easy to reach, while rare functions lie deeper in submenus; C) a modern, minimalist layout with few visible options, but many steps to the actual action. The conditions: the target group is frequent and occasional users, the department demands that all functions are visible, IT wants to manage with little rework, mobile use is rising strongly, the release is in 7 weeks, and only limited user test data exists. Decide anyway, and say what you assume.
+AdminFlow is an administration platform.
+
+Three variants for its main navigation are described in words:
+
+- A) all functions visible at a glance, so a high access to functions, but many options at once
+- B) the central tasks are large and easy to reach, while rare functions lie deeper in submenus
+- C) a modern, minimalist layout with few visible options, but many steps to the actual action
+
+The conditions:
+
+- the target group is frequent and occasional users
+- the department demands that all functions are visible
+- IT wants to manage with little rework
+- mobile use is rising strongly
+- the release is in 7 weeks
+- only limited user test data exists
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (adminnav).](_figures/d5_b1-2_0.png)
 
@@ -217,7 +248,29 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Fitts's law · A2 · Hick's law · A3 · Miller's rule · A4 · The three laws together · A5 · Less searching, fewer errors, less decision stress, and weighing a measure.
 
-A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests. The portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up. The observed problems: central booking buttons are small and partly badly placed, too many options at once on the start page raise uncertainty, users have to remember several tariffs and conditions at once, important actions lie in long lists of similar options, process steps offer too many equal choices, and mobile interaction is hard because touch targets are too small. The conditions: a budget of €140,000, 10 weeks for the implementation, mobile use is already above 60 %, a complete relaunch is not possible, marketing wants to keep as many offers visible as possible, and support demands fewer operating errors and questions. You work through six steps.
+A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.
+
+The portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.
+
+The observed problems:
+
+- central booking buttons are small and partly badly placed
+- too many options at once on the start page raise uncertainty
+- users have to remember several tariffs and conditions at once
+- important actions lie in long lists of similar options
+- process steps offer too many equal choices
+- mobile interaction is hard because touch targets are too small
+
+The conditions:
+
+- a budget of €140,000
+- 10 weeks for the implementation
+- mobile use is already above 60 %
+- a complete relaunch is not possible
+- marketing wants to keep as many offers visible as possible
+- support demands fewer operating errors and questions
+
+You work through six steps.
 
 ![MoveEasy today, as the portal shows it.](_figures/d5_b2-1_0.png)
 
@@ -302,7 +355,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the mobility provider that runs MoveEasy. The company has a customer portal, a service app and an administration interface. Many digital processes work, but they are unnecessarily slow, error-prone and hard to access for first-time users. Inside the company new functions are prioritised, although known problems of reach, choice complexity and information overload remain unsolved. The management demands a sound strategy to improve efficiency, orientation and the quality of interaction. You are not to correct single buttons or menus but to develop a sound decision architecture for navigation, interaction and action logic based on Fitts's law, Hick's law and Miller's rule.
+You take the perspective of the Chief Experience Officer of the mobility provider that runs MoveEasy. The company has a customer portal, a service app and an administration interface.
+
+Many digital processes work, but they are unnecessarily slow, error-prone and hard to access for first-time users.
+
+Inside the company new functions are prioritised, although known problems of reach, choice complexity and information overload remain unsolved.
+
+The management demands a sound strategy to improve efficiency, orientation and the quality of interaction.
+
+You are not to correct single buttons or menus but to develop a sound decision architecture for navigation, interaction and action logic based on Fitts's law, Hick's law and Miller's rule.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -317,7 +378,20 @@ You take the perspective of the Chief Experience Officer of the mobility provide
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a customer portal, a service app and an administration interface, processes that work but are slow, error-prone and hard for first-time users, new functions prioritised over known problems of reach, choice complexity and information overload, a limited budget, strongly growing mobile use, conflicting stakeholders, not all systems at once, partial user data, first results soon, and the warning that wrong decisions increase support costs, abandonment and frustration. Those are the plan's facts. That the company is the mobility provider of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a customer portal, a service app and an administration interface
+- processes that work but are slow, error-prone and hard for first-time users
+- new functions prioritised over known problems of reach, choice complexity and information overload
+- a limited budget
+- strongly growing mobile use
+- conflicting stakeholders
+- not all systems at once
+- partial user data
+- first results soon
+- the warning that wrong decisions increase support costs, abandonment and frustration
+
+Those are the plan's facts. That the company is the mobility provider of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: An interaction strategy for efficient and low-load digital use.*

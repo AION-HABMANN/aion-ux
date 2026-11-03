@@ -74,7 +74,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three products on the UX team's desk, and SafeHome Online"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: CarePath, a health app for appointments, medication notes and contact with doctors, and SkillFlow, a learning platform that has three designs for its start page. The main case is SafeHome Online, the self-service portal of an insurer, where customers report damage, look at their contracts and download documents. It is complete in content, but people give up, call the service centre and call it complicated, cold and unsafe.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: CarePath, a health app for appointments, medication notes and contact with doctors, and SkillFlow, a learning platform that has three designs for its start page.\n\nThe main case is SafeHome Online, the self-service portal of an insurer, where customers report damage, look at their contracts and download documents.\n\nIt is complete in content, but people give up, call the service centre and call it complicated, cold and unsafe.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -110,14 +110,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: CarePath with nine equally strong tiles, a red warning, three button colours, very small type, moving elements and data next to advertising; SkillFlow's three start pages under 8 weeks, a target group of working adults, a limited budget and no tests; SafeHome Online with a 46 % abandonment rate, €180,000, 12 weeks, legal notices that stay and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• CarePath with nine equally strong tiles, a red warning, three button colours, very small type, moving elements and data next to advertising\n• SkillFlow's three start pages under 8 weeks, a target group of working adults, a limited budget and no tests\n• SafeHome Online with a 46 % abandonment rate, €180,000, 12 weeks, legal notices that stay and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the insurer behind SafeHome Online, 24 months ahead"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the insurer that runs SafeHome Online. The company has several digital touchpoints: a website, the customer portal, an app and a chatbot. It loses users when they move between them, complaints are rising, conversion is stagnating, and inside the company people discuss isolated design changes. The management wants a viable UX direction for the next 24 months. You are not to optimise single screens but to design a sound decision architecture for psychologically effective and responsible UX.",
+      "You take the perspective of the Chief Experience Officer of the insurer that runs SafeHome Online. The company has several digital touchpoints: a website, the customer portal, an app and a chatbot.\n\nIt loses users when they move between them, complaints are rising, conversion is stagnating, and inside the company people discuss isolated design changes. The management wants a viable UX direction for the next 24 months.\n\nYou are not to optimise single screens but to design a sound decision architecture for psychologically effective and responsible UX.",
     ),
     conditions: {
       title: t("The framework"),
@@ -150,7 +150,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a mid-sized company with a website, a customer portal, an app and a chatbot that loses users between them, rising complaints, stagnating conversion, isolated design changes, a direction for 24 months, a limited budget, partial data, the wish to look more innovative without losing trust, four departments with competing goals and first results in 3 months. Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a mid-sized company with a website, a customer portal, an app and a chatbot that loses users between them\n• rising complaints\n• stagnating conversion\n• isolated design changes\n• a direction for 24 months\n• a limited budget\n• partial data\n• the wish to look more innovative without losing trust\n• four departments with competing goals and first results in 3 months\n\nThose are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -162,7 +162,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · The effect of an unfamiliar interface (CarePath)"),
       lead: t(
-        "You receive the description of a fictional product, CarePath, a health app for organising appointments, medication notes and contact with doctors. Open it and use it as a patient would. You need no prior knowledge: ask yourself what feels confusing, stressful, unsafe or unclear. The aim is to see the effect before you judge it.",
+        "You receive the description of a fictional product, CarePath, a health app for organising appointments, medication notes and contact with doctors. Open it and use it as a patient would.\n\nYou need no prior knowledge: ask yourself what feels confusing, stressful, unsafe or unclear. The aim is to see the effect before you judge it.",
       ),
       slots: ["carepath"],
       fields: [
@@ -346,7 +346,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate design effects and decide under uncertainty (SkillFlow)"),
       lead: t(
-        "SkillFlow is a learning platform. Three alternative designs for its start page are described in words: A) modern, strongly animated and emotionally activating, but dense with information; B) very sober and factual, clearly structured, but not very motivating; C) visually high quality with strong imagery and a reduced navigation, but less transparent about the next steps. The conditions: the product goes live within 8 weeks, the target group is working adults between 25 and 55, the budget for the revision is limited, management asks for a “modern effect” and the support team for “as few questions as possible”, and there are no user tests yet. As in most projects, how large the budget is and how many users there are is not set. Decide anyway, and say what you assume.",
+        "SkillFlow is a learning platform.\n\nThree alternative designs for its start page are described in words:\nA) modern, strongly animated and emotionally activating, but dense with information\nB) very sober and factual, clearly structured, but not very motivating\nC) visually high quality with strong imagery and a reduced navigation, but less transparent about the next steps\n\nThe conditions:\n• the product goes live within 8 weeks\n• the target group is working adults between 25 and 55\n• the budget for the revision is limited\n• management asks for a “modern effect” and the support team for “as few questions as possible”\n• there are no user tests yet\n\nAs in most projects, how large the budget is and how many users there are is not set. Decide anyway, and say what you assume.",
       ),
       slots: ["variants"],
       fields: [
@@ -490,7 +490,7 @@ export const SPEC = defineSpec({
       minutes: 40,
       doc: t("2.1 · Case study: SafeHome Online"),
       lead: t(
-        "An insurance company runs SafeHome Online, a self-service portal for damage reports, contract overviews and document downloads. It is judged complete in content but has massive usage problems: 46 % of damage reports are abandoned, many customers call the service centre although the functions exist online, users call the portal “complicated”, “cold” and “unsafe”, the specialist departments want to add more notices and safeguards, and the management wants a modern, trustworthy and more efficient customer experience. The current portal: very many blocks of text and legal notices on the entry page, primary actions that are not visually emphasised, no visible progress in the process, warning colours used often, even for neutral information, an upload that is formally correct but worded in an off-putting way, and important actions partly placed below long texts. The conditions: €180,000 and 12 weeks for a first optimisation, the legal notices must stay, IT can only intervene to a limited extent at short notice, and there is no full relaunch, so the measures must be targeted. You carry out a simplified psychological UX analysis in five steps.",
+        "An insurance company runs SafeHome Online, a self-service portal for damage reports, contract overviews and document downloads.\n\nIt is judged complete in content but has massive usage problems:\n• 46 % of damage reports are abandoned\n• many customers call the service centre although the functions exist online\n• users call the portal “complicated”, “cold” and “unsafe”\n• the specialist departments want to add more notices and safeguards\n• the management wants a modern, trustworthy and more efficient customer experience\n\nThe current portal:\n• very many blocks of text and legal notices on the entry page\n• primary actions that are not visually emphasised\n• no visible progress in the process\n• warning colours used often, even for neutral information\n• an upload that is formally correct but worded in an off-putting way\n• important actions partly placed below long texts\n\nThe conditions:\n• €180,000 and 12 weeks for a first optimisation\n• the legal notices must stay\n• IT can only intervene to a limited extent at short notice\n• there is no full relaunch, so the measures must be targeted\n\nYou carry out a simplified psychological UX analysis in five steps.",
       ),
       slots: ["safehome"],
       fields: [

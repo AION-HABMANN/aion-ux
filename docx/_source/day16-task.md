@@ -37,7 +37,15 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX strategy team of a digital agency. This week three projects land on your desk. Two are warm-ups: RealityFlow, an innovation project for immersive advice, service support and training, and FutureInteraction Hub, a platform with three strategy options for its future. The main case is NextWorld UX: over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research. First results are promising but uneven: some users experience high value, others show overload or scepticism. The management now demands a decision on which approaches are scaled, which are tested further, and which are stopped for now.
+You work in the UX strategy team of a digital agency. This week three projects land on your desk.
+
+Two are warm-ups: RealityFlow, an innovation project for immersive advice, service support and training, and FutureInteraction Hub, a platform with three strategy options for its future.
+
+The main case is NextWorld UX: over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research.
+
+First results are promising but uneven: some users experience high value, others show overload or scepticism.
+
+The management now demands a decision on which approaches are scaled, which are tested further, and which are stopped for now.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +60,13 @@ You work in the UX strategy team of a digital agency. This week three projects l
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: RealityFlow's combination of AR service, immersive training and neuro-informed analysis, prototypes that impress but are untested in real work, management against departments, ethics and acceptance only roughly addressed, no test and scaling logic, broad investment on unsecured assumptions; FutureInteraction Hub's three options (A fast and broad, B focused with a test and ethics framework, C waiting and researching), seen as innovative, a limited budget, patchy test data, stakeholders between visibility, safety, economics and a pioneer role, results within 6 months, and wrong decisions that cost money, trust or cause an innovation backlog; NextWorld UX's uneven prototypes, no common evaluation logic, incomparable feedback, ethics handled differently, attention over use, investment under time pressure, no strategy or governance, €260,000, 16 weeks, not all approaches at once, five stakeholder groups, market signals to stay visible. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the prototypes, the 3D scenes and the facts marked “Clear”.
+The brief says:
+
+- RealityFlow's combination of AR service, immersive training and neuro-informed analysis, prototypes that impress but are untested in real work, management against departments, ethics and acceptance only roughly addressed, no test and scaling logic, broad investment on unsecured assumptions
+- FutureInteraction Hub's three options (A fast and broad, B focused with a test and ethics framework, C waiting and researching), seen as innovative, a limited budget, patchy test data, stakeholders between visibility, safety, economics and a pioneer role, results within 6 months, and wrong decisions that cost money, trust or cause an innovation backlog
+- NextWorld UX's uneven prototypes, no common evaluation logic, incomparable feedback, ethics handled differently, attention over use, investment under time pressure, no strategy or governance, €260,000, 16 weeks, not all approaches at once, five stakeholder groups, market signals to stay visible
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the prototypes, the 3D scenes and the facts marked “Clear”.
 :::
 
 # Part 1 · Judge an immersive project, and three strategies · Level 1 · Knowledge
@@ -61,7 +75,13 @@ The brief says: RealityFlow's combination of AR service, immersive training and 
 
 **Draws on:** A1 · From concept idea to scalable solution · A2 · Testing immersive systems · A3 · Feasible or responsible · A4 · Responsible, connectable, governable.
 
-You receive the description of a fictional innovation project, RealityFlow, for immersive advice, service support and training. Open it: three prototypes you can try, an AR service guide on a real 3D device, a training module on a real 3D machine and a neuro-informed analysis dashboard. Then take them into a real work situation, read what the management and the departments want, and look at the investment proposal. You need no prior knowledge: notice what is shown and what has not been tested. The aim is to judge immersive future projects not only technically, but strategically, organisationally and ethically.
+You receive the description of a fictional innovation project, RealityFlow, for immersive advice, service support and training.
+
+Open it: three prototypes you can try, an AR service guide on a real 3D device, a training module on a real 3D machine and a neuro-informed analysis dashboard.
+
+Then take them into a real work situation, read what the management and the departments want, and look at the investment proposal. You need no prior knowledge: notice what is shown and what has not been tested.
+
+The aim is to judge immersive future projects not only technically, but strategically, organisationally and ethically.
 
 ![The product to read, as the lab shows it (realityflow).](_figures/d16_b1-1_0.png)
 
@@ -132,7 +152,24 @@ Write four lines: chance 1, chance 2, risk 1, risk 2, each with why it weighs mo
 
 **Draws on:** A3 · Feasible or responsible · A4 · Responsible, connectable, governable · A5 · When not to scale, and weighing a scaling decision.
 
-FutureInteraction Hub is a platform. Three strategy options for its future are described in words: A) a fast, broad introduction of immersive pilot functions in several areas, with high innovation pressure but higher risks for consistency, acceptance and governance; B) focused piloting of a few clearly prioritised future applications with a strong test and ethics framework; C) a waiting strategy with observation, research and little immediate implementation, with lower risk and lower visibility. The conditions: the company wants to be seen as innovative, the budget is limited and not all lines of innovation can be pursued at once, data from earlier tests is patchy, several stakeholders stand for different interests between visibility, safety, economic viability and a pioneer role, first visible results are wanted within 6 months, and wrong decisions can lead to costs, loss of trust or an innovation backlog. Decide anyway, and say what you assume.
+FutureInteraction Hub is a platform.
+
+Three strategy options for its future are described in words:
+
+- A) a fast, broad introduction of immersive pilot functions in several areas, with high innovation pressure but higher risks for consistency, acceptance and governance
+- B) focused piloting of a few clearly prioritised future applications with a strong test and ethics framework
+- C) a waiting strategy with observation, research and little immediate implementation, with lower risk and lower visibility
+
+The conditions:
+
+- the company wants to be seen as innovative
+- the budget is limited and not all lines of innovation can be pursued at once
+- data from earlier tests is patchy
+- several stakeholders stand for different interests between visibility, safety, economic viability and a pioneer role
+- first visible results are wanted within 6 months
+- wrong decisions can lead to costs, loss of trust or an innovation backlog
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d16_b1-2_0.png)
 
@@ -219,7 +256,29 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · From concept idea to scalable solution · A2 · Testing immersive systems · A3 · Feasible or responsible · A4 · Responsible, connectable, governable · A5 · When not to scale, and weighing a scaling decision.
 
-Over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research. First results are promising but uneven. Some users experience high value, others show overload or scepticism. The management now demands a decision on which approaches are scaled, which are tested further and which are stopped for now. The observed problems: the prototypes were developed with different depth and without a common evaluation logic; user feedback exists but is not systematically comparable; ethical and organisational implications were handled differently in the single projects; some pilot ideas attract strong attention but have only limited practical use; investment decisions are under time pressure although maturity varies strongly; and an overarching future strategy and governance structure is missing. The conditions: a budget of €260,000 for the next scaling and pilot phase, 16 weeks for prioritisation, building governance and planning new pilots, not all approaches can be continued at once, stakeholders from innovation, IT, the department, data protection and management pursue different goals, first market signals should stay visible, and wrong decisions could increase costs, reputational risks and internal blockades. You work through six steps.
+Over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research. First results are promising but uneven.
+
+Some users experience high value, others show overload or scepticism. The management now demands a decision on which approaches are scaled, which are tested further and which are stopped for now.
+
+The observed problems:
+
+- the prototypes were developed with different depth and without a common evaluation logic
+- user feedback exists but is not systematically comparable
+- ethical and organisational implications were handled differently in the single projects
+- some pilot ideas attract strong attention but have only limited practical use
+- investment decisions are under time pressure although maturity varies strongly
+- an overarching future strategy and governance structure is missing
+
+The conditions:
+
+- a budget of €260,000 for the next scaling and pilot phase
+- 16 weeks for prioritisation, building governance and planning new pilots
+- not all approaches can be continued at once
+- stakeholders from innovation, IT, the department, data protection and management pursue different goals
+- first market signals should stay visible
+- wrong decisions could increase costs, reputational risks and internal blockades
+
+You work through six steps.
 
 ![The product to read, as the lab shows it (nextworld).](_figures/d16_b2-1_0.png)
 
@@ -305,7 +364,13 @@ Three to five sentences: what you recommend, what has priority, and what you hop
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the company behind NextWorld UX. It stands at the transition from experimental future projects to a strategically steered UX innovation landscape. Several prototypes and pilots for immersive, AI-supported and neuro-based interaction exist, but there is no overarching portfolio logic. The management expects a long-term strategy that connects innovation, user value, ethics, economic viability and the organisation's ability to learn. Your task is not to judge single technologies in isolation, but to develop a sound decision architecture for prototyping, testing, ethics, scaling and the governance of future UX systems.
+You take the perspective of the Chief Experience Officer of the company behind NextWorld UX. It stands at the transition from experimental future projects to a strategically steered UX innovation landscape.
+
+Several prototypes and pilots for immersive, AI-supported and neuro-based interaction exist, but there is no overarching portfolio logic.
+
+The management expects a long-term strategy that connects innovation, user value, ethics, economic viability and the organisation's ability to learn.
+
+Your task is not to judge single technologies in isolation, but to develop a sound decision architecture for prototyping, testing, ethics, scaling and the governance of future UX systems.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +385,21 @@ You take the perspective of the Chief Experience Officer of the company behind N
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company at the transition from experimental future projects to a steered UX innovation landscape, several prototypes and pilots on immersive, AI-supported and neuro-based interaction, no portfolio logic, a management that wants a long-term strategy linking innovation, user value, ethics, economics and organisational learning, a limited budget, different interests, not all lines continued, incomplete data on use, effect and acceptance, reputational and investment risks, first decisions visible soon, and long-term capacity to innovate not to be weakened by symbolic decisions. Those are the plan's facts. That the company is the one behind NextWorld UX, its five lines and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company at the transition from experimental future projects to a steered UX innovation landscape
+- several prototypes and pilots on immersive, AI-supported and neuro-based interaction
+- no portfolio logic
+- a management that wants a long-term strategy linking innovation, user value, ethics, economics and organisational learning
+- a limited budget
+- different interests
+- not all lines continued
+- incomplete data on use, effect and acceptance
+- reputational and investment risks
+- first decisions visible soon
+- long-term capacity to innovate not to be weakened by symbolic decisions
+
+Those are the plan's facts. That the company is the one behind NextWorld UX, its five lines and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A future-proof UX and innovation governance for immersive and neuro-based systems.*

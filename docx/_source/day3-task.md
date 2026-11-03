@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: TravelEase, a customer portal for travel bookings and rebookings, and HealthConnect, a health platform that has three designs for its interface. The main case is SecureLife, the portal of an insurer for contracts, damage reports and contact with the service. It is complete in content, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface exhausting and restless.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: TravelEase, a customer portal for travel bookings and rebookings, and HealthConnect, a health platform that has three designs for its interface.
+
+The main case is SecureLife, the portal of an insurer for contracts, damage reports and contact with the service.
+
+It is complete in content, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface exhausting and restless.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,13 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: TravelEase with four colours and no system, similar tones, decorative headings, small grey notes and indistinct links, buttons and status; HealthConnect's three designs for users from 20 to 70, a partly fixed corporate design, no tests and 8 weeks; SecureLife with unsystematic colours, similar buttons and boxes, colour-only status, small dense text, inconsistent hierarchy, €130,000, 12 weeks and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- TravelEase with four colours and no system, similar tones, decorative headings, small grey notes and indistinct links, buttons and status
+- HealthConnect's three designs for users from 20 to 70, a partly fixed corporate design, no tests and 8 weeks
+- SecureLife with unsystematic colours, similar buttons and boxes, colour-only status, small dense text, inconsistent hierarchy, €130,000, 12 weeks and no relaunch
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Describe the effect and weigh designs · Level 1 · Knowledge
@@ -61,7 +73,9 @@ The brief says: TravelEase with four colours and no system, similar tones, decor
 
 **Draws on:** A1 · What colour does · A2 · Decorative against functional colour · A3 · Readable type · A4 · Typographic hierarchy, and colour, type and structure working together.
 
-You receive the description of a fictional customer portal, TravelEase, for travel bookings and rebookings. Open it and use it as a traveller who wants to change a booking. You need no prior knowledge: say first how it feels, then what makes it hard. The aim is to recognise perception and readability problems step by step and to describe the effect before the technical terms.
+You receive the description of a fictional customer portal, TravelEase, for travel bookings and rebookings. Open it and use it as a traveller who wants to change a booking.
+
+You need no prior knowledge: say first how it feels, then what makes it hard. The aim is to recognise perception and readability problems step by step and to describe the effect before the technical terms.
 
 ![TravelEase, the start page, as the portal shows it.](_figures/d3_b1-1_0.png)
 
@@ -132,7 +146,24 @@ Write them as a list, the more critical first, each with the reason it is so cri
 
 **Draws on:** A1 · What colour does · A3 · Readable type · A5 · From colour and type to behaviour, and weighing a measure.
 
-HealthConnect is a health platform. Three designs for its interface are described in words: A) strong brand colours and a high recognition value, but low contrast on central information; B) very factual and high in contrast, highly readable, but with little emotional appeal; C) modern, elegant typography with a high-quality effect, but smaller type sizes and less visible navigation items. The conditions: the platform is for a broad target group from 20 to 70 years, the company wants to look modern and trustworthy, the budget for the revision is limited, the corporate design may only partly be changed, there are no user tests yet, and the release is in 8 weeks. Decide anyway, and say what you assume.
+HealthConnect is a health platform.
+
+Three designs for its interface are described in words:
+
+- A) strong brand colours and a high recognition value, but low contrast on central information
+- B) very factual and high in contrast, highly readable, but with little emotional appeal
+- C) modern, elegant typography with a high-quality effect, but smaller type sizes and less visible navigation items
+
+The conditions:
+
+- the platform is for a broad target group from 20 to 70 years
+- the company wants to look modern and trustworthy
+- the budget for the revision is limited
+- the corporate design may only partly be changed
+- there are no user tests yet
+- the release is in 8 weeks
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d3_b1-2_0.png)
 
@@ -220,7 +251,28 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · What colour does · A2 · Decorative against functional colour · A3 · Readable type · A4 · Typographic hierarchy, and colour, type and structure working together · A5 · From colour and type to behaviour, and weighing a measure.
 
-An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service. The content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”. The observed problems: different blues, greens and reds are used without a clear functional system, buttons and information boxes look too similar, status messages are coded by colour but hardly supported by text, body text is too small and too dense, typographic hierarchies are inconsistent, and important calls to action are lost among other text elements. The conditions: a budget of €130,000, 12 weeks for the implementation, the corporate design is binding in principle but functional adjustments are possible, the portal must be easy to use for different age groups, and a complete relaunch is ruled out. You work through six steps.
+An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.
+
+The content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.
+
+The observed problems:
+
+- different blues, greens and reds are used without a clear functional system
+- buttons and information boxes look too similar
+- status messages are coded by colour but hardly supported by text
+- body text is too small and too dense
+- typographic hierarchies are inconsistent
+- important calls to action are lost among other text elements
+
+The conditions:
+
+- a budget of €130,000
+- 12 weeks for the implementation
+- the corporate design is binding in principle but functional adjustments are possible
+- the portal must be easy to use for different age groups
+- a complete relaunch is ruled out
+
+You work through six steps.
 
 ![SecureLife today, as the portal shows it.](_figures/d3_b2-1_0.png)
 
@@ -305,7 +357,13 @@ Three to five sentences: what you recommend, what you prioritise, and what you e
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the insurer that runs SecureLife. The company has a website, a customer portal and an app, and over the years it has taken inconsistent design decisions. Colours were changed for each campaign, the typography was interpreted differently by each team, and the central interaction elements follow no consistent principle. Users find their way only with difficulty, support requests are rising, and inside the company the discussion is mostly about taste rather than effect. You are not to polish single screens but to develop a sound decision architecture for colour, typography and visual user guidance.
+You take the perspective of the Chief Experience Officer of the insurer that runs SecureLife. The company has a website, a customer portal and an app, and over the years it has taken inconsistent design decisions.
+
+Colours were changed for each campaign, the typography was interpreted differently by each team, and the central interaction elements follow no consistent principle.
+
+Users find their way only with difficulty, support requests are rising, and inside the company the discussion is mostly about taste rather than effect.
+
+You are not to polish single screens but to develop a sound decision architecture for colour, typography and visual user guidance.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -320,7 +378,23 @@ You take the perspective of the Chief Experience Officer of the insurer that run
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with a website, a customer portal and an app, colours changed by campaign, typography interpreted by each team, interaction elements without a principle, users who find their way with difficulty, rising support requests, a discussion about taste, a limited budget, different stakeholders, a binding corporate design with room for functional changes, partly incomplete data, first improvements soon, and the warning that a wrong priority costs trust, causes operating errors and support costs. Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with a website, a customer portal and an app
+- colours changed by campaign
+- typography interpreted by each team
+- interaction elements without a principle
+- users who find their way with difficulty
+- rising support requests
+- a discussion about taste
+- a limited budget
+- different stakeholders
+- a binding corporate design with room for functional changes
+- partly incomplete data
+- first improvements soon
+- the warning that a wrong priority costs trust, causes operating errors and support costs
+
+Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: A strategic design logic for colour, typography and user guidance.*

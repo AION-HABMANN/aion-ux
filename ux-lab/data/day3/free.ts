@@ -78,7 +78,7 @@ export const SPEC = defineSpec({
     heading: t("The case: three products on the UX team's desk, and SecureLife"),
     readTime: t("Read once · about 3 min"),
     paragraph: t(
-      "You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: TravelEase, a customer portal for travel bookings and rebookings, and HealthConnect, a health platform that has three designs for its interface. The main case is SecureLife, the portal of an insurer for contracts, damage reports and contact with the service. It is complete in content, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface exhausting and restless.",
+      "You work in the UX team of a digital agency. This week three products land on your desk.\n\nTwo are warm-ups: TravelEase, a customer portal for travel bookings and rebookings, and HealthConnect, a health platform that has three designs for its interface.\n\nThe main case is SecureLife, the portal of an insurer for contracts, damage reports and contact with the service.\n\nIt is complete in content, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface exhausting and restless.",
     ),
     conditions: {
       title: t("What the plan gives you"),
@@ -114,14 +114,14 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: TravelEase with four colours and no system, similar tones, decorative headings, small grey notes and indistinct links, buttons and status; HealthConnect's three designs for users from 20 to 70, a partly fixed corporate design, no tests and 8 weeks; SecureLife with unsystematic colours, similar buttons and boxes, colour-only status, small dense text, inconsistent hierarchy, €130,000, 12 weeks and no relaunch. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
+      "The brief says:\n• TravelEase with four colours and no system, similar tones, decorative headings, small grey notes and indistinct links, buttons and status\n• HealthConnect's three designs for users from 20 to 70, a partly fixed corporate design, no tests and 8 weeks\n• SecureLife with unsystematic colours, similar buttons and boxes, colour-only status, small dense text, inconsistent hierarchy, €130,000, 12 weeks and no relaunch\n\nThose are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.",
     ),
   },
   brief2: {
     heading: t("The situation: the insurer behind SecureLife, and years of inconsistent design"),
     readTime: t("Read once · about 2 min"),
     paragraph: t(
-      "You take the perspective of the Chief Experience Officer of the insurer that runs SecureLife. The company has a website, a customer portal and an app, and over the years it has taken inconsistent design decisions. Colours were changed for each campaign, the typography was interpreted differently by each team, and the central interaction elements follow no consistent principle. Users find their way only with difficulty, support requests are rising, and inside the company the discussion is mostly about taste rather than effect. You are not to polish single screens but to develop a sound decision architecture for colour, typography and visual user guidance.",
+      "You take the perspective of the Chief Experience Officer of the insurer that runs SecureLife. The company has a website, a customer portal and an app, and over the years it has taken inconsistent design decisions.\n\nColours were changed for each campaign, the typography was interpreted differently by each team, and the central interaction elements follow no consistent principle.\n\nUsers find their way only with difficulty, support requests are rising, and inside the company the discussion is mostly about taste rather than effect.\n\nYou are not to polish single screens but to develop a sound decision architecture for colour, typography and visual user guidance.",
     ),
     conditions: {
       title: t("The framework"),
@@ -155,7 +155,7 @@ export const SPEC = defineSpec({
       ],
     ),
     assumption: t(
-      "The brief says: a company with a website, a customer portal and an app, colours changed by campaign, typography interpreted by each team, interaction elements without a principle, users who find their way with difficulty, rising support requests, a discussion about taste, a limited budget, different stakeholders, a binding corporate design with room for functional changes, partly incomplete data, first improvements soon, and the warning that a wrong priority costs trust, causes operating errors and support costs. Those are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.",
+      "The brief says:\n• a company with a website, a customer portal and an app\n• colours changed by campaign\n• typography interpreted by each team\n• interaction elements without a principle\n• users who find their way with difficulty\n• rising support requests\n• a discussion about taste\n• a limited budget\n• different stakeholders\n• a binding corporate design with room for functional changes\n• partly incomplete data\n• first improvements soon\n• the warning that a wrong priority costs trust, causes operating errors and support costs\n\nThose are the plan's facts. That the company is the insurer of Route 1 and the facts marked “Clear” are made up for this exercise.",
     ),
   },
   blocks1: [
@@ -167,7 +167,7 @@ export const SPEC = defineSpec({
       minutes: 10,
       doc: t("1.1 · The effect of colour and type (TravelEase)"),
       lead: t(
-        "You receive the description of a fictional customer portal, TravelEase, for travel bookings and rebookings. Open it and use it as a traveller who wants to change a booking. You need no prior knowledge: say first how it feels, then what makes it hard. The aim is to recognise perception and readability problems step by step and to describe the effect before the technical terms.",
+        "You receive the description of a fictional customer portal, TravelEase, for travel bookings and rebookings. Open it and use it as a traveller who wants to change a booking.\n\nYou need no prior knowledge: say first how it feels, then what makes it hard. The aim is to recognise perception and readability problems step by step and to describe the effect before the technical terms.",
       ),
       slots: ["travelease"],
       fields: [
@@ -352,7 +352,7 @@ export const SPEC = defineSpec({
       minutes: 8,
       doc: t("1.2 · Rate colour and type decisions under conflicting goals (HealthConnect)"),
       lead: t(
-        "HealthConnect is a health platform. Three designs for its interface are described in words: A) strong brand colours and a high recognition value, but low contrast on central information; B) very factual and high in contrast, highly readable, but with little emotional appeal; C) modern, elegant typography with a high-quality effect, but smaller type sizes and less visible navigation items. The conditions: the platform is for a broad target group from 20 to 70 years, the company wants to look modern and trustworthy, the budget for the revision is limited, the corporate design may only partly be changed, there are no user tests yet, and the release is in 8 weeks. Decide anyway, and say what you assume.",
+        "HealthConnect is a health platform.\n\nThree designs for its interface are described in words:\nA) strong brand colours and a high recognition value, but low contrast on central information\nB) very factual and high in contrast, highly readable, but with little emotional appeal\nC) modern, elegant typography with a high-quality effect, but smaller type sizes and less visible navigation items\n\nThe conditions:\n• the platform is for a broad target group from 20 to 70 years\n• the company wants to look modern and trustworthy\n• the budget for the revision is limited\n• the corporate design may only partly be changed\n• there are no user tests yet\n• the release is in 8 weeks\n\nDecide anyway, and say what you assume.",
       ),
       slots: ["designs"],
       fields: [
@@ -492,7 +492,7 @@ export const SPEC = defineSpec({
       minutes: 15,
       doc: t("2.1 · Case study: SecureLife"),
       lead: t(
-        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service. The content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”. The observed problems: different blues, greens and reds are used without a clear functional system, buttons and information boxes look too similar, status messages are coded by colour but hardly supported by text, body text is too small and too dense, typographic hierarchies are inconsistent, and important calls to action are lost among other text elements. The conditions: a budget of €130,000, 12 weeks for the implementation, the corporate design is binding in principle but functional adjustments are possible, the portal must be easy to use for different age groups, and a complete relaunch is ruled out. You work through six steps.",
+        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through six steps.",
       ),
       slots: ["securelife"],
       fields: [

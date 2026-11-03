@@ -37,7 +37,13 @@ Write your full name here. Use the same name on every Task document this week; i
 
 *Read once · about 3 min*
 
-You work in the UX team of a digital agency. This week three products land on your desk. Two are warm-ups: SkillRise, a learning and development platform for professional further training, and HealthJourney, a prevention platform that has three designs for how it should activate its users. The main case is MoveWell, a health provider's platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time: they find it sensible, but not very motivating. The provider wants more activation and retention without losing seriousness or credibility.
+You work in the UX team of a digital agency. This week three products land on your desk.
+
+Two are warm-ups: SkillRise, a learning and development platform for professional further training, and HealthJourney, a prevention platform that has three designs for how it should activate its users.
+
+The main case is MoveWell, a health provider's platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time: they find it sensible, but not very motivating.
+
+The provider wants more activation and retention without losing seriousness or credibility.
 
 | What the plan gives you | How the task runs · three blocks |
 |---|---|
@@ -52,7 +58,15 @@ You work in the UX team of a digital agency. This week three products land on yo
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: SkillRise with learning paths, tasks and certificates, little visible progress, neutral system messages, no intermediate goals or milestones, content that is sensible but not activating, and nothing that shows development or success; HealthJourney's three designs (A strong gamification with points, badges, daily challenges and rankings; B progress displays, milestones and confirming feedback; C a narrative journey with stages but fewer classic rewards) for adults aged 25 to 65, motivating but serious, a limited budget, no tests, 10 weeks, marketing against the department; MoveWell with good content, many who leave early, faint progress, hardly any feedback on successes, no stages, a functional journey, no link between development and use, technical messages, €150,000, 12 weeks, a trustworthy brand close to health, no relaunch, limited resources and partial data. Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
+The brief says:
+
+- SkillRise with learning paths, tasks and certificates, little visible progress, neutral system messages, no intermediate goals or milestones, content that is sensible but not activating, and nothing that shows development or success
+- HealthJourney's three designs (A strong gamification with points, badges, daily challenges and rankings
+- B progress displays, milestones and confirming feedback
+- C a narrative journey with stages but fewer classic rewards) for adults aged 25 to 65, motivating but serious, a limited budget, no tests, 10 weeks, marketing against the department
+- MoveWell with good content, many who leave early, faint progress, hardly any feedback on successes, no stages, a functional journey, no link between development and use, technical messages, €150,000, 12 weeks, a trustworthy brand close to health, no relaunch, limited resources and partial data
+
+Those are the plan's facts and its only figures. Everything else is made up for this exercise: the agency, the pictures, the simulations and the facts marked “Clear”.
 :::
 
 # Part 1 · Find the motivation gaps and weigh activation designs · Level 1 · Knowledge
@@ -61,7 +75,11 @@ The brief says: SkillRise with learning paths, tasks and certificates, little vi
 
 **Draws on:** A1 · Gamification, playful design and a game · A2 · Why people react to progress, feedback and recognition · A3 · Points, badges, levels, streaks.
 
-You receive the description of a fictional learning and development platform, SkillRise, for professional further training. Open it and use it as an employee who has been given a learning path by their employer: finish a module and look at your progress. You need no prior knowledge: notice whether you want to come back tomorrow, not only whether the steps work. The aim is to recognise motivation and retention mechanisms systematically and tell them apart from pure functionality.
+You receive the description of a fictional learning and development platform, SkillRise, for professional further training.
+
+Open it and use it as an employee who has been given a learning path by their employer: finish a module and look at your progress.
+
+You need no prior knowledge: notice whether you want to come back tomorrow, not only whether the steps work. The aim is to recognise motivation and retention mechanisms systematically and tell them apart from pure functionality.
 
 ![SkillRise, as the platform shows it.](_figures/d9_b1-1_0.png)
 
@@ -133,7 +151,24 @@ Write them as a list, the bigger weakness first, each with why it weighs most.
 
 **Draws on:** A3 · Points, badges, levels, streaks · A4 · Story and game together, and a quick spike against lasting use · A5 · Intrinsic motivation, credible gamification in serious fields, and weighing a measure.
 
-HealthJourney is a platform for health prevention. Three designs for its activation logic are described in words: A) strong gamification with points, badges, daily challenges and rankings; B) a restrained activation logic with progress displays, milestones and confirming feedback; C) a narratively embedded user journey with motivating stages, but less visible classic reward elements. The conditions: the target group is adults aged 25 to 65, the company wants to motivate but stay serious and trustworthy, the budget for technical extensions is limited, there are no user tests yet, the release is in 10 weeks, and marketing demands high activation while the department warns against too playful an approach. Decide anyway, and say what you assume.
+HealthJourney is a platform for health prevention.
+
+Three designs for its activation logic are described in words:
+
+- A) strong gamification with points, badges, daily challenges and rankings
+- B) a restrained activation logic with progress displays, milestones and confirming feedback
+- C) a narratively embedded user journey with motivating stages, but less visible classic reward elements
+
+The conditions:
+
+- the target group is adults aged 25 to 65
+- the company wants to motivate but stay serious and trustworthy
+- the budget for technical extensions is limited
+- there are no user tests yet
+- the release is in 10 weeks
+- marketing demands high activation while the department warns against too playful an approach
+
+Decide anyway, and say what you assume.
 
 ![The product to read, as the lab shows it (designs).](_figures/d9_b1-2_0.png)
 
@@ -220,7 +255,29 @@ This part is the day's Level 2 case study. It takes 2 UE (about 90 minutes): UE5
 
 **Draws on:** A1 · Gamification, playful design and a game · A2 · Why people react to progress, feedback and recognition · A3 · Points, badges, levels, streaks · A4 · Story and game together, and a quick spike against lasting use · A5 · Intrinsic motivation, credible gamification in serious fields, and weighing a measure.
 
-A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time. The platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility. The observed problems: progress is only faintly visible; successes are hardly fed back or emotionally reinforced; motivating intermediate goals and stages are missing; the user journey is functional but not very activating; there is no clear link between individual development and the experience of use; and the feedback so far is technical and not very stimulating. The conditions: a budget of €150,000, 12 weeks for the implementation, a brand that must stay trustworthy and close to health, no complete relaunch, limited technical resources for complex features, and only partial user data. You work through six steps.
+A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.
+
+The platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.
+
+The observed problems:
+
+- progress is only faintly visible
+- successes are hardly fed back or emotionally reinforced
+- motivating intermediate goals and stages are missing
+- the user journey is functional but not very activating
+- there is no clear link between individual development and the experience of use
+- the feedback so far is technical and not very stimulating
+
+The conditions:
+
+- a budget of €150,000
+- 12 weeks for the implementation
+- a brand that must stay trustworthy and close to health
+- no complete relaunch
+- limited technical resources for complex features
+- only partial user data
+
+You work through six steps.
 
 ![MoveWell today.](_figures/d9_b2-1_0.png)
 
@@ -307,7 +364,15 @@ Three to five sentences: what you recommend, what has priority, and what you exp
 
 *Read once · about 2 min*
 
-You take the perspective of the Chief Experience Officer of the health provider that runs MoveWell. The company has an app, a customer portal and a digital service offer. It sees that many users start, but only some stay active over time. The offers are experienced as good in content, but not very motivating and hardly binding. Inside the company there is a debate about whether stronger gamification is the answer, without anyone being clear which mechanics fit the brand, the target group and the situations people use the products in. The management expects a sound strategy for designing activation, storytelling and retention systematically and responsibly. You are not to choose single game mechanics, but to develop a sound decision architecture for motivation, the experience of progress, narrative activation and lasting retention.
+You take the perspective of the Chief Experience Officer of the health provider that runs MoveWell. The company has an app, a customer portal and a digital service offer.
+
+It sees that many users start, but only some stay active over time. The offers are experienced as good in content, but not very motivating and hardly binding.
+
+Inside the company there is a debate about whether stronger gamification is the answer, without anyone being clear which mechanics fit the brand, the target group and the situations people use the products in.
+
+The management expects a sound strategy for designing activation, storytelling and retention systematically and responsibly.
+
+You are not to choose single game mechanics, but to develop a sound decision architecture for motivation, the experience of progress, narrative activation and lasting retention.
 
 | The framework | How the task runs · one block |
 |---|---|
@@ -322,7 +387,21 @@ You take the perspective of the Chief Experience Officer of the health provider 
 *As in most projects, not everything is known. Decide anyway, and say what you assume.*
 
 :::note Case assumption
-The brief says: a company with an app, a customer portal and a digital service offer, many who start and only some who stay, offers that are good in content but not very motivating or binding, an internal debate about stronger gamification without clarity on what fits the brand, target group and situation, a limited budget, several stakeholders, a credible brand, not all systems at once, partly incomplete data, first improvements soon, and the warning that wrong decisions can harm motivation, trust and the brand. Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
+The brief says:
+
+- a company with an app, a customer portal and a digital service offer
+- many who start and only some who stay
+- offers that are good in content but not very motivating or binding
+- an internal debate about stronger gamification without clarity on what fits the brand, target group and situation
+- a limited budget
+- several stakeholders
+- a credible brand
+- not all systems at once
+- partly incomplete data
+- first improvements soon
+- the warning that wrong decisions can harm motivation, trust and the brand
+
+Those are the plan's facts. That the company is the provider of Route 1 and the facts marked “Clear” are made up for this exercise.
 :::
 
 *The memo is addressed to: The management. Subject: An activation and retention architecture for our digital offers.*
