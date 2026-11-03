@@ -39,7 +39,7 @@ function Confirm({ ctx, warm }: { ctx: LabCtx; warm: boolean }) {
       <p className="font-mono text-[16px] font-bold">{tt("STATUS: PROCESSED")}</p>
       {[tt("Order details"), tt("Invoice"), tt("Terms"), tt("FAQ")].map((x) => (
         <div key={x}>
-          <button type="button" onClick={() => { setOpen(x); (x === tt("Order details") || x === tt("FAQ") ? ctx.hit : ctx.miss)(tt(`Opened ${x}`)); }} className="block w-full border-b border-[#E5E7EB] py-1.5 text-left">{x}</button>
+          <button type="button" onClick={() => { setOpen(x); (x === tt("Order details") || x === tt("FAQ") ? ctx.hit : ctx.miss)(tt(`Opened ${x}`, `${x} geöffnet`)); }} className="block w-full border-b border-[#E5E7EB] py-1.5 text-left">{x}</button>
           {open === x && x === tt("Order details") && <p className="py-1 text-[11.5px]">{tt("Shipment: dispatched. Estimated delivery: Thursday.")}</p>}
           {open === x && x === tt("FAQ") && (
             <p className="py-1 text-[11.5px]">{tt("Q17: What should I do when plants arrive? Water well, avoid full sun for 48 h.")} <button type="button" onClick={() => ctx.done(tt("Pieced it together from the FAQ"))} className="underline">{tt("Got it")}</button></p>
@@ -200,12 +200,12 @@ function Composer({ ctx, sit }: { ctx: LabCtx; sit: Sit }) {
       <p className="rounded bg-[#F3F4F6] p-2 text-[12px]">{facts[sit]}</p>
       <p className="text-[12px] font-semibold">{tt("Choose a template")}</p>
       {Object.entries(MSG()).map(([k, [h, b]]) => (
-        <button key={k} type="button" aria-pressed={tone === k} onClick={() => { setTone(k); setSent(false); ctx.hit(tt(`Chose the ${k} template`)); }} className={clsx("block w-full rounded border p-2 text-left", tone === k ? "border-[#3F6212] bg-[#F7FEE7]" : "border-[#D1D5DB]")}>
+        <button key={k} type="button" aria-pressed={tone === k} onClick={() => { setTone(k); setSent(false); ctx.hit(tt(`Chose the ${k} template`, `Vorlage „${({ cheer: "fröhliche", calm: "ruhige", sorry: "entschuldigende" } as Record<string, string>)[k] ?? k}“ gewählt`)); }} className={clsx("block w-full rounded border p-2 text-left", tone === k ? "border-[#3F6212] bg-[#F7FEE7]" : "border-[#D1D5DB]")}>
           <span className="block font-semibold">{h}</span>
           <span className="block text-[11.5px] text-[#475569]">{b}</span>
         </button>
       ))}
-      <button type="button" disabled={!tone} onClick={() => { setSent(true); ctx.done(tt(`Sent the ${tone} template`)); }} className="w-full rounded-lg py-2 font-bold text-white disabled:opacity-50" style={{ background: ACC }}>{tt("Send")}</button>
+      <button type="button" disabled={!tone} onClick={() => { setSent(true); ctx.done(tt(`Sent the ${tone} template`, `Vorlage „${({ cheer: "fröhliche", calm: "ruhige", sorry: "entschuldigende" } as Record<string, string>)[tone ?? ""] ?? tone}“ gesendet`)); }} className="w-full rounded-lg py-2 font-bold text-white disabled:opacity-50" style={{ background: ACC }}>{tt("Send")}</button>
       {sent && r && <p className="rounded bg-[#EFF6FF] p-2 text-[12.5px]"><span aria-hidden className="mr-1">{r[0]}</span>{tt("Reply:")} {r[1]}</p>}
     </AppScreen>
   );

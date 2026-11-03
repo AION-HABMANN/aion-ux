@@ -10,7 +10,7 @@ import { tt } from "@/lib/lang";
  * reinforced, a correct but not trust-building tone, functional interaction without a relationship) and nothing is added that changes the answer. The names and
  * contents are made up; nothing is marked right or wrong, and no figure is printed that the plan does not print.
  */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 /** A grey, technical error box, as the plan describes the error messages. */
 const TECH = { background: "#ECEFF1", borderColor: "#90A4AE" } as const;
