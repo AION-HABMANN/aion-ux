@@ -678,6 +678,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk below, then the seven questions; the memo builds underneath."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
+    sharedDocId: "1d2jh8F9uf5AHZNpXjPGdaJGqZJou-C3Ct4hP_-G_a4s",
     doc: t("3.1 · A strategic design logic for colour, typography and user guidance"),
     lead: t(
       "Develop a strategic concept for the insurer. Your desk holds what the management, the brand team, marketing, IT and the data say. Open it, then answer the seven questions; your answers build the memo below.",

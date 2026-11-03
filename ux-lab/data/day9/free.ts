@@ -657,6 +657,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
+    sharedDocId: "1NhnFVOcYwZOFfs6oeRfHHm65bfE2-YqLQxJ8CMOcejQ",
     doc: t("3.1 · An activation and retention architecture for the digital offers"),
     lead: t(
       "Develop a strategic concept for the health provider. Your desk holds what the management, marketing, the medical advisory board, the product team and the data say. Open it, then answer the seven questions; your answers build the memo below.",

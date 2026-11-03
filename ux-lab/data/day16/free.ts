@@ -626,6 +626,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
+    sharedDocId: "1IobnaejFH8YxYtZl8LCwqL9csB3jPhhekrPTyYn5CfY",
     doc: t("3.1 · A future-proof UX and innovation governance"),
     lead: t("Develop a strategic concept for the company. Your desk holds what the management, innovation, IT, the department, data protection and the works council say about the five lines of innovation. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],

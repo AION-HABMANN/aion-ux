@@ -366,6 +366,25 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
     <AnswerBlock id={`block-${b.id.replace(".", "-")}`} title={b.title} kind="JUDGED" core minutes={b.minutes} findIt={b.findIt}>
       <MaterialRefs refs={b.refs} />
       {b.lead && <p className="max-w-prose text-body text-ink">{b.lead}</p>}
+      {b.sharedDocId && (
+        <div className="max-w-prose rounded-lg border border-line bg-canvas p-3 text-caption" id="shared-doc">
+          <p className="text-body font-semibold text-ink">{tt("Work together in Google Docs", "Gemeinsam in Google Docs arbeiten")}</p>
+          <p className="mt-1 text-ink">
+            {tt(
+              "Open the worksheet, make your own copy (File → Make a copy) and answer the questions there together. You can also type your answers here in the lab; the export builds your memo.",
+              "Öffnen Sie das Arbeitsblatt, legen Sie eine eigene Kopie an (Datei → Kopie erstellen) und beantworten Sie die Fragen dort gemeinsam. Sie können die Antworten auch hier im Lab eintragen; der Export erstellt Ihr Memo.",
+            )}
+          </p>
+          <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+            <a href={`https://docs.google.com/document/d/${b.sharedDocId}/copy`} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-dotted underline-offset-2 hover:text-accentHi">
+              {tt("Make your own copy", "Eigene Kopie erstellen")}
+            </a>
+            <a href={`https://docs.google.com/document/d/${b.sharedDocId}/edit`} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted underline-offset-2 hover:text-accentHi">
+              {tt("View the worksheet", "Arbeitsblatt ansehen")}
+            </a>
+          </p>
+        </div>
+      )}
       {b.slots?.map((s) => (
         <div key={s} id={`slot-${s}`}>
           {kit.slots[s]?.()}

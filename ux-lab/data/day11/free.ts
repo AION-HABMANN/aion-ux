@@ -630,6 +630,7 @@ export const SPEC = defineSpec({
     findIt: t("Route 2 → Task 2 → your desk and the company below, then the seven questions; the memo builds underneath. A real platform can be opened for the class discussion."),
     refs: ["B1", "B2", "B3"],
     minutes: 20,
+    sharedDocId: "1zBzxhhokcVy1JK9QURqYsvfqQez2jIEZSiQwprgYMA0",
     doc: t("3.1 · A UX architecture for voice, AI interaction and testing"),
     lead: t("Develop a strategic concept for the city's service company. Your desk holds what the management, the digital team, citizen service, data protection, the product team and the test lab say. Open it, then answer the seven questions; your answers build the memo below."),
     slots: ["desk", "observe", "reference"],
