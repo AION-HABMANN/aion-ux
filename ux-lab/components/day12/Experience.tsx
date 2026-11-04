@@ -131,7 +131,7 @@ export function Day12Experience({ route }: { route: Route }) {
           <ul className="list-disc space-y-0.5 pl-5">{ACCESS.does.map((x) => <li key={x}>{x}</li>)}</ul>
           <p className="font-semibold">{tt("What they do not do yet")}</p>
           <ul className="list-disc space-y-0.5 pl-5">{ACCESS.doesNot.map((x) => <li key={x}>{x}</li>)}</ul>
-          <p className="text-ash">{tt(`This is the honest version of an accessibility statement (card B3), for Route ${route} of Day 12.`)}</p>
+          <p className="text-ash">{tt(`This is the honest version of an accessibility statement (card B3), for Route ${route} of Day 12.`, `Das ist die ehrliche Version einer Erklärung zur Barrierefreiheit (Karte B3), für Route ${route} von Tag 12.`)}</p>
         </div>
       )}
 
@@ -146,7 +146,7 @@ export function Day12Experience({ route }: { route: Route }) {
             {glass !== "none" && (
               <div className="fixed bottom-4 left-1/2 z-[60] -translate-x-1/2 rounded-full border border-line bg-paper px-3 py-2 shadow-lg">
                 <button type="button" onClick={() => setGlass("none")} className="btn btn-sm min-h-[40px] border border-accent bg-accentSoft text-ink">
-                  {tt(`Take the glasses off (${current?.[1] ?? ""}) · Escape`)}
+                  {tt(`Take the glasses off (${current?.[1] ?? ""}) · Escape`, `Brille abnehmen (${current?.[1] ?? ""}) · Escape`)}
                 </button>
               </div>
             )}

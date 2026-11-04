@@ -30,7 +30,7 @@ function Legend({ title, items }: { title: string; items: string[] }) {
         {items.map((s, i) => (
           <li key={i} className="flex gap-2">
             <span aria-hidden className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#17212E] text-[11px] font-bold text-white">{i + 1}</span>
-            <span><span className="sr-only">{tt(`Number ${i + 1}: `)}</span>{s}</span>
+            <span><span className="sr-only">{tt(`Number ${i + 1}: `, `Nummer ${i + 1}: `)}</span>{s}</span>
           </li>
         ))}
       </ol>
@@ -53,7 +53,7 @@ function PublicAccess() {
           tt("Images and symbols are not always self-explanatory or described"),
         ]}
       />
-      <SimButton label={tt("Open PublicAccess and try it")} sub={tt(`Use it as a citizen: book an appointment, fill in the application with a mistake, open your documents. ${KEYS()}`)} url="publicaccess.example/citizen-services" title={tt("Simulation: PublicAccess")} note={NOTE()}>
+      <SimButton label={tt("Open PublicAccess and try it")} sub={tt(`Use it as a citizen: book an appointment, fill in the application with a mistake, open your documents. ${KEYS()}`, `Nutzen Sie es als Bürger: Buchen Sie einen Termin, füllen Sie den Antrag mit einem Fehler aus, öffnen Sie Ihre Dokumente. ${KEYS()}`)} url="publicaccess.example/citizen-services" title={tt("Simulation: PublicAccess")} note={NOTE()}>
         {() => <PublicAccessSim />}
       </SimButton>
     </div>
@@ -116,7 +116,7 @@ function CitizenConnect() {
           tt("Different page types are not built consistently"),
         ]}
       />
-      <SimButton label={tt("Open CitizenConnect and try it")} sub={tt(`Use it as a citizen: read the information page, book an appointment, apply with a mistake. ${KEYS()}`)} url="citizenconnect.example" title={tt("Simulation: CitizenConnect today")} note={NOTE()}>
+      <SimButton label={tt("Open CitizenConnect and try it")} sub={tt(`Use it as a citizen: read the information page, book an appointment, apply with a mistake. ${KEYS()}`, `Nutzen Sie es als Bürger: Lesen Sie die Informationsseite, buchen Sie einen Termin, stellen Sie einen Antrag mit einem Fehler. ${KEYS()}`)} url="citizenconnect.example" title={tt("Simulation: CitizenConnect today")} note={NOTE()}>
         {() => <CitizenConnectSim />}
       </SimButton>
       <ReferenceButton spec={REF_21()} />

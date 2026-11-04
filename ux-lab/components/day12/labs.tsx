@@ -37,12 +37,12 @@ function Checkout({ ctx, who }: { ctx: LabCtx; who: Who }) {
         <div className="space-y-1 rounded bg-[#0F172A] p-2 font-mono text-[12.5px] text-white">
           {items.map(([say, , act], i) => (
             <div key={i} className="flex items-center justify-between gap-2">
-              <button type="button" onClick={() => setHeard((h) => [...h, say])} className="text-left underline decoration-dotted">{tt(`🔊 ${i + 1}: “${say}”`)}</button>
+              <button type="button" onClick={() => setHeard((h) => [...h, say])} className="text-left underline decoration-dotted">{tt(`🔊 ${i + 1}: “${say}”`, `🔊 ${i + 1}: „${say}“`)}</button>
               {say !== tt("image") && <button type="button" onClick={act} className="rounded border border-white/40 px-1.5 text-[11px]">{tt("activate")}</button>}
             </div>
           ))}
         </div>
-        <p className="text-[11px] text-[#475569]">{tt(`Heard so far: ${heard.length}`)}</p>
+        <p className="text-[11px] text-[#475569]">{tt(`Heard so far: ${heard.length}`, `Bisher gehört: ${heard.length}`)}</p>
       </AppScreen>
     );
   }
@@ -65,11 +65,11 @@ function Checkout({ ctx, who }: { ctx: LabCtx; who: Who }) {
         <div className="space-y-1">
           <p className="text-[11.5px] text-[#475569]">{tt("Arjun's arm is in a cast: no mouse, no touch. Press the keys below.")}</p>
           <div className="flex gap-1">
-            <button type="button" onClick={() => { const n = (focus + 1) % 3; setFocus(n); ctx.miss(tt(`Tab → ${[tt("logo"), tt("voucher field"), tt("delivery link")][n]} (no visible focus)`)); }} className="rounded border border-[#334155] px-3 py-1 font-mono">{tt("Tab")}</button>
+            <button type="button" onClick={() => { const n = (focus + 1) % 3; setFocus(n); ctx.miss(tt(`Tab → ${[tt("logo"), tt("voucher field"), tt("delivery link")][n]} (no visible focus)`, `Tab → ${[tt("logo"), tt("voucher field"), tt("delivery link")][n]} (kein sichtbarer Fokus)`)); }} className="rounded border border-[#334155] px-3 py-1 font-mono">{tt("Tab")}</button>
             <button type="button" onClick={() => ctx.miss(tt("Enter: nothing happened"))} className="rounded border border-[#334155] px-3 py-1 font-mono">{tt("Enter")}</button>
             <button type="button" onClick={() => ctx.done(tt("Gave up: Pay is never reached by keyboard"))} className="rounded border border-[#B91C1C] px-2 py-1 text-[11px] text-[#B91C1C]">{tt("Give up")}</button>
           </div>
-          <p className="text-[11px] text-[#475569]">{tt(`Focus is on element ${focus + 1} of 3, but nothing on the screen shows where.`)}</p>
+          <p className="text-[11px] text-[#475569]">{tt(`Focus is on element ${focus + 1} of 3, but nothing on the screen shows where.`, `Der Fokus liegt auf Element ${focus + 1} von 3, aber nichts auf dem Bildschirm zeigt, wo.`)}</p>
         </div>
       ) : null}
       {pay}
@@ -108,12 +108,12 @@ function Tiles({ ctx, s }: { ctx: LabCtx; s: St }) {
     { n: tt("Apples"), e: "🍏", out: false },
     { n: tt("Blueberries"), e: "🫐", out: true },
   ];
-  if (ctx.finished) return <Done text={tt(`In your basket: ${cart.join(", ")}`)} />;
+  if (ctx.finished) return <Done text={tt(`In your basket: ${cart.join(", ")}`, `Im Warenkorb: ${cart.join(", ")}`)} />;
   const add = (n: string, out: boolean) => {
-    if (out) return ctx.miss(tt(`${n} is out of stock`));
+    if (out) return ctx.miss(tt(`${n} is out of stock`, `${n} ist nicht vorrätig`));
     const c = [...cart, n];
     setCart(c);
-    ctx.hit(tt(`Added ${n}`));
+    ctx.hit(tt(`Added ${n}`, `${n} hinzugefügt`));
     if (c.length === 2) ctx.done(tt("Added both products that are in stock"));
   };
   return (
@@ -121,7 +121,7 @@ function Tiles({ ctx, s }: { ctx: LabCtx; s: St }) {
       <button type="button" onClick={() => setSr((v) => !v)} aria-pressed={sr} className="rounded border border-[#334155] px-2 py-0.5 text-[11.5px]">{sr ? tt("Back to the screen") : tt("🔊 Hear it as a screen reader would")}</button>
       {sr ? (
         <ul className="space-y-1 rounded bg-[#0F172A] p-2 font-mono text-[12px] text-white">
-          {items.map((i) => <li key={i.n}>{tt(`“${s.alt ? `${i.n}, photo` : "image"}${s.words && i.out ? ", out of stock" : ""}. Add, button.”`)}</li>)}
+          {items.map((i) => <li key={i.n}>{tt(`“${s.alt ? `${i.n}, photo` : "image"}${s.words && i.out ? ", out of stock" : ""}. Add, button.”`, `„${s.alt ? `${i.n}, Foto` : "Bild"}${s.words && i.out ? ", nicht vorrätig" : ""}. In den Warenkorb, Button.“`)}</li>)}
         </ul>
       ) : (
         <div className="grid grid-cols-2 gap-2">

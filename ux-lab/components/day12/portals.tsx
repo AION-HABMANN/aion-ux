@@ -102,7 +102,7 @@ export function Portal({ kind }: { kind: "publicaccess" | "citizenconnect" }) {
       <div className="min-h-[300px] space-y-3 p-4 text-[14px]">
         {page === "home" && (
           <>
-            <h3 className="text-[18px] font-bold">{tt(`Welcome to ${name}`)}</h3>
+            <h3 className="text-[18px] font-bold">{tt(`Welcome to ${name}`, `Willkommen bei ${name}`)}</h3>
             <p style={muted}>{tt("Here you can arrange appointments, submit applications and retrieve documents. Please use the services menu.")}</p>
             <div className="grid grid-cols-3 gap-2">
               {(
@@ -132,7 +132,7 @@ export function Portal({ kind }: { kind: "publicaccess" | "citizenconnect" }) {
                 </MouseOnly>
               ))}
             </div>
-            {slot && <p>{tt(`Selected: ${slot}.`)}</p>}
+            {slot && <p>{tt(`Selected: ${slot}.`, `Ausgewählt: ${slot}.`)}</p>}
             <div className={f.inconsistent ? "flex justify-start" : "flex justify-end"}>
               <Btn mouseOnly={f.mouseOnly} onClick={() => (slot ? go("done") : setErr(tt("Error: no selection.")))}>{f.inconsistent ? tt("Continue") : tt("Proceed")}</Btn>
             </div>
@@ -208,7 +208,7 @@ export function Portal({ kind }: { kind: "publicaccess" | "citizenconnect" }) {
           <MouseOnly onClick={() => go("home")} className="text-[13px] text-[#2F5D8A] underline">{tt("‹ Home")}</MouseOnly>
         )}
       </div>
-      <div className="border-t border-[#C8D3DD] px-4 py-2 text-[11px]" style={muted}>{tt(`© ${name} · Imprint · Privacy · Accessibility statement · Simulation: the names and the contents are made up`)}</div>
+      <div className="border-t border-[#C8D3DD] px-4 py-2 text-[11px]" style={muted}>{tt(`© ${name} · Imprint · Privacy · Accessibility statement · Simulation: the names and the contents are made up`, `© ${name} · Impressum · Datenschutz · Erklärung zur Barrierefreiheit · Simulation: Die Namen und die Inhalte sind erfunden`)}</div>
     </div>
   );
 }

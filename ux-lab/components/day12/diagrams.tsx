@@ -48,16 +48,16 @@ export function ContrastFig() {
       <div className="space-y-3">
         <ThePoint>{tt("Contrast can be measured. The standard asks for a ratio of at least 4.5 to 1 between normal text and its background, and 3 to 1 for large text. Light grey on white looks elegant on a designer's screen and fails people with poor eyesight, older eyes and anyone in sunlight.")}</ThePoint>
         <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Text colour: ${hex}`)}</label>
-          <input id={id} type="range" min={0} max={230} step={1} value={g} onChange={(e) => setG(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={tt(`${hex}, contrast ${r.toFixed(1)} to 1`)} />
+          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Text colour: ${hex}`, `Textfarbe: ${hex}`)}</label>
+          <input id={id} type="range" min={0} max={230} step={1} value={g} onChange={(e) => setG(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={tt(`${hex}, contrast ${r.toFixed(1)} to 1`, `${hex}, Kontrast ${r.toFixed(1).replace(".", ",")} zu 1`)} />
         </div>
         {/* SVG text: the label is meant to be faint at low settings, and the lab's own contrast check reads HTML text only. */}
-        <svg role="img" aria-label={tt(`A price label: “Oat milk 1.79, offer until Sunday” in ${hex} on white, contrast ${r.toFixed(1)} to 1`)} viewBox="0 0 360 72" className="mx-auto block w-full max-w-[360px] rounded-lg border border-line bg-white">
+        <svg role="img" aria-label={tt(`A price label: “Oat milk 1.79, offer until Sunday” in ${hex} on white, contrast ${r.toFixed(1)} to 1`, `Ein Preisschild: „Haferdrink 1,79, Angebot bis Sonntag“ in ${hex} auf Weiß, Kontrast ${r.toFixed(1).replace(".", ",")} zu 1`)} viewBox="0 0 360 72" className="mx-auto block w-full max-w-[360px] rounded-lg border border-line bg-white">
           <text x="16" y="30" fontSize="16" fontWeight="600" fill={hex} fontFamily="inherit">{tt("Oat milk · 1.79")}</text>
           <text x="16" y="54" fontSize="13" fill={hex} fontFamily="inherit">{tt("Offer until Sunday · 1 litre · organic")}</text>
         </svg>
         <p className="text-center text-body font-semibold text-ink" aria-live="polite">
-          {tt(`Contrast ${r.toFixed(1)} : 1 · ${ok ? "meets 4.5 : 1 for normal text" : large ? "only enough for large text (3 : 1)" : "below 3 : 1, too low even for large text"}`)}
+          {tt(`Contrast ${r.toFixed(1)} : 1 · ${ok ? "meets 4.5 : 1 for normal text" : large ? "only enough for large text (3 : 1)" : "below 3 : 1, too low even for large text"}`, `Kontrast ${r.toFixed(1).replace(".", ",")} : 1 · ${ok ? "erfüllt 4,5 : 1 für normalen Text" : large ? "nur ausreichend für großen Text (3 : 1)" : "unter 3 : 1, selbst für großen Text zu niedrig"}`)}
         </p>
         <Insight>{ok ? tt("In plain words: readable for most people, also outside. Darker is not uglier; it is what lets the label do its job.") : large ? tt("In plain words: fine for a big headline, too faint for the small line. People with poor eyesight and anyone in sunlight start to lose it.") : tt("In plain words: elegant on a good screen in a dark room, and gone for many customers. This is the colour many brand guides choose for secondary text.")}</Insight>
       </div>
@@ -82,7 +82,7 @@ function DemoForm({ kind }: { kind: "mouse" | "hidden" | "good" }) {
         <div className="text-[13px]">{tt("Delivery slot")}</div>
         <div className="flex flex-wrap gap-2">
           {["Thu 18–20", "Fri 08–10", "Fri 18–20"].map((s) => (
-            <div key={s} onClick={() => setMsg(tt(`Slot ${s} chosen.`))} className="cursor-pointer rounded border border-[#B9C6BE] bg-white px-3 py-2 text-[13px]">{s}</div>
+            <div key={s} onClick={() => setMsg(tt(`Slot ${s} chosen.`, `Lieferfenster ${s} gewählt.`))} className="cursor-pointer rounded border border-[#B9C6BE] bg-white px-3 py-2 text-[13px]">{s}</div>
           ))}
         </div>
         <div onClick={() => setMsg(tt("Order placed."))} className="inline-block cursor-pointer rounded bg-[#1F6F43] px-4 py-2 text-[13px] font-semibold text-white">{tt("Place order")}</div>
@@ -174,7 +174,7 @@ export function ErrorFig() {
                 </div>
                 <div className="rounded border border-[#7CC48D] bg-[#F2FAF4] p-2 text-caption">
                   <p className="font-semibold">{tt("Helpful")}</p>
-                  <p>{tt(`“${val}” is not a date we can read. Please write day, month and year with dots, for example 14.11.2026. Deliveries are possible Monday to Saturday.`)}</p>
+                  <p>{tt(`“${val}” is not a date we can read. Please write day, month and year with dots, for example 14.11.2026. Deliveries are possible Monday to Saturday.`, `„${val}“ ist kein Datum, das wir lesen können. Bitte schreiben Sie Tag, Monat und Jahr mit Punkten, zum Beispiel 14.11.2026. Lieferungen sind von Montag bis Samstag möglich.`)}</p>
                 </div>
               </>
             )}
