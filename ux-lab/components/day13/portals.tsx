@@ -30,7 +30,7 @@ function Shell({ name, color, nav, children, footer }: { name: string; color: st
         {nav}
       </div>
       <div className="min-h-[320px] p-3 text-[13px]">{children}</div>
-      <div className="border-t border-[#CBD3DC] px-3 py-1.5 text-[11px] text-[#5F6B78]">{footer ?? tt(`© ${name} · Imprint · Privacy · Simulation: the names and the contents are made up`)}</div>
+      <div className="border-t border-[#CBD3DC] px-3 py-1.5 text-[11px] text-[#5F6B78]">{footer ?? tt(`© ${name} · Imprint · Privacy · Simulation: the names and the contents are made up`, `© ${name} · Impressum · Datenschutz · Simulation: Die Namen und die Inhalte sind erfunden`)}</div>
     </div>
   );
 }
@@ -284,7 +284,7 @@ export function LifeGuide() {
             <button type="button" onClick={() => { setErr(true); setSecs(299); }} className="rounded bg-[#0E7490] px-3 py-1.5 text-[12px] font-semibold text-white">{tt("Send request")}</button>
             <button type="button" onClick={() => { setPage("home"); setErr(false); }} className="rounded border border-[#CBD3DC] px-3 py-1.5 text-[12px]">{tt("Back")}</button>
           </div>
-          {err && <p className="rounded bg-[#FEE2E2] p-2 text-[12px] font-semibold text-[#991B1B]">{tt(`Validation error in 4 fields. Your session expires in ${mm}:${ss}.`)}</p>}
+          {err && <p className="rounded bg-[#FEE2E2] p-2 text-[12px] font-semibold text-[#991B1B]">{tt(`Validation error in 4 fields. Your session expires in ${mm}:${ss}.`, `Validierungsfehler in 4 Feldern. Ihre Sitzung läuft in ${mm}:${ss} ab.`)}</p>}
         </div>
       )}
     </Shell>

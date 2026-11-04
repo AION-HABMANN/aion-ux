@@ -70,14 +70,14 @@ function Start({ ctx, lens }: { ctx: LabCtx; lens: "ayo" | "mirko" | "tilda" | "
       {lens === "ayo" && (
         <>
           <div className="overflow-hidden whitespace-nowrap rounded bg-[#FEF3C7] py-1 text-[11px]"><span style={{ marginLeft: `${-(t % 30) * 8}px` }}>{tt("⚡ NEW: Smart thermostat offer · Refer a friend · Green tariff 2.0 · Win a heat pump · ⚡ NEW: Smart thermostat offer · Refer a friend")}</span></div>
-          <div className="grid grid-cols-3 gap-1">{[tt("Offers"), tt("Win!"), tt("Green"), tt("Blog"), tt("App"), tt("Refer")].map((x, i) => <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`))} className="rounded py-2 text-[11px] text-white" style={{ background: ["#9A3412", "#1D4ED8", "#15803D", "#7E22CE", "#BE185D", "#B45309"][i] }}>{x}</button>)}</div>
+          <div className="grid grid-cols-3 gap-1">{[tt("Offers"), tt("Win!"), tt("Green"), tt("Blog"), tt("App"), tt("Refer")].map((x, i) => <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`))} className="rounded py-2 text-[11px] text-white" style={{ background: ["#9A3412", "#1D4ED8", "#15803D", "#7E22CE", "#BE185D", "#B45309"][i] }}>{x}</button>)}</div>
           <p className="text-[10.5px] text-[#6B7280]"><button type="button" onClick={() => { setOpen(true); ctx.hit(tt("Found the small line")); }} className="underline">{tt("Meter reading due")}</button></p>
           {chat && <div className="rounded-lg bg-[#1D4ED8] p-2 text-[12px] text-white">{tt("💬 Hi! I'm Sparky. Can I help you save money today?")} <button type="button" onClick={() => { setChat(false); ctx.miss(tt("Closed the chat bubble")); }} className="ml-1 underline">{tt("close")}</button></div>}
         </>
       )}
       {lens === "mirko" && (
         <>
-          <div className="flex justify-around">{["⚡", "📈", "🔔", "⚙"].map((x) => <button key={x} type="button" aria-label={tt(`Icon ${x}`)} onClick={() => (x === "📈" ? (setOpen(true), ctx.hit(tt("Guessed the icon"))) : ctx.miss(tt(`Icon ${x}: not what it seemed`)))} className="h-11 w-11 rounded-full border border-[#CBD5E1] text-[18px]">{x}</button>)}</div>
+          <div className="flex justify-around">{["⚡", "📈", "🔔", "⚙"].map((x) => <button key={x} type="button" aria-label={tt(`Icon ${x}`, `Icon ${x}`)} onClick={() => (x === "📈" ? (setOpen(true), ctx.hit(tt("Guessed the icon"))) : ctx.miss(tt(`Icon ${x}: not what it seemed`, `Icon ${x}: nicht, was es zu sein schien`)))} className="h-11 w-11 rounded-full border border-[#CBD5E1] text-[18px]">{x}</button>)}</div>
           <p className="text-center text-[22px] font-bold">{tt("3")}</p>
           <p className="text-center text-[10.5px] text-[#6B7280]">{tt("(three what? It doesn't say.)")}</p>
         </>
@@ -119,10 +119,10 @@ function Busy({ ctx, level }: { ctx: LabCtx; level: 0 | 1 | 2 }) {
   return (
     <AppScreen brand={Brand} color={ACC}>
       {level >= 1 && <div className="rounded py-1 text-center text-[12px] font-bold text-white" style={{ background: level === 2 && t % 2 ? "#1D4ED8" : "#B91C1C" }}>{tt("🔥 WINTER DEAL · ENDS SOON")}</div>}
-      {level === 2 && <div className="grid grid-cols-3 gap-1">{[tt("Win"), tt("Refer"), tt("Quiz"), tt("App"), tt("Blog"), tt("Shop")].map((x, i) => <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`))} className="rounded py-1.5 text-[10.5px] text-white" style={{ background: ["#7E22CE", "#15803D", "#B45309", "#1D4ED8", "#BE185D", "#0F766E"][i] }}>{x}</button>)}</div>}
+      {level === 2 && <div className="grid grid-cols-3 gap-1">{[tt("Win"), tt("Refer"), tt("Quiz"), tt("App"), tt("Blog"), tt("Shop")].map((x, i) => <button key={x} type="button" onClick={() => ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`))} className="rounded py-1.5 text-[10.5px] text-white" style={{ background: ["#7E22CE", "#15803D", "#B45309", "#1D4ED8", "#BE185D", "#0F766E"][i] }}>{x}</button>)}</div>}
       <p className="font-bold">{tt("Hello, Pia")}</p>
       <div className={clsx("grid gap-1", level === 2 ? "grid-cols-3" : "grid-cols-1")}>
-        {[tt("Your usage"), tt("Your tariff"), tt("Your bill")].map((x) => <button key={x} type="button" onClick={() => (x === tt("Your bill") ? ctx.done(tt("Found the next bill date")) : ctx.miss(tt(`Opened ${x}`)))} className={clsx("rounded border px-2 text-left", level === 2 ? "py-1 text-[10.5px]" : "py-2")}>{x}{x === tt("Your bill") && level < 2 ? tt(" · next on 14 June") : ""}</button>)}
+        {[tt("Your usage"), tt("Your tariff"), tt("Your bill")].map((x) => <button key={x} type="button" onClick={() => (x === tt("Your bill") ? ctx.done(tt("Found the next bill date")) : ctx.miss(tt(`Opened ${x}`, `${x} geöffnet`)))} className={clsx("rounded border px-2 text-left", level === 2 ? "py-1 text-[10.5px]" : "py-2")}>{x}{x === tt("Your bill") && level < 2 ? tt(" · next on 14 June") : ""}</button>)}
       </div>
       {level >= 1 && <p className="text-[11px] text-[#475569]">{tt("Tip: switch to paperless billing and plant a tree 🌳")}</p>}
       {level === 2 && <div className="rounded-full bg-[#1D4ED8] px-3 py-1 text-[11px] text-white">{tt("💬 Need help? Chat now!")}</div>}
@@ -161,18 +161,18 @@ function Move({ ctx, steps }: { ctx: LabCtx; steps: boolean }) {
     </div>
   );
   const filled = (k: string) => (vals[k] ?? "").trim().length > 1;
-  const submit = () => (need.every(([k]) => filled(k)) ? ctx.done(tt("All required fields filled")) : ctx.miss(tt(`Missing: ${need.filter(([k]) => !filled(k)).map(([, l]) => l).join(", ")}`)));
+  const submit = () => (need.every(([k]) => filled(k)) ? ctx.done(tt("All required fields filled")) : ctx.miss(tt(`Missing: ${need.filter(([k]) => !filled(k)).map(([, l]) => l).join(", ")}`, `Es fehlt: ${need.filter(([k]) => !filled(k)).map(([, l]) => l).join(", ")}`)));
   if (!steps) {
     const filler = [tt("Customer number"), tt("Title"), tt("First name"), tt("Last name"), tt("Old address"), tt("E-mail"), tt("Phone"), tt("Meter number"), tt("Bank details")];
     return (
       <AppScreen brand={Brand} color={ACC}>
         <p className="font-bold">{tt("Moving house · all fields marked * are required")}</p>
         <div className="max-h-64 space-y-1 overflow-y-auto pr-1 text-[11.5px]">
-          {filler.slice(0, 3).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`)}</p>)}
+          {filler.slice(0, 3).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`, `${f}: (ausgefüllt)`)}</p>)}
           {field(need[0])}
-          {filler.slice(3, 6).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`)}</p>)}
+          {filler.slice(3, 6).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`, `${f}: (ausgefüllt)`)}</p>)}
           {field(need[1])}
-          {filler.slice(6).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`)}</p>)}
+          {filler.slice(6).map((f) => <p key={f} className="rounded bg-[#F1F5F9] px-2 py-1">{tt(`${f}: (filled in)`, `${f}: (ausgefüllt)`)}</p>)}
           {field(need[2])}
         </div>
         <button type="button" onClick={submit} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{tt("Submit")}</button>
@@ -181,9 +181,9 @@ function Move({ ctx, steps }: { ctx: LabCtx; steps: boolean }) {
   }
   return (
     <AppScreen brand={Brand} color={ACC}>
-      <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3`)}</p>
+      <p className="text-[11px] text-[#475569]">{tt(`Step ${step} of 3`, `Schritt ${step} von 3`)}</p>
       {field(need[step - 1])}
-      <button type="button" onClick={() => { if (!filled(need[step - 1][0])) return ctx.miss(tt("Empty field")); ctx.hit(tt(`${need[step - 1][1]} entered`)); if (step < 3) setStep(step + 1); else submit(); }} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{step < 3 ? tt(`Next: ${need[step][1].toLowerCase()}`) : tt("Send")}</button>
+      <button type="button" onClick={() => { if (!filled(need[step - 1][0])) return ctx.miss(tt("Empty field")); ctx.hit(tt(`${need[step - 1][1]} entered`, `${need[step - 1][1]} eingegeben`)); if (step < 3) setStep(step + 1); else submit(); }} className="w-full rounded-lg py-2 font-bold text-white" style={{ background: ACC }}>{step < 3 ? tt(`Next: ${need[step][1].toLowerCase()}`, `Weiter: ${need[step][1]}`) : tt("Send")}</button>
     </AppScreen>
   );
 }
@@ -210,15 +210,15 @@ function Pages({ ctx, same }: { ctx: LabCtx; same: boolean }) {
   if (ctx.finished) return <Done text={tt("Reading sent · bill downloaded · move reported")} />;
   const tasks = [tt("Send meter reading"), tt("Download bill"), tt("Report your move")];
   const odd = [[tt("Go"), "top"], [tt("OK"), "left"], [tt("Let's go!"), "bottom"]];
-  const next = () => { ctx.hit(tt(`Done: ${tasks[page]}`)); if (page < 2) setPage(page + 1); else ctx.done(tt("All three pages done")); };
-  const menu = <div className="flex gap-2 text-[11px] text-[#475569]">{[tt("Home"), tt("Bills"), tt("Help")].map((m) => <button key={m} type="button" onClick={() => ctx.miss(tt(`Opened ${m}`))}>{m}</button>)}</div>;
+  const next = () => { ctx.hit(tt(`Done: ${tasks[page]}`, `Erledigt: ${tasks[page]}`)); if (page < 2) setPage(page + 1); else ctx.done(tt("All three pages done")); };
+  const menu = <div className="flex gap-2 text-[11px] text-[#475569]">{[tt("Home"), tt("Bills"), tt("Help")].map((m) => <button key={m} type="button" onClick={() => ctx.miss(tt(`Opened ${m}`, `${m} geöffnet`))}>{m}</button>)}</div>;
   const decoy = <button type="button" onClick={() => ctx.miss(tt("Tapped the wrong button"))} className="rounded border border-[#CBD5E1] px-2 py-1 text-[12px]">{tt("Back")}</button>;
   if (same)
     return (
       <AppScreen brand={Brand} color={ACC}>
         {menu}
         <p className="font-bold">{tasks[page]}</p>
-        <p className="text-[11.5px] text-[#475569]">{tt(`Page ${page + 1} of 3`)}</p>
+        <p className="text-[11.5px] text-[#475569]">{tt(`Page ${page + 1} of 3`, `Seite ${page + 1} von 3`)}</p>
         <div className="flex justify-between">{decoy}<button type="button" onClick={next} className="rounded px-3 py-1 font-bold text-white" style={{ background: ACC }}>{tasks[page]}</button></div>
       </AppScreen>
     );
@@ -259,7 +259,7 @@ export function PredictLab() {
 function Notice({ ctx }: { ctx: LabCtx }) {
   const [at, setAt] = useState<string[]>([]);
   const has = (k: string) => at.includes(k);
-  const toggle = (k: string) => { setAt((a) => (a.includes(k) ? a.filter((x) => x !== k) : [...a, k])); ctx.hit(tt(`Switched ${k}`)); };
+  const toggle = (k: string) => { setAt((a) => (a.includes(k) ? a.filter((x) => x !== k) : [...a, k])); ctx.hit(tt(`Switched ${k}`, `${k} umgeschaltet`)); };
   const text = tt("Meter exchange. Our technician will replace your meter on Tuesday 10 June between 8 and 12. Please make sure the meter is accessible. The power will be off for about 30 minutes.");
   return (
     <AppScreen brand={Brand} color={ACC}>
@@ -282,7 +282,7 @@ function Notice({ ctx }: { ctx: LabCtx }) {
       )}
       <p className="pt-1 text-[12px] font-semibold">{tt("When does the technician come?")}</p>
       <div className="grid grid-cols-2 gap-1">
-        {[tt("Mon 9 June, 8 to 12"), tt("Tue 10 June, 8 to 12"), tt("Tue 10 June, 12 to 16"), tt("Wed 11 June, 8 to 12")].map((o) => <button key={o} type="button" onClick={() => (o === tt("Tue 10 June, 8 to 12") ? ctx.done(tt(`Answered with: ${at.join(", ") || "no technology"}`)) : ctx.miss(tt(`Answered ${o}`)))} className="rounded border border-[#CBD5E1] py-1 text-[11.5px]">{o}</button>)}
+        {[tt("Mon 9 June, 8 to 12"), tt("Tue 10 June, 8 to 12"), tt("Tue 10 June, 12 to 16"), tt("Wed 11 June, 8 to 12")].map((o) => <button key={o} type="button" onClick={() => (o === tt("Tue 10 June, 8 to 12") ? ctx.done(tt(`Answered with: ${at.join(", ") || "no technology"}`, `Beantwortet mit: ${at.join(", ") || "keiner Technologie"}`)) : ctx.miss(tt(`Answered ${o}`, `${o} geantwortet`)))} className="rounded border border-[#CBD5E1] py-1 text-[11.5px]">{o}</button>)}
       </div>
     </AppScreen>
   );

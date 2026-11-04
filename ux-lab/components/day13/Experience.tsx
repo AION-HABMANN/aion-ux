@@ -83,8 +83,8 @@ function TestKit() {
       <ol className="space-y-2">
         {D13.tasks.map((x, i) => (
           <li key={x.id} className="rounded border border-line bg-paper p-2">
-            <p className="font-semibold">{tt(`Task ${i + 1}: ${x.task}`)}</p>
-            <p className="text-ash">{tt(`Watch: ${x.watch}`)}</p>
+            <p className="font-semibold">{tt(`Task ${i + 1}: ${x.task}`, `Aufgabe ${i + 1}: ${x.task}`)}</p>
+            <p className="text-ash">{tt(`Watch: ${x.watch}`, `Beobachten: ${x.watch}`)}</p>
             <label htmlFor={`${uid}-${x.id}`} className="mt-1 block font-semibold">{tt("What happened")}</label>
             <textarea id={`${uid}-${x.id}`} rows={2} value={notes[x.id] ?? ""} onChange={(e) => setNotes((n) => ({ ...n, [x.id]: e.target.value }))} className="w-full rounded border border-line px-2 py-1 text-body" />
           </li>
@@ -137,7 +137,7 @@ export function Day13Experience({ route }: { route: Route }) {
         <div className="space-y-1 rounded-lg border border-line bg-canvas p-3 text-caption text-ink">
           <p className="font-semibold">{tt("Inclusive patterns on this page (card A5)")}</p>
           <ul className="list-disc space-y-0.5 pl-5">{D13.patterns.map((p) => <li key={p}>{p}</li>)}</ul>
-          <p className="text-ash">{tt(`Honest note: not all of them are tested with neurodivergent learners yet. The test kit below is how you would find out, here on Route ${route}.`)}</p>
+          <p className="text-ash">{tt(`Honest note: not all of them are tested with neurodivergent learners yet. The test kit below is how you would find out, here on Route ${route}.`, `Ehrlicher Hinweis: Noch nicht alle davon sind mit neurodivergenten Lernenden getestet. So würden Sie es herausfinden: mit dem Test-Kit unten, hier auf Route ${route}.`)}</p>
         </div>
       )}
 
