@@ -19,7 +19,7 @@ function Consent({ ctx, kind }: { ctx: LabCtx; kind: "hidden" | "clear" | "limit
   const [small, setSmall] = useState(false);
   const truth = kind === "hidden" ? "yes" : kind === "clear" ? "unknown" : "no";
   if (ctx.finished) return <Done text={tt("Decision made, knowing what happens to your gaze data")} />;
-  const answer = (a: string) => (a === truth ? ctx.done(tt(`Answered: ${a}`)) : ctx.miss(tt(`Answered “${a}”; the screen says otherwise`)));
+  const answer = (a: string) => (a === truth ? ctx.done(tt(`Answered: ${a}`, `Geantwortet: ${a}`)) : ctx.miss(tt(`Answered “${a}”; the screen says otherwise`, `„${a}“ geantwortet; der Bildschirm sagt etwas anderes`)));
   return (
     <AppScreen brand="Tessel" color={BRAND}>
       {kind === "hidden" ? (

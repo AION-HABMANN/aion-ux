@@ -129,19 +129,19 @@ export function GazeStage({
         </div>
         <button type="button" onClick={replay} className="min-h-[36px] rounded border border-[#2563EB] bg-[#EFF6FF] px-2.5 text-[12.5px] font-semibold text-[#1E3A8A]">{playing ? tt("Replaying …") : tt("▶ Replay the gaze")}</button>
       </div>
-      <div tabIndex={0} role="region" aria-label={tt(`Recording: ${label}`)} className="overflow-x-auto rounded-lg border border-line">
+      <div tabIndex={0} role="region" aria-label={tt(`Recording: ${label}`, `Aufzeichnung: ${label}`)} className="overflow-x-auto rounded-lg border border-line">
         <div role="img" aria-label={label} className="relative min-w-[480px] bg-white" style={{ aspectRatio: "13 / 10" }}>
           {page}
           <GazeOverlay fixes={fixes} view={view} aois={aois} shown={shown} mark={mark} />
         </div>
       </div>
       <p aria-live="polite" className="text-micro text-ash">
-        {view === "scan" && tt(`Fixation ${Math.min(shown, fixes.length)} of ${fixes.length}. The circles are fixations, bigger means longer; the numbers are the order.`)}
+        {view === "scan" && tt(`Fixation ${Math.min(shown, fixes.length)} of ${fixes.length}. The circles are fixations, bigger means longer; the numbers are the order.`, `Fixation ${Math.min(shown, fixes.length)} von ${fixes.length}. Die Kreise sind Fixationen, größer heißt länger; die Zahlen sind die Reihenfolge.`)}
         {view === "heat" && tt("The heatmap adds the time up: red is where the gaze rested longest. The order and the jumps are gone.")}
         {view === "aoi" && tt("Areas of interest are drawn before the analysis; the table counts when each was first looked at and for how long.")}
       </p>
       {view === "aoi" && (
-        <div tabIndex={0} role="region" aria-label={tt(`Areas of interest: ${label}`)} className="overflow-x-auto rounded-lg border border-line">
+        <div tabIndex={0} role="region" aria-label={tt(`Areas of interest: ${label}`, `Areas of Interest: ${label}`)} className="overflow-x-auto rounded-lg border border-line">
           <table className="w-full min-w-[22rem] border-collapse text-caption">
             <caption className="sr-only">{tt("Areas of interest: first look and total time")}</caption>
             <thead>
@@ -155,8 +155,8 @@ export function GazeStage({
               {stats.map((s) => (
                 <tr key={s.id} className="border-t border-line">
                   <th scope="row" className="px-2 py-1.5 text-left font-semibold text-ink">{s.name}</th>
-                  <td className="px-2 py-1.5 text-ink">{s.first === null ? tt("never") : tt(`fixation ${s.first}`)}</td>
-                  <td className="px-2 py-1.5 text-ink">{s.ms === 0 ? "–" : tt(`${(s.ms / 1000).toFixed(1)} s (${Math.round((s.ms / total) * 100)} %)`)}</td>
+                  <td className="px-2 py-1.5 text-ink">{s.first === null ? tt("never") : tt(`fixation ${s.first}`, `Fixation ${s.first}`)}</td>
+                  <td className="px-2 py-1.5 text-ink">{s.ms === 0 ? "–" : tt(`${(s.ms / 1000).toFixed(1)} s (${Math.round((s.ms / total) * 100)} %)`, `${(s.ms / 1000).toFixed(1).replace(".", ",")} s (${Math.round((s.ms / total) * 100)} %)`)}</td>
                 </tr>
               ))}
             </tbody>

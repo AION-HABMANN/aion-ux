@@ -33,7 +33,7 @@ function LessonPage() {
       <Box x={0} y={0} w={100} h={9} bg={LH} className="flex items-center justify-between px-3 text-white"><b>{tt("LearnHub")}</b><span className="text-[10px]">{tt("Home · Courses · Forum · Help")}</span></Box>
       <Box x={0} y={9} w={19} h={91} bg="#EEF0FA" className="space-y-1 p-2 text-[10px]">
         <b>{tt("Module 4")}</b>
-        {[1, 2, 3, 4, 5, 6].map((n) => <div key={n} className={n === 3 ? "font-bold text-[#3730A3]" : ""}>{tt(`Lesson ${n}`)}</div>)}
+        {[1, 2, 3, 4, 5, 6].map((n) => <div key={n} className={n === 3 ? "font-bold text-[#3730A3]" : ""}>{tt(`Lesson ${n}`, `Lektion ${n}`)}</div>)}
       </Box>
       <Box x={22} y={11} w={75} h={8} className="text-[15px] font-bold">{tt("Lesson 3: Reading a bar chart")}</Box>
       <Box x={22} y={21} w={34} h={29} className="flex items-end gap-[6%] rounded border border-[#D6DAE6] p-2">
@@ -270,7 +270,7 @@ function OverloadDemo() {
         <polyline points={series.map((v, i) => `${i * 10.4},${60 - v * 0.6}`).join(" ")} fill="none" stroke="#6D28D9" strokeWidth={1.6} />
       </svg>
       <p className={clsx("rounded px-2 py-1 font-semibold", now > 70 ? "bg-[#FEE2E2] text-[#991B1B]" : "bg-[#F1F5F9] text-[#334155]")}>
-        {tt(`Overload score ${now}: `)}
+        {tt(`Overload score ${now}: `, `Überlastungswert ${now}: `)}
         <span aria-live="polite">{now > 70 ? tt("OVERLOAD") : tt("normal")}</span>
       </p>
       <p className="text-[11px] text-[#64748B]">{tt("Lab note: the headband's signal also rises with jaw, eye and forehead muscles. The prototype does not separate them yet.")}</p>

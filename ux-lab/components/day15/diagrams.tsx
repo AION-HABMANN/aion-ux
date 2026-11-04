@@ -105,7 +105,7 @@ export function MaturityFig() {
             ))}
           </div>
         </div>
-        <Insight>{tt(`${cur.name}: ${cur.why}`)}</Insight>
+        <Insight>{tt(`${cur.name}: ${cur.why}`, `${cur.name}: ${cur.why}`)}</Insight>
       </div>
     </Diagram>
   );
@@ -145,7 +145,7 @@ export function TracksFig() {
             </div>
           ))}
         </div>
-        <Insight>{tt(`${cur.name}: ${cur.why}`)}</Insight>
+        <Insight>{tt(`${cur.name}: ${cur.why}`, `${cur.name}: ${cur.why}`)}</Insight>
       </div>
     </Diagram>
   );

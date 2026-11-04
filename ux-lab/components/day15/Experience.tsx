@@ -27,7 +27,7 @@ function useUnits(route: Route): Unit[] {
   const cards = MATERIALS.filter((m) => (route === 1 ? m.block === "A" : m.block === "B"));
   const bl = route === 1 ? SPEC.blocks1 : [SPEC.block2];
   return [
-    ...cards.map((m) => ({ id: m.id, title: tt(`Card ${m.id} · ${m.title}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d15:${m.id}`] })),
+    ...cards.map((m) => ({ id: m.id, title: tt(`Card ${m.id} · ${m.title}`, `Karte ${m.id} · ${m.title}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d15:${m.id}`] })),
     ...bl.map((b) => ({ id: b.id, title: b.title, anchor: `block-${b.id.replace(".", "-")}`, done: !!blocks[blockKey(b.id)] })),
   ];
 }
@@ -91,7 +91,7 @@ export function Day15Experience({ route }: { route: Route }) {
     <section aria-labelledby="trace-h" className="card space-y-3 p-4">
       <div>
         <p className="smallcaps text-accent">{tt("Today you learn about attention data by producing some")}</p>
-        <h2 id="trace-h" className="text-h3">{tt(`Your attention trace of this page · ${done} of ${units.length} done`)}</h2>
+        <h2 id="trace-h" className="text-h3">{tt(`Your attention trace of this page · ${done} of ${units.length} done`, `Ihre Aufmerksamkeitsspur dieser Seite · ${done} von ${units.length} erledigt`)}</h2>
       </div>
 
       {phase === "ask" && (
@@ -121,7 +121,7 @@ export function Day15Experience({ route }: { route: Route }) {
           <div className="grid gap-3 sm:grid-cols-[96px_minmax(0,1fr)]">
             <div className="space-y-1">
               <p className="text-micro text-ash">{tt("Page top")}</p>
-              <svg role="img" aria-label={tt(`A strip of the whole page with ${pts.length} pointer positions`)} viewBox="0 0 100 100" preserveAspectRatio="none" className="h-56 w-20 rounded border border-line bg-white">
+              <svg role="img" aria-label={tt(`A strip of the whole page with ${pts.length} pointer positions`, `Ein Streifen der ganzen Seite mit ${pts.length} Zeigerpositionen`)} viewBox="0 0 100 100" preserveAspectRatio="none" className="h-56 w-20 rounded border border-line bg-white">
                 {pts.map((p, i) => <rect key={i} x={p.x * 100 - 1.5} y={p.y * 100 - 0.3} width={3} height={0.6} fill="#DC2626" fillOpacity={0.35} />)}
               </svg>
               <p className="text-micro text-ash">{tt("Page bottom")}</p>
@@ -137,7 +137,7 @@ export function Day15Experience({ route }: { route: Route }) {
                       <a href={`#${u.anchor}`} className="flex items-center gap-2 hover:underline">
                         <span className="w-10 shrink-0 font-semibold">{u.id}</span>
                         <span className="h-2 flex-1 overflow-hidden rounded bg-mist"><span className="block h-full rounded bg-[#F59E0B]" style={{ width: `${(u.s / max) * 100}%` }} /></span>
-                        <span className="w-14 shrink-0 text-right">{tt(`${u.s.toFixed(1)} s`)}</span>
+                        <span className="w-14 shrink-0 text-right">{tt(`${u.s.toFixed(1)} s`, `${u.s.toFixed(1).replace(".", ",")} s`)}</span>
                       </a>
                     </li>
                   ))}
@@ -148,7 +148,7 @@ export function Day15Experience({ route }: { route: Route }) {
           </div>
           {top && top.s >= 5 && (
             <fieldset className="space-y-2 rounded-lg border border-dashed border-line p-3 text-caption text-ink">
-              <legend className="px-1 font-semibold">{tt(`You stayed longest at ${top.id} (${top.s.toFixed(1)} s). Why?`)}</legend>
+              <legend className="px-1 font-semibold">{tt(`You stayed longest at ${top.id} (${top.s.toFixed(1)} s). Why?`, `Sie blieben am längsten bei ${top.id} (${top.s.toFixed(1).replace(".", ",")} s). Warum?`)}</legend>
               <div className="flex flex-wrap gap-2">
                 {READINGS().map(([k, l]) => (
                   <label key={k} className={clsx("flex min-h-[40px] cursor-pointer items-center gap-2 rounded border px-2.5", reading === k ? "border-accent bg-accentSoft" : "border-line bg-paper")}>
@@ -157,10 +157,10 @@ export function Day15Experience({ route }: { route: Route }) {
                   </label>
                 ))}
               </div>
-              {reading && <p>{tt(`The trace would look exactly the same for every one of these answers: ${top.s.toFixed(1)} seconds at ${top.id}. Only you could say which was true. That is card A2: the measurement is a fact, its meaning needs the person.`)}</p>}
+              {reading && <p>{tt(`The trace would look exactly the same for every one of these answers: ${top.s.toFixed(1)} seconds at ${top.id}. Only you could say which was true. That is card A2: the measurement is a fact, its meaning needs the person.`, `Die Spur würde bei jeder dieser Antworten genau gleich aussehen: ${top.s.toFixed(1).replace(".", ",")} Sekunden bei ${top.id}. Nur Sie könnten sagen, welche stimmte. Das ist Karte A2: Die Messung ist ein Fakt, ihre Bedeutung braucht die Person.`)}</p>}
             </fieldset>
           )}
-          <p className="text-ash">{tt(`The trace stays in this tab only; nothing is stored or counted. Route ${route}.`)}</p>
+          <p className="text-ash">{tt(`The trace stays in this tab only; nothing is stored or counted. Route ${route}.`, `Die Spur bleibt nur in diesem Tab; nichts wird gespeichert oder gezählt. Route ${route}.`)}</p>
         </div>
       )}
       {phase === "off" && ranked.length === 0 && pts.length === 0 && <p className="text-caption text-ash">{tt("No trace is being recorded. You can start it any time with “Record”.")}</p>}
