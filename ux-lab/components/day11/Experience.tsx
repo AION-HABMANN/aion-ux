@@ -8,7 +8,7 @@ import { MATERIALS, MATERIAL_PLAIN } from "@/data/day11/materials";
 import { canSpeak, speak } from "@/components/sim/VoiceSim";
 import { blockKey } from "@/lib/dayFree/model";
 import { freeTaskBlocks } from "@/lib/dayFree/progress";
-import { tt } from "@/lib/lang";
+import { isDe, tt } from "@/lib/lang";
 import { usePersisted } from "@/store/usePersisted";
 import { useHydrated } from "@/store/useStore";
 
@@ -28,7 +28,7 @@ function useUnits(route: Route): Unit[] {
   const cards = MATERIALS.filter((m) => (route === 1 ? m.block === "A" : m.block === "B"));
   const bl = route === 1 ? SPEC.blocks1 : [SPEC.block2];
   return [
-    ...cards.map((m) => ({ id: m.id, kind: "card" as const, title: m.title, short: tt(`card ${m.id}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d11:${m.id}`] })),
+    ...cards.map((m) => ({ id: m.id, kind: "card" as const, title: m.title, short: tt(`card ${m.id}`, `Karte ${m.id}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d11:${m.id}`] })),
     ...bl.map((b) => ({ id: b.id, kind: "block" as const, title: b.title, short: tt(`Block ${b.id}`), anchor: `block-${b.id.replace(".", "-")}`, done: !!blocks[blockKey(b.id)] })),
   ];
 }
@@ -117,46 +117,46 @@ export function Day11Experience({ route }: { route: Route }) {
     setDraft("");
     const q = x.toLowerCase();
     const target = units.find((u) => q.includes(u.id.toLowerCase()));
-    if (/\bstop\b|quiet|be quiet/.test(q)) {
+    if (/\bstopp?\b|quiet|be quiet|\bruhe\b|\bpause\b/.test(q)) {
       setMisses(0);
       if (canSpeak()) window.speechSynthesis.cancel();
       last.current = tt("Stopped.");
       setLog((l) => [...l.slice(-5), { who: "it", text: tt("Stopped.") }]);
       return;
     }
-    if (/repeat|again|say that/.test(q)) {
+    if (/repeat|again|say that|wiederhol|nochmal|noch mal/.test(q)) {
       setMisses(0);
       return say(last.current || tt("Nothing to repeat yet. Say: next."), true);
     }
-    if (/help|what can i say|commands/.test(q)) {
+    if (/help|what can i say|commands|hilfe|befehle|was kann ich sagen/.test(q)) {
       setMisses(0);
-      return say(tt(`You can say: ${GUIDE.commands.join(", ")}. Or a card or block, for example “card A3”.`));
+      return say(tt(`You can say: ${GUIDE.commands.join(", ")}. Or a card or block, for example “card A3”.`, `Sie können sagen: ${GUIDE.commands.join(", ")}. Oder eine Karte oder einen Block, zum Beispiel „Karte A3“.`));
     }
-    if (/where|progress|how far/.test(q)) {
+    if (/where|progress|how far|wo bin ich|fortschritt|wie weit/.test(q)) {
       setMisses(0);
-      return say(next ? tt(`You have done ${done} of ${units.length}. Next is ${next.short}. Say next to go there.`) : tt(`You have done all ${units.length}. Nothing is left in this route.`));
+      return say(next ? tt(`You have done ${done} of ${units.length}. Next is ${next.short}. Say next to go there.`, `Sie haben ${done} von ${units.length} erledigt. Als Nächstes kommt ${next.short}. Sagen Sie weiter, um dorthin zu gehen.`) : tt(`You have done all ${units.length}. Nothing is left in this route.`, `Sie haben alle ${units.length} erledigt. In dieser Route ist nichts mehr übrig.`));
     }
-    if (/read/.test(q)) {
+    if (/read|vorles|\blies\b|lesen/.test(q)) {
       setMisses(0);
       const u = target ?? next;
       if (!u) return say(tt("Everything is done; there is nothing left to read."));
-      if (u.kind === "block") return say(tt(`${u.short} is a task, not a card. Say next to go there; I read cards only.`));
+      if (u.kind === "block") return say(tt(`${u.short} is a task, not a card. Say next to go there; I read cards only.`, `${u.short} ist eine Aufgabe, keine Karte. Sagen Sie weiter, um dorthin zu gehen; ich lese nur Karten vor.`));
       const idea = (MATERIAL_PLAIN as Record<string, { idea: string }>)[u.id]?.idea ?? "";
       go(u);
-      say(tt(`Reading ${u.short}, in plain words. Say stop to stop.`));
+      say(tt(`Reading ${u.short}, in plain words. Say stop to stop.`, `Ich lese ${u.short} in einfachen Worten vor. Sagen Sie stopp, um aufzuhören.`));
       if (canSpeak()) speak(idea);
       return;
     }
     if (target) {
       setMisses(0);
       go(target);
-      return say(tt(`Going to ${target.short}: ${target.title}.`));
+      return say(tt(`Going to ${target.short}: ${target.title}.`, `Gehe zu ${target.short}: ${target.title}.`));
     }
-    if (/next|go|continue/.test(q)) {
+    if (/next|go|continue|weiter|nächste|\blos\b|gehe/.test(q)) {
       setMisses(0);
       if (!next) return say(tt("Everything in this route is done."));
       go(next);
-      return say(tt(`Going to ${next.short}: ${next.title}. Say read it to hear it.`));
+      return say(tt(`Going to ${next.short}: ${next.title}. Say read it to hear it.`, `Gehe zu ${next.short}: ${next.title}. Sagen Sie vorlesen, um es zu hören.`));
     }
     const m = misses + 1;
     setMisses(m);
@@ -167,7 +167,7 @@ export function Day11Experience({ route }: { route: Route }) {
     const R = recognizer();
     if (!R || listening) return;
     const r = new R();
-    r.lang = "en-GB";
+    r.lang = isDe() ? "de-DE" : "en-GB";
     r.onresult = (e) => handle(e.results[0][0].transcript);
     r.onend = () => setListening(false);
     r.onerror = () => setListening(false);
@@ -180,7 +180,7 @@ export function Day11Experience({ route }: { route: Route }) {
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <p className="smallcaps text-accent">{tt("Today you learn voice interfaces by using one")}</p>
-          <h2 id="voiceguide-h" className="text-h3">{tt(`Your voice guide · ${done} of ${units.length} done`)}</h2>
+          <h2 id="voiceguide-h" className="text-h3">{tt(`Your voice guide · ${done} of ${units.length} done`, `Ihr Voice-Guide · ${done} von ${units.length} erledigt`)}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" aria-pressed={inspect} onClick={() => setInspect((v) => !v)} className={clsx("btn btn-sm min-h-[40px] border", inspect ? "border-[#B23A0A] bg-[#FBEDE6] text-[#7A2A08]" : "border-line bg-paper text-ink hover:border-ash")}>
@@ -193,13 +193,13 @@ export function Day11Experience({ route }: { route: Route }) {
       </div>
 
       <p className="text-caption text-ink">
-        {tt(`You can say: ${GUIDE.commands.join(" · ")} · or a card or block, such as “card A3”.`)}
+        {tt(`You can say: ${GUIDE.commands.join(" · ")} · or a card or block, such as “card A3”.`, `Sie können sagen: ${GUIDE.commands.join(" · ")} · oder eine Karte oder einen Block, zum Beispiel „Karte A3“.`)}
         <Tag on={inspect}>{tt("Clear expectations")}</Tag>
       </p>
 
       <div role="log" aria-live="polite" aria-label={tt("Voice guide conversation")} className="space-y-1 text-body">
         {log.length === 0 ? (
-          <p className="text-ash">{next ? tt(`Say “next” to go to ${next.short}, or “read it” to hear it.`) : hydrated ? tt("Everything in this route is done.") : tt("Loading your progress…")}</p>
+          <p className="text-ash">{next ? tt(`Say “next” to go to ${next.short}, or “read it” to hear it.`, `Sagen Sie „weiter“, um zu ${next.short} zu gehen, oder „vorlesen“, um es zu hören.`) : hydrated ? tt("Everything in this route is done.") : tt("Loading your progress…")}</p>
         ) : (
           log.map((m, k) => (
             <p key={k} className={m.who === "you" ? "text-ash" : "text-ink"}>

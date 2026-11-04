@@ -56,7 +56,7 @@ export function MemoryFig() {
     setPick(null);
     setAsked(false);
     setShown(true);
-    const text = tt(`You can say: ${list.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`);
+    const text = tt(`You can say: ${list.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`, `Sie können sagen: ${list.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`);
     if (tts) speak(text, 1.05);
     window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => {
@@ -74,10 +74,10 @@ export function MemoryFig() {
         </div>
         <p className="text-caption text-ash">{tts ? tt("You will hear the menu; it is also shown for a few seconds, then hidden. Then answer from memory.") : tt("Your browser cannot speak here, so the menu is shown for a few seconds, then hidden. Then answer from memory.")}</p>
         <div aria-live="polite" className="min-h-[3rem] rounded-lg border border-line bg-white p-3 text-body text-ink">
-          {shown && which && <p>🔊 {tt(`You can say: ${items.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`)}</p>}
+          {shown && which && <p>🔊 {tt(`You can say: ${items.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`, `Sie können sagen: ${items.map((x, i) => `${i + 1}, ${x}`).join("; ")}.`)}</p>}
           {asked && which && (
             <fieldset>
-              <legend className="font-semibold">{tt(`Which number was “${items[target]}”?`)}</legend>
+              <legend className="font-semibold">{tt(`Which number was “${items[target]}”?`, `Welche Nummer war „${items[target]}“?`)}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {items.map((_, i) => (
                   <label key={i} className={clsx("inline-flex min-h-[40px] min-w-[44px] cursor-pointer items-center justify-center rounded border px-2", pick === String(i) ? "border-accent bg-accentSoft" : "border-line")}>
@@ -86,7 +86,7 @@ export function MemoryFig() {
                   </label>
                 ))}
               </div>
-              {pick !== null && <p className="mt-2">{tt(`It was number ${target + 1}. Nothing is counted; notice how sure you felt.`)}</p>}
+              {pick !== null && <p className="mt-2">{tt(`It was number ${target + 1}. Nothing is counted; notice how sure you felt.`, `Es war Nummer ${target + 1}. Nichts wird gezählt; achten Sie darauf, wie sicher Sie sich gefühlt haben.`)}</p>}
             </fieldset>
           )}
           {!shown && !asked && <p className="text-ash">{tt("Choose a menu to start.")}</p>}

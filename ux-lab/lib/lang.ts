@@ -38,6 +38,16 @@ export function deText(en: string, mentor = false): string {
   return en;
 }
 
+/** The English text a German dictionary entry came from (a chip or button the learner tapped), so scripted assistants can match their English rules. */
+let reverse: Map<string, string> | null = null;
+export function enOf(de: string): string {
+  if (!reverse) {
+    reverse = new Map();
+    for (const [en, d] of Object.entries(DE)) if (!reverse.has(d)) reverse.set(d, en);
+  }
+  return reverse.get(de) ?? de;
+}
+
 /** The text of the active language. Works for strings and for JSX. UX writes English first (UX-STANDARD decision 4); the German is the pair or the dictionary entry, and a missing one falls back to English. */
 export function tt<T>(en: T, de?: T): T {
   if (current !== "de") return en;

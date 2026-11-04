@@ -54,9 +54,9 @@ function Modes({ ctx, mode }: { ctx: LabCtx; mode: "screen" | "chat" | "voice" }
     return (
       <AppScreen brand={Brand} color={ACC}>
         <p className="font-bold">{tt("Bread dough")}</p>
-        <div className="flex items-center gap-2">{tt("Servings")}<button type="button" aria-label={tt("Fewer")} onClick={() => setServ((s) => Math.max(1, s - 1))} className="h-8 w-8 rounded border">−</button><span aria-live="polite">{serv}</span><button type="button" aria-label={tt("More")} onClick={() => { const n = serv + 1; setServ(n); ctx.hit(tt(`Servings: ${n}`)); check(n, timer); }} className="h-8 w-8 rounded border">+</button></div>
-        <p className="text-[12px] text-[#475569]">{tt(`Flour ${serv * 125} g · water ${serv * 75} ml`)}</p>
-        <div className="flex flex-wrap gap-1">{[10, 15, 25, 40].map((m) => <button key={m} type="button" onClick={() => { setTimer(m); (m === 25 ? ctx.hit : ctx.miss)(tt(`Timer ${m} min`)); check(serv, m); }} className={clsx("rounded border px-2 py-1", timer === m && "border-[#C2410C] bg-[#FFF7ED]")}>{tt(`${m} min`)}</button>)}</div>
+        <div className="flex items-center gap-2">{tt("Servings")}<button type="button" aria-label={tt("Fewer")} onClick={() => setServ((s) => Math.max(1, s - 1))} className="h-8 w-8 rounded border">−</button><span aria-live="polite">{serv}</span><button type="button" aria-label={tt("More")} onClick={() => { const n = serv + 1; setServ(n); ctx.hit(tt(`Servings: ${n}`, `Portionen: ${n}`)); check(n, timer); }} className="h-8 w-8 rounded border">+</button></div>
+        <p className="text-[12px] text-[#475569]">{tt(`Flour ${serv * 125} g · water ${serv * 75} ml`, `Mehl ${serv * 125} g · Wasser ${serv * 75} ml`)}</p>
+        <div className="flex flex-wrap gap-1">{[10, 15, 25, 40].map((m) => <button key={m} type="button" onClick={() => { setTimer(m); (m === 25 ? ctx.hit : ctx.miss)(tt(`Timer ${m} min`, `Timer ${m} Min`)); check(serv, m); }} className={clsx("rounded border px-2 py-1", timer === m && "border-[#C2410C] bg-[#FFF7ED]")}>{tt(`${m} min`, `${m} Min`)}</button>)}</div>
       </AppScreen>
     );
   if (mode === "chat")
@@ -71,8 +71,8 @@ function Modes({ ctx, mode }: { ctx: LabCtx; mode: "screen" | "chat" | "voice" }
           const ns = sv ? Number(sv[1]) : serv;
           const nt = tm ? Number(tm[1]) : timer;
           setServ(ns); setTimer(nt);
-          setLog((l) => [...l, tt(`You: ${text}`), sv || tm ? tt(`Ladle: ${sv ? `scaled to ${ns} servings. ` : ""}${tm ? `timer set to ${nt} minutes.` : ""}`) : tt("Ladle: sorry, I didn't get that. Try “8 servings” or “timer 25 minutes”.")]);
-          (sv || tm ? ctx.hit : ctx.miss)(tt(`Typed: ${text}`));
+          setLog((l) => [...l, tt(`You: ${text}`, `Sie: ${text}`), sv || tm ? tt(`Ladle: ${sv ? `scaled to ${ns} servings. ` : ""}${tm ? `timer set to ${nt} minutes.` : ""}`, `Ladle: ${sv ? `auf ${ns} Portionen skaliert. ` : ""}${tm ? `Timer auf ${nt} Minuten gestellt.` : ""}`) : tt("Ladle: sorry, I didn't get that. Try “8 servings” or “timer 25 minutes”.")]);
+          (sv || tm ? ctx.hit : ctx.miss)(tt(`Typed: ${text}`, `Getippt: ${text}`));
           setText("");
           check(ns, nt);
         }} className="flex gap-1">
@@ -177,7 +177,7 @@ function Spoken({ ctx, busy }: { ctx: LabCtx; busy: boolean }) {
       <button type="button" onClick={() => { setShow((s) => !s); ctx.miss(tt("Read the text instead of listening")); }} className="text-[11.5px] underline">{show ? tt("Hide the text") : tt("No sound? Show the text (counts as a look)")}</button>
       {show && <p className="rounded bg-[#FFF7ED] p-2 text-[12px]">{text}</p>}
       <label htmlFor={id} className="block text-[12px] font-semibold">{tt("How much milk?")}</label>
-      <select id={id} value={ans} onChange={(e) => { setAns(e.target.value); e.target.value === "400" ? ctx.done(tt("Remembered 400 ml")) : ctx.miss(tt(`Answered ${e.target.value} ml`)); }} className="w-full rounded border border-[#94A3B8] px-2 py-1">
+      <select id={id} value={ans} onChange={(e) => { setAns(e.target.value); e.target.value === "400" ? ctx.done(tt("Remembered 400 ml")) : ctx.miss(tt(`Answered ${e.target.value} ml`, `${e.target.value} ml geantwortet`)); }} className="w-full rounded border border-[#94A3B8] px-2 py-1">
         <option value="">{tt("choose")}</option>
         {["200", "300", "400", "600"].map((m) => <option key={m} value={m}>{tt(`${m} ml`)}</option>)}
       </select>

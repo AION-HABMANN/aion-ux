@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { tt } from "@/lib/lang";
+import { enOf, isDe, tt } from "@/lib/lang";
 
 /**
  * A scripted voice assistant (UX Day 11, "show it real"): the learner types, or speaks where the browser offers speech recognition, and the assistant answers from
@@ -13,6 +13,8 @@ import { tt } from "@/lib/lang";
 export type VoiceRule = {
   /** Lower-case fragments; the rule fires if the input contains any of them. */
   keys: string[];
+  /** German fragments, tried with the English ones (the German interface; a tapped chip is matched through its English text). */
+  keysDe?: string[];
   /** The reply; a list gives the next line each time the rule fires again (the last one repeats). */
   say: string | string[];
   /** Device states the reply changes, for an assistant that controls things. */
@@ -50,7 +52,7 @@ export function speak(text: string, rate = 1) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = "en-GB";
+  u.lang = isDe() ? "de-DE" : "en-GB";
   u.rate = rate;
   window.speechSynthesis.speak(u);
   return true;
@@ -101,7 +103,8 @@ export function VoiceSim({ cfg, tryThese }: { cfg: VoiceCfg; tryThese?: string[]
   const answer = useCallback(
     (input: string) => {
       const q = input.toLowerCase();
-      const i = cfg.rules.findIndex((r) => r.keys.some((k) => q.includes(k)));
+      const qe = enOf(input).toLowerCase();
+      const i = cfg.rules.findIndex((r) => r.keys.some((k) => qe.includes(k) || q.includes(k)) || (r.keysDe ?? []).some((k) => q.includes(k)));
       let text: string;
       if (i >= 0) {
         misses.current = 0;
@@ -141,7 +144,7 @@ export function VoiceSim({ cfg, tryThese }: { cfg: VoiceCfg; tryThese?: string[]
     const R = recognizer();
     if (!R || listening) return;
     const r = new R();
-    r.lang = "en-GB";
+    r.lang = isDe() ? "de-DE" : "en-GB";
     r.interimResults = false;
     r.maxAlternatives = 1;
     r.onresult = (e) => send(e.results[0][0].transcript);
