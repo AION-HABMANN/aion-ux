@@ -62,10 +62,10 @@ export function AttentionFig() {
       <div className="space-y-3">
         <ThePoint>{tt("Presence makes immersive experiences intense, but the brain's limits stay the same: attention is narrow and working memory is small. Every label, sound and movement competes for it. Good immersive design steers perception to what matters now and keeps the load low.")}</ThePoint>
         <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`On the machine: ${names[n]}`)}</label>
+          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`On the machine: ${names[n]}`, `An der Maschine: ${names[n]}`)}</label>
           <input id={id} type="range" min={0} max={2} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={names[n]} />
         </div>
-        <ModelStage key={n} src={MODEL} alt={tt(`The Brewline machine with ${names[n].toLowerCase()}`)} fallback={FALLBACK} orbit="25deg 75deg 1.6m" target="0m 0.32m 0m">
+        <ModelStage key={n} src={MODEL} alt={tt(`The Brewline machine with ${names[n].toLowerCase()}`, `Die Brewline-Maschine: ${names[n]}`)} fallback={FALLBACK} orbit="25deg 75deg 1.6m" target="0m 0.32m 0m">
           {(n === 0 ? parts.slice(0, 2) : parts).map((p) => <Label key={p.slot} slot={p.slot} pos={p.pos} normal={p.normal}>{p.label}</Label>)}
           {n > 0 && EXTRA().map((p) => <Label key={p.slot} slot={p.slot} pos={p.pos} normal={p.normal} loud={n === 2}>{p.label}</Label>)}
         </ModelStage>
@@ -115,7 +115,7 @@ export function ValueFig() {
             </div>
           ))}
         </div>
-        <Insight>{tt(`${cur.name}: ${cur.why}`)}</Insight>
+        <Insight>{tt(`${cur.name}: ${cur.why}`, `${cur.name}: ${cur.why}`)}</Insight>
       </div>
     </Diagram>
   );

@@ -75,7 +75,7 @@ export function BuildVision() {
       <div className="grid gap-3 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div className="relative">
           {stress && (
-            <div className="absolute left-2 right-2 top-2 z-10 rounded bg-[#B91C1C] px-2 py-1 text-[12px] font-bold text-white">{tt(`⚠ ALARM: pressure rising · line stop in 00:${String(secs).padStart(2, "0")} · supervisor calling`)}</div>
+            <div className="absolute left-2 right-2 top-2 z-10 rounded bg-[#B91C1C] px-2 py-1 text-[12px] font-bold text-white">{tt(`⚠ ALARM: pressure rising · line stop in 00:${String(secs).padStart(2, "0")} · supervisor calling`, `⚠ ALARM: Druck steigt · Linienstopp in 00:${String(secs).padStart(2, "0")} · Vorgesetzter ruft an`)}</div>
           )}
           {show && <div className="absolute bottom-2 left-2 right-2 z-10 rounded bg-gradient-to-r from-[#7C3AED] to-[#DB2777] px-2 py-1 text-center text-[12px] font-bold text-white">{tt("✨ Experience the future of service ✨")}</div>}
           {weak && !online && <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-[#111827]/85 px-3 py-2 text-[12px] font-semibold text-white">{tt("Reconnecting … guidance paused")}</div>}

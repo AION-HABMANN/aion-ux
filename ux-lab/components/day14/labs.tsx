@@ -29,10 +29,10 @@ function FindTank({ ctx, mode }: { ctx: LabCtx; mode: "flat" | "3d" | "ar" }) {
   const [page, setPage] = useState(1);
   const parts = PARTS();
   if (ctx.finished) return <Done text={tt("Found the water tank: it lifts out at the back, on top")} />;
-  const tap = (id: string, name: string) => (id === "tank" ? ctx.done(tt(`Tapped ${name}`)) : ctx.miss(tt(`Tapped ${name}`)));
+  const tap = (id: string, name: string) => (id === "tank" ? ctx.done(tt(`Tapped ${name}`, `${name} angetippt`)) : ctx.miss(tt(`Tapped ${name}`, `${name} angetippt`)));
   if (mode === "flat")
     return (
-      <AppScreen brand={tt("Brewline · manual (PDF)")} color={BRAND} status={tt(`page ${page} of 24`)}>
+      <AppScreen brand={tt("Brewline · manual (PDF)")} color={BRAND} status={tt(`page ${page} of 24`, `Seite ${page} von 24`)}>
         {page === 12 ? (
           <>
             <p className="text-[12px] font-semibold">{tt("Figure 3")}</p>
@@ -46,7 +46,7 @@ function FindTank({ ctx, mode }: { ctx: LabCtx; mode: "flat" | "3d" | "ar" }) {
                 <g key={l as string}><circle cx={x as number} cy={(y as number) - 4} r="7" fill="#FFFFFF" stroke="#1C1917" /><text x={x as number} y={y as number} textAnchor="middle" fontSize="9" fontWeight="700">{l}</text></g>
               ))}
             </svg>
-            <div className="grid grid-cols-4 gap-1">{[["A", "tray"], ["B", "tank"], ["C", "buttons"], ["D", "spout"]].map(([l, id]) => <button key={l} type="button" onClick={() => tap(id, tt(`part ${l}`))} className="rounded border border-[#A8A29E] py-1 font-bold">{l}</button>)}</div>
+            <div className="grid grid-cols-4 gap-1">{[["A", "tray"], ["B", "tank"], ["C", "buttons"], ["D", "spout"]].map(([l, id]) => <button key={l} type="button" onClick={() => tap(id, tt(`part ${l}`, `Teil ${l}`))} className="rounded border border-[#A8A29E] py-1 font-bold">{l}</button>)}</div>
             <p className="text-[11px] text-[#57534E]">{tt("Legend: see page 14.")}</p>
           </>
         ) : page === 14 ? (
@@ -54,14 +54,14 @@ function FindTank({ ctx, mode }: { ctx: LabCtx; mode: "flat" | "3d" | "ar" }) {
         ) : (
           <p className="text-[12px] text-[#57534E]">{tt("Safety instructions … warranty … installation …")}</p>
         )}
-        <div className="flex flex-wrap gap-1">{[1, 12, 14].map((p) => <button key={p} type="button" onClick={() => { setPage(p); ctx.hit(tt(`Page ${p}`)); }} className={clsx("rounded border px-2 text-[11px]", page === p && "border-[#6B3E26] bg-[#F5EFEA]")}>{tt(`p. ${p}`)}</button>)}</div>
+        <div className="flex flex-wrap gap-1">{[1, 12, 14].map((p) => <button key={p} type="button" onClick={() => { setPage(p); ctx.hit(tt(`Page ${p}`, `Seite ${p}`)); }} className={clsx("rounded border px-2 text-[11px]", page === p && "border-[#6B3E26] bg-[#F5EFEA]")}>{tt(`p. ${p}`, `S. ${p}`)}</button>)}</div>
       </AppScreen>
     );
   return (
     <div className="space-y-1">
       <ModelStage src={MODEL} alt={mode === "ar" ? tt("The Brewline machine with tappable labels on its water tank, spout, drip tray and buttons") : tt("The Brewline machine with four unlabelled tappable points")} fallback={FALLBACK} orbit="25deg 75deg 1.6m" target="0m 0.32m 0m" ar={mode === "ar"}>
         {parts.map((p, i) => (
-          <button key={p.slot} type="button" slot={p.slot} data-position={p.pos} data-normal={p.normal} onClick={() => tap(p.id, mode === "ar" ? p.label : tt(`point ${i + 1}`))} aria-label={mode === "ar" ? p.label : tt(`Point ${i + 1}`)} className={clsx("whitespace-nowrap rounded-full text-[11px] font-semibold shadow", mode === "ar" ? "bg-white/95 px-2 py-0.5 text-[#1D2733]" : "h-5 w-5 bg-[#6B3E26] text-white")}>
+          <button key={p.slot} type="button" slot={p.slot} data-position={p.pos} data-normal={p.normal} onClick={() => tap(p.id, mode === "ar" ? p.label : tt(`point ${i + 1}`, `Punkt ${i + 1}`))} aria-label={mode === "ar" ? p.label : tt(`Point ${i + 1}`, `Punkt ${i + 1}`)} className={clsx("whitespace-nowrap rounded-full text-[11px] font-semibold shadow", mode === "ar" ? "bg-white/95 px-2 py-0.5 text-[#1D2733]" : "h-5 w-5 bg-[#6B3E26] text-white")}>
             {mode === "ar" ? p.label : i + 1}
           </button>
         ))}
@@ -69,7 +69,7 @@ function FindTank({ ctx, mode }: { ctx: LabCtx; mode: "flat" | "3d" | "ar" }) {
       {mode === "3d" && <p className="text-[11.5px] text-ash">{tt("Turn the machine and tap the point you think is the water tank.")}</p>}
       <p className="flex flex-wrap items-center gap-1 text-[11px] text-ash">
         {tt("No 3D on this device? The same points:")}
-        {parts.map((p, i) => <button key={p.id} type="button" onClick={() => tap(p.id, mode === "ar" ? p.label : tt(`point ${i + 1}`))} className="rounded border border-line px-1.5">{mode === "ar" ? p.label : tt(`Point ${i + 1}`)}</button>)}
+        {parts.map((p, i) => <button key={p.id} type="button" onClick={() => tap(p.id, mode === "ar" ? p.label : tt(`point ${i + 1}`, `Punkt ${i + 1}`))} className="rounded border border-line px-1.5">{mode === "ar" ? p.label : tt(`Point ${i + 1}`, `Punkt ${i + 1}`)}</button>)}
       </p>
     </div>
   );
@@ -109,8 +109,8 @@ function Descale({ ctx, stress }: { ctx: LabCtx; stress: boolean }) {
   const extras = useMemo(() => [tt("⚠ Hot water!"), tt("Tip: use Brewline descaler"), tt("Order descaler 🛒")], []);
   if (ctx.finished) return <Done text={tt("Descaled · the machine is ready")} />;
   const tap = (i: number) => {
-    if (i !== step) return ctx.miss(tt(`Tapped step ${i + 1} out of order`));
-    ctx.hit(tt(`Step ${i + 1}: ${steps[i]}`));
+    if (i !== step) return ctx.miss(tt(`Tapped step ${i + 1} out of order`, `Schritt ${i + 1} außer der Reihe angetippt`));
+    ctx.hit(tt(`Step ${i + 1}: ${steps[i]}`, `Schritt ${i + 1}: ${steps[i]}`));
     if (i === 3) ctx.done(tt("All four steps in order"));
     else setStep(i + 1);
   };
@@ -124,9 +124,9 @@ function Descale({ ctx, stress }: { ctx: LabCtx; stress: boolean }) {
         {(stress ? steps.map((s, i) => [s, i] as const) : [[steps[step], step] as const]).map(([s, i]) => (
           <button key={i} type="button" onClick={() => tap(i)} className="absolute whitespace-nowrap rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold shadow" style={{ left: `${pos[i][0] + off(i)}%`, top: `${pos[i][1] + off(i + 1)}%` }}>{`${i + 1} · ${s}`}</button>
         ))}
-        {stress && extras.map((e, i) => <button key={e} type="button" onClick={() => ctx.miss(tt(`Tapped “${e}”`))} className="absolute whitespace-nowrap rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-semibold text-[#78350F] shadow" style={{ left: `${[8, 55, 12][i] + off(i)}%`, top: `${[34, 60, 85][i]}%` }}>{e}</button>)}
+        {stress && extras.map((e, i) => <button key={e} type="button" onClick={() => ctx.miss(tt(`Tapped “${e}”`, `„${e}“ angetippt`))} className="absolute whitespace-nowrap rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-semibold text-[#78350F] shadow" style={{ left: `${[8, 55, 12][i] + off(i)}%`, top: `${[34, 60, 85][i]}%` }}>{e}</button>)}
       </div>
-      {!stress && <p className="rounded bg-[#F5EFEA] px-2 py-1 text-[12px]">{tt(`Step ${step + 1} of 4 · ${step < 3 ? `next: ${steps[step + 1].toLowerCase()}` : "last step"}`)}</p>}
+      {!stress && <p className="rounded bg-[#F5EFEA] px-2 py-1 text-[12px]">{tt(`Step ${step + 1} of 4 · ${step < 3 ? `next: ${steps[step + 1].toLowerCase()}` : "last step"}`, `Schritt ${step + 1} von 4 · ${step < 3 ? `als Nächstes: ${steps[step + 1]}` : "letzter Schritt"}`)}</p>}
     </AppScreen>
   );
 }

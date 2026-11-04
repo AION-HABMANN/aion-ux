@@ -25,7 +25,7 @@ function useUnits(route: Route): Unit[] {
   const cards = MATERIALS.filter((m) => (route === 1 ? m.block === "A" : m.block === "B"));
   const bl = route === 1 ? SPEC.blocks1 : [SPEC.block2];
   return [
-    ...cards.map((m) => ({ id: m.id, title: tt(`Card ${m.id} · ${m.title}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d14:${m.id}`] })),
+    ...cards.map((m) => ({ id: m.id, title: tt(`Card ${m.id} · ${m.title}`, `Karte ${m.id} · ${m.title}`), anchor: `mat-${m.id}`, done: !!p.ui.sectionsRead[`d14:${m.id}`] })),
     ...bl.map((b) => ({ id: b.id, title: b.title, anchor: `block-${b.id.replace(".", "-")}`, done: !!blocks[blockKey(b.id)] })),
   ];
 }
@@ -78,7 +78,7 @@ export function Day14Experience({ route }: { route: Route }) {
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <p className="smallcaps text-accent">{tt("Today you learn immersive UX by testing it")}</p>
-          <h2 id="space-h" className="text-h3">{tt(`Your day, flat or spatial · ${done} of ${units.length} done`)}</h2>
+          <h2 id="space-h" className="text-h3">{tt(`Your day, flat or spatial · ${done} of ${units.length} done`, `Ihr Tag, flach oder räumlich · ${done} von ${units.length} erledigt`)}</h2>
         </div>
         <div role="radiogroup" aria-label={tt("Choose a view")} className="flex gap-2">
           {(
@@ -123,16 +123,16 @@ export function Day14Experience({ route }: { route: Route }) {
       <div className="space-y-2 rounded-lg border border-dashed border-line p-3 text-caption text-ink">
         <p className="font-semibold">{tt("Test it yourself: is the spatial view more useful, or only more impressive?")}</p>
         <div className="flex flex-wrap items-center gap-2">
-          <button type="button" onClick={begin} className="btn-primary btn-sm min-h-[40px]">{target ? tt("New item") : tt(`Start: find an item in the ${view === "flat" ? "flat list" : "spatial map"}`)}</button>
-          <span aria-live="polite">{target ? tt(`Find and click: ${target.id}${misses ? ` · ${misses} wrong` : ""}`) : ""}</span>
+          <button type="button" onClick={begin} className="btn-primary btn-sm min-h-[40px]">{target ? tt("New item") : tt(`Start: find an item in the ${view === "flat" ? "flat list" : "spatial map"}`, `Start: ein Element in der ${view === "flat" ? "flachen Liste" : "räumlichen Karte"} finden`)}</button>
+          <span aria-live="polite">{target ? tt(`Find and click: ${target.id}${misses ? ` · ${misses} wrong` : ""}`, `Finden und klicken: ${target.id}${misses ? ` · ${misses} falsch` : ""}`) : ""}</span>
         </div>
         <p>
-          {tt(`Flat list: ${times.flat !== undefined ? `${times.flat} s` : "not tried"} · Spatial map: ${times.space !== undefined ? `${times.space} s` : "not tried"}`)}
+          {tt(`Flat list: ${times.flat !== undefined ? `${times.flat} s` : "not tried"} · Spatial map: ${times.space !== undefined ? `${times.space} s` : "not tried"}`, `Flache Liste: ${times.flat !== undefined ? `${times.flat} s` : "nicht probiert"} · Räumliche Karte: ${times.space !== undefined ? `${times.space} s` : "nicht probiert"}`)}
         </p>
         {times.flat !== undefined && times.space !== undefined && (
           <p className="text-ink">{times.space > times.flat ? tt("The flat list was faster for you. The spatial map looks more striking; for finding one item, flat usually wins. That is fascination against impact (card A4).") : tt("The spatial map was as fast or faster for you this time. Try another item: one run is not evidence, which is why pilots need more than a demo (card B3).")}</p>
         )}
-        <p className="text-ash">{tt(`Times stay in this tab only; nothing is stored or counted. Route ${route}.`)}</p>
+        <p className="text-ash">{tt(`Times stay in this tab only; nothing is stored or counted. Route ${route}.`, `Die Zeiten bleiben nur in diesem Tab; nichts wird gespeichert oder gezählt. Route ${route}.`)}</p>
       </div>
     </section>
   );
