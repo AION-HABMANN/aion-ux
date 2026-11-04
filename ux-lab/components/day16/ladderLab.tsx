@@ -151,7 +151,7 @@ function Prototype({ g, stress, onLog }: { g: Record<string, boolean>; stress: S
               {[tt("Room 216"), tt("Breakfast room"), tt("Spa"), tt("Car park P2")].map((d, i) => (
                 <button key={d} type="button" onClick={() => {
                   if (i === 0) { setScreen("B"); setRunning(true); onLog(tt("Session started: Room 216")); }
-                  else onLog(tt(`Deviation: “${d}” is not built in the prototype`));
+                  else onLog(tt(`Deviation: “${d}” is not built in the prototype`, `Abweichung: „${d}“ ist im Prototyp nicht gebaut`));
                 }} className="block w-full rounded border border-[#CBD5E1] bg-[#F8FAFC] px-2 py-1.5 text-left">{d}</button>
               ))}
             </>
@@ -162,7 +162,7 @@ function Prototype({ g, stress, onLog }: { g: Record<string, boolean>; stress: S
               {lost && g.p4 && <p className="rounded bg-[#FEF3C7] px-2 py-1">{tt("Tracking lost. Text route: turn left out of the lift, room 216 is the fourth door on the right.")}</p>}
               <div className="flex gap-2">
                 <button type="button" onClick={() => { setAsked((a) => a + 1); onLog(tt("Tester asked staff")); }} className="flex-1 rounded border border-[#CBD5E1] px-2 py-1">{tt("Ask staff")}</button>
-                <button type="button" onClick={() => { setScreen("C"); setRunning(false); onLog(tt(`Arrived at 216 after ${secs} s`)); }} className="flex-1 rounded bg-[#334155] px-2 py-1 font-semibold text-white">{tt("I'm at the door")}</button>
+                <button type="button" onClick={() => { setScreen("C"); setRunning(false); onLog(tt(`Arrived at 216 after ${secs} s`, `Nach ${secs} s bei 216 angekommen`)); }} className="flex-1 rounded bg-[#334155] px-2 py-1 font-semibold text-white">{tt("I'm at the door")}</button>
               </div>
             </>
           )}
@@ -184,8 +184,8 @@ function Prototype({ g, stress, onLog }: { g: Record<string, boolean>; stress: S
         {g.p3 ? (
           <div className="rounded border border-line bg-white p-2">
             <p className="font-semibold">{tt("Measures")}</p>
-            <p>{tt(`Time: ${secs} s`)}</p>
-            <p>{tt(`Asked staff: ${asked}`)}</p>
+            <p>{tt(`Time: ${secs} s`, `Zeit: ${secs} s`)}</p>
+            <p>{tt(`Asked staff: ${asked}`, `Personal gefragt: ${asked}`)}</p>
           </div>
         ) : (
           <div className="rounded border border-dashed border-line p-2 text-ash">{tt("No measures set.")}</div>
@@ -224,8 +224,8 @@ function Pilot({ g, stress, onLog }: { g: Record<string, boolean>; stress: Stres
   const rec = (
     <div className={clsx("px-3 py-1 text-[10.5px] text-white", g.g4 ? "bg-[#7F1D1D]" : "bg-[#B91C1C]")}>
       {g.g4
-        ? tt(`● REC · session log on · Guest ${guest} of 40 · camera image stays on the phone`)
-        : tt(`● REC · Guest ${guest} of 40 · camera stream uploaded for analysis`)}
+        ? tt(`● REC · session log on · Guest ${guest} of 40 · camera image stays on the phone`, `● REC · Sitzungsprotokoll an · Gast ${guest} von 40 · Kamerabild bleibt auf dem Handy`)
+        : tt(`● REC · Guest ${guest} of 40 · camera stream uploaded for analysis`, `● REC · Gast ${guest} von 40 · Kamerastream zur Analyse hochgeladen`)}
       <br />
       {lost ? tt("Tracking: lost") : tt("Tracking: strong")}
     </div>
@@ -257,7 +257,7 @@ function Pilot({ g, stress, onLog }: { g: Record<string, boolean>; stress: Stres
             <>
               <p className="font-semibold">{tt("Where are you going?")}</p>
               {DESTS().map((d) => (
-                <button key={d.id} type="button" onClick={() => { setDest(d); setBeat(0); setC((x) => ({ ...x, sessions: x.sessions + 1 })); onLog(tt(`Route started: ${d.name}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-1.5 text-left">
+                <button key={d.id} type="button" onClick={() => { setDest(d); setBeat(0); setC((x) => ({ ...x, sessions: x.sessions + 1 })); onLog(tt(`Route started: ${d.name}`, `Route gestartet: ${d.name}`)); }} className="block w-full rounded border border-[#CBD5E1] px-2 py-1.5 text-left">
                   <span className="block font-semibold">{d.name}</span>
                   <span className="block text-[11px] text-[#475569]">{d.walk}</span>
                 </button>
@@ -267,15 +267,15 @@ function Pilot({ g, stress, onLog }: { g: Record<string, boolean>; stress: Stres
           )}
           {consent === "yes" && dest && (
             <>
-              <Corridor signal={lost ? 0 : 2} dim={g.g6} label={tt(`The pilot app's camera view on the way to ${dest.name}`)} />
-              <p className="rounded bg-[#EEF2FF] px-2 py-1 font-semibold">{tt(`${beat + 1}/${dest.beats.length} · ${dest.beats[beat]}`)}</p>
+              <Corridor signal={lost ? 0 : 2} dim={g.g6} label={tt(`The pilot app's camera view on the way to ${dest.name}`, `Die Kameraansicht der Pilot-App auf dem Weg zu ${dest.name}`)} />
+              <p className="rounded bg-[#EEF2FF] px-2 py-1 font-semibold">{tt(`${beat + 1}/${dest.beats.length} · ${dest.beats[beat]}`, `${beat + 1}/${dest.beats.length} · ${dest.beats[beat]}`)}</p>
               {lost && <p className="rounded bg-[#FEF3C7] px-2 py-1">{tt("Tracking lost in the lift lobby. Text route shown until the signal returns.")}</p>}
               <div className="flex gap-2">
                 <button type="button" onClick={() => { setC((x) => ({ ...x, staff: x.staff + 1 })); onLog(tt("Guest asked staff")); }} className="flex-1 rounded border border-[#CBD5E1] px-2 py-1">{tt("Call reception")}</button>
                 {beat < dest.beats.length - 1 ? (
                   <button type="button" onClick={() => setBeat((b) => b + 1)} className="flex-1 rounded bg-[#1F1B3A] px-2 py-1 font-semibold text-white">{tt("Walk on")}</button>
                 ) : (
-                  <button type="button" onClick={() => { setC((x) => ({ ...x, done: x.done + 1 })); onLog(tt(`Arrived: ${dest.name}`)); setDest(null); setGuest((n) => Math.min(40, n + 1)); }} className="flex-1 rounded bg-[#16A34A] px-2 py-1 font-semibold text-white">{tt("I'm here")}</button>
+                  <button type="button" onClick={() => { setC((x) => ({ ...x, done: x.done + 1 })); onLog(tt(`Arrived: ${dest.name}`, `Angekommen: ${dest.name}`)); setDest(null); setGuest((n) => Math.min(40, n + 1)); }} className="flex-1 rounded bg-[#16A34A] px-2 py-1 font-semibold text-white">{tt("I'm here")}</button>
                 )}
               </div>
             </>
@@ -337,7 +337,7 @@ function Scale({ g, stress, onLog }: { g: Record<string, boolean>; stress: Stres
           {g.s2 && (
             <div role="radiogroup" aria-label={tt("Language")} className="flex gap-1">
               {Object.keys(text).map((k) => (
-                <button key={k} type="button" role="radio" aria-checked={lang === k} onClick={() => { setLang(k); onLog(tt(`Language: ${k}`)); }} className={clsx("rounded border px-1.5 text-[11px]", lang === k ? "border-[#1F1B3A] bg-[#1F1B3A] text-white" : "border-line")}>{k}</button>
+                <button key={k} type="button" role="radio" aria-checked={lang === k} onClick={() => { setLang(k); onLog(tt(`Language: ${k}`, `Sprache: ${k}`)); }} className={clsx("rounded border px-1.5 text-[11px]", lang === k ? "border-[#1F1B3A] bg-[#1F1B3A] text-white" : "border-line")}>{k}</button>
               ))}
             </div>
           )}
@@ -424,14 +424,14 @@ export function LadderLab() {
           {stages.map(([k, l, sub], i) => (
             <li key={k}>
               <button type="button" aria-current={stage === k ? "step" : undefined} onClick={() => go(k)} className={clsx("min-h-[48px] w-full rounded border px-2 py-1 text-left text-[12px]", stage === k ? "border-[#4F46E5] bg-[#EEF2FF]" : "border-line bg-white")}>
-                <span className="block text-[10.5px] text-ash">{tt(`Step ${i + 1}`)}</span>
+                <span className="block text-[10.5px] text-ash">{tt(`Step ${i + 1}`, `Schritt ${i + 1}`)}</span>
                 <span className="block font-semibold text-ink">{l}</span>
                 <span className="block text-[10.5px] text-ash">{sub}</span>
               </button>
             </li>
           ))}
         </ol>
-        <p aria-live="polite" className="font-mono text-[12px] text-[#312E81]">{tt(`Now running: ${stages[idx][1]} · gates met ${met} of ${stageGates.length}`)}</p>
+        <p aria-live="polite" className="font-mono text-[12px] text-[#312E81]">{tt(`Now running: ${stages[idx][1]} · gates met ${met} of ${stageGates.length}`, `Läuft jetzt: ${stages[idx][1]} · Gates erfüllt ${met} von ${stageGates.length}`)}</p>
         <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px]">
           <div className="space-y-2 rounded-lg border border-line bg-[#F8FAFC] p-3">
             {stage === "concept" && <ConceptSlide g={gates} onPresent={() => addLog(tt("The board liked the slide. Nobody asked what it proves."))} />}
@@ -449,7 +449,7 @@ export function LadderLab() {
           </div>
           <div className="space-y-2">
             <div className="rounded-lg border border-line bg-white p-2">
-              <p className="text-[12.5px] font-semibold text-ink">{tt(`Gate rail · ${met} of ${stageGates.length} met`)}</p>
+              <p className="text-[12.5px] font-semibold text-ink">{tt(`Gate rail · ${met} of ${stageGates.length} met`, `Gate-Leiste · ${met} von ${stageGates.length} erfüllt`)}</p>
               <p className="mb-1 text-[11px] text-ash">{tt("All gates start on. Switch one off and watch the stage.")}</p>
               <div className="space-y-1">
                 {stageGates.map((x) => <Toggle key={x.id} on={gates[x.id]} onClick={() => setGates((m) => ({ ...m, [x.id]: !m[x.id] }))}>{x.name}</Toggle>)}
@@ -473,7 +473,7 @@ export function LadderLab() {
         </div>
         {idx < 3 && (
           <div className="rounded-lg border border-dashed border-line p-3 text-[12.5px] text-ink">
-            <p className="font-semibold">{tt(`Gate meeting: go from ${stages[idx][1]} to ${stages[idx + 1][1]}?`)}</p>
+            <p className="font-semibold">{tt(`Gate meeting: go from ${stages[idx][1]} to ${stages[idx + 1][1]}?`, `Gate-Besprechung: von ${stages[idx][1]} zu ${stages[idx + 1][1]} gehen?`)}</p>
             <div className="mt-1 flex flex-wrap gap-2">
               {[["go", tt("Go")], ["change", tt("Change and test again")], ["stop", tt("Stop")]].map(([k, l]) => (
                 <button key={k} type="button" aria-pressed={verdict === k} onClick={() => setVerdict(k)} className={clsx("min-h-[36px] rounded border px-3", verdict === k ? "border-[#1E3A5F] bg-[#1E3A5F] text-white" : "border-line bg-white")}>{l}</button>
@@ -483,7 +483,7 @@ export function LadderLab() {
               <p className="mt-2">
                 {verdict === "go"
                   ? offNotes.length
-                    ? tt(`You go on with ${offNotes.length} gate(s) not met. The next stage inherits them: ${offNotes.map((x) => x.name.toLowerCase()).join("; ")}.`)
+                    ? tt(`You go on with ${offNotes.length} gate(s) not met. The next stage inherits them: ${offNotes.map((x) => x.name.toLowerCase()).join("; ")}.`, `Sie machen mit ${offNotes.length} nicht erfüllten Gate(s) weiter. Die nächste Stufe erbt sie: ${offNotes.map((x) => x.name).join("; ")}.`)
                     : tt("You go on with every gate met. The next stage starts from evidence, not from enthusiasm.")
                   : verdict === "change"
                     ? tt("You stay on this rung and fix what the gates and stress tests showed. Slower, and cheaper than fixing it at the next rung.")

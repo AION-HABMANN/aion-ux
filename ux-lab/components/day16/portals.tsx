@@ -108,7 +108,7 @@ export function RealityFlow() {
             <div key={who as string} className="flex items-center gap-2">
               <span className="w-24 shrink-0">{who}</span>
               <span className="h-2.5 flex-1 overflow-hidden rounded bg-mist"><span className="block h-full rounded" style={{ width: `${v}%`, background: (v as number) > 80 ? "#DC2626" : "#0E7490" }} /></span>
-              <span className="w-24 shrink-0 text-right">{tt(`load index ${v}`)}</span>
+              <span className="w-24 shrink-0 text-right">{tt(`load index ${v}`, `Belastungsindex ${v}`)}</span>
             </div>
           ))}
           <p className="text-[11.5px] text-[#55606E]">{tt("Source: eye-tracking glasses and heart rate during real calls. Consent: “covered by the employment contract (to be checked)”. Use of the results: not decided.")}</p>

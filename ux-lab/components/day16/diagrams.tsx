@@ -59,7 +59,7 @@ export function StressTestFig() {
             <option value={0}>{tt("lost")}</option>
           </select>
         </div>
-        <Corridor crowd={crowd} signal={signal} dim={dim} label={tt(`The corridor with the AR arrow${crowd ? ", a crowd" : ""}${dim ? ", night lighting" : ""}, signal ${signal === 2 ? "good" : signal === 1 ? "weak" : "lost"}`)} />
+        <Corridor crowd={crowd} signal={signal} dim={dim} label={tt(`The corridor with the AR arrow${crowd ? ", a crowd" : ""}${dim ? ", night lighting" : ""}, signal ${signal === 2 ? "good" : signal === 1 ? "weak" : "lost"}`, `Der Flur mit dem AR-Pfeil${crowd ? ", eine Menge" : ""}${dim ? ", Nachtbeleuchtung" : ""}, Signal ${signal === 2 ? "gut" : signal === 1 ? "schwach" : "verloren"}`)} />
         <Insight>{notes.length ? notes.join(" ") : tt("In the quiet, bright corridor the arrow sits on the floor and points to room 216. This is the demo condition. Switch on a stress and watch what happens.")}</Insight>
       </div>
     </Diagram>
@@ -153,7 +153,7 @@ export function PortfolioFig() {
             </div>
           ))}
         </div>
-        <Insight>{tt(`${cur.name} · responsible: ${mark(cur.resp)} · connectable: ${mark(cur.conn)} · governable: ${mark(cur.gov)}. ${cur.why}`)}</Insight>
+        <Insight>{tt(`${cur.name} · responsible: ${mark(cur.resp)} · connectable: ${mark(cur.conn)} · governable: ${mark(cur.gov)}. ${cur.why}`, `${cur.name} · verantwortbar: ${mark(cur.resp)} · anschlussfähig: ${mark(cur.conn)} · steuerbar: ${mark(cur.gov)}. ${cur.why}`)}</Insight>
       </div>
     </Diagram>
   );
@@ -201,7 +201,7 @@ export function NotScaleFig() {
             </label>
           ))}
         </fieldset>
-        <Insight>{n === 0 ? tt("Tick the signs that apply. There is no score: the signs are reasons to discuss, not a formula.") : tt(`You see ${n} of 6 signs. Each one is a reason to pause or to test further before scaling; even one, such as unsettled ethics, can be enough. What would have to change for each sign to disappear?`)}</Insight>
+        <Insight>{n === 0 ? tt("Tick the signs that apply. There is no score: the signs are reasons to discuss, not a formula.") : tt(`You see ${n} of 6 signs. Each one is a reason to pause or to test further before scaling; even one, such as unsettled ethics, can be enough. What would have to change for each sign to disappear?`, `Sie sehen ${n} von 6 Anzeichen. Jedes ist ein Grund, vor dem Skalieren zu pausieren oder weiter zu testen; schon eines, etwa ungeklärte Ethik, kann reichen. Was müsste sich ändern, damit jedes Anzeichen verschwindet?`)}</Insight>
       </div>
     </Diagram>
   );
@@ -326,8 +326,8 @@ export function TensionFig() {
       <div className="space-y-3">
         <ThePoint>{tt("Innovation pressure, ethics, economics, user value, maturity and the long-term portfolio pull apart. The number of active lines is where the conflict becomes a decision.")}</ThePoint>
         <div className="space-y-1">
-          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Active lines of innovation: ${n}`)}</label>
-          <input id={id} type="range" min={1} max={5} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={tt(`${n} lines`)} />
+          <label htmlFor={id} className="text-caption font-semibold text-ink">{tt(`Active lines of innovation: ${n}`, `Aktive Innovationslinien: ${n}`)}</label>
+          <input id={id} type="range" min={1} max={5} step={1} value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full accent-[#1750A8]" aria-valuetext={tt(`${n} lines`, `${n} Linien`)} />
         </div>
         <div className="grid grid-cols-5 gap-1" aria-hidden>
           {[1, 2, 3, 4, 5].map((i) => <div key={i} className={clsx("h-3 rounded", i <= n ? "bg-[#F59E0B]" : "bg-mist")} />)}
