@@ -33,7 +33,7 @@ function useUnits(route: Route): Unit[] {
   const cards = MATERIALS.filter((m) => (route === 1 ? m.block === "A" : m.block === "B"));
   const bl = route === 1 ? SPEC.blocks1 : [SPEC.block2];
   return [
-    ...cards.map((m) => ({ id: m.id, kind: "card" as const, title: tt(`Card ${m.id} · ${m.title}`), short: tt(`card ${m.id}`), href: `#mat-${m.id}`, done: !!p.ui.sectionsRead[`d10:${m.id}`] })),
+    ...cards.map((m) => ({ id: m.id, kind: "card" as const, title: tt(`Card ${m.id} · ${m.title}`, `Karte ${m.id} · ${m.title}`), short: tt(`card ${m.id}`, `Karte ${m.id}`), href: `#mat-${m.id}`, done: !!p.ui.sectionsRead[`d10:${m.id}`] })),
     ...bl.map((b) => ({ id: b.id, kind: "block" as const, title: b.title, short: tt(`Block ${b.id}`), href: `#block-${b.id.replace(".", "-")}`, done: !!blocks[blockKey(b.id)] })),
   ];
 }
@@ -43,7 +43,7 @@ function BlackBox({ next }: { next?: Unit }) {
   return (
     <div className="space-y-2 rounded-lg border-2 border-[#1F2937] bg-[#0F172A] p-3 text-white">
       <p className="text-[13px] font-bold">🤖 {tt("AI-powered · 97% match")}</p>
-      <p className="text-[14px]">{next ? tt(`Our AI knows you need ${next.short} now. We have prepared it for you.`) : tt("Our AI has optimised your day. Nothing left to do.")}</p>
+      <p className="text-[14px]">{next ? tt(`Our AI knows you need ${next.short} now. We have prepared it for you.`, `Unsere KI weiß, dass Sie jetzt ${next.short} brauchen. Wir haben es für Sie vorbereitet.`) : tt("Our AI has optimised your day. Nothing left to do.")}</p>
       <p className="text-[13px] text-[#CBD5E1]">{tt("You seem to read slowly today. People like you usually skip the deeper readings. Smart Mode is always on.")}</p>
       <div aria-hidden className="flex flex-wrap gap-2">
         <span className="rounded bg-[#7A1E3A] px-3 py-1.5 text-[13px] font-semibold">{tt("Continue")}</span>
@@ -71,7 +71,7 @@ export function Day10Experience({ route }: { route: Route }) {
 
   const skip = (u: Unit) => {
     setSkipped((s) => [...s.filter((x) => x !== u.id), u.id]);
-    setLast({ text: tt(`Skipped ${u.short}; it moved to the end.`), undo: () => setSkipped((s) => s.filter((x) => x !== u.id)) });
+    setLast({ text: tt(`Skipped ${u.short}; it moved to the end.`, `${u.short} übersprungen; es ist ans Ende gerückt.`), undo: () => setSkipped((s) => s.filter((x) => x !== u.id)) });
   };
   const switchOff = () => {
     setOff(true);
@@ -84,7 +84,7 @@ export function Day10Experience({ route }: { route: Route }) {
         <div>
           <p className="smallcaps text-accent">{tt("Today you learn intelligent interfaces by using one")}</p>
           <h2 id="assist-h" className="text-h3">
-            {tt(`Your study assistant · ${done} of ${units.length} done`)}
+            {tt(`Your study assistant · ${done} of ${units.length} done`, `Ihr Lernassistent · ${done} von ${units.length} erledigt`)}
             <Tag on={inspect}>{tt("Kind: rule-based (card A1)")}</Tag>
           </h2>
         </div>
@@ -123,7 +123,7 @@ export function Day10Experience({ route }: { route: Route }) {
                 : next.kind === "card"
                   ? tt("Because it is the first card of this route you have not marked as read.")
                   : tt("Because the cards of this route are read or skipped, and this is the first block that is not complete.")}{" "}
-              {tt(`The rule: ${ASSIST.rule[route]}`)}
+              {tt(`The rule: ${ASSIST.rule[route]}`, `Die Regel: ${ASSIST.rule[route]}`)}
               <Tag on={inspect}>{tt("Transparency: why")}</Tag>
             </p>
           )}

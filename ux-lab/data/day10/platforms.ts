@@ -14,7 +14,7 @@ import { tt } from "@/lib/lang";
  * over-personalisation and loss of control instead of reading about them. Match scores and counts are interface labels of a made-up app, not figures about users.
  * The names and contents are made up; nothing is marked right or wrong.
  */
-const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`);
+const productFooter = (company: string) => tt(`© ${company} · Imprint · Privacy · Terms of use · Simulation: the names and the contents are made up`, `© ${company} · Impressum · Datenschutz · Nutzungsbedingungen · Simulation: Die Namen und die Inhalte sind erfunden`);
 const back = (go: string, label: string): Blk => ({ t: "links", small: true, items: [{ label, go }] });
 
 /* ------------------------------------------------------------------ SmartAssist, a service platform for insurance matters */

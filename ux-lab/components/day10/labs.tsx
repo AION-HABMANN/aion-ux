@@ -82,7 +82,7 @@ function Usual({ ctx, way }: { ctx: LabCtx; way: "context" | "personal" | "voice
     return (
       <AppScreen brand={Brand} color="#1F2937" status={tt("Harbour · Fri 17:58")}>
         <p className="font-bold">{tt("Departures from Harbour")}</p>
-        {[["18:04", tt("Linden")], ["18:19", tt("Elm Park")], ["18:31", tt("Coastline")]].map(([t, d]) => <Row key={t} onClick={() => (t === "18:19" ? ctx.done(tt("Booked 18:19")) : ctx.miss(tt(`Booked ${t} to ${d}`)))}>{`${t} · ${d}`}</Row>)}
+        {[["18:04", tt("Linden")], ["18:19", tt("Elm Park")], ["18:31", tt("Coastline")]].map(([t, d]) => <Row key={t} onClick={() => (t === "18:19" ? ctx.done(tt("Booked 18:19")) : ctx.miss(tt(`Booked ${t} to ${d}`, `${t} nach ${d} gebucht`)))}>{`${t} · ${d}`}</Row>)}
       </AppScreen>
     );
   if (way === "personal")
@@ -93,7 +93,7 @@ function Usual({ ctx, way }: { ctx: LabCtx; way: "context" | "personal" | "voice
         <p className="text-[11px] text-[#475569]">{tt("Because you booked this trip on 9 Fridays. Change in Settings › Suggestions.")}</p>
       </AppScreen>
     );
-  const say = (t: string, reply: string, end?: boolean) => { setVoice((v) => [...v, tt(`🗣 “${t}”`), reply]); if (end) ctx.done(tt("Booked by voice")); else ctx.hit(tt(`Said: ${t}`)); };
+  const say = (t: string, reply: string, end?: boolean) => { setVoice((v) => [...v, tt(`🗣 “${t}”`, `🗣 „${t}“`), reply]); if (end) ctx.done(tt("Booked by voice")); else ctx.hit(tt(`Said: ${t}`, `Gesagt: ${t}`)); };
   return (
     <AppScreen brand={Brand} color="#1F2937" status={tt("Voice")}>
       <div aria-live="polite" className="space-y-1 text-[12.5px]">{voice.map((l, i) => <p key={i}>{l}</p>)}</div>
@@ -173,7 +173,7 @@ function Rebooked({ ctx, q }: { ctx: LabCtx; q: Q }) {
     return (
       <AppScreen brand={Brand} color="#1F2937">
         <p className="font-bold">{tt("Other trains to Linden")}</p>
-        {[["09:20", tt("arrives 10:01")], ["10:05", tt("arrives 10:44")]].map(([t, a]) => <Row key={t} onClick={() => (t === "10:05" ? ctx.done(tt("Chose the 10:05")) : ctx.miss(tt(`Chose ${t}`)))}>{`${t} · ${a}`}</Row>)}
+        {[["09:20", tt("arrives 10:01")], ["10:05", tt("arrives 10:44")]].map(([t, a]) => <Row key={t} onClick={() => (t === "10:05" ? ctx.done(tt("Chose the 10:05")) : ctx.miss(tt(`Chose ${t}`, `${t} gewählt`)))}>{`${t} · ${a}`}</Row>)}
       </AppScreen>
     );
   if (view === "tickets")
@@ -230,7 +230,7 @@ function Console({ ctx }: { ctx: LabCtx }) {
         <div key={j.id} className="space-y-1 rounded border border-line p-2">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="font-semibold">{j.name}</span>
-            <div role="radiogroup" aria-label={tt(`Depth for ${j.name}`)} className="flex gap-1">
+            <div role="radiogroup" aria-label={tt(`Depth for ${j.name}`, `Tiefe für ${j.name}`)} className="flex gap-1">
               {(["none", "shallow", "deep"] as Depth[]).map((k) => (
                 <button key={k} type="button" role="radio" aria-checked={d[j.id] === k} onClick={() => {
                   const next = { ...d, [j.id]: k };
