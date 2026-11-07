@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
+import { StepControls, useStepper } from "@/components/sim/Stepper";
 import { tt } from "@/lib/lang";
 
 /**
@@ -340,11 +341,10 @@ function Board({ rows, ordered, onRow }: { rows: Dep[]; ordered: boolean; onRow?
   );
 }
 
-/* ------------------------------------------------------------------ A2 · a model path, played slowly */
+/* ------------------------------------------------------------------ A2 · a model path, played slowly; bottom-up against top-down */
 
 type At = "title" | "head" | { row: number; cell?: number };
 type Step = { at: At; say: string };
-const STEP_MS = 2800;
 
 /** The model path of a reader who looks for Bergen: scripted from the layout, one fixation per line or cell. An illustration, not measured data. */
 function modelSteps(ordered: boolean, rows: Dep[]): Step[] {
@@ -373,82 +373,57 @@ function modelSteps(ordered: boolean, rows: Dep[]): Step[] {
   return steps;
 }
 
-function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number; tried: boolean }) {
+/** A glance with no task on the mixed board: the jumps go where the stimulus differs most (bottom-up). Scripted from the layout; an illustration, not measured data. */
+function glanceSteps(rows: Dep[]): Step[] {
+  const ads = rows.map((d, i) => (d.ad ? i : -1)).filter((i) => i >= 0);
+  return [
+    { at: "title", say: tt("No task yet. The eye lands on what differs most from its surroundings: the biggest, boldest line, the title.") },
+    { at: { row: ads[0] }, say: tt("Next, the yellow block. Its colour and contrast differ from every grey row, so it wins the jump before anything is read (a saliency map, Itti and Koch 2001).") },
+    { at: { row: ads[1] }, say: tt("The second yellow block, for the same reason. Two of the first three jumps went to adverts.") },
+    { at: { row: 0 }, say: tt("Only now does the eye go back to the top of the list, where reading usually starts. No ferry has been looked at yet.") },
+  ];
+}
+
+const pointOf = (w: HTMLElement, at: At) => {
+  let el: HTMLElement | null = null;
+  if (at === "title") el = w.querySelector("[data-title]");
+  else if (at === "head") el = w.querySelector("[data-head]");
+  else {
+    const r = w.querySelector<HTMLElement>(`[data-row="${at.row}"]`);
+    el = at.cell !== undefined && r ? (r.children[at.cell] as HTMLElement) : r;
+  }
+  if (!el) return { x: 0, y: 0 };
+  const b = el.getBoundingClientRect(), wb = w.getBoundingClientRect();
+  return { x: b.left - wb.left + (b.width > 120 ? 64 : b.width / 2), y: b.top - wb.top + b.height / 2 };
+};
+
+/** Plays a scripted scanpath over the board: a sharp spot that jumps, numbered fixations, a trail and one sentence per step. */
+function ScanPath({ ordered, steps, intro, summary, mode, onClose, color = "#1750A8" }: { ordered: boolean; steps: Step[]; intro: string; summary: string; mode: "play" | "step"; onClose?: () => void; color?: string }) {
   const rows = BOARD(ordered);
-  const steps = modelSteps(ordered, rows);
-  const [open, setOpen] = useState(false);
-  const [step, setStep] = useState(-1);
-  const [playing, setPlaying] = useState(false);
-  const [slow, setSlow] = useState(false);
-  const [reduce, setReduce] = useState(false);
+  const s = useStepper(steps.length, mode === "play");
   const [pts, setPts] = useState<{ x: number; y: number }[]>([]);
   const wrap = useRef<HTMLDivElement>(null);
-  useEffect(() => { setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
   useLayoutEffect(() => {
     const w = wrap.current;
-    if (!w || !open) return;
-    const wb = w.getBoundingClientRect();
-    setPts(steps.map((st) => {
-      let el: HTMLElement | null = null;
-      if (st.at === "title") el = w.querySelector("[data-title]");
-      else if (st.at === "head") el = w.querySelector("[data-head]");
-      else {
-        const r = w.querySelector<HTMLElement>(`[data-row="${st.at.row}"]`);
-        el = st.at.cell !== undefined && r ? (r.children[st.at.cell] as HTMLElement) : r;
-      }
-      if (!el) return { x: 0, y: 0 };
-      const b = el.getBoundingClientRect();
-      return { x: b.left - wb.left + (b.width > 120 ? 64 : b.width / 2), y: b.top - wb.top + b.height / 2 };
-    }));
+    if (w) setPts(steps.map((st) => pointOf(w, st.at)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, ordered]);
-  useEffect(() => {
-    if (!playing) return;
-    if (step >= steps.length - 1) { setPlaying(false); return; }
-    const id = window.setTimeout(() => setStep((k) => k + 1), (slow ? 2 : 1) * STEP_MS);
-    return () => window.clearTimeout(id);
-  }, [playing, step, slow, steps.length]);
-
-  const last = steps.length - 1;
-  const play = () => {
-    if (playing) return setPlaying(false);
-    if (step >= last) setStep(0);
-    else if (step < 0) setStep(0);
-    setPlaying(true);
-  };
-  const spot = step >= 0 ? pts[step] : undefined;
-  const btn = "btn btn-sm min-h-[40px] border border-line bg-paper text-ink hover:border-ash disabled:opacity-40";
-
-  if (!tried) {
-    return <p className="mt-3 text-caption text-ash">{tt("Try the task first. After your first tap you can watch a model path and compare it with yours.")}</p>;
-  }
-  if (!open) {
-    return (
-      <div className="mt-3">
-        <button type="button" onClick={() => setOpen(true)} className="btn btn-sm min-h-[40px] border border-accent bg-accent text-white hover:bg-accentHi">
-          {tt("Watch a model path")}
-        </button>
-      </div>
-    );
-  }
+  }, [ordered, steps.length]);
+  const spot = s.step >= 0 ? pts[s.step] : undefined;
   return (
     <div className="mt-3 space-y-2 rounded-lg border border-line bg-paper p-3">
       <p className="smallcaps text-ash">{tt("Model path · an illustration, not measured data")}</p>
-      <AppScreen brand={Brand} color={ACC} status={step >= 0 ? tt(`fixations: ${step + 1}`, `Fixationen: ${step + 1}`) : undefined}>
+      <AppScreen brand={Brand} color={ACC} status={s.step >= 0 ? tt(`fixations: ${s.step + 1}`, `Fixationen: ${s.step + 1}`) : undefined}>
         <div ref={wrap} aria-hidden className="relative select-none">
           <div style={{ filter: "blur(3.5px)" }}><Board rows={rows} ordered={ordered} /></div>
-          <div
-            className="absolute inset-0"
-            style={{ clipPath: spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)", transition: reduce ? undefined : "clip-path 600ms ease" }}
-          >
+          <div className="absolute inset-0" style={{ clipPath: spot ? `circle(${R}px at ${spot.x}px ${spot.y}px)` : "circle(0px at 0 0)", transition: s.reduce ? undefined : "clip-path 600ms ease" }}>
             <Board rows={rows} ordered={ordered} />
           </div>
           <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible">
-            {step >= 1 && <polyline points={pts.slice(0, step + 1).map((q) => `${q.x},${q.y}`).join(" ")} fill="none" stroke="#1750A8" strokeWidth="1.6" strokeDasharray="4 3" />}
-            {pts.slice(0, step + 1).map((q, i) => (
+            {s.step >= 1 && <polyline points={pts.slice(0, s.step + 1).map((q) => `${q.x},${q.y}`).join(" ")} fill="none" stroke={color} strokeWidth="1.6" strokeDasharray="4 3" />}
+            {pts.slice(0, s.step + 1).map((q, i) => (
               <g key={i}>
-                <circle cx={q.x} cy={q.y} r="3.5" fill="#1750A8" stroke="#fff" strokeWidth="1" />
-                <circle cx="-3" cy={q.y} r="7" fill="#1750A8" stroke="#fff" strokeWidth="1.2" />
+                <circle cx={q.x} cy={q.y} r="3.5" fill={color} stroke="#fff" strokeWidth="1" />
+                <circle cx="-3" cy={q.y} r="7" fill={color} stroke="#fff" strokeWidth="1.2" />
                 <text x="-3" y={q.y + 3.4} textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#fff">{i + 1}</text>
               </g>
             ))}
@@ -456,25 +431,42 @@ function ModelPath({ ordered, yours, tried }: { ordered: boolean; yours: number;
         </div>
       </AppScreen>
       <p className="text-caption font-semibold text-ash" aria-live="polite">
-        {step < 0 ? tt("Press Play or Step to start.") : tt(`Fixation ${step + 1} of ${steps.length}`, `Fixation ${step + 1} von ${steps.length}`)}
+        {s.step < 0 ? tt("Press Play or Step to start.") : tt(`Fixation ${s.step + 1} of ${steps.length}`, `Fixation ${s.step + 1} von ${steps.length}`)}
       </p>
-      <p className="min-h-[3.5rem] max-w-prose text-body text-ink" aria-live="polite">
-        {step >= 0 ? steps[step].say : tt("The model looks for Bergen the way the card describes: one sharp spot, one jump at a time.")}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep((k) => Math.max(0, k - 1)); }} disabled={step <= 0}>{tt("◀ Back")}</button>
-        <button type="button" className={btn} onClick={play} disabled={reduce} aria-pressed={playing}>{playing ? tt("Pause") : step >= last ? tt("Replay") : tt("Play")}</button>
-        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep((k) => Math.min(last, k + 1)); }} disabled={step >= last}>{tt("Step ▶")}</button>
-        <button type="button" className={btn} onClick={() => setSlow((v) => !v)} aria-pressed={slow} disabled={reduce}>{tt("Slow")}</button>
-        <button type="button" className={btn} onClick={() => { setPlaying(false); setStep(-1); setOpen(false); }}>{tt("Close")}</button>
-      </div>
-      {reduce && <p className="text-caption text-ash">{tt("Your device asks for reduced motion, so nothing plays by itself: use Step.")}</p>}
-      {step >= last && (
-        <p className="max-w-prose rounded bg-accentSoft p-2 text-caption text-ink">
-          {tt(`The model needs ${steps.length} fixations to find Bergen and its gate on this board${yours > 0 ? `; you used ${yours}` : ""}. It is a scripted illustration with one fixation per line or cell; real eyes vary. With only eight rows the gap is small. On a longer board the mixed search would grow row by row while the alphabetical lookup stays short (reasoning, not a measurement). Basis: a fixation takes in only about 2° (Rayner 1998).`, `Das Modell braucht ${steps.length} Fixationen, um Bergen und sein Gate auf dieser Tafel zu finden${yours > 0 ? `; Sie brauchten ${yours}` : ""}. Es ist eine geskriptete Veranschaulichung mit einer Fixation pro Zeile oder Zelle; echte Augen variieren. Bei nur acht Zeilen ist der Abstand klein. Auf einer längeren Tafel würde die gemischte Suche Zeile für Zeile wachsen, während das alphabetische Nachschlagen kurz bleibt (eine Überlegung, keine Messung). Grundlage: Eine Fixation nimmt nur etwa 2° auf (Rayner 1998).`)}
-        </p>
-      )}
+      <p className="min-h-[3.5rem] max-w-prose text-body text-ink" aria-live="polite">{s.step >= 0 ? steps[s.step].say : intro}</p>
+      <StepControls s={s} onClose={onClose} />
+      {s.step >= s.last && <p className="max-w-prose rounded bg-accentSoft p-2 text-caption text-ink">{summary}</p>}
     </div>
+  );
+}
+
+const searchSummary = (n: number, yours: number) =>
+  tt(`The model needs ${n} fixations to find Bergen and its gate on this board${yours > 0 ? `; you used ${yours}` : ""}. It is a scripted illustration with one fixation per line or cell; real eyes vary. With only eight rows the gap is small. On a longer board the mixed search would grow row by row while the alphabetical lookup stays short (reasoning, not a measurement). Basis: a fixation takes in only about 2° (Rayner 1998).`, `Das Modell braucht ${n} Fixationen, um Bergen und sein Gate auf dieser Tafel zu finden${yours > 0 ? `; Sie brauchten ${yours}` : ""}. Es ist eine geskriptete Veranschaulichung mit einer Fixation pro Zeile oder Zelle; echte Augen variieren. Bei nur acht Zeilen ist der Abstand klein. Auf einer längeren Tafel würde die gemischte Suche Zeile für Zeile wachsen, während das alphabetische Nachschlagen kurz bleibt (eine Überlegung, keine Messung). Grundlage: Eine Fixation nimmt nur etwa 2° auf (Rayner 1998).`);
+
+/** A2 · the same mixed board seen twice: a glance with no task (bottom-up) and a search for Bergen (top-down). */
+export function TwoForcesRun() {
+  const [which, setWhich] = useState<"up" | "down" | null>(null);
+  const rows = BOARD(false);
+  const pick = (w: "up" | "down") => clsx("btn btn-sm min-h-[40px] border text-left", which === w ? "border-accent bg-accentSoft text-ink" : "border-line bg-paper text-ink hover:border-ash");
+  return (
+    <figure className="space-y-2 rounded-lg border border-line bg-[#F8FAFC] p-3">
+      <figcaption className="text-[13px] font-semibold text-ink">{tt("Bottom-up and top-down on the same board: where the eye goes without a task, and where it goes with one")}</figcaption>
+      <p className="max-w-prose text-caption text-ash">{tt("Watch both paths on the mixed Nordwind board. The board does not change; only the reason for looking does.")}</p>
+      <div role="radiogroup" aria-label={tt("Choose a path")} className="flex flex-wrap gap-2">
+        <button type="button" role="radio" aria-checked={which === "up"} className={pick("up")} onClick={() => setWhich("up")}>{tt("Bottom-up: a glance with no task")}</button>
+        <button type="button" role="radio" aria-checked={which === "down"} className={pick("down")} onClick={() => setWhich("down")}>{tt("Top-down: Tom looks for Bergen")}</button>
+      </div>
+      {which === "up" && (
+        <ScanPath key="up" ordered={false} steps={glanceSteps(rows)} mode="play" color="#B45309"
+          intro={tt("A glance with no task, as when the app has just opened.")}
+          summary={tt("Bottom-up, the strongest signals took the first jumps, and none of them was a ferry. Now watch the top-down path: the task steers the eye row by row, yet the yellow blocks still cost a fixation on the way. That is the third row of the table below: a strong signal that is not the goal makes the task slower.")} />
+      )}
+      {which === "down" && (
+        <ScanPath key="down" ordered={false} steps={modelSteps(false, rows)} mode="play"
+          intro={tt("Tom has a goal: the gate of the ferry to Bergen.")}
+          summary={tt("Top-down, the goal decided where each jump went, row by row, until Bergen. The adverts still pulled one fixation each: bottom-up does not switch off because there is a task. Design for both forces at once: make the goal easy to find and keep strong signals off the path.")} />
+      )}
+    </figure>
   );
 }
 
@@ -482,8 +474,7 @@ function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: bo
   const [spot, setSpot] = useState<{ x: number; y: number } | null>(null);
   const [n, setN] = useState(0);
   const rows = BOARD(ordered);
-  const player = blur ? <ModelPath ordered={ordered} yours={n} tried={n > 0 || ctx.finished} /> : null;
-  if (ctx.finished) return <><AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`, `Bergen · 09:40 · Gate C7 · ${n} Fixation(en)`)}</p></AppScreen>{player}</>;
+  if (ctx.finished) return <><AppScreen brand={Brand} color={ACC}><p className="text-[15px] font-bold">{tt("✓ Found it")}</p><p>{tt(`Bergen · 09:40 · gate C7 · ${n} fixation(s)`, `Bergen · 09:40 · Gate C7 · ${n} Fixation(en)`)}</p></AppScreen></>;
   const fixate = (x: number, y: number) => { setSpot({ x, y }); setN((k) => k + 1); ctx.hit(tt(`Fixation ${n + 1}`)); };
   const centre = (el: HTMLElement) => {
     const box = el.offsetParent?.getBoundingClientRect(), r = el.getBoundingClientRect();
@@ -511,7 +502,6 @@ function Fovea({ ctx, ordered, blur }: { ctx: LabCtx; ordered: boolean; blur: bo
         <Board rows={rows} ordered={ordered} onRow={onRow} />
       )}
     </AppScreen>
-    {player}
     </>
   );
 }
@@ -523,6 +513,11 @@ export function FoveaLab() {
       point={tt("Only a spot of about 2° is sharp, roughly a thumbnail at arm's length; the brain fills in the rest. To read anything else, the eyes have to jump there. Each tap here is one fixation: the spot jumps to where you tap, and only there can you read. Count how many jumps the same search costs on a mixed board and on an ordered one.")}
       task={tt("You are Tom. Find the gate of the ferry to Bergen, then tap its row.")}
       stresses={["small", "hurry", "ping"]}
+      model={({ version, mode, yours, close }) => {
+        const ordered = version === "ordered";
+        const steps = modelSteps(ordered, BOARD(ordered));
+        return <ScanPath ordered={ordered} steps={steps} mode={mode} onClose={close} intro={tt("The model looks for Bergen the way the card describes: one sharp spot, one jump at a time.")} summary={searchSummary(steps.length, version === "feel" ? 0 : yours)} />;
+      }}
       versions={[
         { id: "feel", label: tt("How it feels: the mixed board"), render: (ctx) => <Fovea ctx={ctx} ordered={false} blur={false} />, insight: tt("In plain words: the whole board seems sharp at once, so the search feels quick. It is not: the eyes still jumped from row to row, you only did not notice.") },
         { id: "mixed", label: tt("What the eye takes in: mixed"), render: (ctx) => <Fovea ctx={ctx} ordered={false} blur />, insight: tt("In plain words: times first, destinations last and two adverts in between. Tom has to land on row after row, because nothing in the blur tells him where Bergen is.") },

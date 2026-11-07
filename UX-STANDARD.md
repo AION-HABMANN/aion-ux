@@ -223,7 +223,23 @@ How it works: `lib/lang.ts` holds `tt(en, de?)` for inline texts, `t()` and `bi(
 
 Anything the user types or taps must work in German too: the voice assistants of Day 11 match German keywords (`keysDe`) and a tapped German chip is mapped back to its English text (`enOf`), speech uses `de-DE`, and the voice guide understands German commands.
 
-Scope, stated on purpose: the website only. The Word documents, the Google Doc worksheets, the original pages under `app/(original-N)` and the bibliography stay English. The learner texts of all 16 days are translated; the facilitator-only texts (model answers, "why", "look for", "pitfalls") follow in a second pass and show in English until then.
+Scope, stated on purpose: the website only. The Word documents, the Google Doc worksheets, the original pages under `app/(original-N)` and the bibliography stay English. The learner texts and the facilitator-only texts (model answers, "why", "look for", "pitfalls") of all 16 days are translated (2026-11-04).
+
+### 2.21 A day's Materi is one learning arc, and each device is used where it fits (Decided 2026-11-07, by the user; Day 1 first, Days 2 to 5 next)
+
+The Materi of a day is designed as one arc that deepens the plan's theory, not as eight cards that each get the same extras. Not every card needs a discussion, a fact or an animation; each device is placed where it does what nothing else can:
+
+| Device | Used when | Not used when |
+|---|---|---|
+| Animation (play or step) | the effect is too fast or invisible to notice: eye jumps, the first 50 ms, attention being pulled | the point is a judgement people can argue about |
+| Try it yourself | the learner's own eye, hand or memory is the evidence | a sentence explains it as well |
+| A surprising real finding | it breaks a belief the learner brings (one per day is often enough) | it only adds information |
+| Discussion | there is no single right answer: conflicts of goals, ethics, who decides | the question is how perception works |
+| Reflection on the learner's own work | at a turning point: the end of Block A, the end of the day | in the middle of an explanation |
+
+So Block A (how people perceive, expect, feel) is mostly experience and surprise, and Block B (strategy, conflicts, decisions) is mostly judgement and discussion. One thread runs through the day: something the learner commits to at the start is explained in the middle and looked back on at the end. A discussion never says alone or together (2.18). Every number is real and checked (2.17); every new text is in English and German (2.20). Lab model runs sit in a "Model run" box under the stress tests, always visible, with Play and Step by step (`model` in `components/sim/TaskLab.tsx`, shared controls in `components/sim/Stepper.tsx`); nothing plays by itself when the device asks for reduced motion.
+
+Day 1 (`components/day1/arc.tsx`): a 50 ms first-impression test before A1 (kept in this browser only), the model run of the fovea lab and a bottom-up against top-down animation on the same board in A2 with one surprising finding (the gorilla study), a habit trap in A3 (four check-ins, then an app update), a slowed-down first second and the 50 ms choice explained in A4, a reflection on the learner's own product at the end of A5, a line between steering and manipulating with real EU law in B1, one conflict in four roles in B2, and a look back at the first 50 ms in B3.
 
 ## 3. Status of the eight existing days against this draft
 
@@ -272,6 +288,7 @@ Scope, stated on purpose: the website only. The Word documents, the Google Doc w
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-07 | New rule 2.21: a day's Materi is one learning arc, each device (animation, try it yourself, a surprising finding, discussion, reflection) where it fits; lab model runs in a "Model run" box under the stress tests. Day 1 built: 50 ms test, A2 bottom-up/top-down run, A3 habit trap, A4 first second and the 50 ms choice explained, A5 reflection, B1 steering line with EU law, B2 role cards, B3 look back. | Day 1; Days 2 to 5 next |
 | 2026-11-04 | New rule 2.20: the lab is bilingual (EN \| DE), English first and German plain; dictionary `data/de`, tools `scripts/de-tool.ts`, German voice commands on Day 11. Learner texts of Days 1 to 16 are translated; the facilitator-only texts are a second pass. | Days 1 to 16 |
 | 2026-11-03 | New rule 2.19: long task texts are set as short paragraphs, options on their own lines and conditions as bullets, without changing a word (`Prose`, 112 texts of 16 days, Word documents rebuilt). | Days 1 to 16 |
 | 2026-11-03 | Day 1, A2 lab (Nordwind ferry board): a "Watch a model path" player on the two blurred versions, shown after the learner's first tap. Scripted fixations (mixed 7, ordered 5), one narrated sentence each, Play/Pause/Step/Back/Slow/Close, labelled "an illustration, not measured data"; with reduced motion nothing plays by itself. The learner's own tapping stays the main activity. | Day 1 |

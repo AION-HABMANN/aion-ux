@@ -3,7 +3,8 @@
 import type { ReactNode } from "react";
 import { AimsFig, AttentionFig, ChannelsFig, ConflictFig, DecisionFig, LooksWorksFig, SeeChainFig, SteerChainFig, ToneFig, WeighFig4 } from "@/components/day1/diagrams";
 import { ComicButton } from "@/components/comic/ComicModal";
-import { FoveaLab } from "@/components/day1/labs";
+import { FoveaLab, TwoForcesRun } from "@/components/day1/labs";
+import { ClosingLook, FirstFeelTimeline, FirstImpressionReveal, FlashTest, HabitTrap, RoleCards, SteeringLine } from "@/components/day1/arc";
 import { ART_D1 } from "@/components/day1/comicScenes";
 import { COMICS_D1 } from "@/data/day1/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
@@ -38,6 +39,7 @@ export function CardA1() {
         tt("A beautiful page can work badly and a plain one well: judge each by what it does, not by how it looks."),
       ]}
     >
+      <FlashTest />
       <ComicButton comic={COMICS_D1.A1} art={ART_D1} />
       <LooksWorksFig />
       <DataTable
@@ -81,7 +83,7 @@ export function CardA2() {
     <MaterialCard
       id="A2"
       scan={tt("The brain takes in the stimulus, steers attention, recognises patterns and makes sense of them. A strong signal pulls the eye by itself (bottom-up); the goal pulls it too (top-down).")}
-      sources={["ittiKoch2001", "corbetta2002", "treisman1980", "rayner1998", "hubel1962", "mishkin1983", "thorpe1996", "wertheimer1923", "cowan2001", "pernice2017"]}
+      sources={["ittiKoch2001", "corbetta2002", "treisman1980", "rayner1998", "hubel1962", "mishkin1983", "thorpe1996", "wertheimer1923", "cowan2001", "pernice2017", "simons1999"]}
       reasoning={[
         tt("Find the strongest signals on a screen: what moves, glows, is red or much larger than the rest. They are seen first."),
         tt("Ask whether the strongest signal is the task. If it is not, it competes with the task: count it as a distraction."),
@@ -103,6 +105,7 @@ export function CardA2() {
       />
       <FoveaLab />
       <AttentionFig />
+      <TwoForcesRun />
       <DataTable
         caption={tt("Two forces of attention, and what they mean for a screen")}
         head={[tt("Force"), tt("What steers it"), tt("What it means for a screen")]}
@@ -112,6 +115,9 @@ export function CardA2() {
           [tt("Both at once"), tt("A strong signal that is not the goal."), tt("Slower, with more mistakes: the signal competes with the task.")],
         ]}
       />
+      <Callout label={tt("The surprise behind this card · real research")} tone="signal">
+        <p>{tt("Top-down attention is strong enough to hide what is in plain view. 46% of observers counting basketball passes did not notice a person in a gorilla suit walking through the scene (Simons and Chabris 1999). Their eyes were busy with the task. On a screen, this means: what lies outside the person's goal can be missed even when it is large and in the middle.")}</p>
+      </Callout>
       <Callout label={tt("Case assumption")}>
         <p>{`${NW()} ${tt("Bottom-up attention follows Itti and Koch (2001); the two attention systems follow Corbetta and Shulman (2002). The numbers in the table of the four steps are real research results; the ferry board is made up.")}`}</p>
       </Callout>
@@ -147,6 +153,7 @@ export function CardA3() {
           [tt("Habits"), tt("Actions repeated in the same situation until they run without thinking."), tt("In diary studies, about 43% of everyday actions were done almost daily, usually in the same place, often while thinking about something else (Wood et al. 2002)."), tt("Regular users tap where the button used to be. Moving a familiar element costs them a mistake; changing what a familiar gesture does costs more.")],
         ]}
       />
+      <HabitTrap />
       <AimsFig />
       <DataTable
         caption={tt("Three aims of an interface, and a sign that one is missing")}
@@ -172,7 +179,7 @@ export function CardA4() {
     <MaterialCard
       id="A4"
       scan={tt("People feel a screen before they read it. Trust, reactance, overload, safety and liking work unconsciously; you infer them from the design and write them as a hypothesis.")}
-      sources={["lindgaard2006", "brehm1966", "fogg2003", "kahneman2011", "foggWeb2003", "kurosu1995", "tractinsky2000"]}
+      sources={["lindgaard2006", "brehm1966", "fogg2003", "kahneman2011", "foggWeb2003", "kurosu1995", "tractinsky2000", "thorpe1996", "rayner1998"]}
       reasoning={[
         tt("A warning shown when nothing is wrong teaches people to ignore warnings or to feel unsafe: a trust problem and an emotional one."),
         tt("Pressure in the wording or the design (countdowns, “only 1 left”) can trigger reactance instead of action."),
@@ -202,6 +209,8 @@ export function CardA4() {
           [tt("Beautiful seems easier (Kurosu and Kashimura 1995; Tractinsky et al. 2000)"), tt("People rated how easy cash-machine screen layouts would be to use mainly by how attractive they looked, before using them; a later study in Israel confirmed it."), tt("Liking lends a design credit. It buys patience for a small flaw; it does not repair a screen that does not work.")],
         ]}
       />
+      <FirstFeelTimeline />
+      <FirstImpressionReveal />
       <Callout label={tt("Case assumption")}>
         <p>{`${NW()} ${tt("The first impression follows Lindgaard et al. (2006); reactance follows Brehm (1966); how people judge credibility follows Fogg (2003). The numbers in the second table are real research results.")}`}</p>
       </Callout>
@@ -228,6 +237,9 @@ export function CardA5() {
     >
       <ComicButton comic={COMICS_D1.A5} art={ART_D1} />
       <WeighFig4 />
+      <Callout label={tt("Before Materi B · your own product")}>
+        <p>{tt("Take one screen from your own work. Where does the eye land first, what does the screen ask people to keep in mind, and what do they feel before they read a word? Materi A gave you the words for it; Materi B asks what a company should do about it, and who decides.")}</p>
+      </Callout>
       <Callout label={tt("Case assumption")}>
         <p>{`${NW()} ${tt("Rating options on the same criteria with a reason follows Gibbons (2018). The four criteria are the ones the plan names for the case study.")}`}</p>
       </Callout>
@@ -243,7 +255,7 @@ export function CardB1() {
     <MaterialCard
       id="B1"
       scan={tt("A design steers what people perceive, understand, do and decide. A Neuro-UX strategy chooses one effect and makes every touchpoint serve it.")}
-      sources={["norman2013", "kahneman2011", "normanNielsen", "fogg2009", "johnson2003", "steffel2019", "dsa2022", "planet49"]}
+      sources={["norman2013", "kahneman2011", "normanNielsen", "fogg2009", "johnson2003", "steffel2019", "dsa2022", "planet49", "crd2011", "ucpd2005", "gdprArt7"]}
       reasoning={[
         tt("Start from the effect you want (what should customers perceive, understand, feel and do?), then choose the design means."),
         tt("Prefer one shared effect logic for every channel over isolated improvements to single screens."),
@@ -253,6 +265,7 @@ export function CardB1() {
     >
       <ComicButton comic={COMICS_D1.B1} art={ART_D1} />
       <SteerChainFig />
+      <SteeringLine />
       <DataTable
         caption={tt("How design steers behaviour: three levers with real evidence, and the limits")}
         head={[tt("Lever"), tt("What it is"), tt("Real evidence"), tt("What it means for a strategy")]}
@@ -279,7 +292,7 @@ export function CardB2() {
     <MaterialCard
       id="B2"
       scan={tt("Goals pull against each other: aesthetics against clarity, innovation against familiarity, activation against overload. At management level, effort, risk, brand and economics join them.")}
-      sources={["tractinsky2000", "krug2014", "gibbons2018"]}
+      sources={["tractinsky2000", "krug2014", "gibbons2018", "benway1998"]}
       reasoning={[
         tt("Name the conflict as two goals before you choose between them."),
         tt("Say what the choice gives up; a decision that gives up nothing has not been made."),
@@ -299,6 +312,7 @@ export function CardB2() {
           [tt("Activation against overload"), tt("Energy against mental load."), tt("How many activating elements before it tires people out?")],
         ]}
       />
+      <RoleCards />
       <Callout label={tt("Case assumption")}>
         <p>{`${NW()} ${tt("The three conflicts are the plan's own; the matrix is a reading of the example, not a score.")}`}</p>
       </Callout>
@@ -334,6 +348,7 @@ export function CardB3() {
           [tt("How conflicts are settled"), tt("What happens when departments want different things?"), tt("The effect principles decide; legal and IT may object with a reason; the board settles a tie.")],
         ]}
       />
+      <ClosingLook />
       <Callout label={tt("Case assumption")}>
         <p>{`${NW()} ${tt("Deciding with limited information follows Simon (1956); the premortem follows Klein (2007).")}`}</p>
       </Callout>

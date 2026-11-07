@@ -41,6 +41,8 @@ const STRESS_NOTE = (): Record<LabStressId, string> => ({
 });
 
 type Result = { version: string; secs: number; misses: number; feel?: number };
+/** What a lab's model run gets: the version on screen, how the learner asked to watch it, and how many useful steps the learner's own run took so far. */
+export type LabModelArgs = { version: string; mode: "play" | "step"; yours: number; close: () => void };
 
 export function TaskLab({
   label,
@@ -51,6 +53,7 @@ export function TaskLab({
   device = "phone",
   note,
   feel,
+  model,
 }: {
   label: string;
   point: string;
@@ -61,12 +64,16 @@ export function TaskLab({
   note?: ReactNode;
   /** Ask after each run how it felt, on a five-step scale between these two words (emotional design days). */
   feel?: [string, string];
+  /** A scripted model run of the task, offered under the stress tests so the learner can watch it play or step through it, before or after their own try. */
+  model?: (a: LabModelArgs) => ReactNode;
 }) {
   const [cur, setCur] = useState(versions[0].id);
   const [on, setOn] = useState<LabStressId[]>([]);
   const [t0, setT0] = useState<number | null>(null);
   const [now, setNow] = useState(0);
   const [misses, setMisses] = useState(0);
+  const [hits, setHits] = useState(0);
+  const [watch, setWatch] = useState<"play" | "step" | null>(null);
   const [finished, setFinished] = useState(false);
   const [log, setLog] = useState<string[]>([]);
   const [results, setResults] = useState<Result[]>([]);
@@ -97,6 +104,7 @@ export function TaskLab({
     setT0(null);
     setNow(0);
     setMisses(0);
+    setHits(0);
     setFinished(false);
     setLog([]);
     setPing(false);
@@ -113,6 +121,7 @@ export function TaskLab({
     finished,
     hit: (what) => {
       start();
+      setHits((h) => h + 1);
       setLog((l) => [tt(`✓ ${what}`), ...l].slice(0, 5));
     },
     miss: (what) => {
@@ -195,6 +204,7 @@ export function TaskLab({
                 ))}
               </div>
             )}
+            {model && watch && <div key={`${cur}-${watch}`}>{model({ version: cur, mode: watch, yours: hits, close: () => setWatch(null) })}</div>}
             {log.length > 0 && (
               <div className="rounded border border-line bg-white p-2 font-mono text-[11px] text-[#334155]">
                 {log.map((l, i) => <p key={i}>{l}</p>)}
@@ -212,6 +222,16 @@ export function TaskLab({
               </div>
               {on.length > 0 && <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[11px] text-ash">{on.map((s) => <li key={s}>{STRESS_NOTE()[s]}</li>)}</ul>}
             </div>
+            {model && (
+              <div className="rounded-lg border border-line bg-white p-2">
+                <p className="text-[12.5px] font-semibold">{tt("Model run")}</p>
+                <p className="mb-1 text-[11px] text-ash">{tt("Watch a model user do this task on the version you chose, or walk through it step by step. Before or after your own try.")}</p>
+                <div className="flex flex-wrap gap-1">
+                  <button type="button" aria-pressed={watch === "play"} onClick={() => setWatch("play")} className={clsx("btn btn-sm min-h-[36px] border", watch === "play" ? "border-accent bg-accentSoft" : "border-line bg-white")}>{tt("▶ Play")}</button>
+                  <button type="button" aria-pressed={watch === "step"} onClick={() => setWatch("step")} className={clsx("btn btn-sm min-h-[36px] border", watch === "step" ? "border-accent bg-accentSoft" : "border-line bg-white")}>{tt("Step by step")}</button>
+                </div>
+              </div>
+            )}
             {results.length > 0 && (
               <div className="rounded-lg border border-line bg-white p-2">
                 <p className="text-[12.5px] font-semibold">{tt("Your runs (this tab only)")}</p>

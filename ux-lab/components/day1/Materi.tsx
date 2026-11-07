@@ -10,7 +10,7 @@ const M = makeMateri({
   mats: MATS,
   cards: { A1: () => <CardA1 />, A2: () => <CardA2 />, A3: () => <CardA3 />, A4: () => <CardA4 />, A5: () => <CardA5 />, B1: () => <CardB1 />, B2: () => <CardB2 />, B3: () => <CardB3 /> },
   refsA: ["normanNielsen", "iso9241210", "norman2013", "tractinsky2000", "ittiKoch2001", "corbetta2002", "treisman1980", "krug2014", "nielsen1994", "sweller1988", "lindgaard2006", "brehm1966", "fogg2003", "kahneman2011", "gibbons2018"],
-  refsB: ["norman2013", "kahneman2011", "normanNielsen", "tractinsky2000", "krug2014", "gibbons2018", "simon1956", "klein2007"],
+  refsB: ["norman2013", "kahneman2011", "normanNielsen", "tractinsky2000", "krug2014", "gibbons2018", "simon1956", "klein2007", "crd2011", "ucpd2005", "gdprArt7"],
   texts: () => ({
     headA: tt("Perception and effect: the basic words, how people see, what they expect, what they feel before they think, and how to weigh a measure"),
     leadA: tt("Five cards, Level 1 and Level 2 in one run. Every diagram uses Nordwind, a made-up travel-booking app, and its people, so the task is never answered for you."),
