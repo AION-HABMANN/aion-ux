@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { AimsFig, AttentionFig, ChannelsFig, ConflictFig, DecisionFig, LooksWorksFig, SeeChainFig, SteerChainFig, ToneFig, WeighFig4 } from "@/components/day1/diagrams";
 import { ComicButton } from "@/components/comic/ComicModal";
 import { FoveaLab, TwoForcesRun } from "@/components/day1/labs";
-import { ClosingLook, FirstFeelTimeline, FirstImpressionReveal, FlashTest, HabitTrap, RoleCards, SteeringLine } from "@/components/day1/arc";
+import { ClosingLook, FirstFeelTimeline, FirstImpressionReveal, HabitTrap, RoleCards, SteeringLine } from "@/components/day1/arc";
 import { ART_D1 } from "@/components/day1/comicScenes";
 import { COMICS_D1 } from "@/data/day1/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
@@ -39,7 +39,6 @@ export function CardA1() {
         tt("A beautiful page can work badly and a plain one well: judge each by what it does, not by how it looks."),
       ]}
     >
-      <FlashTest />
       <ComicButton comic={COMICS_D1.A1} art={ART_D1} />
       <LooksWorksFig />
       <DataTable

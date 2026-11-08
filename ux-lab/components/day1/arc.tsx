@@ -8,46 +8,12 @@ import { StepControls, useStepper } from "@/components/sim/Stepper";
 import { tt } from "@/lib/lang";
 
 /**
- * Day 1 · the learning arc of the Materi (UX-STANDARD 2.21). One thread runs through the day: a 50 ms first impression taken before A1, explained in A4 and
- * looked back on in B3. Block A lets people experience perception (an animation where the effect is too fast or invisible to notice, a try-it-yourself where
- * their own hand or eye is the evidence); Block B asks them to judge (a line between helping and manipulating, the roles of one conflict). Nothing here is
- * scored or exported; the 50 ms choice is kept in this browser only, so A4 and B3 can come back to it.
+ * Day 1 · the learning arc of the Materi (UX-STANDARD 2.21). A4 explains the 50 ms first impression; B3 looks back on it. Block A lets people experience
+ * perception (an animation where the effect is too fast or invisible to notice, a try-it-yourself where their own hand or eye is the evidence); Block B
+ * asks them to judge (a line between helping and manipulating, the roles of one conflict). Nothing here is scored or exported.
  */
 const ACC = "#2F5D8A";
 const Brand = "Nordwind";
-const KEY = "ux-d1-arc";
-type Pick = "1" | "2" | "none";
-type Arc = { pick?: Pick };
-
-function useArc(): [Arc, (a: Arc) => void] {
-  const [a, setA] = useState<Arc>({});
-  useEffect(() => {
-    const read = () => {
-      try {
-        setA(JSON.parse(window.localStorage.getItem(KEY) ?? "{}") as Arc);
-      } catch {
-        setA({});
-      }
-    };
-    read();
-    window.addEventListener(KEY, read);
-    window.addEventListener("storage", read);
-    return () => {
-      window.removeEventListener(KEY, read);
-      window.removeEventListener("storage", read);
-    };
-  }, []);
-  const save = (n: Arc) => {
-    setA(n);
-    try {
-      window.localStorage.setItem(KEY, JSON.stringify(n));
-    } catch {
-      /* no storage: the choice lasts until the page is left */
-    }
-    window.dispatchEvent(new Event(KEY));
-  };
-  return [a, save];
-}
 
 const Frame = ({ title, lead, children }: { title: string; lead?: string; children: ReactNode }) => (
   <figure className="space-y-2 rounded-lg border border-line bg-[#F8FAFC] p-3">
@@ -100,69 +66,13 @@ function Plain() {
   );
 }
 
-/* ------------------------------------------------------------------ opening, before A1 · the 50 ms test */
-
-type Phase = "idle" | "s1" | "m1" | "s2" | "m2" | "ask";
-const FLASH_MS = 50;
-
-export function FlashTest() {
-  const [arc, save] = useArc();
-  const [phase, setPhase] = useState<Phase>("idle");
-  useEffect(() => {
-    const next: Partial<Record<Phase, [Phase, number]>> = { s1: ["m1", FLASH_MS], m1: ["s2", 700], s2: ["m2", FLASH_MS], m2: ["ask", 300] };
-    const n = next[phase];
-    if (!n) return;
-    const id = window.setTimeout(() => setPhase(n[0]), n[1]);
-    return () => window.clearTimeout(id);
-  }, [phase]);
-  const mask = <div aria-hidden className="mx-auto h-[340px] w-full max-w-[300px] rounded-[24px]" style={{ background: "repeating-conic-gradient(#CBD5E1 0% 25%, #F1F5F9 0% 50%) 0 0 / 14px 14px" }} />;
-  const answer = (p: Pick) => { save({ pick: p }); setPhase("idle"); };
-  return (
-    <Frame
-      title={tt("Before you start: a first impression in about 50 ms")}
-      lead={tt("Two Nordwind start screens will each flash for about 50 ms, the time research gives for a first judgement of a web page. Do not try to read. Just notice which one you would trust with your ferry ticket. Card A4 comes back to your choice.")}
-    >
-      <div className="mx-auto w-full max-w-[300px]" aria-live="polite">
-        {phase === "s1" && <div aria-hidden><Polished /></div>}
-        {phase === "s2" && <div aria-hidden><Plain /></div>}
-        {(phase === "m1" || phase === "m2") && mask}
-        {phase === "ask" && (
-          <div className="space-y-2 rounded-lg border border-line bg-white p-3">
-            <p className="text-[13px] font-semibold">{tt("Which app would you trust with your ferry ticket?")}</p>
-            <div className="flex flex-col gap-2">
-              <button type="button" className={choice(false)} onClick={() => answer("1")}>{tt("The first screen")}</button>
-              <button type="button" className={choice(false)} onClick={() => answer("2")}>{tt("The second screen")}</button>
-              <button type="button" className={choice(false)} onClick={() => answer("none")}>{tt("I could not tell")}</button>
-            </div>
-          </div>
-        )}
-        {phase === "idle" && (
-          <div className="space-y-2">
-            {arc.pick ? (
-              <p className="rounded bg-accentSoft p-2 text-caption text-ink">
-                {arc.pick === "none" ? tt("Noted: you could not tell. Card A4 comes back to it.") : tt(`Noted: you chose the ${arc.pick === "1" ? "first" : "second"} screen. Card A4 comes back to it.`, `Notiert: Sie haben den ${arc.pick === "1" ? "ersten" : "zweiten"} Bildschirm gewählt. Karte A4 kommt darauf zurück.`)}
-              </p>
-            ) : (
-              <p className="text-caption text-ash">{tt("The test is visual. If you cannot see the screen, skip it: card A4 describes both screens in words.")}</p>
-            )}
-            <button type="button" className="btn btn-sm min-h-[40px] border border-accent bg-accent text-white hover:bg-accentHi" onClick={() => setPhase("s1")}>
-              {arc.pick ? tt("Take the test again") : tt("Start the test")}
-            </button>
-          </div>
-        )}
-      </div>
-      <p className="text-[11px] text-ash">{tt("Your choice stays in this browser only. It is not scored and not exported.")}</p>
-    </Frame>
-  );
-}
-
 /* ------------------------------------------------------------------ A4 · from the first feeling to the first thought, and the 50 ms choice explained */
 
 const LOG = (ms: number) => Math.min(100, Math.max(0, (Math.log10(ms / 10) / 3) * 100)); // 10 ms … 10 s on a log scale
 
 const MOMENTS = () => [
   { ms: 20, at: tt("20 ms"), say: tt("A photo shown for only 20 ms is enough for people to tell whether it holds an animal (Thorpe et al. 1996). The picture is in before anything is thought.") },
-  { ms: 50, at: tt("50 ms"), say: tt("The page is liked or not liked. Ratings of visual appeal after 50 ms were close to those after a longer look (Lindgaard et al. 2006). This is the moment of your choice in the opening test.") },
+  { ms: 50, at: tt("50 ms"), say: tt("The page is liked or not liked. Ratings of visual appeal after 50 ms were close to those after a longer look (Lindgaard et al. 2006).") },
   { ms: 150, at: tt("about 150 ms"), say: tt("The brain's response shows that it has sorted the picture into a category, about 150 ms after it appeared (Thorpe et al. 1996). The feeling about the page is already there.") },
   { ms: 250, at: tt("200 to 300 ms"), say: tt("The first fixation ends. Only now has the eye taken in one sharp spot of about 2°: a word or two (Rayner 1998).") },
   { ms: 1000, at: tt("1 s"), say: tt("Three or four fixations, three or four sharp spots. Reading has only begun.") },
@@ -197,52 +107,31 @@ export function FirstFeelTimeline() {
 }
 
 export function FirstImpressionReveal() {
-  const [arc] = useArc();
-  const [show, setShow] = useState(false);
-  const open = Boolean(arc.pick) || show;
-  const said =
-    arc.pick === "1"
-      ? tt("In the opening you trusted the first screen, the polished one. That is what the research predicts: in about 50 ms the judgement follows visual appeal (Lindgaard et al. 2006), and an attractive interface is judged easier to use before anyone has used it (Tractinsky et al. 2000).")
-      : arc.pick === "2"
-        ? tt("In the opening you trusted the second, plain screen. Perhaps its order or its strong Book button reached you in the flash; perhaps the colourful header of the first looked like an advert to you. Either way, the judgement was made before you had read a word.")
-        : arc.pick === "none"
-          ? tt("In the opening you could not tell. That is honest: in 50 ms nothing can be read. What remains is a feeling, and it is there even when it cannot be named.")
-          : null;
   return (
-    <Frame title={tt("Your 50 ms choice, explained")}>
-      {!open ? (
-        <div className="space-y-2">
-          <p className="max-w-prose text-caption text-ink">{tt("You have not taken the 50 ms test at the start of card A1 yet. Take it there first: this part answers it, and reading it first would spoil the test.")}</p>
-          <button type="button" className="text-[12px] underline" onClick={() => setShow(true)}>{tt("Show the answer anyway")}</button>
+    <Frame title={tt("Same ferries, two first impressions")}>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="space-y-1">
+          <p className="text-[12px] font-semibold">{tt("First screen: liked at first sight")}</p>
+          <div aria-hidden className="mx-auto max-w-[260px]"><Polished /></div>
+          <ul className="list-disc space-y-0.5 pl-4 text-caption text-ink">
+            <li>{tt("A colourful header and light type: visual appeal, read in the first 50 ms.")}</li>
+            <li>{tt("The destination comes last in each line, so every line has to be read to its end.")}</li>
+            <li>{tt("An advert sits in the list of ferries and pulls the eye.")}</li>
+            <li>{tt("Book is pale grey on white: hard to find, and harder still in sunlight.")}</li>
+          </ul>
         </div>
-      ) : (
-        <>
-          {said && <p className="max-w-prose rounded bg-accentSoft p-2 text-body text-ink">{said}</p>}
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="space-y-1">
-              <p className="text-[12px] font-semibold">{tt("First screen: liked at first sight")}</p>
-              <div aria-hidden className="mx-auto max-w-[260px]"><Polished /></div>
-              <ul className="list-disc space-y-0.5 pl-4 text-caption text-ink">
-                <li>{tt("A colourful header and light type: visual appeal, read in the first 50 ms.")}</li>
-                <li>{tt("The destination comes last in each line, so every line has to be read to its end.")}</li>
-                <li>{tt("An advert sits in the list of ferries and pulls the eye.")}</li>
-                <li>{tt("Book is pale grey on white: hard to find, and harder still in sunlight.")}</li>
-              </ul>
-            </div>
-            <div className="space-y-1">
-              <p className="text-[12px] font-semibold">{tt("Second screen: plain, and it works")}</p>
-              <div aria-hidden className="mx-auto max-w-[260px]"><Plain /></div>
-              <ul className="list-disc space-y-0.5 pl-4 text-caption text-ink">
-                <li>{tt("Destinations first, in bold and in alphabetical order.")}</li>
-                <li>{tt("No advert between the ferries.")}</li>
-                <li>{tt("Book is the strongest thing on the screen.")}</li>
-                <li>{tt("Less to like at first sight: the work is done by order, not by polish.")}</li>
-              </ul>
-            </div>
-          </div>
-          <p className="max-w-prose text-caption text-ink">{tt("Both show the same three ferries. The first feeling and the working screen point in different directions here, and the first feeling comes first. This is why card A1 separates taste from effect, and why a first impression is a hypothesis to test, not a verdict.")}</p>
-        </>
-      )}
+        <div className="space-y-1">
+          <p className="text-[12px] font-semibold">{tt("Second screen: plain, and it works")}</p>
+          <div aria-hidden className="mx-auto max-w-[260px]"><Plain /></div>
+          <ul className="list-disc space-y-0.5 pl-4 text-caption text-ink">
+            <li>{tt("Destinations first, in bold and in alphabetical order.")}</li>
+            <li>{tt("No advert between the ferries.")}</li>
+            <li>{tt("Book is the strongest thing on the screen.")}</li>
+            <li>{tt("Less to like at first sight: the work is done by order, not by polish.")}</li>
+          </ul>
+        </div>
+      </div>
+      <p className="max-w-prose text-caption text-ink">{tt("Both show the same three ferries. The first feeling and the working screen point in different directions here, and the first feeling comes first. This is why card A1 separates taste from effect, and why a first impression is a hypothesis to test, not a verdict.")}</p>
     </Frame>
   );
 }
@@ -445,12 +334,10 @@ export function RoleCards() {
 /* ------------------------------------------------------------------ B3 · back to the first 50 ms */
 
 export function ClosingLook() {
-  const [arc] = useArc();
-  const what = arc.pick === "1" ? tt("you trusted the polished screen") : arc.pick === "2" ? tt("you trusted the plain screen") : arc.pick === "none" ? tt("you could not tell") : null;
   return (
     <Frame title={tt("Back to the first 50 ms")}>
       <p className="max-w-prose text-body text-ink">
-        {what ? tt(`At the start of the day ${what}, in about 50 ms. Since then you have seen why: what the eye takes in, what it expects, what it feels before it thinks, and what a company may do with that.`, `Zu Beginn des Tages haben Sie in etwa 50 ms entschieden: ${what}. Seitdem haben Sie gesehen, warum: was das Auge aufnimmt, was es erwartet, was es fühlt, bevor es denkt, und was ein Unternehmen damit tun darf.`) : tt("The day began with a 50 ms first impression (card A1). Since then you have seen what the eye takes in, what it expects, what it feels before it thinks, and what a company may do with that.")}
+        {tt("Card A4 opened with a 50 ms first impression. Since then you have seen why: what the eye takes in, what it expects, what it feels before it thinks, and what a company may do with that.")}
       </p>
       <ul className="max-w-prose list-disc space-y-1 pl-5 text-body text-ink">
         <li>{tt("What would you now check before you trust a screen, your own or a supplier's?")}</li>
