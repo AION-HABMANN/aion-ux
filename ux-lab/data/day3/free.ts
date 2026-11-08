@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 3 · colour psychology, typography for readability, and the interplay of colour, type and structure (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions
@@ -487,18 +487,18 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: revising the insurance portal SecureLife"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
       sharedDocId: "1Rh_bRAGKw2hPKlG4e6bvUB_MkwnFSIRzs53nTwbYL4E",
       doc: t("2.1 · Case study: SecureLife"),
       lead: t(
-        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through six steps.",
+        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through seven steps.",
       ),
       slots: ["securelife"],
       fields: [
         listsField({
-          id: "slProblems", q: [1, 6],
+          id: "slProblems", q: [1, 7],
           label: "Analyse the central problems in the use of colour and in the typography",
           steps: [
             "Open SecureLife and check the state of a damage report, then report a new one, as a customer would.",
@@ -538,7 +538,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "slCats", q: [2, 6],
+          id: "slCats", q: [2, 7],
           label: "Assign the problems to the categories readability, orientation, consistency, trust effect and action guidance",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the SecureLife problems that belong to it.",
@@ -570,7 +570,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: readability, orientation, consistency, trust effect and action guidance. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "slMeasures", q: [3, 6],
+          id: "slMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: [
             "Turn each group of problems into something you could change within 12 weeks and within the corporate design.",
@@ -606,8 +606,13 @@ export const SPEC = defineSpec({
             { measure: "Unambiguous primary actions", changes: "Actions recognised at once" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "slMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows one SecureLife screen with a colour kept for one meaning only: blue for a link, green for a confirmed status, amber for a real warning, and the Continue button in a colour used nowhere else on the page. This screen removes problem 1 (no functional colour system) and problem 2 (buttons, boxes and status messages that look alike), because the user can tell at a glance what each colour means.",
+          example: "A telecom provider's portal: a sketch of the contract page with one colour kept only for warnings and a different one for the Upgrade button. It removes “blue means a link, a tariff and a warning”, because each colour now means one thing.",
+        }),
         textField({
-          id: "slJustify", q: [4, 6],
+          id: "slJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -636,13 +641,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "slDecide", q: [5, 6],
+          id: "slDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 12 weeks",
           help: "Say what you do in the first 12 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 12 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Keep the corporate design and the age groups in mind."],
-          refs: [ref("Your justification (question 4)", "above", "slJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "slJustify-field")],
           model: "In the first 12 weeks we define the functional colour system and the typographic hierarchy first, together with the brand team, because every other change builds on them. We apply them first to the pages with the most complaints: the status of damage reports, with a word next to every colour, and the damage report itself, with its primary action clearly emphasised. In parallel we raise the size, contrast and spacing of the critical content. The remaining pages follow the new system after the 12 weeks.",
           example: "A telecom provider's portal: in the first quarter we fix one colour per meaning and three heading levels, apply them to the contract page and the upgrade flow first, and enlarge the contract terms; the other pages follow in the next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 12 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung puts the colour system and the typographic hierarchy first because the rest builds on them.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Fits 12 weeks and the corporate design."] },
@@ -659,13 +664,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "slRec", q: [6, 6],
+          id: "slRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what you prioritise, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for users and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "slDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "slDecide-field")],
           model: "We recommend treating colour and typography not as isolated design questions but as central tools that guide how users perceive the portal. The priorities are a functional colour system, a consistent typography and the visual strengthening of the central actions, because with a justifiable effort these measures have the greatest effect on orientation, readability and trust.",
           example: "A telecom provider's portal: we recommend one colour per meaning and one type hierarchy before any new look. Customers will find what to press and read the conditions; the calls about contracts will drop first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends treating colour and typography as central tools of guidance, with a functional colour system, consistent typography and stronger central actions as priorities. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

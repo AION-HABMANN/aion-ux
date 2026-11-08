@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 4 · UX laws and cognitive perception (Fitts's law, Hick's law, Miller's rule) (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as free answers,
@@ -472,18 +472,18 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: reorganising the customer portal MyEnergy"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
       sharedDocId: "11N7yd4EOAr1JK6CKJwxwQbGcC9O0-cGNjZLLDjhIjqg",
       doc: t("2.1 · Case study: MyEnergy"),
       lead: t(
-        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through six steps.",
+        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through seven steps.",
       ),
       slots: ["myenergy"],
       fields: [
         listsField({
-          id: "meProblems", q: [1, 6],
+          id: "meProblems", q: [1, 7],
           label: "Analyse the central problems of use and cognition in the portal",
           steps: ["Open MyEnergy and submit a meter reading, then change your instalment, as a customer would.", "Write one problem per line as an effect on the user: what the portal makes them search, choose, remember or guess."],
           refs: [ref("MyEnergy today", "equal items · no priority · hidden process logic · technical language · things to remember · unclear feedback", "slot-myenergy"), ref("Memory and load (Materi A4)", "errors, abandonment, uncertainty", "mat-A4", "A4")],
@@ -520,7 +520,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "meCats", q: [2, 6],
+          id: "meCats", q: [2, 7],
           label: "Assign the problems to the categories orientation, decision effort, memory load, feedback and understandability",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the MyEnergy problems that belong to it.",
@@ -552,7 +552,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: orientation, decision effort, memory load, feedback and understandability. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "meMeasures", q: [3, 6],
+          id: "meMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures to improve intuitive use",
           steps: ["Turn each group of problems into something you could change within 12 weeks, without a relaunch and without cutting functions.", "Put them in order: what lowers the load most and soonest first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "meCats-field")],
@@ -585,8 +585,13 @@ export const SPEC = defineSpec({
             { measure: "Context-related feedback and confirmations", changes: "More certainty, fewer misinterpretations" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "meMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the MyEnergy start page redrawn: three buttons only — “Submit a reading”, “Change instalment”, “See bill” — each large and equally spaced, with the remaining functions folded under a plain “More” link. This screen removes problem 2 (important tasks not clearly prioritised) and problem 1 (too many options at once), because customers see the frequent tasks first instead of comparing fourteen equal items.",
+          example: "A phone provider's portal: a sketch of the start page with “Top up”, “Change tariff” and “See bill” as the only three buttons shown, the rest tucked under “More”. It removes “fourteen equal menu items”, because the three frequent tasks are the only strong thing on the page.",
+        }),
         textField({
-          id: "meJustify", q: [4, 6],
+          id: "meJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -611,13 +616,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "meDecide", q: [5, 6],
+          id: "meDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 12 weeks",
           help: "Say what you do in the first 12 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 12 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you deal with the departments that want visibility."],
-          refs: [ref("Your justification (question 4)", "above", "meJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "meJustify-field")],
           model: "In the first 12 weeks we put the four most frequent tasks (meter reading, instalment, bill, tariff change) at the top of the portal and rebuild the meter reading and the instalment change as clear steps with a visible place and a confirmation, because those cause most abandonment and support. In parallel the editors rewrite the labels in the users' words. All other functions stay one step deeper under “All services”, which the departments agree to in exchange for a clear entry. The remaining processes follow after the 12 weeks.",
           example: "A phone provider's portal: first the three main buttons and the top-up as clear steps with a confirmation; the labels rewritten in parallel; the other processes next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 12 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with the main tasks and the process logic because they lower the load directly.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how the departments are handled."] },
@@ -634,13 +639,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "meRec", q: [6, 6],
+          id: "meRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, how, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Say how it will be done.", "Say what you expect to change for users and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "meDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "meDecide-field")],
           model: "We recommend improving intuitive use not through cosmetic changes but through the systematic reduction of cognitive load, a clear priority for the main tasks and a transparent process logic. With a justifiable effort this brings clear progress in orientation, efficiency and the likelihood that customers finish what they start.",
           example: "A phone provider's portal: we recommend ordering the portal around the three tasks customers come for and guiding each step. Fewer abandoned top-ups and fewer calls will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends the systematic reduction of cognitive load, a clear priority for the main tasks and a transparent process logic instead of cosmetic changes. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Says how.", "Says what will change."] },

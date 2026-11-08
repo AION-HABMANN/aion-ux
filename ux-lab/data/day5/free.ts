@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 5 · Fitts's law, Hick's law and Miller's rule applied to navigation, interaction and interface elements (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own
@@ -470,18 +470,18 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: optimising the booking and management portal MoveEasy"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
       sharedDocId: "1hSuiTMRVko1oGL2EUIjQzCoyPAxlVWTurXpsinpuZ9Q",
       doc: t("2.1 · Case study: MoveEasy"),
       lead: t(
-        "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.\n\nThe portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.\n\nThe observed problems:\n• central booking buttons are small and partly badly placed\n• too many options at once on the start page raise uncertainty\n• users have to remember several tariffs and conditions at once\n• important actions lie in long lists of similar options\n• process steps offer too many equal choices\n• mobile interaction is hard because touch targets are too small\n\nThe conditions:\n• a budget of €140,000\n• 10 weeks for the implementation\n• mobile use is already above 60 %\n• a complete relaunch is not possible\n• marketing wants to keep as many offers visible as possible\n• support demands fewer operating errors and questions\n\nYou work through six steps.",
+        "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.\n\nThe portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.\n\nThe observed problems:\n• central booking buttons are small and partly badly placed\n• too many options at once on the start page raise uncertainty\n• users have to remember several tariffs and conditions at once\n• important actions lie in long lists of similar options\n• process steps offer too many equal choices\n• mobile interaction is hard because touch targets are too small\n\nThe conditions:\n• a budget of €140,000\n• 10 weeks for the implementation\n• mobile use is already above 60 %\n• a complete relaunch is not possible\n• marketing wants to keep as many offers visible as possible\n• support demands fewer operating errors and questions\n\nYou work through seven steps.",
       ),
       slots: ["moveeasy"],
       fields: [
         listsField({
-          id: "mvProblems", q: [1, 6],
+          id: "mvProblems", q: [1, 7],
           label: "Analyse the central problems of interaction and decision in the portal",
           steps: ["Open MoveEasy on a phone and book a day ticket, then change your payment data, as a customer would.", "Write one problem per line as an effect on the user, and note the law behind it if you see one."],
           refs: [ref("MoveEasy today", "small badly placed buttons · too many options · tariffs to remember · long similar lists · equal choices · small touch targets", "slot-moveeasy"), ref("The three laws together (Materi A4)", "interplay", "mat-A4", "A4")],
@@ -518,7 +518,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "mvCats", q: [2, 6],
+          id: "mvCats", q: [2, 7],
           label: "Assign the problems to the categories reachability, decision effort, memory load, mobile usability and error risk",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the MoveEasy problems that belong to it.",
@@ -550,7 +550,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: reachability, decision effort, memory load, mobile usability and error risk. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "mvMeasures", q: [3, 6],
+          id: "mvMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 10 weeks and without a relaunch.", "Put them in order: what helps most users soonest, above all on the phone, first."],
           refs: [ref("UX laws for efficient guidance (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "mvCats-field")],
@@ -583,8 +583,13 @@ export const SPEC = defineSpec({
             { measure: "Frequent tasks before rare functions", changes: "More efficiency, less searching" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "mvMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the MoveEasy booking screen redrawn for the phone: the “Book” button is now a full-width bar at the bottom of the screen, within easy reach of the thumb and clearly larger than before; the smaller secondary links move above it, out of the way. This screen removes problem 1 (central booking buttons small and badly placed) and problem 4 (touch targets too small for mobile), because the one action users came for is now the easiest thing to hit.",
+          example: "A food-delivery app: a sketch of the order screen with the Order button moved to a large bar at the bottom of the phone screen. It removes “a small Order button at the top”, because the thumb reaches it without stretching.",
+        }),
         textField({
-          id: "mvJustify", q: [4, 6],
+          id: "mvJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -609,13 +614,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "mvDecide", q: [5, 6],
+          id: "mvDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 10 weeks",
           help: "Say what you do in the first 10 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 10 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you deal with marketing's offers."],
-          refs: [ref("Your justification (question 4)", "above", "mvJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "mvJustify-field")],
           model: "In the first 10 weeks we enlarge and move the central booking buttons and the touch targets of the booking flow on mobile first, because that is where most use and most mis-taps happen. In parallel we group the tariffs and conditions into one clear unit next to the choice, and put the three most booked tickets first, with the rest under “All tickets”. Marketing keeps one offer area below the main tasks. Reducing the choices in every later process step follows after the 10 weeks.",
           example: "A food-delivery app: first the large Order button and the larger tap areas on phones; in parallel the fee box and “Order again” first; marketing keeps one offer strip below; the other steps next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 10 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with larger, better placed action areas because they act directly on speed and errors, above all on mobile.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how marketing's wish is handled."] },
@@ -632,13 +637,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "mvRec", q: [6, 6],
+          id: "mvRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for users and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "mvDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "mvDecide-field")],
           model: "We recommend aligning interaction and navigation decisions consistently with Fitts's law, Hick's law and Miller's rule. The priorities are larger and better placed action areas, reduced choice complexity and a clearly structured information logic, because with a limited budget these measures have the greatest effect on efficiency, safety from errors and mobile usability.",
           example: "A food-delivery app: we recommend large, reachable buttons for the main tasks, fewer equal choices and fees shown where they are needed. Fewer wrong orders and calls will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends aligning interaction and navigation decisions with the three laws, with larger, better placed action areas, reduced choice complexity and a clearly structured information logic as priorities. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

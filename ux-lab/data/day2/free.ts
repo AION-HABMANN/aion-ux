@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 2 · visual perception in interface design and user-centred design (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as free answers, every block Core.
@@ -495,18 +495,18 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: reorganising the service portal CampusNow"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 15,
       sharedDocId: "1uFKYAIDV5A1YyxCZPFo8TMMQhUv9y59Tf8QZuAWxdYE",
       doc: t("2.1 · Case study: CampusNow"),
       lead: t(
-        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through six steps.",
+        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through seven steps.",
       ),
       slots: ["campusnow"],
       fields: [
         listsField({
-          id: "campusProblems", q: [1, 6],
+          id: "campusProblems", q: [1, 7],
           label: "Analyse the central perception and structure problems of the portal",
           steps: [
             "Open CampusNow and book a course as a learner would, once on the desktop and once on the phone.",
@@ -546,7 +546,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "campusCats", q: [2, 6],
+          id: "campusCats", q: [2, 7],
           label: "Assign the problems to the categories orientation, readability, findability, consistency and cognitive load",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the CampusNow problems that belong to it.",
@@ -578,7 +578,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: orientation, readability, findability, consistency and cognitive load. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "campusMeasures", q: [3, 6],
+          id: "campusMeasures", q: [3, 7],
           label: "Develop 4 prioritised user-centred measures",
           steps: [
             "Turn each group of problems into something you could change within 14 weeks and without a relaunch.",
@@ -614,8 +614,13 @@ export const SPEC = defineSpec({
             { measure: "Shorter, scannable text blocks", changes: "Easier to read, tasks finished faster" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "campusMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the CampusNow start page redrawn: one box labelled “Book a course” sits alone at the top, clearly larger than the rest; certificates, dates and materials sit below it in one plain list. This screen removes problem 2 (important functions not visually prioritised) and problem 1 (too much information at once), because users see one clear first step instead of many equal blocks.",
+          example: "A doctor's practice website: a sketch of the start page with “Book an appointment” as the one large button at the top, and news, hours and forms folded into a short list below. It removes “patients do not see where to book”, because one action stands out from the rest.",
+        }),
         assessField({
-          id: "campusRate", q: [4, 6],
+          id: "campusRate", q: [5, 7],
           label: "Rate your measures on effect on users, effort, risk and timeliness",
           helpText: "Write a few words for each of your four measures that cover all four criteria. Effort means time and people, not money. Many teams rate each Low, Medium or High with a reason. At least 40 characters each.",
           helpTable: "One row per measure, in the order of question 3: a short rating with a reason for each criterion.",
@@ -650,7 +655,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to rate the measures on effect on users, effort, risk and timeliness. Its Musterlösung: measure 1 gives a quickly visible effect of high relevance, measure 2 substantially improves user-centredness, measure 3 is strategically important for the quality of the system, measure 4 is relatively little effort and directly effective. Effort is judged in time and people, never in money.", lookFor: ["All four measures are rated.", "All four criteria appear for each.", "Each rating has a reason."], pitfalls: ["A rating with no reason.", "Effort as a price."] },
         }),
         textField({
-          id: "campusDecide", q: [5, 6],
+          id: "campusDecide", q: [6, 7],
           label: "Make a reasoned prioritisation decision for the first 14 weeks",
           help: "Say what you do in the first 14 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
@@ -660,7 +665,7 @@ export const SPEC = defineSpec({
             "Say what you start now but finish later, and what waits.",
             "Keep the conditions in mind: no relaunch, first improvements visible quickly, marketing, support and IT.",
           ],
-          refs: [ref("Your ratings (question 4)", "above", "campusRate-field"), ref("Weighing a measure (Materi A5)", "the reason counts", "mat-A5", "A5")],
+          refs: [ref("Your ratings (question 5)", "above", "campusRate-field"), ref("Weighing a measure (Materi A5)", "the reason counts", "mat-A5", "A5")],
           model: "In the first 14 weeks we prioritise the central user tasks on the start page and rename the navigation in the users' terms, because together they give the quickest visible effect on orientation and searching and answer support's wish for fewer questions. In parallel the editors shorten and structure the most used text blocks, which is little effort and directly effective. The uniform structure patterns for the page types start with the booking pages, together with IT's standardisation, and are finished after the 14 weeks, because they touch every page type. A new modern look is not a priority; it follows the new structure.",
           example: "A doctor's practice website: first the two main buttons and the menu in patients' words, because they help every visitor at once; the short lists for the hours go along with it; the uniform department pages start now and are finished next quarter.",
           guide: { why: "The plan asks for a reasoned prioritisation decision for the first 14 weeks. The Musterlösung's reasoning: measure 1 is quickly visible and highly relevant, measure 2 substantially improves user-centredness, measure 3 is strategically important but larger, measure 4 is little effort and directly effective. Any order defends if it follows from the ratings and the conditions.", lookFor: ["Says what comes first and why.", "Says what is started or left for later.", "Fits 14 weeks and no relaunch."] },
@@ -677,13 +682,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "campusRec", q: [6, 6],
+          id: "campusRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what you do not, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Say what you do not prioritise and why.", "Say what you expect to change for users and for the organisation."],
-          refs: [ref("Your decision (question 5)", "above", "campusDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "campusDecide-field")],
           model: "We do not prioritise a visual overhaul but the user-centred reorganisation of orientation, terminology and structure. That improves usability, reduces the effort of searching and lays the foundation for a consistent digital experience within a limited budget and under time pressure.",
           example: "A doctor's practice website: we recommend reorganising the site around what patients come to do before any new design. Fewer calls about prescriptions and appointments will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends the user-centred reorganisation of orientation, terminology and structure instead of a visual overhaul. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Says what is not prioritised.", "Says what will change."] },
