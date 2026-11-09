@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day10Run } from "@/data/runs/days6to10";
 
 /**
  * Day 10 · the working products of the study cards (UX-STANDARD 2.16): Northline Rail, a made-up rail company with an app, so no task is answered here. Each lab
@@ -64,6 +66,7 @@ export function KindsLab() {
       point={tt("Three kinds of system can stand behind a smart-looking screen. A rule gives everyone the same answer. An adaptive system reacts to the situation now. A learning system uses what it has learned about a person. Each helps differently, and each fails differently.")}
       task={tt("You are Ilka at Harbour station. Your 08:12 is late. Get to your 09:30 meeting in Linden.")}
       feel={[tt("on my own"), tt("helped, in control")]}
+      model={(a) => <ModelRun script={day10Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "rule", label: tt("A rule"), render: (ctx) => <Delay ctx={ctx} kind="rule" />, insight: tt("In plain words: “if a train is more than 15 minutes late, tell everyone with a ticket”. Ilka gets the same message as every passenger and has to plan the rest herself. Predictable and easy to explain; it does not know her situation.") },
         { id: "situation", label: tt("The situation"), render: (ctx) => <Delay ctx={ctx} kind="situation" />, insight: tt("In plain words: the app knows where Ilka is now and where her ticket goes, so it offers the next train and its platform. It stores nothing about her; tomorrow it starts fresh.") },

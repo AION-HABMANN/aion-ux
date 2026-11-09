@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day2Run } from "@/data/runs/days2to5";
 
 /**
  * Day 2 · the working products of the study cards (UX-STANDARD 2.16): Brightwater, a made-up leisure centre with a pool, a gym and courses, so no task is answered
@@ -128,6 +130,7 @@ export function ScanLab() {
       label={tt("One Brightwater course page as a dense block and as a page built for scanning · a working product · Case assumption, example company")}
       point={tt("People scan before they read. On a dense block the eye skims the top and the left edge and misses what is in the middle; with a heading, short labelled facts and a clear button, the scan lands on what matters.")}
       task={tt("You are Felix. Find out when the beginners' swimming course starts, and book a place.")}
+      model={(a) => <ModelRun script={day2Run(a.version)} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "dense", label: tt("A dense block"), render: (ctx) => <Course ctx={ctx} kind="dense" />, insight: tt("In plain words: the eye goes across the first line, a little across the second, then down the left edge. The date and the booking link sit in the middle of the block, so a scan misses them and Felix may think the course cannot be booked online.") },
         { id: "scan", label: tt("Built for scanning"), render: (ctx) => <Course ctx={ctx} kind="scan" />, insight: tt("In plain words: the heading, three short facts with a label each, and one strong button. The scan lands on the title, the facts and the button in that order. The full description is still there, below.") },

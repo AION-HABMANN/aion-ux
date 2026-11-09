@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day8Run } from "@/data/runs/days6to10";
 
 /**
  * Day 8 · the working products of the study cards (UX-STANDARD 2.16): Lantern Kitchens, a made-up kitchen maker with an online planner, so no task is answered here.
@@ -123,6 +125,7 @@ export function ElementsLab() {
       point={tt("Narrative guidance has seven elements: starting situation, goal, relevance, obstacle, support, progress and resolution. Three of them decide most often whether people finish: a goal they can see, progress they can see, and an end that feels like one. Go through all four stages.")}
       task={tt("You are Pavel. Go through the planner to the end and get your plan.")}
       feel={[tt("unsure I'm done"), tt("finished, worth it")]}
+      model={(a) => <ModelRun script={day8Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         v("none", tt("None of the three"), { goal: false, progress: false, resolution: false }, tt("In plain words: Pavel does not know what he is working towards or how many screens are left, and the last step ends with “Data saved” and a Next button that starts again. He is not sure he is done.")),
         v("progress", tt("Progress only"), { goal: false, progress: true, resolution: false }, tt("In plain words: he sees how much is left, but not what he will get, and the end is still a bare “Data saved”.")),

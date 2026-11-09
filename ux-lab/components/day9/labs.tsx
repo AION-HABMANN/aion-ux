@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day9Run } from "@/data/runs/days6to10";
 
 /**
  * Day 9 · the working products of the study cards (UX-STANDARD 2.16): Brightwater Savings, a made-up savings bank with an app, so no task is answered here. Each lab
@@ -146,6 +148,7 @@ export function SignalsLab() {
       point={tt("Stacking mechanics does not stack motivation. Past a few signals, each new one makes the others mean less, and the screen turns from information into pressure. That is overstimulation, and it slides into reward inflation and manipulation. The loud versions are a demonstration and count nothing.")}
       task={tt("You are Kaspar. Check that July's deposit went through.")}
       feel={[tt("pressured"), tt("informed")]}
+      model={(a) => <ModelRun script={day9Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "two", label: tt("Two signals"), render: (ctx) => <Home ctx={ctx} n={2} />, insight: tt("In plain words: a streak and progress. Both say something about Kaspar's own saving; the deposit he looks for is easy to see.") },
         { id: "five", label: tt("Five signals"), render: (ctx) => <Home ctx={ctx} n={5} />, insight: tt("In plain words: badges, points and a city ranking join in. Each means less; Kaspar starts dismissing them to get to his deposit.") },

@@ -5,6 +5,8 @@ import { useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day7Run } from "@/data/runs/days6to10";
 
 /**
  * Day 7 · the working products of the study cards (UX-STANDARD 2.16): Moss & Pine, a made-up garden centre with an online shop and an app, so no task is answered
@@ -220,6 +222,7 @@ export function SituationLab() {
       task={tt("You work at Moss & Pine. In each situation, choose a template and send it.")}
       stresses={["hurry", "ping"]}
       device="phone"
+      model={(a) => <ModelRun script={day7Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         s("offer", tt("An offer"), tt("In plain words: a real reason at the right time, a gentle invitation. Activation fits here; false urgency or an apology would feel odd.")),
         s("care", tt("Care"), tt("In plain words: calm and useful. Marketing would like an offer added; it would turn help into a sales channel.")),

@@ -6,6 +6,8 @@ import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { speak } from "@/components/sim/VoiceSim";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day11Run } from "@/data/runs/days11to16";
 
 /**
  * Day 11 · the working products of the study cards (UX-STANDARD 2.16): Ladle, a made-up cooking app with a voice assistant, so no task is answered here. Each lab
@@ -151,6 +153,7 @@ export function RequirementsLab() {
       point={tt("A good voice dialogue needs six things: clear dialogue logic (one thing at a time), clear expectations (what can I say?), feedback (what did it understand and do?), error handling (a better question, not the same sentence), repeatability (say that again) and control (stop, undo). Try mumbling first, as people do with flour on their hands.")}
       task={tt("You are Ole. In the cake recipe, replace the butter with oil, and make sure it happened.")}
       stresses={["hurry", "ping"]}
+      model={(a) => <ModelRun script={day11Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         v("none", tt("None of the six"), { logic: false, expect: false, feedback: false, errors: false, repeat: false, control: false }, tt("In plain words: “Yes?” tells Ole nothing about what he can say, it asks three things at once, repeats “Sorry, I didn't understand that”, answers “OK” without saying what it did, and has no stop or repeat.")),
         v("half", tt("Logic, expectations and feedback"), { logic: true, expect: true, feedback: true, errors: false, repeat: false, control: false }, tt("In plain words: it says what he can ask, one thing at a time, and confirms what it changed; a mumble still gets the same useless sentence, and there is no stop or repeat.")),

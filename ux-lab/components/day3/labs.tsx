@@ -6,6 +6,8 @@ import type { ReactNode } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day3Run } from "@/data/runs/days2to5";
 
 /**
  * Day 3 · the working products of the study cards (UX-STANDARD 2.16): Kettle & Co, a made-up online grocery shop, so no task is answered here. Each lab gives one
@@ -103,6 +105,7 @@ export function FunctionLab() {
       label={tt("The same Kettle & Co order list, coloured to decorate and coloured to function · a working product · Case assumption, example company")}
       point={tt("Functional colour has a job: action, priority or state, and each colour keeps one meaning. Decorative colour only sets a look. When decoration and meaning use the same bright tones, people cannot tell a button from a box or a status from a decoration.")}
       task={tt("You are Theo. One of your orders has a problem. Find it and fix it.")}
+      model={(a) => <ModelRun script={day3Run(a.version)} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "decorate", label: tt("Coloured to decorate"), render: (ctx) => <Orders ctx={ctx} fn={false} />, insight: tt("In plain words: the dots are orange, green and purple, and so are the offer box and the link. The failed order has a cheerful green dot and no word. Theo has to open each order to find the problem.") },
         { id: "function", label: tt("Coloured to function"), render: (ctx) => <Orders ctx={ctx} fn />, insight: tt("In plain words: blue means he can act, red means a problem, grey means information, and each state has a word and a symbol next to its colour, so it survives colour blindness too. Theo sees at once that order 1044 needs him.") },

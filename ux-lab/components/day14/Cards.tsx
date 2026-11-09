@@ -8,6 +8,8 @@ import { COMICS_D14 } from "@/data/day14/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
 import { ShowMore } from "@/components/ui/ShowMore";
 import { tt } from "@/lib/lang";
+import { ModelRunFigure } from "@/components/sim/ModelRun";
+import { day14Run } from "@/data/runs/days11to16";
 
 /**
  * Day 14 · the eight study cards (CLAUDE.md #11, #22, #37, #51, #52). Each card: title → scan line → "In plain words" → body (the picture is the instrument) → the
@@ -88,6 +90,7 @@ export function CardA2() {
     >
       <ComicButton comic={COMICS_D14.A2} art={ART_D14} />
       <AttentionFig />
+      <ModelRunFigure script={day14Run()} caption={tt("From head turn to picture: where the 20 milliseconds go", "Vom Kopfdrehen zum Bild: wohin die 20 Millisekunden gehen")} />
       <DataTable
         caption={tt("Neuroscience basics, and what they mean in immersive space")}
         head={[tt("Basic"), tt("What it means"), tt("For immersive design")]}

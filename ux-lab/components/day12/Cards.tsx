@@ -8,6 +8,8 @@ import { COMICS_D12 } from "@/data/day12/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
 import { ShowMore } from "@/components/ui/ShowMore";
 import { tt } from "@/lib/lang";
+import { ModelRunFigure } from "@/components/sim/ModelRun";
+import { day12Run } from "@/data/runs/days11to16";
 
 /**
  * Day 12 · the eight study cards (CLAUDE.md #11, #22, #37, #51, #52). Each card: title → scan line → "In plain words" → body (the picture is the instrument) → the
@@ -124,6 +126,7 @@ export function CardA3() {
     >
       <ComicButton comic={COMICS_D12.A3} art={ART_D12} />
       <KeyboardFig />
+      <ModelRunFigure script={day12Run()} caption={tt("Tab through a checkout form: where the focus goes, and where it gets stuck", "Mit Tab durch ein Bestellformular: wohin der Fokus geht und wo er hängen bleibt")} />
       <DataTable
         caption={tt("A ten-second keyboard test")}
         head={[tt("Key"), tt("What it should do"), tt("What a barrier looks like")]}

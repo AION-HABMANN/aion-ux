@@ -9,6 +9,8 @@ import { COMICS_D16 } from "@/data/day16/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
 import { ShowMore } from "@/components/ui/ShowMore";
 import { tt } from "@/lib/lang";
+import { ModelRunFigure } from "@/components/sim/ModelRun";
+import { day16Run } from "@/data/runs/days11to16";
 
 /**
  * Day 16 · the eight study cards (CLAUDE.md #11, #22, #37, #51, #52). Each card: title → scan line → "In plain words" → body (the picture is the instrument) → the
@@ -90,6 +92,7 @@ export function CardA2() {
     >
       <ComicButton comic={COMICS_D16.A2} art={ART_D16} />
       <StressTestFig />
+      <ModelRunFigure script={day16Run()} caption={tt("One test session on a time line: where the six criteria show up", "Eine Testsitzung auf der Zeitachse: wo die sechs Kriterien auftauchen")} />
       <DataTable
         caption={tt("Six test aspects and how to test them")}
         head={[tt("Aspect"), tt("How to test it"), tt("Example (Fernwood)")]}

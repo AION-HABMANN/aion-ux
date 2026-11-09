@@ -5,6 +5,8 @@ import { useEffect, useId, useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day4Run } from "@/data/runs/days2to5";
 
 /**
  * Day 4 · the working products of the study cards (UX-STANDARD 2.16): Pedalo, a made-up bike-sharing app, so no task is answered here. Each lab gives one task and
@@ -106,6 +108,7 @@ export function ChoiceLab() {
       label={tt("One Pedalo pass page with twelve equal passes and with three recommended passes · a working product · Case assumption, example company")}
       point={tt("The more equally weighted options there are, the longer a decision takes (Hick's law). It is worst when the options are unfamiliar and look alike. Giving the frequent choices priority and grouping the rest one step deeper cuts the time without deleting anything.")}
       task={tt("You are Sam, a visitor. Buy the right pass for one ride, now.")}
+      model={(a) => <ModelRun script={day4Run(a.version)} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "twelve", label: tt("Twelve equal passes"), render: (ctx) => <Passes ctx={ctx} rec={false} />, insight: tt("In plain words: twelve buttons of the same size with names only. Sam opens several to compare Day, Flex and Tourist, and still is not sure which one suits a single ride. Some people give up here.") },
         { id: "three", label: tt("Three recommended passes"), render: (ctx) => <Passes ctx={ctx} rec />, insight: tt("In plain words: three passes, each with one line on who it is for, and “All passes” below. Sam sees “Single ride: for one trip” and chooses in a second. The other passes are still one tap away.") },

@@ -6,6 +6,8 @@ import type { ReactNode } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day6Run } from "@/data/runs/days6to10";
 
 /**
  * Day 6 · the working products of the study cards (UX-STANDARD 2.16): Seabird Ferries, a made-up ferry operator, so no task is answered here. Each lab gives one task
@@ -48,6 +50,7 @@ export function GestaltLab() {
       label={tt("A Seabird Ferries page: proximity, similarity and common region · a working product · Case assumption, example company")}
       point={tt("People see groups, not pieces. What is close together, looks alike or sits in one frame is read as belonging together. A layout that follows these laws lets people find a group at a glance; one that breaks them makes related things look unrelated.")}
       task={tt("You are Elif. Find the luggage rules before you pack.")}
+      model={(a) => <ModelRun script={day6Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         v("none", tt("No grouping"), { proximity: false, similarity: false, region: false }, tt("In plain words: six links scattered in mixed colours. Elif reads each one alone; a colour tells her nothing.")),
         v("prox", tt("Proximity only"), { proximity: true, similarity: false, region: false }, tt("In plain words: the ticket links stand together and the travel information stands together, so she sees two groups, though the colours still mix.")),

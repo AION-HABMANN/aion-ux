@@ -8,6 +8,8 @@ import { COMICS_D15 } from "@/data/day15/comics";
 import { Callout, DataTable, MaterialCard } from "@/components/ui/MaterialCard";
 import { ShowMore } from "@/components/ui/ShowMore";
 import { tt } from "@/lib/lang";
+import { ModelRunFigure } from "@/components/sim/ModelRun";
+import { day15Run } from "@/data/runs/days11to16";
 
 /**
  * Day 15 · the eight study cards (CLAUDE.md #11, #22, #37, #51, #52). Each card: title → scan line → "In plain words" → body (the picture is the instrument) → the
@@ -41,6 +43,7 @@ export function CardA1() {
     >
       <ComicButton comic={COMICS_D15.A1} art={ART_D15} />
       <RecordingFig />
+      <ModelRunFigure script={day15Run()} caption={tt("From raw gaze points to a heat map, step by step", "Von rohen Blickpunkten zur Heatmap, Schritt für Schritt")} />
       <DataTable
         caption={tt("What eye-tracking can make visible")}
         head={[tt("What it shows"), tt("Example (Tessel)"), tt("Useful for")]}

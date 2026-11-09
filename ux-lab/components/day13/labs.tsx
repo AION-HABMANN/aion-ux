@@ -6,6 +6,8 @@ import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { speak } from "@/components/sim/VoiceSim";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day13Run } from "@/data/runs/days11to16";
 
 /**
  * Day 13 · the working products of the study cards (UX-STANDARD 2.16): Hearth Energy, a made-up energy supplier, so no task is answered here. Each lab gives one
@@ -137,6 +139,7 @@ export function StimulusLab() {
       point={tt("Every colour, movement, banner and bubble is a stimulus that competes for attention. For people who filter stimuli less, a busy page is not just untidy but exhausting. Turn the dial and do the same small task. The overloaded version is a demonstration.")}
       task={tt("You are Pia. Find out when your next bill comes.")}
       feel={[tt("overwhelmed"), tt("calm")]}
+      model={(a) => <ModelRun script={day13Run(a.version)} mode={a.mode} onClose={a.close} />}
       versions={[
         { id: "calm", label: tt("Calm"), render: (ctx) => <Busy ctx={ctx} level={0} />, insight: tt("In plain words: a greeting and three labelled tasks, one with the date. Pia sees it at once.") },
         { id: "some", label: tt("Some stimuli"), render: (ctx) => <Busy ctx={ctx} level={1} />, insight: tt("In plain words: a red banner and a tip join in. Still usable, but the eye goes to the banner first.") },

@@ -5,6 +5,8 @@ import { useId, useState } from "react";
 import { AppScreen, TaskLab } from "@/components/sim/TaskLab";
 import type { LabCtx } from "@/components/sim/TaskLab";
 import { tt } from "@/lib/lang";
+import { ModelRun } from "@/components/sim/ModelRun";
+import { day5Run } from "@/data/runs/days2to5";
 
 /**
  * Day 5 · the working products of the study cards (UX-STANDARD 2.16): Ticketo, a made-up cinema and event ticket app, so no task is answered here. Each lab gives
@@ -46,6 +48,7 @@ export function FittsLab() {
       label={tt("A Ticketo checkout: a larger Pay button, where the thumb reaches, with space between the buttons · a working product · Case assumption, example company")}
       point={tt("The time to hit a target grows with its distance and shrinks with its size (Fitts's law). On a phone held in one hand, the thumb reaches the lower middle easily and the top corners badly; targets close together are easily confused. Try it with “a small phone” and “in a hurry”.")}
       task={tt("You are Leon, holding the phone in one hand. Pay for the two tickets.")}
+      model={(a) => <ModelRun script={day5Run()} mode={a.mode} onClose={a.close} />}
       versions={[
         v("none", tt("Small, at the top, touching"), { large: false, thumb: false, space: false }, tt("In plain words: Pay is small and sits at the top right, touching Cancel. Leon stretches his thumb, aims, and a slightly wrong tap cancels the order.")),
         v("large", tt("Larger, still at the top"), { large: true, thumb: false, space: false }, tt("In plain words: a larger Pay is easier to hit, but it is still far from the thumb and right next to Cancel.")),
