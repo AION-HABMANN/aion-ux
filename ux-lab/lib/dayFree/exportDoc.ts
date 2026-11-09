@@ -54,11 +54,24 @@ function fieldHtml(f: FreeField, r: FreeRoute, level: "h3" | "h2", n?: number): 
 
 /* ------------------------------------------------------------------ Route 1 · the UX Analysis File */
 
-export function freeAnalysisBody(p: Persisted, spec: FreeSpec): string {
+export function freeAnalysisBody(p: Persisted, spec: FreeSpec, included?: ReadonlySet<string>): string {
   const r = sliceOf(p, spec.day).r1;
+  // with a selection (UX-STANDARD 2.22) only the chosen blocks are printed, and a Part heading appears once, before its first chosen block
+  const part2Start = spec.blocks1.findIndex((b) => b.id === spec.route1.part2Before);
+  let part1Done = false;
+  let part2Done = false;
   const parts = blocksOf(spec, 1)
+    .filter((b) => !included || included.has(b.id))
     .map((b) => {
-      const head = b.id === spec.blocks1[0].id ? `<h2>${esc(`${tt("Part 1", "Teil 1")} · ${spec.route1.part1.level}`)}</h2>` : b.id === spec.route1.part2Before ? `<h2>${esc(`${tt("Part 2", "Teil 2")} · ${spec.route1.part2.level}`)}</h2>` : "";
+      const inPart2 = part2Start >= 0 && spec.blocks1.indexOf(b) >= part2Start;
+      let head = "";
+      if (!inPart2 && !part1Done) {
+        part1Done = true;
+        head = `<h2>${esc(`${tt("Part 1", "Teil 1")} · ${spec.route1.part1.level}`)}</h2>`;
+      } else if (inPart2 && !part2Done) {
+        part2Done = true;
+        head = `<h2>${esc(`${tt("Part 2", "Teil 2")} · ${spec.route1.part2.level}`)}</h2>`;
+      }
       return `${head}<h3>${esc(b.doc)}</h3>${b.fields.map((f) => fieldHtml(f, r, "h3")).join("")}`;
     })
     .join("\n");
@@ -74,7 +87,7 @@ ${parts}
 /* ------------------------------------------------------------------ Route 2 · the UX Strategy Memo */
 
 /** The Level 3 memo. The on-screen live memo and the exported file are both built by this function. */
-export function freeMemoBody(p: Persisted, spec: FreeSpec): string {
+export function freeMemoBody(p: Persisted, spec: FreeSpec, included?: ReadonlySet<string>): string {
   const s = sliceOf(p, spec.day);
   const pk = spec.pointer;
   const picked = !pk ? "" : (() => {
@@ -88,7 +101,7 @@ export function freeMemoBody(p: Persisted, spec: FreeSpec): string {
     : picked
     ? `<blockquote><strong>${esc(tt("Where Route 1 left off.", "Wo Route 1 aufgehört hat."))}</strong> ${esc(pk.docLead)} ${esc(picked)}.</blockquote>`
     : `<p class="muted">${esc(tt("Route 1 is not finished, so there is nothing to quote yet. Nothing is blocked.", "Route 1 ist nicht fertig, daher gibt es noch nichts zu zitieren. Nichts ist gesperrt."))}</p>`;
-  const items = spec.block2.fields.map((f, i) => fieldHtml(f, s.r2, "h2", i + 1)).join("\n");
+  const items = included && !included.has(spec.block2.id) ? "" : spec.block2.fields.map((f, i) => fieldHtml(f, s.r2, "h2", i + 1)).join("\n");
   return `${docHeader({ kicker: "Neuro-UX Lab", title: "UX Strategy Memo", level: tt("Level 3 · Management decision", "Level 3 · Managemententscheidung"), day: spec.day, name: p.participant.name })}
 <dl class="meta">
   <dt>${esc(tt("To", "An"))}</dt><dd>${esc(spec.route2.to)}</dd>

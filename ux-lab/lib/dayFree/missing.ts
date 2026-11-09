@@ -19,7 +19,13 @@ const atLeast = (n: number) => `${tt("at least", "mindestens")} ${n} ${tt("chara
  * filters on that prefix). All blocks are Core: an entry is a field that is empty, too short, or a list with fewer items than the plan asks for. A choice
  * that differs from the model is never missing (#38).
  */
-export function freeMissing(p: Persisted, spec: FreeSpec, route: 1 | 2): MissingEntry[] {
+export const freeMissing = (p: Persisted, spec: FreeSpec, route: 1 | 2): MissingEntry[] => (spec.optionalAll ? [] : freeMissingStrict(p, spec, route));
+
+/**
+ * What a complete answer would need, whatever the day. A day with `optionalAll` (UX-STANDARD 2.22) shows none of this to the learner; the verifier still uses it
+ * to prove what counts as an answer (a scale word alone, a half row, a table kept in the other layout).
+ */
+export function freeMissingStrict(p: Persisted, spec: FreeSpec, route: 1 | 2): MissingEntry[] {
   const out = participantMissing(p);
   const r = sliceOf(p, spec.day)[route === 1 ? "r1" : "r2"];
   const e = (id: string, label: string) => out.push({ id, label });

@@ -90,4 +90,18 @@ export function fieldComplete(f: FreeField, r: FreeRoute): boolean {
 }
 export const blockComplete = (b: BlockSpec, r: FreeRoute) => b.fields.every((f) => fieldComplete(f, r));
 
+/* ------------------------------------------------------------------ any answer at all (UX-STANDARD 2.22) */
+
+const anyCell = (row: Record<string, string> | undefined) => !!row && Object.values(row).some((v) => len(v) > 0);
+
+/** True when the learner has written or chosen anything in this field, in either layout. */
+export function fieldHasContent(f: FreeField, r: FreeRoute): boolean {
+  if (f.kind === "text") return len(r.text[f.id]) > 0 || (r.rows[f.id] ?? []).some(anyCell);
+  if (f.kind === "lists") return f.lists.some((l) => len(r.text[l.id]) > 0) || (r.rows[f.id] ?? []).some(anyCell);
+  if (f.kind === "assess") return f.items.some((i) => len(r.assessText[f.id]?.[i.id]) > 0 || anyCell(r.assessRows[f.id]?.[i.id]));
+  return !!r.picks[f.id];
+}
+/** A block counts for the export, and for the progress, as soon as it holds any answer. */
+export const blockHasContent = (b: BlockSpec, r: FreeRoute) => b.fields.some((f) => fieldHasContent(f, r));
+
 export type { AssessField, BlockSpec, FreeField, ListsField, PickField, TextField };

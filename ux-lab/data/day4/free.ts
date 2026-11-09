@@ -19,6 +19,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 4,
+  optionalAll: true,
   caseName: "MyEnergy",
   role: "Chief Experience Officer",
   heading: t("Day 4 · UX laws and cognitive perception"),
@@ -164,6 +165,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of ServicePoint directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "18Kfd1H_LEkFkjez__KCRMLNxCdv0C9vZqsD5JeebHDc",
       doc: t("1.1 · Hurdles of use (ServicePoint)"),
       lead: t(
         "You receive the description of a fictional self-service portal, ServicePoint, for contract changes, document downloads and support requests. Open it and try to change your contract as a customer would.\n\nYou need no prior knowledge: notice where you hesitate, search, have to remember something or are not sure you are on the right way.\n\nThe aim is to observe usability from the user's side and to recognise cognitive friction step by step.",
@@ -339,6 +341,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three WorkFlow Hub navigation variants below, then the five questions."),
       refs: ["A2", "A3", "A5"],
       minutes: 8,
+      sharedDocId: "15F-tO21XD_YApS8T6UthDzyhQ5vturZPH52zv-jrOEM",
       doc: t("1.2 · Rate UX decisions under conflicting goals (WorkFlow Hub)"),
       lead: t(
         "WorkFlow Hub is a work platform.\n\nThree variants for its navigation are described in words:\nA) very many options directly visible and a large scope of functions, but a complex first impression\nB) a reduced navigation with a clear focus on the main tasks, but some rare functions lie deeper in the system\nC) a modern presentation with interactive elements, but patterns that change between the areas\n\nThe conditions:\n• the product must work for new and for existing users\n• the department demands that all functions are fully visible\n• the UX team demands reduction and a clear priority\n• the budget for deep changes is limited\n• the release is in 9 weeks\n• user tests are only partly available\n\nDecide anyway, and say what you assume.",

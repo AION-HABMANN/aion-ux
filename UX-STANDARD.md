@@ -241,6 +241,18 @@ So Block A (how people perceive, expect, feel) is mostly experience and surprise
 
 Day 1 (`components/day1/arc.tsx`): a 50 ms first-impression test before A1 (kept in this browser only), the model run of the fovea lab and a bottom-up against top-down animation on the same board in A2 with one surprising finding (the gorilla study), a habit trap in A3 (four check-ins, then an app update), a slowed-down first second and the 50 ms choice explained in A4, a reflection on the learner's own product at the end of A5, a line between steering and manipulating with real EU law in B1, one conflict in four roles in B2, and a look back at the first 50 ms in B3.
 
+### 2.22 No question is required; a block counts for the export when it holds an answer (Decided 2026-11-09, by the user; Days 2 to 5 first)
+
+The class works alone or in groups, in the lab or in the block's Google Doc, and may mix the two from block to block. So on a day with `optionalAll` (data flag on the spec):
+
+- **No question is required.** The "still missing" lists are gone, and so are the "At least N characters" sentences in the help texts and the minimum in the character counter (cut at render in `components/ui/soft.tsx`, in both languages).
+- **A block counts as done and goes into the export as soon as it holds any answer** (`blockHasContent`). The Export button never refuses; with nothing ticked it says so instead of downloading an empty file.
+- **A tick list above the Export button** (`ExportChoice`) lets the learner tick or untick each block; a block with an answer is ticked for them. A block written in its Google Doc is simply left out, and each block shows one line saying whether it is in the export.
+- **Every task block has a Google Doc worksheet** (`sharedDocId`): 1.1, 1.2, 2.1 and 3.1. The lab's export holds only what is written in the lab; the Doc is handed in as its own link, as the trainer explains in class.
+- `freeMissingStrict` keeps the old "what counts as an answer" rules for the verifier; `verify:dayN` checks the new behaviour in step 3b.
+
+Days 6 to 16 keep their required questions until the user asks (set `optionalAll: true` on their spec, then add the 1.1 and 1.2 worksheets). Day 1 stays as it is.
+
 ## 3. Status of the eight existing days against this draft
 
 **Since 2026-10-28 Days 9 to 16 run inside `ux-lab/`** as their *original idea*, at `/day/N/original/` (code in `ux-lab/original/` and `ux-lab/app/(original-*)`, moved from `playground-ux/` without content changes; `verify:original` and `verify:original-day9` check them). **Day 9's lab version is built (2026-10-28, section 2.14)**; for Days 10 to 16 the lab's own page (`/day/N/`) says that the lab version is not built yet and opens the original idea; once a day is rebuilt to this standard, its original idea stays reachable under the day's home (it is not deleted). `playground-ux/` is parked. Each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
@@ -288,6 +300,7 @@ Day 1 (`components/day1/arc.tsx`): a 50 ms first-impression test before A1 (kept
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-09 | New rule 2.22: no question is required; a block goes into the export when it holds an answer, with a tick list per block and a Google Doc worksheet for every task block (1.1, 1.2, 2.1, 3.1). Built for Days 2 to 5; 8 new worksheets (1.1 and 1.2). | Days 2 to 5; Days 6 to 16 on request |
 | 2026-11-07 | New rule 2.21: a day's Materi is one learning arc, each device (animation, try it yourself, a surprising finding, discussion, reflection) where it fits; lab model runs in a "Model run" box under the stress tests. Day 1 built: 50 ms test, A2 bottom-up/top-down run, A3 habit trap, A4 first second and the 50 ms choice explained, A5 reflection, B1 steering line with EU law, B2 role cards, B3 look back. | Day 1; Days 2 to 5 next |
 | 2026-11-04 | New rule 2.20: the lab is bilingual (EN \| DE), English first and German plain; dictionary `data/de`, tools `scripts/de-tool.ts`, German voice commands on Day 11. Learner texts of Days 1 to 16 are translated; the facilitator-only texts are a second pass. | Days 1 to 16 |
 | 2026-11-03 | New rule 2.19: long task texts are set as short paragraphs, options on their own lines and conditions as bullets, without changing a word (`Prose`, 112 texts of 16 days, Word documents rebuilt). | Days 1 to 16 |

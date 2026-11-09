@@ -1,4 +1,4 @@
-import { blockComplete, blockKey, blocksOf, sliceOf } from "@/lib/dayFree/model";
+import { blockComplete, blockHasContent, blockKey, blocksOf, sliceOf } from "@/lib/dayFree/model";
 import type { FreeSpec } from "@/lib/dayFree/spec";
 import type { MaterialMeta } from "@/data/materialTypes";
 import type { RouteNo } from "@/data/course";
@@ -8,8 +8,9 @@ import type { Persisted } from "@/store/useStore";
 export function freeTaskBlocks(p: Persisted, spec: FreeSpec): Record<string, boolean> {
   const s = sliceOf(p, spec.day);
   const out: Record<string, boolean> = {};
-  for (const b of blocksOf(spec, 1)) out[blockKey(b.id)] = blockComplete(b, s.r1);
-  out[blockKey(spec.block2.id)] = blockComplete(spec.block2, s.r2);
+  const done = spec.optionalAll ? blockHasContent : blockComplete;
+  for (const b of blocksOf(spec, 1)) out[blockKey(b.id)] = done(b, s.r1);
+  out[blockKey(spec.block2.id)] = done(spec.block2, s.r2);
   return out;
 }
 

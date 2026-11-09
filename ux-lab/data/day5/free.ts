@@ -19,6 +19,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 5,
+  optionalAll: true,
   caseName: "MoveEasy",
   role: "Chief Experience Officer",
   heading: t("Day 5 · Fitts, Hick and Miller in practice"),
@@ -165,6 +166,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of BankDirect directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1AYtStV4Q-egO_IL6fkD6xUJtkRXKkrzYFtHpdX4dSSo",
       doc: t("1.1 · Interaction hurdles (BankDirect)"),
       lead: t(
         "You receive the description of a fictional customer portal, BankDirect, for transfers, card management and contract services. Open it, on the desktop and on a phone, and try to start a transfer as a customer would.\n\nYou need no prior knowledge: notice where you are slow, unsure or close to a mistake. The aim is to recognise the three UX laws in concrete problems of use and to describe their effect step by step.",
@@ -336,6 +338,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three AdminFlow variants below, then the five questions."),
       refs: ["A1", "A2", "A3", "A5"],
       minutes: 8,
+      sharedDocId: "1-ZoYqnKrmWNJ2bCPifSDjtBgVN04YOlCXAsLdPYXUZ8",
       doc: t("1.2 · Rate navigation concepts under conflicting goals (AdminFlow)"),
       lead: t(
         "AdminFlow is an administration platform.\n\nThree variants for its main navigation are described in words:\nA) all functions visible at a glance, so a high access to functions, but many options at once\nB) the central tasks are large and easy to reach, while rare functions lie deeper in submenus\nC) a modern, minimalist layout with few visible options, but many steps to the actual action\n\nThe conditions:\n• the target group is frequent and occasional users\n• the department demands that all functions are visible\n• IT wants to manage with little rework\n• mobile use is rising strongly\n• the release is in 7 weeks\n• only limited user test data exists\n\nDecide anyway, and say what you assume.",

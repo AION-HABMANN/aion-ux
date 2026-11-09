@@ -20,6 +20,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 3,
+  optionalAll: true,
   caseName: "SecureLife",
   role: "Chief Experience Officer",
   heading: t("Day 3 · Colour, typography and readability"),
@@ -165,6 +166,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of TravelEase directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1o_EQgu9MVHBAUEZ_HuucZckHTOQScsA76O-MRibT4EA",
       doc: t("1.1 · The effect of colour and type (TravelEase)"),
       lead: t(
         "You receive the description of a fictional customer portal, TravelEase, for travel bookings and rebookings. Open it and use it as a traveller who wants to change a booking.\n\nYou need no prior knowledge: say first how it feels, then what makes it hard. The aim is to recognise perception and readability problems step by step and to describe the effect before the technical terms.",
@@ -350,6 +352,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three HealthConnect designs below, then the five questions."),
       refs: ["A1", "A3", "A5"],
       minutes: 8,
+      sharedDocId: "1vLnNcjoskAKbY6P4OVwYq5v_RiduHEXVcFIFw88BNsA",
       doc: t("1.2 · Rate colour and type decisions under conflicting goals (HealthConnect)"),
       lead: t(
         "HealthConnect is a health platform.\n\nThree designs for its interface are described in words:\nA) strong brand colours and a high recognition value, but low contrast on central information\nB) very factual and high in contrast, highly readable, but with little emotional appeal\nC) modern, elegant typography with a high-quality effect, but smaller type sizes and less visible navigation items\n\nThe conditions:\n• the platform is for a broad target group from 20 to 70 years\n• the company wants to look modern and trustworthy\n• the budget for the revision is limited\n• the corporate design may only partly be changed\n• there are no user tests yet\n• the release is in 8 weeks\n\nDecide anyway, and say what you assume.",

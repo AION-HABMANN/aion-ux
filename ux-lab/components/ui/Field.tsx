@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import { glossify } from "@/lib/glossify";
 import { tt } from "@/lib/lang";
+import { softHelp, useSoft } from "@/components/ui/soft";
 
 
 /**
@@ -35,6 +36,8 @@ export function Field({
   onShowClue?: () => void;
   meta?: ReactNode;
 }) {
+  const soft = useSoft();
+  if (soft && typeof help === "string") help = softHelp(help);
   return (
     <div id={id} className={clsx("space-y-1.5 p-1", flagged && "is-flagged")}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">

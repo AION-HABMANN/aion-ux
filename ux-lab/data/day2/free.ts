@@ -19,6 +19,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 2,
+  optionalAll: true,
   caseName: "CampusNow",
   role: "Chief Experience Officer",
   heading: t("Day 2 · Visual perception and user-centred design"),
@@ -164,6 +165,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of CityDesk directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1szDbo_mnkIjpNRROrDy96RQpSZPGWKQlkvNC7vNGs24",
       doc: t("1.1 · Read an interface as a user (CityDesk)"),
       lead: t(
         "You receive the description of a fictional booking portal, CityDesk, for municipal services such as an appointment at the citizens' office or a parking permit. Open it and use it as someone who has never seen it before.\n\nYou need no prior knowledge: ask yourself where your eye goes, what you would look for and what stops you. The aim is to take the user's perspective and make perception problems visible step by step.",
@@ -353,6 +355,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three EduFlex start pages below, then the five questions."),
       refs: ["A1", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1BuuWs1FOAb6Ybeg_Xl31n0Uc33ueIxzfWkPScs7u5qk",
       doc: t("1.2 · Rate user-centred design under conflicting goals (EduFlex)"),
       lead: t(
         "EduFlex is a platform for professional further education.\n\nThree designs for its start page are described in words:\nA) much content directly visible and a high volume of information, but little visual calm\nB) a clear structure and less information, but more clicks to the goal\nC) strongly image-led and modern, but the central functions recede into the background\n\nThe conditions:\n• the platform is to be published within 10 weeks\n• the target group is working people with little time\n• marketing wants high activation\n• the department wants a lot of information directly on the start page\n• the budget for test runs is limited and there is no real user data yet\n\nDecide anyway, and say what you assume.",

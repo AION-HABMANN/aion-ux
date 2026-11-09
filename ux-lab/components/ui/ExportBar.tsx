@@ -24,6 +24,7 @@ export function ExportBar({
   missing,
   buildBody,
   showPreview = true,
+  nothing,
 }: {
   id: string;
   previewTitle: string;
@@ -34,9 +35,12 @@ export function ExportBar({
   buildBody: () => string;
   /** Off when the page already shows the same document live (the memo builder). */
   showPreview?: boolean;
+  /** UX-STANDARD 2.22: nothing is chosen for the export, so a click explains that instead of downloading an empty file. */
+  nothing?: boolean;
 }) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [tick, setTick] = useState(0);
+  const [nothingTick, setNothingTick] = useState(0);
   const open = missing.length > 0;
 
   // Every time Export/Print is pressed while something is open, flash the first entry so the eye lands on it.
@@ -47,6 +51,10 @@ export function ExportBar({
   }, [open, tick, id]);
 
   const run = (kind: "download" | "print") => {
+    if (nothing) {
+      setNothingTick((t) => t + 1);
+      return;
+    }
     if (missing.length > 0) {
       setTick((t) => t + 1);
       window.setTimeout(() => document.getElementById(`${id}-panel`)?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 30);
@@ -84,6 +92,15 @@ export function ExportBar({
           <span className="tnum font-semibold text-ink">{filename}.html</span>
         </span>
       </div>
+
+      {nothing && nothingTick > 0 && (
+        <p role="status" className="fade-in card border-line bg-canvas p-3 text-caption text-ink">
+          {tt(
+            "There is nothing to export yet: no block is ticked and none holds an answer. Write in a block here, or tick one above, and export again. A block you write in its Google Doc stays out of this file.",
+            "Es gibt noch nichts zu exportieren: Kein Block ist angehakt und keiner enthält eine Antwort. Schreiben Sie in einem Block hier oder haken Sie oben einen an und exportieren Sie erneut. Ein Block, den Sie in seinem Google-Dokument schreiben, bleibt außerhalb dieser Datei.",
+          )}
+        </p>
+      )}
 
       {open && (
         <div id={`${id}-panel`} role="status" aria-label={tt("Still missing before export", "Noch offen vor dem Export")} className="fade-in card border-rust/40 bg-rustSoft p-4">

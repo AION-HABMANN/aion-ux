@@ -7,9 +7,10 @@
 import { materialsOf } from "../data/materialRegistry";
 import { GLOSSARY, GLOSS_LOOKUP } from "../data/glossary";
 import { freeAnalysisBody, freeMemoBody } from "../lib/dayFree/exportDoc";
-import { freeMissing } from "../lib/dayFree/missing";
+import { freeMissing, freeMissingStrict } from "../lib/dayFree/missing";
 import { guideOf, freeRouteKey } from "../lib/dayFree/mentor";
-import { blocksOf, emptyFreeRoute, fieldsOf, listLines } from "../lib/dayFree/model";
+import { blockHasContent, blocksOf, emptyFreeRoute, fieldsOf, listLines, sliceOf } from "../lib/dayFree/model";
+import { softHelp } from "../components/ui/soft";
 import { freeDossier, freeTaskBlocks } from "../lib/dayFree/progress";
 import type { FreeField, FreeSpec, GuideSpec } from "../lib/dayFree/spec";
 import { MENTOR_PASSCODE } from "../lib/mentorKey";
@@ -91,23 +92,44 @@ for (const day of want) {
 
     // 2 · from empty: a named, finite missing list in each route
     const p0 = base();
-    const m1 = freeMissing(p0, spec, 1);
-    const m2 = freeMissing(p0, spec, 2);
+    const m1 = freeMissingStrict(p0, spec, 1);
+    const m2 = freeMissingStrict(p0, spec, 2);
     ok(m1.length > 0 && m1.every((m) => m.label.length > 12 && m.id.length > 0), `Route 1 from empty names ${m1.length} concrete items`);
     ok(m2.filter((m) => /^Block 3\.1:/.test(m.label)).length >= 6 && m2.every((m) => m.label.length > 12), "Route 2 from empty names the items of Block 3.1");
     ok(m1.every((m) => /^(Block (1\.1|1\.2|2\.1):)|^[A-Z]/.test(m.label)), "every Route 1 entry names one of the three blocks");
 
     // 3 · the model answers empty every list and complete every block
     const p1 = withKey(spec);
-    ok(freeMissing(p1, spec, 1).length === 0 && freeMissing(p1, spec, 2).length === 0, "the model answers leave nothing missing in either route");
+    ok(freeMissingStrict(p1, spec, 1).length === 0 && freeMissingStrict(p1, spec, 2).length === 0, "the model answers leave nothing missing in either route");
     ok(Object.values(freeTaskBlocks(p1, spec)).every(Boolean) && Object.keys(freeTaskBlocks(p1, spec)).length === 4, "every task block is complete after the model fill");
+    // 3b · UX-STANDARD 2.22: a day with no required question
+    if (spec.optionalAll) {
+      ok(freeMissing(p0, spec, 1).length === 0 && freeMissing(p0, spec, 2).length === 0, "nothing is required: the learner-facing missing list is empty from a blank start");
+      ok(Object.values(freeTaskBlocks(p0, spec)).every((v) => !v), "a blank block is not counted as done");
+      const pa = JSON.parse(JSON.stringify(p0)) as Persisted;
+      const b11 = spec.blocks1[0];
+      const b12 = spec.blocks1[1];
+      const ft = b11.fields.find((f) => f.kind === "text");
+      if (ft) sliceOf(pa, day).r1.text[ft.id] = "A first thought, short.";
+      ok(blockHasContent(b11, sliceOf(pa, day).r1) && !blockHasContent(b12, sliceOf(pa, day).r1), "one short answer makes only its own block count");
+      ok(freeTaskBlocks(pa, spec)[`b${b11.id.replace(".", "")}`] === true && freeTaskBlocks(pa, spec)[`b${b12.id.replace(".", "")}`] === false, "progress follows the same rule");
+      const only11 = freeAnalysisBody(pa, spec, new Set([b11.id]));
+      ok(only11.includes(b11.doc) && !only11.includes(b12.doc), "an export of Block 1.1 alone holds 1.1 and not 1.2");
+      ok(only11.includes("A first thought, short."), "the short answer is printed as written");
+      ok(!freeAnalysisBody(pa, spec, new Set<string>()).includes("<h3>"), "an export with no block ticked prints no block");
+      const memoOff = freeMemoBody(pa, spec, new Set<string>());
+      ok(!memoOff.includes(spec.block2.fields[0].label), "the memo with Block 3.1 unticked prints no question");
+      ok(softHelp("Say it. At least 60 characters.") === "Say it." && softHelp("One row each. At least 2 complete rows.") === "One row each." && softHelp("Schreiben Sie. Mindestens 60 Zeichen.") === "Schreiben Sie.", "the minimum sentences are cut from the help texts in both languages");
+      ok(fieldsOf(spec, 1).concat(fieldsOf(spec, 2)).every((f) => f.kind !== "text" || softHelp(f.help).length > 15), "every text help still says something after the minimum is cut");
+    }
+
     const mats = materialsOf(day);
     ok(freeDossier(p1, spec, mats.MATERIALS, 1).total === mats.MATERIALS.filter((x) => x.block === "A" && !x.optional).length + 3 && freeDossier(p1, spec, mats.MATERIALS, 2).total === mats.MATERIALS.filter((x) => x.block === "B" && !x.optional).length + 1, "progress totals count the cards and the task blocks");
 
     // 4 · every list and every assessment: layout by layout
     for (const f of f1.concat(f2)) {
       const route: 1 | 2 = f1.includes(f) ? 1 : 2;
-      const miss = (p: Persisted) => freeMissing(p, spec, route);
+      const miss = (p: Persisted) => freeMissingStrict(p, spec, route);
       if (f.kind === "lists") {
         const table = withKey(spec, (r) => route === 1 && (r.modes[f.id] = "table"), (r) => route === 2 && (r.modes[f.id] = "table"));
         ok(miss(table).length === 0, `list ${f.id}: the model table leaves nothing missing in the table layout`);
@@ -160,7 +182,7 @@ for (const day of want) {
       if (f.kind !== "text" || !f.table) continue;
       const route: 1 | 2 = f1.includes(f) ? 1 : 2;
       const T = f.table;
-      const miss = (p: Persisted) => freeMissing(p, spec, route);
+      const miss = (p: Persisted) => freeMissingStrict(p, spec, route);
       const mode = (r: ReturnType<typeof freeRouteKey>) => (r.modes[f.id] = "table");
       const only = (fn: (r: ReturnType<typeof freeRouteKey>) => void) => withKey(spec, route === 1 ? fn : undefined, route === 2 ? fn : undefined);
       ok(miss(only(mode)).length === 0, `text ${f.id}: the model table leaves nothing missing in the table layout`);

@@ -176,6 +176,8 @@ export type Brief = {
 
 export type FreeSpec = {
   day: number;
+  /** UX-STANDARD 2.22: no question is required. A block counts for the export when it has any answer, so a block written in its Google Doc is simply left out. */
+  optionalAll?: boolean;
   caseName: string;
   role: string;
   heading: string;

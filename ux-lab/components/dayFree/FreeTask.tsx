@@ -11,6 +11,9 @@ import { ExportBar } from "@/components/ui/ExportBar";
 import { CaseKnown } from "@/components/ui/CaseKnown";
 import { FacilitatorCard } from "@/components/ui/FacilitatorCard";
 import { Field } from "@/components/ui/Field";
+import { BlockExportStatus, ExportChoice, useIncluded } from "@/components/dayFree/ExportChoice";
+import type { Included } from "@/components/dayFree/ExportChoice";
+import { SoftProvider } from "@/components/ui/soft";
 import { FormOrTable, GridTable, CellField, LayoutLink } from "@/components/ui/FormOrTable";
 import type { TableGuide } from "@/components/ui/FormOrTable";
 import { FrameTable, RowsTable } from "@/components/ui/RowsTable";
@@ -44,7 +47,7 @@ import { Prose } from "@/components/ui/Prose";
  * day's kit plugs in through slots.
  */
 
-type Ctx = { spec: FreeSpec; kit: FreeKit; route: 1 | 2 };
+type Ctx = { spec: FreeSpec; kit: FreeKit; route: 1 | 2; inc?: Included };
 
 function useRoute(spec: FreeSpec, route: 1 | 2) {
   const key = `d${spec.day}`;
@@ -361,6 +364,8 @@ function ListsView({ ctx, f, r, patch, mentor, head, setMode }: { ctx: Ctx; f: L
 
 function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: MissingEntry[] }) {
   const { kit } = ctx;
+  const { r: blockR } = useRoute(ctx.spec, ctx.route);
+  const open = !!ctx.spec.optionalAll && !!ctx.inc;
   return (
     <AnswerBlock id={`block-${b.id.replace(".", "-")}`} title={b.title} kind="JUDGED" core minutes={b.minutes} findIt={b.findIt}>
       <MaterialRefs refs={b.refs} />
@@ -369,10 +374,15 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
         <div className="max-w-prose rounded-lg border border-line bg-canvas p-3 text-caption" id="shared-doc">
           <p className="text-body font-semibold text-ink">{tt("Google Docs worksheet", "Arbeitsblatt in Google Docs")}</p>
           <p className="mt-1 text-ink">
-            {tt(
-              "The questions of this block as a Google Doc, with the case, the steps and an example, if you would rather write there. Make your own copy (File → Make a copy). You can also type your answers here in the lab; the export uses what is typed here.",
-              "Die Fragen dieses Blocks als Google-Dokument, mit Fall, Schritten und einem Beispiel, falls Sie lieber dort schreiben. Legen Sie eine eigene Kopie an (Datei → Kopie erstellen). Sie können die Antworten auch hier im Lab eintragen; der Export verwendet, was hier steht.",
-            )}
+            {open
+              ? tt(
+                  "The questions of this block as a Google Doc, with the case, the steps and an example, if you would rather write there. Make your own copy (File → Make a copy). You may write this block in the Doc or here in the lab, and you may mix them from block to block. The lab's export holds only what is written here; a block you write in the Doc is handed in as its own Doc link.",
+                  "Die Fragen dieses Blocks als Google-Dokument, mit Fall, Schritten und einem Beispiel, falls Sie lieber dort schreiben. Legen Sie eine eigene Kopie an (Datei → Kopie erstellen). Sie können diesen Block im Dokument oder hier im Lab schreiben und von Block zu Block mischen. Der Export des Labs enthält nur, was hier steht; einen Block, den Sie im Dokument schreiben, geben Sie als eigenen Dokument-Link ab.",
+                )
+              : tt(
+                  "The questions of this block as a Google Doc, with the case, the steps and an example, if you would rather write there. Make your own copy (File → Make a copy). You can also type your answers here in the lab; the export uses what is typed here.",
+                  "Die Fragen dieses Blocks als Google-Dokument, mit Fall, Schritten und einem Beispiel, falls Sie lieber dort schreiben. Legen Sie eine eigene Kopie an (Datei → Kopie erstellen). Sie können die Antworten auch hier im Lab eintragen; der Export verwendet, was hier steht.",
+                )}
           </p>
           <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
             <a href={`https://docs.google.com/document/d/${b.sharedDocId}/copy`} target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-dotted underline-offset-2 hover:text-accentHi">
@@ -392,7 +402,7 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
       {b.fields.map((f) => (
         <FieldView key={f.id} ctx={ctx} f={f} />
       ))}
-      <BlockMissing block={b.id} missing={missing} />
+      {open ? <BlockExportStatus b={b} r={blockR} inc={ctx.inc!} /> : <BlockMissing block={b.id} missing={missing} />}
     </AnswerBlock>
   );
 }
@@ -403,8 +413,11 @@ export function FreeTask1({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
   const p = usePersisted();
   const missing = freeMissing(p, spec, 1);
   const filename = exportName(p.participant.name, spec.day, 1);
-  const ctx: Ctx = { spec, kit, route: 1 };
+  const open = !!spec.optionalAll;
+  const inc = useIncluded(spec.blocks1, sliceOf(p, spec.day).r1, open);
+  const ctx: Ctx = { spec, kit, route: 1, inc };
   return (
+    <SoftProvider value={open}>
     <section id="task-1" aria-labelledby="task1-h" className="space-y-6">
       <header className="space-y-1">
         <p className="smallcaps text-accent">{tt(`Task 1 · ${spec.blocks1.length} blocks`, `Task 1 · ${spec.blocks1.length} Blöcke`)}</p>
@@ -424,6 +437,7 @@ export function FreeTask1({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
             ))}
         </div>
       ))}
+      {open && <ExportChoice blocks={spec.blocks1} r={sliceOf(p, spec.day).r1} inc={inc} />}
       <ExportBar
         id="export-l1l2"
         previewTitle={tt("Preview of your UX Analysis File", "Vorschau Ihrer UX Analysis File")}
@@ -431,7 +445,8 @@ export function FreeTask1({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
         docTitle="UX Analysis File"
         filename={filename}
         missing={missing}
-        buildBody={() => freeAnalysisBody(p, spec)}
+        nothing={open && inc.ids.size === 0}
+        buildBody={() => freeAnalysisBody(p, spec, open ? inc.ids : undefined)}
       />
       <p className="text-caption text-ash print:hidden">
         {tt("Suggested next: ", "Empfohlen als Nächstes: ")}
@@ -441,6 +456,7 @@ export function FreeTask1({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
         {tt("It is only a suggestion; nothing is locked.", "Das ist nur eine Empfehlung; nichts ist gesperrt.")}
       </p>
     </section>
+    </SoftProvider>
   );
 }
 
@@ -474,9 +490,11 @@ export function FreeTask2({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
   const p = usePersisted();
   const missing = freeMissing(p, spec, 2);
   const filename = exportName(p.participant.name, spec.day, 2);
-  const ctx: Ctx = { spec, kit, route: 2 };
-  void sliceOf;
+  const open = !!spec.optionalAll;
+  const inc = useIncluded([spec.block2], sliceOf(p, spec.day).r2, open);
+  const ctx: Ctx = { spec, kit, route: 2, inc };
   return (
+    <SoftProvider value={open}>
     <div className="space-y-6">
       <header className="space-y-1">
         <p className="smallcaps text-accent">{tt("Task 2 · one block", "Task 2 · ein Block")}</p>
@@ -491,7 +509,9 @@ export function FreeTask2({ spec, kit }: { spec: FreeSpec; kit: FreeKit }) {
           <FacilitatorCard key={c.id} id={c.id} ariaLabel={c.ariaLabel} openLabel={c.openLabel} hideLabel={c.hideLabel} sections={c.sections} />
         ))}
       <MemoPanel spec={spec} />
-      <ExportBar id="export-l3" previewTitle="" showPreview={false} exportLabel={tt("Export the UX Strategy Memo", "UX Strategy Memo exportieren")} docTitle="UX Strategy Memo" filename={filename} missing={missing} buildBody={() => freeMemoBody(p, spec)} />
+      {open && <ExportChoice blocks={[spec.block2]} r={sliceOf(p, spec.day).r2} inc={inc} />}
+      <ExportBar id="export-l3" previewTitle="" showPreview={false} exportLabel={tt("Export the UX Strategy Memo", "UX Strategy Memo exportieren")} docTitle="UX Strategy Memo" filename={filename} missing={missing} nothing={open && inc.ids.size === 0} buildBody={() => freeMemoBody(p, spec, open ? inc.ids : undefined)} />
     </div>
+    </SoftProvider>
   );
 }
