@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day13/reference";
 
 /**
@@ -446,10 +446,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: an inclusive prototype for the service portal LifeGuide"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "16usAiqE3UzMkYwHTcCBU9RK_cugPOcCOyvuHK5h4iTw",
+      minutes: 40,
+      sharedDocId: "1lCcueUcYphJ9qrj53TYUAuPR_OgDKrNpwHSmuXqZ5bM",
       doc: t("2.1 · Case study: LifeGuide"),
       lead: t(
         "A digital portal for health, counselling and support offers is to be reworked for a very diverse group of users.\n\nFirst feedback shows that people with concentration difficulties, sensory sensitivity and reading hurdles in particular have problems with orientation, stimulus density and comprehensibility.\n\nThe organisation wants a more inclusive experience and to prepare first usability tests on the basis of a prototype.\n\nThe observed problems:\n• many simultaneous stimuli and competing information areas on central pages\n• inconsistent navigation patterns and low predictability\n• texts that are correct in content but hard to access in language and typography\n• long forms with little supportive structure\n• error messages and feedback that help too little in stressful situations\n• no options to reduce stimuli or simplify the display\n\nThe conditions:\n• a budget of €175,000\n• 14 weeks for the implementation\n• no complete relaunch\n• the platform must stay usable for broad groups\n• only limited test data from different groups exists\n• first prototypes are to be tried soon\n\nYou work through six steps; step 5 is the start of the practice project.",
@@ -457,7 +457,7 @@ export const SPEC = defineSpec({
       slots: ["lifeguide"],
       fields: [
         listsField({
-          id: "lgProblems", q: [1, 6],
+          id: "lgProblems", q: [1, 7],
           label: "Analyse the central deficits of the portal with a view to neurodiverse use",
           steps: ["Open LifeGuide as someone looking for support: find a counselling offer, book an appointment, fill in the form with a mistake, and switch on any option to reduce stimuli you can find.", "Write one deficit per line, and what it does."],
           refs: [ref("LifeGuide today", "stimuli · navigation · text · forms · stressful feedback · no options", "slot-lifeguide"), ref("Different minds, different loads (Materi A1)", "the load factors", "mat-A1", "A1")],
@@ -488,7 +488,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "lgCats", q: [2, 6],
+          id: "lgCats", q: [2, 7],
           label: "Assign the problems to the categories stimulus load, readability, predictability, task structure, error tolerance and adaptability",
           helpText: "Write the problems that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the LifeGuide problems that belong to it.",
@@ -522,7 +522,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to six categories: stimulus load, readability, predictability, task structure, error tolerance and adaptability. The six observed problems map onto them closely; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names a problem of LifeGuide."] },
         }),
         listsField({
-          id: "lgMeasures", q: [3, 6],
+          id: "lgMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €175,000, without a relaunch.", "Put them in order: what lowers mental load and exclusion first."],
           refs: [ref("Inclusive patterns (Materi A5)", "effect · inclusion · feasibility · risk · time", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "lgCats-field")],
@@ -550,8 +550,13 @@ export const SPEC = defineSpec({
             { measure: "Optional adaptation modes and inclusive patterns in the prototype", changes: "They can adapt it to their needs" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "lgMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows one LifeGuide page with a single column, one main message and one main action, white space around them, and the extras folded under “More”. This screen removes problem 1 (stimulus density and competing information) and problem 2 (inconsistent patterns), because people who are easily overloaded can take in one thing at a time.",
+          example: "A health portal: a sketch of the start page with one column, one headline, one button and the rest behind “More information”. It removes “too many things pull at me at once”, because the page offers one thing at a time.",
+        }),
         textField({
-          id: "lgJustify", q: [4, 6],
+          id: "lgJustify", q: [5, 7],
           label: "Justify your selection using effect on users, gain for inclusion, feasibility, risk and time pressure",
           help: "Use all five criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -577,7 +582,7 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "lgPrototype", q: [5, 6],
+          id: "lgPrototype", q: [6, 7],
           label: "Sketch an inclusive prototype approach and name which functions or patterns should be tested first",
           help: "Say what the first prototype contains, which functions or patterns you test first, what you watch for, which situations you simulate and how you evaluate. At least 100 characters.",
           min: 100, rows: 6,
@@ -602,13 +607,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "lgRec", q: [6, 6],
+          id: "lgRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change."],
-          refs: [ref("Your prototype approach (question 5)", "above", "lgPrototype-field")],
+          refs: [ref("Your prototype approach (question 6)", "above", "lgPrototype-field")],
           model: "We recommend treating neurodiverse requirements not as a special solution but as a strategic driver of better UX architecture. Calm base structures, consistent patterns, better readability and adaptation options tested in the prototype have priority, because these measures have the greatest effect on inclusion, usability and product quality that is safe for the reputation.",
           example: "A museum app: we recommend a calm, consistent base first and a tested quiet mode next; fewer visitors leaving the app will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends neurodiverse requirements as a strategic driver of better UX architecture, with calm base structures, consistent patterns, readability and prototype-tested adaptation options as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

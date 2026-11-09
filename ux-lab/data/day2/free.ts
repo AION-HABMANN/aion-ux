@@ -500,11 +500,11 @@ export const SPEC = defineSpec({
       title: t("Block 2.1 · Case study: reorganising the service portal CampusNow"),
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1uFKYAIDV5A1YyxCZPFo8TMMQhUv9y59Tf8QZuAWxdYE",
+      minutes: 40,
+      sharedDocId: "1Xxhg89Dn6l74EgYAqNC_hK4LgNGztV2k72oC_z8_TMM",
       doc: t("2.1 · Case study: CampusNow"),
       lead: t(
-        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through seven steps.",
+        "An education organisation runs CampusNow, a digital portal for course booking, certificates, dates and learning materials. All the content is there, but users find many functions only with difficulty.\n\nComplaints are rising, abandonment in the booking process is increasing, and mobile use is especially problematic.\n\nThe observed problems:\n• the start page is overloaded with information\n• the navigation items are named after the internal organisation\n• important functions are not visually prioritised\n• different page types use different structures\n• the text blocks are long and hard to scan\n• users often have to search instead of being guided directly\n\nThe conditions:\n• a budget of €150,000\n• 14 weeks for the implementation\n• no complete relaunch\n• first improvements have to be visible quickly\n• marketing asks for a modern look\n• support for fewer questions and IT for standardisation\n\nYou work through six steps.",
       ),
       slots: ["campusnow"],
       fields: [
@@ -619,8 +619,8 @@ export const SPEC = defineSpec({
         }),
         sketchField({
           q: [4, 7], measuresId: "campusMeasuresText", measuresQ: 3, problemsQ: 1,
-          model: "Link: your own. The sketch shows the CampusNow start page redrawn: one box labelled “Book a course” sits alone at the top, clearly larger than the rest; certificates, dates and materials sit below it in one plain list. This screen removes problem 2 (important functions not visually prioritised) and problem 1 (too much information at once), because users see one clear first step instead of many equal blocks.",
-          example: "A doctor's practice website: a sketch of the start page with “Book an appointment” as the one large button at the top, and news, hours and forms folded into a short list below. It removes “patients do not see where to book”, because one action stands out from the rest.",
+          model: "Link: your own. The sketch shows the CampusNow start page with three big tasks at the top (find a course, see my timetable, contact the office), everything else folded into one “More” menu, and the search box where the eye lands first. This screen removes problem 2 (no visual prioritisation) and problem 1 (too much at once), because students see the few things they came for and stop searching.",
+          example: "A library website: a sketch of the start page with one large “Renew my loans” button and the search box, and the event banner shrunk to one line. It removes “what most visitors need is not seen”, because the first strong shape is now the main task.",
         }),
         assessField({
           id: "campusRate", q: [5, 7],

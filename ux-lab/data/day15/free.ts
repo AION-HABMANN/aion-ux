@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day15/reference";
 
 /**
@@ -451,10 +451,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: an evaluation strategy for the UX research project VisionMind Lab"),
-      findIt: t("Route 1 → Task 1 → the situation and the research board below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the research board below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1q8DXxI5SNNEP-Y4-JkMIZuD-nfkcd79wFPBqga3dUug",
+      minutes: 40,
+      sharedDocId: "1SlKnax9SyiqzH7wjFT2X8S_oyDlcPvUOzUT5LsvOwXM",
       doc: t("2.1 · Case study: VisionMind Lab"),
       lead: t(
         "A company wants to extend its UX research and is examining eye-tracking, neurofeedback and first brain-computer interface concepts to optimise a complex service portal.\n\nThe aim is to understand attention paths better, to recognise overload and, in the long run, to open up new forms of interaction.\n\nInside there is great excitement about what can be measured; at the same time, experience with interpreting the data, ethics governance and product-near evaluation criteria is missing.\n\nThe observed problems:\n• research, innovation and product optimisation are mixed without a clear separation\n• a high gain in insight is hoped for without hypotheses and limits being clearly defined\n• it is unclear which methods can be used near the product and which only for exploration\n• data protection, consent and acceptance are not yet addressed enough\n• departments want fast results although the methods need much explanation and interpretation\n• there is no robust governance for neuro-based research\n\nThe conditions:\n• a budget of €240,000 for research, piloting and evaluation\n• 18 weeks for the first pilot and decision phase\n• the company wants to appear innovative but must not create trust risks\n• product integration is only realistic to a limited extent in the short term\n• there is little data in its own market\n• first insights must be prepared for management\n\nYou work through six steps.",
@@ -462,7 +462,7 @@ export const SPEC = defineSpec({
       slots: ["visionmind"],
       fields: [
         listsField({
-          id: "vmProblems", q: [1, 6],
+          id: "vmProblems", q: [1, 7],
           label: "Analyse the central chances and risks of the research project",
           steps: ["Open VisionMind Lab's research board, the first heatmap and the requests from the departments.", "Write one point per line: a chance or a risk, and what it does."],
           refs: [ref("VisionMind Lab's research board", "mixed tracks · no hypotheses · consent open · fast results · no governance", "slot-visionmind"), ref("Insight, risk and decision relevance (Materi A4)", "research, experiment, product", "mat-A4", "A4")],
@@ -493,7 +493,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "vmCats", q: [2, 6],
+          id: "vmCats", q: [2, 7],
           label: "Assign the observations to the categories insight value, validity, ethics, data protection, market proximity and decision readiness",
           helpText: "Write the observations that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the VisionMind Lab observations that belong to it.",
@@ -527,7 +527,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the observations to six categories: insight value, validity, ethics, data protection, market proximity and decision readiness. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names an observation of VisionMind Lab."] },
         }),
         listsField({
-          id: "vmMeasures", q: [3, 6],
+          id: "vmMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for a responsible pilot and evaluation strategy",
           steps: ["Turn each group of problems into something you could do within 18 weeks and €240,000, with limited product integration.", "Put them in order: what gives scientific and operational robustness first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect · feasibility · risk · time · reputation", "mat-A5", "A5"), ref("Insight, risk and decision relevance (Materi A4)", "fund the question", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "vmCats-field")],
@@ -555,8 +555,13 @@ export const SPEC = defineSpec({
             { measure: "An evaluation grid for insight maturity and relevance", changes: "Only traceable results reach strategy" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "vmMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows a one-page project map of the VisionMind Lab with three lanes (exploratory research, UX analysis, product decision), what each lane may and may not conclude, and one arrow showing where a finding may cross over. This screen removes problem 1 (research and product decisions are not separated) and problem 2 (the meaning of neuro-based data is overestimated), because every result has a place and a limit.",
+          example: "A bank's test lab: a sketch with two lanes, “we are exploring” and “we decide to build”, and a note on the arrow between them: “only after a second method confirms”. It removes “a heatmap was treated as proof”, because the arrow sets a condition.",
+        }),
         textField({
-          id: "vmJustify", q: [4, 6],
+          id: "vmJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk, time pressure and reputation security",
           help: "Use all five criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -582,13 +587,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "vmDecide", q: [5, 6],
+          id: "vmDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 18 weeks",
           help: "Say what you do in the first 18 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 18 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say what management will see at the end."],
-          refs: [ref("Your justification (question 4)", "above", "vmJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "vmJustify-field")],
           model: "In weeks 1 to 4 we separate the three tracks, write the consent and data protection framework with the data protection officer, and write hypotheses for the portal's two worst tasks. In weeks 5 to 14 we run lab eye-tracking studies on those tasks with consenting volunteers and retrospective interviews, and one small exploratory neurofeedback study on overload, clearly marked as research. In parallel the evaluation grid for insight maturity is built and tried on the first findings. In weeks 15 to 18 we grade the findings and present to management what is robust, what is promising and what is not known. The overload score in the portal and the BCI trade-fair concept wait.",
           example: "A supermarket: four weeks for rules and questions, ten weeks of checkout tests with testers, a grade for each finding, four weeks to report; the mood tracking waits.",
           guide: { why: "The plan asks for a prioritisation decision for the first 18 weeks. Any order defends if it follows from the justification; the Musterlösung starts with separating the tracks and hypothesis-based pilots because they create robustness.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says what management will see."] },
@@ -605,13 +610,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "vmRec", q: [6, 6],
+          id: "vmRec", q: [7, 7],
           label: "Formulate a recommendation to the division head",
           help: "Three to five sentences: what you recommend, what has priority, and what you hope will change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division head",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you hope will change."],
-          refs: [ref("Your decision (question 5)", "above", "vmDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "vmDecide-field")],
           model: "We recommend treating eye-tracking, neurofeedback and BCI-near approaches not as direct levers for the product, but first as a carefully steered research and insight architecture. Hypothesis-based piloting, a binding ethics and data protection framework, and clear criteria for insight maturity and management relevance have priority, because these measures do the most for robust innovation and for decisions that protect the company's reputation.",
           example: "A supermarket: we recommend focused eye-tracking tests with clear consent and a grade for every finding, before any mood tracking; the board will see evidence instead of a heatmap.",
           guide: { why: "The plan asks for a recommendation to the division head; its Musterlösung recommends treating the approaches first as a steered research and insight architecture, with hypothesis-based piloting, a binding ethics and data protection framework and clear criteria for insight maturity and management relevance as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

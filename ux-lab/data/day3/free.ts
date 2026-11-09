@@ -492,11 +492,11 @@ export const SPEC = defineSpec({
       title: t("Block 2.1 · Case study: revising the insurance portal SecureLife"),
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1Rh_bRAGKw2hPKlG4e6bvUB_MkwnFSIRzs53nTwbYL4E",
+      minutes: 40,
+      sharedDocId: "129YJESovFED00qBw2MI2T80RN1X-FOpwrCGoLVOn2HQ",
       doc: t("2.1 · Case study: SecureLife"),
       lead: t(
-        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through seven steps.",
+        "An insurance company runs SecureLife, a digital portal for the contract overview, damage reports and communication with the service.\n\nThe content is complete, but complaints pile up: users overlook important notes, do not clearly understand status messages and find the interface “exhausting” and “restless”.\n\nThe observed problems:\n• different blues, greens and reds are used without a clear functional system\n• buttons and information boxes look too similar\n• status messages are coded by colour but hardly supported by text\n• body text is too small and too dense\n• typographic hierarchies are inconsistent\n• important calls to action are lost among other text elements\n\nThe conditions:\n• a budget of €130,000\n• 12 weeks for the implementation\n• the corporate design is binding in principle but functional adjustments are possible\n• the portal must be easy to use for different age groups\n• a complete relaunch is ruled out\n\nYou work through six steps.",
       ),
       slots: ["securelife"],
       fields: [
@@ -611,8 +611,8 @@ export const SPEC = defineSpec({
         }),
         sketchField({
           q: [4, 7], measuresId: "slMeasuresText", measuresQ: 3, problemsQ: 1,
-          model: "Link: your own. The sketch shows one SecureLife screen with a colour kept for one meaning only: blue for a link, green for a confirmed status, amber for a real warning, and the Continue button in a colour used nowhere else on the page. This screen removes problem 1 (no functional colour system) and problem 2 (buttons, boxes and status messages that look alike), because the user can tell at a glance what each colour means.",
-          example: "A telecom provider's portal: a sketch of the contract page with one colour kept only for warnings and a different one for the Upgrade button. It removes “blue means a link, a tariff and a warning”, because each colour now means one thing.",
+          model: "Link: your own. The sketch shows one SecureLife page in grey boxes with only four colours marked on it: blue for actions, a neutral grey for information, amber for warnings and green for done, and a small key in the corner. This screen removes problem 2 (buttons, information boxes and status messages look alike), because each colour now means one thing and people can tell at a glance what to press.",
+          example: "A banking app: a sketch of the payment page where only “Pay now” is blue, notes are grey and a failed payment is the only red thing. It removes “everything looks like a button”, because colour now says what can be pressed.",
         }),
         textField({
           id: "slJustify", q: [5, 7],

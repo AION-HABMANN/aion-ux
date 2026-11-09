@@ -1467,5 +1467,10 @@
  "🔊 Say one, appointments; two, prescriptions; three, results.": "🔊 Sagen Sie eins für Termine; zwei für Rezepte; drei für Ergebnisse.",
  "🔊 Which time? It is on your screen.": "🔊 Welche Zeit? Sie steht auf Ihrem Bildschirm.",
  "🔊 You can say: next, repeat, timer, stop.": "🔊 Sie können sagen: weiter, wiederholen, Timer, stopp.",
- "🔊 speaking": "🔊 spricht"
+ "🔊 speaking": "🔊 spricht",
+ "Route 1 → Task 1 → the situation and the assistant below, then the seven questions. A real platform can be opened for the class discussion.": "Route 1 → Aufgabe 1 → die Situation und der Assistent darunter, dann die sieben Fragen. Eine echte Plattform lässt sich für die Diskussion in der Klasse öffnen.",
+ "Your justification (question 5)": "Ihre Begründung (Frage 5)",
+ "Your decision (question 6)": "Ihre Entscheidung (Frage 6)",
+ "Link: your own. The sketch shows the first turn of the CityHelp voice dialogue as a screen: the assistant's opening line with two example phrases (“Say: opening hours” or “Say: report a problem”), a visible “listening” state and a “Use the keypad” fallback. This screen removes problem 2 (people do not know what they can say) and problem 3 (error handling is not supportive), because callers know what to expect and have a way out.": "Link: Ihr eigener. Die Skizze zeigt den ersten Schritt des CityHelp-Sprachdialogs als Bildschirm: die Eröffnungszeile des Assistenten mit zwei Beispielsätzen („Sagen Sie: Öffnungszeiten“ oder „Sagen Sie: Problem melden“), einem sichtbaren Zustand „Ich höre zu“ und einer Ausweichmöglichkeit „Tastatur benutzen“. Dieser Bildschirm beseitigt Problem 2 (man weiß nicht, was man sagen kann) und Problem 3 (die Fehlerbehandlung hilft nicht genug), weil Anrufende wissen, was sie erwartet, und einen Ausweg haben.",
+ "A bank hotline app: a sketch of the first voice prompt with “You can say: balance, card, or agent”, a listening indicator and a button for the keypad. It removes “I did not know what to say”, because the options are named.": "Eine Bank-Hotline-App: eine Skizze der ersten Sprachansage mit „Sie können sagen: Kontostand, Karte oder Berater“, einer Anzeige „Ich höre zu“ und einer Schaltfläche für die Tastatur. Sie beseitigt „ich wusste nicht, was ich sagen soll“, weil die Möglichkeiten genannt werden."
 }

@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day9/reference";
 
 /**
@@ -474,10 +474,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: an activation strategy for the prevention programme MoveWell"),
-      findIt: t("Route 1 → Task 1 → the situation and the platform below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the platform below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1EsaBrE0rkjIEReLyXr7mas6jCX2TSE4ZX8tHbJCpbI8",
+      minutes: 40,
+      sharedDocId: "1HV6Z3Hwh_2iFe2W9fcQwJTyKCAadDOrmlMx7NVWG5qU",
       doc: t("2.1 · Case study: MoveWell"),
       lead: t(
         "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.\n\nThe platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.\n\nThe observed problems:\n• progress is only faintly visible\n• successes are hardly fed back or emotionally reinforced\n• motivating intermediate goals and stages are missing\n• the user journey is functional but not very activating\n• there is no clear link between individual development and the experience of use\n• the feedback so far is technical and not very stimulating\n\nThe conditions:\n• a budget of €150,000\n• 12 weeks for the implementation\n• a brand that must stay trustworthy and close to health\n• no complete relaunch\n• limited technical resources for complex features\n• only partial user data\n\nYou work through six steps.",
@@ -485,7 +485,7 @@ export const SPEC = defineSpec({
       slots: ["movewell"],
       fields: [
         listsField({
-          id: "mwProblems", q: [1, 6],
+          id: "mwProblems", q: [1, 7],
           label: "Analyse the central deficits in activation and retention",
           steps: ["Open MoveWell and use it as a member for a week: set your goal, log activities, look at your progress and the messages.", "Write one deficit per line and what it does to motivation or retention."],
           refs: [ref("MoveWell today", "faint progress · hardly any feedback on success · no stages · functional journey · no link to development · technical messages", "slot-movewell"), ref("What people react to (Materi A2)", "information about their own position", "mat-A2", "A2")],
@@ -522,7 +522,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "mwCats", q: [2, 6],
+          id: "mwCats", q: [2, 7],
           label: "Assign the problems to the categories progress, feedback, motivation, self-efficacy, credibility and long-term retention",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the MoveWell problems that belong to it.",
@@ -556,7 +556,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to six categories: progress, feedback, motivation, self-efficacy, credibility and long-term retention. The six observed problems spread over them; credibility is a condition the brand sets, and the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names a problem or a condition of MoveWell."] },
         }),
         listsField({
-          id: "mwMeasures", q: [3, 6],
+          id: "mwMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks and €150,000, without a relaunch and without complex features.", "Put them in order: what gives people a reason to come back first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Story and game together (Materi A4)", "stages and a narrative frame", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "mwCats-field")],
@@ -589,8 +589,13 @@ export const SPEC = defineSpec({
             { measure: "Restrained, serious gamification", changes: "Self-efficacy, without exaggerated rewards" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "mwMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the MoveWell home screen with a path of four stages, the current one highlighted, the next milestone named (“Next: 10 days in a row”) and the last success shown as a small badge. This screen removes problem 1 (no experience of progress) and problem 2 (successes are not visible as development), because members see how far they came and what is next.",
+          example: "A running app: a sketch of the home screen with a path of five stages, “3 of 5 done” and the next goal in one line. It removes “I do not feel I am getting anywhere”, because progress is on the first screen.",
+        }),
         textField({
-          id: "mwJustify", q: [4, 6],
+          id: "mwJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -615,13 +620,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "mwDecide", q: [5, 6],
+          id: "mwDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 12 weeks",
           help: "Say what you do in the first 12 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 12 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you keep the brand trustworthy and close to health."],
-          refs: [ref("Your justification (question 4)", "above", "mwJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "mwJustify-field")],
           model: "In the first 12 weeks we build the visible logic of progress: each personal goal gets stages and milestones, and the home screen shows where the member stands. In parallel, health experts and a writer rewrite the feedback, so that a logged activity says what it did for the member's goal instead of a technical message. Next comes the narrative frame: stage names that describe what really happens in the body at each point. Restrained game elements, such as a quiet recognition at a milestone, follow last; no rankings. The user data stays partial, so we watch who comes back after the first stage.",
           example: "A savings app: first the stages and where you stand; in parallel the messages rewritten; the stage names next; a quiet badge last, no league.",
           guide: { why: "The plan asks for a prioritisation decision for the first 12 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with visible progress and encouraging feedback because they act directly on motivation and return.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how the brand stays trustworthy."] },
@@ -638,13 +643,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "mwRec", q: [6, 6],
+          id: "mwRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for members and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "mwDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "mwDecide-field")],
           model: "We recommend using gamification not as a superficial game system but as a targeted activation and retention architecture. Visible progress, credible encouragement and a narrative frame for the user journey have priority, because with a justifiable effort these measures have the greatest effect on motivation, self-efficacy and long-term retention.",
           example: "A savings app: we recommend showing savers their progress and telling them honestly what each month achieved, before any game element. More savers in the second quarter will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends gamification as a targeted activation and retention architecture, with visible progress, credible encouragement and a narrative frame as priorities. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

@@ -1368,5 +1368,10 @@
  "📶 weak": "📶 schwach",
  "🔔 BEEP · descaling needed · 👶 crying next door": "🔔 PIEP · Entkalken nötig · 👶 weint nebenan",
  "🥽 Enter your immersive health world": "🥽 Betreten Sie Ihre immersive Gesundheitswelt",
- "🥽 VR café showroom · trade fair": "🥽 VR-Café-Showroom · Messe"
+ "🥽 VR café showroom · trade fair": "🥽 VR-Café-Showroom · Messe",
+ "Route 1 → Task 1 → the situation and the pilot board below, then the seven questions. A real platform can be opened for the class discussion.": "Route 1 → Aufgabe 1 → die Situation und das Pilot-Board darunter, dann die sieben Fragen. Eine echte Plattform lässt sich für die Diskussion in der Klasse öffnen.",
+ "Your justification (question 5)": "Ihre Begründung (Frage 5)",
+ "Your decision (question 6)": "Ihre Entscheidung (Frage 6)",
+ "Link: your own. The sketch shows a one-page matrix of the IndustryXR use cases with user value going up and feasibility going across, three cases circled for a pilot and a short line under each (“Remote maintenance help: high value, feasible now”). This screen removes problem 1 (no prioritisation of use cases) and problem 4 (the benefit is hard to prove), because the pilot starts where value and feasibility meet.": "Link: Ihr eigener. Die Skizze zeigt eine einseitige Matrix der IndustryXR-Anwendungsfälle mit Nutzerwert nach oben und Machbarkeit nach rechts, drei für ein Pilotprojekt eingekreisten Fällen und einer kurzen Zeile darunter („Fernwartungshilfe: hoher Wert, jetzt machbar“). Dieser Bildschirm beseitigt Problem 1 (keine Priorisierung der Anwendungsfälle) und Problem 4 (der Nutzen ist schwer nachzuweisen), weil der Pilot dort beginnt, wo Wert und Machbarkeit zusammentreffen.",
+ "A hospital planning a tablet rollout: a sketch of a four-box grid with value and effort, and the two best ideas marked for a trial. It removes “we try everything and prove nothing”, because only the strongest cases go forward.": "Ein Krankenhaus, das Tablets einführen will: eine Skizze eines Vier-Felder-Rasters mit Wert und Aufwand und den zwei besten Ideen, die für einen Versuch markiert sind. Sie beseitigt „wir probieren alles aus und beweisen nichts“, weil nur die stärksten Fälle weitergehen."
 }

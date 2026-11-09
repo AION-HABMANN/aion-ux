@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 6 · Gestalt laws and visual hierarchy, progressive disclosure, and UX laws in design systems (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as
@@ -474,10 +474,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: consolidating the self-service system CitizenFlow"),
-      findIt: t("Route 1 → Task 1 → the situation and the platform below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the platform below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1uYUgyT44KAFaFyznMNRng1xM7farKJU9DfGXNi9sfzQ",
+      minutes: 40,
+      sharedDocId: "1_hEB9SAgQ0FOg9QwH9rs3U3ncIjH-iaPFh-kfP6A4oE",
       doc: t("2.1 · Case study: CitizenFlow"),
       lead: t(
         "A public service platform gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming.\n\nUsers often lose orientation, abandon applications or contact support although self-service is available.\n\nThe observed problems:\n• different page types group content differently\n• primary and secondary actions are not cleanly separated\n• forms show all fields at once, also optional and context-dependent ones\n• navigation patterns vary between areas with a similar function\n• additional information, help and warnings are not cleanly prioritised\n• users have to work out themselves which information is relevant and which is only supplementary\n\nThe conditions:\n• a budget of €170,000\n• 14 weeks for the implementation\n• a complete relaunch is ruled out\n• several departments have their own requirements\n• consistency across the service areas is low so far\n• usage data is only partly available\n\nYou work through six steps.",
@@ -485,7 +485,7 @@ export const SPEC = defineSpec({
       slots: ["citizenflow"],
       fields: [
         listsField({
-          id: "cfProblems", q: [1, 6],
+          id: "cfProblems", q: [1, 7],
           label: "Analyse the central problems with regard to Gestalt laws, visual hierarchy and progressive disclosure",
           steps: ["Open CitizenFlow and apply for a residence certificate, then book an appointment, as a citizen would.", "Write one problem per line as an effect on the user, and note whether it is about grouping, hierarchy or disclosure."],
           refs: [ref("CitizenFlow today", "inconsistent grouping · unseparated actions · every field · varying navigation · unprioritised help", "slot-citizenflow"), ref("Gestalt laws (Materi A1)", "grouping", "mat-A1", "A1")],
@@ -522,7 +522,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "cfCats", q: [2, 6],
+          id: "cfCats", q: [2, 7],
           label: "Assign the problems to the categories grouping, prioritisation, disclosure of information, consistency and navigation logic",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the CitizenFlow problems that belong to it.",
@@ -554,7 +554,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: grouping, prioritisation, disclosure of information, consistency and navigation logic. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the platform."] },
         }),
         listsField({
-          id: "cfMeasures", q: [3, 6],
+          id: "cfMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and without a relaunch.", "Put them in order, and think about which measure keeps the others in place."],
           refs: [ref("UX laws in a design system (Materi A5)", "components and patterns", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "cfCats-field")],
@@ -587,8 +587,13 @@ export const SPEC = defineSpec({
             { measure: "Component and navigation standards in the design system", changes: "Consistency secured by the system" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "cfMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows one CitizenFlow page with its content in three clearly framed groups (who you are, what you need, what happens next), one heading level for each group and one strong main button at the end. This screen removes problem 1 (no grouping) and problem 2 (unclear hierarchy), because citizens see what belongs together and what to do first.",
+          example: "A tax-return form: a sketch of one page in three framed groups with a clear heading each and a single “Continue” button. It removes “I do not know which fields belong together”, because the page shows its own structure.",
+        }),
         textField({
-          id: "cfJustify", q: [4, 6],
+          id: "cfJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -613,13 +618,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "cfDecide", q: [5, 6],
+          id: "cfDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 14 weeks",
           help: "Say what you do in the first 14 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 14 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you deal with the departments' own requirements."],
-          refs: [ref("Your justification (question 4)", "above", "cfJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "cfJustify-field")],
           model: "In the first 14 weeks we define the patterns for grouping, visual hierarchy and the primary action, and apply them first to the three most used applications, together with progressive disclosure in their forms, because that is where citizens abandon and call support. We build the patterns as shared components from the start, so the departments can reuse them instead of building their own. The remaining service areas move to the components step by step after the 14 weeks.",
           example: "A hotel booking site: in the first quarter one layout, one strong Book button and short forms for the room booking, built as shared components; the spa and the restaurant follow next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 14 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with binding patterns and progressive disclosure because they lower overload directly, and anchors them in the design system for the long term.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how the departments are handled."] },
@@ -636,13 +641,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "cfRec", q: [6, 6],
+          id: "cfRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for users and for the organisation."],
-          refs: [ref("Your decision (question 5)", "above", "cfDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "cfDecide-field")],
           model: "We recommend improving the platform not primarily at the level of screens but at the level of patterns and the system. The priorities are binding rules for grouping, visual hierarchy and progressive disclosure, and anchoring them in the design system. With a justifiable effort this creates a scalable and consistent user guidance with a strong relieving effect.",
           example: "A hotel booking site: we recommend one set of shared layouts and forms instead of fixing page by page. Fewer abandoned bookings and calls will show first; every new page will be consistent from the start.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends improving at the level of patterns and the system, with binding rules for grouping, hierarchy and progressive disclosure anchored in the design system. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

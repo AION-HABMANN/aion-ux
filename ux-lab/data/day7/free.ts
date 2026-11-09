@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 7 · emotional bonding in design, psychology and neuro-design (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as free answers, every block Core.
@@ -473,10 +473,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: realigning the service portal LifeSupport"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1g4sGCKu_kvM9xmTT21VeHgxATL80cZIGLKsbY3RiMxM",
+      minutes: 40,
+      sharedDocId: "1EjcsKdpJv21aoleKn59kKZW_VXxKA05Zh3DDvsyfLo4",
       doc: t("2.1 · Case study: LifeSupport"),
       lead: t(
         "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.\n\nTechnically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.\n\nThe observed problems:\n• the visual language is factual but emotionally distant\n• feedback after actions is technical instead of supportive\n• critical situations such as error messages create uncertainty instead of orientation\n• positive experiences are not visibly reinforced\n• the tone is correct but does not build trust or motivate\n• the interaction is functional but does not build a relationship\n\nThe conditions:\n• a budget of €145,000\n• 12 weeks for the implementation\n• no complete relaunch\n• the brand should stay serious but become emotionally more approachable\n• user data is only partly available\n• the department and marketing set different priorities\n\nYou work through six steps.",
@@ -484,7 +484,7 @@ export const SPEC = defineSpec({
       slots: ["lifesupport"],
       fields: [
         listsField({
-          id: "lsProblems", q: [1, 6],
+          id: "lsProblems", q: [1, 7],
           label: "Analyse the central emotional deficits of the portal",
           steps: ["Open LifeSupport, book a check-up, cause an error, and open your results, as a customer would.", "Write one deficit per line as a feeling it creates or fails to create."],
           refs: [ref("LifeSupport today", "distant visuals · technical feedback · unsettling errors · no positive reinforcement · cold tone · no relationship", "slot-lifesupport"), ref("Emotional factors in UX (Materi A2)", "the factors", "mat-A2", "A2")],
@@ -521,7 +521,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "lsCats", q: [2, 6],
+          id: "lsCats", q: [2, 7],
           label: "Assign the problems to the categories trust, emotional safety, motivation, reducing frustration and experience quality",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the LifeSupport problems that belong to it.",
@@ -553,7 +553,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: trust, emotional safety, motivation, reducing frustration and experience quality. The Musterlösung's problems spread over all five; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of the portal."] },
         }),
         listsField({
-          id: "lsMeasures", q: [3, 6],
+          id: "lsMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks, without a relaunch and while the brand stays serious.", "Put them in order: what gives safety in the moments that matter most first."],
           refs: [ref("Trust and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "lsCats-field")],
@@ -586,8 +586,13 @@ export const SPEC = defineSpec({
             { measure: "A visual mood fitted to the situation", changes: "Serious and approachable together" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "lsMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the screen after a failed upload in LifeSupport: a calm message in plain words (“That did not work. Your data is safe. Try again, or call us.”), one clear button and a support number, instead of a red code. This screen removes problem 2 (technical feedback creates distance) and problem 3 (critical situations are not cushioned), because the customer feels looked after at the moment it matters.",
+          example: "An online shop: a sketch of the payment-failed page with “Your card was not charged. Try another card or pay by invoice.” and two buttons. It removes “an error code and a red box scare me”, because the message says what happened and what comes next.",
+        }),
         textField({
-          id: "lsJustify", q: [4, 6],
+          id: "lsJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -612,13 +617,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "lsDecide", q: [5, 6],
+          id: "lsDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 12 weeks",
           help: "Say what you do in the first 12 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 12 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you deal with the department and marketing."],
-          refs: [ref("Your justification (question 4)", "above", "lsJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "lsJustify-field")],
           model: "In the first 12 weeks we rewrite the feedback and the error messages of the three moments people use most (booking a check-up, receiving results, uploading documents), so that each says what happened, what comes next and that help is there. In parallel we write a short tone guide with the department and marketing together, so that seriousness and approachability are agreed once. Calm confirmations of successful steps follow in the same flows. The visual mood starts with the booking page and continues after the 12 weeks.",
           example: "A dental practice portal: first the booking confirmation and the error messages, then a tone guide written with the practice owners; the calmer look next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 12 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with supportive feedback because it acts directly on safety and experience quality.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how the department and marketing are brought together."] },
@@ -635,13 +640,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "lsRec", q: [6, 6],
+          id: "lsRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for users and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "lsDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "lsDecide-field")],
           model: "We recommend not treating emotional UX as a cosmetic addition, but as a central dimension of the effect of our digital offer. The priorities are supportive feedback, trust-building language and visibly positive moments of use, because with a justifiable effort these measures have the greatest effect on bond, safety and experience quality.",
           example: "A dental practice portal: we recommend making every confirmation and error message reassuring and human before any new design. Fewer worried calls and more returning patients will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends treating emotional UX as a central dimension of effect, with supportive feedback, trust-building language and positive moments as priorities. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

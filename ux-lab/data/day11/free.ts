@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day11/reference";
 
 /**
@@ -458,10 +458,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: developing the voice service assistant CityHelp Voice"),
-      findIt: t("Route 1 → Task 1 → the situation and the assistant below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the assistant below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "16CV8BWnj3YvrBUUwH1A5rBFnnuVH81bh5ajIsaftWfw",
+      minutes: 40,
+      sharedDocId: "1PC0LjAMOWCduHOuA0I1j7SVhv2qgdB7XlcDzUhB88Sc",
       doc: t("2.1 · Case study: CityHelp Voice"),
       lead: t(
         "A municipal service platform wants to introduce a voice assistant, CityHelp Voice, for appointments, status queries and simple citizen requests.\n\nThe aim is to lower barriers to use, improve reachability and relieve service processes. At the same time there is uncertainty about comprehensibility, error-proneness, acceptance and the quality of AI-supported answers.\n\nThe observed problems:\n• first prototypes understand simple requests well but fail on ambiguous ones\n• users often do not know which inputs are possible or sensible\n• errors are reported technically instead of helpfully\n• the combination of voice and AI seems efficient in some situations and hard to control in others\n• test runs show acceptance for simple tasks but distrust for more sensitive requests\n• the departments see relief, while data protection and citizen service warn of reputational risks\n\nThe conditions:\n• a budget of €190,000\n• 14 weeks for the implementation\n• no full multichannel solution at once\n• a system that people who are not at home with technology can follow\n• limited data from earlier tests\n• first results that must show soon\n\nYou work through six steps.",
@@ -469,7 +469,7 @@ export const SPEC = defineSpec({
       slots: ["cityhelp"],
       fields: [
         listsField({
-          id: "chProblems", q: [1, 6],
+          id: "chProblems", q: [1, 7],
           label: "Analyse the central chances and risks of the voice assistant",
           steps: ["Talk to CityHelp Voice as a citizen: book an appointment, ask about an application, report a streetlight, then try something ambiguous and something sensitive.", "Write one point per line: a chance or a risk, and what it does."],
           refs: [ref("CityHelp Voice today", "simple yes · ambiguous no · technical errors · sensitive distrust", "slot-cityhelp"), ref("What voice can do and where it fails (Materi A1)", "chances and limits", "mat-A1", "A1")],
@@ -500,7 +500,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "chCats", q: [2, 6],
+          id: "chCats", q: [2, 7],
           label: "Assign the observations to the categories comprehensibility, error robustness, control, trust, relief and acceptance",
           helpText: "Write the observations that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the CityHelp Voice observations that belong to it.",
@@ -534,7 +534,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the observations to six categories: comprehensibility, error robustness, control, trust, relief and acceptance. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names an observation of CityHelp Voice."] },
         }),
         listsField({
-          id: "chMeasures", q: [3, 6],
+          id: "chMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €190,000, without a full multichannel solution.", "Put them in order: what secures comprehensibility and trust first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Prototyping and testing (Materi A4)", "risk-based test scenarios", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "chCats-field")],
@@ -562,8 +562,13 @@ export const SPEC = defineSpec({
             { measure: "Voice focused on suitable core uses", changes: "Voice where it works" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "chMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the first turn of the CityHelp voice dialogue as a screen: the assistant's opening line with two example phrases (“Say: opening hours” or “Say: report a problem”), a visible “listening” state and a “Use the keypad” fallback. This screen removes problem 2 (people do not know what they can say) and problem 3 (error handling is not supportive), because callers know what to expect and have a way out.",
+          example: "A bank hotline app: a sketch of the first voice prompt with “You can say: balance, card, or agent”, a listening indicator and a button for the keypad. It removes “I did not know what to say”, because the options are named.",
+        }),
         textField({
-          id: "chJustify", q: [4, 6],
+          id: "chJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -588,13 +593,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "chDecide", q: [5, 6],
+          id: "chDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 14 weeks",
           help: "Say what you do in the first 14 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 14 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you keep citizens' trust."],
-          refs: [ref("Your justification (question 4)", "above", "chJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "chJustify-field")],
           model: "In the first 14 weeks CityHelp Voice handles three things only: booking an appointment, the status of an application and reporting a damage in public space. Each opens with a short hint of what is possible, confirms what it understood, and after a second misunderstanding offers the citizen service. In parallel we test ambiguous and sensitive requests on purpose with less tech-savvy citizens. Everything else, and the app and portal channels, waits until these three work.",
           example: "A bank's phone assistant: balances and recent transactions only, with a hint and a handover after two misses; disputes tested in parallel; transfers next year.",
           guide: { why: "The plan asks for a prioritisation decision for the first 14 weeks. Any order defends if it follows from the justification; the Musterlösung starts with a guided dialogue and supportive error handling because they secure comprehensibility and trust directly.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how trust is kept."] },
@@ -611,13 +616,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "chRec", q: [6, 6],
+          id: "chRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change."],
-          refs: [ref("Your decision (question 5)", "above", "chDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "chDecide-field")],
           model: "We recommend introducing voice control not through maximum breadth of functions, but through robust core uses, clear dialogue guidance and risk-based testing. Comprehensible interaction logic, error-tolerant feedback and a focused field of use have priority, because these measures have the greatest effect on acceptance, relief and service innovation that is safe for the reputation.",
           example: "A bank's phone assistant: we recommend a few robust uses with hints and a handover before adding more. Fewer hang-ups will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends robust core uses, clear dialogue guidance and risk-based testing over maximum breadth, with comprehensible logic, error-tolerant feedback and a focused field of use as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

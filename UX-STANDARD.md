@@ -300,6 +300,7 @@ Days 6 to 16 keep their required questions until the user asks (set `optionalAll
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-09 | The optional low-fidelity sketch question (Block 2.1, Question 4 of 7, `sketchField`, minutes 40) added to Days 2 to 16 as on Day 1, with a model and an example per day in English and German; later questions renumbered; the 15 Google Doc worksheets of Block 2.1 rebuilt with it. Decided by the user after the Day 1 trial. | Days 2 to 16 |
 | 2026-11-09 | New rule 2.22: no question is required; a block goes into the export when it holds an answer, with a tick list per block and a Google Doc worksheet for every task block (1.1, 1.2, 2.1, 3.1). Built for Days 2 to 5; 8 new worksheets (1.1 and 1.2). | Days 2 to 5; Days 6 to 16 on request |
 | 2026-11-07 | New rule 2.21: a day's Materi is one learning arc, each device (animation, try it yourself, a surprising finding, discussion, reflection) where it fits; lab model runs in a "Model run" box under the stress tests. Day 1 built: 50 ms test, A2 bottom-up/top-down run, A3 habit trap, A4 first second and the 50 ms choice explained, A5 reflection, B1 steering line with EU law, B2 role cards, B3 look back. | Day 1; Days 2 to 5 next |
 | 2026-11-04 | New rule 2.20: the lab is bilingual (EN \| DE), English first and German plain; dictionary `data/de`, tools `scripts/de-tool.ts`, German voice commands on Day 11. Learner texts of Days 1 to 16 are translated; the facilitator-only texts are a second pass. | Days 1 to 16 |

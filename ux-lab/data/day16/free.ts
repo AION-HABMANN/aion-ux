@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day16/reference";
 
 /**
@@ -453,10 +453,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: a scaling decision for the immersive innovation programme NextWorld UX"),
-      findIt: t("Route 1 → Task 1 → the situation and the decision board below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the decision board below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1x4CxRZ8EOFIb8gi4acJ0zZknhEi_w7-_yA9PWdBHitM",
+      minutes: 40,
+      sharedDocId: "1ntUZ16V-g0tHqEYsh0gEQqmRRTYFKp6bJMrveGDNjCk",
       doc: t("2.1 · Case study: NextWorld UX"),
       lead: t(
         "Over the past months a company has developed several prototypes for AR-supported advice, VR-based training and neuro-informed UX research. First results are promising but uneven.\n\nSome users experience high value, others show overload or scepticism. The management now demands a decision on which approaches are scaled, which are tested further and which are stopped for now.\n\nThe observed problems:\n• the prototypes were developed with different depth and without a common evaluation logic\n• user feedback exists but is not systematically comparable\n• ethical and organisational implications were handled differently in the single projects\n• some pilot ideas attract strong attention but have only limited practical use\n• investment decisions are under time pressure although maturity varies strongly\n• an overarching future strategy and governance structure is missing\n\nThe conditions:\n• a budget of €260,000 for the next scaling and pilot phase\n• 16 weeks for prioritisation, building governance and planning new pilots\n• not all approaches can be continued at once\n• stakeholders from innovation, IT, the department, data protection and management pursue different goals\n• first market signals should stay visible\n• wrong decisions could increase costs, reputational risks and internal blockades\n\nYou work through six steps.",
@@ -464,7 +464,7 @@ export const SPEC = defineSpec({
       slots: ["nextworld"],
       fields: [
         listsField({
-          id: "nwProblems", q: [1, 6],
+          id: "nwProblems", q: [1, 7],
           label: "Analyse the central weaknesses of the approach so far regarding prototyping, testing, ethics and strategy",
           steps: ["Open NextWorld UX's decision board: the three prototypes, their reports, the feedback and the ethics status.", "Write one weakness per line, and what it does."],
           refs: [ref("NextWorld UX's decision board", "no common logic · not comparable · ethics uneven · attention over use · no governance", "slot-nextworld"), ref("Testing immersive systems (Materi A2)", "six aspects", "mat-A2", "A2")],
@@ -495,7 +495,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "nwCats", q: [2, 6],
+          id: "nwCats", q: [2, 7],
           label: "Assign the problems to the categories evaluation logic, scaling maturity, user value, ethics, governance and investment security",
           helpText: "Write the problems that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the NextWorld UX problems that belong to it.",
@@ -529,7 +529,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to six categories: evaluation logic, scaling maturity, user value, ethics, governance and investment security. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names a problem of NextWorld UX."] },
         }),
         listsField({
-          id: "nwMeasures", q: [3, 6],
+          id: "nwMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for a responsible scaling decision",
           steps: ["Turn each group of problems into something you could do within 16 weeks and €260,000, without continuing everything.", "Put them in order: what creates decision readiness first."],
           refs: [ref("When not to scale, and weighing (Materi A5)", "effect · feasibility · risk · time · strategic viability", "mat-A5", "A5"), ref("Innovation maturity and the portfolio (Materi A4)", "focus", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "nwCats-field")],
@@ -557,8 +557,13 @@ export const SPEC = defineSpec({
             { measure: "Focus the portfolio; pause the rest", changes: "More learning and investment security" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "nwMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows a one-page evaluation grid for NextWorld UX prototypes: rows for user value, maturity, risk and ethics, a rating of Low, Medium or High with one reason for each, and a box at the bottom for the scaling decision. This screen removes problem 1 (no common evaluation frame) and problem 4 (investment follows visibility, not effect), because every prototype is judged on the same terms.",
+          example: "A city's smart-bin pilots: a sketch of a one-page grid with four criteria and a Low/Medium/High box each, and a line for the decision. It removes “each pilot was judged by a different yardstick”, because all pilots use the same page.",
+        }),
         textField({
-          id: "nwJustify", q: [4, 6],
+          id: "nwJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk, time pressure and strategic viability",
           help: "Use all five criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -584,13 +589,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "nwDecide", q: [5, 6],
+          id: "nwDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 16 weeks",
           help: "Say what you do in the first 16 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 16 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what pauses.", "Say what the management will see at the end."],
-          refs: [ref("Your justification (question 4)", "above", "nwJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "nwJustify-field")],
           model: "In weeks 1 to 4 we agree one evaluation grid with innovation, IT, the department, data protection and management, and re-score the three prototypes with their existing data. In weeks 5 to 12 we run comparable follow-up tests where evidence is missing, in particular the transfer of the VR training to real work and the acceptance of AR advice beyond the first visit, and the ethics and data protection review of all three. In parallel the governance board is set up. In weeks 13 to 16 we decide: scale the prototype with proven value, test one further with a clear question, and pause the neuro-informed study until its consent and purpose are settled. The management sees a decision based on one grid, and one initiative ready to grow.",
           example: "A city library: four weeks for one grid, eight weeks of comparable tests, a board in parallel, four weeks to decide; the VR reading room pauses.",
           guide: { why: "The plan asks for a prioritisation decision for the first 16 weeks. Any order defends if it follows from the justification; the Musterlösung starts with the evaluation grid and comparable data because they create decision readiness.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or paused.", "Says what the management will see."] },
@@ -607,13 +612,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "nwRec", q: [6, 6],
+          id: "nwRec", q: [7, 7],
           label: "Formulate a recommendation to the division head",
           help: "Three to five sentences: what you recommend, what has priority, and what you hope will change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division head",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you hope will change."],
-          refs: [ref("Your decision (question 5)", "above", "nwDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "nwDecide-field")],
           model: "We recommend steering immersive and neuro-based UX innovation not by single enthusiasm, but by a consistent evaluation, test and governance model. Comparable decision bases, binding ethics and data protection principles and a focused portfolio have priority, because these measures do the most for responsible scaling, investment security and the long-term capacity to innovate.",
           example: "A city library: we recommend one grid, comparable tests and a consent rule before any pilot grows; the council will see one guide that works instead of three that impress.",
           guide: { why: "The plan asks for a recommendation to the division head; its Musterlösung recommends steering innovation by a consistent evaluation, test and governance model, with comparable decision bases, binding ethics and data protection principles and a focused portfolio as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

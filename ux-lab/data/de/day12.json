@@ -1397,5 +1397,10 @@
  "✓ Lesson complete": "✓ Lektion abgeschlossen",
  "✓ done": "✓ erledigt",
  "✕ Out of stock": "✕ Nicht vorrätig",
- "🔊 Hear it as a screen reader would": "🔊 So hören, wie es ein Screenreader tut"
+ "🔊 Hear it as a screen reader would": "🔊 So hören, wie es ein Screenreader tut",
+ "Route 1 → Task 1 → the situation and the portal below, then the seven questions. A real platform can be opened for the class discussion.": "Route 1 → Aufgabe 1 → die Situation und das Portal darunter, dann die sieben Fragen. Eine echte Plattform lässt sich für die Diskussion in der Klasse öffnen.",
+ "Your justification (question 5)": "Ihre Begründung (Frage 5)",
+ "Your decision (question 6)": "Ihre Entscheidung (Frage 6)",
+ "Link: your own. The sketch shows one CitizenConnect form page with high-contrast text, a visible focus frame on the current field, the tab order numbered 1 to 5 and the submit button reachable last. This screen removes problem 1 (weak contrast) and problem 2 (insufficient keyboard operability), because people who cannot use a mouse or cannot see low contrast can finish the form.": "Link: Ihr eigener. Die Skizze zeigt eine CitizenConnect-Formularseite mit kontrastreichem Text, einem sichtbaren Fokusrahmen am aktuellen Feld, der Tab-Reihenfolge von 1 bis 5 beschriftet und der Absenden-Schaltfläche als letztem Ziel. Dieser Bildschirm beseitigt Problem 1 (schwacher Kontrast) und Problem 2 (unzureichende Tastaturbedienbarkeit), weil Menschen, die keine Maus nutzen können oder schwachen Kontrast nicht sehen, das Formular abschließen können.",
+ "A library account page: a sketch with dark text on white, a thick focus frame and the numbers 1 to 4 showing the tab order. It removes “I cannot tell where I am when I use the keyboard”, because the focus is always visible and the order is clear.": "Eine Bibliothekskonto-Seite: eine Skizze mit dunklem Text auf Weiß, einem dicken Fokusrahmen und den Zahlen 1 bis 4 für die Tab-Reihenfolge. Sie beseitigt „ich weiß bei der Tastaturbedienung nicht, wo ich bin“, weil der Fokus immer sichtbar und die Reihenfolge klar ist."
 }

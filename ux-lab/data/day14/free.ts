@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day14/reference";
 
 /**
@@ -449,10 +449,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: a future strategy for the training and service offer IndustryXR"),
-      findIt: t("Route 1 → Task 1 → the situation and the pilot board below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the pilot board below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1dOcUUeBK7CUu00GsieYbxP1Xx6BHNTBIqO8QbNsm_jY",
+      minutes: 40,
+      sharedDocId: "1_DYzZ4uAwZGGIgJPWhYcX9PJnmeQntqZU86hIQDum08",
       doc: t("2.1 · Case study: IndustryXR"),
       lead: t(
         "An industrial company plans to develop its training, maintenance and support processes with immersive technologies.\n\nAR instructions, VR training environments and neuroscience-informed UX concepts for better attention steering are being discussed.\n\nInside there is enthusiasm for the technology, but robust experience of acceptance, economic viability and fit with existing processes is missing.\n\nThe observed problems:\n• it is unclear which use cases really offer immersive value\n• single pilot ideas are technically exciting but hardly prioritised by effect and benefit\n• stakeholders pursue divergent goals between innovation, safety, efficiency and cost control\n• usage risks such as overload, technical failures and acceptance problems have not been assessed enough\n• the link between technical fascination and strategic relevance is unclear\n• there is no robust roadmap for introduction, testing and scaling\n\nThe conditions:\n• a budget of €220,000 for the first phase\n• 16 weeks for piloting and decision preparation\n• full technological integration not possible in the short term\n• several business units that want to take part\n• hardly any data from real user tests\n• first visible innovation steps the management wants to see soon\n\nYou work through six steps.",
@@ -460,7 +460,7 @@ export const SPEC = defineSpec({
       slots: ["industryxr"],
       fields: [
         listsField({
-          id: "ixProblems", q: [1, 6],
+          id: "ixProblems", q: [1, 7],
           label: "Analyse the central chances and risks of the planned immersive development",
           steps: ["Open IndustryXR's pilot board and the VR training demo; read what each business unit wants.", "Write one point per line: a chance or a risk, and what it does."],
           refs: [ref("IndustryXR's pilot board", "unclear value · no priorities · divergent goals · no roadmap", "slot-industryxr"), ref("Fascination or impact (Materi A4)", "value test", "mat-A4", "A4")],
@@ -491,7 +491,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "ixCats", q: [2, 6],
+          id: "ixCats", q: [2, 7],
           label: "Assign the observations to the categories user value, maturity, acceptance, overload, economic viability and scalability",
           helpText: "Write the observations that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the IndustryXR observations that belong to it.",
@@ -525,7 +525,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the observations to six categories: user value, maturity, acceptance, overload, economic viability and scalability. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names an observation of IndustryXR."] },
         }),
         listsField({
-          id: "ixMeasures", q: [3, 6],
+          id: "ixMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for a responsible pilot strategy",
           steps: ["Turn each group of problems into something you could do within 16 weeks and €220,000, without full integration.", "Put them in order: what reduces investment and reputational risk first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect · feasibility · risk · time · investment", "mat-A5", "A5"), ref("Fascination or impact (Materi A4)", "value test", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "ixCats-field")],
@@ -553,8 +553,13 @@ export const SPEC = defineSpec({
             { measure: "Stakeholder governance for innovation decisions", changes: "Divergent interests owned and decided" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "ixMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows a one-page matrix of the IndustryXR use cases with user value going up and feasibility going across, three cases circled for a pilot and a short line under each (“Remote maintenance help: high value, feasible now”). This screen removes problem 1 (no prioritisation of use cases) and problem 4 (the benefit is hard to prove), because the pilot starts where value and feasibility meet.",
+          example: "A hospital planning a tablet rollout: a sketch of a four-box grid with value and effort, and the two best ideas marked for a trial. It removes “we try everything and prove nothing”, because only the strongest cases go forward.",
+        }),
         textField({
-          id: "ixJustify", q: [4, 6],
+          id: "ixJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk, time pressure and investment security",
           help: "Use all five criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -580,13 +585,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ixDecide", q: [5, 6],
+          id: "ixDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 16 weeks",
           help: "Say what you do in the first 16 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 16 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say what the management will see at the end."],
-          refs: [ref("Your justification (question 4)", "above", "ixJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "ixJustify-field")],
           model: "In weeks 1 to 3 we rank the five ideas with the business units by user value and feasibility, using a first version of the evaluation grid. In weeks 4 to 14 we pilot the two that pass: AR maintenance instructions at one site with a stable connection, and the AR remote expert, each with clear scenarios including a stressful one and a connection loss, with a small group of technicians. In parallel the innovation board with all business units is set up. In weeks 15 and 16 we decide with the results whether to scale, change or stop each pilot. The VR showroom and the attention-guidance overlay wait; the management sees two real pilots and a decision based on evidence.",
           example: "A museum: three weeks to rank the ideas, ten weeks of AR labels in one room with older visitors, a board in parallel, two weeks to decide; the VR wing waits.",
           guide: { why: "The plan asks for a prioritisation decision for the first 16 weeks. Any order defends if it follows from the justification; the Musterlösung starts with prioritising use cases and risk-based pilots because they reduce investment and reputational risk directly.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says what becomes visible."] },
@@ -603,13 +608,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ixRec", q: [6, 6],
+          id: "ixRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change."],
-          refs: [ref("Your decision (question 5)", "above", "ixDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "ixDecide-field")],
           model: "We recommend introducing immersive technologies not broadly, but in a focused way, through prioritised use cases, risk-based piloting and clear evaluation logic. User value, maturity and controllable pilot environments have priority, because these measures have the greatest effect on responsible innovation, learning and investment security.",
           example: "A museum: we recommend one careful AR pilot judged on learning before any VR wing; the board will see evidence instead of a showcase.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends a focused introduction through prioritised use cases, risk-based piloting and clear evaluation logic, with user value, maturity and controllable pilot environments as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

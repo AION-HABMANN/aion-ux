@@ -477,11 +477,11 @@ export const SPEC = defineSpec({
       title: t("Block 2.1 · Case study: reorganising the customer portal MyEnergy"),
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "11N7yd4EOAr1JK6CKJwxwQbGcC9O0-cGNjZLLDjhIjqg",
+      minutes: 40,
+      sharedDocId: "1iiZxBE3Lsv2IFD6fOo4QUg3rZdI1uaXOvf6gaHOt0U0",
       doc: t("2.1 · Case study: MyEnergy"),
       lead: t(
-        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through seven steps.",
+        "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through six steps.",
       ),
       slots: ["myenergy"],
       fields: [
@@ -590,8 +590,8 @@ export const SPEC = defineSpec({
         }),
         sketchField({
           q: [4, 7], measuresId: "meMeasuresText", measuresQ: 3, problemsQ: 1,
-          model: "Link: your own. The sketch shows the MyEnergy start page redrawn: three buttons only — “Submit a reading”, “Change instalment”, “See bill” — each large and equally spaced, with the remaining functions folded under a plain “More” link. This screen removes problem 2 (important tasks not clearly prioritised) and problem 1 (too many options at once), because customers see the frequent tasks first instead of comparing fourteen equal items.",
-          example: "A phone provider's portal: a sketch of the start page with “Top up”, “Change tariff” and “See bill” as the only three buttons shown, the rest tucked under “More”. It removes “fourteen equal menu items”, because the three frequent tasks are the only strong thing on the page.",
+          model: "Link: your own. The sketch shows the MyEnergy start page with the three frequent actions as large cards (read the meter, see the bill, change the plan) and the other functions behind one “All services” link. This screen removes problem 1 (too many options at once) and problem 2 (no prioritisation), because customers see the few things they do most and decide faster.",
+          example: "A phone-provider app: a sketch of the home screen with “Check usage” and “Top up” as two large buttons and everything else in a menu. It removes “I cannot find the one thing I came for”, because the two most frequent tasks come first.",
         }),
         textField({
           id: "meJustify", q: [5, 7],

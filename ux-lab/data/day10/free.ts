@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day10/reference";
 
 /**
@@ -461,10 +461,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: developing the digital service portal CareGuide"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1K8TyAEAN5vKT5oXheBcDoRRRQtIg0dTt-GqzdihFnIE",
+      minutes: 40,
+      sharedDocId: "1VhE_iwU2rf8qOy8SqiX-MfEZIKXzXxnpwpXPYL4KUt8",
       doc: t("2.1 · Case study: CareGuide"),
       lead: t(
         "A provider in health and prevention runs CareGuide, a digital portal for information, appointment management, documents and individual recommendations.\n\nThe company wants to make the portal more intelligent, so that users get suitable content, next steps and relevant help faster.\n\nAt the same time it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.\n\nThe observed problems:\n• recommendations seem partly helpful, but partly do not fit the current situation\n• users do not always understand why certain content is shown\n• there are no clear hints how strongly the system personalises\n• the users' ways to intervene are limited or unclear\n• the platform saves time in simple cases but seems hard to follow in exceptions\n• departments see chances for efficiency while data protection warns of opacity and loss of trust\n\nThe conditions:\n• a budget of €180,000\n• 14 weeks for the implementation\n• no complete relaunch\n• a brand that must stay trustworthy and supportive\n• data quality that is partly heterogeneous\n• first results that must show soon\n\nYou work through six steps.",
@@ -472,7 +472,7 @@ export const SPEC = defineSpec({
       slots: ["careguide"],
       fields: [
         listsField({
-          id: "cgProblems", q: [1, 6],
+          id: "cgProblems", q: [1, 7],
           label: "Analyse the central chances and risks of the intelligent guidance in the portal",
           steps: ["Open CareGuide as a member: look at the recommendations, book an appointment, look for a document, and try an exception.", "Write one point per line: a chance or a risk, and what it does."],
           refs: [ref("CareGuide today", "partly fitting · no why · no depth · little control · unclear exceptions", "slot-careguide"), ref("Potentials and risks (Materi A3)", "the risks by name", "mat-A3", "A3")],
@@ -503,7 +503,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "cgCats", q: [2, 6],
+          id: "cgCats", q: [2, 7],
           label: "Assign the observations to the categories relevance, transparency, control, trust, efficiency and misadaptation",
           helpText: "Write the observations that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the CareGuide observations that belong to it.",
@@ -537,7 +537,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the observations to six categories: relevance, transparency, control, trust, efficiency and misadaptation. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names an observation of CareGuide."] },
         }),
         listsField({
-          id: "cgMeasures", q: [3, 6],
+          id: "cgMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €180,000, without a relaunch.", "Put them in order: what secures trust and acceptance first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Why, change, undo (Materi A4)", "explain, control, undo", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "cgCats-field")],
@@ -565,8 +565,13 @@ export const SPEC = defineSpec({
             { measure: "Trust-building communication for AI help", changes: "Help, not a black box" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "cgMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows a CareGuide recommendation card with one line “Why you see this: you read about sleep last week”, a “Not for me” button and a link to the settings. This screen removes problem 1 (personalisation is not explained) and problem 3 (too little control), because members understand why they see it and can steer it.",
+          example: "A video service: a sketch of a recommendation row with “Because you watched ...” under each title and a small “Not interested” button. It removes “why am I shown this?”, because the reason is next to the suggestion.",
+        }),
         textField({
-          id: "cgJustify", q: [4, 6],
+          id: "cgJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -591,13 +596,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "cgDecide", q: [5, 6],
+          id: "cgDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 14 weeks",
           help: "Say what you do in the first 14 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 14 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you keep the brand trustworthy."],
-          refs: [ref("Your justification (question 4)", "above", "cgJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "cgJustify-field")],
           model: "In the first 14 weeks every recommendation gets a short reason (“because you booked a back check-up”) and two controls: “not for me” and a setting to switch recommendations off. In parallel we limit personalisation to the cases with good data (appointments and the programmes a member joined) and switch it off where it misfits. The explanation page about how CareGuide recommends follows in the same period; new intelligent features wait until members understand the existing ones.",
           example: "A bank app: reasons and an off switch first; offers limited to savings in parallel; the explanation page next; new offer types next year.",
           guide: { why: "The plan asks for a prioritisation decision for the first 14 weeks. Any order defends if it follows from the justification; the Musterlösung starts with explanation and control because they secure acceptance and trust directly.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how trust is kept."] },
@@ -614,13 +619,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "cgRec", q: [6, 6],
+          id: "cgRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change."],
-          refs: [ref("Your decision (question 5)", "above", "cgDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "cgDecide-field")],
           model: "We recommend developing intelligent guidance not primarily through technical maximisation, but through comprehensible, controllable and trustworthy assistance. Transparent suggestion logic, stronger user control and a focus on robust personalisation scenarios have priority, because these measures have the greatest effect on acceptance, service quality and innovation that is safe for the reputation.",
           example: "A bank app: we recommend explaining every offer and letting customers switch offers off before adding new ones. Fewer complaints about pushy offers will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends comprehensible, controllable and trustworthy assistance over technical maximisation, with transparent logic, user control and robust scenarios as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

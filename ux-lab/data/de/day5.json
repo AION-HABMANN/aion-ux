@@ -1363,5 +1363,10 @@
  "“Start transfer” is a small link far away in the top right; buttons sit close together, so the wrong one is easily hit; on mobile the central buttons are small.": "„Überweisung starten“ ist ein kleiner Link weit weg oben rechts; Buttons stehen dicht beieinander, sodass leicht der falsche getroffen wird; auf dem Handy sind die zentralen Buttons klein.",
  "“The portal is not user-friendly.”": "„Das Portal ist nicht nutzerfreundlich.“",
  "← Day": "← Tag",
- "← Film": "← Film"
+ "← Film": "← Film",
+ "Route 1 → Task 1 → the situation and the portal below, then the seven questions.": "Route 1 → Aufgabe 1 → die Situation und das Portal darunter, dann die sieben Fragen.",
+ "Your justification (question 5)": "Ihre Begründung (Frage 5)",
+ "Your decision (question 6)": "Ihre Entscheidung (Frage 6)",
+ "Link: your own. The sketch shows the MoveEasy booking screen on a phone with the main button full width at the bottom, where the thumb rests, the secondary actions as small text links above it, and enough space between targets. This screen removes problem 4 (small targets and poor reachability) and problem 1 (small, badly placed elements), because people hit the right control the first time.": "Link: Ihr eigener. Die Skizze zeigt den MoveEasy-Buchungsbildschirm auf dem Handy mit der Hauptschaltfläche in voller Breite unten, wo der Daumen liegt, den Nebenaktionen als kleinen Textlinks darüber und genug Abstand zwischen den Zielen. Dieser Bildschirm beseitigt Problem 4 (zu kleine Ziele und schlechte Erreichbarkeit) und Problem 1 (kleine, schlecht platzierte Elemente), weil man das richtige Bedienelement gleich beim ersten Mal trifft.",
+ "A parcel-tracking app: a sketch of the delivery screen with a full-width “Change delivery time” button at the bottom and the rarely used options folded away. It removes “I tap the wrong thing with my thumb”, because the main control is large and within reach.": "Eine Paket-Tracking-App: eine Skizze des Lieferbildschirms mit einer Schaltfläche „Lieferzeit ändern“ in voller Breite unten und den selten genutzten Optionen eingeklappt. Sie beseitigt „ich tippe mit dem Daumen auf das Falsche“, weil das wichtigste Bedienelement groß ist und in Reichweite liegt."
 }

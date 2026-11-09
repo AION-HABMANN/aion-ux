@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 import { REF_CARD_21, REF_CARD_31 } from "@/data/day12/reference";
 
 /**
@@ -443,10 +443,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: making the portal CitizenConnect more accessible"),
-      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the six questions. A real platform can be opened for the class discussion."),
+      findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions. A real platform can be opened for the class discussion."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "1yahZI6BmmgVMFAMmmkP1vFZQItr4jfrUVq1_SdWcwoE",
+      minutes: 40,
+      sharedDocId: "1d1luyruiAtVIDdaF4NY4alQOfY_x9vgInmrrwbVyCIQ",
       doc: t("2.1 · Case study: CitizenConnect"),
       lead: t(
         "A municipal service platform offers information, appointment bookings and application processes digitally.\n\nIt is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming.\n\nThe organisation wants to make the portal more accessible and inclusive without a complete relaunch.\n\nThe observed problems:\n• weak contrast makes central information hard to read\n• forms are not cleanly structured and contain unclear error messages\n• keyboard operation is patchy\n• important hints are differentiated visually but not in words\n• content is partly complicated\n• different page types are not built consistently\n\nThe conditions:\n• a budget of €160,000\n• 14 weeks for the implementation\n• no complete relaunch\n• legal requirements that must be considered first\n• several departments that supply content\n• first improvements that must show soon\n\nYou work through six steps.",
@@ -454,7 +454,7 @@ export const SPEC = defineSpec({
       slots: ["citizenconnect"],
       fields: [
         listsField({
-          id: "ccProblems", q: [1, 6],
+          id: "ccProblems", q: [1, 7],
           label: "Analyse the central barriers and gaps in inclusion of the portal",
           steps: ["Open CitizenConnect as a citizen: read an information page, book an appointment, fill in an application with a mistake, then try it all with the keyboard alone.", "Write one barrier per line, and what it does."],
           refs: [ref("CitizenConnect today", "contrast · forms · keyboard · visual hints · language · inconsistent pages", "slot-citizenconnect"), ref("Barriers in interaction (Materi A3)", "keyboard and focus", "mat-A3", "A3")],
@@ -485,7 +485,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "ccCats", q: [2, 6],
+          id: "ccCats", q: [2, 7],
           label: "Assign the problems to the categories perceivability, operability, comprehensibility, error tolerance and consistency",
           helpText: "Write the problems that belong to each category in a few words. At least 15 characters each.",
           helpTable: "One row per category: the CitizenConnect problems that belong to it.",
@@ -517,7 +517,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to five categories: perceivability, operability, comprehensibility, error tolerance and consistency. The six observed problems spread over them; the assignment is a judgement.", lookFor: ["All five categories are filled.", "Each entry names a problem of CitizenConnect."] },
         }),
         listsField({
-          id: "ccMeasures", q: [3, 6],
+          id: "ccMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €160,000, without a relaunch.", "Put them in order: what reduces exclusion first."],
           refs: [ref("Weighing a measure (Materi A5)", "effect · legal certainty · feasibility · risk · time", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "ccCats-field")],
@@ -545,8 +545,13 @@ export const SPEC = defineSpec({
             { measure: "Consistent patterns for central page types", changes: "Easier to find one's way" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "ccMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows one CitizenConnect form page with high-contrast text, a visible focus frame on the current field, the tab order numbered 1 to 5 and the submit button reachable last. This screen removes problem 1 (weak contrast) and problem 2 (insufficient keyboard operability), because people who cannot use a mouse or cannot see low contrast can finish the form.",
+          example: "A library account page: a sketch with dark text on white, a thick focus frame and the numbers 1 to 4 showing the tab order. It removes “I cannot tell where I am when I use the keyboard”, because the focus is always visible and the order is clear.",
+        }),
         textField({
-          id: "ccJustify", q: [4, 6],
+          id: "ccJustify", q: [5, 7],
           label: "Justify your selection using effect on users, legal certainty, feasibility, risk and time pressure",
           help: "Use all five criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -572,13 +577,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ccDecide", q: [5, 6],
+          id: "ccDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 14 weeks",
           help: "Say what you do in the first 14 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 14 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you make the first improvements visible."],
-          refs: [ref("Your justification (question 4)", "above", "ccJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "ccJustify-field")],
           model: "In the first 14 weeks we fix contrast, focus and keyboard in the shared templates, so every page improves at once, and rebuild the three most used forms (appointment, address change, parking permit) to be accessible and error-tolerant. In parallel the departments get a one-page writing rule and rewrite their twenty most visited pages, with every colour-only hint also in words. Consistent patterns start with the information page and the form page; the rest of the page types follow after the 14 weeks.",
           example: "A museum website: darker text and a keyboard-ready shop in the template first; the booking form next; plain texts for the top pages in parallel; templates for the rest later.",
           guide: { why: "The plan asks for a prioritisation decision for the first 14 weeks. Any order defends if it follows from the justification; the Musterlösung starts with contrast, focus, keyboard and forms because they reduce exclusion directly.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how first improvements become visible."] },
@@ -595,13 +600,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ccRec", q: [6, 6],
+          id: "ccRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change."],
-          refs: [ref("Your decision (question 5)", "above", "ccDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "ccDecide-field")],
           model: "We recommend treating accessibility not as a side topic but as a priority dimension of quality and responsibility. Perceivable content, safe operability and understandable interaction have priority, because these measures have the greatest effect on participation, legal certainty and service quality.",
           example: "A museum website: we recommend fixing contrast, keyboard and the booking form first; fewer complaints and more online bookings by older visitors will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends accessibility as a priority quality and responsibility dimension, with perceivable content, safe operability and understandable interaction as priorities.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },

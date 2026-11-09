@@ -1,6 +1,6 @@
 import { t } from "@/lib/lang";
 import { defineSpec } from "@/lib/dayFree/spec";
-import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, textField, uncertainTable } from "@/data/free/kit";
+import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, sketchField, textField, uncertainTable } from "@/data/free/kit";
 
 /**
  * Day 8 · storytelling in UX/UI design and narrative user experiences (DL-STANDARD v1.8, CLAUDE.md #57): the plan's own questions as free answers, every block Core.
@@ -474,10 +474,10 @@ export const SPEC = defineSpec({
     {
       id: "2.1",
       title: t("Block 2.1 · Case study: redesigning the GreenHome onboarding"),
-      findIt: t("Route 1 → Task 1 → the situation and the onboarding below, then the six questions."),
+      findIt: t("Route 1 → Task 1 → the situation and the onboarding below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
-      minutes: 15,
-      sharedDocId: "19Rp5xG-MpvFFlVMSpNZioH_nlj_oC2OK3gpC4mShX6c",
+      minutes: 40,
+      sharedDocId: "1rqZBhUs5LCY6AiBmk9oywYuRsF6Pt6MPkAXVWPJVfag",
       doc: t("2.1 · Case study: GreenHome"),
       lead: t(
         "A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support.\n\nThe onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end.\n\nThe company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity.\n\nThe observed problems:\n• the entry explains functions, but not the personal benefit or the goal for users\n• the sequence of steps feels administrative rather than developmental\n• intermediate states and progress are barely visible\n• help and hints explain but do not motivate\n• finishing a step does not feel like progress\n• the whole feels like a form process rather than an accompanied journey\n\nThe conditions:\n• a budget of €155,000\n• 12 weeks for the implementation\n• contents and specialist logic must largely be kept\n• the company wants to look inspiring but serious\n• user data is only partly available\n• a complete relaunch is not possible\n\nYou work through six steps.",
@@ -485,7 +485,7 @@ export const SPEC = defineSpec({
       slots: ["greenhome"],
       fields: [
         listsField({
-          id: "ghProblems", q: [1, 6],
+          id: "ghProblems", q: [1, 7],
           label: "Analyse the central narrative and dramaturgical deficits of the onboarding",
           steps: ["Open GreenHome and go through the onboarding as a homeowner would, from the first screen to the summary.", "Write one deficit per line as a missing part of the journey and what it does."],
           refs: [ref("GreenHome today", "functions not benefit · administrative order · no progress · help that does not motivate · no sense of progress · a form, not a journey", "slot-greenhome"), ref("The elements of narrative guidance (Materi A2)", "the elements", "mat-A2", "A2")],
@@ -522,7 +522,7 @@ export const SPEC = defineSpec({
           ],
         }),
         assessField({
-          id: "ghCats", q: [2, 6],
+          id: "ghCats", q: [2, 7],
           label: "Assign the problems to the categories entry, relevance, transitions, progress, motivation and completion",
           helpText: "Write the problems that belong to each category in a few words. A problem may fit two categories. At least 15 characters each.",
           helpTable: "One row per category: the GreenHome problems that belong to it.",
@@ -556,7 +556,7 @@ export const SPEC = defineSpec({
           guide: { why: "The plan asks to assign the problems to six categories: entry, relevance, transitions, progress, motivation and completion. The six observed problems spread over all six; the assignment is a judgement.", lookFor: ["All six categories are filled.", "Each entry names a problem of the onboarding."] },
         }),
         listsField({
-          id: "ghMeasures", q: [3, 6],
+          id: "ghMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks, keeping the contents and specialist logic and without a relaunch.", "Put them in order: what gives people a reason to start and to go on first."],
           refs: [ref("Activation and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "ghCats-field")],
@@ -589,8 +589,13 @@ export const SPEC = defineSpec({
             { measure: "Completions marked positively", changes: "Steps feel like real progress" },
           ],
         }),
+        sketchField({
+          q: [4, 7], measuresId: "ghMeasuresText", measuresQ: 3, problemsQ: 1,
+          model: "Link: your own. The sketch shows the first screen of the GreenHome onboarding with one sentence that names the goal (“In five steps to your home's energy plan”), a picture of the end result and a “Start” button, with a progress strip across the top. This screen removes problem 1 (no narrative framing) and problem 2 (no arc of progress), because people see why they begin and where it leads.",
+          example: "A language app: a sketch of the first screen with “In four weeks you can order a meal in Spanish”, a picture of the finished goal and a Start button. It removes “I do not know why I am doing this”, because the first screen gives the reason.",
+        }),
         textField({
-          id: "ghJustify", q: [4, 6],
+          id: "ghJustify", q: [5, 7],
           label: "Justify your selection using effect on users, feasibility, risk and time pressure",
           help: "Use all four criteria and say how they support your selection and its order. At least 80 characters.",
           min: 80, rows: 5,
@@ -615,13 +620,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ghDecide", q: [5, 6],
+          id: "ghDecide", q: [6, 7],
           label: "Make a prioritisation decision for the first 12 weeks",
           help: "Say what you do in the first 12 weeks, in which order, and what you leave for later, with the reason. At least 80 characters.",
           min: 80, rows: 5,
           missing: "make the prioritisation decision for the first 12 weeks",
           steps: ["Say what comes first and why.", "Say what you do in parallel and what waits.", "Say how you keep the specialist clarity."],
-          refs: [ref("Your justification (question 4)", "above", "ghJustify-field")],
+          refs: [ref("Your justification (question 5)", "above", "ghJustify-field")],
           model: "In the first 12 weeks we write a new entry that shows the goal (a home that uses less energy, with the funding found) and the path of five stages, and we add a progress display that shows where people are. In parallel the specialist department and a writer rewrite the transitions between the five steps, so each says what was done and what comes next, without changing the content. The positive marking of finished stages follows in the same flow. The help texts stay correct and are given a first motivating sentence later.",
           example: "A pension portal: first the goal and the path of four stages, then the transitions written with the experts; the finished-stage messages follow; the help texts next quarter.",
           guide: { why: "The plan asks for a prioritisation decision for the first 12 weeks. Any order defends if it follows from the justification and the conditions; the Musterlösung starts with the entry and the logic of progress because they act directly on motivation and abandonment.", lookFor: ["Says what comes first and why.", "Says what is done in parallel or later.", "Says how the specialist clarity is kept."] },
@@ -638,13 +643,13 @@ export const SPEC = defineSpec({
           }),
         }),
         textField({
-          id: "ghRec", q: [6, 6],
+          id: "ghRec", q: [7, 7],
           label: "Formulate a recommendation to the division management",
           help: "Three to five sentences: what you recommend, what has priority, and what you expect to change. At least 80 characters.",
           min: 80, rows: 4,
           missing: "write the recommendation to the division management",
           steps: ["Lead with the recommendation.", "Name the priorities.", "Say what you expect to change for users and for the company."],
-          refs: [ref("Your decision (question 5)", "above", "ghDecide-field")],
+          refs: [ref("Your decision (question 6)", "above", "ghDecide-field")],
           model: "We recommend restructuring the onboarding not only in its content but dramaturgically. A relevant entry, a visible logic of progress and motivating transitions have priority, because with a justifiable effort these measures have the greatest effect on activation, orientation and the likelihood that people finish.",
           example: "A pension portal: we recommend showing people their goal and their path before any new feature. More finished plans and fewer “how much is left?” calls will show first.",
           guide: { why: "The plan asks for a recommendation to the division management; its Musterlösung recommends restructuring the onboarding dramaturgically, with a relevant entry, visible progress and motivating transitions as priorities. A recommendation that leads with a clear direction and a reason the management can follow is complete.", lookFor: ["Leads with the recommendation.", "Names the priorities.", "Says what will change."] },
