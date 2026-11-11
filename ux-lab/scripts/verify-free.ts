@@ -123,6 +123,24 @@ for (const day of want) {
       ok(fieldsOf(spec, 1).concat(fieldsOf(spec, 2)).every((f) => f.kind !== "text" || softHelp(f.help).length > 15), "every text help still says something after the minimum is cut");
     }
 
+    // 3c · UX-STANDARD 2.23: optional questions kept behind a link
+    if (spec.extras?.length) {
+      const all = fieldsOf(spec, 1).concat(fieldsOf(spec, 2));
+      ok(spec.extras.every((id) => all.some((f) => f.id === id)), "every id in extras names a real field");
+      const docOf = (f: FreeField) => (f.kind === "lists" ? f.lists[0].doc : f.kind === "text" ? f.doc ?? f.label : f.doc);
+      const ex = all.find((f) => f.id === spec.extras![0])!;
+      const blk = blocksOf(spec, 1).find((b) => b.fields.some((f) => f.id === ex.id));
+      if (blk) {
+        const pe = JSON.parse(JSON.stringify(p0)) as Persisted;
+        const keep = blk.fields.find((f) => f.kind === "text" && !spec.extras!.includes(f.id));
+        if (keep) sliceOf(pe, day).r1.text[keep.id] = "An answer to a question that stays visible.";
+        ok(!freeAnalysisBody(pe, spec, new Set([blk.id])).includes(docOf(ex)), "an unanswered optional question is not printed in the export");
+        if (ex.kind === "text") sliceOf(pe, day).r1.text[ex.id] = "An answer to a question that was kept behind the link.";
+        else if (ex.kind === "lists") sliceOf(pe, day).r1.text[ex.lists[0].id] = "An answer in the optional list, written as one line.";
+        ok(freeAnalysisBody(pe, spec, new Set([blk.id])).includes(docOf(ex)), "an answered optional question is printed in the export");
+        ok(blockHasContent(blk, sliceOf(pe, day).r1), "an answer behind the link counts for the block");
+      }
+    }
     const mats = materialsOf(day);
     ok(freeDossier(p1, spec, mats.MATERIALS, 1).total === mats.MATERIALS.filter((x) => x.block === "A" && !x.optional).length + 3 && freeDossier(p1, spec, mats.MATERIALS, 2).total === mats.MATERIALS.filter((x) => x.block === "B" && !x.optional).length + 1, "progress totals count the cards and the task blocks");
 

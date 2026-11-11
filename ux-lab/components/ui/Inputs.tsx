@@ -4,6 +4,7 @@ import { AutoTextarea } from "@/components/ui/AutoTextarea";
 import clsx from "clsx";
 import type { ReactNode } from "react";
 import { Field } from "@/components/ui/Field";
+import { useSoft } from "@/components/ui/soft";
 import { tt } from "@/lib/lang";
 
 /**
@@ -40,6 +41,7 @@ export function TextBox({
   children?: ReactNode;
 }) {
   const len = value.trim().length;
+  const soft = useSoft(); // UX-STANDARD 2.22: on a day with no required question the minimum is not shown
   return (
     <Field
       id={id}
@@ -50,7 +52,7 @@ export function TextBox({
       clue={clue}
       clueShown={clueShown}
       onShowClue={onShowClue}
-      meta={min ? <span className={clsx("tnum text-micro normal-case tracking-normal", len >= min ? "text-signal" : "text-ash")}>{`${len} / ${min} ${tt("characters", "Zeichen")}`}</span> : null}
+      meta={min && !soft ? <span className={clsx("tnum text-micro normal-case tracking-normal", len >= min ? "text-signal" : "text-ash")}>{`${len} / ${min} ${tt("characters", "Zeichen")}`}</span> : null}
     >
       <AutoTextarea
         id={`${id}-in`}

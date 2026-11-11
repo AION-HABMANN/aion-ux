@@ -101,6 +101,8 @@ export function fieldHasContent(f: FreeField, r: FreeRoute): boolean {
   if (f.kind === "assess") return f.items.some((i) => len(r.assessText[f.id]?.[i.id]) > 0 || anyCell(r.assessRows[f.id]?.[i.id]));
   return !!r.picks[f.id];
 }
+/** A field kept behind the "more optional questions" link of its block (UX-STANDARD 2.23). */
+export const isExtra = (spec: { extras?: string[] }, f: FreeField) => !!spec.extras?.includes(f.id);
 /** A block counts for the export, and for the progress, as soon as it holds any answer. */
 export const blockHasContent = (b: BlockSpec, r: FreeRoute) => b.fields.some((f) => fieldHasContent(f, r));
 

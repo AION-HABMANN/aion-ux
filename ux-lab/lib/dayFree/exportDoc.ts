@@ -1,4 +1,4 @@
-import { blocksOf, listLines, sliceOf, tableMode } from "@/lib/dayFree/model";
+import { blocksOf, fieldHasContent, isExtra, listLines, sliceOf, tableMode } from "@/lib/dayFree/model";
 import type { FreeField, FreeSpec } from "@/lib/dayFree/spec";
 import { cell, docHeader, dateLabel, para } from "@/lib/exportDoc";
 import { tt } from "@/lib/lang";
@@ -72,7 +72,7 @@ export function freeAnalysisBody(p: Persisted, spec: FreeSpec, included?: Readon
         part2Done = true;
         head = `<h2>${esc(`${tt("Part 2", "Teil 2")} · ${spec.route1.part2.level}`)}</h2>`;
       }
-      return `${head}<h3>${esc(b.doc)}</h3>${b.fields.map((f) => fieldHtml(f, r, "h3")).join("")}`;
+      return `${head}<h3>${esc(b.doc)}</h3>${b.fields.filter((f) => !isExtra(spec, f) || fieldHasContent(f, r)).map((f) => fieldHtml(f, r, "h3")).join("")}`;
     })
     .join("\n");
   return `${docHeader({ kicker: "Neuro-UX Lab", title: "UX Analysis File", level: tt("Levels 1 and 2 · Knowledge and application", "Level 1 und 2 · Wissen und Anwendung"), day: spec.day, name: p.participant.name })}
@@ -101,7 +101,7 @@ export function freeMemoBody(p: Persisted, spec: FreeSpec, included?: ReadonlySe
     : picked
     ? `<blockquote><strong>${esc(tt("Where Route 1 left off.", "Wo Route 1 aufgehört hat."))}</strong> ${esc(pk.docLead)} ${esc(picked)}.</blockquote>`
     : `<p class="muted">${esc(tt("Route 1 is not finished, so there is nothing to quote yet. Nothing is blocked.", "Route 1 ist nicht fertig, daher gibt es noch nichts zu zitieren. Nichts ist gesperrt."))}</p>`;
-  const items = included && !included.has(spec.block2.id) ? "" : spec.block2.fields.map((f, i) => fieldHtml(f, s.r2, "h2", i + 1)).join("\n");
+  const items = included && !included.has(spec.block2.id) ? "" : spec.block2.fields.filter((f) => !isExtra(spec, f) || fieldHasContent(f, s.r2)).map((f, i) => fieldHtml(f, s.r2, "h2", i + 1)).join("\n");
   return `${docHeader({ kicker: "Neuro-UX Lab", title: "UX Strategy Memo", level: tt("Level 3 · Management decision", "Level 3 · Managemententscheidung"), day: spec.day, name: p.participant.name })}
 <dl class="meta">
   <dt>${esc(tt("To", "An"))}</dt><dd>${esc(spec.route2.to)}</dd>

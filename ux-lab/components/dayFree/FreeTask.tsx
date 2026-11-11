@@ -26,7 +26,7 @@ import { routeHref } from "@/data/course";
 import { fieldDomId, freeMissing, itemDomId, rowDomId } from "@/lib/dayFree/missing";
 import { freeAnalysisBody, freeMemoBody } from "@/lib/dayFree/exportDoc";
 import { guideOf, pickKey } from "@/lib/dayFree/mentor";
-import { blocksOf, listCount, sliceOf } from "@/lib/dayFree/model";
+import { blocksOf, fieldHasContent, isExtra, listCount, sliceOf } from "@/lib/dayFree/model";
 import { route1Minutes, route2Minutes } from "@/lib/dayFree/progress";
 import type { BlockSpec, Brief, FreeField, FreeKit, FreeSpec, GuideSpec, ListsField } from "@/lib/dayFree/spec";
 import { DOC_CSS } from "@/lib/exportDoc";
@@ -162,11 +162,11 @@ function ModeLink({ mode, onMode, guided, back }: { mode: "text" | "table"; onMo
 
 /* ------------------------------------------------------------------ one field */
 
-function FieldView({ ctx, f }: { ctx: Ctx; f: FreeField }) {
+function FieldView({ ctx, f, extra }: { ctx: Ctx; f: FreeField; extra?: boolean }) {
   const { spec, kit, route } = ctx;
   const { r, patch, mentor } = useRoute(spec, route);
   const slot = f.slot ? kit.slots[f.slot] : undefined;
-  const q = f.qLabel;
+  const q = f.qLabel && extra ? `${f.qLabel} · ${tt("optional", "optional")}` : f.qLabel;
   const setMode = (m: "text" | "table") => patch((s) => ({ modes: { ...s.modes, [f.id]: m } }));
   const head = (
     <>
@@ -360,6 +360,33 @@ function ListsView({ ctx, f, r, patch, mentor, head, setMode }: { ctx: Ctx; f: L
   );
 }
 
+/* ------------------------------------------------------------------ the optional questions behind a link (UX-STANDARD 2.23) */
+
+/** The questions of a block that the day keeps out of sight: one link opens them, each with its own number and an "optional" mark. A question that already holds an answer stays open. */
+function ExtraFields({ ctx, b }: { ctx: Ctx; b: BlockSpec }) {
+  const { r } = useRoute(ctx.spec, ctx.route);
+  const [open, setOpen] = useState(false);
+  const extras = b.fields.filter((f) => isExtra(ctx.spec, f));
+  if (extras.length === 0) return null;
+  const answered = extras.some((f) => fieldHasContent(f, r));
+  const shown = open || answered;
+  const n = extras.filter((f) => !!f.qLabel).length || extras.length;
+  return (
+    <div id={`extras-${b.id.replace(".", "-")}`} className="space-y-4 rounded-lg border border-dashed border-line bg-canvas p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-body text-ink">
+          <span className="smallcaps mr-2 text-ash">{tt("Optional", "Optional")}</span>
+          {tt(`${n} more ${n === 1 ? "question" : "questions"} in this block, if you have time`, `${n} weitere ${n === 1 ? "Frage" : "Fragen"} in diesem Block, wenn Sie Zeit haben`)}
+        </p>
+        <button type="button" aria-expanded={shown} onClick={() => setOpen((v) => !v)} disabled={answered} className="btn btn-sm min-h-[40px] border border-line bg-paper text-ink hover:border-ash disabled:opacity-60">
+          {shown ? tt("Hide", "Ausblenden") : tt("Show", "Anzeigen")}
+        </button>
+      </div>
+      {shown && extras.map((f) => <FieldView key={f.id} ctx={ctx} f={f} extra />)}
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ one block */
 
 function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: MissingEntry[] }) {
@@ -399,9 +426,10 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
           {kit.slots[s]?.()}
         </div>
       ))}
-      {b.fields.map((f) => (
+      {b.fields.filter((f) => !isExtra(ctx.spec, f)).map((f) => (
         <FieldView key={f.id} ctx={ctx} f={f} />
       ))}
+      <ExtraFields ctx={ctx} b={b} />
       {open ? <BlockExportStatus b={b} r={blockR} inc={ctx.inc!} /> : <BlockMissing block={b.id} missing={missing} />}
     </AnswerBlock>
   );

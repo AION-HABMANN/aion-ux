@@ -20,6 +20,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
 export const SPEC = defineSpec({
   day: 4,
   optionalAll: true,
+  extras: ["spHurdles", "navConflicts", "navRisks"],
   caseName: "MyEnergy",
   role: "Chief Experience Officer",
   heading: t("Day 4 · UX laws and cognitive perception"),

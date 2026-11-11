@@ -178,6 +178,8 @@ export type FreeSpec = {
   day: number;
   /** UX-STANDARD 2.22: no question is required. A block counts for the export when it has any answer, so a block written in its Google Doc is simply left out. */
   optionalAll?: boolean;
+  /** UX-STANDARD 2.23 (question reduction 1): ids of fields kept behind a "more optional questions" link. They keep their numbers and answers, and print in the export only when answered. */
+  extras?: string[];
   caseName: string;
   role: string;
   heading: string;
