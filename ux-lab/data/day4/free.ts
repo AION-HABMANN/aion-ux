@@ -479,7 +479,8 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
-      sharedDocId: "1iiZxBE3Lsv2IFD6fOo4QUg3rZdI1uaXOvf6gaHOt0U0",
+      sharedDocId: "1iiZxBE3Lsv2IFD6fOo4QUg3rZdI1uaXOvf6gaHOt0U0",
+      solution: { src: "/mentor/solusi-2-1/day4.html", title: t("MyEnergy: the portal after the improvements, next to the old one.", "MyEnergy: das Portal nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: MyEnergy"),
       lead: t(
         "An energy supplier runs MyEnergy, an online portal for tariff changes, adjusting instalments, submitting meter readings and retrieving bills.\n\nThe portal offers many functions, but users often report that they cannot find tasks quickly or that they abandon processes. The company wants use to be more efficient and intuitive without reducing the scope of functions much.\n\nThe observed problems:\n• too many navigation items of equal rank make orientation hard\n• important tasks are not clearly prioritised\n• process steps build on each other without the logic being visible\n• technical language raises the effort of understanding\n• users have to remember information across several steps\n• feedback in the process is unclear or too general\n\nThe conditions:\n• a budget of €160,000\n• 12 weeks for the implementation\n• no complete relaunch\n• several departments want to keep their functions prominently visible\n• user data is only partly available\n\nYou work through six steps.",

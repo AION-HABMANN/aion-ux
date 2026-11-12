@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solution 2.1 · Day 4</title>
+<style>
+:root{
+  --bg:#eceae4; --surface:#ffffff; --surface-2:#f5f4f0; --surface-3:#eeece6; --ink:#1b1f24; --ink-2:#3a414b; --muted:#646c78; --line:#e1ddd4; --line-2:#cfcac0;
+  --brand:#bf360c; --brand-600:#a32e0a; --brand-soft:#fcebe4; --good:#1f7a4a; --good-soft:#e2f3e9; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --warn:#8a5300; --warn-soft:#fdf0d8; --blue:#1d5fa8; --blue-soft:#e4edf8; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06); --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+    --brand:#ff8a65; --brand-600:#ffa384; --brand-soft:#3a251e; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+    --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+  --brand:#ff8a65; --brand-600:#ffa384; --brand-soft:#3a251e; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+  --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1140px;margin:0 auto;padding:18px 16px 60px}
+
+/* ---------- mentor control bar ---------- */
+.bar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:12px}
+.bar-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.kicker{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.bar h1{font-size:1.2rem;margin:0}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:.86rem}
+.seg button[aria-pressed="true"].b{background:var(--bad);color:#fff}
+.seg button[aria-pressed="true"].a{background:var(--good);color:#fff}
+.task{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.88rem;background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.task b{color:var(--brand)}
+.tk{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.tk i{font-style:normal;width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);display:inline-grid;place-items:center;font-size:.65rem;color:transparent}
+.tk.done{color:var(--ink)} .tk.done i{background:var(--good);border-color:var(--good);color:#fff}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.muted{color:var(--muted);font-size:.82rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.82rem;cursor:pointer}
+.tbtn svg.i{width:16px;height:16px}
+.tbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface);font-weight:700}
+
+/* ---------- browser frame ---------- */
+.frame{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);font-size:.76rem;color:var(--muted)}
+.dots{display:flex;gap:5px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.flag{font-weight:700;padding:2px 8px;border-radius:6px}
+.flag.b{background:var(--bad-soft);color:var(--bad)} .flag.a{background:var(--good-soft);color:var(--good)}
+.portal{min-height:600px;background:var(--surface);position:relative}
+
+/* ---------- pins ---------- */
+.zone{position:relative}
+.pin{position:absolute;z-index:4;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;border:2px solid var(--surface);color:#fff;cursor:pointer;display:grid;place-items:center;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:pulse 2.6s infinite}
+.pin svg.i{width:13px;height:13px;stroke-width:2.6}
+.pin.b{background:var(--bad)} .pin.a{background:var(--good)}
+.pin:hover,.pin:focus-visible{transform:scale(1.15);outline:none}
+body.nopins .pin{display:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,122,74,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(31,122,74,0),0 2px 6px rgba(0,0,0,.25)}}
+.pin.b{animation-name:pulseb}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 rgba(179,38,30,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(179,38,30,0),0 2px 6px rgba(0,0,0,.25)}}
+@media (prefers-reduced-motion:reduce){.pin{animation:none}}
+
+/* ================= BEFORE (old portal) ================= */
+.old{font-family:Verdana,Tahoma,sans-serif;font-size:13px;color:#222;background:#fff;min-height:600px}
+.old .oh{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:3px solid #bf360c;background:#fafafa}
+.old .ologo{font-weight:700;color:#bf360c;font-size:17px;background:none;border:0;cursor:pointer;font-family:inherit}
+.old .onav button{background:none;border:0;color:#235;cursor:pointer;margin-left:12px;text-decoration:underline;font-family:inherit;font-size:12px}
+.old .ob{padding:18px;max-width:820px}
+.old .hero{background:linear-gradient(135deg,#ffb38a,#bf360c);color:#fff;padding:22px;margin-bottom:14px}
+.old .hero b{display:block;font-size:19px}
+.old .hero button{margin-top:10px;background:#fff;color:#bf360c;border:0;padding:6px 12px;cursor:pointer;font-family:inherit}
+.old .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.old .tile{background:#eee;border:1px solid #ccc;padding:14px 6px;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old .note{color:#666;font-size:11px;margin-top:12px}
+.old h2{font-size:16px;margin:0 0 6px}
+.old .choice{display:block;width:100%;max-width:420px;text-align:left;background:#f4f4f4;border:1px solid #bbb;padding:9px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old label{display:block;font-size:12px;margin:8px 0 2px}
+.old input{width:260px;border:1px solid #999;padding:5px;font-family:inherit;font-size:12px;background:#fff;color:#222}
+.old .sbtn{margin-top:10px;background:#555;color:#fff;border:0;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:12px}
+.old .lnk{background:none;border:0;color:#235;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;font-size:12px}
+.old .msg{margin-top:10px;padding:6px 8px;background:#eee;color:#444;font-size:12px;display:inline-block}
+.old .msg.err{color:#b00}
+.old table{border-collapse:collapse;font-size:12px}
+.old td,.old th{border:1px solid #ccc;padding:5px 8px;text-align:left}
+.old .back{display:block;margin-top:14px}
+.old .zone{display:block}
+
+/* ================= AFTER (new portal) ================= */
+.np{display:flex;flex-direction:column;min-height:600px}
+.nh{display:flex;align-items:center;gap:18px;padding:0 24px;height:64px;border-bottom:1px solid var(--line);background:var(--surface)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;background:none;border:0;color:var(--ink);cursor:pointer;padding:0}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:#fff}
+.brand-mark svg.i{width:18px;height:18px;stroke-width:2.2}
+.navwrap{height:100%;display:flex;margin-left:8px}
+.navwrap .pin{top:4px;right:-8px}
+.navx{display:flex;gap:2px;height:100%}
+.navx button{display:flex;align-items:center;gap:7px;height:100%;padding:0 12px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:600;font-size:.88rem;border-bottom:2px solid transparent;white-space:nowrap}
+.navx button svg.i{width:18px;height:18px}
+.navx button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brand)}
+.navx button:hover{color:var(--ink)}
+.nh-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;position:relative}
+.iconbtn .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--brand);border:2px solid var(--surface)}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--surface-3);color:var(--ink-2);display:grid;place-items:center;font-weight:700;font-size:.82rem}
+.nb{flex:1;padding:28px 24px 40px;background:var(--surface-2)}
+.inner{max-width:880px;margin:0 auto}
+.nf{padding:14px 24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bottomnav{display:none}
+
+h2.h{font-size:1.45rem;letter-spacing:-.015em;margin:0 0 4px}
+.lead{color:var(--muted);margin:0 0 20px}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:24px 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+
+.status{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.status .card h3{font-size:.8rem;font-weight:600;color:var(--muted);margin:0 0 6px}
+.big-num{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.pill svg.i{width:14px;height:14px;stroke-width:2.2}
+.p-good{background:var(--good-soft);color:var(--good)} .p-warn{background:var(--warn-soft);color:var(--warn)} .p-grey{background:var(--surface-3);color:var(--muted)} .p-blue{background:var(--blue-soft);color:var(--blue)}
+.action{border-left:4px solid var(--brand)}
+.action .row{align-items:flex-start}
+.ic-wrap{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
+.ic-brand{background:var(--brand-soft);color:var(--brand)} .ic-blue{background:var(--blue-soft);color:var(--blue)} .ic-good{background:var(--good-soft);color:var(--good)} .ic-grey{background:var(--surface-3);color:var(--ink-2)}
+.ic-wrap svg.i{width:22px;height:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer;border:1px solid transparent;font-size:.92rem}
+.btn svg.i{width:18px;height:18px}
+.btn-p{background:var(--brand);color:#fff} .btn-p:hover{background:var(--brand-600)}
+.btn-s{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-t{background:none;color:var(--brand);padding:6px 0;border:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qbtn{display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.qbtn:hover{border-color:var(--brand);transform:translateY(-1px)}
+.qbtn b{font-size:.98rem}
+.qbtn small{color:var(--muted);font-size:.8rem;margin-top:-8px}
+
+.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.li{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);text-align:left;cursor:pointer}
+.li:last-child{border-bottom:0}
+.li:hover{background:var(--surface-2)}
+.li .t{flex:1;min-width:0} .li .t b{display:block;font-weight:600} .li .t small{color:var(--muted);font-size:.82rem}
+.li .chev{color:var(--muted)}
+.promo{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,var(--surface) 55%,var(--good-soft));}
+
+.crumb{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);margin-bottom:14px}
+.crumb button{background:none;border:0;color:var(--blue);cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.crumb svg.i{width:16px;height:16px}
+
+/* stepper */
+.steps{display:flex;gap:0;margin:4px 0 22px;max-width:560px}
+.st{flex:1;display:flex;flex-direction:column;gap:6px;font-size:.78rem;color:var(--muted);position:relative}
+.st .bar2{height:4px;border-radius:2px;background:var(--line);margin-right:6px}
+.st.on{color:var(--ink);font-weight:600} .st.on .bar2{background:var(--brand)}
+.st.done .bar2{background:var(--good)}
+.formcard{max-width:560px}
+.fl{display:block;font-weight:600;margin:0 0 6px}
+.fh{color:var(--muted);font-size:.84rem;margin:-2px 0 8px}
+.inp{display:flex;align-items:stretch;max-width:320px;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;background:var(--surface)}
+.inp:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.inp input{flex:1;border:0;padding:12px 14px;font-size:1.15rem;font-variant-numeric:tabular-nums;background:transparent;color:var(--ink);min-width:0;outline:none}
+.inp span{display:grid;place-items:center;padding:0 14px;background:var(--surface-2);color:var(--muted);font-weight:600;border-left:1px solid var(--line)}
+.inp.err{border-color:var(--bad)}
+.ferr{display:flex;gap:8px;color:var(--bad);font-size:.88rem;margin-top:8px;font-weight:600}
+.fwarn{display:flex;gap:10px;background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:12px;font-size:.88rem;margin-top:12px}
+.fwarn b{display:block}
+.prefill{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+.prefill .t{flex:1} .prefill small{display:block;color:var(--muted);font-size:.8rem}
+.mono{font-family:ui-monospace,Consolas,monospace;letter-spacing:.02em}
+.choicecard{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 10px;cursor:pointer;color:var(--ink)}
+.choicecard:hover{border-color:var(--brand)}
+.choicecard .t{flex:1} .choicecard small{display:block;color:var(--muted);font-size:.82rem}
+.radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.choicecard.sel{border-color:var(--brand);background:var(--brand-soft)} .choicecard.sel .radio{border:6px solid var(--brand)}
+.suggest{display:flex;gap:12px;align-items:flex-start;background:var(--blue-soft);color:var(--ink);border-radius:12px;padding:14px;margin:0 0 18px;max-width:560px}
+.suggest svg.i{color:var(--blue)}
+.suggest button{margin-top:6px}
+
+.summary{max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:0}
+.sr{display:grid;grid-template-columns:150px 1fr auto;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.sr:last-child{border-bottom:0}
+.sr dt{color:var(--muted);font-size:.86rem} .sr dd{margin:0;font-weight:600}
+.sr button{background:none;border:0;color:var(--blue);cursor:pointer;font-weight:600;font-size:.86rem;padding:0}
+
+.panel{max-width:600px;background:var(--good);color:#fff;border-radius:var(--r);padding:26px 24px;text-align:center}
+.panel .ok{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;margin:0 auto 10px}
+.panel .ok svg.i{width:28px;height:28px;stroke-width:2.4}
+.panel h2{margin:0 0 6px;font-size:1.4rem}
+.panel .refno{display:inline-block;margin-top:6px;background:rgba(255,255,255,.16);border-radius:8px;padding:5px 12px;font-weight:700}
+:root[data-theme="dark"] .panel{color:#0d2418}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .panel{color:#0d2418}}
+.next{max-width:600px;margin-top:18px}
+.next h3{font-size:1rem;margin:0 0 10px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;padding:0 0 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .dotc{width:24px;height:24px;border-radius:50%;background:var(--good-soft);color:var(--good);display:grid;place-items:center;flex:none}
+.tl .dotc svg.i{width:14px;height:14px;stroke-width:2.6}
+.tl .dotc.grey{background:var(--surface-3);color:var(--muted)}
+.tl small{display:block;color:var(--muted)}
+
+table.dt{width:100%;border-collapse:collapse;font-size:.9rem}
+.dt th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 16px;border-bottom:1px solid var(--line);font-weight:600}
+.dt td{padding:12px 16px;border-bottom:1px solid var(--line)}
+.dt tr:last-child td{border-bottom:0}
+.dt tr.new td{background:var(--good-soft)}
+.tablecard{padding:0;overflow-x:auto}
+.chart{display:flex;align-items:flex-end;gap:8px;height:110px;padding:10px 0 0}
+.chart div{flex:1;background:var(--brand-soft);border-radius:6px 6px 0 0;position:relative}
+.chart div.cur{background:var(--brand)}
+.chart-l{display:flex;gap:8px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.chart-l span{flex:1;text-align:center}
+.tariffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.tcard.cur{border-color:var(--brand)}
+.tcard .price{font-size:1.2rem;font-weight:800}
+.tcard ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.88rem}
+.notice{display:flex;gap:10px;background:var(--surface-3);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--ink-2);margin-top:14px;max-width:600px}
+.search{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line-2);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--muted);max-width:560px;margin-bottom:18px}
+
+@media (max-width:900px){
+  .navwrap{display:none}
+  .bottomnav{display:flex;position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:5}
+  .bottomnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px 10px;border:0;background:none;color:var(--muted);font-size:.68rem;font-weight:600;cursor:pointer}
+  .bottomnav button[aria-current="page"]{color:var(--brand)}
+  .bottomnav .pin{flex:none;padding:0;display:grid;color:#fff}
+  .status{grid-template-columns:1fr}
+  .qa{grid-template-columns:1fr}
+  .qbtn{flex-direction:row;align-items:center}
+  .qbtn small{margin-top:0}
+  .nh{padding:0 14px}.nb{padding:20px 14px 30px}
+  .sr{grid-template-columns:1fr auto}.sr dt{grid-column:1 / -1}
+}
+
+/* ---------- dialog ---------- */
+dialog{border:0;border-radius:16px;padding:0;max-width:min(660px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(12,14,18,.55)}
+.dh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:18px 20px 6px}
+.dh h3{margin:0;font-size:1.1rem}
+.dx{border:0;background:var(--surface-2);color:var(--ink);border-radius:8px;width:32px;height:32px;cursor:pointer;display:grid;place-items:center;flex:none}
+.db{padding:4px 20px 22px;font-size:.92rem;max-height:76vh;overflow:auto}
+.db p{margin:.4em 0}
+.tags{margin:0 0 10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;margin:0 4px 4px 0}
+.t-p{background:var(--bad-soft);color:var(--bad)} .t-m{background:var(--good-soft);color:var(--good)} .t-l{background:var(--blue-soft);color:var(--blue)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.ba div{border-radius:10px;padding:10px 12px;font-size:.87rem}
+.ba .bf{background:var(--bad-soft)} .ba .af{background:var(--good-soft)}
+.ba b{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.ba .bf b{color:var(--bad)} .ba .af b{color:var(--good)}
+.whyh{font-weight:700;margin-top:14px}
+.real{background:var(--blue-soft);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.87rem}
+.real > b{color:var(--blue);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.real ul{margin:0;padding-left:18px}
+.src{font-size:.78rem;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+.db table{border-collapse:collapse;width:100%;font-size:.85rem;margin:6px 0 14px}
+.db th,.db td{border-bottom:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+.db th{background:var(--surface-2);font-size:.72rem;text-transform:uppercase;color:var(--muted)}
+.db h4{margin:18px 0 4px;font-size:.95rem;color:var(--brand)}
+.db a{color:var(--blue)}
+.lv{font-weight:700;font-size:.8rem} .lv.h{color:var(--good)} .lv.m{color:var(--warn)}
+@media (max-width:560px){.ba{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></symbol>
+  <symbol id="gauge" viewBox="0 0 24 24"><path d="M3.5 17.5a9 9 0 1 1 17 0"/><path d="m12 14 4.5-4.5"/><circle cx="12" cy="14" r="1.6"/><path d="M3.5 17.5h17"/></symbol>
+  <symbol id="wallet" viewBox="0 0 24 24"><path d="M4 7.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5V6A2 2 0 0 1 5.5 4H17"/><path d="M20.5 11.5H16a2 2 0 0 0 0 4h4.5"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></symbol>
+  <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></symbol>
+  <symbol id="camera" viewBox="0 0 24 24"><path d="M4 8h3l1.8-2.5h6.4L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></symbol>
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.7 10v7M14.3 10v7M19 10v7M3 20h18"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-6 9-7.5"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.5h.01"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v5h5"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></symbol>
+</svg>
+
+<div class="wrap">
+<div class="bar">
+  <div class="bar-top">
+    <div><div class="kicker">Mentor only · Day 4 · Block 2.1 · MyEnergy</div><h1>The MyEnergy portal, improved</h1></div>
+    <div class="seg" role="group" aria-label="Portal version"><button class="b" id="modeB" aria-pressed="false">Before</button><button class="a" id="modeA" aria-pressed="true">After</button></div>
+  </div>
+  <div class="task" aria-live="polite">
+    <span><b>Task:</b> submit your electricity meter reading, then change your monthly instalment.</span>
+    <span class="tk" id="tk1"><i>✓</i>Meter reading</span><span class="tk" id="tk2"><i>✓</i>Instalment</span>
+    <span>⏱ <span class="num" id="time">0.0 s</span> · <span class="num" id="clicks">0</span> clicks</span>
+    <span class="muted" id="runs"></span>
+  </div>
+  <div class="tools">
+    <button class="tbtn" id="pinsBtn" aria-pressed="true"><svg class="i"><use href="#eye"/></svg><span>Markers: shown</span></button>
+    <button class="tbtn" id="resetBtn"><svg class="i"><use href="#reset"/></svg>Restart task</button>
+    <button class="tbtn primary" id="sheetBtn"><svg class="i"><use href="#book"/></svg>Answer sheet 2.1</button>
+    <button class="tbtn" id="themeBtn"><svg class="i"><use href="#moon"/></svg>Theme</button>
+    <span class="muted">The pulsing dots in the portal are markers. Click one to see the problem, before and after, the reason, and examples from real products.</span>
+  </div>
+</div>
+<div class="frame">
+  <div class="chrome"><div class="dots"><span></span><span></span><span></span></div><div class="url" id="url"></div><span class="flag a" id="flag">After</span></div>
+  <div class="portal" id="portal"></div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dT"><div class="dh"><h3 id="dT"></h3><button class="dx" data-close aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div><div class="db" id="dB"></div></dialog>
+
+<script>
+const ic=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#${n}"/></svg>`;
+
+/* ================= MARKERS ================= */
+const PINS={
+  status:{t:"Status at a glance + next action",p:["Problem 2 · Main tasks not prioritised"],m:"Measure 1",law:"Hick · priority",
+    before:"The first thing customers see is the “Smart home” promo banner. The meter reading reminder is a small line under twelve tiles.",
+    after:"The top of the page shows the customer's status: the instalment and the next payment, plus one <b>“Action needed”</b> card: the meter reading is due on 30 Nov, with the button right there.",
+    why:"<p>Customers come to check their status and get one thing done. Putting <b>status and the next action</b> at the top means they do not have to look for anything.</p><p>The “Action needed” card only appears when something is actually due. When nothing is, it disappears and adds no extra choice.</p>",
+    real:["<b>OVO</b> (its app design system): the home screen should show status at a glance, put key tasks and the next best action first, and hide modules that are not relevant, for example when no payment is due.","<b>British Gas</b>: the account dashboard opens on the balance and payment actions."],
+    src:"Materi A2, B1 · OVO Design System, Home layer"},
+  quick:{t:"12 equal tiles → 3 quick actions",p:["Problem 1 · Equal menu items","Problem 2 · No priority"],m:"Measure 1",law:"Hick · Fitts",
+    before:"Twelve tiles of the same size, from “Tariff management” to “Energy tips”.",
+    after:"Three quick actions with an icon and a verb: <b>Submit a meter reading</b>, <b>Change instalment</b>, <b>View bills</b>. Every other function is still in the navigation.",
+    why:"<p><b>Hick:</b> the more equal options, the longer the decision. These three are the most common reasons to open an energy portal; two of them (meter reading and instalment) are what support hears about most.</p><p><b>Fitts:</b> the targets are large and sit in the first area people look at.</p><p>Changing tariff is not a quick action because people do it rarely (once a year or less). It lives under “Contract &amp; tariff”.</p>",
+    real:["<b>OVO</b>: at most <b>three</b> quick actions, minimal words plus an icon.","<b>Octopus</b>: “Submit a reading” is directly available in the app."],
+    src:"Materi A2, A3 · OVO Design System · Hick 1952"},
+  nav:{t:"Functions grouped into 4 sections",p:["Problem 1 · Equal menu items","Condition · functions may not be cut"],m:"Measure 1",law:"Hick · Larson &amp; Czerwinski",
+    before:"Twelve functions side by side, with no groups, named after departments.",
+    after:"Four sections by <b>what the customer needs</b>: Home · Bills &amp; payments · Meters &amp; usage · Contract &amp; tariff, plus Help and Account at the top right. All twelve old functions are still in one of the sections.",
+    why:"<p>The brief rules out cutting functions, so they are <b>grouped</b>, not removed. A medium structure (a few groups, one level deep) is faster than one long list and faster than a deep structure.</p><table><tr><th>Section</th><th>Old functions in it</th></tr><tr><td>Bills &amp; payments</td><td>Instalment adjustment, Bill archive, Bank details</td></tr><tr><td>Meters &amp; usage</td><td>Meter reading submission, Consumption analysis, Energy tips</td></tr><tr><td>Contract &amp; tariff</td><td>Tariff management, Contract account, Moving service, Smart home</td></tr><tr><td>Account / Help</td><td>Customer master data, Contact</td></tr></table><p>This is also how the departments are handled: each one keeps a clear home.</p>",
+    real:["<b>British Gas</b> (online account): Billing (including Manage Direct Debit), Tariff, Usage and Meters sections, with an Account button at the top right.","<b>OVO</b>: global navigation at the bottom of the app, with layer 1 pages such as Bills, Usage and Help."],
+    src:"Materi A2 · Larson &amp; Czerwinski 1998 · British Gas, Your online account explained"},
+  promo:{t:"Promo moved down",p:["Problem 2 · No priority"],m:"Measure 1",law:"Fitts",
+    before:"The Smart home banner is the largest element and sits at the very top.",
+    after:"The promo is one small card at the bottom, after everything the customer needs.",
+    why:"<p>The largest, first-seen space goes to the customer's tasks. The department's promo is not removed, only moved lower. That settles the “departments want visibility” conflict without costing the customer.</p>",
+    real:["<b>OVO</b>: cards and carousels sit below the status and quick actions, and generic content is avoided."],
+    src:"Materi A3, B2"},
+  words:{t:"Technical terms → the customer's words",p:["Problem 4 · Technical language"],m:"Measure 3",law:"Mental models",
+    before:"“Instalment adjustment”, “Meter reading submission”, “Contract account”, “Customer master data”, “meter point designation”.",
+    after:"“Change instalment”, “Submit a meter reading”, “Customer number”, “Personal details”, “Electricity meter”.",
+    why:"<p>The old terms are internal language. Customers think in verbs: what they want to do. The official term can still appear as small print, for example on the bill, so it can be matched.</p><p>This is the cheapest measure (an editor is enough) and can run in parallel from week 1.</p>",
+    real:["<b>British Gas, Octopus</b>: actions are labelled as verbs (“Make a payment”, “Submit a reading”, “Manage Direct Debit”)."],
+    src:"Materi A3 · Nielsen 1994 · Norman 2013"},
+  steps:{t:"Visible process steps",p:["Problem 3 · Process logic not visible"],m:"Measure 2",law:"Mental models",
+    before:"Straight to “Select the meter point”, then a form. No sign of how many steps there are.",
+    after:"A three-step indicator with names: <b>Meter · Reading · Check</b>. The current step is highlighted and finished steps turn green.",
+    why:"<p>Customers always know where they are, how many steps are left and what comes next. That is what a clear action logic means in A3.</p><p>There are only three steps: one decision per step.</p>",
+    real:["<b>GOV.UK Design System</b>: “one thing per page” and a “Check your answers” page before submitting."],
+    src:"Materi A3 · ISO 9241-110"},
+  memo:{t:"The system fills in the meter number",p:["Problem 5 · Information to remember"],m:"Measure 2",law:"Miller",
+    before:"The form asks for the meter number “shown on your last bill in the Bill archive”. Customers have to leave, open the bill, memorise <span class=mono>1ESY 1160 4421</span> and come back.",
+    after:"Customers choose “Electricity meter”. The meter number and the last reading are already shown from the account, only to be matched with the meter.",
+    why:"<p><b>Miller/Cowan:</b> working memory holds about four chunks, and the number has twelve characters. The system <b>already knows</b> this number, so there is no reason to ask for it.</p><p>The number is still shown, in groups of four characters, so customers can match it with the meter at home.</p>",
+    real:["<b>Stadtwerke portals</b> (Germany): forms without a login ask for the meter number. In a logged-in portal the number is already known from the account, so it need not be asked for again (a design conclusion, not a quote from a source).","<b>British Gas</b>: the Meters section keeps the meters and their history in the account."],
+    src:"Materi A4 · Miller 1956 · Cowan 2001 · ISO 13616 (groups of four)"},
+  photo:{t:"Submit with a photo of the meter",p:["Problem 5 · Remembering and typing"],m:"Measure 2",law:"Miller",
+    before:"Only manual typing into three fields: number, reading, date.",
+    after:"A <b>“Scan with camera”</b> button reads the number from a photo, and the customer <b>checks</b> the recognised number before going on.",
+    why:"<p>Taking a photo is easier than reading and typing a long number. The “check the recognised number” step stays, because recognition can be wrong.</p><p>It is an extra option; typing still works. If the 12-week budget is tight, this is the easiest part to postpone.</p>",
+    real:["<b>Octopus</b>: its app offers scanning the meter reading with the camera, and a third-party guide advises checking the recognised numbers before submitting.","<b>Stadtwerke Neuss / Münster</b>: their apps accept a photo of the meter."],
+    src:"Octopus Energy (App Store) · Stadtwerke Neuss, Stadtwerke Münster"},
+  last:{t:"Plausibility check",p:["Problem 5 · Remembering","Problem 6 · Feedback"],m:"Measure 2",law:"Recognition over recall",
+    before:"No hint. A wrong number only shows when the bill arrives, or is rejected with “Invalid entry”.",
+    after:"The last reading is visible. A <b>lower</b> number is rejected at once with an explanation, and a number <b>much higher</b> than usual triggers an “are you sure?” warning that can still be confirmed.",
+    why:"<p>Showing the last reading lets customers <b>recognise</b> instead of recall. Typos are caught before sending, with a message that says what is wrong and what to do, not just “Invalid entry”.</p>",
+    real:["<b>UK energy suppliers</b>: readings that do not look plausible are rejected by validation; Octopus guidance advises checking the selected meter and register when a reading is rejected."],
+    src:"Materi A4 · Nielsen 1994"},
+  check:{t:"Check before submitting",p:["Problem 3 · Process logic","Problem 6 · Feedback"],m:"Measure 2",law:"Mental models",
+    before:"The “Send” button submits at once, with no summary.",
+    after:"A <b>“Check before you submit”</b> page with a summary and a “Change” link on every row.",
+    why:"<p>Customers see everything they are about to send in one place and can fix one row without starting over. This cuts errors and the doubt after pressing submit.</p>",
+    real:["<b>GOV.UK / Justice design patterns</b>: show the key details in a <i>summary list</i> before an action is confirmed."],
+    src:"design-patterns.service.justice.gov.uk · GOV.UK Design System"},
+  confirm:{t:"A clear confirmation",p:["Problem 6 · Feedback too general"],m:"Measure 4",law:"Feedback (A4)",
+    before:"“Your entry has been processed.” or “Processed.”",
+    after:"A green panel: <b>what</b> was received, a <b>reference number</b>, <b>what happens next and when</b>, a receipt by email, a link to the history, and contact.",
+    why:"<p>The question MyEnergy's support hears most is <i>“Did my meter reading arrive?”</i>. This confirmation answers it before it is asked.</p><p>Its content depends on the new process, so it comes after measure 2.</p>",
+    real:["<b>GOV.UK Design System</b>, Confirmation pages: a panel with a title and a reference number, then what happens next and when, contact details, and a way to save a record.","<b>British Gas</b>: a Direct Debit change shows in the account the same day, with a note on when the new amount is first taken."],
+    src:"design-system.service.gov.uk/patterns/confirmation-pages"},
+  history:{t:"History with a source",p:["Problem 6 · Feedback"],m:"Measure 4",law:"Feedback",
+    before:"Nowhere to check whether a submitted reading was recorded.",
+    after:"A meter reading history: date, reading and <b>source</b> (you, estimated, meter reader). A reading just submitted appears at the top at once.",
+    why:"<p>Customers can check for themselves at any time, without calling. The source label also explains why a bill used an estimate.</p>",
+    real:["<b>British Gas</b>: the Meters section shows the reading history by date, with whether each reading was submitted by the customer, estimated or taken from a smart meter.","<b>Octopus</b>: the new number shows in the app or on the website once accepted."],
+    src:"British Gas, Your online account explained"},
+  suggest:{t:"Limits and a suggested instalment",p:["Problem 4 · Unclear","Problem 5 · Guessing"],m:"Measures 2 + 3",law:"Mental models",
+    before:"“The amount must be within the permitted range.” The range is not stated.",
+    after:"The current instalment, the €60–€120 range and a <b>suggestion</b> based on usage that can be used with one click. The start date is chosen from the possible dates.",
+    why:"<p>A rule that is not shown makes customers guess and get rejected. With a suggestion they do not have to calculate it themselves, and they are still free to choose another amount within the range.</p>",
+    real:["<b>British Gas</b>: “Manage Direct Debit” to change the amount, date and bank details; the new amount is taken after a delay of some days.","<b>UK and German energy suppliers</b>: commonly recommend a monthly payment based on usage (note: a common practice, not a quote from one source)."],
+    src:"British Gas, Your online account explained · Materi A1, A3"},
+  tariff:{t:"Tariffs with a short explanation",p:["Problem 1 · Unfamiliar, similar options"],m:"Measure 3",law:"Hick",
+    before:"“Tariff Basic”, “Tariff Green”, “Tariff Flex” with no description.",
+    after:"Tariff cards with the price, who each is for, and two points that set it apart. The current tariff is marked.",
+    why:"<p>Hick weighs most on options that are <b>unfamiliar and look alike</b>. One line on who each is for makes the three easy to tell apart without opening another page.</p><p>Only the text is improved in the 12 weeks. The switching process follows later.</p>",
+    real:["<b>British Gas</b>: the Tariff section shows the available tariffs, with tariff documents under account details."],
+    src:"Materi A2"},
+};
+
+/* ================= STATE ================= */
+const S={mode:"after",page:"home",d:{},run:{start:null,clicks:0,meter:false,instal:false,done:false},runs:[]};
+const M={elec:{name:"Electricity meter",short:"Electricity",no:"1ESY 1160 4421",last:12010,lastDate:"14 Aug 2026",unit:"kWh",avg:300,icon:"bolt"},
+         gas:{name:"Gas meter",short:"Gas",no:"2GSY 0083 1172",last:3402,lastDate:"14 Aug 2026",unit:"m³",avg:60,icon:"spark"}};
+const $=s=>document.querySelector(s);
+const fmt=n=>Number(n).toLocaleString('en-GB');
+const go=p=>`data-go="${p}"`;
+const pin=id=>`<button class="pin ${S.mode==='after'?'a':'b'}" data-pin="${id}" aria-label="Marker: ${PINS[id].t.replace(/<[^>]+>/g,'')}">${ic(S.mode==='after'?'check':'alert')}</button>`;
+const zone=(id,html,style='')=>`<div class="zone" ${style?`style="${style}"`:''}>${pin(id)}${html}</div>`;
+
+/* ================= BEFORE (old portal, as the brief describes it) ================= */
+const OLD_MENU=[["Tariff management","tariff"],["Instalment adjustment","instal"],["Meter reading submission","meter1"],["Bill archive","bills"],["Contract account","contract"],["Customer master data","stub"],["Bank details","stub"],["Consumption analysis","stub"],["Energy tips","stub"],["Smart home","stub"],["Moving service","stub"],["Contact","stub"]];
+const BEFORE={
+  home:()=>`${zone('promo',`<div class="hero"><small>New</small><b>Smart home: save energy automatically</b>Discover our new smart home packages.<br><button ${go('stub')}>Learn more</button></div>`)}
+    ${zone('quick',`<div class="tiles">${OLD_MENU.map(([l,g])=>`<button class="tile" ${go(g)}>${l}</button>`).join('')}</div>`)}
+    ${zone('words',`<p class="note">Please submit your meter reading by the end of the month. Your contract account number and the meter point designation are shown on your last bill.</p>`)}`,
+  meter1:()=>`${zone('steps',`<h2>Meter reading submission</h2><p>Select the meter point.</p><button class="choice" ${go('meter2')}>Electricity · meter point DE000-4471</button><button class="choice" ${go('meter2')}>Gas · meter point DE000-9930</button>`)}<button class="lnk back" ${go('home')}>&lt; Start</button>`,
+  meter2:()=>`<h2>Meter reading submission</h2>${zone('memo',`<p>Enter the meter number exactly as it appears on the meter. It is also shown on your last bill in the Bill archive.</p>`)}
+    <form data-form="bMeter"><label>Meter number</label><input name="no" autocomplete="off"><label>Reading (kWh)</label><input name="val" autocomplete="off"><label>Date of reading</label><input name="date" placeholder="DD.MM.YYYY" autocomplete="off"><br>
+    <span class="zone" style="display:inline-block">${pin('confirm')}<button class="sbtn">Send</button></span></form>
+    ${S.d.bMsg?`<div class="msg ${S.d.bErr?'err':''}">${S.d.bMsg}</div>`:''}
+    <p><button class="lnk" ${go('bills')}>Bill archive</button></p><button class="lnk back" ${go('meter1')}>&lt; Back</button>`,
+  instal:()=>`<h2>Instalment adjustment</h2><p>Select the contract account.</p><button class="choice" ${go('instal2')}>Contract account 2004 1187</button><button class="lnk back" ${go('home')}>&lt; Start</button>`,
+  instal2:()=>`${zone('suggest',`<p>Enter the new instalment amount and the month from which it applies. The amount must be within the permitted range.</p>`)}
+    <form data-form="bInstal"><label>New instalment</label><input name="amt" autocomplete="off"><label>From month</label><input name="month" autocomplete="off"><br><button class="sbtn">Submit</button></form>
+    ${S.d.biMsg?`<div class="msg ${S.d.biErr?'err':''}">${S.d.biMsg}</div>`:''}<button class="lnk back" ${go('instal')}>&lt; Back</button>`,
+  bills:()=>`<h2>Bill archive</h2><table><tr><th>Bill</th><th>Meter number</th><th>Open</th></tr><tr><td>Last year</td><td>1ESY 1160 4421</td><td><button class="lnk" ${go('stub')}>Open</button></td></tr><tr><td>Year before</td><td>1ESY 1160 4421</td><td><button class="lnk" ${go('stub')}>Open</button></td></tr></table><button class="lnk back" ${go('home')}>&lt; Start</button>`,
+  tariff:()=>`${zone('tariff',`<h2>Tariff management</h2><button class="choice" ${go('stub')}>Tariff Basic</button><button class="choice" ${go('stub')}>Tariff Green</button><button class="choice" ${go('stub')}>Tariff Flex</button>`)}<button class="lnk back" ${go('home')}>&lt; Start</button>`,
+  contract:()=>`<table><tr><th>Field</th><th>Value</th></tr><tr><td>Contract account number</td><td>2004 1187</td></tr><tr><td>Meter point designation</td><td>DE000-4471</td></tr></table><button class="lnk back" ${go('home')}>&lt; Start</button>`,
+  stub:()=>`<p>This page is part of the portal.</p><button class="lnk back" ${go('home')}>&lt; Start</button>`,
+};
+
+/* ================= AFTER (new portal) ================= */
+const NAV=[["home","home","Home"],["billing","wallet","Bills & payments"],["meters","gauge","Meters & usage"],["contract","file","Contract & tariff"]];
+const SECTION_OF={home:"home",billing:"billing",i1:"billing",i2:"billing",i3:"billing",i4:"billing",bills:"billing",bank:"billing",meters:"meters",m1:"meters",m2:"meters",m3:"meters",m4:"meters",contract:"contract",tariff:"contract",moving:"contract",smart:"contract",help:"help",account:"account"};
+const crumb=(sec,label)=>`<div class="crumb"><button ${go(sec[0])}>${ic('back')}${sec[1]}</button>${label?`<span>/</span><span>${label}</span>`:''}</div>`;
+const stepper=(n,labels)=>`${zone('steps',`<div class="steps">${labels.map((l,i)=>`<div class="st ${i+1===n?'on':i+1<n?'done':''}"><div class="bar2"></div>${i+1}. ${l}</div>`).join('')}</div>`,'max-width:560px')}`;
+const meterSteps=["Meter","Reading","Check"], instSteps=["Amount","Start","Check"];
+const lastNew=()=>S.d.sent?`<tr class="new"><td>12 Nov 2026</td><td>${fmt(S.d.sent.val)} ${M[S.d.sent.meter].unit}</td><td>${M[S.d.sent.meter].short}</td><td><span class="pill p-good">${ic('check')}You · new</span></td></tr>`:'';
+
+const AFTER={
+  home:()=>{
+    const due=!(S.d.sent&&S.d.sent.meter==='elec');
+    return `<h2 class="h">Good morning</h2><p class="lead">Customer number 2004 1187 · 12 Example Street</p>
+    ${zone('status',`<div class="status">
+      <div class="card"><h3>Monthly instalment</h3><div class="big-num">€${S.d.newAmt||84}</div>
+        <p class="muted" style="margin:6px 0 10px">${S.d.newAmt?`From ${S.d.from}`:'Next payment 1 Dec 2026'} · account …4417</p>
+        <span class="pill p-good">${ic('check')}Payments up to date</span></div>
+      ${due?`<div class="card action"><div class="row"><div class="ic-wrap ic-brand">${ic('gauge')}</div><div><h3 style="color:var(--brand);margin:0 0 2px">Action needed</h3><b>Electricity meter reading</b><p class="muted" style="margin:2px 0 10px">Submit it by 30 Nov so your bill uses your real reading, not an estimate.</p>
+        <button class="btn btn-p" data-meter="elec">Submit now ${ic('chev')}</button></div></div></div>`
+      :`<div class="card"><div class="row"><div class="ic-wrap ic-good">${ic('check')}</div><div><b>All done</b><p class="muted" style="margin:2px 0 0">We have this month's electricity meter reading.</p></div></div></div>`}
+    </div>`)}
+    <div class="eyebrow">Quick actions</div>
+    ${zone('quick',`<div class="qa">
+      <button class="qbtn" ${go('m1')}><div class="ic-wrap ic-brand">${ic('gauge')}</div><b>Submit a meter reading</b><small>Electricity or gas · about 1 minute</small></button>
+      <button class="qbtn" ${go('i1')}><div class="ic-wrap ic-blue">${ic('wallet')}</div><b>Change instalment</b><small>Now €${S.d.newAmt||84} a month</small></button>
+      <button class="qbtn" ${go('bills')}><div class="ic-wrap ic-grey">${ic('file')}</div><b>View bills</b><small>Latest: August 2026</small></button>
+    </div>`)}
+    <div class="eyebrow">For you</div>
+    ${zone('promo',`<div class="card promo"><div class="ic-wrap ic-good">${ic('leaf')}</div><div style="flex:1"><b>Save automatically with Smart home</b><p class="muted" style="margin:2px 0 0">New packages to control heating and devices.</p></div><button class="btn btn-t" ${go('smart')}>View ${ic('chev')}</button></div>`)}`;
+  },
+  billing:()=>`<h2 class="h">Bills &amp; payments</h2><p class="lead">Your instalment, bills and bank details.</p>
+    <div class="zone">${pin('words')}<div class="grid2">
+      <div class="card"><div class="row"><div class="ic-wrap ic-blue">${ic('wallet')}</div><div style="flex:1"><b>Monthly instalment</b><p class="muted" style="margin:0">€${S.d.newAmt||84} · on the 1st of each month</p></div></div><div class="btn-row" style="margin-top:14px"><button class="btn btn-p" ${go('i1')}>Change instalment</button></div></div>
+      <div class="card"><div class="row"><div class="ic-wrap ic-grey">${ic('file')}</div><div><b>Latest bill</b><p class="muted" style="margin:0">August 2026 · €1,012 · paid</p></div></div><div class="btn-row" style="margin-top:14px"><button class="btn btn-s" ${go('bills')}>All bills</button></div></div>
+    </div></div>
+    <div class="eyebrow">More</div>
+    <div class="list"><button class="li" ${go('bank')}><div class="ic-wrap ic-grey">${ic('bank')}</div><span class="t"><b>Bank details &amp; payment method</b><small>Direct debit · …4417</small></span><span class="chev">${ic('chev')}</span></button></div>`,
+  bills:()=>`${crumb(['billing','Bills & payments'],'Bills')}<h2 class="h">Bills</h2><p class="lead">Annual bills with the meter readings they used.</p>
+    <div class="card tablecard"><table class="dt"><tr><th>Period</th><th>Amount</th><th>Status</th><th></th></tr>
+    <tr><td>August 2026</td><td>€1,012</td><td><span class="pill p-good">Paid</span></td><td><button class="btn btn-t" data-act="dl">${ic('dl')}PDF</button></td></tr>
+    <tr><td>August 2025</td><td>€978</td><td><span class="pill p-good">Paid</span></td><td><button class="btn btn-t" data-act="dl">${ic('dl')}PDF</button></td></tr></table></div>
+    ${S.d.dl?`<div class="notice">${ic('check')}Your bill is downloading to your device.</div>`:''}`,
+  meters:()=>`<h2 class="h">Meters &amp; usage</h2><p class="lead">Submit readings, check your history and see your usage.</p>
+    <div class="grid2">${Object.entries(M).map(([k,m])=>`<div class="card"><div class="row"><div class="ic-wrap ${k==='elec'?'ic-brand':'ic-blue'}">${ic(m.icon)}</div><div style="flex:1"><b>${m.name}</b><p class="muted mono" style="margin:0">${m.no}</p></div></div>
+      <p class="muted" style="margin:12px 0">Last reading: <b style="color:var(--ink)">${fmt(S.d.sent&&S.d.sent.meter===k?S.d.sent.val:m.last)} ${m.unit}</b> · ${S.d.sent&&S.d.sent.meter===k?'12 Nov 2026':m.lastDate}</p>
+      <button class="btn btn-s" data-meter="${k}">Submit a reading</button></div>`).join('')}</div>
+    <div class="eyebrow">Meter reading history</div>
+    ${zone('history',`<div class="card tablecard"><table class="dt"><tr><th>Date</th><th>Reading</th><th>Meter</th><th>Source</th></tr>${lastNew()}
+      <tr><td>14 Aug 2026</td><td>12,010 kWh</td><td>Electricity</td><td><span class="pill p-grey">Meter reader</span></td></tr>
+      <tr><td>14 May 2026</td><td>11,140 kWh</td><td>Electricity</td><td><span class="pill p-blue">You</span></td></tr>
+      <tr><td>14 Feb 2026</td><td>10,180 kWh</td><td>Electricity</td><td><span class="pill p-warn">Estimated</span></td></tr></table></div>`)}
+    <div class="eyebrow">Electricity usage by month</div>
+    <div class="card"><div class="chart">${[310,290,330,280,260,240,250,270,300,320].map((v,i)=>`<div style="height:${v/3.4}%" class="${i===9?'cur':''}" title="${v} kWh"></div>`).join('')}</div>
+      <div class="chart-l">${['Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov'].map(x=>`<span>${x}</span>`).join('')}</div></div>
+    <div class="list" style="margin-top:14px"><button class="li" ${go('smart')}><div class="ic-wrap ic-good">${ic('leaf')}</div><span class="t"><b>Energy-saving tips</b><small>Advice based on your usage</small></span><span class="chev">${ic('chev')}</span></button></div>`,
+  m1:()=>`${crumb(['meters','Meters & usage'],'Submit a meter reading')}<h2 class="h">Submit a meter reading</h2>${stepper(1,meterSteps)}
+    ${zone('memo',`<p class="fl">Which meter is this reading for?</p>${Object.entries(M).map(([k,m])=>`<button class="choicecard" data-meter="${k}"><div class="ic-wrap ${k==='elec'?'ic-brand':'ic-blue'}">${ic(m.icon)}</div><span class="t"><b>${m.name}</b><small class="mono">${m.no}</small><small>Last ${fmt(m.last)} ${m.unit} · ${m.lastDate}</small></span>${ic('chev')}</button>`).join('')}`,'max-width:560px')}`,
+  m2:()=>{const m=M[S.d.meter];return `${crumb(['meters','Meters & usage'],'Submit a meter reading')}<h2 class="h">What does your meter show?</h2>${stepper(2,meterSteps)}
+    <div class="formcard">
+    ${zone('memo',`<div class="prefill"><div class="ic-wrap ${S.d.meter==='elec'?'ic-brand':'ic-blue'}">${ic(m.icon)}</div><div class="t"><b>${m.name}</b><small>Number <span class="mono">${m.no}</span> · check it matches the number on your meter</small></div><button class="btn btn-t" ${go('m1')}>Change</button></div>`)}
+    <form data-form="aMeter" novalidate>
+      ${zone('last',`<label class="fl" for="val">Meter reading</label><p class="fh">Last reading ${fmt(m.last)} ${m.unit} (${m.lastDate}). Leave out any numbers after the decimal point.</p>
+      <div class="inp ${S.d.err?'err':''}"><input id="val" name="val" inputmode="numeric" autocomplete="off" value="${S.d.val||''}" placeholder="${fmt(m.last+335)}" aria-describedby="fe"><span>${m.unit}</span></div>
+      ${S.d.err?`<div class="ferr" id="fe">${ic('alert')}${S.d.err}</div>`:''}
+      ${S.d.warn?`<div class="fwarn">${ic('alert')}<div><b>This reading is higher than usual.</b>You normally use about ${m.avg} ${m.unit} a month. Please check it again; if it is right, carry on.</div></div>`:''}
+      ${S.d.scanned?`<div class="notice">${ic('camera')}Number read from your photo: <b>${fmt(S.d.val)}</b>. Please check it before you continue.</div>`:''}`)}
+      <div class="btn-row">
+        <button class="btn btn-p">${S.d.warn?'Yes, the reading is right':'Continue'} ${ic('chev')}</button>
+        <span class="zone" style="display:inline-block">${pin('photo')}<button type="button" class="btn btn-s" data-act="scan">${ic('camera')}Scan with camera</button></span>
+      </div>
+    </form></div>`},
+  m3:()=>{const m=M[S.d.meter];return `${crumb(['meters','Meters & usage'],'Submit a meter reading')}<h2 class="h">Check before you submit</h2>${stepper(3,meterSteps)}
+    ${zone('check',`<dl class="summary">
+      <div class="sr"><dt>Meter</dt><dd>${m.name}<br><span class="muted mono">${m.no}</span></dd><button ${go('m1')}>Change</button></div>
+      <div class="sr"><dt>Reading</dt><dd>${fmt(S.d.val)} ${m.unit}</dd><button ${go('m2')}>Change</button></div>
+      <div class="sr"><dt>Date read</dt><dd>12 November 2026 (today)</dd><span></span></div>
+      <div class="sr"><dt>Used since ${m.lastDate}</dt><dd>${fmt(S.d.val-m.last)} ${m.unit}</dd><span></span></div></dl>`,'max-width:560px')}
+    <div class="btn-row"><button class="btn btn-p" data-act="sendMeter">Submit meter reading</button><button class="btn btn-s" ${go('meters')}>Cancel</button></div>`},
+  m4:()=>{const m=M[S.d.sent.meter];return `${zone('confirm',`<div class="panel"><div class="ok">${ic('check')}</div><h2>Meter reading received</h2><div>${fmt(S.d.sent.val)} ${m.unit} · ${m.name.toLowerCase()}</div><div class="refno">Reference ME-2611-48213</div></div>`,'max-width:600px')}
+    <div class="card next"><h3>What happens next</h3><ul class="tl">
+      <li><span class="dotc">${ic('check')}</span><div><b>Today</b><small>The reading is in your meter history. We have emailed a receipt to a•••@mail.com.</small></div></li>
+      <li><span class="dotc grey">${ic('file')}</span><div><b>Your next bill</b><small>Uses this reading, not an estimate.</small></div></li>
+      <li><span class="dotc grey">${ic('bell')}</span><div><b>February 2027</b><small>We will remind you when the next reading is due.</small></div></li></ul>
+      <div class="btn-row" style="margin-top:6px"><button class="btn btn-p" ${go('home')}>Go to home</button><button class="btn btn-s" ${go('meters')}>View history</button><button class="btn btn-t" ${go('help')}>Any questions?</button></div></div>`},
+  i1:()=>`${crumb(['billing','Bills & payments'],'Change instalment')}<h2 class="h">What should your new instalment be?</h2>${stepper(1,instSteps)}
+    <div class="formcard">
+    ${zone('suggest',`<div class="suggest">${ic('info')}<div><b>We suggest €92 a month</b><div class="muted">Your usage is a little higher this year. With €92 you are unlikely to face an extra bill at the end of the year.</div><button class="btn btn-t" data-act="useSuggest">Use €92</button></div></div>`)}
+    <form data-form="aAmt" novalidate>
+      <label class="fl" for="amt">New monthly instalment</label><p class="fh">Now €84. You can choose between €60 and €120.</p>
+      <div class="inp ${S.d.err?'err':''}"><span style="border-left:0;border-right:1px solid var(--line)">€</span><input id="amt" name="amt" inputmode="numeric" autocomplete="off" value="${S.d.amt||''}" placeholder="92"></div>
+      ${S.d.err?`<div class="ferr">${ic('alert')}${S.d.err}</div>`:''}
+      <div class="btn-row"><button class="btn btn-p">Continue ${ic('chev')}</button><button type="button" class="btn btn-s" ${go('billing')}>Cancel</button></div>
+    </form></div>`,
+  i2:()=>`${crumb(['billing','Bills & payments'],'Change instalment')}<h2 class="h">When should it start?</h2>${stepper(2,instSteps)}
+    ${[["1 December 2026","The earliest date, as a change takes about 10 days"],["1 January 2027",""]].map(([d,s])=>`<button class="choicecard ${S.d.from===d?'sel':''}" data-from="${d}"><span class="radio"></span><span class="t"><b>${d}</b>${s?`<small>${s}</small>`:''}</span><div class="ic-wrap ic-grey">${ic('cal')}</div></button>`).join('')}
+    <div class="btn-row"><button class="btn btn-s" ${go('i1')}>${ic('back')}Back</button></div>`,
+  i3:()=>`${crumb(['billing','Bills & payments'],'Change instalment')}<h2 class="h">Check before you save</h2>${stepper(3,instSteps)}
+    ${zone('check',`<dl class="summary">
+      <div class="sr"><dt>Current instalment</dt><dd>€84 a month</dd><span></span></div>
+      <div class="sr"><dt>New instalment</dt><dd>€${S.d.amt} a month</dd><button ${go('i1')}>Change</button></div>
+      <div class="sr"><dt>Starts</dt><dd>${S.d.from}</dd><button ${go('i2')}>Change</button></div>
+      <div class="sr"><dt>From account</dt><dd>…4417 (direct debit)</dd><span></span></div></dl>`,'max-width:560px')}
+    <div class="btn-row"><button class="btn btn-p" data-act="sendInstal">Save new instalment</button><button class="btn btn-s" ${go('billing')}>Cancel</button></div>`,
+  i4:()=>`${zone('confirm',`<div class="panel"><div class="ok">${ic('check')}</div><h2>New instalment saved</h2><div>€${S.d.newAmt} a month from ${S.d.from}</div><div class="refno">Reference ME-2611-48227</div></div>`,'max-width:600px')}
+    <div class="card next"><h3>What happens next</h3><ul class="tl">
+      <li><span class="dotc">${ic('check')}</span><div><b>Today</b><small>The change shows in your account. We have emailed a receipt to a•••@mail.com.</small></div></li>
+      <li><span class="dotc grey">${ic('wallet')}</span><div><b>1 December 2026</b><small>${S.d.from.startsWith('1 December')?`€${S.d.newAmt} is taken for the first time.`:'Your last payment of €84.'}</small></div></li>
+      ${S.d.from.startsWith('1 December')?'':`<li><span class="dotc grey">${ic('cal')}</span><div><b>${S.d.from}</b><small>€${S.d.newAmt} is taken from account …4417.</small></div></li>`}</ul>
+      <div class="btn-row" style="margin-top:6px"><button class="btn btn-p" ${go('home')}>Go to home</button><button class="btn btn-s" ${go('billing')}>Bills &amp; payments</button></div></div>`,
+  contract:()=>`<h2 class="h">Contract &amp; tariff</h2><p class="lead">Customer number 2004 1187 · electricity and gas since 2019</p>
+    ${zone('tariff',`<div class="tariffs">
+      <div class="tcard cur"><span class="pill p-blue" style="align-self:flex-start">Your tariff</span><b>Basic</b><div class="price">32.4 ct/kWh</div><ul><li>Fixed price for 12 months</li><li>Good if your usage is steady</li></ul></div>
+      <div class="tcard"><b>Green</b><div class="price">34.1 ct/kWh</div><ul><li>100% renewable electricity</li><li>Good if you want a greener supply</li></ul><button class="btn btn-s" data-act="tariff">Choose Green</button></div>
+      <div class="tcard"><b>Flex</b><div class="price">follows the market</div><ul><li>Hourly prices change</li><li>Good if you can use power at cheaper hours</li></ul><button class="btn btn-s" data-act="tariff">Choose Flex</button></div>
+    </div>`)}
+    ${S.d.tf?`<div class="notice">${ic('info')}<span><b>Mentor note:</b> the tariff switching process is rebuilt <b>after</b> the first 12 weeks. In the first 12 weeks only the tariff texts are improved.</span></div>`:''}
+    <div class="eyebrow">More</div>
+    <div class="list">
+      <button class="li" ${go('moving')}><div class="ic-wrap ic-grey">${ic('truck')}</div><span class="t"><b>Moving home</b><small>Tell us your new address and moving date</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li" ${go('smart')}><div class="ic-wrap ic-good">${ic('leaf')}</div><span class="t"><b>Smart home</b><small>Packages that save energy automatically</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li" ${go('account')}><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>Contract documents</b><small>Tariff terms, contract confirmation</small></span><span class="chev">${ic('chev')}</span></button>
+    </div>`,
+  help:()=>`<h2 class="h">Help</h2><p class="lead">Quick answers to the questions we hear most.</p>
+    <div class="search">${ic('search')}Search help, for example “meter reading”</div>
+    <div class="list">
+      <button class="li" ${go('meters')}><div class="ic-wrap ic-brand">${ic('gauge')}</div><span class="t"><b>Did my meter reading arrive?</b><small>Check your meter reading history</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li" ${go('i1')}><div class="ic-wrap ic-blue">${ic('wallet')}</div><span class="t"><b>Where do I change my instalment?</b><small>Bills &amp; payments › Change instalment</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li"><div class="ic-wrap ic-grey">${ic('chat')}</div><span class="t"><b>Chat with us</b><small>Monday to Friday, 8 am to 8 pm</small></span><span class="chev">${ic('chev')}</span></button>
+    </div>`,
+  account:()=>`<h2 class="h">Account</h2><p class="lead">Personal details, contact and documents.</p>
+    <div class="list">
+      <button class="li"><div class="ic-wrap ic-grey">${ic('user')}</div><span class="t"><b>Personal details</b><small>Name, address, phone, email</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li" ${go('bank')}><div class="ic-wrap ic-grey">${ic('bank')}</div><span class="t"><b>Bank details &amp; payment method</b><small>…4417</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li"><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>Documents</b><small>Contract, tariff terms</small></span><span class="chev">${ic('chev')}</span></button>
+    </div>`,
+};
+const stubs={bank:['billing','Bills & payments','Bank details & payment method','Direct debit from account …4417. This function stays and is not changed in the first 12 weeks.'],moving:['contract','Contract & tariff','Moving home','This function stays. Its process is rebuilt after the first 12 weeks.'],smart:['contract','Contract & tariff','Smart home','The department\'s offer stays, just no longer at the very top.']};
+const escH=s=>s.replace(/&/g,'&amp;');
+Object.entries(stubs).forEach(([k,[s,sl,t,x]])=>AFTER[k]=()=>`${crumb([s,escH(sl)],escH(t))}<h2 class="h">${escH(t)}</h2><p class="lead">${x}</p>`);
+
+/* ================= RENDER ================= */
+function render(){
+  const a=S.mode==='after', P=a?AFTER:BEFORE;
+  if(!P[S.page]) S.page='home';
+  if(a){
+    const sec=SECTION_OF[S.page]||'home';
+    const navBtns=NAV.map(([id,icn,l])=>`<button ${go(id)} ${sec===id?'aria-current="page"':''}>${ic(icn)}<span>${escH(l)}</span></button>`).join('');
+    $('#portal').innerHTML=`<div class="np">
+      <header class="nh"><button class="brand" ${go('home')}><span class="brand-mark">${ic('bolt')}</span>MyEnergy</button>
+        <div class="zone navwrap">${pin('nav')}<nav class="navx" aria-label="Main">${navBtns}</nav></div>
+        <div class="nh-right"><button class="iconbtn" ${go('help')} aria-label="Help">${ic('help')}</button><button class="iconbtn" aria-label="Notifications">${ic('bell')}<span class="dot"></span></button><button class="avatar" ${go('account')} aria-label="Account" style="border:0;cursor:pointer">AS</button></div></header>
+      <main class="nb"><div class="inner">${P[S.page]()}</div></main>
+      <nav class="bottomnav" aria-label="Main">${pin('nav').replace('class="pin','style="top:-12px;right:12px" class="pin')}${NAV.map(([id,icn,l])=>`<button ${go(id)} ${sec===id?'aria-current="page"':''}>${ic(icn)}${l.split(' ')[0]}</button>`).join('')}<button ${go('help')} ${sec==='help'?'aria-current="page"':''}>${ic('help')}Help</button></nav>
+      <footer class="nf"><span>Stadtenergie AG · Customer portal</span><span>Help · Privacy · Imprint</span></footer></div>`;
+  }else{
+    $('#portal').innerHTML=`<div class="old"><div class="oh"><button class="ologo" ${go('home')}>MyEnergy</button><div class="onav"><button ${go('home')}>Start</button><button ${go('stub')}>Contact</button></div></div><div class="ob">${P[S.page]()}</div></div>`;
+  }
+  $('#url').textContent='myenergy.example/'+(S.page==='home'?'':S.page);
+  $('#flag').textContent=a?'After':'Before'; $('#flag').className='flag '+(a?'a':'b');
+  $('#modeA').setAttribute('aria-pressed',a); $('#modeB').setAttribute('aria-pressed',!a);
+  $('#tk1').classList.toggle('done',S.run.meter); $('#tk2').classList.toggle('done',S.run.instal);
+  $('#runs').textContent=S.runs.map(r=>`${r.mode==='after'?'After':'Before'}: ${r.t} s, ${r.c} clicks`).join(' · ');
+}
+function nav(p){S.page=p;S.d.err='';S.d.warn=false;S.d.scanned=false;render();}
+function tick(){if(S.run.start&&!S.run.done)$('#time').textContent=((Date.now()-S.run.start)/1000).toFixed(1)+' s';requestAnimationFrame(tick);}
+function finish(){render();if(S.run.meter&&S.run.instal&&!S.run.done){S.run.done=true;const t=((Date.now()-S.run.start)/1000).toFixed(1);S.runs.push({mode:S.mode,t,c:S.run.clicks});render();$('#time').textContent=t+' s ✓';}}
+function resetRun(){S.run={start:null,clicks:0,meter:false,instal:false,done:false};S.d={};S.page='home';$('#time').textContent='0.0 s';$('#clicks').textContent='0';render();}
+const norm=s=>String(s||'').replace(/\s+/g,'').toUpperCase();
+
+$('#portal').addEventListener('click',e=>{
+  const p=e.target.closest('[data-pin]'); if(p){e.preventDefault();e.stopPropagation();openPin(p.dataset.pin);return;}
+  const el=e.target.closest('button'); if(!el) return;
+  if(!S.run.start) S.run.start=Date.now();
+  if(!S.run.done){S.run.clicks++;$('#clicks').textContent=S.run.clicks;}
+  if(el.dataset.go){e.preventDefault();nav(el.dataset.go);return;}
+  if(el.dataset.meter){S.d.meter=el.dataset.meter;S.d.val='';nav('m2');return;}
+  if(el.dataset.from){S.d.from=el.dataset.from;nav('i3');return;}
+  switch(el.dataset.act){
+    case 'scan': S.d.val=String(M[S.d.meter].last+342); S.d.err=''; S.d.warn=false; S.d.scanned=true; render(); break;
+    case 'sendMeter': S.d.sent={meter:S.d.meter,val:+S.d.val}; if(S.d.meter==='elec') S.run.meter=true; S.page='m4'; finish(); break;
+    case 'useSuggest': S.d.amt='92'; S.d.err=''; render(); break;
+    case 'sendInstal': S.d.newAmt=S.d.amt; S.run.instal=true; S.page='i4'; finish(); break;
+    case 'dl': S.d.dl=true; render(); break;
+    case 'tariff': S.d.tf=true; render(); break;
+  }
+});
+$('#portal').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target, v=n=>(f.elements[n]?.value||'').trim();
+  if(!S.run.start) S.run.start=Date.now();
+  if(!S.run.done){S.run.clicks++;$('#clicks').textContent=S.run.clicks;}
+  switch(f.dataset.form){
+    case 'bMeter':
+      if(norm(v('no'))===norm(M.elec.no)&&/^\d+$/.test(v('val'))){S.d.bMsg='Your entry has been processed.';S.d.bErr=false;S.run.meter=true;finish();}
+      else{S.d.bMsg='Invalid entry. Please check your input.';S.d.bErr=true;render();}
+      break;
+    case 'bInstal':{const n=parseFloat(v('amt').replace(/[€,\s]/g,''));
+      if(n>=60&&n<=120&&v('month')){S.d.biMsg='The adjustment has been recorded.';S.d.biErr=false;S.run.instal=true;finish();}
+      else{S.d.biMsg='The amount is outside the permitted range.';S.d.biErr=true;render();}
+      break;}
+    case 'aMeter':{const m=M[S.d.meter],n=parseInt(v('val').replace(/\D/g,''),10),wasWarn=S.d.warn&&S.d.val===String(n);S.d.val=v('val').replace(/\D/g,'');S.d.scanned=false;
+      if(!n){S.d.err='Enter the number shown on your meter.';S.d.warn=false;render();}
+      else if(n<m.last){S.d.err=`This is lower than your last reading (${fmt(m.last)} ${m.unit}). Please check it again, or contact us if your meter was recently replaced.`;S.d.warn=false;render();}
+      else if(n-m.last>m.avg*9&&!wasWarn){S.d.err='';S.d.warn=true;S.d.val=String(n);render();}
+      else{S.d.val=String(n);S.d.err='';S.d.warn=false;S.page='m3';render();}
+      break;}
+    case 'aAmt':{const n=parseInt(v('amt').replace(/\D/g,''),10);S.d.amt=v('amt');
+      if(!(n>=60&&n<=120)){S.d.err='Choose an amount between €60 and €120.';render();}
+      else{S.d.amt=String(n);nav('i2');}
+      break;}
+  }
+});
+
+/* ================= DIALOG ================= */
+const dlg=$('#dlg');
+function show(t,h){$('#dT').innerHTML=t;$('#dB').innerHTML=h;dlg.showModal?dlg.showModal():dlg.setAttribute('open','');$('#dB').scrollTop=0;}
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('[data-close]'))dlg.close();});
+function openPin(id){const x=PINS[id];
+  show(x.t,`<div class="tags">${x.p.map(p=>`<span class="tag t-p">${p}</span>`).join('')}<span class="tag t-m">${x.m}</span><span class="tag t-l">${x.law}</span></div>
+  <div class="ba"><div class="bf"><b>Before</b>${x.before}</div><div class="af"><b>After</b>${x.after}</div></div>
+  <div class="whyh">Why this solution?</div>${x.why}
+  <div class="real"><b>In real products</b><ul>${x.real.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+  <div class="src">${x.src}</div>`);}
+const lv=(c,t)=>`<span class="lv ${c}">${t}</span>`;
+function openSheet(){show("Answer sheet · Block 2.1",`
+  <p>The “After” portal is this answer made real. A summary by question:</p>
+  <h4>1–2 · Problems, effects, categories</h4>
+  <table><tr><th>#</th><th>Problem</th><th>Effect on the customer</th><th>Category</th></tr>
+  <tr><td>1</td><td>Twelve equal menu items</td><td>Slow to decide</td><td>Decision effort</td></tr>
+  <tr><td>2</td><td>Main tasks not prioritised, promo on top</td><td>Unsure where to start</td><td>Orientation</td></tr>
+  <tr><td>3</td><td>Process steps not visible</td><td>Unsure where they are; gives up easily</td><td>Orientation</td></tr>
+  <tr><td>4</td><td>Technical terms</td><td>Has to translate first</td><td>Understandability</td></tr>
+  <tr><td>5</td><td>Meter number taken from an old bill</td><td>Remembering, typos, abandoning</td><td>Memory load</td></tr>
+  <tr><td>6</td><td>“Processed.”</td><td>Uncertain, then calls support</td><td>Feedback</td></tr></table>
+  <h4>3 · Four prioritised measures</h4>
+  <table><tr><th>#</th><th>Measure</th><th>In the portal</th><th>Problems</th></tr>
+  <tr><td>1</td><td>Make the main tasks visible with priority</td><td>Status + “Action needed”, 3 quick actions, 4 navigation sections, promo at the bottom</td><td>1, 2</td></tr>
+  <tr><td>2</td><td>Guide the process step by step; the system remembers</td><td>3-step indicator, meter number filled in, plausibility check, “Check before you submit”, suggested instalment</td><td>3, 5</td></tr>
+  <tr><td>3</td><td>The customer's words</td><td>Verb labels, tariffs with a short explanation</td><td>4</td></tr>
+  <tr><td>4</td><td>Clear confirmation and feedback</td><td>Confirmation panel + reference + what happens next, history with source</td><td>6</td></tr></table>
+  <h4>4 · Sketch (optional)</h4><p>The “After” portal on this page can serve as the example sketch.</p>
+  <h4>5 · The four criteria</h4>
+  <table><tr><th>#</th><th>Effect</th><th>Feasibility</th><th>Risk</th><th>Time</th></tr>
+  <tr><td>1</td><td>${lv('h','High')}</td><td>${lv('h','High')}: reordering</td><td>${lv('m','Medium')}: departments move deeper</td><td>${lv('h','Fits')}</td></tr>
+  <tr><td>2</td><td>${lv('h','High')}</td><td>${lv('m','Medium')}: account data into the form</td><td>${lv('h','Low')}</td><td>${lv('m','Fits for 2 processes')}</td></tr>
+  <tr><td>3</td><td>${lv('m','Medium')}</td><td>${lv('h','High')}: an editor</td><td>${lv('h','Low')}</td><td>${lv('h','From week 1')}</td></tr>
+  <tr><td>4</td><td>${lv('h','High')}: fewer support contacts</td><td>${lv('h','High')}</td><td>${lv('h','Low')}</td><td>${lv('h','Fits')}</td></tr></table>
+  <p class="muted">For risk, green means low. These ratings are a reading of this case, not right or wrong scores.</p>
+  <h4>6 · The first 12 weeks</h4>
+  <table><tr><th>Weeks</th><th>Work</th></tr>
+  <tr><td>1–2</td><td>Agree the 4 navigation sections with the departments: each keeps a home, and the order follows how often customers need a task</td></tr>
+  <tr><td>1–5</td><td>The customer's words, in parallel</td></tr>
+  <tr><td>2–6</td><td>New home page and 4-section navigation</td></tr>
+  <tr><td>3–10</td><td>Meter reading and instalment change: steps, prefilled data, plausibility check, check page</td></tr>
+  <tr><td>6–10</td><td>Confirmations and meter reading history</td></tr>
+  <tr><td>11–12</td><td>Measure: support contacts about meter readings and instalments, finished processes</td></tr>
+  <tr><td>Later</td><td>Tariff switch, moving home, camera scanning (if the budget does not stretch)</td></tr></table>
+  <p>Why this order: meter readings and instalments are what support is asked about most. Deliberately <b>not</b> done: a full relaunch, removing functions, adding new features.</p>
+  <p class="muted">The week plan, the €60–€120 range and the €84 instalment are assumptions for the simulation, not figures from the plan. The plan does not split the €160,000 by measure either.</p>
+  <h4>7 · Recommendation</h4>
+  <p>“We recommend improving intuitive use not through cosmetic changes but by systematically reducing cognitive load: a clear priority for the main tasks and a visible process logic. In the first 12 weeks we start with meter reading submission and the instalment change, without removing a single function. We expect faster orientation, fewer abandoned processes and fewer support contacts.”</p>
+  <h4>Real-world practice used</h4>
+  <table><tr><th>Source</th><th>Pattern taken</th></tr>
+  <tr><td><a href="https://design.ovo.com/latest/ovo-app/app-overview/home-T7O1L3aR-T7O1L3aR" target="_blank" rel="noopener">OVO Design System, Home</a></td><td>Status at a glance, key tasks first, at most 3 quick actions, hide modules that are not relevant</td></tr>
+  <tr><td><a href="https://design.ovo.com/latest/ovo-app/app-overview/layer-1-1uGKNe3A-1uGKNe3A" target="_blank" rel="noopener">OVO Design System, Layer 1</a></td><td>Global navigation at the bottom (mobile), pages by topic such as Bills, Usage, Help</td></tr>
+  <tr><td><a href="https://www.britishgas.co.uk/help-and-support/my-account/your-online-account" target="_blank" rel="noopener">British Gas, online account</a></td><td>Billing (Manage Direct Debit), Tariff, Usage, Meters (history with source), Account</td></tr>
+  <tr><td><a href="https://apps.apple.com/gb/app/octopusenergy/id1093452209" target="_blank" rel="noopener">Octopus Energy app</a></td><td>“Submit a reading”, scanning the meter with the camera</td></tr>
+  <tr><td><a href="https://design-system.service.gov.uk/patterns/confirmation-pages" target="_blank" rel="noopener">GOV.UK Confirmation pages</a></td><td>Panel, reference number, what happens next, contact, save a record</td></tr>
+  <tr><td><a href="https://design-patterns.service.justice.gov.uk/patterns/confirm-an-action/" target="_blank" rel="noopener">Justice design patterns</a></td><td>A summary of the details before an action is confirmed</td></tr>
+  <tr><td><a href="https://energiemarie.de/stromanbieter/stadtwerke-neuss/zaehlerstand" target="_blank" rel="noopener">Stadtwerke (Germany)</a></td><td>Readings through the portal, the app or a photo of the meter</td></tr></table>
+  <h4>When marking learners</h4>
+  <p><b>Look for:</b> at least 5 problems written as effects · all 5 categories filled · 4 measures in an order, each from a problem · the 4 criteria support the order · the 12-week plan says what comes first, what runs in parallel and what waits, and how the departments are handled.</p>
+  <p><b>Signs of a weak answer:</b> removing functions · a relaunch · cosmetic changes only · adding a chatbot or videos without reducing friction.</p>
+  <p><b>Another order is just as valid</b> if its reasons come from the problems and the conditions.</p>`);}
+
+/* ================= CONTROLS ================= */
+$('#modeA').onclick=()=>{if(S.mode!=='after'){S.mode='after';resetRun();}};
+$('#modeB').onclick=()=>{if(S.mode!=='before'){S.mode='before';resetRun();}};
+$('#resetBtn').onclick=resetRun; $('#sheetBtn').onclick=openSheet;
+$('#pinsBtn').onclick=e=>{const off=document.body.classList.toggle('nopins');e.currentTarget.setAttribute('aria-pressed',!off);e.currentTarget.querySelector('span').textContent=off?'Markers: hidden':'Markers: shown';};
+const root=document.documentElement,KEY='solusi21-theme';
+try{const s=localStorage.getItem(KEY);if(s)root.dataset.theme=s;}catch(e){}
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY,root.dataset.theme);}catch(e){}};
+render();tick();
+</script>
+</body>
+</html>

@@ -265,6 +265,16 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 - **Day 5 (2026-11-12):** the same positions (1.1 Question 5 `bdWeak`, 1.2 Question 3 `adminConflicts`, 1.2 Question 4 `adminRisks`); Day 5 has no notes of its own from the participants, so it follows Day 4. Day 6: to follow if the choice fits; every other day keeps all its questions until the user says so. The user will update the reduction later.
 - `verify:dayN` checks it in step 3c.
 
+### 2.24 The best solution of Block 2.1 as a prototype, for the mentor only (Decided 2026-11-12, by the user; Days 4 and 5 first)
+
+Each case study of Block 2.1 gets one stand-alone prototype of its best solution (`trainer-only/solusi-2.1/dayN.html`, built to `STANDAR.md` in that folder): a Before and an After portal, a task with a timer, markers that explain every change with real products, and an answer sheet. It gives the mentor a picture of the best answer.
+
+- The prototype is copied to `ux-lab/public/mentor/solusi-2-1/dayN.html` and named on the block with `solution: { src, title }` in `data/dayN/free.ts`. The page carries `noindex`.
+- It appears **under the questions of Block 2.1, only after the mentor passcode** (the same convenience gate as the other mentor answers; the passcode ships in plaintext, so it is not security). The learner never sees it. It loads when the mentor presses "Show the prototype", or opens in a new tab.
+- The page is in English (like the lab's case material); the text around it is English and German.
+- **Not a secret:** the file sits in a public folder of the site and the repository, like the model answers in the data files. Do not push it if the repository is not meant to hold answer material.
+- `verify:dayN` checks that the file exists and is not indexed (step 3d). Days 6 to 16 get the prototype on request.
+
 ## 3. Status of the eight existing days against this draft
 
 **Since 2026-10-28 Days 9 to 16 run inside `ux-lab/`** as their *original idea*, at `/day/N/original/` (code in `ux-lab/original/` and `ux-lab/app/(original-*)`, moved from `playground-ux/` without content changes; `verify:original` and `verify:original-day9` check them). **Day 9's lab version is built (2026-10-28, section 2.14)**; for Days 10 to 16 the lab's own page (`/day/N/`) says that the lab version is not built yet and opens the original idea; once a day is rebuilt to this standard, its original idea stays reachable under the day's home (it is not deleted). `playground-ux/` is parked. Each of Days 10 to 16 also keeps a source copy and a `MIGRATION.md` in `legacy/dayN/` for the upgrade, and still runs on its old repository until that is archived.
@@ -312,6 +322,7 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-12 | New rule 2.24: the best solution of Block 2.1 as a working prototype (Before/After portal, markers, answer sheet) under the block, for the mentor only (after the passcode). Built for Days 4 and 5; shown in the lab through `MentorSolution`. | Days 4 and 5; Days 6 to 16 on request |
 | 2026-11-11 | New rule 2.23, question reduction 1: questions the participants chose to skip sit behind an "optional" link (`extras` on the spec, `ExtraFields` in FreeTask); numbers and documents unchanged. Applied to Day 4 and Day 5 (1.1 Q5, 1.2 Q3, 1.2 Q4). The minimum counter is no longer shown on days with no required question. | Day 4; Days 5 and 6 may follow |
 | 2026-11-10 | Rule 2.21 carried to Days 2 to 16: one scripted "Model run" per day (Play or Step by step, under the stress tests of the lab, or as a figure in the card where the card has no lab), built on the shared `components/sim/ModelRun.tsx` with the scenes as data in `data/runs/`. Day 2 A2 scan path, 3 A2 functional colour, 4 A2 Hick, 5 A1 Fitts, 6 A1 grouping, 7 A4 tone against situation, 8 A2 journey arc, 9 A3 streak, 10 A1 rule/situation/learning, 11 A2 voice timing, 12 A3 keyboard focus, 13 A2 stimuli, 14 A2 latency, 15 A1 gaze to heat map, 16 A2 test session. Real findings checked by search; English and German. | Days 2 to 16 |
 | 2026-11-09 | The optional low-fidelity sketch question (Block 2.1, Question 4 of 7, `sketchField`, minutes 40) added to Days 2 to 16 as on Day 1, with a model and an example per day in English and German; later questions renumbered; the 15 Google Doc worksheets of Block 2.1 rebuilt with it. Decided by the user after the Day 1 trial. | Days 2 to 16 |

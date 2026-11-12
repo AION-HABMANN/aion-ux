@@ -146,6 +146,8 @@ export type BlockSpec = {
   slots?: string[];
   /** The id of a Google Doc worksheet of this block (anyone copies it and writes there); shown as a box under the lead, worded neutrally: it does not say whether the block is done alone or together (UX-STANDARD 2.18). */
   sharedDocId?: string;
+  /** UX-STANDARD 2.24: a working prototype of the best solution of this block, shown to the mentor only (after the passcode), under the block. `src` is a file in public/. */
+  solution?: { src: string; title: string };
   fields: FreeField[];
   /** The heading of this block in the exported file. */
   doc: string;

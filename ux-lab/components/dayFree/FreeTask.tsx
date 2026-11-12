@@ -21,6 +21,7 @@ import { OptionList, TextBox } from "@/components/ui/Inputs";
 import { Callout } from "@/components/ui/MaterialCard";
 import { MaterialRefs } from "@/components/ui/MaterialRefs";
 import { MentorGuide } from "@/components/ui/MentorGuide";
+import { MentorSolution } from "@/components/dayFree/MentorSolution";
 import { WritingHelp } from "@/components/ui/WritingHelp";
 import { routeHref } from "@/data/course";
 import { fieldDomId, freeMissing, itemDomId, rowDomId } from "@/lib/dayFree/missing";
@@ -430,6 +431,7 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
         <FieldView key={f.id} ctx={ctx} f={f} />
       ))}
       <ExtraFields ctx={ctx} b={b} />
+      {b.solution && <MentorSolution s={b.solution} />}
       {open ? <BlockExportStatus b={b} r={blockR} inc={ctx.inc!} /> : <BlockMissing block={b.id} missing={missing} />}
     </AnswerBlock>
   );

@@ -4,6 +4,8 @@
  * assessment counts in the layout the learner chose (a box each or a table) and only in that one, that a different but reasoned choice still exports, that no
  * block is Optional and no cost or budget figure is printed, that the exports carry the learner's own answers, and that an old saved shape loads. It needs no browser.
  */
+import * as fs from "node:fs";
+import * as path from "node:path";
 import { materialsOf } from "../data/materialRegistry";
 import { GLOSSARY, GLOSS_LOOKUP } from "../data/glossary";
 import { freeAnalysisBody, freeMemoBody } from "../lib/dayFree/exportDoc";
@@ -141,6 +143,13 @@ for (const day of want) {
         ok(blockHasContent(blk, sliceOf(pe, day).r1), "an answer behind the link counts for the block");
       }
     }
+    // 3d · UX-STANDARD 2.24: a mentor solution prototype points at a real page that is not indexed
+    for (const b of blocksOf(spec, 1).concat([spec.block2]).filter((x) => x.solution)) {
+      const file = path.join(__dirname, "..", "public", b.solution!.src);
+      ok(fs.existsSync(file), `the solution prototype of Block ${b.id} exists (${b.solution!.src})`);
+      ok(fs.existsSync(file) && /name="robots" content="noindex/.test(fs.readFileSync(file, "utf-8")), `the prototype of Block ${b.id} asks search engines not to index it`);
+    }
+
     const mats = materialsOf(day);
     ok(freeDossier(p1, spec, mats.MATERIALS, 1).total === mats.MATERIALS.filter((x) => x.block === "A" && !x.optional).length + 3 && freeDossier(p1, spec, mats.MATERIALS, 2).total === mats.MATERIALS.filter((x) => x.block === "B" && !x.optional).length + 1, "progress totals count the cards and the task blocks");
 

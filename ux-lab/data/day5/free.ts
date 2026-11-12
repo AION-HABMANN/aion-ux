@@ -477,7 +477,8 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the situation and the portal below, then the seven questions."),
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
-      sharedDocId: "10WV3qSRy8ZofhF6YeLr3kSvvLXNBy8vsHUhL4yPWsC4",
+      sharedDocId: "10WV3qSRy8ZofhF6YeLr3kSvvLXNBy8vsHUhL4yPWsC4",
+      solution: { src: "/mentor/solusi-2-1/day5.html", title: t("MoveEasy: the booking portal after the improvements, next to the old one.", "MoveEasy: das Buchungsportal nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: MoveEasy"),
       lead: t(
         "A provider of mobility services runs MoveEasy, a portal where users book trips, manage tickets, change payment data and send support requests.\n\nThe portal is rich in functions, but use is slow and error-prone; above all on mobile devices, mis-taps and abandoned processes pile up.\n\nThe observed problems:\n• central booking buttons are small and partly badly placed\n• too many options at once on the start page raise uncertainty\n• users have to remember several tariffs and conditions at once\n• important actions lie in long lists of similar options\n• process steps offer too many equal choices\n• mobile interaction is hard because touch targets are too small\n\nThe conditions:\n• a budget of €140,000\n• 10 weeks for the implementation\n• mobile use is already above 60 %\n• a complete relaunch is not possible\n• marketing wants to keep as many offers visible as possible\n• support demands fewer operating errors and questions\n\nYou work through six steps.",
