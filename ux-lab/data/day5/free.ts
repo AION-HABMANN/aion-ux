@@ -20,6 +20,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
 export const SPEC = defineSpec({
   day: 5,
   optionalAll: true,
+  extras: ["bdWeak", "adminConflicts", "adminRisks"],
   caseName: "MoveEasy",
   role: "Chief Experience Officer",
   heading: t("Day 5 · Fitts, Hick and Miller in practice"),

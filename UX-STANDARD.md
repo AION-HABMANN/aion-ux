@@ -262,7 +262,7 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 - An extra that holds an answer stays open, counts for the block, and is printed in the export; an unanswered extra is not printed.
 - The marker "optional" is the one mark for every part that is not core: the extras, the sketch question, the optional Materi cards and the deeper reading.
 - **Day 4 (reduction 1):** 1.1 Question 5, 1.2 Question 3 and 1.2 Question 4 are extras. 1.2 Question 1 stays as it is. Visible in Route 1: 4 + 3 + 7 = 14 questions (was 17); Block 2.1 is not reduced yet. The same list came from the participants of Day 3 (their wish, not yet applied there).
-- Days 5 and 6: to follow if the choice fits; every other day keeps all its questions until the user says so. The user will update the reduction later.
+- **Day 5 (2026-11-12):** the same positions (1.1 Question 5 `bdWeak`, 1.2 Question 3 `adminConflicts`, 1.2 Question 4 `adminRisks`); Day 5 has no notes of its own from the participants, so it follows Day 4. Day 6: to follow if the choice fits; every other day keeps all its questions until the user says so. The user will update the reduction later.
 - `verify:dayN` checks it in step 3c.
 
 ## 3. Status of the eight existing days against this draft
@@ -312,7 +312,7 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 
 | Date | Change | Applies to |
 |---|---|---|
-| 2026-11-11 | New rule 2.23, question reduction 1: questions the participants chose to skip sit behind an "optional" link (`extras` on the spec, `ExtraFields` in FreeTask); numbers and documents unchanged. Applied to Day 4 (1.1 Q5, 1.2 Q3, 1.2 Q4). The minimum counter is no longer shown on days with no required question. | Day 4; Days 5 and 6 may follow |
+| 2026-11-11 | New rule 2.23, question reduction 1: questions the participants chose to skip sit behind an "optional" link (`extras` on the spec, `ExtraFields` in FreeTask); numbers and documents unchanged. Applied to Day 4 and Day 5 (1.1 Q5, 1.2 Q3, 1.2 Q4). The minimum counter is no longer shown on days with no required question. | Day 4; Days 5 and 6 may follow |
 | 2026-11-10 | Rule 2.21 carried to Days 2 to 16: one scripted "Model run" per day (Play or Step by step, under the stress tests of the lab, or as a figure in the card where the card has no lab), built on the shared `components/sim/ModelRun.tsx` with the scenes as data in `data/runs/`. Day 2 A2 scan path, 3 A2 functional colour, 4 A2 Hick, 5 A1 Fitts, 6 A1 grouping, 7 A4 tone against situation, 8 A2 journey arc, 9 A3 streak, 10 A1 rule/situation/learning, 11 A2 voice timing, 12 A3 keyboard focus, 13 A2 stimuli, 14 A2 latency, 15 A1 gaze to heat map, 16 A2 test session. Real findings checked by search; English and German. | Days 2 to 16 |
 | 2026-11-09 | The optional low-fidelity sketch question (Block 2.1, Question 4 of 7, `sketchField`, minutes 40) added to Days 2 to 16 as on Day 1, with a model and an example per day in English and German; later questions renumbered; the 15 Google Doc worksheets of Block 2.1 rebuilt with it. Decided by the user after the Day 1 trial. | Days 2 to 16 |
 | 2026-11-09 | New rule 2.22: no question is required; a block goes into the export when it holds an answer, with a tick list per block and a Google Doc worksheet for every task block (1.1, 1.2, 2.1, 3.1). Built for Days 2 to 5; 8 new worksheets (1.1 and 1.2). | Days 2 to 5; Days 6 to 16 on request |
