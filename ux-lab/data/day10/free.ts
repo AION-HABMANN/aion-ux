@@ -22,6 +22,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day10/reference";
  */
 export const SPEC = defineSpec({
   day: 10,
+  optionalAll: true,
+  extras: ["saTop", "cnConflicts", "cnRisks"],
   caseName: "CareGuide",
   role: "Chief Experience Officer",
   heading: t("Day 10 · Intelligent interfaces and AI-supported interaction"),
@@ -158,6 +160,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of SmartAssist directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "195xvVdwUPgtqzKyv1Q0KP5BibknBh9flKD7dYdhnkfw",
       doc: t("1.1 · Potentials and risks of intelligent interaction (SmartAssist)"),
       lead: t(
         "You receive the description of a fictional service platform, SmartAssist, for insurance matters, contract overviews and claims.\n\nOpen it and use it as a customer: look at your recommendations, follow the assistant's next step, report a simple claim and a complicated one.\n\nYou need no prior knowledge: notice when the platform seems to know what you need, and when you do not know why it does what it does.\n\nThe aim is to recognise intelligent interaction patterns systematically and judge them from the user's side.",
@@ -328,6 +331,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three CareerNavigator designs below, then the five questions."),
       refs: ["A2", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1uNYKH4hRvIaBD42xUESFawoTiZudVWFB9v5fF2tOOJE",
       doc: t("1.2 · Rate adaptive and personalised UX under conflicting goals (CareerNavigator)"),
       lead: t(
         "CareerNavigator is a platform for professional development and learning recommendations.\n\nThree designs for its further development are described in words:\nA) strong personalisation based on past use and automatic recommendations, but little transparency about the selection criteria\nB) restrained personalisation with clear explainability and high user control, but less comfort and less automation\nC) adaptive support with situational recommendations and optional ways to intervene, but a higher implementation effort\n\nThe conditions:\n• the target group is working people with different levels of experience\n• the company wants to look modern, helpful and trustworthy\n• the budget for the technical implementation is limited\n• the release is in 12 weeks\n• user data is only partly available\n• the department demands high service quality while the data protection officers demand transparency and ways to control\n\nDecide anyway, and say what you assume.",
@@ -465,6 +469,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1VhE_iwU2rf8qOy8SqiX-MfEZIKXzXxnpwpXPYL4KUt8",
+      solution: { src: "/mentor/solusi-2-1/day10.html", title: t("CareGuide: the portal with explained and controllable suggestions, after the improvements, next to the old one.", "CareGuide: das Portal mit erklärten und steuerbaren Vorschlägen nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: CareGuide"),
       lead: t(
         "A provider in health and prevention runs CareGuide, a digital portal for information, appointment management, documents and individual recommendations.\n\nThe company wants to make the portal more intelligent, so that users get suitable content, next steps and relevant help faster.\n\nAt the same time it is unsure about trust, comprehensibility and the danger of unsuitable personalisation.\n\nThe observed problems:\n• recommendations seem partly helpful, but partly do not fit the current situation\n• users do not always understand why certain content is shown\n• there are no clear hints how strongly the system personalises\n• the users' ways to intervene are limited or unclear\n• the platform saves time in simple cases but seems hard to follow in exceptions\n• departments see chances for efficiency while data protection warns of opacity and loss of trust\n\nThe conditions:\n• a budget of €180,000\n• 14 weeks for the implementation\n• no complete relaunch\n• a brand that must stay trustworthy and supportive\n• data quality that is partly heterogeneous\n• first results that must show soon\n\nYou work through six steps.",

@@ -241,7 +241,7 @@ So Block A (how people perceive, expect, feel) is mostly experience and surprise
 
 Day 1 (`components/day1/arc.tsx`): a 50 ms first-impression test before A1 (kept in this browser only), the model run of the fovea lab and a bottom-up against top-down animation on the same board in A2 with one surprising finding (the gorilla study), a habit trap in A3 (four check-ins, then an app update), a slowed-down first second and the 50 ms choice explained in A4, a reflection on the learner's own product at the end of A5, a line between steering and manipulating with real EU law in B1, one conflict in four roles in B2, and a look back at the first 50 ms in B3.
 
-### 2.22 No question is required; a block counts for the export when it holds an answer (Decided 2026-11-09, by the user; Days 2 to 5 first)
+### 2.22 No question is required; a block counts for the export when it holds an answer (Decided 2026-11-09, by the user; Days 2 to 5 first, Days 6 to 10 added 2026-11-14)
 
 The class works alone or in groups, in the lab or in the block's Google Doc, and may mix the two from block to block. So on a day with `optionalAll` (data flag on the spec):
 
@@ -253,7 +253,7 @@ The class works alone or in groups, in the lab or in the block's Google Doc, and
 
 Days 6 to 16 keep their required questions until the user asks (set `optionalAll: true` on their spec, then add the 1.1 and 1.2 worksheets). Day 1 stays as it is.
 
-### 2.23 Question reduction 1: some questions sit behind an "optional" link (Decided 2026-11-11, by the user, on the participants' request; Day 4 first)
+### 2.23 Question reduction 1: some questions sit behind an "optional" link (Decided 2026-11-11, by the user, on the participants' request; Day 4 first, Days 5 to 10 added by 2026-11-14)
 
 Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so participants never reached Route 2. The questions asked for in the plan stay in the lab, but the ones the participants chose to skip are kept out of sight:
 
@@ -265,7 +265,7 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 - **Day 5 (2026-11-12):** the same positions (1.1 Question 5 `bdWeak`, 1.2 Question 3 `adminConflicts`, 1.2 Question 4 `adminRisks`); Day 5 has no notes of its own from the participants, so it follows Day 4. Day 6: to follow if the choice fits; every other day keeps all its questions until the user says so. The user will update the reduction later.
 - `verify:dayN` checks it in step 3c.
 
-### 2.24 The best solution of Block 2.1 as a prototype, for the mentor only (Decided 2026-11-12, by the user; Days 4 and 5 first)
+### 2.24 The best solution of Block 2.1 as a prototype, for the mentor only (Decided 2026-11-12, by the user; Days 4 and 5 first, Days 6 to 10 added 2026-11-14)
 
 Each case study of Block 2.1 gets one stand-alone prototype of its best solution (`trainer-only/solusi-2.1/dayN.html`, built to `STANDAR.md` in that folder): a Before and an After portal, a task with a timer, markers that explain every change with real products, and an answer sheet. It gives the mentor a picture of the best answer.
 
@@ -322,6 +322,7 @@ Each case study of Block 2.1 gets one stand-alone prototype of its best solution
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-14 | Days 6 to 10 brought to the same state as Days 4 and 5: no required question (2.22), hidden optional questions `extras` (2.23: osWeak/careConflicts/careRisks and the same set per day), 10 new Google Doc worksheets for 1.1 and 1.2, and a mentor-only Before/After prototype of Block 2.1 per day (2.24: CitizenFlow, LifeSupport, GreenHome, MoveWell, CareGuide). Day 1 unchanged. | Days 6 to 10; Days 11 to 16 on request |
 | 2026-11-12 | New rule 2.24: the best solution of Block 2.1 as a working prototype (Before/After portal, markers, answer sheet) under the block, for the mentor only (after the passcode). Built for Days 4 and 5; shown in the lab through `MentorSolution`. | Days 4 and 5; Days 6 to 16 on request |
 | 2026-11-11 | New rule 2.23, question reduction 1: questions the participants chose to skip sit behind an "optional" link (`extras` on the spec, `ExtraFields` in FreeTask); numbers and documents unchanged. Applied to Day 4 and Day 5 (1.1 Q5, 1.2 Q3, 1.2 Q4). The minimum counter is no longer shown on days with no required question. | Day 4; Days 5 and 6 may follow |
 | 2026-11-10 | Rule 2.21 carried to Days 2 to 16: one scripted "Model run" per day (Play or Step by step, under the stress tests of the lab, or as a figure in the card where the card has no lab), built on the shared `components/sim/ModelRun.tsx` with the scenes as data in `data/runs/`. Day 2 A2 scan path, 3 A2 functional colour, 4 A2 Hick, 5 A1 Fitts, 6 A1 grouping, 7 A4 tone against situation, 8 A2 journey arc, 9 A3 streak, 10 A1 rule/situation/learning, 11 A2 voice timing, 12 A3 keyboard focus, 13 A2 stimuli, 14 A2 latency, 15 A1 gaze to heat map, 16 A2 test session. Real findings checked by search; English and German. | Days 2 to 16 |

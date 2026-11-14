@@ -21,6 +21,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day9/reference";
  */
 export const SPEC = defineSpec({
   day: 9,
+  optionalAll: true,
+  extras: ["srWeak", "hjConflicts", "hjRisks"],
   caseName: "MoveWell",
   role: "Chief Experience Officer",
   heading: t("Day 9 · Gamification strategies, and storytelling with gamification"),
@@ -167,6 +169,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of SkillRise directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3"],
       minutes: 10,
+      sharedDocId: "1IbOEkhJM-1nXVuv1fwJ8YGOShAefCbMfbByB4LOWhTs",
       doc: t("1.1 · Activation and retention potential (SkillRise)"),
       lead: t(
         "You receive the description of a fictional learning and development platform, SkillRise, for professional further training.\n\nOpen it and use it as an employee who has been given a learning path by their employer: finish a module and look at your progress.\n\nYou need no prior knowledge: notice whether you want to come back tomorrow, not only whether the steps work. The aim is to recognise motivation and retention mechanisms systematically and tell them apart from pure functionality.",
@@ -341,6 +344,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three HealthJourney designs below, then the five questions."),
       refs: ["A3", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1c6FCb9s8Po2IVrRtWMziLfirNFkvnSw2VKsCA7QrSIc",
       doc: t("1.2 · Rate gamification under conflicting goals (HealthJourney)"),
       lead: t(
         "HealthJourney is a platform for health prevention.\n\nThree designs for its activation logic are described in words:\nA) strong gamification with points, badges, daily challenges and rankings\nB) a restrained activation logic with progress displays, milestones and confirming feedback\nC) a narratively embedded user journey with motivating stages, but less visible classic reward elements\n\nThe conditions:\n• the target group is adults aged 25 to 65\n• the company wants to motivate but stay serious and trustworthy\n• the budget for technical extensions is limited\n• there are no user tests yet\n• the release is in 10 weeks\n• marketing demands high activation while the department warns against too playful an approach\n\nDecide anyway, and say what you assume.",
@@ -478,6 +482,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1HV6Z3Hwh_2iFe2W9fcQwJTyKCAadDOrmlMx7NVWG5qU",
+      solution: { src: "/mentor/solusi-2-1/day9.html", title: t("MoveWell: the activation journey, after the improvements, next to the old one.", "MoveWell: die Aktivierungsreise nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: MoveWell"),
       lead: t(
         "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.\n\nThe platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.\n\nThe observed problems:\n• progress is only faintly visible\n• successes are hardly fed back or emotionally reinforced\n• motivating intermediate goals and stages are missing\n• the user journey is functional but not very activating\n• there is no clear link between individual development and the experience of use\n• the feedback so far is technical and not very stimulating\n\nThe conditions:\n• a budget of €150,000\n• 12 weeks for the implementation\n• a brand that must stay trustworthy and close to health\n• no complete relaunch\n• limited technical resources for complex features\n• only partial user data\n\nYou work through six steps.",

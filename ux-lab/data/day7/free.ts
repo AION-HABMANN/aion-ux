@@ -20,6 +20,8 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 7,
+  optionalAll: true,
+  extras: ["wtWeak", "careerConflicts", "careerRisks"],
   caseName: "LifeSupport",
   role: "Chief Experience Officer",
   heading: t("Day 7 · Emotional bonding in design"),
@@ -166,6 +168,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of WellTrack directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1unJlBqtmw-hC13H-OtTbWU6BB6oFhdmzPFflIXtl1NY",
       doc: t("1.1 · The emotional effect (WellTrack)"),
       lead: t(
         "You receive the description of a fictional health platform, WellTrack, for prevention, appointment management and personal recommendations.\n\nOpen it and use it as someone who has just signed up: book a check-up and read your recommendations. You need no prior knowledge: notice how it makes you feel, not only whether it works.\n\nThe aim is to recognise emotional effect step by step and to tell it apart from a purely functional judgement.",
@@ -340,6 +343,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three CareerPath designs below, then the five questions."),
       refs: ["A2", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1LVy5i1FsfLr2xcd_5havXyNAnIQuqyXBNAzUgmQP1HI",
       doc: t("1.2 · Rate emotional UX under conflicting goals (CareerPath)"),
       lead: t(
         "CareerPath is a platform for career development and further training.\n\nThree designs for its interface are described in words:\nA) modern, warm and motivating, but with many emotional stimuli and activating messages\nB) factual, clear and trustworthy, but not very inspiring or connecting\nC) high quality and personal in feel, but in some situations a little unclear in its interaction feedback\n\nThe conditions:\n• the target group is working people between 25 and 60\n• the company wants to look professional and approachable\n• the budget for a deep revision is limited\n• there are no user tests yet\n• the release is in 9 weeks\n• the department demands seriousness while marketing demands stronger activation\n\nDecide anyway, and say what you assume.",
@@ -477,6 +481,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1EjcsKdpJv21aoleKn59kKZW_VXxKA05Zh3DDvsyfLo4",
+      solution: { src: "/mentor/solusi-2-1/day7.html", title: t("LifeSupport: the health-service portal, after the improvements, next to the old one.", "LifeSupport: das Gesundheitsportal nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: LifeSupport"),
       lead: t(
         "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.\n\nTechnically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.\n\nThe observed problems:\n• the visual language is factual but emotionally distant\n• feedback after actions is technical instead of supportive\n• critical situations such as error messages create uncertainty instead of orientation\n• positive experiences are not visibly reinforced\n• the tone is correct but does not build trust or motivate\n• the interaction is functional but does not build a relationship\n\nThe conditions:\n• a budget of €145,000\n• 12 weeks for the implementation\n• no complete relaunch\n• the brand should stay serious but become emotionally more approachable\n• user data is only partly available\n• the department and marketing set different priorities\n\nYou work through six steps.",

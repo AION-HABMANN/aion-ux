@@ -20,6 +20,8 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 6,
+  optionalAll: true,
+  extras: ["osWeak", "careConflicts", "careRisks"],
   caseName: "CitizenFlow",
   role: "Chief Experience Officer",
   heading: t("Day 6 · Gestalt, hierarchy, progressive disclosure and design systems"),
@@ -166,6 +168,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of OfficeSphere directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1W5b-Cw2r1pKFDqHUc3sOr4bHbOYoaaDNERNF6dIssxk",
       doc: t("1.1 · Navigation and structure problems (OfficeSphere)"),
       lead: t(
         "You receive the description of a fictional administration portal, OfficeSphere, for internal processes, requests and approvals. Open it and try to request leave and approve a colleague's request, as an employee would.\n\nYou need no prior knowledge: notice where the page feels unclear or overwhelming and where you cannot tell what belongs together.\n\nThe aim is to recognise Gestalt and structure problems step by step and to describe their influence on navigation and mental load.",
@@ -341,6 +344,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three CareAssist structures below, then the five questions."),
       refs: ["A2", "A3", "A5"],
       minutes: 8,
+      sharedDocId: "19-z1DiLi6GLyrecV9GNkcbRSQbMfZSfHYQtur-Ig0X8",
       doc: t("1.2 · Rate progressive disclosure and hierarchy under conflicting goals (CareAssist)"),
       lead: t(
         "CareAssist is a service platform.\n\nThree structures are described in words:\nA) all information and options directly visible, a high transparency but a strong density of information\nB) central content clearly prioritised, additional information only shown step by step\nC) a modern, reduced layout with strong compression, but important context information partly hidden too deep\n\nThe conditions:\n• the target group includes experienced and inexperienced users\n• the departments want as much information as possible visible at once\n• the UX team asks for a stronger hierarchy and progressive disclosure\n• technical resources for large changes are limited\n• the release is in 8 weeks\n• only little user data is available\n\nDecide anyway, and say what you assume.",
@@ -478,6 +482,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1_hEB9SAgQ0FOg9QwH9rs3U3ncIjH-iaPFh-kfP6A4oE",
+      solution: { src: "/mentor/solusi-2-1/day6.html", title: t("CitizenFlow: the residence-certificate portal, after the improvements, next to the old one.", "CitizenFlow: das Portal für die Meldebescheinigung nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: CitizenFlow"),
       lead: t(
         "A public service platform gives citizens access to applications, appointment bookings, certificates and status queries. It is extensive in functions, but in many areas it feels inconsistent and overwhelming.\n\nUsers often lose orientation, abandon applications or contact support although self-service is available.\n\nThe observed problems:\n• different page types group content differently\n• primary and secondary actions are not cleanly separated\n• forms show all fields at once, also optional and context-dependent ones\n• navigation patterns vary between areas with a similar function\n• additional information, help and warnings are not cleanly prioritised\n• users have to work out themselves which information is relevant and which is only supplementary\n\nThe conditions:\n• a budget of €170,000\n• 14 weeks for the implementation\n• a complete relaunch is ruled out\n• several departments have their own requirements\n• consistency across the service areas is low so far\n• usage data is only partly available\n\nYou work through six steps.",

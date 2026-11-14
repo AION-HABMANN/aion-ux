@@ -21,6 +21,8 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
  */
 export const SPEC = defineSpec({
   day: 8,
+  optionalAll: true,
+  extras: ["ssWeak", "journeyConflicts", "journeyRisks"],
   caseName: "GreenHome",
   role: "Chief Experience Officer",
   heading: t("Day 8 · Storytelling in UX/UI design"),
@@ -167,6 +169,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of StartSmart directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1UaCPnQmHTVWzSHz_ewqnPA4f_7H7-WSjQ1QezUHDxK0",
       doc: t("1.1 · The narrative potential (StartSmart)"),
       lead: t(
         "You receive the description of a fictional platform, StartSmart, for start-up advice and funding applications. Open it and use it as someone who wants to found a business: find out what you need and start an application.\n\nYou need no prior knowledge: notice whether you know where you are going and how far you have come, not only whether the steps work.\n\nThe aim is to recognise narrative gaps in the experience and tell them apart from a purely functional presentation of a process.",
@@ -341,6 +344,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three FutureSkills journeys below, then the five questions."),
       refs: ["A3", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "17aET4GbN9GU67XOZWRIzrpuwwP9d_ebMumpioNomDNg",
       doc: t("1.2 · Rate storytelling approaches under conflicting goals (FutureSkills)"),
       lead: t(
         "FutureSkills is a further-training platform.\n\nThree journeys for its users are described in words:\nA) factual and efficient, with clear steps, but little emotional embedding or motivation\nB) strongly narrative and emotionally activating, but with more text and longer guidance\nC) a balanced mix of clarity, motivating address and visible progress, but with a somewhat higher implementation effort\n\nThe conditions:\n• the target group is working people with little time\n• the company wants to look professional and inspiring\n• the budget is limited\n• the release is in 10 weeks\n• marketing demands stronger activation while the department demands high clarity\n• there are no user tests yet\n\nDecide anyway, and say what you assume.",
@@ -478,6 +482,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1rqZBhUs5LCY6AiBmk9oywYuRsF6Pt6MPkAXVWPJVfag",
+      solution: { src: "/mentor/solusi-2-1/day8.html", title: t("GreenHome: the onboarding journey, after the improvements, next to the old one.", "GreenHome: die Onboarding-Reise nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: GreenHome"),
       lead: t(
         "A company for sustainable energy solutions offers GreenHome, a digital platform for advice, product selection and funding support.\n\nThe onboarding is functionally complete, but users experience it as sober, long-winded and not very motivating. Many start the process but abandon it before the end.\n\nThe company wants to make it emotionally more connecting and dramaturgically clearer, without losing specialist clarity.\n\nThe observed problems:\n• the entry explains functions, but not the personal benefit or the goal for users\n• the sequence of steps feels administrative rather than developmental\n• intermediate states and progress are barely visible\n• help and hints explain but do not motivate\n• finishing a step does not feel like progress\n• the whole feels like a form process rather than an accompanied journey\n\nThe conditions:\n• a budget of €155,000\n• 12 weeks for the implementation\n• contents and specialist logic must largely be kept\n• the company wants to look inspiring but serious\n• user data is only partly available\n• a complete relaunch is not possible\n\nYou work through six steps.",

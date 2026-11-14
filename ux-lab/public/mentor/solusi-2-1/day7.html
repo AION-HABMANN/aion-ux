@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solution 2.1 · Day 7</title>
+<style>
+:root{
+  --bg:#eceae4; --surface:#ffffff; --surface-2:#f5f4f0; --surface-3:#eeece6; --ink:#1b1f24; --ink-2:#3a414b; --muted:#646c78; --line:#e1ddd4; --line-2:#cfcac0;
+  --brand:#00796b; --brand-600:#004d40; --brand-soft:#e0f2f1; --good:#1f7a4a; --good-soft:#e2f3e9; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --warn:#8a5300; --warn-soft:#fdf0d8; --blue:#1d5fa8; --blue-soft:#e4edf8; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06); --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+    --brand:#4db6ac; --brand-600:#80cbc4; --brand-soft:#16302d; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+    --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+  --brand:#4db6ac; --brand-600:#80cbc4; --brand-soft:#16302d; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+  --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1140px;margin:0 auto;padding:18px 16px 60px}
+
+/* ---------- mentor control bar ---------- */
+.bar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:12px}
+.bar-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.kicker{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.bar h1{font-size:1.2rem;margin:0}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:.86rem}
+.seg button[aria-pressed="true"].b{background:var(--bad);color:#fff}
+.seg button[aria-pressed="true"].a{background:var(--good);color:#fff}
+.task{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.88rem;background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.task b{color:var(--brand)}
+.tk{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.tk i{font-style:normal;width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);display:inline-grid;place-items:center;font-size:.65rem;color:transparent}
+.tk.done{color:var(--ink)} .tk.done i{background:var(--good);border-color:var(--good);color:#fff}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.muted{color:var(--muted);font-size:.82rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.82rem;cursor:pointer}
+.tbtn svg.i{width:16px;height:16px}
+.tbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface);font-weight:700}
+
+/* ---------- browser frame ---------- */
+.frame{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);font-size:.76rem;color:var(--muted)}
+.dots{display:flex;gap:5px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.flag{font-weight:700;padding:2px 8px;border-radius:6px}
+.flag.b{background:var(--bad-soft);color:var(--bad)} .flag.a{background:var(--good-soft);color:var(--good)}
+.portal{min-height:600px;background:var(--surface);position:relative}
+
+/* ---------- pins ---------- */
+.zone{position:relative}
+.pin{position:absolute;z-index:4;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;border:2px solid var(--surface);color:#fff;cursor:pointer;display:grid;place-items:center;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:pulse 2.6s infinite}
+.pin svg.i{width:13px;height:13px;stroke-width:2.6}
+.pin.b{background:var(--bad)} .pin.a{background:var(--good)}
+.pin:hover,.pin:focus-visible{transform:scale(1.15);outline:none}
+body.nopins .pin{display:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,122,74,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(31,122,74,0),0 2px 6px rgba(0,0,0,.25)}}
+.pin.b{animation-name:pulseb}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 rgba(179,38,30,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(179,38,30,0),0 2px 6px rgba(0,0,0,.25)}}
+@media (prefers-reduced-motion:reduce){.pin{animation:none}}
+
+/* ================= BEFORE (old portal) ================= */
+.old{font-family:Verdana,Tahoma,sans-serif;font-size:13px;color:#222;background:#fff;min-height:600px}
+.old .oh{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:3px solid #00796b;background:#fafafa}
+.old .ologo{font-weight:700;color:#00796b;font-size:17px;background:none;border:0;cursor:pointer;font-family:inherit}
+.old .onav button{background:none;border:0;color:#235;cursor:pointer;margin-left:12px;text-decoration:underline;font-family:inherit;font-size:12px}
+.old .ob{padding:18px;max-width:820px}
+.old .hero{background:linear-gradient(135deg,#80cbc4,#00796b);color:#fff;padding:22px;margin-bottom:14px}
+.old .hero b{display:block;font-size:19px}
+.old .hero button{margin-top:10px;background:#fff;color:#00796b;border:0;padding:6px 12px;cursor:pointer;font-family:inherit}
+.old .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.old .tile{background:#eee;border:1px solid #ccc;padding:14px 6px;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old .note{color:#666;font-size:11px;margin-top:12px}
+.old h2{font-size:16px;margin:0 0 6px}
+.old .choice{display:block;width:100%;max-width:420px;text-align:left;background:#f4f4f4;border:1px solid #bbb;padding:9px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old label{display:block;font-size:12px;margin:8px 0 2px}
+.old input{width:260px;border:1px solid #999;padding:5px;font-family:inherit;font-size:12px;background:#fff;color:#222}
+.old .sbtn{margin-top:10px;background:#555;color:#fff;border:0;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:12px}
+.old .lnk{background:none;border:0;color:#235;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;font-size:12px}
+.old .msg{margin-top:10px;padding:6px 8px;background:#eee;color:#444;font-size:12px;display:inline-block}
+.old .msg.err{color:#b00}
+.old table{border-collapse:collapse;font-size:12px}
+.old td,.old th{border:1px solid #ccc;padding:5px 8px;text-align:left}
+.old .back{display:block;margin-top:14px}
+.old .zone{display:block}
+
+/* ================= AFTER (new portal) ================= */
+.np{display:flex;flex-direction:column;min-height:600px}
+.nh{display:flex;align-items:center;gap:18px;padding:0 24px;height:64px;border-bottom:1px solid var(--line);background:var(--surface)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;background:none;border:0;color:var(--ink);cursor:pointer;padding:0}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:#fff}
+.brand-mark svg.i{width:18px;height:18px;stroke-width:2.2}
+.navwrap{height:100%;display:flex;margin-left:8px}
+.navwrap .pin{top:4px;right:-8px}
+.navx{display:flex;gap:2px;height:100%}
+.navx button{display:flex;align-items:center;gap:7px;height:100%;padding:0 12px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:600;font-size:.88rem;border-bottom:2px solid transparent;white-space:nowrap}
+.navx button svg.i{width:18px;height:18px}
+.navx button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brand)}
+.navx button:hover{color:var(--ink)}
+.nh-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;position:relative}
+.iconbtn .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--brand);border:2px solid var(--surface)}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--surface-3);color:var(--ink-2);display:grid;place-items:center;font-weight:700;font-size:.82rem}
+.nb{flex:1;padding:28px 24px 40px;background:var(--surface-2)}
+.inner{max-width:880px;margin:0 auto}
+.nf{padding:14px 24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bottomnav{display:none}
+
+h2.h{font-size:1.45rem;letter-spacing:-.015em;margin:0 0 4px}
+.lead{color:var(--muted);margin:0 0 20px}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:24px 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+
+.status{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.status .card h3{font-size:.8rem;font-weight:600;color:var(--muted);margin:0 0 6px}
+.big-num{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.pill svg.i{width:14px;height:14px;stroke-width:2.2}
+.p-good{background:var(--good-soft);color:var(--good)} .p-warn{background:var(--warn-soft);color:var(--warn)} .p-grey{background:var(--surface-3);color:var(--muted)} .p-blue{background:var(--blue-soft);color:var(--blue)}
+.action{border-left:4px solid var(--brand)}
+.action .row{align-items:flex-start}
+.ic-wrap{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
+.ic-brand{background:var(--brand-soft);color:var(--brand)} .ic-blue{background:var(--blue-soft);color:var(--blue)} .ic-good{background:var(--good-soft);color:var(--good)} .ic-grey{background:var(--surface-3);color:var(--ink-2)}
+.ic-wrap svg.i{width:22px;height:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer;border:1px solid transparent;font-size:.92rem}
+.btn svg.i{width:18px;height:18px}
+.btn-p{background:var(--brand);color:#fff} .btn-p:hover{background:var(--brand-600)}
+.btn-s{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-t{background:none;color:var(--brand);padding:6px 0;border:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qbtn{display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.qbtn:hover{border-color:var(--brand);transform:translateY(-1px)}
+.qbtn b{font-size:.98rem}
+.qbtn small{color:var(--muted);font-size:.8rem;margin-top:-8px}
+
+.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.li{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);text-align:left;cursor:pointer}
+.li:last-child{border-bottom:0}
+.li:hover{background:var(--surface-2)}
+.li .t{flex:1;min-width:0} .li .t b{display:block;font-weight:600} .li .t small{color:var(--muted);font-size:.82rem}
+.li .chev{color:var(--muted)}
+.promo{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,var(--surface) 55%,var(--good-soft));}
+
+.crumb{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);margin-bottom:14px}
+.crumb button{background:none;border:0;color:var(--blue);cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.crumb svg.i{width:16px;height:16px}
+
+/* stepper */
+.steps{display:flex;gap:0;margin:4px 0 22px;max-width:560px}
+.st{flex:1;display:flex;flex-direction:column;gap:6px;font-size:.78rem;color:var(--muted);position:relative}
+.st .bar2{height:4px;border-radius:2px;background:var(--line);margin-right:6px}
+.st.on{color:var(--ink);font-weight:600} .st.on .bar2{background:var(--brand)}
+.st.done .bar2{background:var(--good)}
+.formcard{max-width:560px}
+.fl{display:block;font-weight:600;margin:0 0 6px}
+.fh{color:var(--muted);font-size:.84rem;margin:-2px 0 8px}
+.inp{display:flex;align-items:stretch;max-width:320px;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;background:var(--surface)}
+.inp:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.inp input{flex:1;border:0;padding:12px 14px;font-size:1.15rem;font-variant-numeric:tabular-nums;background:transparent;color:var(--ink);min-width:0;outline:none}
+.inp span{display:grid;place-items:center;padding:0 14px;background:var(--surface-2);color:var(--muted);font-weight:600;border-left:1px solid var(--line)}
+.inp.err{border-color:var(--bad)}
+.ferr{display:flex;gap:8px;color:var(--bad);font-size:.88rem;margin-top:8px;font-weight:600}
+.fwarn{display:flex;gap:10px;background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:12px;font-size:.88rem;margin-top:12px}
+.fwarn b{display:block}
+.prefill{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+.prefill .t{flex:1} .prefill small{display:block;color:var(--muted);font-size:.8rem}
+.mono{font-family:ui-monospace,Consolas,monospace;letter-spacing:.02em}
+.choicecard{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 10px;cursor:pointer;color:var(--ink)}
+.choicecard:hover{border-color:var(--brand)}
+.choicecard .t{flex:1} .choicecard small{display:block;color:var(--muted);font-size:.82rem}
+.radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.choicecard.sel{border-color:var(--brand);background:var(--brand-soft)} .choicecard.sel .radio{border:6px solid var(--brand)}
+.suggest{display:flex;gap:12px;align-items:flex-start;background:var(--blue-soft);color:var(--ink);border-radius:12px;padding:14px;margin:0 0 18px;max-width:560px}
+.suggest svg.i{color:var(--blue)}
+.suggest button{margin-top:6px}
+
+.summary{max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:0}
+.sr{display:grid;grid-template-columns:150px 1fr auto;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.sr:last-child{border-bottom:0}
+.sr dt{color:var(--muted);font-size:.86rem} .sr dd{margin:0;font-weight:600}
+.sr button{background:none;border:0;color:var(--blue);cursor:pointer;font-weight:600;font-size:.86rem;padding:0}
+
+.panel{max-width:600px;background:var(--good);color:#fff;border-radius:var(--r);padding:26px 24px;text-align:center}
+.panel .ok{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;margin:0 auto 10px}
+.panel .ok svg.i{width:28px;height:28px;stroke-width:2.4}
+.panel h2{margin:0 0 6px;font-size:1.4rem}
+.panel .refno{display:inline-block;margin-top:6px;background:rgba(255,255,255,.16);border-radius:8px;padding:5px 12px;font-weight:700}
+:root[data-theme="dark"] .panel{color:#0d2418}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .panel{color:#0d2418}}
+.next{max-width:600px;margin-top:18px}
+.next h3{font-size:1rem;margin:0 0 10px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;padding:0 0 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .dotc{width:24px;height:24px;border-radius:50%;background:var(--good-soft);color:var(--good);display:grid;place-items:center;flex:none}
+.tl .dotc svg.i{width:14px;height:14px;stroke-width:2.6}
+.tl .dotc.grey{background:var(--surface-3);color:var(--muted)}
+.tl small{display:block;color:var(--muted)}
+
+table.dt{width:100%;border-collapse:collapse;font-size:.9rem}
+.dt th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 16px;border-bottom:1px solid var(--line);font-weight:600}
+.dt td{padding:12px 16px;border-bottom:1px solid var(--line)}
+.dt tr:last-child td{border-bottom:0}
+.dt tr.new td{background:var(--good-soft)}
+.tablecard{padding:0;overflow-x:auto}
+.chart{display:flex;align-items:flex-end;gap:8px;height:110px;padding:10px 0 0}
+.chart div{flex:1;background:var(--brand-soft);border-radius:6px 6px 0 0;position:relative}
+.chart div.cur{background:var(--brand)}
+.chart-l{display:flex;gap:8px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.chart-l span{flex:1;text-align:center}
+.tariffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.tcard.cur{border-color:var(--brand)}
+.tcard .price{font-size:1.2rem;font-weight:800}
+.tcard ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.88rem}
+.notice{display:flex;gap:10px;background:var(--surface-3);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--ink-2);margin-top:14px;max-width:600px}
+.search{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line-2);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--muted);max-width:560px;margin-bottom:18px}
+
+@media (max-width:900px){
+  .navwrap{display:none}
+  .bottomnav{display:flex;position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:5}
+  .bottomnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px 10px;border:0;background:none;color:var(--muted);font-size:.68rem;font-weight:600;cursor:pointer}
+  .bottomnav button[aria-current="page"]{color:var(--brand)}
+  .bottomnav .pin{flex:none;padding:0;display:grid;color:#fff}
+  .status{grid-template-columns:1fr}
+  .qa{grid-template-columns:1fr}
+  .qbtn{flex-direction:row;align-items:center}
+  .qbtn small{margin-top:0}
+  .nh{padding:0 14px}.nb{padding:20px 14px 30px}
+  .sr{grid-template-columns:1fr auto}.sr dt{grid-column:1 / -1}
+}
+
+/* ---------- dialog ---------- */
+dialog{border:0;border-radius:16px;padding:0;max-width:min(660px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(12,14,18,.55)}
+.dh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:18px 20px 6px}
+.dh h3{margin:0;font-size:1.1rem}
+.dx{border:0;background:var(--surface-2);color:var(--ink);border-radius:8px;width:32px;height:32px;cursor:pointer;display:grid;place-items:center;flex:none}
+.db{padding:4px 20px 22px;font-size:.92rem;max-height:76vh;overflow:auto}
+.db p{margin:.4em 0}
+.tags{margin:0 0 10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;margin:0 4px 4px 0}
+.t-p{background:var(--bad-soft);color:var(--bad)} .t-m{background:var(--good-soft);color:var(--good)} .t-l{background:var(--blue-soft);color:var(--blue)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.ba div{border-radius:10px;padding:10px 12px;font-size:.87rem}
+.ba .bf{background:var(--bad-soft)} .ba .af{background:var(--good-soft)}
+.ba b{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.ba .bf b{color:var(--bad)} .ba .af b{color:var(--good)}
+.whyh{font-weight:700;margin-top:14px}
+.real{background:var(--blue-soft);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.87rem}
+.real > b{color:var(--blue);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.real ul{margin:0;padding-left:18px}
+.src{font-size:.78rem;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+.db table{border-collapse:collapse;width:100%;font-size:.85rem;margin:6px 0 14px}
+.db th,.db td{border-bottom:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+.db th{background:var(--surface-2);font-size:.72rem;text-transform:uppercase;color:var(--muted)}
+.db h4{margin:18px 0 4px;font-size:.95rem;color:var(--brand)}
+.db a{color:var(--blue)}
+.lv{font-weight:700;font-size:.8rem} .lv.h{color:var(--good)} .lv.m{color:var(--warn)}
+@media (max-width:560px){.ba{grid-template-columns:1fr}}
+
+/* ================= shared additions (Days 5 and later) ================= */
+.mt{margin-top:14px}
+.np .btn,.np .choicecard,.np .li,.np .chip,.np .qbtn{min-height:48px}
+.np .iconbtn,.np .avatar{width:44px;height:44px}
+.np .brand{min-height:44px;padding-right:6px}
+.np .crumb button{min-height:44px;padding:0 10px 0 2px;display:inline-flex;align-items:center}
+.np .sr button{min-height:44px;min-width:56px;padding:0 10px}
+.bigbtn{width:100%;min-height:56px;font-size:1.02rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);cursor:pointer;font-weight:600;color:var(--ink);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.chip small{font-weight:500;color:var(--muted);font-size:.72rem}
+.chip.sel{border-color:var(--brand);background:var(--brand-soft)}
+.cbrow{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--line-2);border-radius:12px;cursor:pointer;min-height:56px;background:var(--surface)}
+.cbrow input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--brand);flex:none}
+.det{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0 0 8px}
+.det summary{padding:14px;cursor:pointer;font-weight:600;min-height:48px;display:flex;align-items:center}
+.det div{padding:0 14px 14px;color:var(--ink-2);font-size:.88rem}
+.reveal{margin:8px 0 14px;padding:12px 14px;border-left:3px solid var(--brand);background:var(--surface-2);border-radius:0 10px 10px 0}
+.stick{position:sticky;bottom:0;margin:20px -24px -40px;padding:12px 24px;background:var(--surface);border-top:1px solid var(--line);display:flex;gap:10px;z-index:3}
+.stick .btn{flex:1;min-height:52px}
+.stick .btn-s{flex:0 0 auto}
+@media (max-width:900px){.stick{margin:20px -14px -30px}}
+.old .otop{display:flex;justify-content:flex-end;margin-bottom:8px}
+.old .tiny{min-height:20px;padding:0 4px;font-size:10px;line-height:20px;background:#eee;border:1px solid #ccc;color:#235;cursor:pointer;font-family:inherit}
+.old .cards2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.old .ocard{border:1px solid #ccc;background:#fafafa;padding:8px;font-size:11px}
+.old .ocard b{display:block;font-size:12px}
+.old .ocard p{margin:2px 0 4px}
+.old .ornote{background:#FFF3E0;border:1px solid #FFB74D;padding:8px;margin-bottom:10px;font-size:12px}
+.old .eqrow{display:flex;gap:6px;margin-top:10px}
+.old .eq{flex:1;padding:6px 0;background:#555;color:#fff;border:0;cursor:pointer;font-family:inherit;font-size:12px}
+.old .tg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.old input[type=text]{width:100%;max-width:300px}
+.old .lst{margin:6px 0 10px;padding-left:18px}
+.old .oh{border-bottom-color:#37474f}.old .ologo{color:#37474f}
+.old .techbox{background:#eceff1;border-left:4px solid #607d8b;padding:8px;font-family:Consolas,monospace;font-size:12px;margin-bottom:10px}
+.old .tile{background:#eceff1}
+.pill.p-warn svg.i{stroke:var(--warn)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></symbol>
+  <symbol id="gauge" viewBox="0 0 24 24"><path d="M3.5 17.5a9 9 0 1 1 17 0"/><path d="m12 14 4.5-4.5"/><circle cx="12" cy="14" r="1.6"/><path d="M3.5 17.5h17"/></symbol>
+  <symbol id="wallet" viewBox="0 0 24 24"><path d="M4 7.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5V6A2 2 0 0 1 5.5 4H17"/><path d="M20.5 11.5H16a2 2 0 0 0 0 4h4.5"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></symbol>
+  <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></symbol>
+  <symbol id="camera" viewBox="0 0 24 24"><path d="M4 8h3l1.8-2.5h6.4L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></symbol>
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.7 10v7M14.3 10v7M19 10v7M3 20h18"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-6 9-7.5"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.5h.01"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v5h5"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></symbol>
+</svg>
+
+<div class="wrap">
+<div class="bar">
+  <div class="bar-top">
+    <div><div class="kicker">Mentor only · Day 7 · Block 2.1 · LifeSupport</div><h1>The LifeSupport portal, improved</h1></div>
+    <div class="seg" role="group" aria-label="Portal version"><button class="b" id="modeB" aria-pressed="false">Before</button><button class="a" id="modeA" aria-pressed="true">After</button></div>
+  </div>
+  <div class="task" aria-live="polite">
+    <span><b>Task:</b> book a check-up, open your results, and upload a document.</span>
+    <span class="tk" id="tk1"><i>✓</i>Check-up booked</span><span class="tk" id="tk2"><i>✓</i>Results opened</span><span class="tk" id="tk3"><i>✓</i>Document uploaded</span>
+    <span>⏱ <span class="num" id="time">0.0 s</span> · <span class="num" id="clicks">0</span> clicks</span>
+    <span class="muted" id="runs"></span>
+  </div>
+  <div class="tools">
+    <button class="tbtn" id="pinsBtn" aria-pressed="true"><svg class="i"><use href="#eye"/></svg><span>Markers: shown</span></button>
+    <button class="tbtn" id="resetBtn"><svg class="i"><use href="#reset"/></svg>Restart task</button>
+    <button class="tbtn primary" id="sheetBtn"><svg class="i"><use href="#book"/></svg>Answer sheet 2.1</button>
+    <button class="tbtn" id="themeBtn"><svg class="i"><use href="#moon"/></svg>Theme</button>
+    <span class="muted">The pulsing dots in the portal are markers. Click one to see the problem, before and after, the reason, and examples from real products.</span>
+  </div>
+</div>
+<div class="frame">
+  <div class="chrome"><div class="dots"><span></span><span></span><span></span></div><div class="url" id="url"></div><span class="flag a" id="flag">After</span></div>
+  <div class="portal" id="portal"></div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dT"><div class="dh"><h3 id="dT"></h3><button class="dx" data-close aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div><div class="db" id="dB"></div></dialog>
+
+<script>
+const ic=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#${n}"/></svg>`;
+
+/* ================= DATA (made up for the simulation) ================= */
+const TYPES=[['year','Yearly check-up','A conversation and basic measurements'],['blood','Blood test','Samples are taken at the clinic'],['advice','Prevention talk','Questions about staying well']];
+const SLOTS=[['s1','Fri 13 Nov 2026','09:30'],['s2','Fri 13 Nov 2026','14:00'],['s3','Mon 16 Nov 2026','10:15'],['s4','Tue 17 Nov 2026','08:45']];
+const PLACES=['Main clinic','Neighbourhood office'];
+
+/* ================= MARKERS ================= */
+const PINS={
+  mood:{t:"Calm, human and still serious",p:["Problem 1 · Visual language distant","Problem 6 · Interaction not relationship-building"],m:"Measure 4",law:"Visual mood",
+    before:"A dark grey heading “Customer portal”, one factual sentence and six equal tiles. Correct, but cold.",
+    after:"A warm, light background, rounded cards, a greeting by name and <b>one clear next step</b>. No emoji, no points, no effects: the brand stays serious, it only becomes easier to approach.",
+    why:"<p>The brief asks the brand to stay serious but feel emotionally more accessible. A softer look and a person-to-person greeting do that without turning health into a game.</p><p>The mood follows the situation: calm for booking, careful for results.</p>",
+    real:["<b>NHS service manual</b>: the voice should be neutral and factual, authoritative, and also calm and reassuring, and not patronising."],
+    src:"Materi A1, A3 · NHS service manual, Voice and tone"},
+  next:{t:"A next step instead of six equal tiles",p:["Problem 5 · Impression correct but not relationship-building","Problem 4 · Positive experiences not reinforced"],m:"Measures 3 and 4",law:"Orientation · bond",
+    before:"“Use the functions below to manage your prevention services. Please keep your data up to date.” Then six tiles of the same weight.",
+    after:"A card <b>Your next step</b> with one main button, a card for the results that are ready, one for the documents that are missing, and a calm line about what is done: <b>2 of 3 prevention steps this year</b>.",
+    why:"<p>The portal says what matters now, in the customer's own situation, instead of listing its functions. The progress line reinforces what the customer has already done, quietly.</p><p class=\"muted\">The progress figure is an assumption of the simulation.</p>",
+    real:["<b>NHS service manual</b>: put the most important information first (writing NHS messages)."],
+    src:"Materi A3, A4 · NHS service manual, Writing NHS messages"},
+  slots:{t:"Pick a time instead of typing four fields",p:["Problem 2 · Technical interaction","Problem 6 · Functional, not relationship-building"],m:"Measure 1",law:"Less effort, more safety",
+    before:"Four empty fields (type, location, date, time), a button “Check availability”, and a tiny “Confirm booking” link. The customer finds out whether a time exists after typing it.",
+    after:"The customer chooses the kind of check-up, then <b>sees times that exist</b> and picks one. One main button: <b>Book this time</b>.",
+    why:"<p>Offering only times that exist removes a whole class of failed attempts. A customer who is booking a health service should feel guided, not tested.</p><p class=\"muted\">Showing available times instead of asking for free input is a common booking pattern; it is a design conclusion here, not a quote from one source.</p>",
+    real:["<b>GOV.UK Design System</b>, Validation pattern: prevent errors where you can, and explain them where you cannot."],
+    src:"Materi A3 · GOV.UK Design System, Validation pattern"},
+  confirm:{t:"A confirmation that sounds like a person",p:["Problem 2 · Technical feedback","Problem 4 · Success not reinforced"],m:"Measures 1 and 3",law:"Feedback · reassurance",
+    before:"“Booking BK-77214 · Status: CONFIRMED. Transaction completed.” Then “Return to the overview.”",
+    after:"“<b>Your check-up is booked.</b>” with day, time and place, what to bring, what happens next, and how to change it. The reference stays, in a smaller place.",
+    why:"<p>A confirmation should say <b>what happened, what comes next, and that help is there</b>. “Transaction completed” is the system talking to itself. A health customer wants to know: is it done, when, where and what do I do.</p>",
+    real:["<b>GOV.UK Design System</b>, Confirmation pages: say what happened and what happens next, with a reference number.","<b>NHS service manual</b>: keep messages short and put the most important information first."],
+    src:"Materi A3 · design-system.service.gov.uk/patterns/confirmation-pages · NHS service manual"},
+  results:{t:"Results with care, in words",p:["Problem 3 · Critical situations not cushioned"],m:"Measures 1 and 2",law:"Emotional safety",
+    before:"A grey box: “Some values are outside the reference range. Contact your physician if required.” Then a table with “elevated” and “within range”.",
+    after:"The page begins with <b>the whole picture in a sentence</b> (two values in the usual range, one higher than usual), then each value <b>in words</b> with a calm tag, then what the customer can do: <b>Talk to a doctor about this</b>.",
+    why:"<p>Results are the moment of highest worry. The old text offers a fact and leaves the person alone with it. The new page names what is fine, says that a higher value is not a diagnosis on its own, and offers a next step with a person.</p><p>It does not play down the result and does not give medical advice: that stays with the doctor.</p>",
+    real:["<b>NHS service manual</b>: a calm, reassuring and empowering voice that is not patronising."],
+    src:"Materi A3, A4 · NHS service manual, Voice and tone"},
+  error:{t:"An error that says what happened and what to do",p:["Problem 3 · Critical situations not cushioned","Problem 2 · Technical feedback"],m:"Measures 1 and 2",law:"Error recovery",
+    before:"“Upload failed. Error 413: file exceeds limit.” Nothing says what 413 is, what the limit is or what to do next.",
+    after:"“<b>This file is too large for the portal.</b> Nothing is lost. You can use a smaller version, or bring the document to your appointment.” Two buttons: <b>Use a smaller version</b> · <b>Send it another way</b>.",
+    why:"<p>An error message must explain what went wrong and how to fix it, in the customer's words. Error codes are for the team, not for a person who is already unsure.</p>",
+    real:["<b>UK Parliament design system</b>, Writing error messages: explain what went wrong and how to fix it; avoid “invalid”.","<b>GOV.UK Design System</b>, Validation pattern: help people recover from errors."],
+    src:"Materi A3 · designsystem.parliament.uk/how-tos/writing-error-messages · GOV.UK Validation pattern"},
+  praise:{t:"A calm thank-you when something works",p:["Problem 4 · Positive moments not reinforced"],m:"Measure 3",law:"Reinforcement",
+    before:"“Upload received.” (or nothing at all) and a plain list of file names.",
+    after:"“<b>Thank you, Alex. Your medical history is safe with us.</b>” A quiet check mark and the progress: <b>3 of 3 documents complete</b>.",
+    why:"<p>A positive moment that is confirmed makes people more likely to come back. In health the confirmation stays calm and fitting: a check mark and a clear sentence, not confetti.</p><p>The brief names over-emotionalising as the risk of this measure; the wording stays sober.</p>",
+    real:["<b>NHS service manual</b>: empowering, not patronising."],
+    src:"Materi A4 · NHS service manual, Voice and tone"},
+  words:{t:"Words the customer uses",p:["Problem 5 · Tone correct but not trust-building"],m:"Measure 2",law:"Tone",
+    before:"“Overview”, “Advice”, “Processing time depends on volume.”, “Request received. Ticket created.”",
+    after:"“<b>Home</b>”, “<b>Ask us</b>”, “We answer within two working days.”, “Thank you, Alex. Your question has reached us.”",
+    why:"<p>The tone is professional, clear and human at the same time. It changes the words, not the brand's seriousness, so it needs writing, not a technical change.</p><p class=\"muted\">The answer time is an assumption of the simulation.</p>",
+    real:["<b>Mailchimp Content Style Guide</b>: the voice stays steady and the tone adapts to the situation of the reader."],
+    src:"Materi A3 · styleguide.mailchimp.com/voice-and-tone"},
+  guide:{t:"A short tone guide, agreed once",p:["Condition · department and marketing set different priorities"],m:"Measure 2",law:"Voice and tone",
+    before:"Each team writes messages its own way: technical in the booking flow, vague in the advice form.",
+    after:"A one-page <b>tone guide</b>, written with the department and marketing together: three questions for every message, words to use and words to leave out, and where each rule applies.",
+    why:"<p>The tone is agreed once, so the department's seriousness and marketing's friendliness do not fight message by message. It is also the cheapest measure: it is writing.</p>",
+    real:["<b>Mailchimp</b>: a public voice and tone guide that keeps one voice and adapts the tone to the situation.","<b>NN/g</b>: define the tone along four dimensions (funny–serious, formal–casual, respectful–irreverent, enthusiastic–matter-of-fact).","<b>NHS service manual</b>: a published voice and tone for health content."],
+    src:"Materi A3, B1 · styleguide.mailchimp.com · nngroup.com, Four Dimensions of Tone of Voice · NHS service manual"},
+  nav:{t:"Plain labels, always in the same place",p:["Problem 5 · Correct but not relationship-building"],m:"Measure 2",law:"Predictability",
+    before:"A header with Overview, Check-up, Results and Documents. Advice, Messages and Profile are tiles on the start page.",
+    after:"Five fixed places: <b>Home · Check-ups · Results · Documents · Ask us</b>, in the same position on every page. Messages and profile sit under the avatar.",
+    why:"<p>The same places in the same order mean the customer never has to look for them. “Ask us” says what the place is for.</p>",
+    real:["<b>NHS service manual</b>: plain English that is easy to understand."],
+    src:"Materi A3 · NHS service manual, How we write"},
+  msgs:{t:"System notices rewritten for people",p:["Problem 2 · Technical feedback"],m:"Measure 2",law:"Tone",
+    before:"“System notice: maintenance window” and “Your data has been updated”.",
+    after:"“<b>We are offline on Sunday 15 November from 02:00 to 04:00.</b> You can still book by phone.” and “<b>We saved your new phone number.</b> Nothing else changed.”",
+    why:"<p>A notice should say what it means for the customer: when, how long, what still works. The system's view of the event is not the customer's.</p><p class=\"muted\">The times are made up for the simulation.</p>",
+    real:["<b>NHS service manual</b>, Writing NHS messages: short, with the most important information first."],
+    src:"Materi A3 · NHS service manual, Writing NHS messages"},
+};
+
+/* ================= STATE ================= */
+const dflt=()=>({type:null,slot:null,place:PLACES[0],booked:null,seen:false,up:0,msg:false,err:''});
+const S={mode:'after',page:'home',d:dflt(),run:{start:null,clicks:0,book:false,results:false,upload:false,done:false},runs:[]};
+const $=s=>document.querySelector(s);
+const go=p=>`data-go="${p}"`;
+const pin=id=>`<button class="pin ${S.mode==='after'?'a':'b'}" data-pin="${id}" aria-label="Marker: ${PINS[id].t.replace(/<[^>]+>/g,'')}">${ic(S.mode==='after'?'check':'alert')}</button>`;
+const zone=(id,html,style='')=>`<div class="zone" ${style?`style="${style}"`:''}>${pin(id)}${html}</div>`;
+const escH=s=>s.replace(/&/g,'&amp;');
+const slotName=k=>{const s=SLOTS.find(x=>x[0]===k);return `${s[1]} · ${s[2]}`;};
+
+/* ================= BEFORE (old portal, as the brief describes it) ================= */
+const bt=(label,page)=>`<button class="tiny" data-go="${page}">${label}</button>`;
+const BEFORE={
+  start:()=>`${zone('mood',`<h2 style="color:#263238">Customer portal</h2>`)}${zone('next',`<p>Use the functions below to manage your prevention services. Please keep your data up to date.</p>`)}
+    <div class="tg">${[['Book a check-up','book'],['My results','results'],['Documents','docs'],['Advice','advice'],['Messages','messages'],['Profile','profile']].map(([l,g])=>`<button class="tile" ${go(g)}>${l}</button>`).join('')}</div>`,
+  book:()=>`<h2>Book a check-up</h2>${zone('slots',`<form data-form="stub"><label>Type of check-up</label><input type="text"><label>Location</label><input type="text"><label>Date</label><input type="text"><label>Time</label><input type="text"><br><button class="sbtn">Check availability</button></form>`)}${S.d.stub?'<div class="msg">Availability checked.</div>':''}<p style="margin-top:12px">${bt('Confirm booking','booked')}</p>`,
+  booked:()=>`${zone('confirm',`<div class="techbox"><b>Booking BK-77214</b><br>Status: CONFIRMED. Transaction completed.</div>`)}<p>Return to the overview.</p><button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+  results:()=>`<h2>My results</h2>${zone('results',`<div class="techbox">Notice<br>Some values are outside the reference range. Contact your physician if required.</div>`)}<table style="margin-top:10px"><tr><th>Value</th><th>Result</th><th>Reference</th></tr><tr><td>Blood pressure</td><td>elevated</td><td>normal</td></tr><tr><td>Cholesterol</td><td>within range</td><td>normal</td></tr></table><button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+  docs:()=>`<h2>Documents</h2><form data-form="bUp"><label>Select file</label><input name="f" type="text" value="Medical history.pdf"><br>${zone('error',`<button class="sbtn">Upload</button>`)}</form>${S.d.upMsg?zone('praise',`<div class="msg ${S.d.upErr?'err':''}">${S.d.upMsg}</div>`):''}<ul class="lst"><li>Check-up report.pdf</li><li>Consent form.pdf</li>${S.d.upOk?'<li>Medical history.pdf</li>':''}</ul><button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+  advice:()=>`<p>Prevention advice can be requested via the contact form. Processing time depends on volume.</p>${zone('words',`<form data-form="stub"><label>Your request</label><input type="text"><br><button class="sbtn">Send</button></form>`)}${S.d.stub?'<div class="msg">Request received. Ticket created.</div>':''}<button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+  messages:()=>`${zone('msgs',`<ul class="lst"><li>System notice: maintenance window</li><li>Your data has been updated</li></ul>`)}<button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+  profile:()=>`<form data-form="stub"><label>Address</label><input type="text"><label>Phone</label><input type="text"><br><button class="sbtn">Save</button></form>${S.d.stub?'<div class="msg">Data saved.</div>':''}<button class="lnk back" ${go('start')}>&lt; Overview</button>`,
+};
+
+/* ================= AFTER (new portal) ================= */
+const NAV=[["home","home","Home"],["book","cal","Check-ups"],["results","gauge","Results"],["docs","file","Documents"],["ask","chat","Ask us"]];
+const SECTION_OF={home:"home",book:"book",slots:"book",booked:"book",results:"results",docs:"docs",ask:"ask",msgs:"home",profile:"home",guide:"ask"};
+const crumb=(sec,label)=>`<div class="crumb"><button ${go(sec[0])}>${ic('back')}${sec[1]}</button>${label?`<span>/</span><span>${label}</span>`:''}</div>`;
+const tagOk=t=>`<span class="pill p-good">${ic('check')}${t}</span>`;
+const AFTER={
+  home:()=>`<h2 class="h">Good morning, Alex</h2><p class="lead">Here is what is coming up for you.</p>
+    ${zone('mood',`<div class="card action" style="border-left-color:var(--brand)"><div class="row"><div class="ic-wrap ic-brand">${ic('cal')}</div><div><h3 style="color:var(--brand);margin:0 0 2px">Your next step</h3><b>${S.d.booked?'Your check-up is on '+slotName(S.d.booked.slot):'Book your yearly check-up'}</b><p class="muted" style="margin:2px 0 10px">${S.d.booked?'We look forward to seeing you.':'Your last one was 11 months ago.'}</p>${S.d.booked?`<button class="btn btn-s" ${go('booked')}>View details</button>`:`<button class="btn btn-p" ${go('book')}>Book a check-up ${ic('chev')}</button>`}</div></div></div>`)}
+    <div class="eyebrow">Ready for you</div>
+    ${zone('next',`<div class="list"><button class="li" ${go('results')}><div class="ic-wrap ic-blue">${ic('gauge')}</div><span class="t"><b>Your results are ready</b><small>From 3 November · we explain them in words</small></span><span class="chev">${ic('chev')}</span></button>
+      <button class="li" ${go('docs')}><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>${S.d.up===4?'Your documents are complete':'One document is missing'}</b><small>${S.d.up===4?'3 of 3 documents':'Your medical history'}</small></span><span class="chev">${ic('chev')}</span></button></div>
+      <p class="muted" style="margin:12px 2px 0">${ic('check')} <b style="color:var(--ink)">2 of 3 prevention steps done this year.</b></p>`)}
+    <div class="eyebrow">Also here</div>
+    <div class="list"><button class="li" ${go('msgs')}><div class="ic-wrap ic-grey">${ic('bell')}</div><span class="t"><b>Your messages</b><small>2 new</small></span><span class="chev">${ic('chev')}</span></button><button class="li" ${go('profile')}><div class="ic-wrap ic-grey">${ic('user')}</div><span class="t"><b>Your details</b><small>Address and phone</small></span><span class="chev">${ic('chev')}</span></button></div>`,
+  book:()=>`<h2 class="h">What would you like to book?</h2><p class="lead">Choose one. You pick a time next.</p>
+    ${zone('slots',`<div style="display:grid;gap:10px;max-width:560px">${TYPES.map(([k,n,x])=>`<button class="choicecard" data-type="${k}"><div class="ic-wrap ic-brand">${ic('cal')}</div><span class="t"><b>${n}</b><small>${x}</small></span>${ic('chev')}</button>`).join('')}</div>`)}`,
+  slots:()=>{const t=TYPES.find(x=>x[0]===S.d.type);return `${crumb(['book','Check-ups'],t[1])}<h2 class="h">Pick a time</h2>
+    <div class="chosen" style="display:flex;align-items:center;gap:12px;background:var(--brand-soft);border-radius:12px;padding:12px 14px;margin:0 0 18px;max-width:560px">${ic('cal')}<div><b>${t[1]}</b><br><span class="muted">${t[2]}</span></div></div>
+    <p class="fl">Where?</p><div class="chips" style="margin-bottom:18px">${PLACES.map(p=>`<button class="chip ${S.d.place===p?'sel':''}" data-place="${p}">${p}</button>`).join('')}</div>
+    <p class="fl">Times that are free</p><div style="display:grid;gap:10px;max-width:560px">${SLOTS.map(([k,d,h])=>`<button class="choicecard ${S.d.slot===k?'sel':''}" data-slot="${k}"><span class="radio"></span><span class="t"><b>${d}</b><small>${h}</small></span></button>`).join('')}</div>
+    ${S.d.err?`<div class="ferr" style="margin-top:12px">${ic('alert')}${S.d.err}</div>`:''}
+    <div class="btn-row"><button class="btn btn-s" ${go('book')}>${ic('back')}Back</button><button class="btn btn-p" data-act="book">Book this time</button></div>`;},
+  booked:()=>{const b=S.d.booked;return `${zone('confirm',`<div class="panel"><div class="ok">${ic('check')}</div><h2>Your check-up is booked</h2><div>${TYPES.find(x=>x[0]===b.type)[1]} · ${slotName(b.slot)} · ${b.place}</div><div class="refno">Reference BK-77214</div></div>`,'max-width:600px')}
+    <div class="card next"><h3>What happens next</h3><ul class="tl">
+      <li><span class="dotc">${ic('check')}</span><div><b>Now</b><small>You will get a confirmation by e-mail to a•••@mail.com.</small></div></li>
+      <li><span class="dotc grey">${ic('file')}</span><div><b>Before you come</b><small>Please bring your insurance card and arrive ten minutes early.</small></div></li>
+      <li><span class="dotc grey">${ic('help')}</span><div><b>If you cannot come</b><small>You can change or cancel until the day before, here or by phone.</small></div></li></ul>
+      <div class="btn-row" style="margin-top:6px"><button class="btn btn-p" ${go('home')}>Go to home</button><button class="btn btn-s" data-act="cal">Add to calendar</button><button class="btn btn-t" ${go('slots')}>Change time</button></div>${S.d.cal?`<div class="notice" style="margin-top:12px">${ic('check')}Added to your calendar.</div>`:''}</div>`;},
+  results:()=>`<h2 class="h">Your results</h2><p class="lead">From 3 November 2026</p>
+    ${zone('results',`<div class="card" style="max-width:680px"><b style="font-size:1.05rem">Two of your values are in the usual range. One is higher than usual.</b><p class="muted" style="margin:8px 0 0">A higher value is not a diagnosis on its own. It is a reason to talk to a doctor, and that is easy to arrange.</p></div>
+      <div class="list" style="max-width:680px;margin-top:14px"><div class="li" style="cursor:default"><div class="ic-wrap ic-warn" style="background:var(--warn-soft);color:var(--warn)">${ic('gauge')}</div><span class="t"><b>Blood pressure</b><small>Higher than usual. The usual range is shown on the doctor's report.</small></span><span class="pill p-warn">Higher than usual</span></div>
+      <div class="li" style="cursor:default"><div class="ic-wrap ic-good">${ic('gauge')}</div><span class="t"><b>Cholesterol</b><small>In the usual range.</small></span>${tagOk('Usual range')}</div></div>
+      <div class="btn-row" style="max-width:680px"><button class="btn btn-p" ${go('ask')}>Talk to a doctor about this</button><button class="btn btn-s" ${go('book')}>Book a check-up</button></div>`)}
+    <details class="det" style="max-width:680px;margin-top:14px"><summary>What does “higher than usual” mean?</summary><div>It means the value is above the range that most healthy people have. Many things can cause this, and a single value does not say why. Your doctor looks at it together with everything else.</div></details>`,
+  docs:()=>{const u=S.d.up;return `<h2 class="h">Documents</h2><p class="lead">Everything you have shared with us.</p>
+    <div class="list" style="max-width:640px"><div class="li" style="cursor:default"><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>Check-up report</b><small>PDF</small></span>${tagOk('Received')}</div><div class="li" style="cursor:default"><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>Consent form</b><small>PDF</small></span>${tagOk('Received')}</div>
+    <div class="li" style="cursor:default"><div class="ic-wrap ic-grey">${ic('file')}</div><span class="t"><b>Medical history</b><small>${u===4?'PDF':'Missing'}</small></span>${u===4?tagOk('Received'):'<span class="pill p-warn">Missing</span>'}</div></div>
+    ${u===4?zone('praise',`<div class="panel" style="margin-top:16px;max-width:640px;text-align:left;display:flex;gap:14px;align-items:center"><div class="ok" style="margin:0">${ic('check')}</div><div><b style="font-size:1.05rem">Thank you, Alex. Your medical history is safe with us.</b><div style="margin-top:4px">3 of 3 documents complete.</div></div></div>`)
+    :zone('error',`<div class="card" style="margin-top:16px;max-width:640px"><b>Add your medical history</b><p class="muted" style="margin:4px 0 12px">${u===0?'Choose a file from your device.':u===1?'Medical history scan.pdf · 14 MB':u===3?'Medical history.pdf · 2 MB':'Medical history scan.pdf · 14 MB'}</p>
+      ${u===2?`<div class="ferr" style="margin-bottom:12px">${ic('alert')}<div><b>This file is too large for the portal.</b> Nothing is lost. You can use a smaller version, or bring the document to your appointment.</div></div>`:''}
+      <div class="btn-row" style="margin-top:0">${u===0?`<button class="btn btn-s" data-act="choose">Choose a file</button>`:''}${u===1||u===3?`<button class="btn btn-p" data-act="upload">Upload</button>`:''}${u===2?`<button class="btn btn-p" data-act="smaller">Use a smaller version</button><button class="btn btn-s" ${go('ask')}>Send it another way</button>`:''}</div></div>`)}`;},
+  ask:()=>`<h2 class="h">Ask us</h2><p class="lead">A person will read your question and answer you.</p>
+    ${zone('words',`<div class="card" style="max-width:560px"><div class="fld"><p class="fl">What would you like to ask?</p><div class="inp"><input aria-label="Your question" placeholder="For example, about my blood pressure"></div></div><button class="btn btn-p" style="width:100%" data-act="send">Send</button>${S.d.msg?`<div class="notice" style="margin-top:14px">${ic('check')}<span><b>Thank you, Alex. Your question has reached us.</b> We answer within two working days, by e-mail.</span></div>`:''}</div>`)}
+    <div class="list" style="max-width:560px;margin-top:14px"><button class="li" ${go('guide')}><div class="ic-wrap ic-grey">${ic('book')}</div><span class="t"><b>For the team: the tone guide</b><small>How we write to our customers</small></span><span class="chev">${ic('chev')}</span></button></div>`,
+  msgs:()=>`${crumb(['home','Home'],'Your messages')}<h2 class="h">Your messages</h2>${zone('msgs',`<div class="list" style="max-width:640px"><div class="li" style="cursor:default"><div class="ic-wrap ic-blue">${ic('bell')}</div><span class="t"><b>We are offline on Sunday 15 November from 02:00 to 04:00</b><small>You can still book by phone during that time.</small></span></div><div class="li" style="cursor:default"><div class="ic-wrap ic-good">${ic('check')}</div><span class="t"><b>We saved your new phone number</b><small>Nothing else changed.</small></span></div></div>`)}`,
+  profile:()=>`${crumb(['home','Home'],'Your details')}<h2 class="h">Your details</h2><div class="card" style="max-width:560px"><div class="fld"><p class="fl">Address</p><div class="inp"><input value="12 Example Street" aria-label="Address"></div></div><div class="fld"><p class="fl">Phone</p><div class="inp"><input value="+49 30 1234567" aria-label="Phone"></div></div><button class="btn btn-p" style="width:100%" data-act="save">Save</button>${S.d.saved?`<div class="notice" style="margin-top:14px">${ic('check')}We saved your details.</div>`:''}</div>`,
+  guide:()=>`${crumb(['ask','Ask us'],'Tone guide')}<h2 class="h">Tone guide</h2><p class="lead">One page for everyone who writes to our customers. Serious, clear and human.</p>
+    ${zone('guide',`<div class="card" style="max-width:760px"><b>Three questions for every message</b><ol style="margin:8px 0 14px;padding-left:20px"><li>What happened?</li><li>What comes next?</li><li>Where is help?</li></ol>
+      <div class="card tablecard" style="box-shadow:none"><table class="dt"><tr><th>Instead of</th><th>We write</th></tr><tr><td>Transaction completed.</td><td>Your check-up is booked.</td></tr><tr><td>Error 413: file exceeds limit.</td><td>This file is too large for the portal. You can use a smaller version.</td></tr><tr><td>Some values are outside the reference range.</td><td>One value is higher than usual. A doctor can look at it with you.</td></tr><tr><td>Request received. Ticket created.</td><td>Thank you. Your question has reached us.</td></tr></table></div>
+      <p class="muted" style="margin:12px 0 0"><b style="color:var(--ink)">Leave out:</b> codes, “transaction”, “invalid”, exclamation marks and emoji. <b style="color:var(--ink)">Keep:</b> calm, plain words, the person's name once.</p></div>`)}`,
+};
+
+/* ================= RENDER ================= */
+function render(){
+  const a=S.mode==='after', P=a?AFTER:BEFORE;
+  if(!P[S.page]) S.page=a?'home':'start';
+  if(a){
+    const sec=SECTION_OF[S.page]||'home';
+    $('#portal').innerHTML=`<div class="np">
+      <header class="nh"><button class="brand" ${go('home')}><span class="brand-mark">${ic('leaf')}</span>LifeSupport</button>
+        <div class="zone navwrap">${pin('nav')}<nav class="navx" aria-label="Main">${NAV.map(([id,icn,l])=>`<button ${go(id)} ${sec===id?'aria-current="page"':''}>${ic(icn)}<span>${l}</span></button>`).join('')}</nav></div>
+        <div class="nh-right"><button class="iconbtn" ${go('msgs')} aria-label="Messages">${ic('bell')}<span class="dot"></span></button><button class="avatar" ${go('profile')} aria-label="Your details" style="border:0;cursor:pointer">AS</button></div></header>
+      <main class="nb"><div class="inner">${P[S.page]()}</div></main>
+      <nav class="bottomnav" aria-label="Main">${pin('nav').replace('class="pin','style="top:-12px;right:12px" class="pin')}${NAV.map(([id,icn,l])=>`<button ${go(id)} ${sec===id?'aria-current="page"':''}>${ic(icn)}${l.split(' ')[0]}</button>`).join('')}</nav>
+      <footer class="nf"><span>LifeSupport · prevention and care</span><span>Help · Privacy · Imprint</span></footer></div>`;
+  }else{
+    $('#portal').innerHTML=`<div class="old"><div class="oh"><button class="ologo" ${go('start')}>LifeSupport</button><div class="onav">${pin('nav')}<button ${go('start')}>Overview</button><button ${go('book')}>Check-up</button><button ${go('results')}>Results</button><button ${go('docs')}>Documents</button></div></div><div class="ob">${P[S.page]()}</div></div>`;
+  }
+  $('#url').textContent='lifesupport.example/'+(S.page==='home'||S.page==='start'?'':S.page);
+  $('#flag').textContent=a?'After':'Before'; $('#flag').className='flag '+(a?'a':'b');
+  $('#modeA').setAttribute('aria-pressed',a); $('#modeB').setAttribute('aria-pressed',!a);
+  $('#tk1').classList.toggle('done',S.run.book); $('#tk2').classList.toggle('done',S.run.results); $('#tk3').classList.toggle('done',S.run.upload);
+  $('#runs').textContent=S.runs.map(r=>`${r.mode==='after'?'After':'Before'}: ${r.t} s, ${r.c} clicks`).join(' · ');
+}
+function nav(p){S.page=p;if(p==='results'||p==='results')S.run.results=true;finish();}
+function tick(){if(S.run.start&&!S.run.done)$('#time').textContent=((Date.now()-S.run.start)/1000).toFixed(1)+' s';requestAnimationFrame(tick);}
+function finish(){render();if(S.run.book&&S.run.results&&S.run.upload&&!S.run.done){S.run.done=true;const t=((Date.now()-S.run.start)/1000).toFixed(1);S.runs.push({mode:S.mode,t,c:S.run.clicks});render();$('#time').textContent=t+' s ✓';}}
+function resetRun(){S.run={start:null,clicks:0,book:false,results:false,upload:false,done:false};S.d=dflt();S.page=S.mode==='after'?'home':'start';$('#time').textContent='0.0 s';$('#clicks').textContent='0';render();}
+function count(){if(!S.run.start) S.run.start=Date.now();if(!S.run.done){S.run.clicks++;$('#clicks').textContent=S.run.clicks;}}
+
+$('#portal').addEventListener('click',e=>{
+  const p=e.target.closest('[data-pin]'); if(p){e.preventDefault();e.stopPropagation();openPin(p.dataset.pin);return;}
+  const el=e.target.closest('button'); if(!el) return;
+  count(); const d=el.dataset;
+  if(d.type){S.d.type=d.type;S.page='slots';render();return;}
+  if(d.place){S.d.place=d.place;render();return;}
+  if(d.slot){S.d.slot=d.slot;S.d.err='';render();return;}
+  if(d.go){e.preventDefault();S.page=d.go;if(S.mode==='before'&&d.go==='booked')S.run.book=true;if(d.go==='results')S.run.results=true;finish();return;}
+  switch(d.act){
+    case 'book': if(!S.d.slot){S.d.err='Choose one of the free times to continue.';render();break;} S.d.booked={type:S.d.type,slot:S.d.slot,place:S.d.place}; S.run.book=true; S.page='booked'; finish(); break;
+    case 'cal': S.d.cal=true; render(); break;
+    case 'choose': S.d.up=1; render(); break;
+    case 'upload': if(S.d.up===1){S.d.up=2;render();}else{S.d.up=4;S.run.upload=true;finish();} break;
+    case 'smaller': S.d.up=3; render(); break;
+    case 'send': S.d.msg=true; render(); break;
+    case 'save': S.d.saved=true; render(); break;
+  }
+});
+$('#portal').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target;
+  switch(f.dataset.form){
+    case 'bUp': if(!S.d.upTried){S.d.upTried=true;S.d.upMsg='Upload failed. Error 413: file exceeds limit.';S.d.upErr=true;render();}else{S.d.upMsg='Upload received.';S.d.upErr=false;S.d.upOk=true;S.run.upload=true;finish();} break;
+    case 'stub': S.d.stub=true; render(); break;
+  }
+});
+
+/* ================= DIALOG ================= */
+const dlg=$('#dlg');
+function show(t,h){$('#dT').innerHTML=t;$('#dB').innerHTML=h;dlg.showModal?dlg.showModal():dlg.setAttribute('open','');$('#dB').scrollTop=0;}
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('[data-close]'))dlg.close();});
+function openPin(id){const x=PINS[id];
+  show(x.t,`<div class="tags">${x.p.map(p=>`<span class="tag t-p">${p}</span>`).join('')}<span class="tag t-m">${x.m}</span><span class="tag t-l">${x.law}</span></div>
+  <div class="ba"><div class="bf"><b>Before</b>${x.before}</div><div class="af"><b>After</b>${x.after}</div></div>
+  <div class="whyh">Why this solution?</div>${x.why}
+  <div class="real"><b>In real products</b><ul>${x.real.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+  <div class="src">${x.src}</div>`);}
+const lv=(c,t)=>`<span class="lv ${c}">${t}</span>`;
+function openSheet(){show("Answer sheet · Block 2.1",`
+  <p>The “After” portal is this answer made real. A summary by question:</p>
+  <h4>1–2 · Problems, effects, categories</h4>
+  <table><tr><th>#</th><th>Problem</th><th>Effect on the customer</th><th>Category</th></tr>
+  <tr><td>1</td><td>Missing emotional signals: a factual, distant visual language and tone</td><td>Little bond, feels impersonal</td><td>Trust</td></tr>
+  <tr><td>2</td><td>Technical feedback: “Transaction completed”, “Error 413”</td><td>Distance instead of safety, unsure what happened</td><td>Frustration reduction</td></tr>
+  <tr><td>3</td><td>Critical situations are not cushioned: results and error messages</td><td>Worry, no orientation</td><td>Emotional safety</td></tr>
+  <tr><td>4</td><td>Successful interactions are not reinforced</td><td>Nothing invites people back</td><td>Motivation</td></tr>
+  <tr><td>5</td><td>Correct but forgettable overall impression: functional, not relationship-building</td><td>Use stays below expectations</td><td>Experience quality</td></tr></table>
+  <h4>3 · Four prioritised measures</h4>
+  <table><tr><th>#</th><th>Measure</th><th>In the portal</th><th>Problems</th></tr>
+  <tr><td>1</td><td>Redesign the feedback logic to be emotionally supportive</td><td>Confirmation with what, when, next step; results in words; supportive error with two ways forward</td><td>2, 3</td></tr>
+  <tr><td>2</td><td>Develop a trust-building tone and microcopy</td><td>Plain labels, rewritten notices and replies, a one-page tone guide</td><td>1, 5</td></tr>
+  <tr><td>3</td><td>Reinforce positive moments visibly</td><td>A calm thank-you and progress after a success; “2 of 3 steps done”</td><td>4</td></tr>
+  <tr><td>4</td><td>Adapt the visual mood to the situation</td><td>A warm, light look with a clear next step, still serious</td><td>1, 5</td></tr></table>
+  <h4>4 · Sketch (optional)</h4><p>The “After” portal on this page can serve as the example sketch. For measure 1: the screen after a failed upload with a calm message in plain words, one clear button and a way to reach a person, instead of an error code.</p>
+  <h4>5 · The four criteria</h4>
+  <table><tr><th>#</th><th>Effect</th><th>Feasibility</th><th>Risk</th><th>Time</th></tr>
+  <tr><td>1</td><td>${lv('h','High')}: safety and experience quality where it matters most</td><td>${lv('h','High')}: messages and templates</td><td>${lv('h','Low')}</td><td>${lv('h','Starts first')}</td></tr>
+  <tr><td>2</td><td>${lv('h','High')}: trust without a deep change</td><td>${lv('h','High')}: a matter of writing</td><td>${lv('h','Low')}</td><td>${lv('h','Early')}</td></tr>
+  <tr><td>3</td><td>${lv('m','Medium')}: bond and motivation</td><td>${lv('h','High')}</td><td>${lv('m','Medium')}: over-emotionalising a health service</td><td>${lv('h','Fits')}</td></tr>
+  <tr><td>4</td><td>${lv('m','Medium')}: the overall emotional effect</td><td>${lv('m','Medium')}: touches the brand</td><td>${lv('m','Medium')}: the department and marketing must agree</td><td>${lv('m','Last')}</td></tr></table>
+  <p class="muted">For risk, green means low. These ratings are a reading of this case, not right or wrong scores.</p>
+  <h4>6 · The first 12 weeks</h4>
+  <table><tr><th>Weeks</th><th>Work</th></tr>
+  <tr><td>1–2</td><td>Write a short tone guide with the department and marketing together, so that seriousness and approachability are agreed once</td></tr>
+  <tr><td>1–8</td><td>Rewrite the feedback and error messages of the three moments people use most: booking a check-up, receiving results, uploading documents; each says what happened, what comes next and that help is there</td></tr>
+  <tr><td>4–10</td><td>Calm confirmations of successful steps in the same flows</td></tr>
+  <tr><td>8–12</td><td>Start the visual mood with the booking page</td></tr>
+  <tr><td>12</td><td>Measure: support contacts after failed uploads and open questions about results</td></tr>
+  <tr><td>Later</td><td>The visual mood continues across the portal after the 12 weeks</td></tr></table>
+  <p>Deliberately <b>not</b> done: a full relaunch, new features, a playful look for a health service.</p>
+  <p class="muted">The week plan, the progress figure, the answer time, the free times and all names and screens are assumptions for the simulation, not figures from the plan. The plan gives only partial user data and does not split the €145,000 by measure.</p>
+  <h4>7 · Recommendation</h4>
+  <p>“We recommend not treating emotional UX as a cosmetic addition, but as a central dimension of the effect of our digital offer. The priorities are supportive feedback, trust-building language and visibly positive moments of use, because with a justifiable effort these measures have the greatest effect on bond, safety and experience quality.”</p>
+  <h4>Real-world practice used</h4>
+  <table><tr><th>Source</th><th>Pattern taken</th></tr>
+  <tr><td><a href="https://service-manual.nhs.uk/content/voice-and-tone" target="_blank" rel="noopener">NHS service manual, Voice and tone</a></td><td>Neutral, authoritative, calm and reassuring, empowering and not patronising</td></tr>
+  <tr><td><a href="https://service-manual.nhs.uk/content/writing-nhs-messages" target="_blank" rel="noopener">NHS service manual, Writing NHS messages</a></td><td>Short messages with the most important information first</td></tr>
+  <tr><td><a href="https://styleguide.mailchimp.com/voice-and-tone/" target="_blank" rel="noopener">Mailchimp Content Style Guide, Voice and tone</a></td><td>One steady voice, a tone that adapts to the situation of the reader</td></tr>
+  <tr><td><a href="https://www.nngroup.com/articles/tone-of-voice-dimensions/" target="_blank" rel="noopener">NN/g, Four Dimensions of Tone of Voice</a></td><td>Defining the tone on four dimensions, with tones to avoid</td></tr>
+  <tr><td><a href="https://designsystem.parliament.uk/how-tos/writing-error-messages/" target="_blank" rel="noopener">UK Parliament design system, Writing error messages</a></td><td>Say what went wrong and how to fix it; avoid “invalid”</td></tr>
+  <tr><td><a href="https://design-system.service.gov.uk/patterns/validation" target="_blank" rel="noopener">GOV.UK, Validation pattern</a></td><td>Help people recover from errors</td></tr>
+  <tr><td><a href="https://design-system.service.gov.uk/patterns/confirmation-pages" target="_blank" rel="noopener">GOV.UK, Confirmation pages</a></td><td>What happened, what happens next, a reference</td></tr></table>
+  <h4>When marking learners</h4>
+  <p><b>Look for:</b> at least 5 problems written as effects · all 5 categories filled · 4 measures in an order, each from a problem · the 4 criteria support the order · the 12-week plan says what comes first, what runs in parallel and what waits, and how the department and marketing are brought together.</p>
+  <p><b>Signs of a weak answer:</b> a full relaunch · decoration (colours, emoji, animations) without changing the feedback · over-emotionalising a health service · ignoring the brand's seriousness.</p>
+  <p><b>Another order is just as valid</b> if its reasons come from the problems and the conditions.</p>`);}
+
+/* ================= CONTROLS ================= */
+$('#modeA').onclick=()=>{if(S.mode!=='after'){S.mode='after';resetRun();}};
+$('#modeB').onclick=()=>{if(S.mode!=='before'){S.mode='before';resetRun();}};
+$('#resetBtn').onclick=resetRun; $('#sheetBtn').onclick=openSheet;
+$('#pinsBtn').onclick=e=>{const off=document.body.classList.toggle('nopins');e.currentTarget.setAttribute('aria-pressed',!off);e.currentTarget.querySelector('span').textContent=off?'Markers: hidden':'Markers: shown';};
+const root=document.documentElement,KEY='solusi21-theme';
+try{const s=localStorage.getItem(KEY);if(s)root.dataset.theme=s;}catch(e){}
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY,root.dataset.theme);}catch(e){}};
+render();tick();
+</script>
+</body>
+</html>

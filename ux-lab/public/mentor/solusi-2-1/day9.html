@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solution 2.1 · Day 9</title>
+<style>
+:root{
+  --bg:#eceae4; --surface:#ffffff; --surface-2:#f5f4f0; --surface-3:#eeece6; --ink:#1b1f24; --ink-2:#3a414b; --muted:#646c78; --line:#e1ddd4; --line-2:#cfcac0;
+  --brand:#00695c; --brand-600:#004d40; --brand-soft:#e0f2f1; --good:#1f7a4a; --good-soft:#e2f3e9; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --warn:#8a5300; --warn-soft:#fdf0d8; --blue:#1d5fa8; --blue-soft:#e4edf8; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06); --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+    --brand:#4db6ac; --brand-600:#80cbc4; --brand-soft:#14302c; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+    --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+  --brand:#4db6ac; --brand-600:#80cbc4; --brand-soft:#14302c; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+  --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1140px;margin:0 auto;padding:18px 16px 60px}
+
+/* ---------- mentor control bar ---------- */
+.bar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:12px}
+.bar-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.kicker{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.bar h1{font-size:1.2rem;margin:0}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:.86rem}
+.seg button[aria-pressed="true"].b{background:var(--bad);color:#fff}
+.seg button[aria-pressed="true"].a{background:var(--good);color:#fff}
+.task{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.88rem;background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.task b{color:var(--brand)}
+.tk{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.tk i{font-style:normal;width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);display:inline-grid;place-items:center;font-size:.65rem;color:transparent}
+.tk.done{color:var(--ink)} .tk.done i{background:var(--good);border-color:var(--good);color:#fff}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.muted{color:var(--muted);font-size:.82rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.82rem;cursor:pointer}
+.tbtn svg.i{width:16px;height:16px}
+.tbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface);font-weight:700}
+
+/* ---------- browser frame ---------- */
+.frame{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);font-size:.76rem;color:var(--muted)}
+.dots{display:flex;gap:5px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.flag{font-weight:700;padding:2px 8px;border-radius:6px}
+.flag.b{background:var(--bad-soft);color:var(--bad)} .flag.a{background:var(--good-soft);color:var(--good)}
+.portal{min-height:600px;background:var(--surface);position:relative}
+
+/* ---------- pins ---------- */
+.zone{position:relative}
+.pin{position:absolute;z-index:4;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;border:2px solid var(--surface);color:#fff;cursor:pointer;display:grid;place-items:center;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:pulse 2.6s infinite}
+.pin svg.i{width:13px;height:13px;stroke-width:2.6}
+.pin.b{background:var(--bad)} .pin.a{background:var(--good)}
+.pin:hover,.pin:focus-visible{transform:scale(1.15);outline:none}
+body.nopins .pin{display:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,122,74,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(31,122,74,0),0 2px 6px rgba(0,0,0,.25)}}
+.pin.b{animation-name:pulseb}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 rgba(179,38,30,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(179,38,30,0),0 2px 6px rgba(0,0,0,.25)}}
+@media (prefers-reduced-motion:reduce){.pin{animation:none}}
+
+/* ================= BEFORE (old portal) ================= */
+.old{font-family:Verdana,Tahoma,sans-serif;font-size:13px;color:#222;background:#fff;min-height:600px}
+.old .oh{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:3px solid #00695c;background:#fafafa}
+.old .ologo{font-weight:700;color:#00695c;font-size:17px;background:none;border:0;cursor:pointer;font-family:inherit}
+.old .onav button{background:none;border:0;color:#235;cursor:pointer;margin-left:12px;text-decoration:underline;font-family:inherit;font-size:12px}
+.old .ob{padding:18px;max-width:820px}
+.old .hero{background:linear-gradient(135deg,#80cbc4,#00695c);color:#fff;padding:22px;margin-bottom:14px}
+.old .hero b{display:block;font-size:19px}
+.old .hero button{margin-top:10px;background:#fff;color:#00695c;border:0;padding:6px 12px;cursor:pointer;font-family:inherit}
+.old .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.old .tile{background:#eee;border:1px solid #ccc;padding:14px 6px;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old .note{color:#666;font-size:11px;margin-top:12px}
+.old h2{font-size:16px;margin:0 0 6px}
+.old .choice{display:block;width:100%;max-width:420px;text-align:left;background:#f4f4f4;border:1px solid #bbb;padding:9px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old label{display:block;font-size:12px;margin:8px 0 2px}
+.old input{width:260px;border:1px solid #999;padding:5px;font-family:inherit;font-size:12px;background:#fff;color:#222}
+.old .sbtn{margin-top:10px;background:#555;color:#fff;border:0;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:12px}
+.old .lnk{background:none;border:0;color:#235;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;font-size:12px}
+.old .msg{margin-top:10px;padding:6px 8px;background:#eee;color:#444;font-size:12px;display:inline-block}
+.old .msg.err{color:#b00}
+.old table{border-collapse:collapse;font-size:12px}
+.old td,.old th{border:1px solid #ccc;padding:5px 8px;text-align:left}
+.old .back{display:block;margin-top:14px}
+.old .zone{display:block}
+
+/* ================= AFTER (new portal) ================= */
+.np{display:flex;flex-direction:column;min-height:600px}
+.nh{display:flex;align-items:center;gap:18px;padding:0 24px;height:64px;border-bottom:1px solid var(--line);background:var(--surface)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;background:none;border:0;color:var(--ink);cursor:pointer;padding:0}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:#fff}
+.brand-mark svg.i{width:18px;height:18px;stroke-width:2.2}
+.navwrap{height:100%;display:flex;margin-left:8px}
+.navwrap .pin{top:4px;right:-8px}
+.navx{display:flex;gap:2px;height:100%}
+.navx button{display:flex;align-items:center;gap:7px;height:100%;padding:0 12px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:600;font-size:.88rem;border-bottom:2px solid transparent;white-space:nowrap}
+.navx button svg.i{width:18px;height:18px}
+.navx button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brand)}
+.navx button:hover{color:var(--ink)}
+.nh-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;position:relative}
+.iconbtn .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--brand);border:2px solid var(--surface)}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--surface-3);color:var(--ink-2);display:grid;place-items:center;font-weight:700;font-size:.82rem}
+.nb{flex:1;padding:28px 24px 40px;background:var(--surface-2)}
+.inner{max-width:880px;margin:0 auto}
+.nf{padding:14px 24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bottomnav{display:none}
+
+h2.h{font-size:1.45rem;letter-spacing:-.015em;margin:0 0 4px}
+.lead{color:var(--muted);margin:0 0 20px}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:24px 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+
+.status{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.status .card h3{font-size:.8rem;font-weight:600;color:var(--muted);margin:0 0 6px}
+.big-num{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.pill svg.i{width:14px;height:14px;stroke-width:2.2}
+.p-good{background:var(--good-soft);color:var(--good)} .p-warn{background:var(--warn-soft);color:var(--warn)} .p-grey{background:var(--surface-3);color:var(--muted)} .p-blue{background:var(--blue-soft);color:var(--blue)}
+.action{border-left:4px solid var(--brand)}
+.action .row{align-items:flex-start}
+.ic-wrap{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
+.ic-brand{background:var(--brand-soft);color:var(--brand)} .ic-blue{background:var(--blue-soft);color:var(--blue)} .ic-good{background:var(--good-soft);color:var(--good)} .ic-grey{background:var(--surface-3);color:var(--ink-2)}
+.ic-wrap svg.i{width:22px;height:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer;border:1px solid transparent;font-size:.92rem}
+.btn svg.i{width:18px;height:18px}
+.btn-p{background:var(--brand);color:#fff} .btn-p:hover{background:var(--brand-600)}
+.btn-s{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-t{background:none;color:var(--brand);padding:6px 0;border:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qbtn{display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.qbtn:hover{border-color:var(--brand);transform:translateY(-1px)}
+.qbtn b{font-size:.98rem}
+.qbtn small{color:var(--muted);font-size:.8rem;margin-top:-8px}
+
+.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.li{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);text-align:left;cursor:pointer}
+.li:last-child{border-bottom:0}
+.li:hover{background:var(--surface-2)}
+.li .t{flex:1;min-width:0} .li .t b{display:block;font-weight:600} .li .t small{color:var(--muted);font-size:.82rem}
+.li .chev{color:var(--muted)}
+.promo{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,var(--surface) 55%,var(--good-soft));}
+
+.crumb{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);margin-bottom:14px}
+.crumb button{background:none;border:0;color:var(--blue);cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.crumb svg.i{width:16px;height:16px}
+
+/* stepper */
+.steps{display:flex;gap:0;margin:4px 0 22px;max-width:560px}
+.st{flex:1;display:flex;flex-direction:column;gap:6px;font-size:.78rem;color:var(--muted);position:relative}
+.st .bar2{height:4px;border-radius:2px;background:var(--line);margin-right:6px}
+.st.on{color:var(--ink);font-weight:600} .st.on .bar2{background:var(--brand)}
+.st.done .bar2{background:var(--good)}
+.formcard{max-width:560px}
+.fl{display:block;font-weight:600;margin:0 0 6px}
+.fh{color:var(--muted);font-size:.84rem;margin:-2px 0 8px}
+.inp{display:flex;align-items:stretch;max-width:320px;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;background:var(--surface)}
+.inp:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.inp input{flex:1;border:0;padding:12px 14px;font-size:1.15rem;font-variant-numeric:tabular-nums;background:transparent;color:var(--ink);min-width:0;outline:none}
+.inp span{display:grid;place-items:center;padding:0 14px;background:var(--surface-2);color:var(--muted);font-weight:600;border-left:1px solid var(--line)}
+.inp.err{border-color:var(--bad)}
+.ferr{display:flex;gap:8px;color:var(--bad);font-size:.88rem;margin-top:8px;font-weight:600}
+.fwarn{display:flex;gap:10px;background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:12px;font-size:.88rem;margin-top:12px}
+.fwarn b{display:block}
+.prefill{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+.prefill .t{flex:1} .prefill small{display:block;color:var(--muted);font-size:.8rem}
+.mono{font-family:ui-monospace,Consolas,monospace;letter-spacing:.02em}
+.choicecard{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 10px;cursor:pointer;color:var(--ink)}
+.choicecard:hover{border-color:var(--brand)}
+.choicecard .t{flex:1} .choicecard small{display:block;color:var(--muted);font-size:.82rem}
+.radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.choicecard.sel{border-color:var(--brand);background:var(--brand-soft)} .choicecard.sel .radio{border:6px solid var(--brand)}
+.suggest{display:flex;gap:12px;align-items:flex-start;background:var(--blue-soft);color:var(--ink);border-radius:12px;padding:14px;margin:0 0 18px;max-width:560px}
+.suggest svg.i{color:var(--blue)}
+.suggest button{margin-top:6px}
+
+.summary{max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:0}
+.sr{display:grid;grid-template-columns:150px 1fr auto;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.sr:last-child{border-bottom:0}
+.sr dt{color:var(--muted);font-size:.86rem} .sr dd{margin:0;font-weight:600}
+.sr button{background:none;border:0;color:var(--blue);cursor:pointer;font-weight:600;font-size:.86rem;padding:0}
+
+.panel{max-width:600px;background:var(--good);color:#fff;border-radius:var(--r);padding:26px 24px;text-align:center}
+.panel .ok{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;margin:0 auto 10px}
+.panel .ok svg.i{width:28px;height:28px;stroke-width:2.4}
+.panel h2{margin:0 0 6px;font-size:1.4rem}
+.panel .refno{display:inline-block;margin-top:6px;background:rgba(255,255,255,.16);border-radius:8px;padding:5px 12px;font-weight:700}
+:root[data-theme="dark"] .panel{color:#0d2418}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .panel{color:#0d2418}}
+.next{max-width:600px;margin-top:18px}
+.next h3{font-size:1rem;margin:0 0 10px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;padding:0 0 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .dotc{width:24px;height:24px;border-radius:50%;background:var(--good-soft);color:var(--good);display:grid;place-items:center;flex:none}
+.tl .dotc svg.i{width:14px;height:14px;stroke-width:2.6}
+.tl .dotc.grey{background:var(--surface-3);color:var(--muted)}
+.tl small{display:block;color:var(--muted)}
+
+table.dt{width:100%;border-collapse:collapse;font-size:.9rem}
+.dt th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 16px;border-bottom:1px solid var(--line);font-weight:600}
+.dt td{padding:12px 16px;border-bottom:1px solid var(--line)}
+.dt tr:last-child td{border-bottom:0}
+.dt tr.new td{background:var(--good-soft)}
+.tablecard{padding:0;overflow-x:auto}
+.chart{display:flex;align-items:flex-end;gap:8px;height:110px;padding:10px 0 0}
+.chart div{flex:1;background:var(--brand-soft);border-radius:6px 6px 0 0;position:relative}
+.chart div.cur{background:var(--brand)}
+.chart-l{display:flex;gap:8px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.chart-l span{flex:1;text-align:center}
+.tariffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.tcard.cur{border-color:var(--brand)}
+.tcard .price{font-size:1.2rem;font-weight:800}
+.tcard ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.88rem}
+.notice{display:flex;gap:10px;background:var(--surface-3);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--ink-2);margin-top:14px;max-width:600px}
+.search{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line-2);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--muted);max-width:560px;margin-bottom:18px}
+
+@media (max-width:900px){
+  .navwrap{display:none}
+  .bottomnav{display:flex;position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:5}
+  .bottomnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px 10px;border:0;background:none;color:var(--muted);font-size:.68rem;font-weight:600;cursor:pointer}
+  .bottomnav button[aria-current="page"]{color:var(--brand)}
+  .bottomnav .pin{flex:none;padding:0;display:grid;color:#fff}
+  .status{grid-template-columns:1fr}
+  .qa{grid-template-columns:1fr}
+  .qbtn{flex-direction:row;align-items:center}
+  .qbtn small{margin-top:0}
+  .nh{padding:0 14px}.nb{padding:20px 14px 30px}
+  .sr{grid-template-columns:1fr auto}.sr dt{grid-column:1 / -1}
+}
+
+/* ---------- dialog ---------- */
+dialog{border:0;border-radius:16px;padding:0;max-width:min(660px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(12,14,18,.55)}
+.dh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:18px 20px 6px}
+.dh h3{margin:0;font-size:1.1rem}
+.dx{border:0;background:var(--surface-2);color:var(--ink);border-radius:8px;width:32px;height:32px;cursor:pointer;display:grid;place-items:center;flex:none}
+.db{padding:4px 20px 22px;font-size:.92rem;max-height:76vh;overflow:auto}
+.db p{margin:.4em 0}
+.tags{margin:0 0 10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;margin:0 4px 4px 0}
+.t-p{background:var(--bad-soft);color:var(--bad)} .t-m{background:var(--good-soft);color:var(--good)} .t-l{background:var(--blue-soft);color:var(--blue)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.ba div{border-radius:10px;padding:10px 12px;font-size:.87rem}
+.ba .bf{background:var(--bad-soft)} .ba .af{background:var(--good-soft)}
+.ba b{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.ba .bf b{color:var(--bad)} .ba .af b{color:var(--good)}
+.whyh{font-weight:700;margin-top:14px}
+.real{background:var(--blue-soft);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.87rem}
+.real > b{color:var(--blue);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.real ul{margin:0;padding-left:18px}
+.src{font-size:.78rem;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+.db table{border-collapse:collapse;width:100%;font-size:.85rem;margin:6px 0 14px}
+.db th,.db td{border-bottom:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+.db th{background:var(--surface-2);font-size:.72rem;text-transform:uppercase;color:var(--muted)}
+.db h4{margin:18px 0 4px;font-size:.95rem;color:var(--brand)}
+.db a{color:var(--blue)}
+.lv{font-weight:700;font-size:.8rem} .lv.h{color:var(--good)} .lv.m{color:var(--warn)}
+@media (max-width:560px){.ba{grid-template-columns:1fr}}
+
+/* ================= shared additions (Days 5 and later) ================= */
+.mt{margin-top:14px}
+.np .btn,.np .choicecard,.np .li,.np .chip,.np .qbtn{min-height:48px}
+.np .iconbtn,.np .avatar{width:44px;height:44px}
+.np .brand{min-height:44px;padding-right:6px}
+.np .crumb button{min-height:44px;padding:0 10px 0 2px;display:inline-flex;align-items:center}
+.np .sr button{min-height:44px;min-width:56px;padding:0 10px}
+.bigbtn{width:100%;min-height:56px;font-size:1.02rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);cursor:pointer;font-weight:600;color:var(--ink);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.chip small{font-weight:500;color:var(--muted);font-size:.72rem}
+.chip.sel{border-color:var(--brand);background:var(--brand-soft)}
+.cbrow{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--line-2);border-radius:12px;cursor:pointer;min-height:56px;background:var(--surface)}
+.cbrow input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--brand);flex:none}
+.det{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0 0 8px}
+.det summary{padding:14px;cursor:pointer;font-weight:600;min-height:48px;display:flex;align-items:center}
+.det div{padding:0 14px 14px;color:var(--ink-2);font-size:.88rem}
+.reveal{margin:8px 0 14px;padding:12px 14px;border-left:3px solid var(--brand);background:var(--surface-2);border-radius:0 10px 10px 0}
+.stick{position:sticky;bottom:0;margin:20px -24px -40px;padding:12px 24px;background:var(--surface);border-top:1px solid var(--line);display:flex;gap:10px;z-index:3}
+.stick .btn{flex:1;min-height:52px}
+.stick .btn-s{flex:0 0 auto}
+@media (max-width:900px){.stick{margin:20px -14px -30px}}
+.old .otop{display:flex;justify-content:flex-end;margin-bottom:8px}
+.old .tiny{min-height:20px;padding:0 4px;font-size:10px;line-height:20px;background:#eee;border:1px solid #ccc;color:#235;cursor:pointer;font-family:inherit}
+.old .cards2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.old .ocard{border:1px solid #ccc;background:#fafafa;padding:8px;font-size:11px}
+.old .ocard b{display:block;font-size:12px}
+.old .ocard p{margin:2px 0 4px}
+.old .ornote{background:#FFF3E0;border:1px solid #FFB74D;padding:8px;margin-bottom:10px;font-size:12px}
+.old .eqrow{display:flex;gap:6px;margin-top:10px}
+.old .eq{flex:1;padding:6px 0;background:#555;color:#fff;border:0;cursor:pointer;font-family:inherit;font-size:12px}
+.old .tg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.old input[type=text]{width:100%;max-width:300px}
+.old .lst{margin:6px 0 10px;padding-left:18px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></symbol>
+  <symbol id="gauge" viewBox="0 0 24 24"><path d="M3.5 17.5a9 9 0 1 1 17 0"/><path d="m12 14 4.5-4.5"/><circle cx="12" cy="14" r="1.6"/><path d="M3.5 17.5h17"/></symbol>
+  <symbol id="wallet" viewBox="0 0 24 24"><path d="M4 7.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5V6A2 2 0 0 1 5.5 4H17"/><path d="M20.5 11.5H16a2 2 0 0 0 0 4h4.5"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></symbol>
+  <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></symbol>
+  <symbol id="camera" viewBox="0 0 24 24"><path d="M4 8h3l1.8-2.5h6.4L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></symbol>
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.7 10v7M14.3 10v7M19 10v7M3 20h18"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-6 9-7.5"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.5h.01"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v5h5"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></symbol>
+</svg>
+
+<div class="wrap">
+<div class="bar">
+  <div class="bar-top">
+    <div><div class="kicker">Solution 2.1 · Day 9 · Activation and retention</div><h1>The MoveWell portal, improved</h1></div>
+    <div class="seg" role="group" aria-label="Portal version"><button class="b" id="modeB" aria-pressed="false">Before</button><button class="a" id="modeA" aria-pressed="true">After</button></div>
+  </div>
+  <div class="task" aria-live="polite">
+    <span><b>Task:</b> log a walk, then see how your goal is developing</span>
+    <span class="tk" id="tk1"><i>✓</i>Walk logged</span><span class="tk" id="tk2"><i>✓</i>Development page seen</span>
+    <span>⏱ <span class="num" id="time">0.0 s</span> · <span class="num" id="clicks">0</span> clicks</span>
+    <span class="muted" id="runs"></span>
+  </div>
+  <div class="tools">
+    <button class="tbtn" id="pinsBtn" aria-pressed="true"><svg class="i"><use href="#eye"/></svg><span>Markers: shown</span></button>
+    <button class="tbtn" id="resetBtn"><svg class="i"><use href="#reset"/></svg>Restart task</button>
+    <button class="tbtn primary" id="sheetBtn"><svg class="i"><use href="#book"/></svg>Answer sheet 2.1</button>
+    <button class="tbtn" id="themeBtn"><svg class="i"><use href="#moon"/></svg>Theme</button>
+    <span class="muted">The pulsing dots in the portal are markers. Click one to see the problem, before and after, the reason, and examples from real products.</span>
+  </div>
+</div>
+<div class="frame">
+  <div class="chrome"><div class="dots"><span></span><span></span><span></span></div><div class="url" id="url"></div><span class="flag a" id="flag">After</span></div>
+  <div class="portal" id="portal"></div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dT"><div class="dh"><h3 id="dT"></h3><button class="dx" data-close aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div><div class="db" id="dB"></div></dialog>
+
+<script>
+const ic=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#${n}"/></svg>`;
+
+/* ================= DATA (made up for the simulation) ================= */
+const STAGES=[['Finding your time','The hardest part is not the exercise. It is finding a time that survives a busy week.'],['The first two weeks','Your muscles may ache and it can feel like nothing changes. That is normal: your body is getting used to it.'],['It gets easier','Stairs feel lighter and you recover faster after a walk. This is your body adapting.'],['Making it yours','Now it is part of your week. You choose what comes next.']];
+const ACTS=['Walking','Cycling','Back exercises','Other'];
+const HIST=[['03.10.','Walking',30],['05.10.','Cycling',45],['08.10.','Back exercises',15],['10.10.','Walking',35]];
+const WEEKMIN=[['Wk 1',60],['Wk 2',75],['Wk 3',95],['Wk 4',0]];
+const TODAY='12.10.';
+
+/* ================= MARKERS ================= */
+const PINS={
+  progress:{t:"Progress you can see: stage, week and what is left",p:["Problem 1 · Progress only faintly visible","Problem 3 · No intermediate goals or stages"],m:"Measure 1",law:"Visibility of status · goal gradient",
+    before:"“Goal status: active” in small grey text. The goal is “More stamina”, duration “open-ended”. Nothing says how far along the user is.",
+    after:"<b>Stage 1 of 4 · Finding your time.</b> A week of seven dots, filled for each active day, and one sentence: <b>2 of 3 active days. One more this week reaches your milestone.</b>",
+    why:"<p>A goal with no end and no steps gives people nothing to measure themselves against. Four stages and a weekly milestone make the distance visible and short. The closer people feel to a goal, the more they tend to continue (Kivetz and colleagues 2006, shown for loyalty cards).</p>",
+    real:["<b>NHS Couch to 5K</b>: a nine-week plan in graded steps with three sessions a week, so every week has a clear target.","<b>Nielsen's heuristics</b>: visibility of system status."],
+    src:"Materi A1, A2 · NHS Couch to 5K · Nielsen 1994 · Kivetz, Urminsky and Zheng 2006"},
+  feedback:{t:"Feedback that confirms the success and says what it means",p:["Problem 2 · Successes hardly fed back","Problem 6 · Messages technical, not encouraging"],m:"Measure 2",law:"Positive reinforcement",
+    before:"After a save: “Entry stored.” In the history: “Sync completed (status 200). Record ID MW-48211 written to activity log.”",
+    after:"“<b>That is your third active day this week. You have reached the milestone of Stage 1.</b>” followed by what it means for the body and what is next. The tone is warm and factual.",
+    why:"<p>A confirmed success is a reason to come back. The text names the fact (third active day), the achievement (milestone) and the next step. It does not exaggerate: there are no exclamation marks, no fireworks and no points.</p>",
+    real:["<b>Self-determination theory</b> (Ryan and Deci 2000): feedback that supports a feeling of competence supports lasting motivation.","<b>GOV.UK</b>, Confirmation pages: say what happened and what happens next."],
+    src:"Materi A1, A3 · Ryan and Deci 2000, American Psychologist 55(1) · design-system.service.gov.uk/patterns/confirmation-pages"},
+  stages:{t:"Stages and milestones as the frame of the journey",p:["Problem 3 · No motivating intermediate goals","Problem 4 · Functional, not activating journey"],m:"Measures 1 and 3",law:"Narrative framing",
+    before:"Five links in a grid: Log activity, Activity history, My goal, Content library, Settings. No order, no direction.",
+    after:"A journey of four stages: <b>Finding your time · The first two weeks · It gets easier · Making it yours</b>. Each stage has a short story of what is happening in the body and one milestone.",
+    why:"<p>The platform used to manage entries. A journey with stages gives meaning to each entry: it belongs to a story about the user's own development. The stories are short and factual, so the brand stays credible.</p><p class=\"muted\">The stage texts follow the HealthJourney variant C of the brief; the milestones are an assumption of the simulation.</p>",
+    real:["<b>NHS Couch to 5K</b>: each week has a short description of what to expect.","<b>Material Design</b>, Onboarding: introduce the product in steps."],
+    src:"Materi A2, A3 · NHS Couch to 5K · Material Design, Onboarding"},
+  dev:{t:"The development and the use meet on one page",p:["Problem 5 · No link between individual development and the usage experience"],m:"Measures 1 and 3",law:"Feedback loop",
+    before:"A table: Goal “More stamina”, Start date 01.10., Duration “open-ended”, Status “active”. The history is a list with record IDs.",
+    after:"<b>Your development</b>: minutes per week as four bars, the current stage, and a line that says what changed: <b>“Your weekly minutes have grown from 60 to 95.”</b> Your own entries become your own story.",
+    why:"<p>The history shows what the user did. The development page shows what it has led to. When use and development are visibly connected, using the app becomes part of the progress.</p><p class=\"muted\">The minutes are the simulation's example data.</p>",
+    real:["<b>NHS Couch to 5K</b>: the plan is built so each week adds a little to the one before."],
+    src:"Materi A1 · NHS Couch to 5K"},
+  quiet:{t:"Restrained game elements that serve self-efficacy",p:["Problem 3 · No milestones","Credibility must be kept"],m:"Measure 4",law:"Restraint",
+    before:"No milestones, no marks of success. The footer only says the content was reviewed by the medical advisory board.",
+    after:"Quiet milestone marks, filled in as they are reached. No points, no levels, no ranking, no daily pressure. The user decides whether to switch gentle reminders on.",
+    why:"<p>The brief asks for motivation without losing seriousness. A mark for a reached milestone gives a feeling of progress; points, rankings and daily pressure risk what the course calls reward inflation and a loss of trust. In a health service, people should feel supported, not scored.</p>",
+    real:["<b>Deterding and colleagues (2011)</b>: gamification means game design elements used outside games; which elements fit depends on the context.","<b>Hamari, Koivisto and Sarsa (2014)</b>: a review of studies found mostly positive effects, but the effects depended on the context and on the users."],
+    src:"Materi B1, B2 · Deterding, Dixon, Khaled and Nacke 2011, MindTrek · Hamari, Koivisto and Sarsa 2014, HICSS"},
+  words:{t:"Words that speak to the person, not the database",p:["Problem 6 · Technical messages"],m:"Measure 2",law:"Tone",
+    before:"“Entry stored.” · “Sync completed (status 200).” · “Goal status: active”",
+    after:"“<b>Saved.</b>” · “<b>Your watch has sent one walk of 35 minutes.</b>” · “<b>You are in Stage 1.</b>”",
+    why:"<p>The same facts, in language a person would use. The system messages that remain, like the record ID, move out of sight.</p>",
+    real:["<b>NHS service manual</b> and <b>Mailchimp</b> both describe a steady voice with a tone that follows the situation (see Day 7)."],
+    src:"Materi A3 · NHS service manual · styleguide.mailchimp.com"},
+  log:{t:"Logging as little work as possible",p:["Problem 4 · Functional journey"],m:"Measure 2",law:"Effort",
+    before:"Three free text fields: Activity type, Duration (min), Date. Submit. “Entry stored.”",
+    after:"The activity as one tap, the minutes as a tap or a number, and today's date already set. The save button says what it does: <b>Save my walk</b>.",
+    why:"<p>If logging is hard, people stop logging, and then the feedback has nothing to confirm. The form stays small because each tap is a chance to stop.</p>",
+    real:["<b>GOV.UK Design System</b>: ask only for what is needed, and use buttons with a clear action."],
+    src:"Materi A3 · design-system.service.gov.uk"},
+  next:{t:"The next step, in the context of the stage",p:["Problem 4 · Not activating","Problem 1 · Progress faint"],m:"Measures 1 and 3",law:"Cue to action",
+    before:"The library lists three articles in no order; none says why it matters now.",
+    after:"<b>For your stage</b>: one article that fits Stage 2 (“Why a short walk after meals helps”) and one line why. The other content stays one tap away.",
+    why:"<p>Content that fits the moment feels like guidance. The same articles are reused: no new content is needed, which keeps the effort low.</p>",
+    real:["<b>NHS Couch to 5K</b>: each week points to what comes next."],
+    src:"Materi A2 · NHS Couch to 5K"},
+};
+
+/* ================= STATE ================= */
+const dflt=()=>({act:null,min:'',err:{},days:2,justDone:false,lastMin:0,lastAct:'',stub:false});
+const S={mode:'after',page:'home',d:dflt(),run:{start:null,clicks:0,half:false,done1:false,done:false},runs:[]};
+const $=s=>document.querySelector(s);
+const go=p=>`data-go="${p}"`;
+const pin=id=>`<button class="pin ${S.mode==='after'?'a':'b'}" data-pin="${id}" aria-label="Marker: ${PINS[id].t.replace(/<[^>]+>/g,'')}">${ic(S.mode==='after'?'check':'alert')}</button>`;
+const zone=(id,html,style='')=>`<div class="zone" ${style?`style="${style}"`:''}>${pin(id)}${html}</div>`;
+const escH=s=>s.replace(/&/g,'&amp;');
+const stageNow=()=>S.d.justDone?1:0;   // 0-based: Stage 1 until the milestone is reached
+const dots=()=>{const n=S.d.days;return `<div style="display:flex;gap:6px;margin:8px 0 6px" role="img" aria-label="${n} of 7 days active">${[...Array(7)].map((_,i)=>`<span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:2px solid ${i<n?'var(--brand)':'var(--line-2)'};background:${i<n?'var(--brand)':'transparent'};color:#fff;font-size:.7rem;font-weight:700">${i<n?'✓':''}</span>`).join('')}</div>`;};
+
+/* ================= BEFORE (MoveWell today, as the brief describes it) ================= */
+const bt=(label,page)=>`<button class="tiny" data-go="${page}">${label}</button>`;
+const BEFORE={
+  home:()=>`<h2>MoveWell</h2>${zone('progress',`<p class="faint">Goal status: active</p>`)}${zone('stages',`<div class="tg"><button class="lnk" ${go('log')}>Log activity</button><button class="lnk" ${go('history')}>Activity history</button><button class="lnk" ${go('goal')}>My goal</button><button class="lnk" ${go('library')}>Content library</button><button class="lnk" ${go('settings')}>Settings</button></div>`)}`,
+  log:()=>`<h2>Log activity</h2>${zone('log',`<form data-form="bLog"><label>Activity type</label><input type="text" name="t" autocomplete="off"><label>Duration (min)</label><input type="text" name="m" autocomplete="off"><label>Date</label><input type="text" name="dt" autocomplete="off"><br><button class="sbtn">Submit</button></form>`)}${S.d.stub?zone('feedback','<div class="msg">Entry stored.</div>'):''}<p>${bt('Home','home')}</p>`,
+  history:()=>`<h2>Activity history</h2>${zone('dev',`<table><tr><th>Date</th><th>Type</th><th>Duration (min)</th><th>Record ID</th></tr>${HIST.map((r,i)=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>MW-${47702+i*150}</td></tr>`).join('')}</table>`)}<p>${bt('Sync with device','synced')} ${bt('Home','home')}</p>`,
+  synced:()=>`${zone('words',`<p>Sync completed (status 200). Record ID MW-48211 written to activity log.</p>`)}<p>${bt('Home','home')}</p>`,
+  goal:()=>`<h2>My goal</h2><table><tr><th>Field</th><th>Value</th></tr><tr><td>Goal</td><td>More stamina</td></tr><tr><td>Start date</td><td>01.10.</td></tr><tr><td>Duration</td><td>open-ended</td></tr><tr><td>Status</td><td>active</td></tr></table><form data-form="bGoal"><label>Change goal</label><input type="text" autocomplete="off"><br><button class="sbtn">Update</button></form><p>${bt('Home','home')}</p>`,
+  library:()=>`<h2>Content library</h2><p>Reviewed by our medical advisory board.</p>${zone('next',`<div class="cards2" style="grid-template-columns:1fr"><div class="ocard"><b>Why a short walk after meals helps</b><p>Article · 5 min read</p></div><div class="ocard"><b>Back exercises for desk workers</b><p>Video · 12 min</p></div><div class="ocard"><b>Building stamina safely</b><p>Guide · 8 min read</p></div></div>`)}<p>${bt('Home','home')}</p>`,
+  settings:()=>`<h2>Settings</h2>${zone('quiet',`<label class="chk"><input type="checkbox"> Notifications</label>`)}<p>${bt('Home','home')}</p>`,
+};
+
+/* ================= AFTER (new portal) ================= */
+const chip=(name,val,label,on)=>`<button type="button" class="chip ${on?'sel':''}" data-set="${name}" data-val="${val}">${label}</button>`;
+const stageBar=()=>{const n=stageNow();return `<div class="steps" style="max-width:720px">${STAGES.map((s,i)=>`<div class="st ${i===n?'on':i<n?'done':''}"><div class="bar2"></div>${i+1}. ${s[0]}</div>`).join('')}</div>`;};
+const nav=(a)=>`<div class="btn-row" style="margin-top:10px"><button class="btn btn-s" ${go(a[0])}>${a[1]}</button></div>`;
+
+const AFTER={
+  home:()=>{const n=stageNow(),left=Math.max(0,3-S.d.days);return `<h2 class="h">Your journey to more stamina</h2>
+    ${zone('stages',stageBar(),'max-width:720px')}
+    ${zone('progress',`<div class="card" style="max-width:720px"><span class="pill p-good">${ic('gauge')}Stage ${n+1} of 4</span><h3 style="margin:10px 0 4px;font-size:1.15rem;color:var(--ink)">${STAGES[n][0]}</h3><p class="muted" style="margin:0 0 4px">${STAGES[n][1]}</p>${n===0?`${dots()}<p style="margin:6px 0 0"><b>${S.d.days} of 3 active days.</b> ${left?`${left} more this week reaches your milestone.`:'Milestone reached.'}</p>`:`<p style="margin:6px 0 0"><b>Stage 1 done.</b> This week, aim for a fourth active day.</p>`}</div>`,'max-width:720px')}
+    <div class="btn-row" style="max-width:720px"><button class="btn btn-p bigbtn" ${go('log')}>${ic('bolt')}Log an activity</button></div>
+    ${zone('next',`<div class="card" style="max-width:720px;margin-top:14px"><h3>For your stage</h3><button class="choicecard" style="max-width:none" ${go('art')}><span class="t"><b>Why a short walk after meals helps</b><small>Five minutes to read. It explains why a short walk fits Stage ${n+1}.</small></span>${ic('chev')}</button></div>`,'max-width:720px')}
+    <div class="btn-row" style="max-width:720px"><button class="btn btn-s" ${go('goal')}>${ic('cal')}My development</button><button class="btn btn-s" ${go('settings')}>Settings</button><button class="btn btn-s" ${go('library')}>All content</button></div>`;},
+  log:()=>`<h2 class="h">Log an activity</h2><form data-form="aLog" novalidate style="max-width:720px"><div class="formcard">
+    ${zone('log',`<div><div class="fld" style="margin-bottom:18px"><p class="fl">What did you do?</p><div class="chips">${ACTS.map(a=>chip('act',a,a,S.d.act===a)).join('')}</div>${S.d.err.act?`<div class="ferr">${ic('alert')}${S.d.err.act}</div>`:''}</div>
+    <div class="fld" style="margin-bottom:6px"><p class="fl">For how long?</p><div class="chips" style="margin-bottom:8px">${[15,20,30,45].map(m=>chip('min',m,m+' min',String(S.d.min)===String(m))).join('')}</div><div class="inp ${S.d.err.min?'err':''}"><input id="min" name="min" inputmode="numeric" autocomplete="off" value="${escH(String(S.d.min))}" placeholder="35" aria-label="Minutes"><span>min</span></div>${S.d.err.min?`<div class="ferr">${ic('alert')}${S.d.err.min}</div>`:''}</div>
+    <p class="muted" style="margin:10px 0 0">Date: today, ${TODAY}</p></div>`)}
+    </div><div class="btn-row"><button type="button" class="btn btn-s" ${go('home')}>${ic('back')}Back</button><button class="btn btn-p">Save my walk ${ic('chev')}</button></div></form>`,
+  saved:()=>{const m=S.d.lastMin,ok=m>=10;return `${zone('feedback',`<div class="panel" style="max-width:640px;text-align:left;display:flex;gap:14px;align-items:center"><div class="ok" style="margin:0">${ic('check')}</div><div><h2 style="margin:0 0 4px;font-size:1.25rem">${S.d.justDone?'That is your third active day this week.':'Saved.'}</h2><div>${S.d.justDone?'You have reached the milestone of Stage 1.':ok?`${S.d.lastAct}, ${m} minutes. That is active day number ${S.d.days}.`:`${S.d.lastAct}, ${m} minutes. A day counts as active from 10 minutes.`}</div></div></div>`,'max-width:640px')}
+    <div class="card" style="max-width:640px;margin-top:16px">${S.d.justDone?`<span class="pill p-good">${ic('spark')}Stage 2 begins</span><h3 style="margin:10px 0 4px;font-size:1.15rem;color:var(--ink)">${STAGES[1][0]}</h3><p style="margin:0 0 4px">${STAGES[1][1]}</p><p class="muted" style="margin:0">Your next milestone: four active days in one week.</p>`:`${dots()}<p style="margin:6px 0 0"><b>${S.d.days} of 3 active days.</b> ${Math.max(0,3-S.d.days)?'One more reaches your milestone.':''}</p>`}
+    <div class="btn-row"><button class="btn btn-p" ${go('goal')}>See my development ${ic('chev')}</button><button class="btn btn-s" ${go('home')}>Back to my journey</button></div></div>`;},
+  goal:()=>{const mx=100;return `<h2 class="h">Your development</h2>${zone('dev',`<div class="card" style="max-width:720px"><h3>Minutes of activity per week</h3><div style="display:flex;gap:14px;align-items:flex-end;height:130px;margin:10px 0 6px" role="img" aria-label="Minutes per week: 60, 75, 95, and this week so far">${WEEKMIN.map((w,i)=>{const v=i===3?S.d.days*25:w[1];return `<div style="flex:1;text-align:center"><div style="height:${Math.max(4,v/mx*100)}px;background:${i===3?'var(--brand-soft)':'var(--brand)'};border:${i===3?'2px dashed var(--brand)':'0'};border-radius:6px 6px 0 0"></div><small class="muted">${w[0]}${i===3?' (so far)':''}</small></div>`;}).join('')}</div><p style="margin:8px 0 0"><b>Your weekly minutes have grown from 60 to 95.</b> That is the effect of the first stage.</p></div>`,'max-width:720px')}
+    ${zone('quiet',`<div class="card" style="max-width:720px;margin-top:14px"><h3>Milestones</h3><ul class="tl"><li><span class="dotc ${S.d.justDone?'':'grey'}">${ic('check')}</span><div><b>Stage 1 · Three active days in a week</b><small>${S.d.justDone?'Reached today.':`${S.d.days} of 3.`}</small></div></li><li><span class="dotc grey">${ic('check')}</span><div><b>Stage 2 · Four active days in a week</b><small>Next.</small></div></li><li><span class="dotc grey">${ic('check')}</span><div><b>Stage 3 · One walk of 30 minutes</b></div></li></ul></div>`,'max-width:720px')}
+    <div class="btn-row"><button class="btn btn-s" ${go('home')}>${ic('back')}Back to my journey</button></div>`;},
+  history:()=>`<h2 class="h">Your activities</h2><div class="card" style="max-width:720px"><ul class="tl">${HIST.concat(S.d.lastMin?[[TODAY,S.d.lastAct,S.d.lastMin]]:[]).map(r=>`<li><span class="dotc">${ic('check')}</span><div><b>${r[1]}, ${r[2]} min</b><small>${r[0]}</small></div></li>`).join('')}</ul>${zone('words',`<p class="muted" style="margin:0">Your watch has sent one walk of 35 minutes.</p>`)}</div>${nav(['home','Back to my journey'])}`,
+  library:()=>`<h2 class="h">All content</h2><p class="muted">Reviewed by our medical advisory board.</p><div style="display:grid;gap:10px;max-width:720px">${[['Why a short walk after meals helps','Article · 5 min read'],['Back exercises for desk workers','Video · 12 min'],['Building stamina safely','Guide · 8 min read']].map(a=>`<button class="choicecard" style="max-width:none" ${go('art')}><span class="t"><b>${a[0]}</b><small>${a[1]}</small></span>${ic('chev')}</button>`).join('')}</div>${nav(['home','Back to my journey'])}`,
+  art:()=>`<h2 class="h">Why a short walk after meals helps</h2><div class="card" style="max-width:720px"><p style="margin-top:0">After a meal, your muscles can take up sugar from the blood. A walk of about ten minutes uses that window. Our medical advisory board recommends it especially for people who sit a lot.</p><p class="muted" style="margin-bottom:0">This fits Stage 1: finding a time that survives a busy week.</p></div>${nav(['home','Back to my journey'])}`,
+  settings:()=>`<h2 class="h">Settings</h2>${zone('quiet',`<div class="card" style="max-width:720px"><label class="cbrow"><input type="checkbox" name="rem"><span><b>Gentle reminder</b><br><small class="muted">One message on the days you usually walk. You can switch it off at any time.</small></span></label></div>`,'max-width:720px')}${nav(['home','Back to my journey'])}`,
+};
+
+/* ================= RENDER ================= */
+function render(){
+  const a=S.mode==='after', P=a?AFTER:BEFORE;
+  if(!P[S.page]) S.page='home';
+  if(a){
+    $('#portal').innerHTML=`<div class="np"><header class="nh"><button class="brand" ${go('home')}><span class="brand-mark">${ic('gauge')}</span>MoveWell</button><div class="nh-right"><button class="btn btn-t" ${go('history')}>Activities</button></div></header>
+      <main class="nb"><div class="inner">${P[S.page]()}</div></main><footer class="nf"><span>MoveWell · prevention and exercise</span><span>Help · Privacy · Imprint</span></footer></div>`;
+  }else{
+    $('#portal').innerHTML=`<div class="old"><div class="oh"><button class="ologo" ${go('home')}>MoveWell</button><div class="onav"><button ${go('home')}>Home</button><button ${go('history')}>History</button><button ${go('library')}>Library</button></div></div><div class="ob">${P[S.page]()}</div></div>`;
+  }
+  $('#url').textContent='movewell.example/'+(S.page==='home'?'':S.page);
+  $('#flag').textContent=a?'After':'Before'; $('#flag').className='flag '+(a?'a':'b');
+  $('#modeA').setAttribute('aria-pressed',a); $('#modeB').setAttribute('aria-pressed',!a);
+  $('#tk1').classList.toggle('done',S.run.half); $('#tk2').classList.toggle('done',S.run.done1);
+  $('#runs').textContent=S.runs.map(r=>`${r.mode==='after'?'After':'Before'}: ${r.t} s, ${r.c} clicks`).join(' · ');
+}
+function tick(){if(S.run.start&&!S.run.done)$('#time').textContent=((Date.now()-S.run.start)/1000).toFixed(1)+' s';requestAnimationFrame(tick);}
+function finish(){render();if(S.run.half&&S.run.done1&&!S.run.done){S.run.done=true;const t=((Date.now()-S.run.start)/1000).toFixed(1);S.runs.push({mode:S.mode,t,c:S.run.clicks});render();$('#time').textContent=t+' s ✓';}}
+function resetRun(){S.run={start:null,clicks:0,half:false,done1:false,done:false};S.d=dflt();S.page='home';$('#time').textContent='0.0 s';$('#clicks').textContent='0';render();}
+function count(){if(!S.run.start) S.run.start=Date.now();if(!S.run.done){S.run.clicks++;$('#clicks').textContent=S.run.clicks;}}
+const keep=()=>{const f=document.querySelector('#portal form');if(f&&f.elements.min)S.d.min=f.elements.min.value.trim();};
+
+$('#portal').addEventListener('click',e=>{
+  const p=e.target.closest('[data-pin]'); if(p){e.preventDefault();e.stopPropagation();openPin(p.dataset.pin);return;}
+  const el=e.target.closest('button'); if(!el) return;
+  count(); const d=el.dataset;
+  if(d.set){keep();S.d[d.set==='act'?'act':'min']=d.val;S.d.err={};render();return;}
+  if(d.go){e.preventDefault();if(d.go==='goal'&&S.run.start)S.run.done1=true;S.page=d.go;finish();return;}
+});
+$('#portal').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target; keep(); const D=S.d;
+  switch(f.dataset.form){
+    case 'bLog': S.d.stub=true; S.run.half=true; render(); break;
+    case 'bGoal': render(); break;
+    case 'aLog':{const er={};if(!D.act)er.act='Choose what you did.';const m=+D.min;if(!D.min)er.min='Enter how long, or tap a time.';else if(!(m>=1&&m<=300))er.min='Enter between 1 and 300 minutes. You typed '+D.min+'.';
+      D.err=er;if(Object.keys(er).length){render();break;}
+      D.lastMin=m;D.lastAct=D.act;if(m>=10&&D.days<7)D.days++;D.justDone=D.days>=3;S.run.half=true;S.page='saved';finish();break;}
+  }
+});
+$('#portal').addEventListener('input',e=>{if(e.target.name==='min'){S.d.min=e.target.value;}});
+
+/* ================= DIALOG ================= */
+const dlg=$('#dlg');
+function show(t,h){$('#dT').innerHTML=t;$('#dB').innerHTML=h;dlg.showModal?dlg.showModal():dlg.setAttribute('open','');$('#dB').scrollTop=0;}
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('[data-close]'))dlg.close();});
+function openPin(id){const x=PINS[id];
+  show(x.t,`<div class="tags">${x.p.map(p=>`<span class="tag t-p">${p}</span>`).join('')}<span class="tag t-m">${x.m}</span><span class="tag t-l">${x.law}</span></div>
+  <div class="ba"><div class="bf"><b>Before</b>${x.before}</div><div class="af"><b>After</b>${x.after}</div></div>
+  <div class="whyh">Why this solution?</div>${x.why}
+  <div class="real"><b>In real products</b><ul>${x.real.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+  <div class="src">${x.src}</div>`);}
+const lv=(c,t)=>`<span class="lv ${c}">${t}</span>`;
+function openSheet(){show("Answer sheet · Block 2.1",`
+  <p>The “After” portal is this answer made real. A summary by question:</p>
+  <h4>1–2 · Problems, effects, categories</h4>
+  <table><tr><th>#</th><th>Problem</th><th>Effect on the user</th><th>Category</th></tr>
+  <tr><td>1</td><td>Progress is only faintly visible</td><td>No sense of getting closer to the goal</td><td>Progress</td></tr>
+  <tr><td>2</td><td>Successes are hardly fed back or reinforced</td><td>Effort feels unnoticed</td><td>Feedback · Self-efficacy</td></tr>
+  <tr><td>3</td><td>No motivating intermediate goals or stages</td><td>The goal is far away and open-ended</td><td>Motivation · Progress</td></tr>
+  <tr><td>4</td><td>The journey is functional, not activating</td><td>The platform manages entries but does not accompany</td><td>Motivation · Long-term retention</td></tr>
+  <tr><td>5</td><td>No link between individual development and the usage experience</td><td>Using the app does not feel like part of the progress</td><td>Self-efficacy · Long-term retention</td></tr>
+  <tr><td>6</td><td>Feedback is technical and not encouraging</td><td>The wording does not speak to a person; trust is not built</td><td>Credibility · Feedback</td></tr></table>
+  <h4>3 · Four prioritised measures</h4>
+  <table><tr><th>#</th><th>Measure</th><th>In the portal</th><th>Problems</th></tr>
+  <tr><td>1</td><td>A visible progress logic with stages and milestones</td><td>Four stages, a week of dots, “2 of 3 active days”, the development page</td><td>1, 3, 5</td></tr>
+  <tr><td>2</td><td>Confirming feedback and positive reinforcement</td><td>The milestone message after saving; warm, factual words; a smaller logging form</td><td>2, 6</td></tr>
+  <tr><td>3</td><td>A narrative frame for the user journey</td><td>Stage stories of what happens in the body; “For your stage” content</td><td>3, 4, 5</td></tr>
+  <tr><td>4</td><td>Restrained, serious game elements</td><td>Quiet milestone marks, an optional reminder; no points, levels or rankings</td><td>3 (and credibility)</td></tr></table>
+  <h4>4 · Sketch (optional)</h4><p>The “After” portal on this page can serve as the example sketch. For measure 1: the home screen with the stage bar, the weekly dots and the sentence about the milestone.</p>
+  <h4>5 · The four criteria</h4>
+  <table><tr><th>#</th><th>Effect</th><th>Feasibility</th><th>Risk</th><th>Time</th></tr>
+  <tr><td>1</td><td>${lv('h','High')}: motivation and return</td><td>${lv('h','High')}: uses existing entries</td><td>${lv('h','Low')}</td><td>${lv('h','Starts first')}</td></tr>
+  <tr><td>2</td><td>${lv('h','High')}: motivation and return</td><td>${lv('h','High')}: texts and small UI</td><td>${lv('h','Low')}</td><td>${lv('h','Starts first')}</td></tr>
+  <tr><td>3</td><td>${lv('m','Medium')}: relevance and emotional connection</td><td>${lv('m','Medium')}: needs content work</td><td>${lv('m','Medium')}: stories must stay factual</td><td>${lv('h','Fits, in parallel')}</td></tr>
+  <tr><td>4</td><td>${lv('m','Medium')}: activation without reputation risk</td><td>${lv('m','Medium')}: limited technical resources</td><td>${lv('m','Medium')}: reward inflation if overdone</td><td>${lv('h','Last, light version')}</td></tr></table>
+  <p class="muted">For risk, green means low. These ratings are a reading of this case, not right or wrong scores.</p>
+  <h4>6 · The first 12 weeks</h4>
+  <table><tr><th>Weeks</th><th>Work</th></tr>
+  <tr><td>1–6</td><td>Measures 1 and 2: stages, milestones and the progress display; confirming, human feedback texts</td></tr>
+  <tr><td>4–10</td><td>In parallel, measure 3: the stage stories and the “For your stage” content, written with the medical advisory board</td></tr>
+  <tr><td>9–12</td><td>Measure 4 in a light version: quiet milestone marks and an optional reminder</td></tr>
+  <tr><td>12</td><td>Measure: how many people are still active after four weeks</td></tr></table>
+  <p>Deliberately <b>not</b> done: points, levels and rankings, a full relaunch, complex new features, anything that makes the brand look less trustworthy. Points and a league (as in HealthJourney variant A) are postponed until data shows they are needed.</p>
+  <p class="muted">The stage milestones, the week plan, the example data and the 10-minute rule are assumptions for the simulation, not figures from the plan. The plan gives only partial user data and does not split the €150,000 by measure.</p>
+  <h4>7 · Recommendation</h4>
+  <p>“We recommend using gamification not as a superficial game system but as a targeted architecture for activation and retention. Visible progress, credible reinforcement and a narrative frame for the user journey have priority, because with a justifiable effort these measures have the greatest effect on motivation, self-efficacy and long-term retention.”</p>
+  <h4>Real-world practice used</h4>
+  <table><tr><th>Source</th><th>Pattern taken</th></tr>
+  <tr><td><a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/" target="_blank" rel="noopener">NHS, Couch to 5K</a></td><td>A health-service plan in graded weekly steps, with a clear target for each week</td></tr>
+  <tr><td><a href="https://doi.org/10.1145/2181037.2181040" target="_blank" rel="noopener">Deterding and colleagues 2011</a></td><td>What gamification is: game design elements in a non-game context</td></tr>
+  <tr><td><a href="https://doi.org/10.1109/HICSS.2014.377" target="_blank" rel="noopener">Hamari, Koivisto and Sarsa 2014</a></td><td>A review: gamification effects are mostly positive but depend on context and users</td></tr>
+  <tr><td><a href="https://doi.org/10.1037/0003-066X.55.1.68" target="_blank" rel="noopener">Ryan and Deci 2000</a></td><td>Self-determination theory: competence and autonomy support lasting motivation</td></tr>
+  <tr><td><a href="https://business.columbia.edu/faculty/research/goal-gradient-hypothesis-resurrected-purchase-acceleration-illusionary-goal" target="_blank" rel="noopener">Kivetz, Urminsky and Zheng 2006</a></td><td>Goal-gradient effect (loyalty-programme research)</td></tr>
+  <tr><td><a href="https://design-system.service.gov.uk/patterns/confirmation-pages" target="_blank" rel="noopener">GOV.UK, Confirmation pages</a></td><td>Say what happened and what happens next</td></tr></table>
+  <h4>When marking learners</h4>
+  <p><b>Look for:</b> at least 5 problems written as effects · all 6 categories filled · 4 measures in an order, each from a problem · the 4 criteria support the order · the 12-week plan says what comes first, what runs in parallel and what waits, and keeps the brand serious.</p>
+  <p><b>Signs of a weak answer:</b> points, badges and rankings as the main measure · a full relaunch · complex features despite limited resources · no thought for credibility.</p>
+  <p><b>Another order is just as valid</b> if its reasons come from the problems and the conditions.</p>`);}
+
+/* ================= CONTROLS ================= */
+$('#modeA').onclick=()=>{if(S.mode!=='after'){S.mode='after';resetRun();}};
+$('#modeB').onclick=()=>{if(S.mode!=='before'){S.mode='before';resetRun();}};
+$('#resetBtn').onclick=resetRun; $('#sheetBtn').onclick=openSheet;
+$('#pinsBtn').onclick=e=>{const off=document.body.classList.toggle('nopins');e.currentTarget.setAttribute('aria-pressed',!off);e.currentTarget.querySelector('span').textContent=off?'Markers: hidden':'Markers: shown';};
+const root=document.documentElement,KEY='solusi21-theme';
+try{const s=localStorage.getItem(KEY);if(s)root.dataset.theme=s;}catch(e){}
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY,root.dataset.theme);}catch(e){}};
+render();tick();
+</script>
+</body>
+</html>
