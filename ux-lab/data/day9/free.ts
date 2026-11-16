@@ -482,7 +482,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1HV6Z3Hwh_2iFe2W9fcQwJTyKCAadDOrmlMx7NVWG5qU",
-      solution: { src: "/mentor/solusi-2-1/day9.html", title: t("MoveWell: the activation journey, after the improvements, next to the old one.", "MoveWell: die Aktivierungsreise nach den Verbesserungen, neben dem alten.") },
+      solution: { src: "/mentor/solusi-2-1/day9/", title: t("MoveWell: the activation journey, after the improvements, next to the old one.", "MoveWell: die Aktivierungsreise nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: MoveWell"),
       lead: t(
         "A health provider runs MoveWell, a digital platform for exercise, prevention and personal health goals. Its content is of high quality, but many users leave after a short time.\n\nThe platform is experienced as sensible, but not very motivating. The company wants to raise activation and retention without losing seriousness or credibility.\n\nThe observed problems:\n• progress is only faintly visible\n• successes are hardly fed back or emotionally reinforced\n• motivating intermediate goals and stages are missing\n• the user journey is functional but not very activating\n• there is no clear link between individual development and the experience of use\n• the feedback so far is technical and not very stimulating\n\nThe conditions:\n• a budget of €150,000\n• 12 weeks for the implementation\n• a brand that must stay trustworthy and close to health\n• no complete relaunch\n• limited technical resources for complex features\n• only partial user data\n\nYou work through six steps.",

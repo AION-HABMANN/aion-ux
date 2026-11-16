@@ -145,7 +145,8 @@ for (const day of want) {
     }
     // 3d · UX-STANDARD 2.24: a mentor solution prototype points at a real page that is not indexed
     for (const b of blocksOf(spec, 1).concat([spec.block2]).filter((x) => x.solution)) {
-      const file = path.join(__dirname, "..", "public", b.solution!.src);
+      const rel = b.solution!.src.endsWith("/") ? b.solution!.src + "index.html" : b.solution!.src;
+      const file = path.join(__dirname, "..", "public", rel);
       ok(fs.existsSync(file), `the solution prototype of Block ${b.id} exists (${b.solution!.src})`);
       ok(fs.existsSync(file) && /name="robots" content="noindex/.test(fs.readFileSync(file, "utf-8")), `the prototype of Block ${b.id} asks search engines not to index it`);
     }

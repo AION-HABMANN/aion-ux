@@ -481,7 +481,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1EjcsKdpJv21aoleKn59kKZW_VXxKA05Zh3DDvsyfLo4",
-      solution: { src: "/mentor/solusi-2-1/day7.html", title: t("LifeSupport: the health-service portal, after the improvements, next to the old one.", "LifeSupport: das Gesundheitsportal nach den Verbesserungen, neben dem alten.") },
+      solution: { src: "/mentor/solusi-2-1/day7/", title: t("LifeSupport: the health-service portal, after the improvements, next to the old one.", "LifeSupport: das Gesundheitsportal nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: LifeSupport"),
       lead: t(
         "A provider of health prevention runs LifeSupport, a digital portal for advice, appointment booking and document management.\n\nTechnically the system does its job, but users perceive it as “impersonal”, “exhausting” and “not very supportive”. Use stays below expectations although the range of functions is large.\n\nThe observed problems:\n• the visual language is factual but emotionally distant\n• feedback after actions is technical instead of supportive\n• critical situations such as error messages create uncertainty instead of orientation\n• positive experiences are not visibly reinforced\n• the tone is correct but does not build trust or motivate\n• the interaction is functional but does not build a relationship\n\nThe conditions:\n• a budget of €145,000\n• 12 weeks for the implementation\n• no complete relaunch\n• the brand should stay serious but become emotionally more approachable\n• user data is only partly available\n• the department and marketing set different priorities\n\nYou work through six steps.",
