@@ -427,11 +427,11 @@ function BlockView({ ctx, b, missing }: { ctx: Ctx; b: BlockSpec; missing: Missi
           {kit.slots[s]?.()}
         </div>
       ))}
+      {b.solution && <MentorSolution s={b.solution} />}
       {b.fields.filter((f) => !isExtra(ctx.spec, f)).map((f) => (
         <FieldView key={f.id} ctx={ctx} f={f} />
       ))}
       <ExtraFields ctx={ctx} b={b} />
-      {b.solution && <MentorSolution s={b.solution} />}
       {open ? <BlockExportStatus b={b} r={blockR} inc={ctx.inc!} /> : <BlockMissing block={b.id} missing={missing} />}
     </AnswerBlock>
   );
