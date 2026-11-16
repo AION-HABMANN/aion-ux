@@ -22,7 +22,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
 export const SPEC = defineSpec({
   day: 8,
   optionalAll: true,
-  extras: ["ssWeak", "journeyConflicts", "journeyRisks"],
+  extras: ["ssWeak", "journeyConflicts", "journeyRisks", "ghCats", "ghJustify", "ghDecide", "ghRec", "nxOrder", "nxRisk", "nxGov", "nxUncertain"],
   caseName: "GreenHome",
   role: "Chief Experience Officer",
   heading: t("Day 8 · Storytelling in UX/UI design"),
@@ -564,7 +564,7 @@ export const SPEC = defineSpec({
           id: "ghMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks, keeping the contents and specialist logic and without a relaunch.", "Put them in order: what gives people a reason to start and to go on first."],
-          refs: [ref("Activation and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "ghCats-field")],
+          refs: [ref("Activation and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your problems (question 1)", "above", "ghProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for users.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

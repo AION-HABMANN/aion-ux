@@ -21,7 +21,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
 export const SPEC = defineSpec({
   day: 6,
   optionalAll: true,
-  extras: ["osWeak", "careConflicts", "careRisks"],
+  extras: ["osWeak", "careConflicts", "careRisks", "cfCats", "cfJustify", "cfDecide", "cfRec", "sgOrder", "sgRisk", "sgGov", "sgUncertain"],
   caseName: "CitizenFlow",
   role: "Chief Experience Officer",
   heading: t("Day 6 · Gestalt, hierarchy, progressive disclosure and design systems"),
@@ -562,7 +562,7 @@ export const SPEC = defineSpec({
           id: "cfMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and without a relaunch.", "Put them in order, and think about which measure keeps the others in place."],
-          refs: [ref("UX laws in a design system (Materi A5)", "components and patterns", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "cfCats-field")],
+          refs: [ref("UX laws in a design system (Materi A5)", "components and patterns", "mat-A5", "A5"), ref("Your problems (question 1)", "above", "cfProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for users.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

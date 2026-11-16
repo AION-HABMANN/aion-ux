@@ -22,7 +22,7 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day9/reference";
 export const SPEC = defineSpec({
   day: 9,
   optionalAll: true,
-  extras: ["srWeak", "hjConflicts", "hjRisks"],
+  extras: ["srWeak", "hjConflicts", "hjRisks", "mwCats", "mwJustify", "mwDecide", "mwRec", "mxOrder", "mxRisk", "mxGov", "mxUncertain"],
   caseName: "MoveWell",
   role: "Chief Experience Officer",
   heading: t("Day 9 · Gamification strategies, and storytelling with gamification"),
@@ -564,7 +564,7 @@ export const SPEC = defineSpec({
           id: "mwMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks and €150,000, without a relaunch and without complex features.", "Put them in order: what gives people a reason to come back first."],
-          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Story and game together (Materi A4)", "stages and a narrative frame", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "mwCats-field")],
+          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Story and game together (Materi A4)", "stages and a narrative frame", "mat-A4", "A4"), ref("Your problems (question 1)", "above", "mwProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for users.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

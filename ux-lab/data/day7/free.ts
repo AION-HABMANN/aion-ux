@@ -21,7 +21,7 @@ import { assessField, caseCard, frameTable, known, listsField, ref, rowsTable, s
 export const SPEC = defineSpec({
   day: 7,
   optionalAll: true,
-  extras: ["wtWeak", "careerConflicts", "careerRisks"],
+  extras: ["wtWeak", "careerConflicts", "careerRisks", "lsCats", "lsJustify", "lsDecide", "lsRec", "emOrder", "emRisk", "emGov", "emUncertain"],
   caseName: "LifeSupport",
   role: "Chief Experience Officer",
   heading: t("Day 7 · Emotional bonding in design"),
@@ -561,7 +561,7 @@ export const SPEC = defineSpec({
           id: "lsMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 12 weeks, without a relaunch and while the brand stays serious.", "Put them in order: what gives safety in the moments that matter most first."],
-          refs: [ref("Trust and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "lsCats-field")],
+          refs: [ref("Trust and weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Your problems (question 1)", "above", "lsProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for users.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

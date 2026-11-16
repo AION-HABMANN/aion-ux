@@ -23,7 +23,7 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day10/reference";
 export const SPEC = defineSpec({
   day: 10,
   optionalAll: true,
-  extras: ["saTop", "cnConflicts", "cnRisks"],
+  extras: ["saTop", "cnConflicts", "cnRisks", "cgCats", "cgJustify", "cgDecide", "cgRec", "ixOrder", "ixRisk", "ixGov", "ixUncertain"],
   caseName: "CareGuide",
   role: "Chief Experience Officer",
   heading: t("Day 10 · Intelligent interfaces and AI-supported interaction"),
@@ -545,7 +545,7 @@ export const SPEC = defineSpec({
           id: "cgMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €180,000, without a relaunch.", "Put them in order: what secures trust and acceptance first."],
-          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Why, change, undo (Materi A4)", "explain, control, undo", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "cgCats-field")],
+          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Why, change, undo (Materi A4)", "explain, control, undo", "mat-A4", "A4"), ref("Your problems (question 1)", "above", "cgProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for members.",
           placeholder: "1. …\n2. …\n3. …\n4. …",
