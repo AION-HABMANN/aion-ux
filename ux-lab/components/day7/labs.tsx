@@ -105,7 +105,9 @@ export function FactorsLab() {
       versions={[
         v("none", tt("None of the three"), { safety: false, control: false, recognition: false }, tt("In plain words: nothing says what happens after Pay, there is no way back to the basket, and the page treats Jonas as a stranger though he has ordered before. Fully usable, and uneasy.")),
         v("safety", tt("Safety only"), { safety: true, control: false, recognition: false }, tt("In plain words: he knows he will get an e-mail and can cancel until it ships, so he feels safe to pay, but he cannot check the basket first.")),
-        v("all", tt("All three"), { safety: true, control: true, recognition: true }, tt("In plain words: safe (what happens next), in control (a way back) and recognised (his hedge plan). The same fields and button; a different experience.")),
+        v("control", tt("Control only"), { safety: false, control: true, recognition: false }, tt("In plain words: he can go back and check the basket, so he is in control, but nothing says what happens after Pay and the page still treats him as a stranger.")),
+        v("recognition", tt("Recognition only"), { safety: false, control: false, recognition: true }, tt("In plain words: the page knows him and his hedge plan, so he feels recognised, but he cannot check the basket and does not know what happens after Pay.")),
+        v("all", tt("All three"), { safety: true, control: true, recognition: true }, tt("In plain words: safe (what happens next), in control (a way back) and recognised (his hedge plan). The same fields and button; a different experience. A checkout is a moment where money moves, so all three fit here. In a whole product you do not put every factor on every screen: you ask which factor each moment needs, and use it the same way everywhere.")),
       ]}
     />
   );
