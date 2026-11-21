@@ -21,6 +21,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day16/reference";
  */
 export const SPEC = defineSpec({
   day: 16,
+  optionalAll: true,
+  extras: ["rfTop", "fhConflicts", "fhRisks", "nwCats", "nwJustify", "nwDecide", "nwRec", "gvOrder", "gvRisk", "gvGov", "gvUncertain"],
   caseName: "NextWorld UX",
   role: "Chief Experience Officer",
   heading: t("Day 16 · Immersive prototyping and testing, future strategies and ethical aspects"),
@@ -157,6 +159,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of RealityFlow directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1kQ_RXR4ZpXUgJ3LEWTVSsMFLx68v708SfX0wEbQLW04",
       doc: t("1.1 · How future-proof is RealityFlow?"),
       lead: t(
         "You receive the description of a fictional innovation project, RealityFlow, for immersive advice, service support and training.\n\nOpen it: three prototypes you can try, an AR service guide on a real 3D device, a training module on a real 3D machine and a neuro-informed analysis dashboard.\n\nThen take them into a real work situation, read what the management and the departments want, and look at the investment proposal. You need no prior knowledge: notice what is shown and what has not been tested.\n\nThe aim is to judge immersive future projects not only technically, but strategically, organisationally and ethically.",
@@ -320,6 +323,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three FutureInteraction Hub options below, then the five questions."),
       refs: ["A3", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1I0-oKmVw7PpWFwhO05uhI78sCrm-PEpLEKt72FJKosQ",
       doc: t("1.2 · Future strategies under uncertainty (FutureInteraction Hub)"),
       lead: t(
         "FutureInteraction Hub is a platform.\n\nThree strategy options for its future are described in words:\nA) a fast, broad introduction of immersive pilot functions in several areas, with high innovation pressure but higher risks for consistency, acceptance and governance\nB) focused piloting of a few clearly prioritised future applications with a strong test and ethics framework\nC) a waiting strategy with observation, research and little immediate implementation, with lower risk and lower visibility\n\nThe conditions:\n• the company wants to be seen as innovative\n• the budget is limited and not all lines of innovation can be pursued at once\n• data from earlier tests is patchy\n• several stakeholders stand for different interests between visibility, safety, economic viability and a pioneer role\n• first visible results are wanted within 6 months\n• wrong decisions can lead to costs, loss of trust or an innovation backlog\n\nDecide anyway, and say what you assume.",
@@ -532,7 +536,7 @@ export const SPEC = defineSpec({
           id: "nwMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for a responsible scaling decision",
           steps: ["Turn each group of problems into something you could do within 16 weeks and €260,000, without continuing everything.", "Put them in order: what creates decision readiness first."],
-          refs: [ref("When not to scale, and weighing (Materi A5)", "effect · feasibility · risk · time · strategic viability", "mat-A5", "A5"), ref("Innovation maturity and the portfolio (Materi A4)", "focus", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "nwCats-field")],
+          refs: [ref("When not to scale, and weighing (Materi A5)", "effect · feasibility · risk · time · strategic viability", "mat-A5", "A5"), ref("Innovation maturity and the portfolio (Materi A4)", "focus", "mat-A4", "A4"), ref("Your problems (question 1)", "above", "nwProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

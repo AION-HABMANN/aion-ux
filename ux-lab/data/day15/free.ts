@@ -21,6 +21,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day15/reference";
  */
 export const SPEC = defineSpec({
   day: 15,
+  optionalAll: true,
+  extras: ["fsTop", "lpConflicts", "lpRisks", "vmCats", "vmJustify", "vmDecide", "vmRec", "nxOrder", "nxRisk", "nxGov", "nxUncertain"],
   caseName: "VisionMind Lab",
   role: "Chief Experience Officer",
   heading: t("Day 15 · Eye-tracking and gaze behaviour, neurofeedback and brain-computer interfaces"),
@@ -157,6 +159,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of FocusSense directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A5"],
       minutes: 10,
+      sharedDocId: "1DrZtiEEBQwYmsn_9h3PpkrLajEnso-KA97jsEcJZEy0",
       doc: t("1.1 · Insight value and limits (FocusSense)"),
       lead: t(
         "You receive the description of a fictional innovation project, FocusSense, for analysing and improving a digital learning portal.\n\nOpen it: replay a learner's gaze on a lesson page, switch between the scanpath and the heatmap, look at the neurofeedback “concentration” curve, then read what the learner said afterwards and look at the recording under real conditions.\n\nYou need no prior knowledge: notice what the data shows, and what someone would have to add to it.\n\nThe aim is to judge neuro-based UX technologies in a differentiated way and to tell measurement, interpretation and management use apart.",
@@ -318,6 +321,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three LearningPulse approaches below, then the five questions."),
       refs: ["A3", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1BVNV1M5HNNpfU3NPoNNePgHCK0ppzyMiVlEFsQWgnjo",
       doc: t("1.2 · Neuro-based approaches under conflicting goals (LearningPulse)"),
       lead: t(
         "LearningPulse is a learning platform.\n\nThree innovation approaches are described in words:\nA) comprehensive eye-tracking and experimental neurofeedback to optimise attention and learning flow, but with high effort and high interpretation risks\nB) targeted eye-tracking for prototype tests and interface analysis, without direct integration into the product\nC) exploratory observation of BCI technologies with little immediate product use, but low risk and high learning potential\n\nThe conditions:\n• the company wants to appear innovative and close to science\n• the budget for research and piloting is limited\n• the target group is broad and not prepared for neuro-based technologies\n• data protection and ethical questions are sensitive\n• there are only few practical references in its own market\n• first results are to be visible within 5 months\n\nDecide anyway, and say what you assume.",
@@ -530,7 +534,7 @@ export const SPEC = defineSpec({
           id: "vmMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for a responsible pilot and evaluation strategy",
           steps: ["Turn each group of problems into something you could do within 18 weeks and €240,000, with limited product integration.", "Put them in order: what gives scientific and operational robustness first."],
-          refs: [ref("Weighing a measure (Materi A5)", "effect · feasibility · risk · time · reputation", "mat-A5", "A5"), ref("Insight, risk and decision relevance (Materi A4)", "fund the question", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "vmCats-field")],
+          refs: [ref("Weighing a measure (Materi A5)", "effect · feasibility · risk · time · reputation", "mat-A5", "A5"), ref("Insight, risk and decision relevance (Materi A4)", "fund the question", "mat-A4", "A4"), ref("Your problems (question 1)", "above", "vmProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

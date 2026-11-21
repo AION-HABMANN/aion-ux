@@ -20,6 +20,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day12/reference";
  */
 export const SPEC = defineSpec({
   day: 12,
+  optionalAll: true,
+  extras: ["paTop", "laConflicts", "laRisks", "ccCats", "ccJustify", "ccDecide", "ccRec", "axOrder", "axRisk", "axGov", "axUncertain"],
   caseName: "CitizenConnect",
   role: "Chief Experience Officer",
   heading: t("Day 12 · Accessibility, standards and neurodiversity"),
@@ -156,6 +158,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of PublicAccess directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1UEn_76oSitSkiEIHRuHZ65cTaQnnbsggMR65W8jfo7I",
       doc: t("1.1 · Barriers in a digital offer (PublicAccess)"),
       lead: t(
         "You receive the description of a fictional service portal, PublicAccess, for citizen services, appointments and documents. Open it and use it as a citizen: book an appointment, find a document, fill in a form and make a mistake.\n\nThen try the same with the keyboard alone (Tab, Enter, the arrow keys). You need no prior knowledge: notice where you get stuck, and imagine who else would.\n\nThe aim is to recognise barriers systematically and to understand accessibility from the user's side, not only as a technical matter.",
@@ -310,6 +313,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three LearnAccess designs below, then the five questions."),
       refs: ["A1", "A2", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1sJT7eD5jgPw0qxDbGVOF-pnrKsT2qLJjxtBSvHAYJ1I",
       doc: t("1.2 · Inclusive design under conflicting goals (LearnAccess)"),
       lead: t(
         "LearnAccess is a platform for digital further training that is to be redesigned.\n\nThree variants are described in words:\nA) visually modern and brand-strong, but with reduced contrast and small text\nB) clearly structured, high in contrast, in plain language and well focusable, but less “premium” in its brand\nC) good basic accessibility with some optional adaptation functions, but a higher technical effort\n\nThe conditions:\n• the target group is very heterogeneous\n• the company wants to look modern and inclusive\n• the budget for technical changes is limited\n• the release is in 10 weeks\n• legal requirements must be met\n• the department and marketing set different priorities\n\nDecide anyway, and say what you assume.",
@@ -520,7 +524,7 @@ export const SPEC = defineSpec({
           id: "ccMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €160,000, without a relaunch.", "Put them in order: what reduces exclusion first."],
-          refs: [ref("Weighing a measure (Materi A5)", "effect · legal certainty · feasibility · risk · time", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "ccCats-field")],
+          refs: [ref("Weighing a measure (Materi A5)", "effect · legal certainty · feasibility · risk · time", "mat-A5", "A5"), ref("Your problems (question 1)", "above", "ccProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for citizens.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

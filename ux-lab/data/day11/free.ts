@@ -23,6 +23,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day11/reference";
  */
 export const SPEC = defineSpec({
   day: 11,
+  optionalAll: true,
+  extras: ["haWeak", "cvConflicts", "cvRisks", "chCats", "chJustify", "chDecide", "chRec", "vxOrder", "vxRisk", "vxGov", "vxUncertain"],
   caseName: "CityHelp Voice",
   role: "Chief Experience Officer",
   heading: t("Day 11 · Voice interfaces, neuro-design and testing AI interfaces"),
@@ -159,6 +161,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of HomeAssist Voice directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3"],
       minutes: 10,
+      sharedDocId: "1iIhFaIvbg6RQ6sGOzdc3SyPQnKbR3dz8dWqOInUNJs8",
       doc: t("1.1 · Voice and AI interaction from the user's side (HomeAssist Voice)"),
       lead: t(
         "You receive the description of a fictional digital assistant, HomeAssist Voice, for energy management, device control and service requests.\n\nOpen it and talk to it as a customer: ask about your consumption, switch a device, ask something complicated, and report a fault.\n\nYou need no prior knowledge: notice when it helps you, when you do not know what to say, and what happens when it misunderstands.\n\nThe aim is to judge voice and AI interaction from the user's side, apart from what the technology can do.",
@@ -325,6 +328,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three CareVoice designs below, then the five questions."),
       refs: ["A1", "A2", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1NjHmgT5kpG4VuUFgiv93KmHfICmX7MXMTlZCOpuJWMg",
       doc: t("1.2 · Voice and AI interactions under conflicting goals (CareVoice)"),
       lead: t(
         "CareVoice is a voice assistant for a platform in the health field.\n\nThree variants are described in words:\nA) very natural, free speech input with high flexibility, but a higher error rate in complex situations\nB) clearly guided voice dialogues with a limited set of commands, but high comprehensibility and robustness\nC) a combination of voice control, visual support and AI help, but a higher implementation effort\n\nThe conditions:\n• the target group covers different ages and levels of experience\n• the company wants to look innovative and reliable at the same time\n• the budget for technical development is limited\n• the release is in 12 weeks\n• user tests exist only in first approaches\n• data protection, trust and avoiding errors are critical\n\nDecide anyway, and say what you assume.",
@@ -537,7 +541,7 @@ export const SPEC = defineSpec({
           id: "chMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €190,000, without a full multichannel solution.", "Put them in order: what secures comprehensibility and trust first."],
-          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Prototyping and testing (Materi A4)", "risk-based test scenarios", "mat-A4", "A4"), ref("Your categories (question 2)", "above", "chCats-field")],
+          refs: [ref("Weighing a measure (Materi A5)", "effect on users · feasibility · risk · time pressure", "mat-A5", "A5"), ref("Prototyping and testing (Materi A4)", "risk-based test scenarios", "mat-A4", "A4"), ref("Your problems (question 1)", "above", "chProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for citizens.",
           placeholder: "1. …\n2. …\n3. …\n4. …",

@@ -21,6 +21,8 @@ import { REF_CARD_21, REF_CARD_31 } from "@/data/day13/reference";
  */
 export const SPEC = defineSpec({
   day: 13,
+  optionalAll: true,
+  extras: ["spTop", "jaConflicts", "jaRisks", "lgCats", "lgJustify", "lgRec", "ndOrder", "ndRisk", "ndGov", "ndUncertain"],
   caseName: "LifeGuide",
   role: "Chief Experience Officer",
   heading: t("Day 13 · Neurodiversity, inclusive patterns and assistive technologies"),
@@ -157,6 +159,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the description of StudyPath directly below, then the five questions. No prior knowledge is needed."),
       refs: ["A1", "A2", "A3", "A4"],
       minutes: 10,
+      sharedDocId: "1NTD-d5a-5s6K64XvThBrOLuXB-MhgHPRSuvzAjeWZ4Q",
       doc: t("1.1 · Neurodiverse hurdles in an interface (StudyPath)"),
       lead: t(
         "You receive the description of a fictional learning platform, StudyPath, for digital further training and exam organisation.\n\nOpen it and use it as a learner: find what you have to do this week, move between two course areas, read a course text, and register for an exam.\n\nYou need no prior knowledge: notice what pulls your attention, where you lose your way, and what tires you. Then ask how it would feel for someone with ADHD, an autistic person, or someone with dyslexia.\n\nThe aim is to recognise neurodiverse requirements systematically and to tell them apart from general usability.",
@@ -313,6 +316,7 @@ export const SPEC = defineSpec({
       findIt: t("Route 1 → Task 1 → the three JobAccess designs below, then the five questions."),
       refs: ["A2", "A3", "A4", "A5"],
       minutes: 8,
+      sharedDocId: "1B0bLZL9MDhgP4A9m6d3gXb9Jvu_XERDQdswJLwoItdQ",
       doc: t("1.2 · Inclusive design approaches under conflicting goals (JobAccess)"),
       lead: t(
         "JobAccess is a platform for applications, further training and career planning.\n\nThree variants for its development are described in words:\nA) visually modern and compact, but information-dense and with changing navigation patterns\nB) clearly structured, calm, readable and consistent, but less dynamic and less brand-strong\nC) a good base structure with optional adaptation functions such as a reading mode, stimulus reduction and a simplified view, but a higher implementation effort\n\nThe conditions:\n• the target group is very heterogeneous\n• the company wants to look modern, inclusive and professional\n• the budget for technical development is limited\n• the release is in 12 weeks\n• legal and reputational requirements are relevant\n• data from specific neurodiverse user tests is not yet available\n\nDecide anyway, and say what you assume.",
@@ -525,7 +529,7 @@ export const SPEC = defineSpec({
           id: "lgMeasures", q: [3, 7],
           label: "Develop 4 prioritised measures for improvement",
           steps: ["Turn each group of problems into something you could change within 14 weeks and €175,000, without a relaunch.", "Put them in order: what lowers mental load and exclusion first."],
-          refs: [ref("Inclusive patterns (Materi A5)", "effect · inclusion · feasibility · risk · time", "mat-A5", "A5"), ref("Your categories (question 2)", "above", "lgCats-field")],
+          refs: [ref("Inclusive patterns (Materi A5)", "effect · inclusion · feasibility · risk · time", "mat-A5", "A5"), ref("Your problems (question 1)", "above", "lgProblemsText-field")],
           n: 4,
           help: "Write them as a numbered list, the first priority first, each with what it changes for users.",
           placeholder: "1. …\n2. …\n3. …\n4. …",
