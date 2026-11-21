@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solution 2.1 · Day 11</title>
+<style>
+:root{
+  --bg:#eceae4; --surface:#ffffff; --surface-2:#f5f4f0; --surface-3:#eeece6; --ink:#1b1f24; --ink-2:#3a414b; --muted:#646c78; --line:#e1ddd4; --line-2:#cfcac0;
+  --brand:#1d4e89; --brand-600:#143a68; --brand-soft:#e3edf8; --good:#1f7a4a; --good-soft:#e2f3e9; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --warn:#8a5300; --warn-soft:#fdf0d8; --blue:#1d5fa8; --blue-soft:#e4edf8; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06); --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+    --brand:#7fb2e8; --brand-600:#a6c9f0; --brand-soft:#16283d; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+    --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1c1f24; --surface-2:#23272d; --surface-3:#2a2f36; --ink:#eceef1; --ink-2:#cfd3d9; --muted:#9aa1ab; --line:#30353d; --line-2:#3c424b;
+  --brand:#7fb2e8; --brand-600:#a6c9f0; --brand-soft:#16283d; --good:#6fcf97; --good-soft:#1c3226; --bad:#ff8a80; --bad-soft:#3b2121;
+  --warn:#f2b45a; --warn-soft:#392d19; --blue:#8ab8ef; --blue-soft:#1c2a3b; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1140px;margin:0 auto;padding:18px 16px 60px}
+
+/* ---------- mentor control bar ---------- */
+.bar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:12px}
+.bar-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.kicker{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.bar h1{font-size:1.2rem;margin:0}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:.86rem}
+.seg button[aria-pressed="true"].b{background:var(--bad);color:#fff}
+.seg button[aria-pressed="true"].a{background:var(--good);color:#fff}
+.task{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.88rem;background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.task b{color:var(--brand)}
+.tk{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.tk i{font-style:normal;width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);display:inline-grid;place-items:center;font-size:.65rem;color:transparent}
+.tk.done{color:var(--ink)} .tk.done i{background:var(--good);border-color:var(--good);color:#fff}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.muted{color:var(--muted);font-size:.82rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.82rem;cursor:pointer}
+.tbtn svg.i{width:16px;height:16px}
+.tbtn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface);font-weight:700}
+
+/* ---------- browser frame ---------- */
+.frame{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);font-size:.76rem;color:var(--muted)}
+.dots{display:flex;gap:5px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.flag{font-weight:700;padding:2px 8px;border-radius:6px}
+.flag.b{background:var(--bad-soft);color:var(--bad)} .flag.a{background:var(--good-soft);color:var(--good)}
+.portal{min-height:600px;background:var(--surface);position:relative}
+
+/* ---------- pins ---------- */
+.zone{position:relative}
+.pin{position:absolute;z-index:4;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;border:2px solid var(--surface);color:#fff;cursor:pointer;display:grid;place-items:center;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:pulse 2.6s infinite}
+.pin svg.i{width:13px;height:13px;stroke-width:2.6}
+.pin.b{background:var(--bad)} .pin.a{background:var(--good)}
+.pin:hover,.pin:focus-visible{transform:scale(1.15);outline:none}
+body.nopins .pin{display:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,122,74,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(31,122,74,0),0 2px 6px rgba(0,0,0,.25)}}
+.pin.b{animation-name:pulseb}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 rgba(179,38,30,.4),0 2px 6px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 7px rgba(179,38,30,0),0 2px 6px rgba(0,0,0,.25)}}
+@media (prefers-reduced-motion:reduce){.pin{animation:none}}
+
+/* ================= BEFORE (old portal) ================= */
+.old{font-family:Verdana,Tahoma,sans-serif;font-size:13px;color:#222;background:#fff;min-height:600px}
+.old .oh{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:3px solid #1d4e89;background:#fafafa}
+.old .ologo{font-weight:700;color:#1d4e89;font-size:17px;background:none;border:0;cursor:pointer;font-family:inherit}
+.old .onav button{background:none;border:0;color:#235;cursor:pointer;margin-left:12px;text-decoration:underline;font-family:inherit;font-size:12px}
+.old .ob{padding:18px;max-width:820px}
+.old .hero{background:linear-gradient(135deg,#9ec1e8,#1d4e89);color:#fff;padding:22px;margin-bottom:14px}
+.old .hero b{display:block;font-size:19px}
+.old .hero button{margin-top:10px;background:#fff;color:#1d4e89;border:0;padding:6px 12px;cursor:pointer;font-family:inherit}
+.old .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.old .tile{background:#eee;border:1px solid #ccc;padding:14px 6px;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old .note{color:#666;font-size:11px;margin-top:12px}
+.old h2{font-size:16px;margin:0 0 6px}
+.old .choice{display:block;width:100%;max-width:420px;text-align:left;background:#f4f4f4;border:1px solid #bbb;padding:9px;margin:5px 0;cursor:pointer;font-family:inherit;font-size:12px;color:#222}
+.old label{display:block;font-size:12px;margin:8px 0 2px}
+.old input{width:260px;border:1px solid #999;padding:5px;font-family:inherit;font-size:12px;background:#fff;color:#222}
+.old .sbtn{margin-top:10px;background:#555;color:#fff;border:0;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:12px}
+.old .lnk{background:none;border:0;color:#235;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;font-size:12px}
+.old .msg{margin-top:10px;padding:6px 8px;background:#eee;color:#444;font-size:12px;display:inline-block}
+.old .msg.err{color:#b00}
+.old table{border-collapse:collapse;font-size:12px}
+.old td,.old th{border:1px solid #ccc;padding:5px 8px;text-align:left}
+.old .back{display:block;margin-top:14px}
+.old .zone{display:block}
+
+/* ================= AFTER (new portal) ================= */
+.np{display:flex;flex-direction:column;min-height:600px}
+.nh{display:flex;align-items:center;gap:18px;padding:0 24px;height:64px;border-bottom:1px solid var(--line);background:var(--surface)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;background:none;border:0;color:var(--ink);cursor:pointer;padding:0}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center;color:#fff}
+.brand-mark svg.i{width:18px;height:18px;stroke-width:2.2}
+.navwrap{height:100%;display:flex;margin-left:8px}
+.navwrap .pin{top:4px;right:-8px}
+.navx{display:flex;gap:2px;height:100%}
+.navx button{display:flex;align-items:center;gap:7px;height:100%;padding:0 12px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:600;font-size:.88rem;border-bottom:2px solid transparent;white-space:nowrap}
+.navx button svg.i{width:18px;height:18px}
+.navx button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brand)}
+.navx button:hover{color:var(--ink)}
+.nh-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;position:relative}
+.iconbtn .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--brand);border:2px solid var(--surface)}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--surface-3);color:var(--ink-2);display:grid;place-items:center;font-weight:700;font-size:.82rem}
+.nb{flex:1;padding:28px 24px 40px;background:var(--surface-2)}
+.inner{max-width:880px;margin:0 auto}
+.nf{padding:14px 24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bottomnav{display:none}
+
+h2.h{font-size:1.45rem;letter-spacing:-.015em;margin:0 0 4px}
+.lead{color:var(--muted);margin:0 0 20px}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:24px 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.row{display:flex;align-items:center;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+
+.status{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.status .card h3{font-size:.8rem;font-weight:600;color:var(--muted);margin:0 0 6px}
+.big-num{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.pill svg.i{width:14px;height:14px;stroke-width:2.2}
+.p-good{background:var(--good-soft);color:var(--good)} .p-warn{background:var(--warn-soft);color:var(--warn)} .p-grey{background:var(--surface-3);color:var(--muted)} .p-blue{background:var(--blue-soft);color:var(--blue)}
+.action{border-left:4px solid var(--brand)}
+.action .row{align-items:flex-start}
+.ic-wrap{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
+.ic-brand{background:var(--brand-soft);color:var(--brand)} .ic-blue{background:var(--blue-soft);color:var(--blue)} .ic-good{background:var(--good-soft);color:var(--good)} .ic-grey{background:var(--surface-3);color:var(--ink-2)}
+.ic-wrap svg.i{width:22px;height:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer;border:1px solid transparent;font-size:.92rem}
+.btn svg.i{width:18px;height:18px}
+.btn-p{background:var(--brand);color:#fff} .btn-p:hover{background:var(--brand-600)}
+.btn-s{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-t{background:none;color:var(--brand);padding:6px 0;border:0}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.qbtn{display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.qbtn:hover{border-color:var(--brand);transform:translateY(-1px)}
+.qbtn b{font-size:.98rem}
+.qbtn small{color:var(--muted);font-size:.8rem;margin-top:-8px}
+
+.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.li{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);text-align:left;cursor:pointer}
+.li:last-child{border-bottom:0}
+.li:hover{background:var(--surface-2)}
+.li .t{flex:1;min-width:0} .li .t b{display:block;font-weight:600} .li .t small{color:var(--muted);font-size:.82rem}
+.li .chev{color:var(--muted)}
+.promo{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,var(--surface) 55%,var(--good-soft));}
+
+.crumb{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);margin-bottom:14px}
+.crumb button{background:none;border:0;color:var(--blue);cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.crumb svg.i{width:16px;height:16px}
+
+/* stepper */
+.steps{display:flex;gap:0;margin:4px 0 22px;max-width:560px}
+.st{flex:1;display:flex;flex-direction:column;gap:6px;font-size:.78rem;color:var(--muted);position:relative}
+.st .bar2{height:4px;border-radius:2px;background:var(--line);margin-right:6px}
+.st.on{color:var(--ink);font-weight:600} .st.on .bar2{background:var(--brand)}
+.st.done .bar2{background:var(--good)}
+.formcard{max-width:560px}
+.fl{display:block;font-weight:600;margin:0 0 6px}
+.fh{color:var(--muted);font-size:.84rem;margin:-2px 0 8px}
+.inp{display:flex;align-items:stretch;max-width:320px;border:1.5px solid var(--line-2);border-radius:10px;overflow:hidden;background:var(--surface)}
+.inp:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.inp input{flex:1;border:0;padding:12px 14px;font-size:1.15rem;font-variant-numeric:tabular-nums;background:transparent;color:var(--ink);min-width:0;outline:none}
+.inp span{display:grid;place-items:center;padding:0 14px;background:var(--surface-2);color:var(--muted);font-weight:600;border-left:1px solid var(--line)}
+.inp.err{border-color:var(--bad)}
+.ferr{display:flex;gap:8px;color:var(--bad);font-size:.88rem;margin-top:8px;font-weight:600}
+.fwarn{display:flex;gap:10px;background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:12px;font-size:.88rem;margin-top:12px}
+.fwarn b{display:block}
+.prefill{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+.prefill .t{flex:1} .prefill small{display:block;color:var(--muted);font-size:.8rem}
+.mono{font-family:ui-monospace,Consolas,monospace;letter-spacing:.02em}
+.choicecard{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 10px;cursor:pointer;color:var(--ink)}
+.choicecard:hover{border-color:var(--brand)}
+.choicecard .t{flex:1} .choicecard small{display:block;color:var(--muted);font-size:.82rem}
+.radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.choicecard.sel{border-color:var(--brand);background:var(--brand-soft)} .choicecard.sel .radio{border:6px solid var(--brand)}
+.suggest{display:flex;gap:12px;align-items:flex-start;background:var(--blue-soft);color:var(--ink);border-radius:12px;padding:14px;margin:0 0 18px;max-width:560px}
+.suggest svg.i{color:var(--blue)}
+.suggest button{margin-top:6px}
+
+.summary{max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:0}
+.sr{display:grid;grid-template-columns:150px 1fr auto;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.sr:last-child{border-bottom:0}
+.sr dt{color:var(--muted);font-size:.86rem} .sr dd{margin:0;font-weight:600}
+.sr button{background:none;border:0;color:var(--blue);cursor:pointer;font-weight:600;font-size:.86rem;padding:0}
+
+.panel{max-width:600px;background:var(--good);color:#fff;border-radius:var(--r);padding:26px 24px;text-align:center}
+.panel .ok{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;margin:0 auto 10px}
+.panel .ok svg.i{width:28px;height:28px;stroke-width:2.4}
+.panel h2{margin:0 0 6px;font-size:1.4rem}
+.panel .refno{display:inline-block;margin-top:6px;background:rgba(255,255,255,.16);border-radius:8px;padding:5px 12px;font-weight:700}
+:root[data-theme="dark"] .panel{color:#0d2418}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .panel{color:#0d2418}}
+.next{max-width:600px;margin-top:18px}
+.next h3{font-size:1rem;margin:0 0 10px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;padding:0 0 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl .dotc{width:24px;height:24px;border-radius:50%;background:var(--good-soft);color:var(--good);display:grid;place-items:center;flex:none}
+.tl .dotc svg.i{width:14px;height:14px;stroke-width:2.6}
+.tl .dotc.grey{background:var(--surface-3);color:var(--muted)}
+.tl small{display:block;color:var(--muted)}
+
+table.dt{width:100%;border-collapse:collapse;font-size:.9rem}
+.dt th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:10px 16px;border-bottom:1px solid var(--line);font-weight:600}
+.dt td{padding:12px 16px;border-bottom:1px solid var(--line)}
+.dt tr:last-child td{border-bottom:0}
+.dt tr.new td{background:var(--good-soft)}
+.tablecard{padding:0;overflow-x:auto}
+.chart{display:flex;align-items:flex-end;gap:8px;height:110px;padding:10px 0 0}
+.chart div{flex:1;background:var(--brand-soft);border-radius:6px 6px 0 0;position:relative}
+.chart div.cur{background:var(--brand)}
+.chart-l{display:flex;gap:8px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.chart-l span{flex:1;text-align:center}
+.tariffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px}
+.tcard.cur{border-color:var(--brand)}
+.tcard .price{font-size:1.2rem;font-weight:800}
+.tcard ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.88rem}
+.notice{display:flex;gap:10px;background:var(--surface-3);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--ink-2);margin-top:14px;max-width:600px}
+.search{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line-2);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--muted);max-width:560px;margin-bottom:18px}
+
+@media (max-width:900px){
+  .navwrap{display:none}
+  .bottomnav{display:flex;position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:5}
+  .bottomnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px 10px;border:0;background:none;color:var(--muted);font-size:.68rem;font-weight:600;cursor:pointer}
+  .bottomnav button[aria-current="page"]{color:var(--brand)}
+  .bottomnav .pin{flex:none;padding:0;display:grid;color:#fff}
+  .status{grid-template-columns:1fr}
+  .qa{grid-template-columns:1fr}
+  .qbtn{flex-direction:row;align-items:center}
+  .qbtn small{margin-top:0}
+  .nh{padding:0 14px}.nb{padding:20px 14px 30px}
+  .sr{grid-template-columns:1fr auto}.sr dt{grid-column:1 / -1}
+}
+
+/* ---------- dialog ---------- */
+dialog{border:0;border-radius:16px;padding:0;max-width:min(660px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(12,14,18,.55)}
+.dh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:18px 20px 6px}
+.dh h3{margin:0;font-size:1.1rem}
+.dx{border:0;background:var(--surface-2);color:var(--ink);border-radius:8px;width:32px;height:32px;cursor:pointer;display:grid;place-items:center;flex:none}
+.db{padding:4px 20px 22px;font-size:.92rem;max-height:76vh;overflow:auto}
+.db p{margin:.4em 0}
+.tags{margin:0 0 10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;margin:0 4px 4px 0}
+.t-p{background:var(--bad-soft);color:var(--bad)} .t-m{background:var(--good-soft);color:var(--good)} .t-l{background:var(--blue-soft);color:var(--blue)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.ba div{border-radius:10px;padding:10px 12px;font-size:.87rem}
+.ba .bf{background:var(--bad-soft)} .ba .af{background:var(--good-soft)}
+.ba b{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.ba .bf b{color:var(--bad)} .ba .af b{color:var(--good)}
+.whyh{font-weight:700;margin-top:14px}
+.real{background:var(--blue-soft);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.87rem}
+.real > b{color:var(--blue);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.real ul{margin:0;padding-left:18px}
+.src{font-size:.78rem;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+.db table{border-collapse:collapse;width:100%;font-size:.85rem;margin:6px 0 14px}
+.db th,.db td{border-bottom:1px solid var(--line);padding:6px;text-align:left;vertical-align:top}
+.db th{background:var(--surface-2);font-size:.72rem;text-transform:uppercase;color:var(--muted)}
+.db h4{margin:18px 0 4px;font-size:.95rem;color:var(--brand)}
+.db a{color:var(--blue)}
+.lv{font-weight:700;font-size:.8rem} .lv.h{color:var(--good)} .lv.m{color:var(--warn)}
+@media (max-width:560px){.ba{grid-template-columns:1fr}}
+
+/* ================= shared additions (Days 5 and later) ================= */
+.mt{margin-top:14px}
+.np .btn,.np .choicecard,.np .li,.np .chip,.np .qbtn{min-height:48px}
+.np .iconbtn,.np .avatar{width:44px;height:44px}
+.np .brand{min-height:44px;padding-right:6px}
+.np .crumb button{min-height:44px;padding:0 10px 0 2px;display:inline-flex;align-items:center}
+.np .sr button{min-height:44px;min-width:56px;padding:0 10px}
+.bigbtn{width:100%;min-height:56px;font-size:1.02rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);cursor:pointer;font-weight:600;color:var(--ink);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.chip small{font-weight:500;color:var(--muted);font-size:.72rem}
+.chip.sel{border-color:var(--brand);background:var(--brand-soft)}
+.cbrow{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--line-2);border-radius:12px;cursor:pointer;min-height:56px;background:var(--surface)}
+.cbrow input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--brand);flex:none}
+.det{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0 0 8px}
+.det summary{padding:14px;cursor:pointer;font-weight:600;min-height:48px;display:flex;align-items:center}
+.det div{padding:0 14px 14px;color:var(--ink-2);font-size:.88rem}
+.reveal{margin:8px 0 14px;padding:12px 14px;border-left:3px solid var(--brand);background:var(--surface-2);border-radius:0 10px 10px 0}
+.stick{position:sticky;bottom:0;margin:20px -24px -40px;padding:12px 24px;background:var(--surface);border-top:1px solid var(--line);display:flex;gap:10px;z-index:3}
+.stick .btn{flex:1;min-height:52px}
+.stick .btn-s{flex:0 0 auto}
+@media (max-width:900px){.stick{margin:20px -14px -30px}}
+.old .otop{display:flex;justify-content:flex-end;margin-bottom:8px}
+.old .tiny{min-height:20px;padding:0 4px;font-size:10px;line-height:20px;background:#eee;border:1px solid #ccc;color:#235;cursor:pointer;font-family:inherit}
+.old .cards2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.old .ocard{border:1px solid #ccc;background:#fafafa;padding:8px;font-size:11px}
+.old .ocard b{display:block;font-size:12px}
+.old .ocard p{margin:2px 0 4px}
+.old .ornote{background:#FFF3E0;border:1px solid #FFB74D;padding:8px;margin-bottom:10px;font-size:12px}
+.old .eqrow{display:flex;gap:6px;margin-top:10px}
+.old .eq{flex:1;padding:6px 0;background:#555;color:#fff;border:0;cursor:pointer;font-family:inherit;font-size:12px}
+.old .tg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.old input[type=text]{width:100%;max-width:300px}
+.old .lst{margin:6px 0 10px;padding-left:18px}
+.p-bad{background:var(--bad-soft);color:var(--bad)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></symbol>
+  <symbol id="gauge" viewBox="0 0 24 24"><path d="M3.5 17.5a9 9 0 1 1 17 0"/><path d="m12 14 4.5-4.5"/><circle cx="12" cy="14" r="1.6"/><path d="M3.5 17.5h17"/></symbol>
+  <symbol id="wallet" viewBox="0 0 24 24"><path d="M4 7.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5V6A2 2 0 0 1 5.5 4H17"/><path d="M20.5 11.5H16a2 2 0 0 0 0 4h4.5"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></symbol>
+  <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></symbol>
+  <symbol id="camera" viewBox="0 0 24 24"><path d="M4 8h3l1.8-2.5h6.4L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></symbol>
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v7M9.7 10v7M14.3 10v7M19 10v7M3 20h18"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-6 9-7.5"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.5h.01"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8"/><path d="M4 4v5h5"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></symbol>
+</svg>
+
+<div class="wrap">
+<div class="bar">
+  <div class="bar-top">
+    <div><div class="kicker">Solution 2.1 · Day 11 · Voice and AI interaction</div><h1>The CityHelp Voice portal, improved</h1></div>
+    <div class="seg" role="group" aria-label="Portal version"><button class="b" id="modeB" aria-pressed="false">Before</button><button class="a" id="modeA" aria-pressed="true">After</button></div>
+  </div>
+  <div class="task" aria-live="polite">
+    <span><b>Task:</b> book an appointment, then ask where your ID card application is</span>
+    <span class="tk" id="tk1"><i>✓</i>Appointment booked</span><span class="tk" id="tk2"><i>✓</i>ID card status heard</span>
+    <span>⏱ <span class="num" id="time">0.0 s</span> · <span class="num" id="clicks">0</span> clicks</span>
+    <span class="muted" id="runs"></span>
+  </div>
+  <div class="tools">
+    <button class="tbtn" id="pinsBtn" aria-pressed="true"><svg class="i"><use href="#eye"/></svg><span>Markers: shown</span></button>
+    <button class="tbtn" id="resetBtn"><svg class="i"><use href="#reset"/></svg>Restart task</button>
+    <button class="tbtn primary" id="sheetBtn"><svg class="i"><use href="#book"/></svg>Answer sheet 2.1</button>
+    <button class="tbtn" id="themeBtn"><svg class="i"><use href="#moon"/></svg>Theme</button>
+    <span class="muted">The pulsing dots in the portal are markers. Click one to see the problem, before and after, the reason, and examples from real products.</span>
+  </div>
+</div>
+<div class="frame">
+  <div class="chrome"><div class="dots"><span></span><span></span><span></span></div><div class="url" id="url"></div><span class="flag a" id="flag">After</span></div>
+  <div class="portal" id="portal"></div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dT"><div class="dh"><h3 id="dT"></h3><button class="dx" data-close aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div><div class="db" id="dB"></div></dialog>
+
+<script>
+const ic=(n,c='')=>`<svg class="i ${c}" aria-hidden="true"><use href="#${n}"/></svg>`;
+
+/* ================= MARKERS ================= */
+const PINS={
+  hints:{t:"The assistant says what it can do, and shows what to say",p:["Problem 2 · Users do not know which inputs are possible"],m:"Measure 1",law:"Expectation clarity",
+    before:"“Welcome to CityHelp, the voice service of your city. How can I help?” Nothing about what is possible. On “help”: “I can help with many topics. What would you like to do?”",
+    after:"“<b>I can book appointments, tell you where your application is, take a damage report and register a move. Say what you need, or tap one of the options.</b>” The same four options stay on screen as buttons.",
+    why:"<p>A voice interface has no menu to look at, so the first sentence has to do that job. Naming the four things it can do sets the right expectation; tapping is the way for people who do not know what to say.</p><p class=\"muted\">The four core uses follow the brief (appointments, status queries, simple requests). Typing stands in for speaking on this page.</p>",
+    real:["<b>Google Conversation Design</b>: say what the assistant can do and give examples in the reprompt.","<b>Nielsen's heuristics</b>: recognition rather than recall."],
+    src:"Materi A2, A4 · Google Conversation Design guidelines · Nielsen 1994"},
+  understood:{t:"A line that shows what the assistant understood",p:["Problem 1 · Not robust on ambiguous requests","Problem 4 · Little control"],m:"Measures 1 and 2",law:"Visibility of system status",
+    before:"No sign of what was heard. An ambiguous request gets an unrelated answer, or an error.",
+    after:"Under each answer: <b>I understood: “book an appointment”.</b> If that is wrong, the user can say “no” or tap Correct.",
+    why:"<p>When the user sees what the system heard, a misunderstanding costs one tap instead of a dead end. This is the same idea as the screen of CareVoice variant C, here at low cost.</p>",
+    real:["<b>Amershi and colleagues (2019)</b>: make clear what the system understood and allow easy correction."],
+    src:"Materi A2, A4 · Amershi and colleagues 2019, CHI '19"},
+  errors:{t:"Errors in plain words, with a way forward",p:["Problem 3 · Errors reported technically"],m:"Measure 2",law:"Error recovery",
+    before:"“Error 422: intent not resolved. Please rephrase your request.” · “ERR_NO_MATCH (code 7). Please say a valid command.” · “Error: input not recognised (code 404). Returning to the main menu.”",
+    after:"“<b>Sorry, I did not get that.</b> You can say: book an appointment, where is my application, report damage, or talk to a person.” The second time it gives examples and buttons.",
+    why:"<p>An error message should say what happened in plain words and what to do next. Codes mean something to developers, not to citizens, and many citizens are less tech-savvy.</p>",
+    real:["<b>Google Conversation Design</b>, Errors: a short apology and a condensed repeat first, then more help in the next reprompt.","<b>Alexa Design Guide</b>, handling errors: explain what went wrong and how to resolve it."],
+    src:"Materi A2, A4 · Google Conversation Design, Errors · Alexa Design Guide, Handling errors gracefully"},
+  escalate:{t:"A way to a person, offered early and after repeated failure",p:["Problem 3 · Errors without support","Problem 4 · Little control in critical situations"],m:"Measure 2",law:"Escalation path",
+    before:"“All service lines are busy. Please try again later.” A user who says “person” gets a dead end.",
+    after:"“<b>I am connecting you to a person. You can wait about four minutes, or I can call you back.</b>” After three misunderstandings in a row the assistant offers this on its own.",
+    why:"<p>Voice is never the only way in. A person has to be reachable, especially for people who struggle with the assistant. The limit of three tries before escalating is a common design rule.</p><p class=\"muted\">The waiting time is an assumption of this simulation.</p>",
+    real:["<b>Google Dialogflow CX</b>, voice agent design: escalate to a human agent on the third no-match or no-input event.","<b>Google Conversation Design</b>: no more than three errors in a row."],
+    src:"Materi A4, A5 · Google Conversation Design · Google Cloud, Dialogflow CX voice agent design"},
+  sensitive:{t:"Sensitive content is not read aloud by default",p:["Problem 4 · Too little control in critical situations"],m:"Measures 2 and 4",law:"Privacy and control",
+    before:"“Your housing benefit application was rejected on 3 October because your household income is above the limit. Shall I read the full decision?” A rejection is read to whoever is near the phone.",
+    after:"“<b>That is a private decision, so I will not read it aloud.</b> I can text you the link to your online account, or connect you to a person. Which would you like?”",
+    why:"<p>In public spaces and shared rooms, a spoken answer can be overheard. Sensitive topics get a safer channel and a person. The citizen decides.</p>",
+    real:["<b>EU AI Act, Article 50</b> and data protection rules ask for transparency when people interact with an AI system (check the legal text for scope and dates)."],
+    src:"Materi A3, A4 · EU AI Act, Article 50 (artificialintelligenceact.eu)"},
+  confirm:{t:"Confirm before an action that cannot be undone easily",p:["Problem 4 · Little control"],m:"Measure 2",law:"User control",
+    before:"“Cancel my appointment” → “Done.” Nothing says which appointment. Any “yes” books an appointment, even when nothing was asked.",
+    after:"“<b>You have one appointment: Thursday at 10:00. Cancel it? Say yes or no.</b>” and the same for booking: the details first, then the question.",
+    why:"<p>A short confirmation prevents the most expensive errors: the wrong appointment cancelled, or a booking nobody wanted. It costs one sentence.</p>",
+    real:["<b>Amershi and colleagues (2019)</b>: ask for confirmation when the cost of a wrong action is high."],
+    src:"Materi A4 · Amershi and colleagues 2019"},
+  core:{t:"Voice for the suited core uses, other channels for the rest",p:["Problem 1 · Helpful for simple, not robust for complex","Problem 5 · Test strategy not tied to scenarios"],m:"Measure 4",law:"Scope",
+    before:"“I have moved” gets “Error 422”. “I need a parking permit” gets “ERR_NO_MATCH”. The assistant tries everything and fails at the parts it was not made for.",
+    after:"“<b>Registering a move needs your ID card, so I cannot do it by voice.</b> I can text you the form, or connect you to a person.” Four uses are done well, the rest are handed over openly.",
+    why:"<p>With €190,000 and 14 weeks, voice cannot cover everything. The simple, frequent and clear uses are done well, and the rest is handed over in an honest sentence. That lowers the risk too.</p>",
+    real:["<b>Google PAIR</b>, People + AI Guidebook: be clear about what the system can and cannot do.","<b>Amershi and colleagues (2019)</b>: make clear what the system can do."],
+    src:"Materi A4, A5 · Google PAIR, People + AI Guidebook · Amershi and colleagues 2019"},
+  crosssell:{t:"No offers the citizen did not ask for",p:["Problem 4 · Little control","Trust"],m:"Measures 2 and 4",law:"Trust",
+    before:"After “What do I need for an ID card?”: “… By the way: shall I also renew your dog licence and sign you up for the city newsletter?”",
+    after:"“<b>Please bring a passport photo and your old ID card.</b> Anything else?” Only what was asked.",
+    why:"<p>An assistant that adds unasked offers feels pushy and unpredictable, and a “yes” to the next question may start something the citizen did not want. A public service should stay on the point.</p>",
+    real:["<b>Google Conversation Design</b>: keep prompts short and relevant to the user's goal."],
+    src:"Materi A3, A4 · Google Conversation Design"},
+  test:{t:"Prototype tests sorted by risk",p:["Problem 5 · Test strategy not differentiated by scenario and risk level"],m:"Measure 3",law:"Risk-based testing",
+    before:"A flat list of things to say. The harmless (opening hours) and the critical (a rejected benefit) are tested the same way, or not at all.",
+    after:"The test scenarios are grouped by <b>risk</b>: <b>low</b> (appointment, status), <b>medium</b> (a move, a damage report), <b>high</b> (a benefit decision, a cancellation). High-risk scenarios are tested with real people first.",
+    why:"<p>Limited test data and 14 weeks mean testing has to be chosen. Testing the high-risk scenarios first protects the citizens and the reputation. A person can play the assistant in a first test, before anything is built (a Wizard-of-Oz test).</p>",
+    real:["<b>Wizard of Oz</b> studies (Kelley 1984): a person plays the system, so the dialogue can be tested before it is built."],
+    src:"Materi A5 · Kelley 1984, ACM Transactions on Office Information Systems"},
+};
+
+/* ================= STATE ================= */
+const dflt=()=>({log:[],pending:null,fails:0,booked:null,heard:false,sent:false,when:'Thursday at 10:00',text:'',started:false});
+const S={mode:'after',page:'call',d:dflt(),run:{start:null,clicks:0,half:false,done1:false,done:false},runs:[]};
+const $=s=>document.querySelector(s);
+const pin=id=>`<button class="pin ${S.mode==='after'?'a':'b'}" data-pin="${id}" aria-label="Marker: ${PINS[id].t.replace(/<[^>]+>/g,'')}">${ic(S.mode==='after'?'check':'alert')}</button>`;
+const zone=(id,html,style='')=>`<div class="zone" ${style?`style="${style}"`:''}>${pin(id)}${html}</div>`;
+const has=(t,...k)=>k.some(x=>t.includes(x));
+
+/* ================= BEFORE (CityHelp Voice as the first prototypes behave) ================= */
+const BEFORE_GREET="Welcome to CityHelp, the voice service of your city. How can I help?";
+function beforeReply(raw){
+  const t=raw.toLowerCase().trim();
+  if(has(t,'other time','another time','different time','later'))return ['Other free appointments this week: Wednesday at 8:30 and Friday at 14:15. Which one shall I take?',null,null];
+  if(has(t,'wednesday','friday','thursday'))return ['Your appointment is booked. Reference B-2291. You will get a text message.','book','crosssell'];
+  if(has(t,'appointment','book',"citizens' office",'citizens office'))return ["The next free appointment at the citizens' office Mitte is Thursday at 10:00. Shall I book it? You can also say: other time.",null,null];
+  if(has(t,'status','how far','where is my','application','ready'))return ['Your ID card application from 12 July is in production. You can pick it up from 28 July at the citizens\' office Mitte.','heard',null];
+  if(has(t,'streetlight','street light','lamp','pothole','rubbish','damage'))return ['Thank you. Your report has the reference 4471. You will get a text message when a repair is planned. Anything else?',null,null];
+  if(has(t,'documents','id card','passport','what do i need'))return ['Please bring a passport photo and your old ID card. By the way: shall I also renew your dog licence and sign you up for the city newsletter?',null,'crosssell'];
+  if(has(t,'cancel'))return ['Done.',null,'confirm'];
+  if(has(t,'benefit','housing','rejected','residence','permit','social','debt'))return ['Your housing benefit application was rejected on 3 October because your household income is above the limit. Shall I read the full decision?',null,'sensitive'];
+  if(has(t,'address','move','moving','moved','register'))return ['Error 422: intent not resolved. Please rephrase your request.',null,'core'];
+  if(has(t,'parking','car','resident'))return ['ERR_NO_MATCH (code 7). Please say a valid command.',null,'core'];
+  if(has(t,'help','what can you do','what can i say','options'))return ['I can help with many topics. What would you like to do?',null,'hints'];
+  if(has(t,'yes','okay','sure'))return ['Your appointment is booked. Reference B-2291.','book','confirm'];
+  if(has(t,'person','human','someone','staff'))return ['All service lines are busy. Please try again later.',null,'escalate'];
+  return ['Error: input not recognised (code 404). Returning to the main menu.',null,'errors'];
+}
+
+/* ================= AFTER (CityHelp Voice improved) ================= */
+const CHIPS={
+  start:['Book an appointment','Where is my application?','Report damage','I have moved','Talk to a person'],
+  book:['Yes','Other time','No'],
+  pick:['Wednesday at 8:30','Friday at 14:15'],
+  cancel:['Yes, cancel it','No, keep it'],
+  channel:['Text me the link','Talk to a person'],
+  person:['Wait for a person','Call me back'],
+  fail:['Book an appointment','Where is my application?','Talk to a person']
+};
+function afterReply(raw){
+  const t=raw.toLowerCase().trim(), D=S.d;
+  const reply=(text,understood,opts={})=>({text,understood,...opts});
+  if(D.pending==='book'){
+    if(has(t,'yes','okay','sure')){D.booked=D.when;D.pending=null;return reply(`Booked: ${D.when}, citizens' office Mitte. Reference B-2291. A text message is on its way. Anything else?`,'yes, book it',{flag:'book',chips:'start'});}
+    if(has(t,'other','another','different','later')){D.pending='pick';return reply('Other free appointments this week: Wednesday at 8:30 and Friday at 14:15. Which one shall I take?','another time',{chips:'pick'});}
+    if(has(t,'no')){D.pending=null;return reply('Understood, I have not booked anything. Anything else?','no',{chips:'start'});}
+  }
+  if(D.pending==='pick'){
+    if(has(t,'wednesday','8:30')){D.when='Wednesday at 8:30';D.pending=null;D.booked=D.when;return reply("Booked: Wednesday at 8:30, citizens' office Mitte. Reference B-2291. A text message is on its way. Anything else?",'Wednesday at 8:30',{flag:'book',chips:'start'});}
+    if(has(t,'friday','14:15')){D.when='Friday at 14:15';D.pending=null;D.booked=D.when;return reply("Booked: Friday at 14:15, citizens' office Mitte. Reference B-2291. A text message is on its way. Anything else?",'Friday at 14:15',{flag:'book',chips:'start'});}
+  }
+  if(D.pending==='cancel'){
+    if(has(t,'yes','cancel it')){D.pending=null;const w=D.booked||'Thursday at 10:00';D.booked=null;return reply(`Cancelled: ${w}. Anything else?`,'yes, cancel it',{chips:'start'});}
+    if(has(t,'no','keep')){D.pending=null;return reply('Your appointment stays. Anything else?','no',{chips:'start'});}
+  }
+  if(D.pending==='channel'){
+    if(has(t,'text','link','sms','send')){D.pending=null;D.sent=true;return reply('Done. I have sent a text message with the link. Anything else?','text me the link',{chips:'start'});}
+  }
+  if(D.pending==='person'){
+    if(has(t,'call me','call back','callback')){D.pending=null;return reply('Done. We will call you back within the hour. Anything else?','call me back',{chips:'start'});}
+    if(has(t,'wait','stay')){D.pending=null;return reply('Please stay on the line. A person will be with you in about four minutes.','wait for a person',{chips:'start'});}
+  }
+  if(has(t,'person','human','someone','staff','talk to a')){D.pending='person';return reply('I am connecting you to a person. You can wait about four minutes, or I can call you back. Which would you like?','talk to a person',{flag:'esc',chips:'person'});}
+  if(has(t,'cancel')){D.pending='cancel';return reply(`You have one appointment: ${D.booked||'Thursday at 10:00'}. Cancel it? Say yes or no.`,'cancel my appointment',{flag:'confirm',chips:'cancel'});}
+  if(has(t,'appointment','book',"citizens' office",'citizens office','termin')){D.pending='book';D.when='Thursday at 10:00';return reply("The next free appointment at the citizens' office Mitte is Thursday at 10:00. Book it? Say yes, no, or other time.",'book an appointment',{flag:'confirm',chips:'book'});}
+  if(has(t,'status','how far','where is my','application','ready')){return reply('Your ID card application from 12 July is in production. You can pick it up from 28 July at the citizens\' office Mitte. Anything else?','where my ID card application is',{flag:'heard',chips:'start'});}
+  if(has(t,'streetlight','street light','lamp','pothole','rubbish','damage')){return reply('Thank you. Your report has the reference 4471. You will get a text message when a repair is planned. Anything else?','report damage',{chips:'start'});}
+  if(has(t,'documents','id card','passport','what do i need')){return reply('Please bring a passport photo and your old ID card. Anything else?','what to bring',{flag:'nosell',chips:'start'});}
+  if(has(t,'benefit','housing','rejected','social','debt')){D.pending='channel';return reply('That is a private decision, so I will not read it aloud. I can text you the link to your online account, or connect you to a person. Which would you like?','your housing benefit',{flag:'sens',chips:'channel'});}
+  if(has(t,'address','move','moving','moved','register','parking','permit','car','resident')){D.pending='channel';return reply('That needs your ID card, so I cannot do it by voice. I can text you the form, or connect you to a person. Which would you like?','a move or a permit',{flag:'core',chips:'channel'});}
+  if(has(t,'help','what can you do','what can i say','options')){return reply('I can book appointments, tell you where your application is, take a damage report and register a move. What would you like to do?','what I can do',{flag:'hints',chips:'start'});}
+  // not understood: three tries, then a person
+  D.fails++;
+  if(D.fails===1)return reply('Sorry, I did not get that. You can say: book an appointment, where is my application, report damage, or talk to a person.',null,{flag:'err',chips:'fail'});
+  if(D.fails===2)return reply('Sorry, still not clear. For example, say “book an appointment”, or tap one of the buttons. Or say “talk to a person”.',null,{flag:'err',chips:'fail'});
+  D.fails=0;D.pending='person';return reply('I am sorry, I am not understanding you. I am connecting you to a person. You can wait about four minutes, or I can call you back. Which would you like?',null,{flag:'esc',chips:'person'});
+}
+
+/* ================= RENDER ================= */
+const TRY={low:['I need an appointment at the citizens\' office','Where is my ID card application?'],med:['The streetlight in Lindenstraße is broken','I have moved and need to change something'],high:['What happened to my housing benefit?','Cancel my appointment']};
+function tryPanel(){
+  if(S.mode==='before')return zone('test',`<div class="ornote" style="margin-top:12px"><b>Things to try</b><ul class="lst">${[...TRY.low,...TRY.med,...TRY.high,'I need a parking permit','Can I talk to a person?'].map(x=>`<li>${x}</li>`).join('')}</ul></div>`);
+  const row=(lab,cl,arr)=>`<p style="margin:6px 0 2px"><span class="pill ${cl}">${lab}</span></p><ul style="margin:0 0 4px;padding-left:20px">${arr.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  return zone('test',`<div class="card" style="margin-top:14px;max-width:720px"><h3 style="margin-bottom:2px">Things to try, by risk</h3><p class="muted" style="margin:0 0 4px;font-size:.84rem">Typing stands in for speaking. Low-risk scenarios first, high-risk with care.</p>${row('Low risk','p-good',TRY.low)}${row('Medium risk','p-warn',TRY.med)}${row('High risk','p-bad',[...TRY.high,'I need a parking permit (not done by voice)'])}</div>`,'max-width:720px');
+}
+function bubbles(a){
+  let firstU=true;
+  return S.d.log.map(m=>{
+    if(m.who==='me')return a?`<div style="display:flex;justify-content:flex-end;margin:8px 0"><div style="background:var(--brand);color:#fff;border-radius:14px 14px 4px 14px;padding:10px 14px;max-width:80%">${m.text}</div></div>`:`<p><b>You:</b> ${m.text}</p>`;
+    if(!a)return `<p><b>Assistant:</b> ${m.text}</p>`;
+    let inner=`<div style="background:var(--surface-2);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:10px 14px;max-width:85%">`;
+    if(m.understood)inner+=`<div class="muted" style="font-size:.78rem;margin-bottom:4px">I understood: “${m.understood}”</div>`;
+    inner+=`${m.text}</div>`;
+    if(!m.flag&&m.understood&&firstU){firstU=false;return `<div style="margin:8px 0">${zone('understood',inner,'display:block')}</div>`;}
+    return `<div style="margin:8px 0">${m.flag?zone(m.flag==='err'?'errors':m.flag==='esc'?'escalate':m.flag==='sens'?'sensitive':m.flag==='nosell'?'crosssell':m.flag==='book'||m.flag==='confirm'?'confirm':m.flag==='core'?'core':m.flag==='hints'?'hints':'understood',inner,'display:block'):inner}</div>`;
+  }).join('');
+}
+function bubblesBefore(){
+  return S.d.log.map(m=>{
+    const key=m.flag&&m.who==='bot'?m.flag:null;
+    const row=m.who==='me'?`<p><b>You:</b> ${m.text}</p>`:`<p><b>Assistant:</b> ${m.text}</p>`;
+    return key?zone(key,row):row;
+  }).join('');
+}
+function render(){
+  const a=S.mode==='after';
+  if(!S.d.started){S.d.started=true;S.d.log.push({who:'bot',text:a?'Welcome to CityHelp. I can book appointments, tell you where your application is, take a damage report and register a move. Say what you need, or tap one of the options.':BEFORE_GREET,flag:a?'hints':'hints',understood:null});}
+  const chipKey=S.d.chips||'start';
+  if(a){
+    $('#portal').innerHTML=`<div class="np"><header class="nh"><button class="brand" data-act="restart"><span class="brand-mark">${ic('chat')}</span>CityHelp Voice</button><div class="nh-right"><span class="muted">Call 115 · day and night</span></div></header>
+      <main class="nb"><div class="inner"><h2 class="h">Talk to CityHelp</h2>
+      <div class="card" style="max-width:720px"><div id="tr" role="log" aria-live="polite" style="max-height:340px;overflow:auto">${bubbles(true)}</div>
+        <div class="chips" style="margin:10px 0">${(CHIPS[chipKey]||CHIPS.start).map(c=>`<button type="button" class="chip" data-chip="${c.replace(/"/g,'&quot;')}">${c}</button>`).join('')}</div>
+        <form data-form="say" style="display:flex;gap:8px"><div class="inp" style="flex:1;max-width:none"><input id="say" name="say" autocomplete="off" placeholder="Say or type what you need" aria-label="Say or type what you need"></div><button class="btn btn-p">Send</button></form></div>
+      ${tryPanel()}</div></main><footer class="nf"><span>City service company</span><span>Help · Privacy · Accessibility</span></footer></div>`;
+  }else{
+    $('#portal').innerHTML=`<div class="old"><div class="oh"><button class="ologo" data-act="restart">CityHelp Voice</button><div class="onav"><button>Services</button><button>Help</button></div></div><div class="ob"><h2>Voice service</h2><div id="tr">${bubblesBefore()}</div>
+      <form data-form="say"><label>Say or type</label><input type="text" id="say" name="say" autocomplete="off"><br><button class="sbtn">Send</button></form>${tryPanel()}</div></div>`;
+  }
+  const tr=$('#tr');if(tr)tr.scrollTop=tr.scrollHeight;
+  $('#url').textContent=a?'115.city.example/voice':'115.city.example/voice';
+  $('#flag').textContent=a?'After':'Before'; $('#flag').className='flag '+(a?'a':'b');
+  $('#modeA').setAttribute('aria-pressed',a); $('#modeB').setAttribute('aria-pressed',!a);
+  $('#tk1').classList.toggle('done',S.run.half); $('#tk2').classList.toggle('done',S.run.done1);
+  $('#runs').textContent=S.runs.map(r=>`${r.mode==='after'?'After':'Before'}: ${r.t} s, ${r.c} clicks`).join(' · ');
+}
+function tick(){if(S.run.start&&!S.run.done)$('#time').textContent=((Date.now()-S.run.start)/1000).toFixed(1)+' s';requestAnimationFrame(tick);}
+function finish(){render();if(S.run.half&&S.run.done1&&!S.run.done){S.run.done=true;const t=((Date.now()-S.run.start)/1000).toFixed(1);S.runs.push({mode:S.mode,t,c:S.run.clicks});render();$('#time').textContent=t+' s ✓';}}
+function resetRun(){S.run={start:null,clicks:0,half:false,done1:false,done:false};S.d=dflt();$('#time').textContent='0.0 s';$('#clicks').textContent='0';render();}
+function count(){if(!S.run.start) S.run.start=Date.now();if(!S.run.done){S.run.clicks++;$('#clicks').textContent=S.run.clicks;}}
+function say(text){
+  const raw=text.trim(); if(!raw) return;
+  S.d.log.push({who:'me',text:raw.replace(/</g,'&lt;')});
+  if(S.mode==='before'){const [txt,flag,pinflag]=beforeReply(raw);S.d.log.push({who:'bot',text:txt,flag:pinflag});if(flag==='book')S.run.half=true;if(flag==='heard')S.run.done1=true;}
+  else{const r=afterReply(raw);S.d.log.push({who:'bot',text:r.text,understood:r.understood,flag:r.flag&&r.flag!=='heard'&&r.flag!=='book'?r.flag:(r.flag==='book'?'book':null)});S.d.chips=r.chips||'start';if(r.flag==='book')S.run.half=true;if(r.flag==='heard')S.run.done1=true;}
+  finish();
+}
+$('#portal').addEventListener('click',e=>{
+  const p=e.target.closest('[data-pin]'); if(p){e.preventDefault();e.stopPropagation();openPin(p.dataset.pin);return;}
+  const el=e.target.closest('button'); if(!el) return;
+  const d=el.dataset;
+  if(d.act==='restart'){count();const run=S.run;S.d=dflt();render();return;}
+  if(d.chip){count();say(d.chip);return;}
+  if(el.classList.contains('btn')||el.classList.contains('sbtn'))return; // the submit handler counts
+});
+$('#portal').addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(f.dataset.form!=='say')return;count();const v=f.elements.say.value;say(v);});
+
+/* ================= DIALOG ================= */
+const dlg=$('#dlg');
+function show(t,h){$('#dT').innerHTML=t;$('#dB').innerHTML=h;dlg.showModal?dlg.showModal():dlg.setAttribute('open','');$('#dB').scrollTop=0;}
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('[data-close]'))dlg.close();});
+function openPin(id){const x=PINS[id];
+  show(x.t,`<div class="tags">${x.p.map(p=>`<span class="tag t-p">${p}</span>`).join('')}<span class="tag t-m">${x.m}</span><span class="tag t-l">${x.law}</span></div>
+  <div class="ba"><div class="bf"><b>Before</b>${x.before}</div><div class="af"><b>After</b>${x.after}</div></div>
+  <div class="whyh">Why this solution?</div>${x.why}
+  <div class="real"><b>In real products</b><ul>${x.real.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+  <div class="src">${x.src}</div>`);}
+const lv=(c,t)=>`<span class="lv ${c}">${t}</span>`;
+function openSheet(){show("Answer sheet · Block 2.1",`
+  <p>The “After” assistant is this answer made real. A summary by question:</p>
+  <h4>1–2 · Problems, effects, categories</h4>
+  <table><tr><th>#</th><th>Problem</th><th>Effect on the citizen</th><th>Category</th></tr>
+  <tr><td>1</td><td>Helpful for simple requests, not robust for ambiguous or complex ones</td><td>Works once, then fails; the citizen gives up</td><td>Error robustness · Acceptance</td></tr>
+  <tr><td>2</td><td>No transparency about which inputs are possible</td><td>Does not know what to say</td><td>Comprehensibility</td></tr>
+  <tr><td>3</td><td>Error handling is not supportive: technical messages</td><td>A code means nothing to the citizen</td><td>Error robustness · Trust</td></tr>
+  <tr><td>4</td><td>Too little control in critical situations (reads a sensitive result aloud, acts without asking)</td><td>Feels unsafe; may be overheard</td><td>Control · Trust</td></tr>
+  <tr><td>5</td><td>The test strategy is not differentiated by scenario and risk level</td><td>Critical cases are found late, by citizens</td><td>Trust · Relief</td></tr></table>
+  <h4>3 · Four prioritised measures</h4>
+  <table><tr><th>#</th><th>Measure</th><th>In the assistant</th><th>Problems</th></tr>
+  <tr><td>1</td><td>A guided dialogue logic with clear expectation hints</td><td>The opening says what it can do; buttons; “I understood …”</td><td>1, 2</td></tr>
+  <tr><td>2</td><td>Error-robust feedback and escalation paths</td><td>Plain errors, examples, a person after three failures, confirmation, no reading aloud of private content</td><td>3, 4</td></tr>
+  <tr><td>3</td><td>Voice prototyping with risk-based test scenarios</td><td>The “things to try” sorted low, medium and high risk</td><td>5</td></tr>
+  <tr><td>4</td><td>Focus voice on suited core uses (simple, frequent, clear)</td><td>Four uses by voice; move and permit handed over openly</td><td>1, 4, 5</td></tr></table>
+  <h4>4 · Sketch (optional)</h4><p>The “After” assistant can serve as the example sketch. For measure 1: the opening line with the four options as buttons and the line “I understood: …”.</p>
+  <h4>5 · The four criteria</h4>
+  <table><tr><th>#</th><th>Effect</th><th>Feasibility</th><th>Risk</th><th>Time</th></tr>
+  <tr><td>1</td><td>${lv('h','High')}: comprehensibility and trust</td><td>${lv('h','High')}: wording and a small screen</td><td>${lv('h','Low')}</td><td>${lv('h','Starts first')}</td></tr>
+  <tr><td>2</td><td>${lv('h','High')}: trust and safety</td><td>${lv('m','Medium')}: needs an escalation route to staff</td><td>${lv('h','Low')}</td><td>${lv('h','Starts first')}</td></tr>
+  <tr><td>3</td><td>${lv('m','Medium')}: a base for robust scaling</td><td>${lv('m','Medium')}: limited test data</td><td>${lv('h','Low')}</td><td>${lv('h','Runs alongside')}</td></tr>
+  <tr><td>4</td><td>${lv('h','High')}: lower risk, a clear scope</td><td>${lv('h','High')}: a decision, not a build</td><td>${lv('m','Medium')}: some citizens expect more</td><td>${lv('h','Decide early')}</td></tr></table>
+  <p class="muted">For risk, green means low. These ratings are a reading of this case, not right or wrong scores.</p>
+  <h4>6 · The first 14 weeks</h4>
+  <table><tr><th>Weeks</th><th>Work</th></tr>
+  <tr><td>1–3</td><td>Measure 4: decide the core uses (appointments, status, simple reports); write the hand-over sentences for the rest</td></tr>
+  <tr><td>2–8</td><td>Measures 1 and 2: the opening, the options, plain errors, the escalation route and the confirmations</td></tr>
+  <tr><td>4–14</td><td>Measure 3: test scenarios sorted by risk, with real citizens; a person plays the assistant first (Wizard of Oz), then the prototype</td></tr>
+  <tr><td>14</td><td>Decide on the next channel, based on what the tests show</td></tr></table>
+  <p>Deliberately <b>not</b> done: all channels at once, voice for sensitive decisions, a wider range of requests before the core works.</p>
+  <p class="muted">The weeks, the waiting time, the risk levels and the four core uses are assumptions for the simulation. The plan gives the €190,000 and the 14 weeks but not a split by measure.</p>
+  <h4>7 · Recommendation</h4>
+  <p>“We recommend not the maximum breadth of voice and AI interaction, but robust core uses, a clear dialogue and risk-based testing. Priority goes to a guided dialogue with clear expectations and to error-robust feedback with escalation paths, because they secure comprehensibility and trust at a justifiable effort, and focusing on suited core uses lowers the risk.”</p>
+  <h4>Real-world practice used</h4>
+  <table><tr><th>Source</th><th>Pattern taken</th></tr>
+  <tr><td><a href="https://developers.google.com/assistant/conversation-design/errors" target="_blank" rel="noopener">Google Conversation Design, Errors</a></td><td>A short apology and a condensed repeat first, more help in the next reprompt; at most three errors in a row</td></tr>
+  <tr><td><a href="https://docs.cloud.google.com/dialogflow/cx/docs/concept/voice-agent-design" target="_blank" rel="noopener">Google Dialogflow CX, voice agent design</a></td><td>Escalate to a human on the third no-match or no-input</td></tr>
+  <tr><td><a href="https://developer.amazon.com/en-US/alexa/alexa-haus/patterns-and-components/patterns-errors" target="_blank" rel="noopener">Alexa Design Guide, Handling errors gracefully</a></td><td>Say what went wrong and how to resolve it; no dead ends</td></tr>
+  <tr><td><a href="https://doi.org/10.1145/3290605.3300233" target="_blank" rel="noopener">Amershi and colleagues 2019 (CHI)</a></td><td>Make clear what the system can do and understood; confirm costly actions</td></tr>
+  <tr><td><a href="https://artificialintelligenceact.eu/transparency-rules-article-50/" target="_blank" rel="noopener">EU AI Act, Article 50</a></td><td>Tell people they are dealing with an AI system (check the legal text)</td></tr></table>
+  <h4>When marking learners</h4>
+  <p><b>Look for:</b> at least 5 problems written as effects · all 6 categories filled · 4 measures in an order, each from a problem · the 4 criteria support the order · the 14-week plan says what comes first, what runs in parallel and what waits, and keeps trust in mind.</p>
+  <p><b>Signs of a weak answer:</b> more AI and more features as the main fix · all channels at once · no escalation path · testing everything the same way.</p>
+  <p><b>Another order is just as valid</b> if its reasons come from the problems and the conditions.</p>`);}
+
+/* ================= CONTROLS ================= */
+$('#modeA').onclick=()=>{if(S.mode!=='after'){S.mode='after';resetRun();}};
+$('#modeB').onclick=()=>{if(S.mode!=='before'){S.mode='before';resetRun();}};
+$('#resetBtn').onclick=resetRun; $('#sheetBtn').onclick=openSheet;
+$('#pinsBtn').onclick=e=>{const off=document.body.classList.toggle('nopins');e.currentTarget.setAttribute('aria-pressed',!off);e.currentTarget.querySelector('span').textContent=off?'Markers: hidden':'Markers: shown';};
+const root=document.documentElement,KEY='solusi21-theme';
+try{const s=localStorage.getItem(KEY);if(s)root.dataset.theme=s;}catch(e){}
+$('#themeBtn').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY,root.dataset.theme);}catch(e){}};
+render();tick();
+</script>
+</body>
+</html>

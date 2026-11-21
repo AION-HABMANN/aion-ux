@@ -451,6 +451,7 @@ export const SPEC = defineSpec({
       refs: ["A1", "A2", "A3", "A4", "A5"],
       minutes: 40,
       sharedDocId: "1d1luyruiAtVIDdaF4NY4alQOfY_x9vgInmrrwbVyCIQ",
+      solution: { src: "/mentor/solusi-2-1/day12/", title: t("CitizenConnect: the portal, after the improvements, next to the old one.", "CitizenConnect: das Portal nach den Verbesserungen, neben dem alten.") },
       doc: t("2.1 · Case study: CitizenConnect"),
       lead: t(
         "A municipal service platform offers information, appointment bookings and application processes digitally.\n\nIt is heavily used, but complaints about poor legibility, unclear navigation and poor operability with assistive technologies keep coming.\n\nThe organisation wants to make the portal more accessible and inclusive without a complete relaunch.\n\nThe observed problems:\n• weak contrast makes central information hard to read\n• forms are not cleanly structured and contain unclear error messages\n• keyboard operation is patchy\n• important hints are differentiated visually but not in words\n• content is partly complicated\n• different page types are not built consistently\n\nThe conditions:\n• a budget of €160,000\n• 14 weeks for the implementation\n• no complete relaunch\n• legal requirements that must be considered first\n• several departments that supply content\n• first improvements that must show soon\n\nYou work through six steps.",

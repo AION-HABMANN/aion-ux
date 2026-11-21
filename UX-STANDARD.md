@@ -241,7 +241,7 @@ So Block A (how people perceive, expect, feel) is mostly experience and surprise
 
 Day 1 (`components/day1/arc.tsx`): a 50 ms first-impression test before A1 (kept in this browser only), the model run of the fovea lab and a bottom-up against top-down animation on the same board in A2 with one surprising finding (the gorilla study), a habit trap in A3 (four check-ins, then an app update), a slowed-down first second and the 50 ms choice explained in A4, a reflection on the learner's own product at the end of A5, a line between steering and manipulating with real EU law in B1, one conflict in four roles in B2, and a look back at the first 50 ms in B3.
 
-### 2.22 No question is required; a block counts for the export when it holds an answer (Decided 2026-11-09, by the user; Days 2 to 5 first, Days 6 to 10 added 2026-11-14)
+### 2.22 No question is required; a block counts for the export when it holds an answer (Decided 2026-11-09, by the user; Days 2 to 5 first, Days 6 to 10 added 2026-11-14, Days 11 to 16 added 2026-11-22)
 
 The class works alone or in groups, in the lab or in the block's Google Doc, and may mix the two from block to block. So on a day with `optionalAll` (data flag on the spec):
 
@@ -253,7 +253,7 @@ The class works alone or in groups, in the lab or in the block's Google Doc, and
 
 Days 6 to 16 keep their required questions until the user asks (set `optionalAll: true` on their spec, then add the 1.1 and 1.2 worksheets). Day 1 stays as it is.
 
-### 2.23 Question reduction 1: some questions sit behind an "optional" link (Decided 2026-11-11, by the user, on the participants' request; Day 4 first, Days 5 to 10 added by 2026-11-14)
+### 2.23 Question reduction 1: some questions sit behind an "optional" link (Decided 2026-11-11, by the user, on the participants' request; Day 4 first, Days 5 to 10 added by 2026-11-14, Days 11 to 16 added 2026-11-22)
 
 Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so participants never reached Route 2. The questions asked for in the plan stay in the lab, but the ones the participants chose to skip are kept out of sight:
 
@@ -265,7 +265,7 @@ Route 1 did not fit before the lunch break (class 08:00 to 12:00 in Germany), so
 - **Day 5 (2026-11-12):** the same positions (1.1 Question 5 `bdWeak`, 1.2 Question 3 `adminConflicts`, 1.2 Question 4 `adminRisks`); Day 5 has no notes of its own from the participants, so it follows Day 4. Day 6: to follow if the choice fits; every other day keeps all its questions until the user says so. The user will update the reduction later.
 - `verify:dayN` checks it in step 3c.
 
-### 2.24 The best solution of Block 2.1 as a prototype, for the mentor only (Decided 2026-11-12, by the user; Days 4 and 5 first, Days 6 to 10 added 2026-11-14)
+### 2.24 The best solution of Block 2.1 as a prototype, for the mentor only (Decided 2026-11-12, by the user; Days 4 and 5 first, Days 6 to 10 added 2026-11-14, Days 11 to 16 added 2026-11-22)
 
 Each case study of Block 2.1 gets one stand-alone prototype of its best solution (`trainer-only/solusi-2.1/dayN.html`, built to `STANDAR.md` in that folder): a Before and an After portal, a task with a timer, markers that explain every change with real products, and an answer sheet. It gives the mentor a picture of the best answer.
 
@@ -322,6 +322,7 @@ Each case study of Block 2.1 gets one stand-alone prototype of its best solution
 
 | Date | Change | Applies to |
 |---|---|---|
+| 2026-11-22 | Days 11 to 16 brought to the same state as Days 6 to 10: no required question (2.22), hidden optional questions and the reduced 2.1 and 3.1 (2.23), twelve new Google Doc worksheets for 1.1 and 1.2 (rebuildable with `ux-lab/scripts/gdoc-worksheets.ts`), and a mentor-only Before/After prototype of Block 2.1 per day (2.24: CityHelp Voice, CitizenConnect, LifeGuide, IndustryXR, VisionMind Lab, NextWorld UX). The prototypes are served as folders (`dayN/index.html`), shown above the questions. Day 13 keeps its prototype question (Q6) visible. | Days 11 to 16; Days 2 and 3 on request |
 | 2026-11-16 | Question reduction 2 (rule 2.23) for Blocks 2.1 and 3.1 of Days 6 to 10, because participants only got as far as the Figma sketch: 2.1 keeps problems, measures and the sketch (Q1, Q3, Q4) visible; categories, justification, 14-week decision and recommendation sit behind the optional link. 3.1 keeps vision, three decisions and the management statement (Q1, Q2, Q7) visible; order, risk, governance and uncertainty sit behind the link. Numbers, texts and documents unchanged; the measures question now points back to the problems (Q1) instead of the hidden categories. | Days 6 to 10; Days 11 to 16 on request |
 | 2026-11-14 | Days 6 to 10 brought to the same state as Days 4 and 5: no required question (2.22), hidden optional questions `extras` (2.23: osWeak/careConflicts/careRisks and the same set per day), 10 new Google Doc worksheets for 1.1 and 1.2, and a mentor-only Before/After prototype of Block 2.1 per day (2.24: CitizenFlow, LifeSupport, GreenHome, MoveWell, CareGuide). Day 1 unchanged. | Days 6 to 10; Days 11 to 16 on request |
 | 2026-11-12 | New rule 2.24: the best solution of Block 2.1 as a working prototype (Before/After portal, markers, answer sheet) under the block, for the mentor only (after the passcode). Built for Days 4 and 5; shown in the lab through `MentorSolution`. | Days 4 and 5; Days 6 to 16 on request |
